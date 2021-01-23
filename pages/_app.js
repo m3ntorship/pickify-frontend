@@ -1,7 +1,19 @@
-import '../styles/globals.css'
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/forbid-prop-types */
+import { PropTypes } from 'prop-types';
+import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function Pickly({ Component, pageProps }) {
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+Pickly.defaultProps = {
+  pageProps: {},
+};
+
+Pickly.propTypes = {
+  Component: PropTypes.func.isRequired,
+  pageProps: PropTypes.object,
+};
+
+export default Pickly;
