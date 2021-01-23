@@ -9,7 +9,8 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "dev:debug": "NODE_OPTIONS='--inspect=9000' next dev"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
