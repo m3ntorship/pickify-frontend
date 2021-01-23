@@ -4,10 +4,10 @@ The source code for the front-end of the `Pickly.io` website.
 
 ## Table of contents
 
-1. Prerequisites [#prerequisites]
-2. Install and Use [#install]
-3. Dependencies [#dependencies]
-4. Folder Structure [#structure]
+1. [Prerequisites](#prerequisites)
+2. [Install and Use](#install-and-use)
+3. [Dependencies](#dependencies)
+4. [Folder Structure](#folder-structure)
 
 ## Prerequisites
 
