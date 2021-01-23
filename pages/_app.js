@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/forbid-prop-types */
 import { PropTypes } from 'prop-types';
+
+import wrapper from '../store';
 import '../styles/globals.css';
 
-function Pickly({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
+const Pickly = ({ Component, pageProps }) => <Component {...pageProps} />;
 
 Pickly.defaultProps = {
   pageProps: {},
@@ -16,4 +16,4 @@ Pickly.propTypes = {
   pageProps: PropTypes.object,
 };
 
-export default Pickly;
+export default wrapper.withRedux(Pickly);
