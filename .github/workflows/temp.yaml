@@ -36,9 +36,20 @@ jobs:
         with:
           username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
           password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
-
+      
+      # install dependencies
+      - name: install app dependencies
+        run: |
+          yarn
+      
+      # build app
+      - name: build and export the app
+        run: |
+          yarn build
+          yarn export
+      
       # build and push docker image
-      - name: build and push the app
+      - name: build and push docker image
         run: |
           echo $M3_VERSION
           docker build -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
