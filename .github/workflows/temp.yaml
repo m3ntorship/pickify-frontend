@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
-      name: ${{ steps.version.outputs.ahmed }}
     steps:
       - uses: actions/checkout@v2
       # dynamic deployment envs
@@ -19,15 +18,29 @@ jobs:
         id: version
         run: |
           echo ::set-output name=version::dev-$(git rev-parse --short=4 ${{ github.sha }})
-          echo ::set-output name=ahmed::nile
-  test:
+  build_service:
     needs: prepare
     runs-on: ubuntu-latest
+    env:
+      M3_VERSION: ${{ needs.prepare.outputs.version }}
+
     steps:
-      - name: set templating envs
-        id: version
-        run: |
-          echo ${{ needs.prepare.outputs.version }}
-          echo ${{ needs.prepare.outputs.name }}
+      - run: echo $M3_VERSION
+      # # checkout the code commit
+      # - name: checkout the code
+      #   uses: actions/checkout@v2
+
+      # # login to docker
+      # - uses: azure/docker-login@v1
+      #   with:
+      #     username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
+
+      # # build and push docker image
+      # - name: build and push the app
+      #   run: |
+      #     echo $M3_VERSION
+      #     docker build --build-arg STRAPI_ADMIN_PATH=${{ secrets.M3_STRAPI_ADMIN_PATH }} -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
+      #     docker push $M3_IMAGE:$M3_VERSION
           
       
