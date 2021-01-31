@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - deployment
+      - develop
 env:
   M3_IMAGE: m3ntorshipci/pickly-frontend
   M3_DOCKER_FILE: Dockerfile
@@ -104,4 +105,18 @@ jobs:
       
       #cleanup temp directories
       - name: clean-temp-files
-        run: rm -rf $M3_TEMP_DIR      
+        run: rm -rf $M3_TEMP_DIR
+  cleanup_docker_tags:
+    needs: 
+      - deploy_dev
+    runs-on: ubuntu-latest
+    steps:
+      - id: delete_old_tags
+        name: Delete old docker image tags
+        uses: m3ntorship/action-dockerhub-cleanup@1.2
+        with:
+          token: ${{secrets.DOCKER_HUB_M3NTORSHIPCI_TOKEN}}
+          keep-last: 5
+          user: "m3ntorshipci"
+          repos: '["pickly-frontend"]'   
+          substrings: '["dev-"]'
