@@ -56,6 +56,11 @@ jobs:
         run: |
           yarn
       
+      # run tests
+      - name: run tests
+        run: |
+          yarn test
+      
       # build app
       - name: build and export the app
         run: |
