@@ -6,4 +6,4 @@ COPY out .
 
 RUN yarn global add serve
 
-CMD ["serve"]
+CMD ["serve", "-l", "5000"]

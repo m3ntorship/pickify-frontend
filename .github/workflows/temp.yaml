@@ -8,6 +8,19 @@ on:
 env:
   M3_IMAGE: m3ntorshipci/pickly-frontend
   M3_DOCKER_FILE: Dockerfile
+  M3_ORGANIZATION: ${{github.event.organization.login}}
+  M3_REPOSITORY: ${{github.event.repository.name}}
+  M3_PROJECT: pickly
+  M3_COMPONENET: frontend
+  M3_ENVIRONMENT: dev
+  M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
+  M3_DEPLOYMENT_PATH: deploy/dev/frontend
+  M3_TEMP_DIR: temp
+  M3_REPLICAS: '1'  
+  M3_PORT: '5000'
+  M3_MEMORY: '200Mi'
+  M3_CPU: '50m'
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -54,5 +67,41 @@ jobs:
           echo $M3_VERSION
           docker build -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
           docker push $M3_IMAGE:$M3_VERSION
-          
+  deploy_dev:
+    needs:
+      - build_service
+      - prepare
+
+    runs-on: ubuntu-latest
+    env:
+      M3_VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/setup-kubectl@v1
+      - name: Kubectl configuration
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG_DEV }}" | base64 -d -i > ~/.kube/config
+      - name: install moustache
+        run: |
+          curl -sSL https://git.io/get-mo -o mo
+          chmod +x mo
+          sudo mv mo /usr/local/bin
+          echo "works" | mo
       
+      - name: deployment-preparation
+        run: |
+          echo $M3_NAMESPACE
+          mkdir -p $M3_TEMP_DIR
+
+      - name: bind-k8s-template
+        run: |
+          for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $M3_TEMP_DIR/"$(basename $f)"; done
+      # deploy everything
+      - name: deploy
+        run: |
+          kubectl apply -f $M3_TEMP_DIR
+      
+      #cleanup temp directories
+      - name: clean-temp-files
+        run: rm -rf $M3_TEMP_DIR      
