@@ -1,0 +1,14 @@
+name: deploy pickly-frontend dev to m3ntorship-dev cluster
+
+# trigger
+on:
+  push:
+    branches:
+      - deployment
+  
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world"
+      
