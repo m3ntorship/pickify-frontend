@@ -20,14 +20,19 @@ jobs:
         run: |
           echo ::set-output name=version::dev-$(git rev-parse --short=4 ${{ github.sha }})
           echo ::set-output name=ahmed::nile
-  test:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
       - name: set templating envs
-        id: version
+        id: test
         run: |
-          echo ${{ needs.prepare.outputs.version }}
-          echo ${{ needs.prepare.outputs.name }}
+          echo ${{ steps.version.outputs.version }}
+          echo ${{ steps.version.outputs.name }}
+  # test:
+  #   needs: prepare
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: set templating envs
+  #       id: version
+  #       run: |
+  #         echo ${{ needs.prepare.outputs.version }}
+  #         echo ${{ needs.prepare.outputs.name }}
           
       
