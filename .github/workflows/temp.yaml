@@ -5,7 +5,9 @@ on:
   push:
     branches:
       - deployment
-  
+env:
+  M3_IMAGE: m3ntorshipci/pickly-frontend
+  M3_DOCKER_FILE: Dockerfile
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -25,22 +27,21 @@ jobs:
       M3_VERSION: ${{ needs.prepare.outputs.version }}
 
     steps:
-      - run: echo $M3_VERSION
-      # # checkout the code commit
-      # - name: checkout the code
-      #   uses: actions/checkout@v2
+      # checkout the code commit
+      - name: checkout the code
+        uses: actions/checkout@v2
 
-      # # login to docker
-      # - uses: azure/docker-login@v1
-      #   with:
-      #     username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
+      # login to docker
+      - uses: azure/docker-login@v1
+        with:
+          username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
+          password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
 
-      # # build and push docker image
-      # - name: build and push the app
-      #   run: |
-      #     echo $M3_VERSION
-      #     docker build --build-arg STRAPI_ADMIN_PATH=${{ secrets.M3_STRAPI_ADMIN_PATH }} -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
-      #     docker push $M3_IMAGE:$M3_VERSION
+      # build and push docker image
+      - name: build and push the app
+        run: |
+          echo $M3_VERSION
+          docker build -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
+          docker push $M3_IMAGE:$M3_VERSION
           
       
