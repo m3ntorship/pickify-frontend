@@ -7,8 +7,27 @@ on:
       - deployment
   
 jobs:
-  echo:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      name: ${{ steps.version.outputs.ahmed }}
+    steps:
+      - uses: actions/checkout@v2
+      # dynamic deployment envs
+      - name: set templating envs
+        id: version
+        run: |
+          echo ::set-output name=version::dev-$(git rev-parse --short=4 ${{ github.sha }})
+          echo ::set-output name=ahmed::nile
+  test:
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world"
+      - name: set templating envs
+        id: version
+        run: |
+          echo ${{ needs.prepare.outputs.version }}
+          echo ${{ needs.prepare.outputs.name }}
+          
       
