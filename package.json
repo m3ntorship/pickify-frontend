@@ -75,7 +75,7 @@
     "typescript": "^4.1.3"
   },
   "lint-staged": {
-    "(pages|modules).{js,ts,md,json}": [
+    "(pages|modules).{js,ts,md,json,css,scss}": [
       "yarn run lint:fix"
     ]
   }
