@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   purge: ['./pages/**/*.js', './modules/**/*.{js,jsx,ts,tsx}'],
   darkMode: false,
   theme: {
