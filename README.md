@@ -47,29 +47,29 @@ The main folder structure of the code is structured like the following:
 .
 ├── modules
 │   ├── example // The module name
-│   │   ├── __api__
+│   │   ├── api
 │   │   │   └── example-one.api.js
 │   │   ├── components
 │   │   │   └── example-one
 │   │   │       ├── index.js
 │   │   │       └── index.stories.js
 │   │   ├── index.js
-│   │   ├── __logic__
+│   │   ├── logic
 │   │   │   └── example-one.logic.js
 │   │   ├── pages
 │   │   │   └── example-one.page.js
-│   │   └── __tests__
+│   │   └── tests
 │   │       └── example-one.test.js
 │   └── shared
-│       ├── __api__
+│       ├── api
 │       │   └── example1.api.js
 │       ├── components
 │       │   └── example1
 │       │       └── index.shared.js
 │       ├── index.js
-│       ├── __logic__
+│       ├── logic
 │       │   └── example1.logic.js
-│       └── __tests__
+│       └── tests
 │           └── example1.test.js
 ├── pages
 │   ├── api
@@ -78,8 +78,7 @@ The main folder structure of the code is structured like the following:
 │   ├── example.js
 │   └── index.js
 ├── public
-│   ├── favicon.ico
-│   └── vercel.svg
+│   └── favicon.ico
 ├── README.md
 ├── setup-tests.js
 ├── styles
