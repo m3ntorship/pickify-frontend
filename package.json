@@ -76,7 +76,6 @@
   },
   "lint-staged": {
     "(pages|modules).{js,ts,md,json}": [
-      "prettier --write",
       "yarn run lint:fix"
     ]
   }
