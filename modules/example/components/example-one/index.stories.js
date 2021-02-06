@@ -1,4 +1,3 @@
-import React from 'react';
 import Example from './index.tsx';
 
 export default {
