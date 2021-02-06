@@ -1,8 +1,13 @@
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import Dumb from './DumbComponent';
 
-const Example = (): ReactElement => (
+interface Props {
+  readonly name: string;
+}
+
+const Example = ({ name }: Props): ReactElement => (
   <>
+    {name}
     <Dumb />
   </>
 );

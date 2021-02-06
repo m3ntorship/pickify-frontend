@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import { useState } from 'react';
 import Example from './index';
 
 export default {
@@ -6,4 +7,7 @@ export default {
   title: 'TSX/Example',
 };
 
-export const ExampleWithTSX = (): ReactElement => <Example />;
+export const ExampleWithTSX = (): ReactElement => {
+  const [nile] = useState('ahmed');
+  return <Example name={nile} />;
+};

@@ -1,5 +1,5 @@
 import ExampleOne from '@modules/example/pages/example-one.page';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 const ExampleOnePage = (): ReactElement => <ExampleOne />;
 

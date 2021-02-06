@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
-const Dumb = (): ReactElement => <>dumb component</>;
-
-export default Dumb;
+export default (): ReactElement => {
+  return <>hi</>;
+};
