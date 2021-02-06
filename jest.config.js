@@ -4,7 +4,7 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   testMatch: ['**/?(*.)+(test).+(ts|js)'],
-  setupFilesAfterEnv: ['./setup-tests.js'],
+  setupFilesAfterEnv: ['./setup-tests.ts'],
   testPathIgnorePatterns: ['./.next/', './node_modules/'],
   coverageThreshold: {
     global: {
