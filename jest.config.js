@@ -1,5 +1,8 @@
 module.exports = {
   roots: ['./pages', './modules'],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+  },
   testMatch: ['**/?(*.)+(test).+(ts|js)'],
   setupFilesAfterEnv: ['./setup-tests.js'],
   testPathIgnorePatterns: ['./.next/', './node_modules/'],
