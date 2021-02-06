@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import type { ReactElement } from 'react';
 
-export default function ExampleOne() {
+export default function ExampleOne(): ReactElement {
   return (
     <>
       <Head>

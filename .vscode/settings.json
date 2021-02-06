@@ -8,5 +8,11 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "git.enableSmartCommit": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": false
+  },
+  "git.enableSmartCommit": true,
+  "editor.formatOnSave": false,
+  "css.validate": false, // Disable css built-in lint
+  "stylelint.enable": true // Enable sytlelint
 }

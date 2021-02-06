@@ -1,11 +1,9 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/forbid-prop-types */
-import { AppProps } from 'next/dist/next-server/lib/router/router';
-// eslint-disable-next-line import/extensions
+import type { AppProps } from 'next/app';
+import type { ReactElement } from 'react';
 import wrapper from 'store';
 import 'styles/globals.css';
 
-const Pickly = ({ Component, pageProps }: AppProps) => (
+const Pickly = ({ Component, pageProps }: AppProps): ReactElement => (
   <Component {...pageProps} />
 );
 
