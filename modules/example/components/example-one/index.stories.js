@@ -1,5 +1,4 @@
 import Example from './index.tsx';
-import Example from './index.tsx';
 
 export default {
   component: Example,
