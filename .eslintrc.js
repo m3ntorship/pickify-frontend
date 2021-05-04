@@ -45,6 +45,8 @@ module.exports = {
         'plugin:prettier/recommended',
       ],
       rules: {
+        'react/prop-types': 0,
+        'import/prefer-default-export': 0,
         '@typescript-eslint/prefer-readonly-parameter-types': 'off',
         '@typescript-eslint/default-param-last': 'off',
         'react/jsx-props-no-spreading': 'warn',
