@@ -9,10 +9,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": false
+    "source.fixAll.eslint": true
   },
   "git.enableSmartCommit": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "css.validate": false, // Disable css built-in lint
   "stylelint.enable": true // Enable sytlelint
 }
