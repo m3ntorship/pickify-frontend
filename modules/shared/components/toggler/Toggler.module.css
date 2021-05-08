@@ -1,0 +1,18 @@
+.checkboxInput {
+  @apply hidden;
+}
+.toggleBody {
+  @apply p-1 rounded-full flex items-center cursor-pointer transition duration-100 ease-out;
+}
+.cyrcle {
+  @apply rounded-full transition-all duration-100 ease-in-out;
+}
+.toggleBodySizeDefault {
+  @apply w-10 h-6;
+}
+.toggleBodySizeSm {
+  @apply w-7 h-4;
+}
+.sizeSmall {
+  @apply w-7 h-4;
+}
