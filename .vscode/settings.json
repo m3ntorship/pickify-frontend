@@ -14,5 +14,10 @@
   "git.enableSmartCommit": true,
   "editor.formatOnSave": true,
   "css.validate": false, // Disable css built-in lint
-  "stylelint.enable": true // Enable sytlelint
+  "stylelint.enable": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#382B20",
+    "titleBar.activeBackground": "#4F3C2D",
+    "titleBar.activeForeground": "#FCFBFA"
+  } // Enable sytlelint
 }
