@@ -16,7 +16,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: 20m
 spec:
   rules:    
-    - host: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}.m3ntorahip.net'
+    - host: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}.m3ntorhip.net'
       http:
         paths:
           - path: /
