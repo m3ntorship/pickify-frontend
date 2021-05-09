@@ -1,5 +1,6 @@
 import type { FC, ReactElement } from 'react';
 import className from 'classnames';
+import React from 'react';
 import type { IAvatar } from './IAvatar';
 
 const Index: FC<IAvatar.IProps> = ({ size, variant, imgSrc }): ReactElement => {
