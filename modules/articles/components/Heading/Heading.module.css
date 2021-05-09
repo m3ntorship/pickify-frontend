@@ -1,5 +1,5 @@
 .btn {
-  @apply font-bold;
+  @apply text-8xl;
 }
 .text_red {
   color: red;

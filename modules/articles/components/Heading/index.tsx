@@ -7,7 +7,8 @@ const Heading: FC<IHeading.IProps> = ({ text }): ReactElement => {
     <h2 className={styles.text_red}>
       {' '}
       {text}
-      <p className={styles.btn}>sdsads </p>
+      <p className={styles.btn}>sdsads</p>
+      <p className="text-8xl">ali</p>
     </h2>
   );
 };
