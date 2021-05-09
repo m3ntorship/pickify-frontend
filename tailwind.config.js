@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./pages/**/*.js', './modules/**/*.{js,jsx,ts,tsx}'],
+  purge: ['./pages/**/*.{js,jsx,ts,tsx}', './modules/**/*.{js,jsx,ts,tsx}'],
   darkMode: false,
   theme: {
     colors: {
@@ -71,6 +71,7 @@ module.exports = {
         shd7: '#F2F9FF',
         bg: '#FAFAFC',
         bg2: '#F8F7FA',
+        bg3: '#E5E5E5',
       },
       white: {
         DEFAULT: '#FFFFFF',
@@ -92,17 +93,17 @@ module.exports = {
       none: 'none',
     },
     fontSize: {
-      '2xs': ['.625rem', '1.4'],
-      xs: ['.75rem', '1.4'],
-      sm: ['.875rem', '1.4'],
-      base: ['1rem', '1.4'],
-      md: ['1.25rem', '1.4'],
-      lg: ['1.5rem', '1.4'],
-      xl: ['1.75rem', '1.4'],
-      '2xl': ['2rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
-      '3xl': ['2.5rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
-      '4xl': ['3rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
-      '8xl': ['6rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
+      '2xs': ['.625rem', '1.4'], //10px
+      xs: ['.75rem', '1.4'], //12px
+      sm: ['.875rem', '1.4'], //14px
+      base: ['1rem', '1.4'], //16px
+      md: ['1.25rem', '1.4'], //20px
+      lg: ['1.5rem', '1.4'], //24px
+      xl: ['1.75rem', '1.4'], //28px
+      '2xl': ['2rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //32px
+      '3xl': ['2.5rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //40px
+      '4xl': ['3rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //48px
+      '8xl': ['6rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //96px
     },
     fontFamily: {
       sans: ['Roboto'],
@@ -115,11 +116,14 @@ module.exports = {
         s: '.75rem',
         m: '1rem',
         l: '1.5rem',
+        lv: '1.625rem',
         xl: '2rem',
         xxl: '2.5rem',
         '3xl': '3rem',
         '4xl': '4rem',
         '5xl': '8rem',
+        xxsv: '0.375rem',
+        xsvv: '0.625rem',
       },
 
       backgroundOpacity: {
@@ -140,6 +144,13 @@ module.exports = {
         '8xl': '8.8125rem',
         '4sxl': '4.1875rem',
         '18xl': '18.5rem',
+        '30xl': '30rem',
+        '33xl': '33.25rem',
+        '32xl': '32.625rem',
+        '35xl': '35.25rem',
+        '29xl': '29.5rem',
+        '28xl': '28.5rem',
+        '2xl': '2.625rem',
       },
       height: {
         '61xl': '61.0625rem',
