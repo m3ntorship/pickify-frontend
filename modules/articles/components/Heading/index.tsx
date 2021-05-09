@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type { FC, ReactElement } from 'react';
 import styles from './Heading.module.css';
 import type { IHeading } from './IHeading';

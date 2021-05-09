@@ -3,7 +3,13 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
-  testMatch: ['**/?(*.)+(test).+(ts|js)'],
+  globals: {
+    'ts-jest': {
+      babelConfig: true,
+      tsconfig: 'jest.tsconfig.json',
+    },
+  },
+  testMatch: ['**/?(*.)+(test).+(ts|js|tsx)'],
   setupFilesAfterEnv: ['./setup-tests.ts'],
   testPathIgnorePatterns: ['./.next/', './node_modules/'],
   coverageThreshold: {
@@ -15,4 +21,9 @@ module.exports = {
     },
   },
   collectCoverage: true,
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/mocks.js',
+    '\\.(css|less)$': '<rootDir>/__mocks__/mocks.js',
+  },
 };

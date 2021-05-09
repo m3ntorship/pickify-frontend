@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`example of a test suite example of single test 1`] = `
+<h2>
+   
+  hi
+  <p>
+    sdsads
+  </p>
+  <p
+    className="text-8xl"
+  >
+    ali
+  </p>
+</h2>
+`;
