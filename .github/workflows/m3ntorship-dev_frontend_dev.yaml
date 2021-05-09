@@ -1,4 +1,4 @@
-name: deploy pickly-frontend dev to m3ntorship-dev cluster
+name: deploy pickify-frontend dev to m3ntorship-dev cluster
 
 # trigger
 on:
@@ -7,11 +7,11 @@ on:
       - deployment
       - develop
 env:
-  M3_IMAGE: m3ntorshipci/pickly-frontend
+  M3_IMAGE: m3ntorshipci/pickify-frontend
   M3_DOCKER_FILE: Dockerfile
   M3_ORGANIZATION: ${{github.event.organization.login}}
   M3_REPOSITORY: ${{github.event.repository.name}}
-  M3_PROJECT: pickly
+  M3_PROJECT: pickify
   M3_COMPONENET: frontend
   M3_ENVIRONMENT: dev
   M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
@@ -123,5 +123,5 @@ jobs:
           token: ${{secrets.DOCKER_HUB_M3NTORSHIPCI_TOKEN}}
           keep-last: 5
           user: "m3ntorshipci"
-          repos: '["pickly-frontend"]'   
+          repos: '["pickify-frontend"]'   
           substrings: '["dev-"]'
