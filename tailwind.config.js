@@ -13,6 +13,7 @@ module.exports = {
         shd5: '#CABBF7',
         shd6: '#DCD2F9',
         shd7: '#EDE8FC',
+        hover: '#5F3DC4',
       },
       accent: {
         DEFAULT: '#00A8E8',
@@ -23,6 +24,7 @@ module.exports = {
         shd5: '#96E1FF',
         shd6: '#B9EBFF',
         shd7: '#DCF5FF',
+        hover: '#0092C9',
       },
       warning: {
         DEFAULT: '#FF933B',
