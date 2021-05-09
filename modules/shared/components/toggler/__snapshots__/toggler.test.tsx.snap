@@ -3,9 +3,10 @@
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and (opacity-25) when passing disabled={true} and size=sm  1`] = `
 <button
   className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-7 h-4  bg-grey-shd4 hover:bg-grey-shd3  focus:border-grey-shd3 cursor-not-allowed opacity-25"
-  data-testid="test"
+  data-testid="toggler-test"
   disabled={true}
   onClick={[Function]}
+  type="button"
 >
   <div
     className="rounded-full transition-all duration-100 ease-in-out bg-white w-2.5 h-2.5 m-2xxs"
@@ -16,9 +17,10 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and do NOT include (opacity-25) when passing disabled={false} and size=sm  1`] = `
 <button
   className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-7 h-4  bg-grey-shd4 hover:bg-grey-shd3  focus:border-grey-shd3"
-  data-testid="test"
+  data-testid="toggler-test"
   disabled={false}
   onClick={[Function]}
+  type="button"
 >
   <div
     className="rounded-full transition-all duration-100 ease-in-out bg-white w-2.5 h-2.5 m-2xxs"
@@ -33,7 +35,8 @@ Object {
     <div>
       <button
         class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-sm h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
-        data-testid="test"
+        data-testid="toggler-test"
+        type="button"
       >
         <div
           class="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
@@ -44,7 +47,8 @@ Object {
   "container": <div>
     <button
       class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-sm h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
-      data-testid="test"
+      data-testid="toggler-test"
+      type="button"
     >
       <div
         class="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
@@ -108,9 +112,10 @@ Object {
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames include (opacity-25) when passing disabled={true} and size=default  1`] = `
 <button
   className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-sm h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3 cursor-not-allowed opacity-25"
-  data-testid="test"
+  data-testid="toggler-test"
   disabled={true}
   onClick={[Function]}
+  type="button"
 >
   <div
     className="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
