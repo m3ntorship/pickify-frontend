@@ -75,6 +75,7 @@ module.exports = {
       white: {
         DEFAULT: '#FFFFFF',
       },
+      transparent: 'transparent',
     },
     borderRadius: {
       none: '0',
@@ -109,37 +110,30 @@ module.exports = {
     },
     extend: {
       spacing: {
-        '3xs': '.125rem',
-        xxs: '.25rem',
-        xs: '.5rem',
-        s: '.75rem',
-        m: '1rem',
-        l: '1.5rem',
-        xl: '2rem',
-        xxl: '2.5rem',
-        '3xl': '3rem',
-        '4xl': '4rem',
-        '5xl': '8rem',
+        '3xs': '.125rem', // 2px
+        '2xxs': '0.1875rem', // 3px
+        xxs: '.25rem', // 4px
+        xs: '.5rem', // 8px
+        s: '.75rem', // 12px
+        m: '1rem', // 16px
+        l: '1.5rem', // 24px
+        xl: '2rem', // 32px
+        xxl: '2.5rem', // 40px
+        '3xl': '3rem', // 48px
+        '4xl': '4rem', // 64px
+        '5xl': '8rem', // 128px
       },
 
       backgroundOpacity: {
         24: '0.24',
-        xs: '.5rem',
-        s: '.75rem',
-        m: '1rem',
-        l: '1.5rem',
-        xl: '2rem',
-        xxl: '2.5rem',
-        '3xl': '3rem',
-        '4xl': '4rem',
-        '5xl': '8rem',
       },
       width: {
-        '39xl': '39.5rem',
-        '37xl': '37.5rem',
-        '8xl': '8.8125rem',
-        '4sxl': '4.1875rem',
-        '18xl': '18.5rem',
+        sm: '2.625rem', //42px
+        '39xl': '39.5rem', // 632px
+        '37xl': '37.5rem', // 600px
+        '8xl': '8.8125rem', // 141px
+        '4sxl': '4.1875rem', // 67px
+        '18xl': '18.5rem', //296px
       },
       height: {
         '61xl': '61.0625rem',

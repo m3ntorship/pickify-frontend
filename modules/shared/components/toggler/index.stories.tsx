@@ -1,11 +1,25 @@
 import type { ReactElement } from 'react';
-import Toggler from '.';
+import type { Story } from '@storybook/react';
+import Toggler from './index';
+import type { TogglerTypes } from './TogglerTypes';
 
 export default {
   component: Toggler,
-  title: 'Atoms/Toggler',
+  title: 'Atoms/Toggle',
+  argTypes: {
+    size: {
+      options: ['sm', 'default'],
+      control: { type: 'select' },
+    },
+  },
 };
 
-export const TogglerTS = (): ReactElement => (
-  <Toggler id="test" size="default" disabled={false} />
+const Template: Story<TogglerTypes.Props> = (args): ReactElement => (
+  <Toggler {...args} />
 );
+export const togglerTS = Template.bind({});
+togglerTS.args = {
+  size: 'default',
+  disabled: false,
+  isChecked: false,
+};
