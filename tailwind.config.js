@@ -128,12 +128,12 @@ module.exports = {
         24: '0.24',
       },
       width: {
-        sm: '2.625rem', //42px
+        sm: '2.625rem', // 42px
         '39xl': '39.5rem', // 632px
         '37xl': '37.5rem', // 600px
         '8xl': '8.8125rem', // 141px
         '4sxl': '4.1875rem', // 67px
-        '18xl': '18.5rem', //296px
+        '18xl': '18.5rem', // 296px
       },
       height: {
         '61xl': '61.0625rem',
