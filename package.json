@@ -55,6 +55,8 @@
     "@typescript-eslint/parser": "^4.14.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "classnames": "^2.3.1",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
