@@ -11,11 +11,11 @@ exports[`snapshot testing should render circular when given circular property 1`
     cy={60}
     fill="transparent"
     r={52}
-    stroke-dasharray="326.7256359733385 326.7256359733385"
-    stroke-width={4}
+    strokeDasharray="376.99111843077515 376.99111843077515"
+    strokeWidth={4}
     style={
       Object {
-        "strokeDashoffset": "163.36281798666926",
+        "strokeDashoffset": "188.49555921538757",
       }
     }
   />
