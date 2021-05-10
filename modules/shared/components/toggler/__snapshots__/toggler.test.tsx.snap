@@ -34,7 +34,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-sm h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
+        class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
         data-testid="toggler-test"
         type="button"
       >
@@ -46,7 +46,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-sm h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
+      class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
       data-testid="toggler-test"
       type="button"
     >
@@ -111,7 +111,7 @@ Object {
 
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames include (opacity-25) when passing disabled={true} and size=default  1`] = `
 <button
-  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-sm h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3 cursor-not-allowed opacity-25"
+  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3 cursor-not-allowed opacity-25"
   data-testid="toggler-test"
   disabled={true}
   onClick={[Function]}
