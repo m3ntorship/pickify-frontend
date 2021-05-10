@@ -4,7 +4,11 @@ import * as React from 'react';
 import type { TogglerTypes } from './TogglerTypes';
 
 /**
- * This component's parameters >> size=("sm" | "default") disabled=(boolean) isChecked=(boolean) handleTogglerClick=(that's the function that will be triggered onClick).
+ * This component's parameters :
+ * 1- size=("sm" | "default")
+ * 2- disabled=(boolean)
+ * 3- isChecked=(boolean)
+ * 4- handleTogglerClick=(that's the function that will be triggered on toggler click) notice that this function must set the isChecked when clicked.
  */
 const Toggler: FC<TogglerTypes.Props> = ({
   size = 'default',
