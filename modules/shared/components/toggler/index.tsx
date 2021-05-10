@@ -15,7 +15,7 @@ const Toggler: FC<TogglerTypes.Props> = ({
   const toggleBodyClasses = classNames(
     'rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none',
     {
-      'w-sm h-6 ': size === 'default',
+      'w-2xl h-6 ': size === 'default',
       'w-7 h-4 ': size === 'sm',
       'bg-primary-shd7 hover:bg-primary-shd6 ': isChecked,
       'bg-grey-shd4 hover:bg-grey-shd3 ': !isChecked,

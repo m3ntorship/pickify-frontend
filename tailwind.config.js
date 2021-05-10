@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./pages/**/*.js', './modules/**/*.{js,jsx,ts,tsx}'],
+  purge: ['./pages/**/*.{js,jsx,ts,tsx}', './modules/**/*.{js,jsx,ts,tsx}'],
   darkMode: false,
   theme: {
     colors: {
@@ -71,6 +71,7 @@ module.exports = {
         shd7: '#F2F9FF',
         bg: '#FAFAFC',
         bg2: '#F8F7FA',
+        bg3: '#E5E5E5',
       },
       white: {
         DEFAULT: '#FFFFFF',
@@ -93,27 +94,29 @@ module.exports = {
       none: 'none',
     },
     fontSize: {
-      '2xs': ['.625rem', '1.4'],
-      xs: ['.75rem', '1.4'],
-      sm: ['.875rem', '1.4'],
-      base: ['1rem', '1.4'],
-      md: ['1.25rem', '1.4'],
-      lg: ['1.5rem', '1.4'],
-      xl: ['1.75rem', '1.4'],
-      '2xl': ['2rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
-      '3xl': ['2.5rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
-      '4xl': ['3rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
-      '8xl': ['6rem', { lineHeight: '1.3', letterSpacing: '-.05em' }],
+      '2xs': ['.625rem', '1.4'], //10px
+      xs: ['.75rem', '1.4'], //12px
+      sm: ['.875rem', '1.4'], //14px
+      base: ['1rem', '1.4'], //16px
+      md: ['1.25rem', '1.4'], //20px
+      lg: ['1.5rem', '1.4'], //24px
+      xl: ['1.75rem', '1.4'], //28px
+      '2xl': ['2rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //32px
+      '3xl': ['2.5rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //40px
+      '4xl': ['3rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //48px
+      '8xl': ['6rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //96px
     },
     fontFamily: {
       sans: ['Roboto'],
     },
     extend: {
       spacing: {
-        '3xs': '.125rem', // 2px
+        '3xxs': '.125rem', // 2px
         '2xxs': '0.1875rem', // 3px
         xxs: '.25rem', // 4px
+        xxsv: '0.375rem', //6px
         xs: '.5rem', // 8px
+        xsvv: '0.625rem', //10px
         s: '.75rem', // 12px
         m: '1rem', // 16px
         l: '1.5rem', // 24px
@@ -128,12 +131,19 @@ module.exports = {
         24: '0.24',
       },
       width: {
-        sm: '2.625rem', // 42px
-        '39xl': '39.5rem', // 632px
-        '37xl': '37.5rem', // 600px
-        '8xl': '8.8125rem', // 141px
+        '2xl': '2.625rem', // 42px
         '4sxl': '4.1875rem', // 67px
+        '8xl': '8.8125rem', // 141px
         '18xl': '18.5rem', // 296px
+        '28xl': '28.5rem', // 456px
+        '29xl': '29.5rem', // 472px
+
+        '30xl': '30rem', // 480px
+        '32xl': '32.625rem', // 522px
+        '33xl': '33.25rem', // 532px
+        '35xl': '35.25rem', // 564px
+        '37xl': '37.5rem', // 600px
+        '39xl': '39.5rem', // 632px
       },
       height: {
         '61xl': '61.0625rem',
