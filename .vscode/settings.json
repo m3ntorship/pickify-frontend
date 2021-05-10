@@ -14,5 +14,6 @@
   "git.enableSmartCommit": true,
   "editor.formatOnSave": false,
   "css.validate": false, // Disable css built-in lint
-  "stylelint.enable": true // Enable sytlelint
+  "stylelint.enable": true,
+  "workbench.colorCustomizations": {} // Enable sytlelint
 }
