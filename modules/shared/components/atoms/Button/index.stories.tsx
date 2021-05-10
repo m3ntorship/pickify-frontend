@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import Button from '.';
-import type { IButton } from './IButton';
+import { IButton } from './IButton';
 
 export default {
   component: 'Atoms/Button',
@@ -27,8 +27,8 @@ const Template: Story<IButton.IProps> = (args): ReactElement => (
 
 export const Default = Template.bind({});
 Default.args = {
-  size: 'lg',
-  variant: 'primary',
+  size: IButton.buttonSizeValues.large,
+  variant: IButton.buttonVariantValues.PRIMARY,
   disabled: false,
   leftIcon: false,
   rightIcon: false,

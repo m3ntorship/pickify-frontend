@@ -1,9 +1,19 @@
 declare namespace IButton {
+  enum buttonVariantValues {
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+    TEXT = 'text',
+  }
+  enum buttonSizeValues {
+    large = 'lg',
+    meduim = 'md',
+    small = 'sm',
+  }
   export interface IProps {
-    children?: string;
+    children?: string | null;
     disabled?: boolean;
-    variant?: 'primary' | 'secondary' | 'text';
-    size?: 'lg' | 'md' | 'sm';
+    variant?: buttonVariantValues;
+    size?: buttonSizeValues;
     leftIcon?: boolean;
     rightIcon?: boolean;
     onlyIcon?: boolean;
