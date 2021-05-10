@@ -1,15 +1,8 @@
 import type { ReactElement, FC } from 'react';
 import React, { useState } from 'react';
-// import { FC, useState } from 'react';
 import classnames from 'classnames';
-// import PropTypes from 'prop-types';
 import styles from './Radio.module.css';
 import type { IRadio } from './IRadio';
-
-// const defaultProps = {
-//   size: 'default',
-//   disabled: false,
-// };
 
 const Radio: FC<IRadio.IProps> = ({
   size = 'default',
@@ -29,8 +22,6 @@ const Radio: FC<IRadio.IProps> = ({
     [styles.size_default]: size === 'default',
   });
 
-  console.log(checked);
-
   return (
     <div className="relative">
       <input
@@ -46,11 +37,5 @@ const Radio: FC<IRadio.IProps> = ({
     </div>
   );
 };
-
-// Radio.defaultProps = defaultProps;
-// Radio.propTypes = {
-//   size: PropTypes.oneOf(['default', 'small']),
-//   disabled: PropTypes.bool,
-// };
 
 export default Radio;

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Radio Testing Radio disabled 1`] = `
+<div
+  className="relative"
+>
+  <input
+    className="undefined"
+    data-testid="Radio"
+    disabled={true}
+    onClick={[Function]}
+    type="radio"
+  />
+  <div
+    className="undefined"
+  />
+</div>
+`;
+
+exports[`Testing Radio Testing Radio size Default 1`] = `
+<div
+  className="relative"
+>
+  <input
+    className="undefined"
+    data-testid="Radio"
+    disabled={false}
+    onClick={[Function]}
+    type="radio"
+  />
+  <div
+    className=""
+  />
+</div>
+`;
+
+exports[`Testing Radio Testing Radio size Small 1`] = `
+<div
+  className="relative"
+>
+  <input
+    className=""
+    data-testid="Radio"
+    disabled={false}
+    onClick={[Function]}
+    type="radio"
+  />
+  <div
+    className=""
+  />
+</div>
+`;
+
+exports[`Testing Radio Testing Radio with no props 1`] = `
+<div
+  className="relative"
+>
+  <input
+    className="undefined"
+    data-testid="Radio"
+    disabled={false}
+    onClick={[Function]}
+    type="radio"
+  />
+  <div
+    className=""
+  />
+</div>
+`;
