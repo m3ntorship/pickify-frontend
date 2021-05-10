@@ -1,12 +1,12 @@
 declare namespace IButton {
   export interface IProps {
     children?: string;
-    disabled?: false | true;
+    disabled?: boolean;
     variant?: 'primary' | 'secondary' | 'text';
     size?: 'lg' | 'md' | 'sm';
-    leftIcon?: false | true;
-    rightIcon?: false | true;
-    onlyIcon?: false | true;
+    leftIcon?: boolean;
+    rightIcon?: boolean;
+    onlyIcon?: boolean;
     onClick?: () => void;
   }
 }
