@@ -132,11 +132,18 @@ The `pages/` folder is the `next.js` generated folder where the routes are setup
 
 ### Issues:
 
--  [To submit a new issue click here ](https://github.com/m3ntorship/pickify-frontend/issues)
+-  #### [To submit a new issue  visit the issues tab or click here ](https://github.com/m3ntorship/pickify-frontend/issues)
 
 >  - Make sure to check the list of current issues (avoid duplication)
 
->  - Use decriptive title for the ticket, add illustrative description of the issue (nature, environement, steps to reproduce, code snippet if possible, expected behviour, output and expected output,screenshot if it is a visual issue)
+>  - Use decriptive title for the ticket, add illustrative description of the issue:
+      >     issue nature
+      >     local dev environement
+      >     steps to reproduce
+      >     code snippet if possible
+      >     expected behviour
+      >     output and expected output 
+      >     screenshots if it is a visual issue (before and after if neede)
 
 > - Assign the project
 
