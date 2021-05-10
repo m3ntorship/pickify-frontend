@@ -1,0 +1,6 @@
+.btn {
+  @apply font-bold;
+}
+.text_red {
+  color: red;
+}

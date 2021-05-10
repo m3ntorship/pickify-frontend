@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render (disapled) button when we apply disapled 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       py-xs px-l text-base font-medium
+       opacity-25 pointer-events-none"
+  disabled={true}
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (large) button when we apply (large) 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       py-m px-xl text-md font-bold
+       "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (lefticon) button when we apply lefticon 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       py-xs px-l text-base font-medium
+       "
+  disabled={false}
+>
+  Button
+  <svg
+    className="ml-xxs inline-block"
+    fill="none"
+    height="16"
+    viewBox="0 0 24 24"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.293 9.293L12 13.586L7.70697 9.293L6.29297 10.707L12 16.414L17.707 10.707L16.293 9.293Z"
+      fill="
+              false
+              false
+              white
+             
+            "
+    />
+  </svg>
+</button>
+`;
+
+exports[`Button component should render (meduim) button when we apply (meduim) 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       py-xs px-l text-base font-medium
+       "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (onlyicon)  button when we apply nothing 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       p-xs text-base font-medium
+       "
+  disabled={false}
+/>
+`;
+
+exports[`Button component should render (primary) button when we apply primary 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       py-xs px-l text-base font-medium
+       "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (righticon) button when we apply righticon 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       py-xs px-l text-base font-medium
+       "
+  disabled={false}
+>
+  <svg
+    className="mr-xxs inline-block"
+    fill="none"
+    height="16"
+    viewBox="0 0 24 24"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.293 9.293L12 13.586L7.70697 9.293L6.29297 10.707L12 16.414L17.707 10.707L16.293 9.293Z"
+      fill="
+            false
+            false
+            white
+            "
+    />
+  </svg>
+  Button
+</button>
+`;
+
+exports[`Button component should render (secondary) button when we apply (secondary) 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        text-primary bg-white hover:bg-grey-bg  border border-primary focus:outline-none focus:ring-1 focus:ring-primary-dark focus:border-primary-dark 
+        false
+        false        
+       py-xs px-l text-base font-medium
+       "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (small) button when we apply (small) 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        false
+        bg-primary hover:bg-primary-hover text-white focus:outline-none focus:ring-1 focus:ring-primary-dark         
+       py-s px-m text-sm font-medium
+       "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (text) button when we apply text 1`] = `
+<button
+  className="rounded-full focus:outline-none ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus
+       
+        false
+        bg-none text-accent hover:text-accent-hover focus:underline
+        false        
+       py-xs px-l text-base font-medium
+       "
+  disabled={false}
+>
+  Button
+</button>
+`;

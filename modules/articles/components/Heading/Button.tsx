@@ -13,7 +13,7 @@ export default ({ buttonText }: Props): React.ReactElement => (
   <button
     type="button"
     onClick={(): void => {
-      console.log(giveMeFive());
+      // console.log(giveMeFive());
     }}
   >
     {buttonText}
