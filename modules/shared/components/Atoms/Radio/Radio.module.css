@@ -1,0 +1,25 @@
+.radio_transparency{
+    @apply absolute opacity-0 cursor-pointer;
+}
+.radio_background{
+    @apply bg-white rounded-full;
+}
+.size_small{
+    @apply w-4 h-4;
+}
+.size_default{
+    @apply w-6 h-6;
+}
+.checked_small{
+    @apply border-primary border-4 hover:border-primary-hover focus:ring-2 focus:ring-offset-primary-shd6 focus:outline-none;
+}
+.checked_default{
+    @apply border-primary border-8 hover:border-primary-hover focus:ring-2 focus:ring-offset-primary-shd6 focus:outline-none;
+}
+.non_checked{
+    @apply border border-grey-shd4 hover:border-grey-shd1 focus:ring-1 focus:ring-offset-grey-shd2 focus:outline-none;
+}
+.disabled{
+    @apply pointer-events-none opacity-25;
+}
+
