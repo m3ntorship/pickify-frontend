@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and disabled true 1`] = `
+<label
+  className="relative flex justify-center  items-center w-l h-l"
+  htmlFor="unchecked"
+>
+  <input
+    checked={false}
+    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline border border-grey-shd6 w-l h-l"
+    data-testid="input-test"
+    disabled={true}
+    id="unchecked"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and not disabled 1`] = `
+<label
+  className="relative flex justify-center  items-center cursor-pointer w-l h-l"
+  htmlFor="unchecked"
+>
+  <input
+    checked={false}
+    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline hover:border hover:border-grey-shd1 cursor-pointer focus:border-2 focus:border-grey-shd2 w-l h-l"
+    data-testid="input-test"
+    disabled={false}
+    id="unchecked"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and  disabled true 1`] = `
+<label
+  className="relative flex justify-center  items-center w-m h-m"
+  htmlFor="unchecked"
+>
+  <input
+    checked={false}
+    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline border border-grey-shd6 w-m h-m"
+    data-testid="input-test"
+    disabled={true}
+    id="unchecked"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and not disabled 1`] = `
+<label
+  className="relative flex justify-center  items-center cursor-pointer w-m h-m"
+  htmlFor="unchecked"
+>
+  <input
+    checked={false}
+    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline hover:border hover:border-grey-shd1 cursor-pointer focus:border-2 focus:border-grey-shd2 w-m h-m"
+    data-testid="input-test"
+    disabled={false}
+    id="unchecked"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
