@@ -85,13 +85,7 @@ const TextInput: FC<ITextInputs.IProps> = ({
               <option value="+50">+50</option>
             </select>
           )}
-          {inputType === 'choices' && (
-            <div className="bg-grey-shd7 py-0.5 px-xs rounded-sm">
-              <h3 className="text-sm text-grey font-normal leading-snug">
-                {letter}
-              </h3>
-            </div>
-          )}
+          {inputType === 'choices' && <span className="letter">{letter}</span>}
         </span>
       </div>
     </div>

@@ -13,15 +13,18 @@
 
 .form-input {
   @apply box-border border border-grey-shd5 rounded-md px-m py-xsvv w-full text-dark-grey hover:border-grey-shd2 focus:border-dark focus:text-dark
-  focus:outline-none;
+  focus:outline-none text-sm;
 }
 
 .form-input::placeholder {
-  @apply text-grey-shd1;
+  @apply text-grey-shd1 text-sm;
 }
 
 .form-input[disabled] {
   @apply text-grey-shd4 border-grey-shd7 hover:border-grey-shd7 bg-transparent;
+}
+.form-input[disabled]::placeholder {
+  @apply text-grey-shd4;
 }
 
 .form-input.error {
@@ -57,12 +60,12 @@
   @apply pl-xxl;
 }
 
-.form-input.input-choice {
+.form-input.input-with-choices {
   @apply pl-xvxl;
 }
 
 .form-input.input-with-prefix {
-  @apply pl-4xl;
+  @apply pl-3xxl;
 }
 
 .form-input.input-with-dropdown-prefix {
@@ -73,13 +76,29 @@
   @apply pl-11;
 }
 
-.form-input.input-with-left-icon ~ .control-icon,
-.form-input.input-with-prefix ~ .control-icon,
-.form-input.input-with-dropdown-prefix ~ .control-icon,
-.form-input.input-with-choices ~ .control-icon {
+.form-input.input-with-left-icon ~ .control-icon {
   @apply absolute top-3 left-3 text-grey;
 }
-
+.form-input.input-with-dropdown-prefix ~ .control-icon,
+.form-input.input-with-prefix ~ .control-icon {
+  @apply absolute top-2.5 left-3.5 bottom-2.5 text-grey text-sm;
+}
+.form-input.input-with-dropdown-prefix:disabled ~ .control-icon,
+.form-input.input-with-prefix:disabled ~ .control-icon {
+  @apply text-grey-shd3;
+}
+.form-input.input-with-left-icon:focus ~ .control-icon svg,
+.form-input.input-with-left-icon:focus ~ .control-icon path {
+  @apply fill-dark-grey;
+}
+.form-input.input-with-left-icon:disabled ~ .control-icon svg,
+.form-input.input-with-left-icon:disabled ~ .control-icon path {
+  @apply fill-grey-shd4;
+}
+.form-input.input-with-left-icon:not(:focus):hover ~ .control-icon svg,
+.form-input.input-with-left-icon:not(:focus):hover ~ .control-icon path {
+  @apply fill-grey;
+}
 .form-input.input-with-prefix ~ .control-icon,
 .form-input.input-with-dropdown-prefix ~ .control-icon {
   @apply pr-xs border-r border-grey-shd6;
@@ -93,8 +112,11 @@
   @apply ml-xxs;
 }
 
-.form-input.input-choice ~ .control-icon {
-  @apply absolute top-xs left-xs text-grey bg-grey-shd7 p-0.5 px-xs;
+.form-input.input-with-choices ~ .control-icon {
+  @apply absolute top-xs left-xs bottom-xs text-grey bg-grey-shd7 py-0.5 px-xxsvl rounded-sm text-sm;
+}
+.form-input.input-with-choices:disabled ~ .control-icon {
+  @apply bg-white text-grey-shd4;
 }
 
 /* Text Inputs */
