@@ -3,43 +3,30 @@ import userEvent from '@testing-library/user-event';
 import { render } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
 import Button from './index';
-import { IButton } from './IButton';
 
 describe('Button component', () => {
   it('should render (large) button when we apply (large)', () => {
-    const tree = renderer
-      .create(<Button size={IButton.buttonSizeValues.large} />)
-      .toJSON();
+    const tree = renderer.create(<Button size="lg" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('should render (meduim) button when we apply (meduim)', () => {
-    const tree = renderer
-      .create(<Button size={IButton.buttonSizeValues.meduim} />)
-      .toJSON();
+    const tree = renderer.create(<Button size="md" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('should render (small) button when we apply (small)', () => {
-    const tree = renderer
-      .create(<Button size={IButton.buttonSizeValues.small} />)
-      .toJSON();
+    const tree = renderer.create(<Button size="sm" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('should render (primary) button when we apply primary', () => {
-    const tree = renderer
-      .create(<Button variant={IButton.buttonVariantValues.PRIMARY} />)
-      .toJSON();
+    const tree = renderer.create(<Button variant="primary" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('should render (secondary) button when we apply (secondary)', () => {
-    const tree = renderer
-      .create(<Button variant={IButton.buttonVariantValues.SECONDARY} />)
-      .toJSON();
+    const tree = renderer.create(<Button variant="secondary" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('should render (text) button when we apply text', () => {
-    const tree = renderer
-      .create(<Button variant={IButton.buttonVariantValues.TEXT} />)
-      .toJSON();
+    const tree = renderer.create(<Button variant="text" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('should render (disapled) button when we apply disapled', () => {
