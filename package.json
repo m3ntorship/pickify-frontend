@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect=9000' next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect=9000' next dev",
     "build": "next build",
     "start": "next start",
     "export": "next export",
@@ -19,6 +19,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@types/react-test-renderer": "^17.0.1",
     "autoprefixer": "^9.0.0",
+    "cross-env": "^7.0.3",
     "next": "10.0.5",
     "next-redux-wrapper": "^6.0.2",
     "postcss-import": "^14.0.1",
@@ -28,8 +29,8 @@
     "react-redux": "^7.2.2",
     "react-test-renderer": "^17.0.2",
     "redux": "^4.0.5",
-    "classnames": "^2.3.1",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
+    "classnames": "^2.3.1"
   },
   "husky": {
     "hooks": {
@@ -55,6 +56,7 @@
     "@typescript-eslint/parser": "^4.14.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
