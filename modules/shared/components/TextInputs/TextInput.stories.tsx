@@ -4,7 +4,7 @@ import TextInput from './TextInput';
 import type { ITextInputs } from './ITextInputs';
 
 export default {
-  title: 'Essam/Atoms/TextInput',
+  title: 'Atoms/TextInput',
   component: TextInput,
 } as Meta;
 
@@ -12,11 +12,11 @@ const Template: Story<ITextInputs.IProps> = (args) => <TextInput {...args} />;
 
 export const textInput = Template.bind({});
 textInput.args = {
-  label: 'label',
+  label: 'Label',
   id: 'my label',
   inputType: 'default',
   variants: 'default',
   disabled: false,
-  placeholder: 'text Input ',
+  placeholder: 'Enter text',
   letter: 'A',
 };
