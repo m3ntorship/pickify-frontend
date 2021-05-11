@@ -1,31 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and (opacity-25) when passing disabled={true} and size=sm  1`] = `
-<button
-  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-7 h-4  bg-grey-shd4 hover:bg-grey-shd3  focus:border-grey-shd3 cursor-not-allowed opacity-25"
-  data-testid="toggler-test"
-  disabled={true}
-  onClick={[Function]}
-  type="button"
+<label
+  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-7 h-4  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-1 focus-within:ring-grey-shd3 cursor-not-allowed opacity-25"
+  htmlFor="test"
 >
+  <input
+    className="opacity-0 absolute cursor-not-allowed"
+    data-testid="test"
+    disabled={true}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
   <div
     className="rounded-full transition-all duration-100 ease-in-out bg-white w-2.5 h-2.5 m-2xxs"
   />
-</button>
+</label>
 `;
 
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and do NOT include (opacity-25) when passing disabled={false} and size=sm  1`] = `
-<button
-  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-7 h-4  bg-grey-shd4 hover:bg-grey-shd3  focus:border-grey-shd3"
-  data-testid="toggler-test"
-  disabled={false}
-  onClick={[Function]}
-  type="button"
+<label
+  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-7 h-4  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-1 focus-within:ring-grey-shd3"
+  htmlFor="test"
 >
+  <input
+    className="opacity-0 absolute cursor-pointer"
+    data-testid="test"
+    disabled={false}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
   <div
     className="rounded-full transition-all duration-100 ease-in-out bg-white w-2.5 h-2.5 m-2xxs"
   />
-</button>
+</label>
 `;
 
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames do NOT include (opacity-25) when passing disabled={false} and size=default  1`] = `
@@ -33,27 +43,37 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <button
-        class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
-        data-testid="toggler-test"
-        type="button"
+      <label
+        class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-2 focus-within:ring-grey-shd3"
+        for="test"
       >
+        <input
+          class="opacity-0 absolute cursor-pointer"
+          data-testid="test"
+          id="test"
+          type="checkbox"
+        />
         <div
           class="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
         />
-      </button>
+      </label>
     </div>
   </body>,
   "container": <div>
-    <button
-      class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3"
-      data-testid="toggler-test"
-      type="button"
+    <label
+      class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-2 focus-within:ring-grey-shd3"
+      for="test"
     >
+      <input
+        class="opacity-0 absolute cursor-pointer"
+        data-testid="test"
+        id="test"
+        type="checkbox"
+      />
       <div
         class="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
       />
-    </button>
+    </label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -110,15 +130,20 @@ Object {
 `;
 
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames include (opacity-25) when passing disabled={true} and size=default  1`] = `
-<button
-  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus:ring-2 focus:ring-grey-shd3 cursor-not-allowed opacity-25"
-  data-testid="toggler-test"
-  disabled={true}
-  onClick={[Function]}
-  type="button"
+<label
+  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-2 focus-within:ring-grey-shd3 cursor-not-allowed opacity-25"
+  htmlFor="test"
 >
+  <input
+    className="opacity-0 absolute cursor-not-allowed"
+    data-testid="test"
+    disabled={true}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
   <div
     className="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
   />
-</button>
+</label>
 `;

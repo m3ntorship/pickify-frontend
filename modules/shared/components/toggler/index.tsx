@@ -57,6 +57,7 @@ const Toggler: FC<TogglerTypes.Props> = ({
           onChange={onChange}
           type="checkbox"
           id={id}
+          data-testid={id}
           className={checkBoxInput}
           disabled={disabled}
         />

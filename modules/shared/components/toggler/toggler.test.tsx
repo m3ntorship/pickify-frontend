@@ -11,8 +11,9 @@ describe('Toggler Component with snapshot', () => {
         <Toggler
           size="sm"
           disabled
-          isChecked={false}
-          handleTogglerClick={(): boolean => {
+          checked={false}
+          id="test"
+          onChange={(): boolean => {
             return true;
           }}
         />,
@@ -25,9 +26,9 @@ describe('Toggler Component with snapshot', () => {
       .create(
         <Toggler
           size="sm"
-          disabled={false}
-          isChecked={false}
-          handleTogglerClick={(): boolean => {
+          checked={false}
+          id="test"
+          onChange={(): boolean => {
             return true;
           }}
         />,
@@ -41,8 +42,9 @@ describe('Toggler Component with snapshot', () => {
         <Toggler
           size="default"
           disabled
-          isChecked={false}
-          handleTogglerClick={(): boolean => {
+          checked={false}
+          id="test"
+          onChange={(): boolean => {
             return true;
           }}
         />,
@@ -54,9 +56,9 @@ describe('Toggler Component with snapshot', () => {
     const tree = render(
       <Toggler
         size="default"
-        disabled={false}
-        isChecked={false}
-        handleTogglerClick={(): boolean => {
+        checked={false}
+        id="test"
+        onChange={(): boolean => {
           return true;
         }}
       />,
@@ -68,15 +70,12 @@ describe('Toggler Component with react testing library', () => {
   it('should be clicked once', () => {
     const handleClick = jest.fn();
     render(
-      <Toggler
-        size="sm"
-        disabled={false}
-        isChecked={false}
-        handleTogglerClick={handleClick}
-      />,
+      <Toggler size="sm" checked={false} id="test" onChange={handleClick} />,
     );
+    const checkbox = screen.getByTestId('test') as HTMLInputElement;
     const calledonce = 1;
-    userEvent.click(screen.getByTestId('toggler-test'));
+    userEvent.click(checkbox);
     expect(handleClick).toHaveBeenCalledTimes(calledonce);
+    expect(checkbox.checked).toEqual(true);
   });
 });
