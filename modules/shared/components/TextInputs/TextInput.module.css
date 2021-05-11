@@ -1,0 +1,100 @@
+/* Text Inputs */
+.form-group {
+  @apply w-full;
+}
+
+.form-label {
+  @apply block font-light text-xs text-dark-grey mb-xs;
+}
+
+.form-control {
+  @apply relative;
+}
+
+.form-input {
+  @apply box-border border border-grey-shd5 rounded-md px-m py-xsvv w-full text-dark-grey hover:border-grey-shd2 focus:border-dark focus:text-dark
+  focus:outline-none;
+}
+
+.form-input::placeholder {
+  @apply text-grey-shd1;
+}
+
+.form-input[disabled] {
+  @apply text-grey-shd4 border-grey-shd7 hover:border-grey-shd7 bg-transparent;
+}
+
+.form-input.error {
+  @apply border-error;
+}
+
+.form-input.success {
+  @apply border-success;
+}
+
+.form-input + .status-icon {
+  @apply absolute top-3 right-3 cursor-pointer;
+}
+
+.form-input:focus + .status-icon {
+  @apply block;
+}
+
+.form-input.error + .status-icon,
+.form-input.success + .status-icon {
+  @apply block;
+}
+
+.form-input.input-with-right-icon + .status-icon {
+  @apply top-3 right-10;
+}
+
+.form-input.input-with-right-icon ~ .control-icon {
+  @apply absolute top-3 right-3 cursor-pointer;
+}
+
+.form-input.input-with-left-icon {
+  @apply pl-xxl;
+}
+
+.form-input.input-choice {
+  @apply pl-xvxl;
+}
+
+.form-input.input-with-prefix {
+  @apply pl-4xl;
+}
+
+.form-input.input-with-dropdown-prefix {
+  @apply pl-20;
+}
+
+.form-input.input-with-choices {
+  @apply pl-11;
+}
+
+.form-input.input-with-left-icon ~ .control-icon,
+.form-input.input-with-prefix ~ .control-icon,
+.form-input.input-with-dropdown-prefix ~ .control-icon,
+.form-input.input-with-choices ~ .control-icon {
+  @apply absolute top-3 left-3 text-grey;
+}
+
+.form-input.input-with-prefix ~ .control-icon,
+.form-input.input-with-dropdown-prefix ~ .control-icon {
+  @apply pr-xs border-r border-grey-shd6;
+}
+
+.form-input.input-with-dropdown-prefix ~ .control-icon {
+  @apply flex justify-between items-center;
+}
+
+.form-input.input-with-dropdown-prefix ~ .control-icon svg {
+  @apply ml-xxs;
+}
+
+.form-input.input-choice ~ .control-icon {
+  @apply absolute top-xs left-xs text-grey bg-grey-shd7 p-0.5 px-xs;
+}
+
+/* Text Inputs */
