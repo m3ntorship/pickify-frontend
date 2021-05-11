@@ -1,7 +1,21 @@
 import type { FC, ReactElement } from 'react';
 import className from 'classnames';
 import React from 'react';
+import Image from 'next/image';
 import type { IAvatar } from './IAvatar';
+
+export const determineImageSize = (componentSize: string): number => {
+  const smallSize = 32;
+  const mediumSize = 40;
+  const largeSize = 56;
+  if (componentSize === 'small') {
+    return smallSize;
+  }
+  if (componentSize === 'medium') {
+    return mediumSize;
+  }
+  return largeSize;
+};
 
 const Index: FC<IAvatar.IProps> = ({ size, variant, imgSrc }): ReactElement => {
   const classes = className({
@@ -10,6 +24,7 @@ const Index: FC<IAvatar.IProps> = ({ size, variant, imgSrc }): ReactElement => {
     'w-14 h-14': size === 'large',
     'rounded-full': variant === 'filled',
   });
+  const imageSize = determineImageSize(size);
   if (variant === 'anonymous') {
     return (
       <svg
@@ -37,25 +52,32 @@ const Index: FC<IAvatar.IProps> = ({ size, variant, imgSrc }): ReactElement => {
       </svg>
     );
   }
-  if (variant === 'notFilled') {
+  if (variant === 'filled' && imgSrc !== undefined)
     return (
-      <svg
+      <Image
+        height={imageSize}
+        width={imageSize}
         className={classes}
-        viewBox="0 0 56 56"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28Z"
-          fill="#E9F4F7"
-        />
-        <path
-          d="M28 14.6665C24.324 14.6665 21.3333 17.6572 21.3333 21.3332C21.3333 25.0092 24.324 27.9998 28 27.9998C31.676 27.9998 34.6667 25.0092 34.6667 21.3332C34.6667 17.6572 31.676 14.6665 28 14.6665ZM28 25.3332C25.7947 25.3332 24 23.5385 24 21.3332C24 19.1278 25.7947 17.3332 28 17.3332C30.2053 17.3332 32 19.1278 32 21.3332C32 23.5385 30.2053 25.3332 28 25.3332ZM40 39.9998V38.6665C40 33.5212 35.812 29.3332 30.6667 29.3332H25.3333C20.1867 29.3332 16 33.5212 16 38.6665V39.9998H18.6667V38.6665C18.6667 34.9905 21.6573 31.9998 25.3333 31.9998H30.6667C34.3427 31.9998 37.3333 34.9905 37.3333 38.6665V39.9998H40Z"
-          fill="#8D9A9E"
-        />
-      </svg>
+        src={imgSrc}
+      />
     );
-  }
-  return <img className={classes} src={imgSrc} alt="profile" />;
+
+  return (
+    <svg
+      className={classes}
+      viewBox="0 0 56 56"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28Z"
+        fill="#E9F4F7"
+      />
+      <path
+        d="M28 14.6665C24.324 14.6665 21.3333 17.6572 21.3333 21.3332C21.3333 25.0092 24.324 27.9998 28 27.9998C31.676 27.9998 34.6667 25.0092 34.6667 21.3332C34.6667 17.6572 31.676 14.6665 28 14.6665ZM28 25.3332C25.7947 25.3332 24 23.5385 24 21.3332C24 19.1278 25.7947 17.3332 28 17.3332C30.2053 17.3332 32 19.1278 32 21.3332C32 23.5385 30.2053 25.3332 28 25.3332ZM40 39.9998V38.6665C40 33.5212 35.812 29.3332 30.6667 29.3332H25.3333C20.1867 29.3332 16 33.5212 16 38.6665V39.9998H18.6667V38.6665C18.6667 34.9905 21.6573 31.9998 25.3333 31.9998H30.6667C34.3427 31.9998 37.3333 34.9905 37.3333 38.6665V39.9998H40Z"
+        fill="#8D9A9E"
+      />
+    </svg>
+  );
 };
 export default Index;
