@@ -122,6 +122,7 @@ module.exports = {
         l: '1.5rem', // 24px
         xl: '2rem', // 32px
         xxl: '2.5rem', // 40px
+        xvxl: '2.666rem',
         '3xl': '3rem', // 48px
         '4xl': '4rem', // 64px
         '5xl': '8rem', // 128px
@@ -148,6 +149,10 @@ module.exports = {
       height: {
         '21xl': '21.25rem', // 340px
         '61xl': '61.0625rem', // 977px
+      },
+      borderWidth: {
+        '5': '5px',
+        '7': '7px',
       },
     },
   },
