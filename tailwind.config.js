@@ -150,6 +150,10 @@ module.exports = {
         '21xl': '21.25rem', // 340px
         '61xl': '61.0625rem', // 977px
       },
+      borderWidth: {
+        '5': '5px',
+        '7': '7px',
+      },
     },
   },
   variants: {
