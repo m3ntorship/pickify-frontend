@@ -13,8 +13,8 @@ const Slider: FC<ISlider.IProps> = ({
   const maximumProgress = 100;
   const halfMaximumProgress = 50;
   const defaultHeight = 300;
-  const outerHorizontalClasses = classNames('w-full h-2 rounded-sm bg-white');
-  const innerHorizontalClasses = classNames('h-2 rounded-sm', {
+  const outerHorizontalClasses = classNames('w-full h-3 rounded-sm bg-white');
+  const innerHorizontalClasses = classNames('h-1 rounded-sm', {
     'bg-success': progress === maximumProgress,
     'bg-primary': progress < maximumProgress,
   });
