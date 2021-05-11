@@ -122,6 +122,7 @@ module.exports = {
         l: '1.5rem', // 24px
         xl: '2rem', // 32px
         xxl: '2.5rem', // 40px
+        xvxl: '2.666rem',
         '3xl': '3rem', // 48px
         '4xl': '4rem', // 64px
         '5xl': '8rem', // 128px
