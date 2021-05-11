@@ -21,5 +21,5 @@ export const togglerTS = Template.bind({});
 togglerTS.args = {
   size: 'default',
   disabled: false,
-  isChecked: false,
+  checked: false,
 };

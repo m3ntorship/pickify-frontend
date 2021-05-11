@@ -126,7 +126,6 @@ module.exports = {
         '4xl': '4rem', // 64px
         '5xl': '8rem', // 128px
       },
-
       backgroundOpacity: {
         24: '0.24',
       },
@@ -148,6 +147,9 @@ module.exports = {
       height: {
         '21xl': '21.25rem', // 340px
         '61xl': '61.0625rem', // 977px
+      },
+      translate: {
+        sm: '1.125rem', //18px
       },
     },
   },

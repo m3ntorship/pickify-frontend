@@ -1,9 +1,12 @@
+import type React from 'react';
+
 declare namespace TogglerTypes {
   export interface Props {
     size: 'default' | 'sm';
-    disabled: boolean;
-    isChecked: boolean;
-    handleTogglerClick: () => void;
+    disabled?: boolean;
+    checked: boolean;
+    id: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }
 }
 

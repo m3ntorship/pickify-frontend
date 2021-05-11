@@ -2,57 +2,67 @@ import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import * as React from 'react';
 import type { TogglerTypes } from './TogglerTypes';
+/** 
+* @example : <Toggler size="sm" checked={isChecked} onChange={handleTogglerChange} disabled={true} />
+* @Parameters size, checked and onChange are required for Toggler component to function, The prop disabled is optional.
+* @ThingsNeededToBeDoneInParentComponent
+const [isChecked,setIsChecked] = useState(false);
+cosnt handleTogglerChange = () => { setIsChecked(!isChecked) };
+*/
 
-/**
- * This component's parameters :
- * 1- size=("sm" | "default")
- * 2- disabled=(boolean)
- * 3- isChecked=(boolean)
- * 4- handleTogglerClick=(that's the function that will be triggered on toggler click) notice that this function must set the isChecked when clicked.
- */
 const Toggler: FC<TogglerTypes.Props> = ({
-  size = 'default',
+  size,
   disabled = false,
-  isChecked = false,
-  handleTogglerClick,
+  checked,
+  id,
+  onChange,
 }): ReactElement => {
   const toggleBodyClasses = classNames(
-    'rounded-full flex items-center cursor-pointer transition duration-100 ease-out border border-transparent focus:outline-none',
+    'rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative',
     {
       'w-2xl h-6 ': size === 'default',
       'w-7 h-4 ': size === 'sm',
-      'bg-primary-shd7 hover:bg-primary-shd6 ': isChecked,
-      'bg-grey-shd4 hover:bg-grey-shd3 ': !isChecked,
-      'focus:border-grey-shd3': size === 'sm' && !isChecked,
-      'focus:border-primary-shd5': size === 'sm' && isChecked,
-      'focus:ring-2 focus:ring-grey-shd3': size === 'default' && !isChecked,
-      'focus:ring-2 focus:ring-primary-shd5': size === 'default' && isChecked,
+      'bg-primary-shd7 hover:bg-primary-shd6 ': checked,
+      'bg-grey-shd4 hover:bg-grey-shd3 ': !checked,
+      'focus-within:ring-1 focus-within:ring-grey-shd3':
+        size === 'sm' && !checked,
+      'focus-within:ring-1 focus-within:ring-primary-shd5':
+        size === 'sm' && checked,
+      'focus-within:ring-2 focus-within:ring-grey-shd3':
+        size === 'default' && !checked,
+      'focus-within:ring-2 focus-within:ring-primary-shd5':
+        size === 'default' && checked,
       'cursor-not-allowed opacity-25': disabled,
     },
   );
-
   const circleClasses = classNames(
     'rounded-full transition-all duration-100 ease-in-out',
     {
-      'bg-primary transform': isChecked,
-      'bg-white': !isChecked,
-      'translate-x-2.5': isChecked && size === 'sm',
-      'translate-x-4': isChecked && size === 'default',
+      'bg-primary transform': checked,
+      'bg-white': !checked,
+      'translate-x-3': checked && size === 'sm',
+      'translate-x-sm': checked && size === 'default',
       'w-2.5 h-2.5 m-2xxs': size === 'sm',
       'w-4 h-4 m-1 ': size === 'default',
     },
   );
-
+  const checkBoxInput = classNames('opacity-0 absolute', {
+    'cursor-pointer': !disabled,
+    'cursor-not-allowed': disabled,
+  });
   return (
-    <button
-      data-testid="toggler-test"
-      type="button"
-      className={toggleBodyClasses}
-      onClick={handleTogglerClick}
-      disabled={disabled}
-    >
-      <div className={circleClasses} />
-    </button>
+    <>
+      <label htmlFor={id} className={toggleBodyClasses}>
+        <input
+          onChange={onChange}
+          type="checkbox"
+          id={id}
+          className={checkBoxInput}
+          disabled={disabled}
+        />
+        <div className={circleClasses} />
+      </label>
+    </>
   );
 };
 export default Toggler;
