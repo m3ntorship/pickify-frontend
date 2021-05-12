@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app';
 import type { ReactElement } from 'react';
 import wrapper from 'store';
 import '../styles/globals.css';
-import '../styles/typography.css';
 
 const Pickly = ({ Component, pageProps }: AppProps): ReactElement => (
   <Component {...pageProps} />
