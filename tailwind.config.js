@@ -83,7 +83,7 @@ module.exports = {
       sm: '0.25rem', // 4px
       md: '0.5rem', // 8px
       lg: '1rem', // 16px
-      xl: '6.25rem', //100px
+      xl: '6.25rem', // 100px
       full: '999px',
     },
     boxShadow: {
@@ -104,7 +104,7 @@ module.exports = {
       '2xl': ['2rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], // 32px
       '3xl': ['2.5rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], // 40px
       '4xl': ['3rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], // 48px
-      '8xl': ['6rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], //9 6px
+      '8xl': ['6rem', { lineHeight: '1.3', letterSpacing: '-.05em' }], // 9 6px
     },
     fontFamily: {
       sans: ['Roboto'],
@@ -114,15 +114,18 @@ module.exports = {
         '3xxs': '.125rem', // 2px
         '2xxs': '0.1875rem', // 3px
         xxs: '.25rem', // 4px
-        xxsv: '0.375rem', //6px
+        xxsv: '0.375rem', // 6px
+        xxsvl: '0.4375rem',
         xs: '.5rem', // 8px
-        xsvv: '0.625rem', //10px
+        xsvv: '0.625rem', // 10px
         s: '.75rem', // 12px
         m: '1rem', // 16px
         l: '1.5rem', // 24px
         xl: '2rem', // 32px
         xxl: '2.5rem', // 40px
+        xvxl: '2.666rem',
         '3xl': '3rem', // 48px
+        '3xxl': '3.6875rem', // 59px
         '4xl': '4rem', // 64px
         '5xl': '8rem', // 128px
       },
@@ -149,7 +152,16 @@ module.exports = {
         '21xl': '21.25rem', // 340px
         '61xl': '61.0625rem', // 977px
       },
+      borderWidth: {
+        5: '5px',
+        7: '7px',
+      },
     },
+    fill: (theme) => ({
+      'dark-grey': theme('colors.dark.grey'),
+      grey: theme('colors.grey.DEFAULT'),
+      'grey-shd4': theme('colors.grey.shd4'),
+    }),
   },
   variants: {
     extend: {
@@ -157,6 +169,7 @@ module.exports = {
       backgroundColor: ['group-focus'],
       opacity: ['disabled'],
     },
+    fill: ['hover', 'focus'],
   },
   plugins: [],
 };
