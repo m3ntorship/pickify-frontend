@@ -4,39 +4,117 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Radio from '.';
 
-describe('Testing Radio', () => {
-  it('Testing Radio size Default', () => {
+describe('Testing Radio with snapshot', () => {
+  it('Testing Radio with required props', () => {
     const tree = renderer
-      .create(<Radio size="default" disabled={false} />)
+      .create(
+        <Radio
+          size="default"
+          name="laptops"
+          id="dell"
+          value="dell"
+          onChange={(): string => {
+            return 'test';
+          }}
+        />,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('Testing Radio size Small', () => {
+  it('Testing Radio with required and optional props', () => {
     const tree = renderer
-      .create(<Radio size="small" disabled={false} />)
+      .create(
+        <Radio
+          size="small"
+          name="laptops"
+          id="dell"
+          value="dell"
+          onChange={(): string => {
+            return 'test';
+          }}
+          defaultChecked
+          disabled
+          label="dell"
+          labelStyle="text-2xl"
+        />,
+      )
       .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  it('Testing Radio disabled', () => {
-    const tree = renderer.create(<Radio disabled />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  it('Testing Radio with no props', () => {
-    const tree = renderer.create(<Radio />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
 
-test('Expect Radio is not to be checked', () => {
-  const { getByTestId } = render(<Radio />);
-  expect(getByTestId('Radio')).not.toBeChecked();
-});
-test('Expect Radio is checked after clicking', () => {
-  const { getByTestId } = render(<Radio />);
-  userEvent.click(getByTestId('Radio'));
-  expect(getByTestId('Radio')).toBeChecked();
-});
-test('Expect Radio is disabled', () => {
-  const { getByTestId } = render(<Radio disabled />);
-  expect(getByTestId('Radio')).toBeDisabled();
+describe('Testing Radio with RTL', () => {
+  it('Expect Radio is not to be checked', () => {
+    const { getByTestId } = render(
+      <Radio
+        size="default"
+        name="laptops"
+        id="dell"
+        value="dell"
+        onChange={(): string => {
+          return 'test';
+        }}
+      />,
+    );
+    expect(getByTestId('Radio')).not.toBeChecked();
+  });
+  it('Expect Radio is checked when defaultChecked is true', () => {
+    const { getByTestId } = render(
+      <Radio
+        size="default"
+        name="laptops"
+        id="dell"
+        value="dell"
+        onChange={(): string => {
+          return 'test';
+        }}
+        defaultChecked
+      />,
+    );
+    expect(getByTestId('Radio')).toBeChecked();
+  });
+  it('Expect Radio is checked after clicking', () => {
+    const { getByTestId } = render(
+      <Radio
+        size="default"
+        name="laptops"
+        id="dell"
+        value="dell"
+        onChange={(): string => {
+          return 'test';
+        }}
+      />,
+    );
+    userEvent.click(getByTestId('Radio'));
+    expect(getByTestId('Radio')).toBeChecked();
+  });
+  it('Expect Radio is disabled', () => {
+    const { getByTestId } = render(
+      <Radio
+        size="default"
+        name="laptops"
+        id="dell"
+        value="dell"
+        onChange={(): string => {
+          return 'test';
+        }}
+        disabled
+      />,
+    );
+    expect(getByTestId('Radio')).toBeDisabled();
+  });
+  it('Expect onChange is called once', () => {
+    const handleChange = jest.fn();
+    const { getByTestId } = render(
+      <Radio
+        size="default"
+        name="laptops"
+        id="dell"
+        value="dell"
+        onChange={handleChange}
+      />,
+    );
+    userEvent.click(getByTestId('Radio'));
+    expect(handleChange).toHaveBeenCalled();
+  });
 });

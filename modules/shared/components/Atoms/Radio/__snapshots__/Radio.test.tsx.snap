@@ -1,69 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Radio Testing Radio disabled 1`] = `
-<div
-  className="relative"
+exports[`Testing Radio with snapshot Testing Radio with required and optional props 1`] = `
+<label
+  className=""
+  htmlFor="dell"
 >
   <input
-    className="undefined"
+    className=""
     data-testid="Radio"
+    defaultChecked={false}
     disabled={true}
-    onClick={[Function]}
+    id="dell"
+    name="laptops"
+    onChange={[Function]}
     type="radio"
+    value="dell"
   />
   <div
-    className="undefined"
+    className=""
   />
-</div>
+  <span
+    className="text-2xl"
+  >
+    dell
+  </span>
+</label>
 `;
 
-exports[`Testing Radio Testing Radio size Default 1`] = `
-<div
-  className="relative"
+exports[`Testing Radio with snapshot Testing Radio with required props 1`] = `
+<label
+  className=""
+  htmlFor="dell"
 >
   <input
     className="undefined"
     data-testid="Radio"
     disabled={false}
-    onClick={[Function]}
+    id="dell"
+    name="laptops"
+    onChange={[Function]}
     type="radio"
+    value="dell"
   />
   <div
     className=""
   />
-</div>
-`;
-
-exports[`Testing Radio Testing Radio size Small 1`] = `
-<div
-  className="relative"
->
-  <input
-    className=""
-    data-testid="Radio"
-    disabled={false}
-    onClick={[Function]}
-    type="radio"
+  <span
+    className="ml-2"
   />
-  <div
-    className=""
-  />
-</div>
-`;
-
-exports[`Testing Radio Testing Radio with no props 1`] = `
-<div
-  className="relative"
->
-  <input
-    className="undefined"
-    data-testid="Radio"
-    disabled={false}
-    onClick={[Function]}
-    type="radio"
-  />
-  <div
-    className=""
-  />
-</div>
+</label>
 `;

@@ -4,14 +4,22 @@ import type { Story } from '@storybook/react';
 import Radio from '.';
 import type { IRadio } from './IRadio';
 
-const defaultExport = {
-  title: 'Atoms/Radio/Radio',
+export default {
   component: Radio,
+  title: 'Atoms/Radio',
   argTypes: {
     size: {
+      options: ['small', 'default'],
+      control: { type: 'select' },
+    },
+    label: {
       control: {
-        type: 'select',
-        options: ['default', 'small'],
+        type: 'text',
+      },
+    },
+    defaultChecked: {
+      control: {
+        type: 'boolean',
       },
     },
     disabled: {
@@ -22,14 +30,14 @@ const defaultExport = {
   },
 };
 
-export default defaultExport;
-
 const Template: Story<IRadio.IProps> = (args): ReactElement => (
   <Radio {...args} />
 );
 
-export const radio = Template.bind({});
-radio.args = {
+export const RadioTS = Template.bind({});
+RadioTS.args = {
   size: 'default',
+  label: 'test',
+  defaultChecked: false,
   disabled: false,
 };
