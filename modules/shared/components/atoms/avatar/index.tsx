@@ -1,12 +1,11 @@
 import type { FC, ReactElement } from 'react';
-import className from 'classnames';
 import React from 'react';
 import Image from 'next/image';
 import type { IAvatar } from './IAvatar';
-import { ReactComponent as AnonymousIcon } from './anonymous.svg';
-import { ReactComponent as NotFilledIcon } from './notFilled.svg';
+import AnonymousIcon from './anonymous.svg';
+import NotFilledIcon from './notFilled.svg';
 
-export const determineImageSize = (componentSize: string): number => {
+export const determineAvatarSize = (componentSize: string): number => {
   const smallSize = 32;
   const mediumSize = 40;
   const largeSize = 56;
@@ -20,26 +19,13 @@ export const determineImageSize = (componentSize: string): number => {
 };
 
 const Index: FC<IAvatar.IProps> = ({ size, variant, imgSrc }): ReactElement => {
-  const classes = className({
-    'w-8 h-8': size === 'small',
-    'w-10 h-10': size === 'medium',
-    'w-14 h-14': size === 'large',
-    'rounded-full': variant === 'filled',
-  });
-  const imageSize = determineImageSize(size);
+  const avatarSize = determineAvatarSize(size);
   if (variant === 'anonymous') {
-    return <AnonymousIcon width={imageSize} height={imageSize} />;
+    return <AnonymousIcon width={avatarSize} height={avatarSize} />;
   }
   if (variant === 'filled' && imgSrc !== undefined)
-    return (
-      <Image
-        height={imageSize}
-        width={imageSize}
-        className={classes}
-        src={imgSrc}
-      />
-    );
+    return <Image height={avatarSize} width={avatarSize} src={imgSrc} />;
 
-  return <NotFilledIcon width={imageSize} height={imageSize} />;
+  return <NotFilledIcon width={avatarSize} height={avatarSize} />;
 };
 export default Index;

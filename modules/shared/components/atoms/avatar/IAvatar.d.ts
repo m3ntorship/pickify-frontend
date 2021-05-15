@@ -1,7 +1,7 @@
 declare namespace IAvatar {
   export interface IProps {
-    size: string;
-    variant: string;
+    size: 'large' | 'medium' | 'small';
+    variant: 'anonymous' | 'filled' | 'notFilled';
     imgSrc?: string;
   }
 }
