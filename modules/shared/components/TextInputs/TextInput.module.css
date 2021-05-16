@@ -119,4 +119,8 @@
   @apply bg-white text-grey-shd4;
 }
 
+.prefixes {
+  @apply bg-transparent focus:outline-none;
+}
+
 /* Text Inputs */

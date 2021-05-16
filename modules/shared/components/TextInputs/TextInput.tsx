@@ -21,11 +21,11 @@ const TextInput: FC<ITextInputs.IProps> = ({
 }): ReactElement => {
   const [inputVal, setInputVal] = React.useState<string>('');
 
-  const hideIconHandler = (e: React.FormEvent<HTMLInputElement>): void => {
+  const changeHandler = (e: React.FormEvent<HTMLInputElement>): void => {
     setInputVal(e.currentTarget.value);
   };
 
-  const showIconHandler = (): void => {
+  const hideIconHandler = (): void => {
     setInputVal('');
   };
 
@@ -47,11 +47,15 @@ const TextInput: FC<ITextInputs.IProps> = ({
         inputType === ETextInput.InputType.Choices,
     },
   );
+
+  /*
+    when it comes to authentication we need to validate
+  */
   // const inputId = id.trim().split(' ').join('');
 
   return (
     <div className={styles['form-group']}>
-      {label && (
+      {label !== undefined && (
         <label htmlFor={id} className={styles['form-label']}>
           {label}
         </label>
@@ -64,7 +68,7 @@ const TextInput: FC<ITextInputs.IProps> = ({
           type="text"
           id={id}
           disabled={disabled}
-          onChange={hideIconHandler}
+          onChange={changeHandler}
           value={inputVal}
           data-variant={variants}
           data-input-type={inputType}
@@ -72,7 +76,7 @@ const TextInput: FC<ITextInputs.IProps> = ({
         />
         <span className={styles['status-icon']}>
           {variants === ETextInput.Variants.Default && inputVal && (
-            <DeleteIcon onClick={showIconHandler} data-testid="delete-icon" />
+            <DeleteIcon onClick={hideIconHandler} data-testid="delete-icon" />
           )}
           {variants === ETextInput.Variants.Error && <ErrorIcon />}
           {variants === ETextInput.Variants.Success && <SuccessIcon />}
@@ -82,10 +86,7 @@ const TextInput: FC<ITextInputs.IProps> = ({
           {inputType === ETextInput.InputType.LeftIcon && <HomeIcon />}
           {inputType === ETextInput.InputType.Prefix && '+20'}
           {inputType === ETextInput.InputType.PrefixDropdown && (
-            <select
-              className="bg-transparent focus:outline-none"
-              disabled={disabled}
-            >
+            <select className={styles.prefixes} disabled={disabled}>
               <option value="+20">+20</option>
               <option value="+50">+50</option>
             </select>
