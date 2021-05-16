@@ -1,16 +1,12 @@
+import type * as ETextInput from './ETextInput';
+
 declare namespace ITextInputs {
   export interface IProps {
     [property: string]: unknown;
     label: string;
     id: string;
-    variants: 'default' | 'error' | 'success';
-    inputType:
-      | 'choices'
-      | 'default'
-      | 'left-icon'
-      | 'prefix-dropdown'
-      | 'prefix'
-      | 'right-icon';
+    variants: ETextInput.Variants;
+    inputType: ETextInput.InputType;
     disabled: boolean;
     letter?: string;
   }

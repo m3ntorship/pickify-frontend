@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import TextInput from './TextInput';
-import type { ITextInputs } from './ITextInputs';
+import type { ITextInputs } from './types/ITextInputs';
+import * as ETextInput from './types/ETextInput';
 
 export default {
   title: 'Atoms/TextInput',
@@ -12,11 +13,11 @@ const Template: Story<ITextInputs.IProps> = (args) => <TextInput {...args} />;
 
 export const textInput = Template.bind({});
 textInput.args = {
-  label: 'Label',
+  label: 'label',
   id: 'my label',
-  inputType: 'default',
-  variants: 'default',
+  inputType: ETextInput.InputType.Default,
+  variants: ETextInput.Variants.Default,
   disabled: false,
-  placeholder: 'Enter text',
+  placeholder: 'text Input ',
   letter: 'A',
 };
