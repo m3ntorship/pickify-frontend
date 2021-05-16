@@ -122,7 +122,9 @@ module.exports = {
         l: '1.5rem', // 24px
         xl: '2rem', // 32px
         xxl: '2.5rem', // 40px
+        xvxl: '2.666rem',
         '3xl': '3rem', // 48px
+        '3xxl': '3.6875rem', // 59px
         '4xl': '4rem', // 64px
         '5xl': '8rem', // 128px
       },
@@ -149,7 +151,16 @@ module.exports = {
         '21xl': '21.25rem', // 340px
         '61xl': '61.0625rem', // 977px
       },
+      borderWidth: {
+        5: '5px',
+        7: '7px',
+      },
     },
+    fill: (theme) => ({
+      'dark-grey': theme('colors.dark.grey'),
+      grey: theme('colors.grey.DEFAULT'),
+      'grey-shd4': theme('colors.grey.shd4'),
+    }),
   },
   variants: {
     extend: {
@@ -157,6 +168,7 @@ module.exports = {
       backgroundColor: ['group-focus'],
       opacity: ['disabled'],
     },
+    fill: ['hover', 'focus'],
   },
   plugins: [],
 };
