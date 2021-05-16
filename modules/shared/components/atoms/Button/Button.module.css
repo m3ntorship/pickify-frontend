@@ -1,3 +1,63 @@
-.btn {
+/* button classes */
+.btn-default {
+  @apply rounded-full ml-4 mt-4 focus:border-2 focus:border-dark-btnFocus focus:outline-none;
+}
+.btn-disable {
+  @apply opacity-25 pointer-events-none;
+}
+.btn-primary {
+  @apply bg-primary  text-white hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary-dark;
+}
+.btn-secondary {
+  @apply text-primary bg-white  border border-primary hover:bg-grey-bg focus:outline-none focus:ring-2 focus:ring-primary-dark;
+}
+.btn-text {
+  @apply bg-none text-accent hover:text-accent-hover focus:underline;
+}
+.btn-font-big {
+  @apply text-md font-bold;
+}
+.btn-font-meduim {
+  @apply text-base font-medium;
+}
+.btn-font-small {
+  @apply text-sm font-medium;
+}
+.btn-padding-onlyIcon-large {
+  @apply p-s;
+}
+.btn-padding-onlyIcon-default {
+  @apply p-xs;
+}
+.btn-padding-large {
+  @apply py-m px-xl;
+}
+.btn-padding-meduim {
+  @apply py-xs px-l;
+}
+.btn-padding-small {
+  @apply py-s px-m;
+}
+
+/*  svg classes */
+.svgColor {
+  @apply fill-current;
+}
+.svgColor-primary {
+  @apply text-primary;
+}
+.svgColor-accent {
+  @apply text-accent;
+}
+.svgColor-white {
   @apply text-white;
+}
+.svgPadding-onlyIcon {
+  @apply mx-xxs;
+}
+.svgPadding-rightIcon {
+  @apply ml-xxs;
+}
+.svgPadding-leftIcon {
+  @apply mr-xxs;
 }
