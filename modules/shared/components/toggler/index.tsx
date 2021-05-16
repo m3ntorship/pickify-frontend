@@ -1,6 +1,7 @@
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import * as React from 'react';
+import styles from './Toggler.module.css';
 import type { TogglerTypes } from './TogglerTypes';
 /** 
 * @example : <Toggler size="sm" checked={isChecked} onChange={handleTogglerChange} disabled={true} />
@@ -17,39 +18,29 @@ const Toggler: FC<TogglerTypes.Props> = ({
   id,
   onChange,
 }): ReactElement => {
-  const dynamicToggleBodyClasses = classNames(
-    'rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative',
-    {
-      'w-2xl h-6 ': size === 'default',
-      'w-7 h-4 ': size === 'sm',
-      'bg-primary-shd7 hover:bg-primary-shd6 ': checked && !disabled,
-      'bg-grey-shd4 hover:bg-grey-shd3 ': !checked && !disabled,
-      'focus-within:ring-1 focus-within:ring-grey-shd3':
-        size === 'sm' && !checked,
-      'focus-within:ring-1 focus-within:ring-primary-shd5':
-        size === 'sm' && checked,
-      'focus-within:ring-2 focus-within:ring-grey-shd3':
-        size === 'default' && !checked,
-      'focus-within:ring-2 focus-within:ring-primary-shd5':
-        size === 'default' && checked,
-      'cursor-not-allowed opacity-50 bg-primary-shd7': checked && disabled,
-      'cursor-not-allowed bg-grey-shd6': !checked && disabled,
-    },
-  );
-  const dynamicCircleClasses = classNames(
-    'rounded-full transition-all duration-100 ease-in-out',
-    {
-      'bg-primary transform': checked,
-      'bg-white': !checked,
-      'translate-x-3': checked && size === 'sm',
-      'translate-x-sm': checked && size === 'default',
-      'w-2.5 h-2.5 m-2xxs': size === 'sm',
-      'w-4 h-4 m-1 ': size === 'default',
-    },
-  );
+  const dynamicToggleBodyClasses = classNames(styles.toggleBodyClasses, {
+    [styles.toggleBodyClassesDefault]: size === 'default',
+    [styles.toggleBodyClassesSmall]: size === 'sm',
+    [styles.toggleBodyClassesCheckedAndEnabled]: checked && !disabled,
+    [styles.toggleBodyClassesUncheckedAndEnabled]: !checked && !disabled,
+    [styles.toggleBodyClassesSmallUnchecked]: size === 'sm' && !checked,
+    [styles.toggleBodyClassesSmallChecked]: size === 'sm' && checked,
+    [styles.toggleBodyClassesDefaultUnchecked]: size === 'default' && !checked,
+    [styles.toggleBodyClassesDefaultChecked]: size === 'default' && checked,
+    [styles.toggleBodyClassesCheckedAndDisabled]: checked && disabled,
+    [styles.toggleBodyClassesUncheckedAndDisabled]: !checked && disabled,
+  });
+  const dynamicCircleClasses = classNames(styles.circleClasses, {
+    [styles.circleClassesChecked]: checked,
+    [styles.circleClassesUnChecked]: !checked,
+    [styles.circleClassesCheckedSmall]: checked && size === 'sm',
+    [styles.circleClassesCheckedDefault]: checked && size === 'default',
+    [styles.circleClassesSmall]: size === 'sm',
+    [styles.circleClassesDefault]: size === 'default',
+  });
   const checkBoxInput = classNames('opacity-0 absolute', {
-    'cursor-pointer': !disabled,
-    'cursor-not-allowed': disabled,
+    [styles.checkBoxInputEnabled]: !disabled,
+    [styles.checkBoxInputDisabled]: disabled,
   });
   return (
     <>

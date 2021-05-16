@@ -2,11 +2,11 @@
 
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and (opacity-25) when passing disabled={true} and size=sm  1`] = `
 <label
-  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-7 h-4  focus-within:ring-1 focus-within:ring-grey-shd3 cursor-not-allowed bg-grey-shd6"
+  className="undefined"
   htmlFor="test"
 >
   <input
-    className="opacity-0 absolute cursor-not-allowed"
+    className="opacity-0 absolute undefined"
     data-testid="test"
     disabled={true}
     id="test"
@@ -14,18 +14,18 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
     type="checkbox"
   />
   <div
-    className="rounded-full transition-all duration-100 ease-in-out bg-white w-2.5 h-2.5 m-2xxs"
+    className=""
   />
 </label>
 `;
 
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and do NOT include (opacity-25) when passing disabled={false} and size=sm  1`] = `
 <label
-  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-7 h-4  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-1 focus-within:ring-grey-shd3"
+  className=""
   htmlFor="test"
 >
   <input
-    className="opacity-0 absolute cursor-pointer"
+    className="opacity-0 absolute"
     data-testid="test"
     disabled={false}
     id="test"
@@ -33,7 +33,7 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
     type="checkbox"
   />
   <div
-    className="rounded-full transition-all duration-100 ease-in-out bg-white w-2.5 h-2.5 m-2xxs"
+    className=""
   />
 </label>
 `;
@@ -44,34 +44,34 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-2 focus-within:ring-grey-shd3"
+        class=""
         for="test"
       >
         <input
-          class="opacity-0 absolute cursor-pointer"
+          class="opacity-0 absolute"
           data-testid="test"
           id="test"
           type="checkbox"
         />
         <div
-          class="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
+          class="undefined"
         />
       </label>
     </div>
   </body>,
   "container": <div>
     <label
-      class="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-2xl h-6  bg-grey-shd4 hover:bg-grey-shd3  focus-within:ring-2 focus-within:ring-grey-shd3"
+      class=""
       for="test"
     >
       <input
-        class="opacity-0 absolute cursor-pointer"
+        class="opacity-0 absolute"
         data-testid="test"
         id="test"
         type="checkbox"
       />
       <div
-        class="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
+        class="undefined"
       />
     </label>
   </div>,
@@ -131,11 +131,11 @@ Object {
 
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames include (opacity-25) when passing disabled={true} and size=default  1`] = `
 <label
-  className="rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative w-2xl h-6  focus-within:ring-2 focus-within:ring-grey-shd3 cursor-not-allowed bg-grey-shd6"
+  className="undefined"
   htmlFor="test"
 >
   <input
-    className="opacity-0 absolute cursor-not-allowed"
+    className="opacity-0 absolute undefined"
     data-testid="test"
     disabled={true}
     id="test"
@@ -143,7 +143,7 @@ exports[`Toggler Component with snapshot should render include (w-sm h-6) and cl
     type="checkbox"
   />
   <div
-    className="rounded-full transition-all duration-100 ease-in-out bg-white w-4 h-4 m-1 "
+    className="undefined"
   />
 </label>
 `;

@@ -1,0 +1,60 @@
+.toggleBodyClasses {
+  @apply rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative;
+}
+.toggleBodyClassesDefault {
+  @apply w-2xl h-6;
+}
+.toggleBodyClassesSmall {
+  @apply w-7 h-4;
+}
+.toggleBodyClassesCheckedAndEnabled {
+  @apply bg-primary-shd7 hover:bg-primary-shd6;
+}
+.toggleBodyClassesUncheckedAndEnabled {
+  @apply bg-grey-shd4 hover:bg-grey-shd3;
+}
+.toggleBodyClassesSmallUnchecked {
+  @apply focus-within:ring-1 focus-within:ring-grey-shd3;
+}
+.toggleBodyClassesSmallChecked {
+  @apply focus-within:ring-1 focus-within:ring-primary-shd5;
+}
+.toggleBodyClassesDefaultUnchecked {
+  @apply focus-within:ring-2 focus-within:ring-grey-shd3;
+}
+.toggleBodyClassesDefaultChecked {
+  @apply focus-within:ring-2 focus-within:ring-primary-shd5;
+}
+.toggleBodyClassesCheckedAndDisabled {
+  @apply cursor-not-allowed opacity-50 bg-primary-shd7;
+}
+.toggleBodyClassesUncheckedAndDisabled {
+  @apply cursor-not-allowed bg-grey-shd6;
+}
+.circleClasses {
+  @apply rounded-full transition-all duration-100 ease-in-out;
+}
+.circleClassesChecked {
+  @apply bg-primary transform;
+}
+.circleClassesUnChecked {
+  @apply bg-white;
+}
+.circleClassesCheckedSmall {
+  @apply translate-x-3;
+}
+.circleClassesCheckedDefault {
+  @apply translate-x-sm;
+}
+.circleClassesSmall {
+  @apply w-2.5 h-2.5 m-2xxs;
+}
+.circleClassesDefault {
+  @apply w-4 h-4 m-1;
+}
+.checkBoxInputEnabled {
+  @apply cursor-pointer;
+}
+.checkBoxInputDisabled {
+  @apply cursor-not-allowed;
+}
