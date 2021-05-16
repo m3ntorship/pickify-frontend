@@ -13,7 +13,9 @@ const Slider: FC<ISlider.IProps> = ({
   const maximumProgress = 100;
   const halfMaximumProgress = 50;
   const defaultHeight = 300;
-  const outerHorizontalClasses = classNames('w-full h-3 rounded-sm bg-white');
+  const outerHorizontalClasses = classNames(
+    'w-full h-3 bg-white flex items-center p-1 rounded-sm',
+  );
   const innerHorizontalClasses = classNames('h-1 rounded-sm', {
     'bg-success': progress === maximumProgress,
     'bg-primary': progress < maximumProgress,
@@ -27,6 +29,9 @@ const Slider: FC<ISlider.IProps> = ({
     'bg-error': progress < maximumProgress && verticalMeterColor === 'error',
   });
   const innerVerticalClasses = classNames('w-2 bg-white rounded-t-sm');
+  const wrapperClasses = classNames(
+    'rounded-sm py-1 px-2 bg-white w-3 flex justify-center',
+  );
   const circularClasses = classNames(
     '-rotate-90 origin-center stroke-current',
     {
@@ -60,14 +65,16 @@ const Slider: FC<ISlider.IProps> = ({
   }
   if (type === 'vertical') {
     return (
-      <div
-        style={{ height: `${height ?? defaultHeight}px` }}
-        className={outerVerticalClasses}
-      >
+      <div className={wrapperClasses}>
         <div
-          className={innerVerticalClasses}
-          style={{ height: `${maximumProgress - progress}%` }}
-        />
+          style={{ height: `${height ?? defaultHeight}px` }}
+          className={outerVerticalClasses}
+        >
+          <div
+            className={innerVerticalClasses}
+            style={{ height: `${maximumProgress - progress}%` }}
+          />
+        </div>
       </div>
     );
   }
