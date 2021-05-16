@@ -32,8 +32,8 @@ const TextInput: FC<ITextInputs.IProps> = ({
   const inputClasses: string = className(
     styles['form-input'],
     {
-      [styles.error]: variants === ETextInput.Variants.Error,
-      [styles.success]: variants === ETextInput.Variants.Success,
+      [styles.error]: variants === ETextInput.Variants.Error && !disabled,
+      [styles.success]: variants === ETextInput.Variants.Success && !disabled,
     },
     {
       [styles['input-with-right-icon']]:
@@ -75,11 +75,15 @@ const TextInput: FC<ITextInputs.IProps> = ({
           {...(props as unknown)}
         />
         <span className={styles['status-icon']}>
-          {variants === ETextInput.Variants.Default && inputVal && (
-            <DeleteIcon onClick={hideIconHandler} data-testid="delete-icon" />
+          {variants === ETextInput.Variants.Default &&
+            !disabled &&
+            inputVal && (
+              <DeleteIcon onClick={hideIconHandler} data-testid="delete-icon" />
+            )}
+          {variants === ETextInput.Variants.Error && !disabled && <ErrorIcon />}
+          {variants === ETextInput.Variants.Success && !disabled && (
+            <SuccessIcon />
           )}
-          {variants === ETextInput.Variants.Error && <ErrorIcon />}
-          {variants === ETextInput.Variants.Success && <SuccessIcon />}
         </span>
         <span className={styles['control-icon']}>
           {inputType === ETextInput.InputType.RightIcon && <ArrowDownIcon />}
