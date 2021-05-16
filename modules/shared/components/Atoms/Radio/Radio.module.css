@@ -1,5 +1,5 @@
 .radio_container{
-    @apply relative inline-flex items-center cursor-pointer;
+    @apply relative inline-flex cursor-pointer;
 }
 .radio_input{
     @apply absolute opacity-0 cursor-pointer;
@@ -34,6 +34,12 @@
 .radio_input:disabled{
     @apply cursor-not-allowed;
 }
+.radio_input:disabled:hover ~ .checked_disabled_default, .radio_input:disabled:hover ~ .checked_disabled_small{
+    @apply border-primary-shd7;
+}
+.radio_input:disabled:hover ~ .unchecked_disabled{
+    @apply border-primary-shd6;
+}
 .radio_input:focus ~ .unchecked{
     @apply border-grey-shd2 border-2;
 }
@@ -55,4 +61,8 @@
 .radio_input:checked:focus  ~ .checkmark_small{
     @apply ring-1 ring-offset-primary-shd6 outline-none;
 }
+.radio_input:checked:disabled  ~ .checkmark_default, .radio_input:checked:disabled  ~ .checkmark_small{
+    @apply border-primary-shd7;
+}
+
 

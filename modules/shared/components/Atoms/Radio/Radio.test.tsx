@@ -34,8 +34,6 @@ describe('Testing Radio with snapshot', () => {
           }}
           defaultChecked
           disabled
-          label="dell"
-          labelStyle="text-2xl"
         />,
       )
       .toJSON();

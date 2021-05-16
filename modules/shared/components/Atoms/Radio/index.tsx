@@ -1,20 +1,25 @@
-import type { ReactElement, FC } from 'react';
 import React from 'react';
 import classnames from 'classnames';
+import type { ReactElement, FC } from 'react';
 import styles from './Radio.module.css';
 import type { IRadio } from './IRadio';
 
 /** 
- * @Parameters size, name, value, id,  and onChange are required, defaultChecked, label, labelStyle and disabled is optional.
+ * @Parameters size, name, value, id,  and onChange are required, defaultChecked and disabled is optional.
  * @ParentComponentSouldhtHave
    const [checkedValue, setCheckedValue] = useState("");
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
      setCheckedValue(e.target.value)
    }
 * @example :<fieldset className="m-4">
-              <Radio size="default" name="laptops" id="dell" label="Dell" value="dell" onChange={handleChange}  defaultChecked={true}  />
-              <br/>
-              <Radio size="default" name="laptops" id="hp" label="HP" value="hp" onChange={handleChange}  />
+              <div className="flex items-center mb-2">
+                <Radio size="default" name="laptops" id="dell" value="dell" onChange={handleChange} defaultChecked />
+                <label htmlFor="dell">Dell</label>
+              </div>
+              <div className="flex items-center mb-2">
+                <Radio size="default" name="laptops" id="hp" value="hp" onChange={handleChange} />
+                <label htmlFor="hp">HP</label>
+              </div>
             </fieldset>
 */
 
@@ -24,8 +29,6 @@ const Radio: FC<IRadio.IProps> = ({
   value,
   id,
   defaultChecked = false,
-  label,
-  labelStyle = 'ml-2',
   disabled = false,
   onChange,
 }): ReactElement => {
@@ -50,7 +53,7 @@ const Radio: FC<IRadio.IProps> = ({
   );
   return (
     <>
-      <label htmlFor={id} className={styles.radio_container}>
+      <div className={styles.radio_container}>
         <input
           type="radio"
           className={radioInputClasses}
@@ -63,8 +66,7 @@ const Radio: FC<IRadio.IProps> = ({
           data-testid="Radio"
         />
         <div className={radioCustomClasses} />
-        <span className={labelStyle}>{label}</span>
-      </label>
+      </div>
     </>
   );
 };
