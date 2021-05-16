@@ -22,8 +22,8 @@ const Toggler: FC<TogglerTypes.Props> = ({
     {
       'w-2xl h-6 ': size === 'default',
       'w-7 h-4 ': size === 'sm',
-      'bg-primary-shd7 hover:bg-primary-shd6 ': checked,
-      'bg-grey-shd4 hover:bg-grey-shd3 ': !checked,
+      'bg-primary-shd7 hover:bg-primary-shd6 ': checked && !disabled,
+      'bg-grey-shd4 hover:bg-grey-shd3 ': !checked && !disabled,
       'focus-within:ring-1 focus-within:ring-grey-shd3':
         size === 'sm' && !checked,
       'focus-within:ring-1 focus-within:ring-primary-shd5':
@@ -32,7 +32,8 @@ const Toggler: FC<TogglerTypes.Props> = ({
         size === 'default' && !checked,
       'focus-within:ring-2 focus-within:ring-primary-shd5':
         size === 'default' && checked,
-      'cursor-not-allowed opacity-25': disabled,
+      'cursor-not-allowed opacity-50 bg-primary-shd7': checked && disabled,
+      'cursor-not-allowed bg-grey-shd6': !checked && disabled,
     },
   );
   const circleClasses = classNames(
