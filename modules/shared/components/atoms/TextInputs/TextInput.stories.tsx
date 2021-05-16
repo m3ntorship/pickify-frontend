@@ -15,7 +15,7 @@ export const textInput = Template.bind({});
 textInput.args = {
   label: 'label',
   id: 'my label',
-  inputType: ETextInput.InputType.Default,
+  inputType: ETextInput.InputType.RightIcon,
   variants: ETextInput.Variants.Default,
   disabled: false,
   placeholder: 'text Input ',
