@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import type { TargetElement } from '@testing-library/user-event';
 import Toggler from './index';
 
 describe('Toggler Component with snapshot', () => {
@@ -72,10 +73,28 @@ describe('Toggler Component with react testing library', () => {
     render(
       <Toggler size="sm" checked={false} id="test" onChange={handleClick} />,
     );
-    const checkbox = screen.getByTestId('test') as HTMLInputElement;
+    const checkbox: TargetElement = screen.getByTestId('test');
     const calledonce = 1;
     userEvent.click(checkbox);
     expect(handleClick).toHaveBeenCalledTimes(calledonce);
-    expect(checkbox.checked).toEqual(true);
+    expect(checkbox).toBeChecked();
+  });
+  it('should not be clicked or checked when being disabled', () => {
+    const handleClick = jest.fn();
+    render(
+      <Toggler
+        size="sm"
+        checked={false}
+        disabled
+        id="test"
+        onChange={handleClick}
+      />,
+    );
+    const checkbox: TargetElement = screen.getByTestId('test');
+    const notCalled = 0;
+    userEvent.click(checkbox);
+    expect(handleClick).toHaveBeenCalledTimes(notCalled);
+    expect(checkbox).toBeDisabled();
+    expect(checkbox).not.toBeChecked();
   });
 });
