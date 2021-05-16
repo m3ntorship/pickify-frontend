@@ -91,11 +91,7 @@ const TextInput: FC<ITextInputs.IProps> = ({
             </select>
           )}
           {inputType === ETextInput.InputType.Choices && (
-            <div className="bg-grey-shd7 py-0.5 px-xs rounded-sm">
-              <h3 className="text-sm text-grey font-normal leading-snug">
-                {letter}
-              </h3>
-            </div>
+            <span className="letter">{letter}</span>
           )}
         </span>
       </div>
