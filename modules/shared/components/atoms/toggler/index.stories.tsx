@@ -17,8 +17,8 @@ export default {
 const Template: Story<TogglerTypes.Props> = (args): ReactElement => (
   <Toggler {...args} />
 );
-export const togglerTS = Template.bind({});
-togglerTS.args = {
+export const toggler = Template.bind({});
+toggler.args = {
   size: 'default',
   disabled: false,
   checked: false,
