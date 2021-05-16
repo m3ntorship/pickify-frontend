@@ -1,11 +1,11 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import className from 'classnames';
-import DeleteIcon from '../icons/inputFocus.svg';
-import ErrorIcon from '../icons/inputError.svg';
-import SuccessIcon from '../icons/inputSuccess.svg';
-import ArrowDownIcon from '../icons/inputArrowDown.svg';
-import HomeIcon from '../icons/inputHome.svg';
+import DeleteIcon from '../../icons/inputFocus.svg';
+import ErrorIcon from '../../icons/inputError.svg';
+import SuccessIcon from '../../icons/inputSuccess.svg';
+import ArrowDownIcon from '../../icons/inputArrowDown.svg';
+import HomeIcon from '../../icons/inputHome.svg';
 import styles from './TextInput.module.css';
 import type { ITextInputs } from './types/ITextInputs';
 import * as ETextInput from './types/ETextInput';
