@@ -17,7 +17,7 @@ const Toggler: FC<TogglerTypes.Props> = ({
   id,
   onChange,
 }): ReactElement => {
-  const toggleBodyClasses = classNames(
+  const dynamicToggleBodyClasses = classNames(
     'rounded-full flex items-center cursor-pointer transition duration-100 ease-out focus:outline-none relative',
     {
       'w-2xl h-6 ': size === 'default',
@@ -36,7 +36,7 @@ const Toggler: FC<TogglerTypes.Props> = ({
       'cursor-not-allowed bg-grey-shd6': !checked && disabled,
     },
   );
-  const circleClasses = classNames(
+  const dynamicCircleClasses = classNames(
     'rounded-full transition-all duration-100 ease-in-out',
     {
       'bg-primary transform': checked,
@@ -53,7 +53,7 @@ const Toggler: FC<TogglerTypes.Props> = ({
   });
   return (
     <>
-      <label htmlFor={id} className={toggleBodyClasses}>
+      <label htmlFor={id} className={dynamicToggleBodyClasses}>
         <input
           onChange={onChange}
           type="checkbox"
@@ -62,7 +62,7 @@ const Toggler: FC<TogglerTypes.Props> = ({
           className={checkBoxInput}
           disabled={disabled}
         />
-        <div className={circleClasses} />
+        <div className={dynamicCircleClasses} />
       </label>
     </>
   );
