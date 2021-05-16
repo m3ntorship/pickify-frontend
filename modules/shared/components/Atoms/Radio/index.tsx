@@ -6,21 +6,22 @@ import type { IRadio } from './IRadio';
 
 /** 
  * @Parameters size, name, value, id,  and onChange are required, defaultChecked and disabled is optional.
- * @ParentComponentSouldhtHave
-   const [checkedValue, setCheckedValue] = useState("");
+ * @ParentComponentShouldHave
+   const [checkedValue, setCheckedValue] = useState('dell12'); // set default value here to be defaultChecked or put ''
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
      setCheckedValue(e.target.value)
    }
-* @example :<fieldset className="m-4">
-              <div className="flex items-center mb-2">
-                <Radio size="default" name="laptops" id="dell" value="dell" onChange={handleChange} defaultChecked />
-                <label htmlFor="dell">Dell</label>
-              </div>
-              <div className="flex items-center mb-2">
-                <Radio size="default" name="laptops" id="hp" value="hp" onChange={handleChange} />
-                <label htmlFor="hp">HP</label>
-              </div>
-            </fieldset>
+* @example :  <fieldset className="m-4">
+                <div className="flex items-center mb-2">
+                  <Radio size="default" name="laptops" id="dell" value="dell12" onChange={handleChange} defaultChecked={checkedValue === 'dell12'} />
+                  <label htmlFor="dell">Dell</label>
+                </div>
+                <div className="flex items-center mb-2">
+                  <Radio size="default" name="laptops" id="hp" value="hp12" onChange={handleChange} defaultChecked={checkedValue === 'hp12'}
+                  />
+                  <label htmlFor="hp">HP</label>
+                </div>
+              </fieldset>
 */
 
 const Radio: FC<IRadio.IProps> = ({
