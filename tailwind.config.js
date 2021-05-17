@@ -128,6 +128,7 @@ module.exports = {
         '3xl': '3rem', // 48px
         '3xxl': '3.6875rem', // 59px
         '4xl': '4rem', // 64px
+        '4xxl': '4.25rem', //68px
         '5xl': '8rem', // 128px
       },
 
