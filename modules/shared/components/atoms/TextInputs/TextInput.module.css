@@ -21,7 +21,7 @@
 }
 
 .form-input[disabled] {
-  @apply text-grey-shd4 border-grey-shd7 hover:border-grey-shd7 bg-transparent;
+  @apply text-grey-shd4 border-grey-shd7 hover:border-grey-shd7 bg-transparent cursor-not-allowed;
 }
 .form-input[disabled]::placeholder {
   @apply text-grey-shd4;
@@ -54,6 +54,13 @@
 
 .form-input.input-with-right-icon ~ .control-icon {
   @apply absolute top-3 right-3 cursor-pointer;
+}
+.form-input.input-with-right-icon:disabled ~ .control-icon {
+  @apply cursor-not-allowed;
+}
+.form-input.input-with-right-icon:disabled ~ .control-icon svg,
+.form-input.input-with-right-icon:disabled ~ .control-icon path {
+  @apply fill-grey-shd4;
 }
 .form-input.input-with-right-icon {
   @apply pr-4xxl;
@@ -88,7 +95,7 @@
 }
 .form-input.input-with-dropdown-prefix:disabled ~ .control-icon,
 .form-input.input-with-prefix:disabled ~ .control-icon {
-  @apply text-grey-shd3;
+  @apply text-grey-shd3 cursor-not-allowed;
 }
 .form-input.input-with-left-icon:focus ~ .control-icon svg,
 .form-input.input-with-left-icon:focus ~ .control-icon path {
@@ -96,11 +103,15 @@
 }
 .form-input.input-with-left-icon:disabled ~ .control-icon svg,
 .form-input.input-with-left-icon:disabled ~ .control-icon path {
-  @apply fill-grey-shd4;
+  @apply fill-grey-shd4 cursor-not-allowed;
 }
-.form-input.input-with-left-icon:not(:focus):hover ~ .control-icon svg,
-.form-input.input-with-left-icon:not(:focus):hover ~ .control-icon path {
-  @apply fill-grey;
+.form-input.input-with-left-icon:not(:focus):not(:disabled):hover
+  ~ .control-icon
+  svg,
+.form-input.input-with-left-icon:not(:focus)::not(:disabled):hover
+  ~ .control-icon
+  path {
+  @apply fill-grey cursor-not-allowed;
 }
 .form-input.input-with-prefix ~ .control-icon,
 .form-input.input-with-dropdown-prefix ~ .control-icon {
@@ -119,7 +130,7 @@
   @apply absolute top-xs left-xs bottom-xs text-grey bg-grey-shd7 py-0.5 px-xxsvl rounded-sm text-sm;
 }
 .form-input.input-with-choices:disabled ~ .control-icon {
-  @apply bg-white text-grey-shd4;
+  @apply bg-white text-grey-shd4 cursor-not-allowed;
 }
 
 .prefixes {

@@ -55,10 +55,12 @@ const TextInput: FC<ITextInputs.IProps> = ({
 
   return (
     <div className={styles['form-group']}>
-      {label !== undefined && (
+      {label ? (
         <label htmlFor={id} className={styles['form-label']}>
           {label}
         </label>
+      ) : (
+        ' '
       )}
 
       <div className={styles['form-control']}>
