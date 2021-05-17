@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button component should render (MEDIUM) button when we apply (MEDIUM) 1`] = `
+<button
+  className=""
+  disabled={false}
+  type="button"
+>
+  Button
+</button>
+`;
+
 exports[`Button component should render (disapled) button when we apply disapled 1`] = `
 <button
-  className="
-       undefined
-       undefined
-       font-meduim
-       undefined"
+  className=""
   disabled={true}
   type="button"
 >
@@ -16,11 +22,7 @@ exports[`Button component should render (disapled) button when we apply disapled
 
 exports[`Button component should render (large) button when we apply (large) 1`] = `
 <button
-  className="
-       undefined
-       undefined
-       font-meduim
-       "
+  className=""
   disabled={false}
   type="button"
 >
@@ -30,70 +32,36 @@ exports[`Button component should render (large) button when we apply (large) 1`]
 
 exports[`Button component should render (lefticon) button when we apply lefticon 1`] = `
 <button
-  className="
-       undefined
-       undefined
-       font-meduim
-       "
+  className="undefined"
   disabled={false}
   type="button"
 >
-  <svg
-    className="inline-block
-          undefined
-          undefined
-           "
-    data-file-name="SvgButtonArowDown"
-    height=""
-    width=""
-  />
-  Button
-</button>
-`;
-
-exports[`Button component should render (meduim) button when we apply (meduim) 1`] = `
-<button
-  className="
-       undefined
-       undefined
-       font-meduim
-       "
-  disabled={false}
-  type="button"
->
+  <span>
+    <svg
+      data-file-name="SvgButtonArowDown"
+    />
+  </span>
   Button
 </button>
 `;
 
 exports[`Button component should render (onlyicon)  button when we apply nothing 1`] = `
 <button
-  className="
-       undefined
-       undefined
-       font-meduim
-       "
+  className="undefined"
   disabled={false}
   type="button"
 >
-  <svg
-    className="inline-block
-            
-            undefined
-             "
-    data-file-name="SvgButtonArowDown"
-    height=""
-    width=""
-  />
+  <span>
+    <svg
+      data-file-name="SvgButtonArowDown"
+    />
+  </span>
 </button>
 `;
 
 exports[`Button component should render (primary) button when we apply primary 1`] = `
 <button
-  className="
-       undefined
-       undefined
-       font-meduim
-       "
+  className=""
   disabled={false}
   type="button"
 >
@@ -103,34 +71,22 @@ exports[`Button component should render (primary) button when we apply primary 1
 
 exports[`Button component should render (righticon) button when we apply righticon 1`] = `
 <button
-  className="
-       undefined
-       undefined
-       font-meduim
-       "
+  className=""
   disabled={false}
   type="button"
 >
   Button
-  <svg
-    className="inline-block
-           
-           undefined
-            "
-    data-file-name="SvgButtonArowDown"
-    height=""
-    width=""
-  />
+  <span>
+    <svg
+      data-file-name="SvgButtonArowDown"
+    />
+  </span>
 </button>
 `;
 
 exports[`Button component should render (secondary) button when we apply (secondary) 1`] = `
 <button
-  className="
-       undefined
-       
-       font-meduim
-       "
+  className=""
   disabled={false}
   type="button"
 >
@@ -140,11 +96,7 @@ exports[`Button component should render (secondary) button when we apply (second
 
 exports[`Button component should render (small) button when we apply (small) 1`] = `
 <button
-  className="
-       undefined
-       undefined
-       font-meduim
-       "
+  className="undefined"
   disabled={false}
   type="button"
 >
@@ -154,11 +106,7 @@ exports[`Button component should render (small) button when we apply (small) 1`]
 
 exports[`Button component should render (text) button when we apply text 1`] = `
 <button
-  className="
-       undefined
-       
-       font-meduim
-       "
+  className="undefined"
   disabled={false}
   type="button"
 >
