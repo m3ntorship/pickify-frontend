@@ -5,10 +5,10 @@ import styles from './Toggler.module.css';
 import type { TogglerTypes } from './TogglerTypes';
 /** 
 * @example : <Toggler size="sm" checked={isChecked} onChange={handleTogglerChange} disabled={true} />
-* @Parameters size, checked and onChange are required for Toggler component to function, The prop disabled is optional.
+* @Parameters size, id, checked and onChange are required for Toggler component to function, The prop disabled is optional.
 * @ThingsNeededToBeDoneInParentComponent
 const [isChecked,setIsChecked] = useState(false);
-cosnt handleTogglerChange = () => { setIsChecked(!isChecked) };
+cosnt handleTogglerChange = ():void => { setIsChecked(!isChecked) };
 */
 
 const Toggler: FC<TogglerTypes.Props> = ({
@@ -52,6 +52,7 @@ const Toggler: FC<TogglerTypes.Props> = ({
           data-testid={id}
           className={checkBoxInput}
           disabled={disabled}
+          defaultChecked={checked}
         />
         <div className={dynamicCircleClasses} />
       </label>
