@@ -1,3 +1,18 @@
 {
-    "workbench.colorCustomizations": {}
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "git.enableSmartCommit": true,
+  "editor.formatOnSave": true,
+  "css.validate": false, // Disable css built-in lint
+  "stylelint.enable": true // Enable sytlelint
 }
