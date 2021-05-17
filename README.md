@@ -88,12 +88,9 @@ The main folder structure of the code is structured like the following:
 
 - The structure is modular, this means that the project is encapsulated into modules, each of them will be handling a single page.
 
+- Every module will have a separated folder that contains its own `components`, `api` for api calls, `logic` for business logic of the module, `tests`, `pages` which contains the pages that belongs to the module and `index.js` file which is the entry point of the module.
 
- - Every module will have a separated folder that contains its own `components`, `api` for api calls, `logic` for business logic of the module, `tests`, `pages` which contains the pages that belongs to the module and `index.js` file which is the entry point of the module.
-
-
-  - Also there's the `shared` module which contains the components, api calls and logic that's shared across all the modules e.g: `Layout` component.
-
+- Also there's the `shared` module which contains the components, api calls and logic that's shared across all the modules e.g: `Layout` component.
 
 ```sh
 - e.g: Articles module =>  components folder + api folder (api calls, data being fetched,..etc)+ hooks folder(any custom hook in use for that module) + logic folder(any utils or helper functions e.g: date format)
@@ -103,47 +100,36 @@ The main folder structure of the code is structured like the following:
 
 ```
 
+> Note: `it is preferd in naming any file, to have the same name as the function it is holding. e.g: util named "SideClickHandler" expected to be in a file named "SideClickHandler"`
 
-> Note: `
-it is preferd in naming any file, to have the same name as the function it is holding. e.g: util named "SideClickHandler" expected to be in a file named "SideClickHandler" `
-
-
-- The pages folder in the project main directory  will be responsible for handling the project ```sh "Routes"```
-
+- The pages folder in the project main directory will be responsible for handling the project `sh "Routes"`
 
 - Each module create will have a corresponding file created inside the pages, that imports it and handle it to be displayed.
 
-
-- Styling :will be using the TW classes, in case we needed a custom styling to be applied, we could use CSS modules ```sh (as recommended by the NextJs)```
-
+- Styling :will be using the TW classes, in case we needed a custom styling to be applied, we could use CSS modules `sh (as recommended by the NextJs)`
 
 >      e.g: CompName.module.css [to be added inside the component folder]
 
-
 - Global components, hooks or logic will be stored into the "Shared" folder. e.g: shared layouts, atoms,...etc.
-
-
 
 ### The difference between the pages/ and modules/\<module-name>/pages/ folders
 
 The `pages/` folder is the `next.js` generated folder where the routes are setup. The `/modules/**/pages/` folder are where we put the code of the page. The pages folder will call the pages of the module only, it shouldn't contain any logic or extra code, just import the page.
 
-
-
 ### Issues:
 
--  #### [To submit a new issue  visit the issues tab or click here ](https://github.com/m3ntorship/pickify-frontend/issues)
+- #### [To submit a new issue visit the issues tab or click here ](https://github.com/m3ntorship/pickify-frontend/issues)
 
->  - Make sure to check the list of current issues (avoid duplication)
+> - Make sure to check the list of current issues (avoid duplication)
 
->  - Use decriptive title for the ticket, add illustrative description of the issue:
-      >     issue nature
-      >     local dev environement
-      >     steps to reproduce
-      >     code snippet if possible
-      >     expected behviour
-      >     output and expected output 
-      >     screenshots if it is a visual issue (before and after if neede)
+> - Use decriptive title for the ticket, add illustrative description of the issue:
+>   Issue nature
+>   Local dev environement
+>   Steps to reproduce
+>   Code snippet if possible
+>   Expected behviour
+>   Output and expected output
+>   Screenshots if it is a visual issue (before and after if neede)
 
 > - Assign the project
 
