@@ -115,7 +115,7 @@ module.exports = {
         '2xxs': '0.1875rem', // 3px
         xxs: '.25rem', // 4px
         xxsv: '0.375rem', // 6px
-        xxsvl: '0.4375rem', //7px
+        xxsvl: '0.4375rem', // 7px
         xs: '.5rem', // 8px
         xsv: '0.563rem', // 9px
         xsvv: '0.625rem', // 10px

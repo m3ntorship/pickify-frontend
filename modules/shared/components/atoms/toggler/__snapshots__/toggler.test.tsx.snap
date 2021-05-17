@@ -8,6 +8,7 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
   <input
     className="opacity-0 absolute undefined"
     data-testid="test"
+    defaultChecked={false}
     disabled={true}
     id="test"
     onChange={[Function]}
@@ -27,6 +28,7 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
   <input
     className="opacity-0 absolute"
     data-testid="test"
+    defaultChecked={false}
     disabled={false}
     id="test"
     onChange={[Function]}
@@ -137,6 +139,7 @@ exports[`Toggler Component with snapshot should render include (w-sm h-6) and cl
   <input
     className="opacity-0 absolute undefined"
     data-testid="test"
+    defaultChecked={false}
     disabled={true}
     id="test"
     onChange={[Function]}
