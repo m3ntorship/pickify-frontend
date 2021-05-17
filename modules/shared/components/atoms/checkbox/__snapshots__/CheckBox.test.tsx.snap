@@ -2,15 +2,15 @@
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and disabled true 1`] = `
 <label
-  className="relative flex justify-center  items-center w-l h-l"
-  htmlFor="unchecked"
+  className=""
+  htmlFor="checkbox"
 >
   <input
     checked={false}
-    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline border border-grey-shd6 w-l h-l"
+    className=""
     data-testid="input-test"
     disabled={true}
-    id="unchecked"
+    id="checkbox"
     onChange={[Function]}
     type="checkbox"
   />
@@ -19,15 +19,15 @@ exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and not disabled 1`] = `
 <label
-  className="relative flex justify-center  items-center cursor-pointer w-l h-l"
-  htmlFor="unchecked"
+  className=""
+  htmlFor="checkbox"
 >
   <input
     checked={false}
-    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline hover:border hover:border-grey-shd1 cursor-pointer focus:border-2 focus:border-grey-shd2 w-l h-l"
+    className=""
     data-testid="input-test"
     disabled={false}
-    id="unchecked"
+    id="checkbox"
     onChange={[Function]}
     type="checkbox"
   />
@@ -36,15 +36,15 @@ exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and  disabled true 1`] = `
 <label
-  className="relative flex justify-center  items-center w-m h-m"
-  htmlFor="unchecked"
+  className="undefined"
+  htmlFor="checkbox"
 >
   <input
     checked={false}
-    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline border border-grey-shd6 w-m h-m"
+    className="undefined"
     data-testid="input-test"
     disabled={true}
-    id="unchecked"
+    id="checkbox"
     onChange={[Function]}
     type="checkbox"
   />
@@ -53,15 +53,15 @@ exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and  
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and not disabled 1`] = `
 <label
-  className="relative flex justify-center  items-center cursor-pointer w-m h-m"
-  htmlFor="unchecked"
+  className="undefined"
+  htmlFor="checkbox"
 >
   <input
     checked={false}
-    className="appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline hover:border hover:border-grey-shd1 cursor-pointer focus:border-2 focus:border-grey-shd2 w-m h-m"
+    className="undefined"
     data-testid="input-test"
     disabled={false}
-    id="unchecked"
+    id="checkbox"
     onChange={[Function]}
     type="checkbox"
   />

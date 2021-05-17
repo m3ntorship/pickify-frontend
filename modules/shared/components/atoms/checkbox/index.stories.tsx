@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import Checkbox from './index';
-import type { ICheckbox } from './ICheckbox';
+import type { ICheckbox } from './types/ICheckbox';
 
 export default {
   title: 'Atoms/Checkbox',

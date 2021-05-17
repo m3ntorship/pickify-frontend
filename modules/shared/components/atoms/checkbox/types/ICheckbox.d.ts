@@ -2,12 +2,10 @@ declare namespace ICheckbox {
   export interface ICheckBoxProps {
     disabled: boolean;
     size: 'Default' | 'Small';
-    onClick?: () => void;
+    onMockClick?: () => void;
   }
   export interface ICheckBoxSvgProps {
-    className: string;
-    width: string;
-    height: string;
+    style: string;
   }
 }
 export { ICheckbox };

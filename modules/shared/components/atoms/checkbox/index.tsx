@@ -1,86 +1,65 @@
 import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
-import type { ICheckbox } from './ICheckbox';
-import CheckBoxSvg from './CheckBoxSvg';
-
-const CHECKBOX = {
-  SIZE: {
-    DEFAULT: 'Default',
-    SMALL: 'Small',
-  },
-};
+import type { ICheckbox } from './types/ICheckbox';
+import CheckMarkDefault from '../../icons/checkMarkDefault.svg';
+import CheckMarkSmall from '../../icons/checkMarkSmall.svg';
+import * as ECheckbox from './types/ECheckbox';
+import styles from './CheckBox.module.css';
 
 const Checkbox: FC<ICheckbox.ICheckBoxProps> = ({
   disabled = false,
   size = 'Default',
-  onClick,
+  onMockClick,
 }): ReactElement => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const checkBoxSvgHeight = size === CHECKBOX.SIZE.DEFAULT ? '9' : '7';
-  const checkBoxSvgWidth = size === CHECKBOX.SIZE.DEFAULT ? '11' : '8';
-
   const labelStyle = classNames({
-    'relative flex justify-center  items-center': true,
-    'cursor-pointer': !disabled,
-    'w-l h-l': size === CHECKBOX.SIZE.DEFAULT,
-    'w-m h-m': size === CHECKBOX.SIZE.SMALL,
+    [styles.label]: true,
+    [styles['label-undisabled']]: !disabled,
+    [styles['size-default']]: size === ECheckbox.Size.Default,
+    [styles['size-small']]: size === ECheckbox.Size.Small,
   });
 
-  const checkedInputStyle = classNames({
-    'appearance-none outline-none rounded-sm text-white align-baseline bg-primary': true,
-    'border border-grey-shd4 focus:border-2 focus:border-primary-shd6 cursor-pointer': !disabled,
-    'bg-primary-shd7': disabled,
-    'w-l h-l': size === CHECKBOX.SIZE.DEFAULT,
-    'w-m h-m': size === CHECKBOX.SIZE.SMALL,
+  const inputStyle = classNames({
+    [styles['input-checked']]: isChecked,
+    [styles['input-checked-undisabled']]: !disabled && isChecked,
+    [styles['input-checked-disabled']]: disabled && isChecked,
+    [styles['input-unchecked']]: !isChecked,
+    [styles['input-unchecked-undisabled']]: !disabled && !isChecked,
+    [styles['input-unchecked-disabled']]: disabled && !isChecked,
+    [styles['size-default']]: size === ECheckbox.Size.Default,
+    [styles['size-small']]: size === ECheckbox.Size.Small,
   });
 
-  const unCheckedInputStyle = classNames({
-    'appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline': true,
-    'hover:border hover:border-grey-shd1 cursor-pointer focus:border-2 focus:border-grey-shd2': !disabled,
-    'border border-grey-shd6': disabled,
-    'w-l h-l': size === CHECKBOX.SIZE.DEFAULT,
-    'w-m h-m': size === CHECKBOX.SIZE.SMALL,
-  });
+  const onChangeHandler = (e: React.FormEvent<HTMLInputElement>): void => {
+    setIsChecked(e.currentTarget.checked);
+  };
+
   return (
     <>
-      {isChecked ? (
-        <label htmlFor="checked" className={labelStyle}>
-          <input
-            className={checkedInputStyle}
-            id="checked"
-            type="checkbox"
-            onChange={(e): void => {
-              setIsChecked(e.currentTarget.checked);
-            }}
-            onClick={onClick}
-            data-testid="input-test"
-            checked={isChecked}
-            disabled={disabled}
-          />
-          <CheckBoxSvg
-            className="absolute"
-            height={checkBoxSvgHeight}
-            width={checkBoxSvgWidth}
-          />
-        </label>
-      ) : (
-        <label htmlFor="unchecked" className={labelStyle}>
-          <input
-            className={unCheckedInputStyle}
-            type="checkbox"
-            id="unchecked"
-            onChange={(e): void => {
-              setIsChecked(e.currentTarget.checked);
-            }}
-            onClick={onClick}
-            data-testid="input-test"
-            disabled={disabled}
-            checked={isChecked}
-          />
-        </label>
-      )}
+      <label htmlFor="checkbox" className={labelStyle}>
+        <input
+          className={inputStyle}
+          id="checkbox"
+          type="checkbox"
+          onChange={onChangeHandler}
+          onClick={onMockClick}
+          checked={isChecked}
+          data-testid="input-test"
+          disabled={disabled}
+        />
+        {isChecked && size === ECheckbox.Size.Default && (
+          <div className="absolute">
+            <CheckMarkDefault />
+          </div>
+        )}
+        {isChecked && size === ECheckbox.Size.Small && (
+          <div className="absolute">
+            <CheckMarkSmall />
+          </div>
+        )}
+      </label>
     </>
   );
 };

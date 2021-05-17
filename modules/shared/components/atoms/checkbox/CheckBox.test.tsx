@@ -36,15 +36,9 @@ describe('Behavioral tests for Checkbox', () => {
     expect(screen.getByRole('checkbox')).not.toBeChecked();
   });
 
-  it('Check if it is clicked ', () => {
-    render(<Checkbox size="Default" disabled={false} />);
-    userEvent.click(screen.getByRole('checkbox'));
-    expect(screen.getByRole('checkbox')).toBeChecked();
-  });
-
   it('Checkbox not clicked while it is disabled', () => {
     const mockClick = jest.fn();
-    render(<Checkbox size="Default" disabled onClick={mockClick} />);
+    render(<Checkbox size="Default" disabled onMockClick={mockClick} />);
     const input = screen.getByTestId('input-test');
     userEvent.click(input);
     const zero = 0;
