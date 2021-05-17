@@ -119,6 +119,7 @@ module.exports = {
         xs: '.5rem', // 8px
         xsv: '0.5625rem', // 9px
         xsvv: '0.625rem', // 10px
+        xsvvl: '0.688rem', // 11px
         s: '.75rem', // 12px
         sx: '0.875rem', // 14px
         m: '1rem', // 16px
