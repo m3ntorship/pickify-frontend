@@ -1,6 +1,6 @@
 import React from 'react';
-import type { FC, ReactElement } from 'react';
 import className from 'classnames';
+import type { FC, ReactElement } from 'react';
 import DeleteIcon from '../../icons/inputFocus.svg';
 import ErrorIcon from '../../icons/inputError.svg';
 import SuccessIcon from '../../icons/inputSuccess.svg';

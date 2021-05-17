@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import type { TargetElement } from '@testing-library/user-event';
 import userEvent from '@testing-library/user-event';
+import type { TargetElement } from '@testing-library/user-event';
 import TextInput from './TextInput';
 import * as ETextInput from './types/ETextInput';
 
