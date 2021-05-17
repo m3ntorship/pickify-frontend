@@ -1,7 +1,7 @@
-import type { AnyAction } from 'redux';
 import { createStore } from 'redux';
-import type { MakeStore } from 'next-redux-wrapper';
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
+import type { AnyAction } from 'redux';
+import type { MakeStore } from 'next-redux-wrapper';
 
 export interface State {
   tick: string;
