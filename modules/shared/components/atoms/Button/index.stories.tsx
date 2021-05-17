@@ -1,7 +1,8 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import Button from '.';
-import type { IButton } from './IButton';
+import type { IButton } from './types/IButton';
+import * as EButton from './types/EButton';
 
 export default {
   component: 'Atoms/Button',
@@ -10,7 +11,7 @@ export default {
     size: {
       control: {
         type: 'inline-radio',
-        options: ['lg', 'md', 'sm'],
+        options: ['large', 'medium', 'small'],
       },
     },
     variant: {
@@ -27,8 +28,8 @@ const Template: Story<IButton.IProps> = (args): ReactElement => (
 
 export const Default = Template.bind({});
 Default.args = {
-  size: 'lg',
-  variant: 'primary',
+  size: EButton.buttonSizeValues.MEDIUM,
+  variant: EButton.buttonVariantValues.PRIMARY,
   disabled: false,
   leftIcon: false,
   rightIcon: false,
