@@ -12,11 +12,6 @@ export default {
       options: ['small', 'default'],
       control: { type: 'select' },
     },
-    label: {
-      control: {
-        type: 'text',
-      },
-    },
     defaultChecked: {
       control: {
         type: 'boolean',
