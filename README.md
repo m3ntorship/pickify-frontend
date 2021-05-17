@@ -124,7 +124,7 @@ it is preferd in naming any file, to have the same name as the function it is ho
 
 
 
-### The difference between the pages/ and modules/<module-name>/pages/ folders
+### The difference between the pages/ and modules/\<module-name>/pages/ folders
 
 The `pages/` folder is the `next.js` generated folder where the routes are setup. The `/modules/**/pages/` folder are where we put the code of the page. The pages folder will call the pages of the module only, it shouldn't contain any logic or extra code, just import the page.
 
