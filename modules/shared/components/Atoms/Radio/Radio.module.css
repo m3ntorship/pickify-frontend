@@ -1,0 +1,68 @@
+.radio_container{
+    @apply relative inline-flex cursor-pointer;
+}
+.radio_input{
+    @apply absolute opacity-0 cursor-pointer;
+}
+.radio_background{
+    @apply bg-white rounded-full;
+}
+.size_small{
+    @apply w-4 h-4;
+}
+.size_default{
+    @apply w-6 h-6;
+}
+.checked_small{
+    @apply border-primary border-5;
+}
+.checked_default{
+    @apply border-primary border-7;
+}
+.unchecked{
+    @apply border border-grey-shd4;
+}
+.checked_disabled_default{
+    @apply border-primary-shd7 border-7;
+}
+.checked_disabled_small{
+    @apply border-primary-shd7 border-5;
+}
+.unchecked_disabled{
+    @apply border-primary-shd6;
+}
+.radio_input:disabled{
+    @apply cursor-not-allowed;
+}
+.radio_input:disabled:hover ~ .checked_disabled_default, .radio_input:disabled:hover ~ .checked_disabled_small{
+    @apply border-primary-shd7;
+}
+.radio_input:disabled:hover ~ .unchecked_disabled{
+    @apply border-primary-shd6;
+}
+.radio_input:focus ~ .unchecked{
+    @apply border-grey-shd2 border-2;
+}
+.radio_input:hover ~ .unchecked{
+    @apply border-grey-shd1;
+}
+.radio_input:checked ~ .checkmark_default{
+    @apply border-primary border-7;
+}
+.radio_input:checked ~ .checkmark_small{
+    @apply border-primary border-5;
+}
+.radio_input:checked:hover ~ .checkmark_default, .radio_input:checked:hover ~ .checkmark_small{
+    @apply border-primary-hover;
+}
+.radio_input:checked:focus  ~ .checkmark_default {
+    @apply ring-2 ring-offset-primary-shd6 outline-none;
+}
+.radio_input:checked:focus  ~ .checkmark_small{
+    @apply ring-1 ring-offset-primary-shd6 outline-none;
+}
+.radio_input:checked:disabled  ~ .checkmark_default, .radio_input:checked:disabled  ~ .checkmark_small{
+    @apply border-primary-shd7;
+}
+
+
