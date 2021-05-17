@@ -117,12 +117,15 @@ module.exports = {
         xxsv: '0.375rem', // 6px
         xxsvl: '0.4375rem', // 7px
         xs: '.5rem', // 8px
-        xsv: '0.563rem', // 9px
+        xsv: '0.5625rem', // 9px
         xsvv: '0.625rem', // 10px
         xsvvl: '0.688rem', // 11px
         s: '.75rem', // 12px
+        sx: '0.875rem', // 14px
         m: '1rem', // 16px
+        mx: '1.125rem', // 18px
         l: '1.5rem', // 24px
+        lx: ' 1.625rem', // 26px
         xl: '2rem', // 32px
         xxl: '2.5rem', // 40px
         xvxl: '2.666rem',
@@ -163,6 +166,9 @@ module.exports = {
       },
     },
     fill: (theme) => ({
+      primary: theme('colors.primary'),
+      accent: theme('colors.accent'),
+      white: theme('colors.white'),
       'dark-grey': theme('colors.dark.grey'),
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
