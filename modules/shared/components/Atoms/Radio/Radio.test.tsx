@@ -13,6 +13,7 @@ describe('Testing Radio with snapshot', () => {
           name="laptops"
           id="dell"
           value="dell"
+          defaultChecked={false}
           onChange={(): string => {
             return 'test';
           }}
@@ -29,10 +30,10 @@ describe('Testing Radio with snapshot', () => {
           name="laptops"
           id="dell"
           value="dell"
+          defaultChecked={false}
           onChange={(): string => {
             return 'test';
           }}
-          defaultChecked
           disabled
         />,
       )
@@ -49,6 +50,7 @@ describe('Testing Radio with RTL', () => {
         name="laptops"
         id="dell"
         value="dell"
+        defaultChecked={false}
         onChange={(): string => {
           return 'test';
         }}
@@ -63,10 +65,10 @@ describe('Testing Radio with RTL', () => {
         name="laptops"
         id="dell"
         value="dell"
+        defaultChecked
         onChange={(): string => {
           return 'test';
         }}
-        defaultChecked
       />,
     );
     expect(getByTestId('Radio')).toBeChecked();
@@ -78,6 +80,7 @@ describe('Testing Radio with RTL', () => {
         name="laptops"
         id="dell"
         value="dell"
+        defaultChecked={false}
         onChange={(): string => {
           return 'test';
         }}
@@ -93,6 +96,7 @@ describe('Testing Radio with RTL', () => {
         name="laptops"
         id="dell"
         value="dell"
+        defaultChecked={false}
         onChange={(): string => {
           return 'test';
         }}
@@ -109,6 +113,7 @@ describe('Testing Radio with RTL', () => {
         name="laptops"
         id="dell"
         value="dell"
+        defaultChecked={false}
         onChange={handleChange}
       />,
     );

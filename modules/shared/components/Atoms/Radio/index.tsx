@@ -5,7 +5,7 @@ import styles from './Radio.module.css';
 import type { IRadio } from './IRadio';
 
 /** 
- * @Parameters size, name, value, id,  and onChange are required, defaultChecked and disabled is optional.
+ * @Parameters size, name, value, id, defaultChecked and onChange are required, disabled is optional.
  * @ParentComponentShouldHave
    const [checkedValue, setCheckedValue] = useState('dell12'); // set default value here to be defaultChecked or put ''
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
@@ -29,7 +29,7 @@ const Radio: FC<IRadio.IProps> = ({
   name,
   value,
   id,
-  defaultChecked = false,
+  defaultChecked,
   disabled = false,
   onChange,
 }): ReactElement => {

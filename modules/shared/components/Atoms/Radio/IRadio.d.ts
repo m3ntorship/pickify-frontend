@@ -6,7 +6,7 @@ declare namespace IRadio {
     name: string;
     value: string;
     id: string;
-    defaultChecked?: boolean;
+    defaultChecked: boolean;
     disabled?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }
