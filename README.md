@@ -1,6 +1,6 @@
-# Pickly.io front-end
+# Pickify.io front-end
 
-The source code for the front-end of the `Pickly.io` website.
+The source code for the front-end of the `Pickify.io` website.
 
 ## Table of contents
 
@@ -21,7 +21,7 @@ To use this project you should have the following on your machine:
 To install the project you have to:
 
 1. Clone the repository:
-   `git clone https://github.com/m3ntorship/pickly-frontend.git` or the `ssh url`.
+   `git clone https://github.com/m3ntorship/Pickify-frontend.git` or the `ssh url`.
 
 2. Install packages:
    `yarn`
