@@ -17,8 +17,9 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-filename-extension': 'off',
+    'react/react-in-jsx-scope': 0,
+    'react/jsx-filename-extension': 0,
+
     'no-console': 'warn',
     'no-debugger': 'warn',
     'no-irregular-whitespace': 'warn',
@@ -27,6 +28,7 @@ module.exports = {
     'arrow-spacing': 'error',
     'prefer-const': 'error',
     'prefer-destructuring': 'error',
+    'import/no-extraneous-dependencies': 0,
   },
   settings: { react: { version: 'detect' } },
 
@@ -47,10 +49,10 @@ module.exports = {
       rules: {
         'react/prop-types': 0,
         'import/prefer-default-export': 0,
-        '@typescript-eslint/prefer-readonly-parameter-types': 'off',
-        '@typescript-eslint/default-param-last': 'off',
-        '@typescript-eslint/strict-boolean-expressions': 'off',
-        'react/jsx-props-no-spreading': 'warn',
+        '@typescript-eslint/prefer-readonly-parameter-types': 0,
+        '@typescript-eslint/default-param-last': 0,
+        '@typescript-eslint/strict-boolean-expressions': 0,
+        'react/jsx-props-no-spreading': 0,
         '@typescript-eslint/naming-convention': [
           'warn',
           {
