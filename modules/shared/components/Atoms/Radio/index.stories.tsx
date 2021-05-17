@@ -12,11 +12,6 @@ export default {
       options: ['small', 'default'],
       control: { type: 'select' },
     },
-    label: {
-      control: {
-        type: 'text',
-      },
-    },
     defaultChecked: {
       control: {
         type: 'boolean',
@@ -37,7 +32,6 @@ const Template: Story<IRadio.IProps> = (args): ReactElement => (
 export const RadioTS = Template.bind({});
 RadioTS.args = {
   size: 'default',
-  label: 'test',
   defaultChecked: false,
   disabled: false,
 };
