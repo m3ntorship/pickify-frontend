@@ -4,7 +4,7 @@ import * as React from 'react';
 import styles from './Toggler.module.css';
 import type { TogglerTypes } from './TogglerTypes';
 /** 
-* @example : <Toggler size="sm" checked={isChecked} onChange={handleTogglerChange} disabled={true} />
+* @example : <Toggler size="sm" id="test" checked={isChecked} onChange={handleTogglerChange} disabled={true} />
 * @Parameters size, id, checked and onChange are required for Toggler component to function, The prop disabled is optional.
 * @ThingsNeededToBeDoneInParentComponent
 const [isChecked,setIsChecked] = useState(false);
