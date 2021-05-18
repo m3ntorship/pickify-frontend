@@ -2,11 +2,11 @@
 
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and (opacity-25) when passing disabled={true} and size=sm  1`] = `
 <label
-  className="undefined"
+  className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesSmallUnchecked toggleBodyClassesUncheckedAndDisabled"
   htmlFor="test"
 >
   <input
-    className="opacity-0 absolute undefined"
+    className="opacity-0 absolute checkBoxInputDisabled"
     data-testid="test"
     defaultChecked={false}
     disabled={true}
@@ -15,18 +15,18 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
     type="checkbox"
   />
   <div
-    className=""
+    className="circleClasses circleClassesUnChecked circleClassesSmall"
   />
 </label>
 `;
 
 exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and do NOT include (opacity-25) when passing disabled={false} and size=sm  1`] = `
 <label
-  className=""
+  className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesUncheckedAndEnabled toggleBodyClassesSmallUnchecked"
   htmlFor="test"
 >
   <input
-    className="opacity-0 absolute"
+    className="opacity-0 absolute checkBoxInputEnabled"
     data-testid="test"
     defaultChecked={false}
     disabled={false}
@@ -35,7 +35,7 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
     type="checkbox"
   />
   <div
-    className=""
+    className="circleClasses circleClassesUnChecked circleClassesSmall"
   />
 </label>
 `;
@@ -46,34 +46,34 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class=""
+        class="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesUncheckedAndEnabled toggleBodyClassesDefaultUnchecked"
         for="test"
       >
         <input
-          class="opacity-0 absolute"
+          class="opacity-0 absolute checkBoxInputEnabled"
           data-testid="test"
           id="test"
           type="checkbox"
         />
         <div
-          class="undefined"
+          class="circleClasses circleClassesUnChecked circleClassesDefault"
         />
       </label>
     </div>
   </body>,
   "container": <div>
     <label
-      class=""
+      class="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesUncheckedAndEnabled toggleBodyClassesDefaultUnchecked"
       for="test"
     >
       <input
-        class="opacity-0 absolute"
+        class="opacity-0 absolute checkBoxInputEnabled"
         data-testid="test"
         id="test"
         type="checkbox"
       />
       <div
-        class="undefined"
+        class="circleClasses circleClassesUnChecked circleClassesDefault"
       />
     </label>
   </div>,
@@ -133,11 +133,11 @@ Object {
 
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames include (opacity-25) when passing disabled={true} and size=default  1`] = `
 <label
-  className="undefined"
+  className="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesDefaultUnchecked toggleBodyClassesUncheckedAndDisabled"
   htmlFor="test"
 >
   <input
-    className="opacity-0 absolute undefined"
+    className="opacity-0 absolute checkBoxInputDisabled"
     data-testid="test"
     defaultChecked={false}
     disabled={true}
@@ -146,7 +146,7 @@ exports[`Toggler Component with snapshot should render include (w-sm h-6) and cl
     type="checkbox"
   />
   <div
-    className="undefined"
+    className="circleClasses circleClassesUnChecked circleClassesDefault"
   />
 </label>
 `;
