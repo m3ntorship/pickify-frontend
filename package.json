@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "lint:js": "eslint . --fix",
-    "lint:styles": "stylelint **/*.css --fix",
+    "lint:styles": "stylelint '**/*.css' --fix",
     "lint:fix": "yarn lint:js && yarn lint:styles"
   },
   "dependencies": {
@@ -19,6 +19,8 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
+    "@types/react": "^17.0.5",
+    "@types/react-test-renderer": "^17.0.1",
     "autoprefixer": "^9.0.0",
     "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
@@ -36,7 +38,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
+      "pre-push": "yarn test && yarn build"
     }
   },
   "devDependencies": {
@@ -49,8 +51,6 @@
     "@testing-library/dom": "^7.29.4",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
-    "@types/react": "^17.0.0",
-    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.14.2",
     "babel-eslint": "^10.1.0",

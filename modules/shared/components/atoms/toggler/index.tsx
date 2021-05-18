@@ -1,6 +1,6 @@
-import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import * as React from 'react';
+import type { FC, ReactElement } from 'react';
 import styles from './Toggler.module.css';
 import type { TogglerTypes } from './TogglerTypes';
 /** 
