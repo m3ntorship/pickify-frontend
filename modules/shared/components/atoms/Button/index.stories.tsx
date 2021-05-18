@@ -5,8 +5,8 @@ import type { IButton } from './types/IButton';
 import * as EButton from './types/EButton';
 
 export default {
-  component: 'Atoms/Button',
-  title: 'TS/Button',
+  component: Button,
+  title: 'atoms/Button',
   argTypes: {
     size: {
       control: {
