@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "lint:js": "eslint . --fix",
-    "lint:styles": "stylelint **/*.css --fix",
+    "lint:styles": "stylelint '**/*.css' --fix",
     "lint:fix": "yarn lint:js && yarn lint:styles"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
+      "pre-push": "yarn test && yarn build"
     }
   },
   "devDependencies": {
