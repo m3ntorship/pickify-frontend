@@ -3,6 +3,16 @@ module.exports = {
   darkMode: false,
   theme: {
     colors: {
+      screens: {
+        sm: '375px',
+        // => @media (min-width: 375px) { ... }
+
+        md: '834px',
+        // => @media (min-width: 834px) { ... }
+
+        lg: '1440px',
+        // => @media (min-width: 1440px) { ... }
+      },
       primary: {
         dark: '#5034A6',
         DEFAULT: '#7048E8',
