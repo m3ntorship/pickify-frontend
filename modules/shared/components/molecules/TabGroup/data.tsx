@@ -8,20 +8,20 @@ export const tabGroupData = (): ITabGroup.ITabGroupData[] => {
   return [
     {
       id: '1',
-      icon: <ImagePoll className="mr-xs ml-xs" />,
-      type: 'Image Poll',
+      svg: <ImagePoll className="mr-xs ml-xs" />,
+      children: 'Image Poll',
       value: 'checked',
     },
     {
       id: '2',
-      icon: <TextPoll className="mr-xs ml-xs" />,
-      type: 'Text Poll',
+      svg: <TextPoll className="mr-xs ml-xs" />,
+      children: 'Text Poll',
       value: 'not-checked',
     },
     {
       id: '3',
-      icon: <MiniSurvey className="mr-xs ml-xs" />,
-      type: 'Mini survey',
+      svg: <MiniSurvey className="mr-xs ml-xs" />,
+      children: 'Mini survey',
       value: 'not-checked',
     },
   ];

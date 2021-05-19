@@ -22,11 +22,11 @@ const TabGroup: FC<ITabGroup.IProps> = (): ReactElement => {
         <Tab
           key={item.id}
           id={item.id}
-          svg={item.icon}
+          svg={item.svg}
           value={item.value}
           changeValHandler={changeValHandler}
         >
-          {item.type}
+          {item.children}
         </Tab>
       ))}
     </div>

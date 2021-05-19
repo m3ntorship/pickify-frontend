@@ -6,18 +6,14 @@ declare namespace ITabGroup {
     setData?: (data: ITabGroupData[]) => void;
   }
 
-  export interface ITabProps {
-    id: string;
-    value: 'checked' | 'not-checked';
+  export interface ITabProps extends ITabGroupData {
     changeValHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    svg: JSX.Element;
-    children: string;
   }
 
   export interface ITabGroupData {
     id: string;
-    icon: JSX.Element;
-    type: string;
+    svg: JSX.Element;
+    children: string;
     value: 'checked' | 'not-checked';
   }
 }

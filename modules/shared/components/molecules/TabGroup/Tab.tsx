@@ -9,8 +9,8 @@ const Tab: FC<ITabGroup.ITabProps> = (props): ReactElement => {
   const { value, id, svg, children, changeValHandler } = props;
 
   const tabClasses: string = classNames(styles['tab-default'], {
-    [styles['tab-active']]: value === 'checked',
-    [styles['tab-in-active']]: value === 'not-checked',
+    [styles['tab-checked']]: value === 'checked',
+    [styles['tab-unchecked']]: value === 'not-checked',
   });
 
   return (
