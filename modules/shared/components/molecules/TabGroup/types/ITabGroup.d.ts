@@ -1,3 +1,5 @@
+import type React from 'react';
+
 declare namespace ITabGroup {
   export interface IProps {
     data?: ITabGroupData[];
@@ -6,8 +8,8 @@ declare namespace ITabGroup {
 
   export interface ITabProps {
     id: string;
-    active: boolean;
-    toggleActiveHandler: (id: string) => void;
+    value: 'checked' | 'not-checked';
+    changeValHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
     svg: JSX.Element;
     children: string;
   }
@@ -16,7 +18,7 @@ declare namespace ITabGroup {
     id: string;
     icon: JSX.Element;
     type: string;
-    active: boolean;
+    value: 'checked' | 'not-checked';
   }
 }
 export { ITabGroup };

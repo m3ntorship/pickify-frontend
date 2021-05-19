@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import type { FC, ReactElement } from 'react';
 import styles from './TabGroup.module.css';
@@ -6,36 +6,22 @@ import Radio from '../../atoms/Radio/index';
 import type { ITabGroup } from './types/ITabGroup';
 
 const Tab: FC<ITabGroup.ITabProps> = (props): ReactElement => {
-  const { active, id, svg, children } = props;
-
-  const [checkedValue, setCheckedValue] = useState<string>('');
-
-  const radioCheckedHandler = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ): void => {
-    setCheckedValue(e.currentTarget.value);
-  };
+  const { value, id, svg, children, changeValHandler } = props;
 
   const tabClasses: string = classNames(styles['tab-default'], {
-    [styles['tab-active']]: active,
-    [styles['tab-in-active']]: !active,
+    [styles['tab-active']]: value === 'checked',
+    [styles['tab-in-active']]: value === 'not-checked',
   });
 
   return (
-    <label
-      htmlFor={id}
-      className={tabClasses}
-      // onClick={toggleActiveHandler}
-      data-testid="tab"
-      // title={active && 'checkedTab'}
-    >
+    <label htmlFor={id} className={tabClasses} data-testid="tab">
       <Radio
         size="small"
-        value={checkedValue}
+        value={value}
         name="tab groub"
-        onChange={radioCheckedHandler}
+        onChange={changeValHandler}
         id={id}
-        defaultChecked={active}
+        defaultChecked={value === 'checked'}
       />
       {svg}
       <span className={styles['tab-type']}>{children}</span>

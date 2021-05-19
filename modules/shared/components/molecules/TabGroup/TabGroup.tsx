@@ -6,13 +6,13 @@ import { tabGroupData } from './data';
 
 const TabGroup: FC<ITabGroup.IProps> = (): ReactElement => {
   const [data, setData] = useState(tabGroupData());
-  const toggleActiveHandler = (id: string): void => {
+  const changeValHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setData(
       data.map((item) => {
-        if (id === item.id) {
-          return { ...item, active: true };
+        if (e.target.id === item.id) {
+          return { ...item, value: 'checked' };
         }
-        return { ...item, active: false };
+        return { ...item, value: 'not-checked' };
       }),
     );
   };
@@ -20,13 +20,11 @@ const TabGroup: FC<ITabGroup.IProps> = (): ReactElement => {
     <div className="flex items-center">
       {data.map((item) => (
         <Tab
-          toggleActiveHandler={(): void => {
-            toggleActiveHandler(item.id);
-          }}
           key={item.id}
           id={item.id}
           svg={item.icon}
-          active={item.active}
+          value={item.value}
+          changeValHandler={changeValHandler}
         >
           {item.type}
         </Tab>
