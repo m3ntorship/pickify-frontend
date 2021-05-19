@@ -154,7 +154,6 @@ module.exports = {
         '18xl': '18.5rem', // 296px
         '28xl': '28.5rem', // 456px
         '29xl': '29.5rem', // 472px
-
         '30xl': '30rem', // 480px
         '32xl': '32.625rem', // 522px
         '33xl': '33.25rem', // 532px
@@ -188,6 +187,7 @@ module.exports = {
       textDecoration: ['group-focus'],
       backgroundColor: ['group-focus'],
       opacity: ['disabled'],
+      margin: ['first', 'last', 'odd', 'even'],
     },
     fill: ['hover', 'focus'],
   },
