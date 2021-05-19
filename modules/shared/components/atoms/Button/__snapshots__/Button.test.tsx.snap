@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render (MEDIUM) button when we apply (MEDIUM) 1`] = `
+<button
+  className=""
+  disabled={false}
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (disapled) button when we apply disapled 1`] = `
+<button
+  className=""
+  disabled={true}
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (large) button when we apply (large) 1`] = `
+<button
+  className=""
+  disabled={false}
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (lefticon) button when we apply lefticon 1`] = `
+<button
+  className="undefined"
+  disabled={false}
+  type="button"
+>
+  <span>
+    <svg
+      data-file-name="SvgButtonArowDown"
+    />
+  </span>
+  Button
+</button>
+`;
+
+exports[`Button component should render (onlyicon)  button when we apply nothing 1`] = `
+<button
+  className="undefined"
+  disabled={false}
+  type="button"
+>
+  <span>
+    <svg
+      data-file-name="SvgButtonArowDown"
+    />
+  </span>
+</button>
+`;
+
+exports[`Button component should render (primary) button when we apply primary 1`] = `
+<button
+  className=""
+  disabled={false}
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (righticon) button when we apply righticon 1`] = `
+<button
+  className=""
+  disabled={false}
+  type="button"
+>
+  Button
+  <span>
+    <svg
+      data-file-name="SvgButtonArowDown"
+    />
+  </span>
+</button>
+`;
+
+exports[`Button component should render (secondary) button when we apply (secondary) 1`] = `
+<button
+  className=""
+  disabled={false}
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (small) button when we apply (small) 1`] = `
+<button
+  className="undefined"
+  disabled={false}
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button component should render (text) button when we apply text 1`] = `
+<button
+  className="undefined"
+  disabled={false}
+  type="button"
+>
+  Button
+</button>
+`;
