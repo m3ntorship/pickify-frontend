@@ -4,29 +4,37 @@ import Tab from './Tab';
 import type { ITabGroup } from './types/ITabGroup';
 import { tabGroupData } from './data';
 
+/**
+ * @Props tabsData, setTabsData are required.
+ * @ShouldHaveArrayOfDataToPassItToTheComponent
+ * import { tabGroupData } from '@modules/shared/components/molecules/TabGroup/data'; // this function should return an array of objects
+ * const [tabsData, setTabsData] = useState(tabGroupData());
+ * @example :  <TabGroup tabsData={tabsData} setTabsData={setTabsData} />
+ * */
+
 const TabGroup: FC<ITabGroup.IProps> = (): ReactElement => {
-  const [data, setData] = useState(tabGroupData());
+  const [tabsData, setTabsData] = useState(tabGroupData());
   const changeValHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setData(
-      data.map((item) => {
-        if (e.target.id === item.id) {
-          return { ...item, value: 'checked' };
+    setTabsData(
+      tabsData.map((tab) => {
+        if (e.target.id === tab.id) {
+          return { ...tab, value: 'checked' };
         }
-        return { ...item, value: 'not-checked' };
+        return { ...tab, value: 'not-checked' };
       }),
     );
   };
   return (
     <div className="flex items-center">
-      {data.map((item) => (
+      {tabsData.map((tab) => (
         <Tab
-          key={item.id}
-          id={item.id}
-          svg={item.svg}
-          value={item.value}
+          key={tab.id}
+          id={tab.id}
+          svg={tab.svg}
+          value={tab.value}
           changeValHandler={changeValHandler}
         >
-          {item.children}
+          {tab.children}
         </Tab>
       ))}
     </div>

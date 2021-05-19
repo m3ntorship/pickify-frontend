@@ -14,7 +14,12 @@ const Tab: FC<ITabGroup.ITabProps> = (props): ReactElement => {
   });
 
   return (
-    <label htmlFor={id} className={tabClasses} data-testid="tab">
+    <label
+      htmlFor={id}
+      data-value={value}
+      className={tabClasses}
+      data-testid="tab"
+    >
       <Radio
         size="small"
         value={value}
