@@ -1,0 +1,13 @@
+.tab-default {
+  @apply cursor-pointer mr-m flex items-center py-1.5 px-3.5 rounded-full;
+}
+.tab-active {
+  @apply bg-transparent md:bg-white border border-grey;
+}
+.tab-in-active {
+  @apply bg-grey-bg;
+}
+
+.tab-type {
+  @apply text-sm hidden md:inline-block font-medium text-dark-grey;
+}
