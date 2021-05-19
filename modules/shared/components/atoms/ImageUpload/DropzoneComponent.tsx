@@ -6,7 +6,6 @@ import styles from './imageUpload.module.css';
 
 const baseStyle = {
   display: 'flex',
-  flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
   paddingTop: '18px',
@@ -17,6 +16,7 @@ const baseStyle = {
   borderStyle: 'dashed',
   backgroundColor: '#F2F9FF',
   transition: 'border .3s ease-in-out',
+  cursor: 'pointer',
 };
 
 const activeStyle = {
