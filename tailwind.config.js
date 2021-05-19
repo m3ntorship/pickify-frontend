@@ -97,7 +97,8 @@ module.exports = {
       full: '999px',
     },
     boxShadow: {
-      dark: '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
+      dark:
+        '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
       heavy:
         '0px 16px 24px rgba(0, 0, 0, 0.04), 0px 8px 12px rgba(0, 0, 0, 0.08);',
       none: 'none',

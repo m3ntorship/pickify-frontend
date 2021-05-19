@@ -3,4 +3,5 @@
 }
 .text_red {
   color: red;
+  @apply text-primary;
 }
