@@ -3,16 +3,6 @@ module.exports = {
   darkMode: false,
   theme: {
     colors: {
-      screens: {
-        sm: '375px',
-        // => @media (min-width: 375px) { ... }
-
-        md: '834px',
-        // => @media (min-width: 834px) { ... }
-
-        lg: '1440px',
-        // => @media (min-width: 1440px) { ... }
-      },
       primary: {
         dark: '#5034A6',
         DEFAULT: '#7048E8',
@@ -97,7 +87,8 @@ module.exports = {
       full: '999px',
     },
     boxShadow: {
-      dark: '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
+      dark:
+        '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
       heavy:
         '0px 16px 24px rgba(0, 0, 0, 0.04), 0px 8px 12px rgba(0, 0, 0, 0.08);',
       none: 'none',
@@ -181,6 +172,16 @@ module.exports = {
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
     }),
+    screens: {
+      sm: '375px',
+      // => @media (min-width: 375px) { ... }
+
+      md: '834px',
+      // => @media (min-width: 834px) { ... }
+
+      lg: '1440px',
+      // => @media (min-width: 1440px) { ... }
+    },
   },
   variants: {
     extend: {

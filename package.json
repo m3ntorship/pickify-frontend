@@ -8,7 +8,7 @@
     "start": "next start",
     "export": "next export",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "storybook:build": "build-storybook",
     "lint:js": "eslint . --fix",
     "lint:styles": "stylelint '**/*.css' --fix",
