@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import type { IAvatar } from './IAvatar';
 import AnonymousIcon from '../../icons/anonymous.svg';
 import NotFilledIcon from '../../icons/notFilled.svg';
+import styles from './Avatar.module.css';
 
 export const determineAvatarSize = (componentSize: string): number => {
   const smallSize = 32;
@@ -19,11 +20,15 @@ export const determineAvatarSize = (componentSize: string): number => {
   return largeSize;
 };
 
-const Index: FC<IAvatar.IProps> = ({ size, variant, imgSrc }): ReactElement => {
-  const wrapperClasses = classNames('relative rounded-full overflow-hidden', {
-    'w-8 h-8': size === 'small',
-    'w-10 h-10': size === 'medium',
-    'w-14 h-14': size === 'large',
+const Avatar: FC<IAvatar.IProps> = ({
+  size,
+  variant,
+  imgSrc,
+}): ReactElement => {
+  const wrapperClasses = classNames([styles.wrapper], {
+    [styles.small]: size === 'small',
+    [styles.medium]: size === 'medium',
+    [styles.large]: size === 'large',
   });
   const avatarSize = determineAvatarSize(size);
   return (
@@ -53,4 +58,4 @@ const Index: FC<IAvatar.IProps> = ({ size, variant, imgSrc }): ReactElement => {
     </div>
   );
 };
-export default Index;
+export default Avatar;

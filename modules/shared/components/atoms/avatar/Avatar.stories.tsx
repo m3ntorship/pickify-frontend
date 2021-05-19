@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import Avatar from '.';
+import Avatar from './Avatar';
 import type { IAvatar } from './IAvatar';
 
 export default {

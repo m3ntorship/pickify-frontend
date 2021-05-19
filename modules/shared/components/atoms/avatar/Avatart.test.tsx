@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import Avatar, { determineAvatarSize } from '.';
+import Avatar, { determineAvatarSize } from './Avatar';
 
 describe('Avatar', () => {
   it('make sure that imageSize works correctly', () => {
