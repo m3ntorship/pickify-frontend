@@ -3,6 +3,16 @@ module.exports = {
   darkMode: false,
   theme: {
     colors: {
+      screens: {
+        sm: '375px',
+        // => @media (min-width: 375px) { ... }
+
+        md: '834px',
+        // => @media (min-width: 834px) { ... }
+
+        lg: '1440px',
+        // => @media (min-width: 1440px) { ... }
+      },
       primary: {
         dark: '#5034A6',
         DEFAULT: '#7048E8',
@@ -144,7 +154,6 @@ module.exports = {
         '18xl': '18.5rem', // 296px
         '28xl': '28.5rem', // 456px
         '29xl': '29.5rem', // 472px
-
         '30xl': '30rem', // 480px
         '32xl': '32.625rem', // 522px
         '33xl': '33.25rem', // 532px
@@ -178,6 +187,7 @@ module.exports = {
       textDecoration: ['group-focus'],
       backgroundColor: ['group-focus'],
       opacity: ['disabled'],
+      margin: ['first', 'last', 'odd', 'even'],
     },
     fill: ['hover', 'focus'],
   },
