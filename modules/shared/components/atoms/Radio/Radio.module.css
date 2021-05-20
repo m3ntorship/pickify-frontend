@@ -64,5 +64,7 @@
 .radio_input:checked:disabled  ~ .checkmark_default, .radio_input:checked:disabled  ~ .checkmark_small{
     @apply border-primary-shd7;
 }
-
+.radio_background.only_label {
+    @apply hidden;
+}
 
