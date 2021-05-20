@@ -21,7 +21,7 @@ exports[`Privacy Component with snapshot should render with no options on the se
       />
     </label>
     <span>
-      Hide My Identity
+      Hide my identity
     </span>
   </div>
   <div

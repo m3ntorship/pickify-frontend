@@ -1,5 +1,7 @@
 declare namespace PrivacyTypes {
   export interface Props {
+    togglerLabel?: string;
+    privacySelectorLabel?: string;
     privacyOptions: string[];
     withDivider: boolean;
     togglerIsChecked: boolean;

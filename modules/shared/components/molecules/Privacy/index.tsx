@@ -5,7 +5,18 @@ import type { FC, ReactElement } from 'react';
 import type { PrivacyTypes } from './PrivacyTypes';
 import styles from './Privacy.module.css';
 
+/** 
+* @example : <Privacy privacyOptions={["friends","family"]} withDivider togglerIsChecked={togglerIsChecked} handleTogglerChange={handleTogglerChange} handleSelectChange={handleSelectChange} />
+* @Parameters privacyOptions, withDivider, togglerIsChecked, handleTogglerChange and handleSelectChange are required for Toggler component to function, The prop togglerLabel and privacySelectorLabel is optional.
+* @Notice you will use the handleChange functions to get and use the value of the toggler and the select
+* @ThingsNeededToBeDoneInParentComponent
+const [togglerIsChecked,setTogglerIsChecked] = useState(false);
+cosnt handleTogglerChange = (e: React.ChangeEvent<HTMLInputElement>):void => { setTogglerIsChecked(e.target.checked) }<Test>;
+const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>):void => {console.log(e.target.value)};
+*/
 const Privacy: FC<PrivacyTypes.Props> = ({
+  togglerLabel = 'Hide my identity',
+  privacySelectorLabel = 'Privacy:',
   privacyOptions,
   withDivider,
   togglerIsChecked,
@@ -15,24 +26,6 @@ const Privacy: FC<PrivacyTypes.Props> = ({
   const privacySelectorContainer = classNames(styles.privacySelectorContainer, {
     [styles.privacySelectorContainerWithoutDivider]: !withDivider,
   });
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TEMPORARY SECTION START @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  // console.log(
-  //   'temporary log',
-  //   handleTogglerChange,
-  //   handleSelectChange,
-  //   togglerIsChecked,
-  // );
-
-  // const [togglerIsCheckedTest, setTogglerIsCheckedTest] = useState(false);
-  // const handleTogglerChangeTest = (): void => {
-  //   setTogglerIsCheckedTest(!togglerIsCheckedTest);
-  // };
-  // const handleSelectChangeTest = (
-  //   e: React.ChangeEvent<HTMLSelectElement>,
-  // ): void => {
-  //   console.log(e.target.value);
-  // };
-  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TEMPORARY SECTION End @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   return (
     <div className={styles.privacyContainer}>
       <div className={styles.hideMyIdentityContainer}>
@@ -42,13 +35,15 @@ const Privacy: FC<PrivacyTypes.Props> = ({
           checked={togglerIsChecked}
           onChange={handleTogglerChange}
         />
-        <span className={styles.hideMyIdentityText}>Hide My Identity</span>
+        <span className={styles.hideMyIdentityText}>{togglerLabel}</span>
       </div>
       {withDivider && (
         <div data-testid="dividerTestId" className={styles.divider} />
       )}
       <div className={privacySelectorContainer}>
-        <span className={styles.privacySelectorText}>Privacy:</span>
+        <span className={styles.privacySelectorText}>
+          {privacySelectorLabel}
+        </span>
         <select
           data-testid="selectTestId"
           onChange={handleSelectChange}
