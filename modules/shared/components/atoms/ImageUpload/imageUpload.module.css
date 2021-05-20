@@ -2,7 +2,7 @@
   @apply opacity-0 w-full h-full absolute cursor-pointer;
 }
 .label {
-  @apply box-border bg-grey-shd7 rounded-lg border border-accent border-dashed 
+  @apply box-border bg-grey-shd7 rounded-md border-2 border-accent border-dashed 
   flex flex-row justify-center items-center 
   relative
   w-auto
