@@ -12,6 +12,10 @@
   @apply text-sm hidden md:inline-block font-medium text-dark-grey;
 }
 
+.tab-disabled {
+  @apply bg-grey-shd6 opacity-40 cursor-not-allowed border-0;
+}
+
 .icon {
   @apply md:mr-xs ml-xs;
 }

@@ -6,11 +6,21 @@ import Radio from '../../atoms/Radio/index';
 import type { ITabGroup } from './types/ITabGroup';
 
 const Tab: FC<ITabGroup.ITabProps> = (props): ReactElement => {
-  const { value, id, svg, children, changeValHandler } = props;
+  const {
+    value,
+    id,
+    svg,
+    children,
+    checkedValue = 'Image Poll',
+    changeValHandler,
+    disabled,
+    onlyLabel,
+  } = props;
 
   const tabClasses: string = classNames(styles['tab-default'], {
-    [styles['tab-checked']]: value === 'checked',
-    [styles['tab-unchecked']]: value === 'not-checked',
+    [styles['tab-checked']]: value === checkedValue,
+    [styles['tab-unchecked']]: value !== checkedValue,
+    [styles['tab-disabled']]: disabled,
   });
 
   return (
@@ -26,9 +36,11 @@ const Tab: FC<ITabGroup.ITabProps> = (props): ReactElement => {
         name="tab groub"
         onChange={changeValHandler}
         id={id}
-        defaultChecked={value === 'checked'}
+        disabled={disabled}
+        defaultChecked={checkedValue === value}
+        onlyLabel={onlyLabel}
       />
-      {svg}
+      {!onlyLabel && svg}
       <span className={styles['tab-type']}>{children}</span>
     </label>
   );

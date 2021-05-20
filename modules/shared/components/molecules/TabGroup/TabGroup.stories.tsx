@@ -1,15 +1,18 @@
 import type { ReactElement } from 'react';
+import type { Story } from '@storybook/react';
 import TabGroup from './TabGroup';
-import { tabGroupData } from './data';
+import type { ITabGroup } from './types/ITabGroup';
 
 export default {
   title: 'Molecules/TabGroup',
   component: TabGroup,
 };
 
-export const TSTabGroup = (): ReactElement => (
-  <TabGroup
-    tabsData={tabGroupData()}
-    setTabsData={(): string => 'empty function'}
-  />
+const Template: Story<ITabGroup.IProps> = (args): ReactElement => (
+  <TabGroup {...args} />
 );
+export const tabGroup = Template.bind({});
+tabGroup.args = {
+  onlyLabel: false,
+  disabled: false,
+};

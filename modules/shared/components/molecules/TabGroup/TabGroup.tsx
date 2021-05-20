@@ -2,26 +2,20 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import Tab from './Tab';
 import type { ITabGroup } from './types/ITabGroup';
+import { tabGroupData } from './data';
 
 /**
- * @Props tabsData, setTabsData are required.
- * @ShouldHaveArrayOfDataToPassItToTheComponent
- * import { tabGroupData } from '@modules/shared/components/molecules/TabGroup/data'; // this function should return an array of objects
- * const [tabsData, setTabsData] = useState(tabGroupData());
- * @example :  <TabGroup tabsData={tabsData} setTabsData={setTabsData} />
+ * @Props checkedValue setCheckedValue are required, onlyLabel disabled are optional
+ * @ShouldHaveInTheParentComponent
+ * const [checkedValue, setCheckedValue] = useState('Image Poll');
+ * @example :  <TabGroup checkedValue={checkedValue} setCheckedValue={setCheckedValue} />
  * */
 
 const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
-  const { tabsData, setTabsData } = props;
+  const { onlyLabel, disabled, checkedValue, setCheckedValue } = props;
+  const tabsData = tabGroupData();
   const changeValHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setTabsData(
-      tabsData.map((tab) => {
-        if (e.target.id === tab.id) {
-          return { ...tab, value: 'checked' };
-        }
-        return { ...tab, value: 'not-checked' };
-      }),
-    );
+    setCheckedValue(e.target.value);
   };
   return (
     <div className="flex items-center">
@@ -32,8 +26,11 @@ const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
           svg={tab.svg}
           value={tab.value}
           changeValHandler={changeValHandler}
+          checkedValue={checkedValue}
+          onlyLabel={onlyLabel}
+          disabled={disabled}
         >
-          {tab.children}
+          {tab.value}
         </Tab>
       ))}
     </div>
