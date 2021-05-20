@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
 import Tab from './Tab';
 import type { ITabGroup } from './types/ITabGroup';
-import { tabGroupData } from './data';
 
 /**
  * @Props tabsData, setTabsData are required.
@@ -12,8 +11,8 @@ import { tabGroupData } from './data';
  * @example :  <TabGroup tabsData={tabsData} setTabsData={setTabsData} />
  * */
 
-const TabGroup: FC<ITabGroup.IProps> = (): ReactElement => {
-  const [tabsData, setTabsData] = useState(tabGroupData());
+const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
+  const { tabsData, setTabsData } = props;
   const changeValHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setTabsData(
       tabsData.map((tab) => {

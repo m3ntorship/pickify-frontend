@@ -1,41 +1,21 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import type { TargetElement } from '@testing-library/user-event';
 import TabGroup from './TabGroup';
+import { tabGroupData } from './data';
 
 describe('TabGroup', () => {
   it('should render all tabs successfully', () => {
+    const setTabsData = jest.fn();
+
     const firstItem = 0;
 
-    render(<TabGroup />);
+    render(<TabGroup tabsData={tabGroupData()} setTabsData={setTabsData} />);
 
     // envolved elements
-    const radioLabel: TargetElement[] = screen.getAllByTestId('tab');
+    const tab: TargetElement[] = screen.getAllByTestId('tab');
 
     // assumptions
-    expect(radioLabel[firstItem]).toBeInTheDocument();
-  });
-
-  it('should change input values when click on radio input', () => {
-    const firstItem = 0;
-    const secondItem = 1;
-
-    render(<TabGroup />);
-
-    // envolved elements
-    const radioInput: TargetElement[] = screen.getAllByTestId('Radio');
-    const radioLabel: TargetElement[] = screen.getAllByTestId('tab');
-
-    // events
-    userEvent.click(radioInput[secondItem]);
-
-    // assumptions
-    expect(radioLabel[firstItem]).toHaveAttribute('data-value', 'not-checked');
-    expect(radioLabel[secondItem]).toHaveAttribute('data-value', 'checked');
-    // expect(radioLabel[secondItem].prop('data-value')).to.equal('checked');
-    // expect(radioLabel[firstItem].prop('data-value')).to.equal('not-checked');
-    // expect(radioLabel[secondItem]).toHaveClass('checked');
-    // expect(radioLabel[firstItem]).toHaveFormValues('not-checked');
+    expect(tab[firstItem]).toBeInTheDocument();
   });
 });

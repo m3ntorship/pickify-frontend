@@ -2,8 +2,8 @@ import type React from 'react';
 
 declare namespace ITabGroup {
   export interface IProps {
-    tabsData?: ITabGroupData[];
-    setTabsData?: (data: ITabGroupData[]) => void;
+    tabsData: ITabGroupData[];
+    setTabsData: (data: ITabGroupData[]) => void;
   }
 
   export interface ITabProps extends ITabGroupData {
