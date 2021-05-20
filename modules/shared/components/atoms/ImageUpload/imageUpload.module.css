@@ -1,15 +1,10 @@
 .inputfile {
-  /* width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1; */
-  @apply w-0 h-0 opacity-0 overflow-hidden absolute;
+  @apply opacity-0 w-full h-full absolute cursor-pointer;
 }
 .label {
-  @apply box-border bg-grey-shd7 rounded-lg border border-accent border-dashed cursor-pointer
-  flex flex-row justify-center items-center
+  @apply box-border bg-grey-shd7 rounded-lg border border-accent border-dashed 
+  flex flex-row justify-center items-center 
+  relative
   w-auto
   py-mx;
 }
