@@ -1,0 +1,160 @@
+/* ///////////////////////////////// */
+.btn {
+  @apply capitalize flex items-center justify-center  box-border m-0 focus:outline-none;
+}
+/* // the varient types of buttons   border-2 */
+.btn-primary {
+  @apply bg-primary rounded-full text-white hover:bg-primary-hover focus:ring-2 focus:ring-primary-dark m-0;
+}
+
+.btn-secondary {
+  @apply rounded-full bg-white border border-primary text-primary hover:bg-grey-bg  focus:ring-2 focus:ring-primary-dark   m-0;
+}
+
+.btn-text {
+  @apply bg-transparent text-accent hover:text-accent-hover border-0 focus:underline p-0;
+}
+
+/* // the size of the buttons  */
+.btn-large {
+  @apply text-md font-bold;
+}
+
+.btn-medium {
+  @apply text-base font-medium;
+}
+
+.btn-small {
+  @apply text-sm font-medium;
+}
+/* ////////////// the right and left icon class ////////////// */
+.right-icon {
+}
+.left-icon {
+}
+
+/* //////////// condition css //////////// */
+
+.btn-large.btn-primary,
+.btn-large.btn-secondary {
+  @apply px-xl py-sx;
+}
+.btn-large.btn-primary.right-icon,
+.btn-large.btn-secondary.right-icon {
+  @apply pl-xl pr-lx  py-sx;
+}
+.btn-large.btn-primary.left-icon,
+.btn-large.btn-secondary.left-icon {
+  @apply pr-xl pl-l  py-sx;
+}
+
+.btn-medium.btn-primary,
+.btn-medium.btn-secondary {
+  @apply px-l py-xsv text-base;
+}
+.btn-medium.btn-primary.right-icon,
+.btn-medium.btn-secondary.right-icon {
+  @apply pl-l pr-mx  py-xsv;
+}
+.btn-medium.btn-primary.left-icon,
+.btn-medium.btn-secondary.left-icon {
+  @apply pr-l pl-mx  py-xsv;
+}
+
+.btn-small.btn-primary,
+.btn-small.btn-secondary {
+  @apply px-m py-xxsv text-sm;
+}
+.btn-small.btn-primary.right-icon,
+.btn-small.btn-secondary.right-icon {
+  @apply pl-m pr-xsvv py-xxsv;
+}
+.btn-small.btn-primary.left-icon,
+.btn-small.btn-secondary.left-icon {
+  @apply pr-m pl-xsvv py-xxsv;
+}
+
+/* ///////////////////only icon and it's padding  */
+
+.btn-rounded.btn-large {
+  @apply p-s;
+}
+
+.btn-rounded.btn-medium,
+.btn-rounded.btn-small {
+  @apply p-xs;
+}
+
+/* //////////////////the colors of the arrow icon  */
+.btn-primary span svg {
+  @apply fill-white;
+}
+.btn-secondary span svg {
+  @apply fill-primary;
+}
+.btn-text span svg {
+  @apply fill-accent;
+}
+/* ////////////////////the proprties of the span holding the icon  */
+
+.btn span,
+.btn-rounded.btn-large span,
+.btn-rounded.btn-medium span,
+.btn-rounded.btn-small span {
+  @apply flex items-center justify-center;
+}
+
+.btn.btn-large span {
+  @apply w-6 h-6;
+}
+
+.btn.btn-medium span,
+.btn.btn-small span {
+  @apply w-4 h-4;
+}
+
+.btn-rounded.btn-large span {
+  @apply w-8 h-8;
+}
+
+.btn-rounded.btn-medium span {
+  @apply w-6 h-6;
+}
+
+.btn-rounded.btn-small span {
+  @apply w-4 h-4;
+}
+
+/* /////////////the arrow icon and it's marging */
+.right-icon.btn-large span {
+  @apply ml-sx;
+}
+.right-icon.btn-medium span {
+  @apply ml-s;
+}
+.right-icon.btn-small span {
+  @apply ml-xs;
+}
+.left-icon.btn-large span {
+  @apply mr-sx;
+}
+.left-icon.btn-medium span {
+  @apply mr-s;
+}
+.left-icon.btn-small span {
+  @apply mr-xs;
+}
+/* //////////////////////overwrite padding when we have an icon  */
+
+/* ////////////////////the disabled buttons //////////// */
+button[disabled] {
+  @apply disabled:opacity-25 cursor-not-allowed;
+}
+
+.btn-primary[disabled] {
+  @apply hover:bg-primary;
+}
+
+.btn-secondary[disabled] {
+  @apply hover:bg-white;
+}

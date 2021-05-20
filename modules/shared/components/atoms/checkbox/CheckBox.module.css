@@ -1,0 +1,34 @@
+.label {
+  @apply relative flex justify-center  items-center;
+}
+.label-undisabled {
+  @apply cursor-pointer;
+}
+.size-default {
+  @apply w-l h-l;
+}
+.size-small {
+  @apply w-m h-m;
+}
+
+.input-checked {
+  @apply appearance-none outline-none rounded-sm text-white align-baseline bg-primary;
+}
+.input-checked-undisabled {
+  @apply border border-grey-shd4  focus:border-primary-shd6 cursor-pointer;
+}
+.input-checked-disabled {
+  @apply bg-primary-shd7;
+}
+
+.input-unchecked {
+  @apply appearance-none outline-none border border-grey-shd4 rounded-sm text-white align-baseline;
+}
+
+.input-unchecked-undisabled {
+  @apply hover:border-grey-shd1 cursor-pointer  focus:border-grey-shd2;
+}
+
+.input-unchecked-disabled {
+  @apply border border-grey-shd6;
+}
