@@ -14,7 +14,7 @@ exports[`Testing Radio with snapshot Testing Radio with required and optional pr
     value="dell"
   />
   <div
-    className="undefined"
+    className=""
   />
 </div>
 `;
