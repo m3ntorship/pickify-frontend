@@ -1,0 +1,11 @@
+.container-asd {
+  @apply flex flex-row justify-between rounded-md bg-grey-bg 
+  hover:bg-grey-shd6;
+}
+
+.letter {
+  @apply bg-white rounded-sm m-2 mr-3;
+}
+.text {
+  @apply w-l h-l text-sm;
+}
