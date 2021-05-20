@@ -7,14 +7,18 @@ import styles from './Misc.module.css';
 import type { IMisc } from './types/IMisc';
 import * as EMisc from './types/EMisc';
 
-const Misc: FC<IMisc.IProps> = ({ type, msg, subMsg }): ReactElement => {
-  const classes: string = className({
+const Misc: FC<IMisc.IProps> = ({
+  type,
+  msg = 'Message!',
+  subMsg = 'Description',
+}): ReactElement => {
+  const boxWrapper: string = className({
     [styles['success-box']]: type === EMisc.MiscType.Success,
     [styles['error-box']]: type === EMisc.MiscType.Error,
   });
 
   return (
-    <div className={classes}>
+    <div className={boxWrapper}>
       {type === EMisc.MiscType.Success ? <SuccessIcon /> : null}
       {type === EMisc.MiscType.Error ? <ErrorIcon /> : null}
       <div className={styles['msg-box']}>
