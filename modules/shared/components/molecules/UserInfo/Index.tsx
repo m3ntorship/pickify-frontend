@@ -11,16 +11,16 @@ const UserInfo: FC<IUserInfo.IProps> = ({
   date,
 }): ReactElement => {
   return (
-    <div className="flex items-center justify-start h-10">
+    <div className="flex w-min">
       <Avatar size={size} variant={variant} imgSrc={imgSrc} />
-      <div className="flex-col ml-4">
+      <div className="flex-col ml-4 whitespace-nowrap">
         <span
-          className="h-5 w-48 font-sans text-sm text-black font-bold block"
+          className="font-sans text-sm text-black font-medium block"
           data-testid="name"
         >
           {variant === 'anonymous' ? 'Anonymous' : name}
         </span>
-        <span className="h-5 w-28 font-sans text-sm text-dark-grey block">
+        <span className="font-sans text-sm text-dark-grey block">
           {date} ago
         </span>
       </div>
