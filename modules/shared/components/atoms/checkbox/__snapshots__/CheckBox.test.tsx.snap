@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and disabled true 1`] = `
+<label
+  className=""
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className=""
+    data-testid="input-test"
+    disabled={true}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and not disabled 1`] = `
+<label
+  className=""
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className=""
+    data-testid="input-test"
+    disabled={false}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and  disabled true 1`] = `
+<label
+  className="undefined"
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className="undefined"
+    data-testid="input-test"
+    disabled={true}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and not disabled 1`] = `
+<label
+  className="undefined"
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className="undefined"
+    data-testid="input-test"
+    disabled={false}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;

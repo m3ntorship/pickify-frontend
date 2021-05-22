@@ -31,6 +31,7 @@ describe('Testing Radio with snapshot', () => {
           id="dell"
           value="dell"
           defaultChecked={false}
+          onlyLabel={false}
           onChange={(): string => {
             return 'test';
           }}
