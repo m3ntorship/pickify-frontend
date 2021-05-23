@@ -5,7 +5,7 @@ import styles from './Radio.module.css';
 import type { IRadio } from './IRadio';
 
 /** 
- * @Parameters size, name, value, id, defaultChecked and onChange are required, disabled is optional.
+ * @Parameters size, name, value, id, defaultChecked and onChange are required, onlyLabel, disabled are optional.
  * @ParentComponentShouldHave
    const [checkedValue, setCheckedValue] = useState('dell12'); // set default value here to be defaultChecked or put ''
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
@@ -31,6 +31,7 @@ const Radio: FC<IRadio.IProps> = ({
   id,
   defaultChecked,
   disabled = false,
+  onlyLabel,
   onChange,
 }): ReactElement => {
   const radioInputClasses = classnames(styles.radio_input, {
@@ -50,6 +51,7 @@ const Radio: FC<IRadio.IProps> = ({
       [styles.checked_disabled_small]:
         defaultChecked && disabled && size === 'small',
       [styles.unchecked_disabled]: !defaultChecked && disabled,
+      [styles.only_label]: onlyLabel,
     },
   );
   return (

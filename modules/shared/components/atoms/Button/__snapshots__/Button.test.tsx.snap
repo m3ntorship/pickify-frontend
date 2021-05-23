@@ -2,7 +2,7 @@
 
 exports[`Button component should render (MEDIUM) button when we apply (MEDIUM) 1`] = `
 <button
-  className=""
+  className="btn btn-primary btn-medium"
   disabled={false}
   type="button"
 >
@@ -12,7 +12,7 @@ exports[`Button component should render (MEDIUM) button when we apply (MEDIUM) 1
 
 exports[`Button component should render (disapled) button when we apply disapled 1`] = `
 <button
-  className=""
+  className="btn btn-primary btn-medium"
   disabled={true}
   type="button"
 >
@@ -22,7 +22,7 @@ exports[`Button component should render (disapled) button when we apply disapled
 
 exports[`Button component should render (large) button when we apply (large) 1`] = `
 <button
-  className=""
+  className="btn btn-primary btn-large"
   disabled={false}
   type="button"
 >
@@ -32,7 +32,7 @@ exports[`Button component should render (large) button when we apply (large) 1`]
 
 exports[`Button component should render (lefticon) button when we apply lefticon 1`] = `
 <button
-  className="undefined"
+  className="btn btn-primary btn-medium left-icon"
   disabled={false}
   type="button"
 >
@@ -47,7 +47,7 @@ exports[`Button component should render (lefticon) button when we apply lefticon
 
 exports[`Button component should render (onlyicon)  button when we apply nothing 1`] = `
 <button
-  className="undefined"
+  className="btn btn-primary btn-medium btn-rounded"
   disabled={false}
   type="button"
 >
@@ -61,7 +61,7 @@ exports[`Button component should render (onlyicon)  button when we apply nothing
 
 exports[`Button component should render (primary) button when we apply primary 1`] = `
 <button
-  className=""
+  className="btn btn-primary btn-medium"
   disabled={false}
   type="button"
 >
@@ -71,7 +71,7 @@ exports[`Button component should render (primary) button when we apply primary 1
 
 exports[`Button component should render (righticon) button when we apply righticon 1`] = `
 <button
-  className=""
+  className="btn btn-primary btn-medium right-icon"
   disabled={false}
   type="button"
 >
@@ -86,7 +86,7 @@ exports[`Button component should render (righticon) button when we apply rightic
 
 exports[`Button component should render (secondary) button when we apply (secondary) 1`] = `
 <button
-  className=""
+  className="btn btn-secondary btn-medium"
   disabled={false}
   type="button"
 >
@@ -96,7 +96,7 @@ exports[`Button component should render (secondary) button when we apply (second
 
 exports[`Button component should render (small) button when we apply (small) 1`] = `
 <button
-  className="undefined"
+  className="btn btn-primary btn-small"
   disabled={false}
   type="button"
 >
@@ -106,7 +106,7 @@ exports[`Button component should render (small) button when we apply (small) 1`]
 
 exports[`Button component should render (text) button when we apply text 1`] = `
 <button
-  className="undefined"
+  className="btn btn-text btn-medium"
   disabled={false}
   type="button"
 >
