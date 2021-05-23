@@ -1,8 +1,11 @@
-export const calcTotalVotes = (votesGroup: number[]): number =>
+export const calculateTotalVotes = (votesGroup: number[]): number =>
   votesGroup.reduce((accumulator, currentValue) => accumulator + currentValue);
 
-export const calcProgress = (votes: number, totalVotes: number): number => {
-  const maximumProgress: number = 100;
+export const calculatePercentage = (
+  votes: number,
+  totalVotes: number,
+): number => {
+  const maximumProgress = 100;
   const progress: number = (votes / totalVotes) * maximumProgress;
 
   return Math.round(progress);
