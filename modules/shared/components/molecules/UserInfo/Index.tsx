@@ -2,6 +2,7 @@ import React from 'react';
 import type { ReactElement, FC } from 'react';
 import type { IUserInfo } from './IUserInfo';
 import Avatar from '../../atoms/avatar/Avatar';
+import styles from './UserInfo.module.css';
 
 const UserInfo: FC<IUserInfo.IProps> = ({
   size,
@@ -11,18 +12,13 @@ const UserInfo: FC<IUserInfo.IProps> = ({
   date,
 }): ReactElement => {
   return (
-    <div className="flex w-min">
+    <div className={styles['outer-wrapper']}>
       <Avatar size={size} variant={variant} imgSrc={imgSrc} />
-      <div className="flex-col ml-4 whitespace-nowrap">
-        <span
-          className="font-sans text-sm text-black font-medium block"
-          data-testid="name"
-        >
+      <div className={styles['user-wrapper']}>
+        <span className={styles.name} data-testid="name">
           {variant === 'anonymous' ? 'Anonymous' : name}
         </span>
-        <span className="font-sans text-sm text-dark-grey block">
-          {date} ago
-        </span>
+        <span className={styles.date}>{date} ago</span>
       </div>
     </div>
   );
