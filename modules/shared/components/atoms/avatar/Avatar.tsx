@@ -1,7 +1,7 @@
-import type { FC, ReactElement } from 'react';
 import React from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
+import type { FC, ReactElement } from 'react';
 import type { IAvatar } from './IAvatar';
 import AnonymousIcon from '../../icons/anonymous.svg';
 import NotFilledIcon from '../../icons/notFilled.svg';

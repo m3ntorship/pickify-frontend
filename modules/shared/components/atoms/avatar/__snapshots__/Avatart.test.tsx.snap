@@ -2,7 +2,7 @@
 
 exports[`Avatar renders with large size and anonymous variant 1`] = `
 <div
-  className="undefined"
+  className="wrapper large"
 >
   <svg
     className="absolute w-full h-full"
@@ -15,7 +15,7 @@ exports[`Avatar renders with large size and anonymous variant 1`] = `
 
 exports[`Avatar renders with large size and filled variant 1`] = `
 <div
-  className="undefined"
+  className="wrapper large"
 >
   <div
     style={
@@ -88,7 +88,7 @@ exports[`Avatar renders with large size and filled variant 1`] = `
 
 exports[`Avatar renders with large size and not filled variant 1`] = `
 <div
-  className="undefined"
+  className="wrapper large"
 >
   <svg
     className="absolute w-full h-full"
@@ -107,7 +107,7 @@ exports[`Avatar renders with large size and not filled variant 1`] = `
 
 exports[`Avatar renders with medium size and anonymous variant 1`] = `
 <div
-  className=""
+  className="wrapper medium"
 >
   <svg
     className="absolute w-full h-full"
@@ -120,7 +120,7 @@ exports[`Avatar renders with medium size and anonymous variant 1`] = `
 
 exports[`Avatar renders with medium size and filled variant 1`] = `
 <div
-  className=""
+  className="wrapper medium"
 >
   <div
     style={
@@ -193,7 +193,7 @@ exports[`Avatar renders with medium size and filled variant 1`] = `
 
 exports[`Avatar renders with medium size and not filled variant 1`] = `
 <div
-  className=""
+  className="wrapper medium"
 >
   <svg
     className="absolute w-full h-full"
@@ -212,7 +212,7 @@ exports[`Avatar renders with medium size and not filled variant 1`] = `
 
 exports[`Avatar renders with small size and anonymous variant 1`] = `
 <div
-  className=""
+  className="wrapper small"
 >
   <svg
     className="absolute w-full h-full"
@@ -225,7 +225,7 @@ exports[`Avatar renders with small size and anonymous variant 1`] = `
 
 exports[`Avatar renders with small size and filled variant 1`] = `
 <div
-  className=""
+  className="wrapper small"
 >
   <div
     style={
@@ -298,7 +298,7 @@ exports[`Avatar renders with small size and filled variant 1`] = `
 
 exports[`Avatar renders with small size and not filled variant 1`] = `
 <div
-  className=""
+  className="wrapper small"
 >
   <svg
     className="absolute w-full h-full"
