@@ -4,10 +4,10 @@ declare namespace ITextInputs {
   export interface IProps {
     [property: string]: unknown;
     label?: string;
-    id: string;
+    id?: string;
     variants: ETextInput.Variants;
     inputType: ETextInput.InputType;
-    disabled: boolean;
+    disabled?: boolean;
     letter?: string;
   }
 }

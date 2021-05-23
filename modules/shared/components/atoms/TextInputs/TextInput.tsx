@@ -12,7 +12,6 @@ import * as ETextInput from './types/ETextInput';
 
 const TextInput: FC<ITextInputs.IProps> = ({
   label,
-  id,
   variants,
   inputType,
   disabled,
@@ -56,7 +55,7 @@ const TextInput: FC<ITextInputs.IProps> = ({
   return (
     <div className={styles['form-group']}>
       {label ? (
-        <label htmlFor={id} className={styles['form-label']}>
+        <label htmlFor={props.id} className={styles['form-label']}>
           {label}
         </label>
       ) : (
@@ -68,7 +67,7 @@ const TextInput: FC<ITextInputs.IProps> = ({
           className={inputClasses}
           data-testid="text-input"
           type="text"
-          id={id}
+          id={props.id}
           disabled={disabled}
           onChange={changeHandler}
           value={inputVal}
