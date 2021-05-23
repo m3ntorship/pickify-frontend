@@ -41,94 +41,23 @@ exports[`Toggler Component with snapshot should render classnames include (w-7 h
 `;
 
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames do NOT include (opacity-25) when passing disabled={false} and size=default  1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <label
-        class="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesUncheckedAndEnabled toggleBodyClassesDefaultUnchecked"
-        for="test"
-      >
-        <input
-          class="opacity-0 absolute checkBoxInputEnabled"
-          data-testid="test"
-          id="test"
-          type="checkbox"
-        />
-        <div
-          class="circleClasses circleClassesUnChecked circleClassesDefault"
-        />
-      </label>
-    </div>
-  </body>,
-  "container": <div>
-    <label
-      class="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesUncheckedAndEnabled toggleBodyClassesDefaultUnchecked"
-      for="test"
-    >
-      <input
-        class="opacity-0 absolute checkBoxInputEnabled"
-        data-testid="test"
-        id="test"
-        type="checkbox"
-      />
-      <div
-        class="circleClasses circleClassesUnChecked circleClassesDefault"
-      />
-    </label>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+<label
+  className="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesUncheckedAndEnabled toggleBodyClassesDefaultUnchecked"
+  htmlFor="test"
+>
+  <input
+    className="opacity-0 absolute checkBoxInputEnabled"
+    data-testid="test"
+    defaultChecked={false}
+    disabled={false}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="circleClasses circleClassesUnChecked circleClassesDefault"
+  />
+</label>
 `;
 
 exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames include (opacity-25) when passing disabled={true} and size=default  1`] = `
