@@ -54,7 +54,7 @@ describe('Toggler Component with snapshot', () => {
     expect(tree).toMatchSnapshot();
   });
   it('should render include (w-sm h-6) and classnames do NOT include (opacity-25) when passing disabled={false} and size=default ', () => {
-    const tree = render(
+    const tree = renderer.create(
       <Toggler
         size="default"
         checked={false}
