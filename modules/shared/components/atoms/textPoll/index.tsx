@@ -23,7 +23,6 @@ const TextPoll: FC<ITextPoll.IProps> = ({
   const textPoll = classNames(styles['container-asd'], {
     [styles.winner]: chceked && winner,
     [styles.looser]: chceked && !winner,
-    // [styles['looser']]: chceked,
   });
 
   return (

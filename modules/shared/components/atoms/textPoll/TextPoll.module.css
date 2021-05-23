@@ -39,13 +39,10 @@
 .svg-check {
   @apply ml-xsvvl;
 }
-/* مش شغال مش عارف امسك ال icon */
-
-/* .svg-check svg {
-  @apply fill-primary text-dark w-12 h-12;
+.svg-check svg {
+  @apply fill-dark;
 }
 
-.container-asd .flex-container .svg-check svg {
+/* .container-asd .flex-container .svg-check svg {
   @apply w-4 h-4;
-}
- */
+} */
