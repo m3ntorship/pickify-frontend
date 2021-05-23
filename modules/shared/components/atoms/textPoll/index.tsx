@@ -8,41 +8,50 @@ import Check from '../../icons/checkMarkDefault.svg';
 const TextPoll: FC<ITextPoll.IProps> = ({
   letter = 'A',
   option = 'option one',
-  precentage,
-  chceked = false,
-  winner = false,
+  percentage,
+  isChecked = false,
+  mostVoted = false,
+  showResult,
+  id,
+  onOptionClick,
 }): ReactElement => {
-  // the VARIANS are 1- the letter [A,B,C] 2- the choice or the option text
-  // 3- if it was chossen then show span (correct sign)
-  // 4- show the presentage of all  the choice in the right side of the div
-  // 5- show a different background for the choices
-  // 5- show a different background for the winner choices
-  // 5- show the presentage for the winner choices in a white bolder text
-  // 5-  show an icon next to the precentage for the winner choice
+  console.log(onOptionClick);
 
-  const textPoll = classNames(styles['container-asd'], {
-    [styles.winner]: chceked && winner,
-    [styles.looser]: chceked && !winner,
+  const textPoll = classNames(styles.btnBody, {
+    [styles.mostVoted]: showResult && mostVoted,
+    [styles.leastVoted]: showResult && !mostVoted,
+  });
+  const svgClasses = classNames({
+    [styles.svgDark]: !mostVoted,
+    [styles.svgWhite]: mostVoted,
   });
 
   return (
-    <div className={textPoll}>
-      <div className={styles['flex-container']}>
-        <span className={styles.letter}>{letter}</span>
+    <button
+      type="button"
+      id={id}
+      data-testid={id}
+      className={textPoll}
+      onClick={onOptionClick}
+      disabled={showResult}
+    >
+      <span className={styles['flex-container']}>
+        {letter && <span className={styles.letter}>{letter}</span>}
         <p className={styles.option}> {option} </p>
         <span />
-        {chceked && (
+        {isChecked && (
           <span className={styles['svg-check']}>
-            <Check />
+            <Check className={svgClasses} />
           </span>
         )}
-      </div>
-      {chceked && (
-        <div className={styles.precentage}>
-          <span>{precentage}%</span>
-        </div>
+      </span>
+      {showResult && (
+        <span className={styles.percentage}>
+          {mostVoted ? '🌟' : ''}
+          {percentage}%
+        </span>
       )}
-    </div>
+    </button>
   );
 };
 export default TextPoll;

@@ -1,16 +1,19 @@
-.container-asd {
-  @apply flex flex-row justify-between items-center rounded-md
-  bg-grey-bg  hover:bg-grey-shd6
-  pr-xsvv pl-xs py-xsv;
+.btnBody {
+  @apply flex justify-between items-center rounded-md w-full
+  focus:outline-none 
+bg-grey-bg  hover:bg-grey-shd6
+  pr-xsvv pl-xs py-xs md:py-xsvv;
 }
-
+.btnBody:disabled {
+  @apply cursor-default disabled:opacity-100;
+}
 .letter {
   @apply bg-white text-dark-grey font-normal capitalize rounded-sm mr-3 w-l h-l flex justify-center items-center;
 }
 .option {
   @apply text-sm capitalize text-dark;
 }
-.precentage {
+.percentage {
   @apply font-normal text-dark;
 }
 
@@ -18,31 +21,33 @@
   @apply flex flex-row justify-center items-center;
 }
 
-/* //////////////////////////the winner and losser case  */
+/* //////////////////////////the mostVoted and leastVoted case  */
 
-.winner {
-  @apply bg-primary-shd1 hover:bg-primary-shd1
+.mostVoted {
+  @apply bg-primary-shd1 hover:bg-primary-shd1 
    text-white pr-m;
 }
-.winner .precentage {
+.mostVoted .percentage {
   @apply font-medium text-white;
 }
-.winner .option {
+.mostVoted .option {
   @apply text-white;
 }
-.looser {
-  @apply bg-primary-shd7 hover:bg-primary-shd7;
+.leastVoted {
+  @apply bg-primary-shd7 hover:bg-primary-shd7 cursor-default;
 }
 
 /* ///////////////////the svg icon  */
 
 .svg-check {
-  @apply ml-xsvvl;
+  @apply ml-2 w-4 h-4 flex justify-center items-center;
 }
-.svg-check svg {
+.svgDark {
   @apply fill-dark;
 }
-
+.svgWhite {
+  @apply fill-white;
+}
 /* .container-asd .flex-container .svg-check svg {
   @apply w-4 h-4;
 } */

@@ -16,7 +16,8 @@ export const Default = Template.bind({});
 Default.args = {
   option: 'option 1',
   letter: 'A',
-  precentage: 25,
-  chceked: false,
-  winner: false,
+  percentage: 25,
+  showResult: false,
+  isChecked: false,
+  mostVoted: false,
 };
