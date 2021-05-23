@@ -1,6 +1,10 @@
 declare namespace ITextPoll {
   export interface IProps {
-    text?: string;
+    letter?: string;
+    option?: string;
+    precentage?: number;
+    chceked?: boolean;
+    winner?: boolean;
   }
 }
 

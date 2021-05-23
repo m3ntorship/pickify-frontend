@@ -13,4 +13,10 @@ const Template: Story<ITextPoll.IProps> = (args): ReactElement => (
   <TextPoll {...args} />
 );
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  option: 'option 1',
+  letter: 'A',
+  precentage: 25,
+  chceked: false,
+  winner: false,
+};

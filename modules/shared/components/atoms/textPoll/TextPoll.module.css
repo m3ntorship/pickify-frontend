@@ -1,11 +1,51 @@
 .container-asd {
-  @apply flex flex-row justify-between rounded-md bg-grey-bg 
-  hover:bg-grey-shd6;
+  @apply flex flex-row justify-between items-center rounded-md
+  bg-grey-bg  hover:bg-grey-shd6
+  pr-xsvv pl-xs py-xsv;
 }
 
 .letter {
-  @apply bg-white rounded-sm m-2 mr-3;
+  @apply bg-white text-dark-grey font-normal capitalize rounded-sm mr-3 w-l h-l flex justify-center items-center;
 }
-.text {
-  @apply w-l h-l text-sm;
+.option {
+  @apply text-sm capitalize text-dark;
 }
+.precentage {
+  @apply font-normal text-dark;
+}
+
+.flex-container {
+  @apply flex flex-row justify-center items-center;
+}
+
+/* //////////////////////////the winner and losser case  */
+
+.winner {
+  @apply bg-primary-shd1 hover:bg-primary-shd1
+   text-white pr-m;
+}
+.winner .precentage {
+  @apply font-medium text-white;
+}
+.winner .option {
+  @apply text-white;
+}
+.looser {
+  @apply bg-primary-shd7 hover:bg-primary-shd7;
+}
+
+/* ///////////////////the svg icon  */
+
+.svg-check {
+  @apply ml-xsvvl;
+}
+/* مش شغال مش عارف امسك ال icon */
+
+/* .svg-check svg {
+  @apply fill-primary text-dark w-12 h-12;
+}
+
+.container-asd .flex-container .svg-check svg {
+  @apply w-4 h-4;
+}
+ */
