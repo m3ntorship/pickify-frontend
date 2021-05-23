@@ -39,7 +39,7 @@ describe('Testing voting stats logic', () => {
 
     const votesGroup = [firstVote, secondVote, thirdVote, forthVote];
 
-    const [minVotes, maxVotes] = findMinMaxVotes(votesGroup);
+    const [maxVotes, minVotes] = findMinMaxVotes(votesGroup);
 
     expect(minVotes).toEqual(thirdVote);
     expect(maxVotes).toEqual(firstVote);
