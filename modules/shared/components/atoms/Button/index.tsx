@@ -1,6 +1,6 @@
-import type { FC, ReactElement } from 'react';
 import React from 'react';
 import classnames from 'classnames';
+import type { FC, ReactElement } from 'react';
 import type { IButton } from './types/IButton';
 import styles from './Button.module.css';
 import ButtonArrowDown from '../../icons/buttonArowDown.svg';
