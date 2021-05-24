@@ -1,32 +1,10 @@
-// import { useEffect } from 'react';
 import Head from 'next/head';
-import type { ReactElement } from 'react';
-// import { postsApi } from '@modules/shared/api/baseURL.api';
-// import { GetServerSideProps } from 'next';
+import { getPosts } from '@modules/shared/api/getPosts.api';
+import type { InlineResponse200 } from '@m3ntorship/posts-client/dist/client';
+import type { GetServerSideProps } from 'next';
+import type { FC, ReactElement } from 'react';
 
-export default function Home(): ReactElement {
-  // useEffect(() => {
-  // if (!props.loading) {
-  //   console.log(true);
-  // }
-  // if (props.posts) {
-  //   console.log(props.posts);
-  // }
-  // if (props.error) {
-  //   console.log(props.error);
-  // }
-  // console.log(posts, loading, error);
-  // fetch(`/api/getPosts`)
-  //   .then((response) => response.json())
-  //   .then(({ posts }) => {
-  //     console.log(posts);
-  //   });
-  // const data = getPosts();
-  // console.log(data);
-  // postsApi.getPosts().then(({ data }) => {
-  //   console.log(data);
-  // });
-  // }, []);
+const Home: FC<InlineResponse200> = ({ postsCount }): ReactElement => {
   return (
     <>
       <Head>
@@ -35,41 +13,22 @@ export default function Home(): ReactElement {
       <div className="w-96 m-6">
         <div className="h-screen flex font-bold">
           <h1>Pickly</h1>
+          <p>{postsCount}</p>
         </div>
       </div>
     </>
   );
-}
+};
 
-// export async function getServerSideProps() {
-// const { data, loading, error } = await getPosts();
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { data } = await getPosts();
 
-// return {
-//   props: {
-//     posts: data,
-//     loading: loading,
-//     error: error,
-//   },
-// };
+  return {
+    props: {
+      posts: data.posts,
+      postsCount: data.postsCount,
+    },
+  };
+};
 
-// return postsApi
-//   .getPosts()
-//   .then(({ data }) => {
-//     return {
-//       props: {
-//         posts: data,
-//         loading: false,
-//         error: false,
-//       },
-//     };
-//   })
-//   .catch((error) => {
-//     return {
-//       props: {
-//         posts: null,
-//         loading: false,
-//         error: error,
-//       },
-//     };
-//   });
-// }
+export default Home;
