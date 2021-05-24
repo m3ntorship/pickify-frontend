@@ -1,0 +1,7 @@
+version: '3.9'  # optional since v1.27.0
+services:
+  mock-seervice:
+    image: m3ntorshipci/prism:latest
+    command: mock -d -h 0.0.0.0 https://raw.githubusercontent.com/m3ntorship/pickify-v2-posts/development/openAPI/post.openAPI.yml
+    ports:
+      - "4010:4010"
