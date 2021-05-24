@@ -7,7 +7,9 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   <span>
      Vote to uncover the total number of voters 
   </span>
-  <button>
+  <button
+    type="button"
+  >
     <svg
       data-file-name="SvgShare"
     />
@@ -23,7 +25,9 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
     120
      votes
   </span>
-  <button>
+  <button
+    type="button"
+  >
     <svg
       data-file-name="SvgShare"
     />
