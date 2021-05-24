@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Privacy Component with snapshot should render with no options on the select when giving it empty array without a divider 1`] = `
+<div>
+  <div>
+    <label
+      className=""
+      htmlFor="hideMyIdentityToggler"
+    >
+      <input
+        className="opacity-0 absolute"
+        data-testid="hideMyIdentityToggler"
+        defaultChecked={false}
+        disabled={false}
+        id="hideMyIdentityToggler"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <div
+        className=""
+      />
+    </label>
+    <span>
+      Hide my identity
+    </span>
+  </div>
+  <div
+    className="undefined"
+  >
+    <span>
+      Privacy:
+    </span>
+    <select
+      data-testid="selectTestId"
+      onChange={[Function]}
+    />
+  </div>
+</div>
+`;
