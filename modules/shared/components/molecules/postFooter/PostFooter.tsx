@@ -1,10 +1,10 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import type { IFooter } from './IFooter';
+import type { IPostFooter } from './IPostFooter';
 import Share from '../../icons/share.svg';
-import styles from './Footer.module.css';
+import styles from './PostFooter.module.css';
 
-const Footer: FC<IFooter.IProps> = ({
+const PostFooter: FC<IPostFooter.IProps> = ({
   numberOfVotes,
   showResult = false,
   handleClick,
@@ -20,4 +20,4 @@ const Footer: FC<IFooter.IProps> = ({
   );
 };
 
-export default Footer;
+export default PostFooter;

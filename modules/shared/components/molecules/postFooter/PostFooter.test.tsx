@@ -1,17 +1,15 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import Footer from './Footer';
+import PostFooter from './PostFooter';
 
 describe('Testing Footer with snapshot', () => {
   it('Testing Footer with required props', () => {
-    const tree = renderer
-      .create(<Footer numberOfVotes={120} showResult={false} />)
-      .toJSON();
+    const tree = renderer.create(<PostFooter />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('Testing Footer with required props', () => {
     const tree = renderer
-      .create(<Footer numberOfVotes={120} showResult />)
+      .create(<PostFooter numberOfVotes={120} showResult />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

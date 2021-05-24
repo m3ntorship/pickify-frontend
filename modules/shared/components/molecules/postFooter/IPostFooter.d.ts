@@ -1,8 +1,8 @@
-declare namespace IFooter {
+declare namespace IPostFooter {
   export interface IProps {
     numberOfVotes?: number;
-    showResult: boolean;
+    showResult?: boolean;
     handleClick?: () => void;
   }
 }
-export { IFooter };
+export { IPostFooter };
