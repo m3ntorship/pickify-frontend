@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing PostViewFooter component with snapshot Testing PostViewFooter with the voters={100} should have voters number  1`] = `
+<div
+  className="flex justify-between items-center text-grey mt-m"
+>
+  <span>
+    100 Votes
+  </span>
+  <svg
+    className="fill-grey"
+    data-file-name="SvgShare"
+    data-testid="test"
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`Testing PostViewFooter component with snapshot Testing PostViewFooter without the {voters} should have the votersPlaceHolder value  1`] = `
+<div
+  className="flex justify-between items-center text-grey mt-m"
+>
+  <span>
+    test
+  </span>
+  <svg
+    className="fill-grey"
+    data-file-name="SvgShare"
+    data-testid="test"
+    onClick={[Function]}
+  />
+</div>
+`;
