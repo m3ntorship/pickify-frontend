@@ -95,7 +95,10 @@ exports[`Testing textPoll component with snapshot Testing TextPoll with the nece
   <span
     className="percentage"
   >
-    🌟
+    <svg
+      className="goldenStarIcon"
+      data-file-name="SvgGoldenStar"
+    />
     %
   </span>
 </button>
