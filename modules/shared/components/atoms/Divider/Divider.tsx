@@ -6,8 +6,8 @@ import * as EDivider from './types/EDivider';
 
 const Divider: FC<IDivider.IProps> = ({ type, length }): ReactElement => {
   const dividerType = className('bg-grey-shd6', {
-    'horizontal h-px': type === EDivider.DividerType.Horizontal,
-    'vertical w-px': type === EDivider.DividerType.Vertical,
+    'h-px': type === EDivider.DividerType.Horizontal,
+    'w-px': type === EDivider.DividerType.Vertical,
   });
 
   function getDividerLength(): CSSProperties {
