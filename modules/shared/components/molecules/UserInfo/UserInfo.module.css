@@ -11,5 +11,5 @@
 }
 
 .date {
-  @apply font-sans text-sm text-dark-grey block;
+  @apply font-sans text-sm font-light	text-dark-grey block;
 }
