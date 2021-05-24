@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing postViewHeader with snapshot if variant equalls annonymous, name becomes Anonymous as well even if a name is set 1`] = `
+<div>
+  <div
+    className="flex justify-between items-start pb-s"
+  >
+    <div
+      className="outer-wrapper"
+    >
+      <div
+        className="wrapper medium"
+      >
+        <svg
+          className="absolute w-full h-full"
+          data-file-name="SvgAnonymous"
+          height={40}
+          width={40}
+        />
+      </div>
+      <div
+        className="user-wrapper"
+      >
+        <span
+          className="name"
+          data-testid="name"
+        >
+          Anonymous
+        </span>
+        <span
+          className="date"
+        >
+          2 hours
+           ago
+        </span>
+      </div>
+    </div>
+    <svg
+      className="fill-grey cursor-pointer"
+      data-file-name="SvgVerticalThreeDots"
+      data-testid="test"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="bg-grey-shd6 h-px"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
