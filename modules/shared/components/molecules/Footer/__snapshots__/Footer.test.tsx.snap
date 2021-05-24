@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Radio with snapshot Testing Radio with required props 1`] = `
+exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
 <div
   className="container"
 >
   <span>
      Vote to uncover the total number of voters 
   </span>
-  <span>
+  <button>
     <svg
       data-file-name="SvgShare"
     />
-  </span>
+  </button>
 </div>
 `;
 
-exports[`Testing Radio with snapshot Testing Radio with required props 2`] = `
+exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
 <div
   className="container"
 >
@@ -23,10 +23,10 @@ exports[`Testing Radio with snapshot Testing Radio with required props 2`] = `
     120
      votes
   </span>
-  <span>
+  <button>
     <svg
       data-file-name="SvgShare"
     />
-  </span>
+  </button>
 </div>
 `;
