@@ -169,6 +169,7 @@ module.exports = {
       accent: theme('colors.accent'),
       white: theme('colors.white'),
       'dark-grey': theme('colors.dark.grey'),
+      dark: theme('colors.dark'),
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
     }),
