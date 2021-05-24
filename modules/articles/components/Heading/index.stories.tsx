@@ -7,5 +7,5 @@ export default {
 };
 
 export const HeadingTS = (): ReactElement => (
-  <Heading text="political articles" />
+  <Heading text="political articles" toBeRed />
 );
