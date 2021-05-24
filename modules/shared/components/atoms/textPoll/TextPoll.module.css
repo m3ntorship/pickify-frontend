@@ -1,8 +1,5 @@
 .btnBody {
-  @apply flex justify-between items-center rounded-md w-full
-  focus:outline-none 
-bg-grey-bg  hover:bg-grey-shd6
-  pr-xsvv pl-xs py-xs md:py-xsvv;
+  @apply flex justify-between items-center rounded-md w-full focus:outline-none bg-grey-bg hover:bg-grey-shd6 pr-xsvv pl-xs py-xs;
 }
 .btnBody:disabled {
   @apply cursor-default disabled:opacity-100;
@@ -14,21 +11,16 @@ bg-grey-bg  hover:bg-grey-shd6
   @apply text-sm capitalize text-dark;
 }
 .percentage {
-  @apply font-normal text-dark;
+  @apply font-normal text-sm text-dark flex items-center justify-center;
 }
-
 .flex-container {
   @apply flex flex-row justify-center items-center;
 }
-
-/* //////////////////////////the mostVoted and leastVoted case  */
-
 .mostVoted {
-  @apply bg-primary-shd1 hover:bg-primary-shd1 
-   text-white pr-m;
+  @apply bg-primary-shd1 hover:bg-primary-shd1 text-white pr-m;
 }
 .mostVoted .percentage {
-  @apply font-medium text-white;
+  @apply font-medium text-base text-white;
 }
 .mostVoted .option {
   @apply text-white;
@@ -36,9 +28,6 @@ bg-grey-bg  hover:bg-grey-shd6
 .leastVoted {
   @apply bg-primary-shd7 hover:bg-primary-shd7 cursor-default;
 }
-
-/* ///////////////////the svg icon  */
-
 .svg-check {
   @apply ml-2 w-4 h-4 flex justify-center items-center;
 }
@@ -48,6 +37,6 @@ bg-grey-bg  hover:bg-grey-shd6
 .svgWhite {
   @apply fill-white;
 }
-/* .container-asd .flex-container .svg-check svg {
-  @apply w-4 h-4;
-} */
+.goldenStarIcon {
+  @apply w-4 h-5 mr-1;
+}

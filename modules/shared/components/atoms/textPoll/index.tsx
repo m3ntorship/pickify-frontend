@@ -4,6 +4,7 @@ import type { FC, ReactElement } from 'react';
 import type { ITextPoll } from './ITextPoll';
 import styles from './TextPoll.module.css';
 import Check from '../../icons/checkMarkDefault.svg';
+import GoldenStarIcon from '../../icons/goldenStar.svg';
 
 const TextPoll: FC<ITextPoll.IProps> = ({
   letter = 'A',
@@ -15,8 +16,6 @@ const TextPoll: FC<ITextPoll.IProps> = ({
   id,
   onOptionClick,
 }): ReactElement => {
-  console.log(onOptionClick);
-
   const textPoll = classNames(styles.btnBody, {
     [styles.mostVoted]: showResult && mostVoted,
     [styles.leastVoted]: showResult && !mostVoted,
@@ -47,7 +46,11 @@ const TextPoll: FC<ITextPoll.IProps> = ({
       </span>
       {showResult && (
         <span className={styles.percentage}>
-          {mostVoted ? '🌟' : ''}
+          {mostVoted ? (
+            <GoldenStarIcon className={styles.goldenStarIcon} />
+          ) : (
+            ''
+          )}
           {percentage}%
         </span>
       )}
