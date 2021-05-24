@@ -1,6 +1,7 @@
 declare namespace IFooter {
   export interface IProps {
-    string?: string;
+    numberOfVotes?: number;
+    showResult: boolean;
   }
 }
 export { IFooter };

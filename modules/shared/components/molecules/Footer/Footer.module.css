@@ -1,25 +1,4 @@
-.error-box,
-.success-box {
-  @apply w-full h-full flex flex-col items-center justify-between;
-}
-.error-box .msg-box,
-.success-box .msg-box {
-  @apply text-center;
-}
-.error-box .msg-box {
-  @apply text-error;
-}
-.error-box .msg-box .msg,
-.success-box .msg-box .msg {
-  @apply font-bold text-lg mb-xs mt-xxl;
-}
-.error-box .msg-box .sub-msg,
-.success-box .msg-box .sub-msg {
-  @apply text-md font-normal;
-}
-.success-box .msg-box .msg {
-  @apply text-dark-grey;
-}
-.success-box .msg-box .sub-msg {
-  @apply text-grey;
+.container {
+  @apply flex justify-between items-center
+  text-grey font-normal text-sm;
 }
