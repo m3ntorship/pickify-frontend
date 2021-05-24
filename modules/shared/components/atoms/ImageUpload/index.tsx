@@ -9,11 +9,13 @@ const ImageUpload: FC<IImageUpload.IProps> = ({
 }): ReactElement => {
   return (
     <>
-      <label className={styles.label} htmlFor="image">
-        <span className={styles.span}>
-          <Image className={styles.svg} />
+      <label className={styles['container-for-image-upload']} htmlFor="image">
+        <span>
+          <Image className={styles['svg-media-icon']} />
         </span>
-        <p className={styles.text}> Upload one or multiple images </p>
+        <p className={styles['text-for-image-upload']}>
+          Upload one or multiple images
+        </p>
         <input
           type="file"
           id="image"
@@ -21,7 +23,7 @@ const ImageUpload: FC<IImageUpload.IProps> = ({
           name="filename"
           multiple
           data-testid="image-upload"
-          className={styles.inputfile}
+          className={styles['inputfile-for-type-image']}
           onChange={onChangeInputHandler}
         />
       </label>

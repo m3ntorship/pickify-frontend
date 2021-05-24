@@ -1,17 +1,17 @@
-.inputfile {
+.inputfile-for-type-image {
   @apply opacity-0 w-full h-full absolute cursor-pointer;
 }
-.label {
-  @apply box-border bg-grey-shd7 rounded-md border-2 border-accent border-dashed 
+.container-for-image-upload {
+  @apply box-border bg-grey-shd7 rounded-md border border-accent border-dashed 
   flex flex-row justify-center items-center 
   relative
   w-auto
   py-mx;
 }
-.text {
+.text-for-image-upload {
   @apply text-accent text-sm font-medium not-italic;
 }
 
-.svg {
+.svg-media-icon {
   @apply mr-1;
 }
