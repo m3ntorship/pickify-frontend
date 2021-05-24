@@ -11,7 +11,9 @@ const PostViewFooter: FC<PostViewFooterTypes.IProps> = ({
 }): ReactElement => {
   return (
     <div className="flex justify-between items-center text-grey mt-m">
-      <span>{voters ? `${voters} Votes` : votersPlaceHolder}</span>
+      <span className="text-sm">
+        {voters ? `${voters} Votes` : votersPlaceHolder}
+      </span>
       <ShareIcon
         onClick={handleShareClick}
         className="fill-grey"

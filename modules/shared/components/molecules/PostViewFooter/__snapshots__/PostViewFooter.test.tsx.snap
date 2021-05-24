@@ -4,7 +4,9 @@ exports[`Testing PostViewFooter component with snapshot Testing PostViewFooter w
 <div
   className="flex justify-between items-center text-grey mt-m"
 >
-  <span>
+  <span
+    className="text-sm"
+  >
     100 Votes
   </span>
   <svg
@@ -20,7 +22,9 @@ exports[`Testing PostViewFooter component with snapshot Testing PostViewFooter w
 <div
   className="flex justify-between items-center text-grey mt-m"
 >
-  <span>
+  <span
+    className="text-sm"
+  >
     test
   </span>
   <svg
