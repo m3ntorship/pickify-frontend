@@ -13,25 +13,23 @@ it('renders correctly', () => {
   const tree = renderer.create(<ImageUpload />).toJSON();
   expect(tree).toMatchInlineSnapshot(`
     <label
-      className="label"
+      className="container-for-image-upload"
       htmlFor="image"
     >
-      <span
-        className="span"
-      >
+      <span>
         <svg
-          className="svg"
+          className="svg-media-icon"
           data-file-name="SvgImage"
         />
       </span>
       <p
-        className="text"
+        className="text-for-image-upload"
       >
-         Upload one or multiple images 
+        Upload one or multiple images
       </p>
       <input
         accept="images/*"
-        className="inputfile"
+        className="inputfile-for-type-image"
         data-testid="image-upload"
         id="image"
         multiple={true}
