@@ -1,0 +1,11 @@
+.options-wrapper {
+  @apply my-4;
+}
+
+.post-caption {
+  @apply font-normal text-md;
+}
+
+.container-for-text-poll {
+  @apply my-1 first:mt-4;
+}
