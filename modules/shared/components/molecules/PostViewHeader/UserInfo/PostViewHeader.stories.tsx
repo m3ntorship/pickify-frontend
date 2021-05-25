@@ -35,5 +35,5 @@ postViewHeader.args = {
   size: 'medium',
   variant: 'filled',
   name: 'Marzouk el akta3',
-  date: '2 hours',
+  date: new Date('2020-04-02T08:02:17-05:00'),
 };
