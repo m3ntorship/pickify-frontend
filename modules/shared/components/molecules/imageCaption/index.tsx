@@ -9,23 +9,21 @@ const ImageCaption: FC<IImgCaption.IProps> = ({
   imgCaption,
 }): ReactElement => {
   // make letter and devider (|) hidden when not pass letter as a props
-  const isCaptionLetterNotExt = classNames({
-    ' hidden ': imgCaptionLetter === undefined,
+  const classes = classNames({
+    ' hidden ': !imgCaptionLetter,
   });
   return (
     <div className={styles.captionContainer}>
-      {/* content has all styles of text and spaces */}
       <div className={styles.captionContent}>
-        {/* letter */}
-        <span data-testid="captionLetter" className={isCaptionLetterNotExt}>
+        <span data-testid="captionLetter" className={classes}>
           {imgCaptionLetter}
         </span>
-        {/* divider (|) */}
+
         <div
           data-testid="captionDivider"
-          className={styles.captionDivider + isCaptionLetterNotExt}
+          className={styles.captionDivider + classes}
         />
-        {/* caption text */}
+
         <span>{imgCaption}</span>
       </div>
     </div>
