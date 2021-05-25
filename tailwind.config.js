@@ -137,7 +137,6 @@ module.exports = {
       backgroundOpacity: {
         24: '0.24',
         8: '0.08',
-        64: '0.64',
       },
       width: {
         '2xl': '2.625rem', // 42px
