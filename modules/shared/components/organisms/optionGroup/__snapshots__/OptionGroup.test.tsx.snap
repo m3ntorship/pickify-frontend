@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing OptionGroup component with snapshot Testing OptionGroup with the necessary props and isCheck={true} should have checked svg 1`] = `null`;
+
+exports[`Testing OptionGroup component with snapshot Testing OptionGroup with the necessary props and letter="a" should have <span>A</span>  1`] = `null`;
+
+exports[`Testing OptionGroup component with snapshot Testing OptionGroup with the necessary props and mostVoted={true} showResult={true} should have class of bg-primary-shd1  1`] = `null`;
+
+exports[`Testing OptionGroup component with snapshot Testing OptionGroup with the necessary props should not have letter 1`] = `null`;
