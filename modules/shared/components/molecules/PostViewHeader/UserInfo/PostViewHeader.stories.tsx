@@ -34,6 +34,6 @@ export const postViewHeader = Template.bind({});
 postViewHeader.args = {
   size: 'medium',
   variant: 'filled',
-  name: 'Marzouk el akta3',
+  name: 'Smart Robot',
   date: '2 hours',
 };

@@ -15,7 +15,7 @@ describe('Testing postViewHeader with snapshot', () => {
           variant="anonymous"
           date="2 hours"
           name="Marzouk el akta3"
-          onClick={(): boolean => {
+          handleEditIconClick={(): boolean => {
             return true;
           }}
         />,
@@ -34,11 +34,12 @@ describe('Testing postViewHeader react testing library', () => {
         variant="anonymous"
         date="2 hours"
         name="Marzouk el akta3"
-        onClick={handleClick}
+        handleEditIconClick={handleClick}
       />,
     );
     const editIcon: TargetElement = screen.getByTestId('test');
+    const timesOfClick = 1;
     userEvent.click(editIcon);
-    expect(handleClick).toBeCalled();
+    expect(handleClick).toBeCalledTimes(timesOfClick);
   });
 });

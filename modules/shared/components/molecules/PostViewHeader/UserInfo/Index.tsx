@@ -12,7 +12,7 @@ const PostViewHeader: FC<PostViewHeaderTypes.IProps> = ({
   imgSrc,
   name,
   date,
-  onClick,
+  handleEditIconClick,
   id,
 }): ReactElement => {
   return (
@@ -26,7 +26,7 @@ const PostViewHeader: FC<PostViewHeaderTypes.IProps> = ({
           date={date}
         />
         <VerticalThreeDotsIcon
-          onClick={onClick}
+          onClick={handleEditIconClick}
           className="fill-grey cursor-pointer"
           data-testid={id}
         />
