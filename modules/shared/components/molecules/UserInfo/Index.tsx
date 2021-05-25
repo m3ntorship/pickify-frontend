@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ReactElement, FC } from 'react';
 import type { IUserInfo } from './IUserInfo';
 import Avatar from '../../atoms/avatar/Avatar';
 import styles from './UserInfo.module.css';
+import {
+  humanReadableDate,
+  exactDate,
+} from '../../../logic/formatDate/FormatDate';
 
 const UserInfo: FC<IUserInfo.IProps> = ({
   size,
@@ -11,6 +15,7 @@ const UserInfo: FC<IUserInfo.IProps> = ({
   name,
   date,
 }): ReactElement => {
+  const [isShown, setIsShown] = useState(false);
   return (
     <div className={styles['outer-wrapper']}>
       <Avatar size={size} variant={variant} imgSrc={imgSrc} />
@@ -18,7 +23,19 @@ const UserInfo: FC<IUserInfo.IProps> = ({
         <span className={styles.name} data-testid="name">
           {variant === 'anonymous' ? 'Anonymous' : name}
         </span>
-        <span className={styles.date}>{date} ago</span>
+        <div
+          onMouseEnter={(): void => {
+            setIsShown(true);
+          }}
+          onMouseLeave={(): void => {
+            setIsShown(false);
+          }}
+        >
+          {!isShown && (
+            <span className={styles.date}>{humanReadableDate(date)}</span>
+          )}
+          {isShown && <span className={styles.date}>{exactDate(date)}</span>}
+        </div>
       </div>
     </div>
   );
