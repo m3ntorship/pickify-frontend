@@ -13,7 +13,7 @@ describe('Testing postViewHeader with snapshot', () => {
           id="test"
           size="medium"
           variant="anonymous"
-          date="2 hours"
+          date={new Date('2020-04-02T08:02:17-05:00')}
           name="Marzouk el akta3"
           handleEditIconClick={(): boolean => {
             return true;
@@ -32,7 +32,7 @@ describe('Testing postViewHeader react testing library', () => {
         id="test"
         size="medium"
         variant="anonymous"
-        date="2 hours"
+        date={new Date('2020-04-02T08:02:17-05:00')}
         name="Marzouk el akta3"
         handleEditIconClick={handleClick}
       />,

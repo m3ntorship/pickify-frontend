@@ -27,12 +27,16 @@ exports[`Testing postViewHeader with snapshot if variant equalls annonymous, nam
         >
           Anonymous
         </span>
-        <span
-          className="date"
+        <div
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
-          2 hours
-           ago
-        </span>
+          <span
+            className="date"
+          >
+            a year ago
+          </span>
+        </div>
       </div>
     </div>
     <svg
