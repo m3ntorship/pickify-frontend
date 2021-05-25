@@ -22,6 +22,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
               <div
                 className={styles['container-for-text-poll']}
                 key={option.id}
+                data-testid="option"
               >
                 <TextPoll
                   option={option.body}
