@@ -1,7 +1,10 @@
 import Head from 'next/head';
-import type { ReactElement } from 'react';
+import { getPosts } from '@modules/shared/api/getPosts.api';
+import type { InlineResponse200 } from '@m3ntorship/posts-client/dist/client';
+import type { GetServerSideProps } from 'next';
+import type { FC, ReactElement } from 'react';
 
-export default function Home(): ReactElement {
+const Home: FC<InlineResponse200> = ({ postsCount }): ReactElement => {
   return (
     <>
       <Head>
@@ -10,8 +13,22 @@ export default function Home(): ReactElement {
       <div className="w-96 m-6">
         <div className="h-screen flex font-bold">
           <h1>Pickly</h1>
+          <p>{postsCount}</p>
         </div>
       </div>
     </>
   );
-}
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { data } = await getPosts();
+
+  return {
+    props: {
+      posts: data.posts,
+      postsCount: data.postsCount,
+    },
+  };
+};
+
+export default Home;
