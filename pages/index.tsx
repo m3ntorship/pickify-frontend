@@ -1,10 +1,19 @@
 import Head from 'next/head';
+import Error from 'next/error';
 import { getPosts } from '@modules/shared/api/getPosts.api';
+import type { AxiosResponse } from 'axios';
 import type { InlineResponse200 } from '@m3ntorship/posts-client/dist/client';
 import type { GetServerSideProps } from 'next';
 import type { FC, ReactElement } from 'react';
+import type { IErrorHandle } from '@modules/shared/api/IErrorHandle';
+import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 
-const Home: FC<InlineResponse200> = ({ postsCount }): ReactElement => {
+const Home: FC<IPostFeed.IPosts> = (props): ReactElement => {
+  const { message, statusCode, postsCount } = props;
+  if (message) {
+    return <Error title={message} statusCode={statusCode} />;
+  }
+
   return (
     <>
       <Head>
@@ -21,7 +30,18 @@ const Home: FC<InlineResponse200> = ({ postsCount }): ReactElement => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await getPosts();
+  const { message, response } = (await getPosts()) as IErrorHandle.IErrorData;
+
+  if (message) {
+    return {
+      props: {
+        message,
+        statusCode: response.status,
+      },
+    };
+  }
+
+  const { data } = (await getPosts()) as AxiosResponse<InlineResponse200>;
 
   return {
     props: {
