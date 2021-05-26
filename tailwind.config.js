@@ -137,6 +137,7 @@ module.exports = {
       backgroundOpacity: {
         24: '0.24',
         8: '0.08',
+        64: '0.64',
       },
       width: {
         '2xl': '2.625rem', // 42px
@@ -169,6 +170,7 @@ module.exports = {
       accent: theme('colors.accent'),
       white: theme('colors.white'),
       'dark-grey': theme('colors.dark.grey'),
+      dark: theme('colors.dark'),
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
     }),

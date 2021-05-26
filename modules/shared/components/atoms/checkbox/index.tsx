@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
+import type { FC, ReactElement } from 'react';
 import type { ICheckbox } from './types/ICheckbox';
 import CheckMarkDefault from '../../icons/checkMarkDefault.svg';
 import CheckMarkSmall from '../../icons/checkMarkSmall.svg';

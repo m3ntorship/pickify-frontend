@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divide should render horizontally when given horizontal type property and appropriate length 1`] = `
+<div
+  className="bg-grey-shd6 h-px"
+  style={
+    Object {
+      "width": "300px",
+    }
+  }
+/>
+`;
+
+exports[`Divide should render vertically when given vertical type property and appropriate length 1`] = `
+<div
+  className="bg-grey-shd6 w-px"
+  style={
+    Object {
+      "height": "300px",
+    }
+  }
+/>
+`;
