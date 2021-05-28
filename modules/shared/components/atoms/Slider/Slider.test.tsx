@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Slider from '.';
+import Slider from './Slider';
 
 describe('snapshot testing', () => {
   it('should render horizontally when given horizontal property', () => {

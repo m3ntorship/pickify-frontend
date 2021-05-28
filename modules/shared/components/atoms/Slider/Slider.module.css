@@ -1,0 +1,43 @@
+.outerHorizontal {
+  @apply w-full h-3 bg-white flex items-center p-1 rounded-sm;
+}
+
+.innerHorizontal {
+  @apply h-1 rounded-sm;
+}
+
+.success {
+  @apply bg-success;
+}
+
+.primary {
+  @apply bg-primary;
+}
+
+.primary-shd5 {
+  @apply bg-primary-shd5;
+}
+
+.error {
+  @apply bg-error;
+}
+
+.innerVertical {
+  @apply w-2 bg-white;
+}
+
+.wrapper {
+  @apply rounded-sm py-1 px-2 bg-white w-3 flex justify-center;
+}
+
+.circular {
+  @apply -rotate-90 origin-center stroke-current;
+}
+
+.primary-text {
+  @apply text-primary;
+}
+
+.error-text {
+  @apply text-error;
+}

@@ -2,6 +2,7 @@ import type { FC, ReactElement } from 'react';
 import React from 'react';
 import classNames from 'classnames';
 import type { ISlider } from './ISlider';
+import styles from './Slider.module.css';
 
 const Slider: FC<ISlider.IProps> = ({
   progress,
@@ -13,12 +14,9 @@ const Slider: FC<ISlider.IProps> = ({
   const maximumProgress = 100;
   const halfMaximumProgress = 50;
   const defaultHeight = 300;
-  const outerHorizontalClasses = classNames(
-    'w-full h-3 bg-white flex items-center p-1 rounded-sm',
-  );
-  const innerHorizontalClasses = classNames('h-1 rounded-sm', {
-    'bg-success': progress === maximumProgress,
-    'bg-primary': progress < maximumProgress,
+  const innerHorizontalClasses = classNames([styles.innerHorizontal], {
+    [styles.success]: progress === maximumProgress,
+    [styles.primary]: progress < maximumProgress,
   });
   const outerVerticalClasses = classNames('w-2 rounded-sm', {
     'bg-success': progress === maximumProgress,
@@ -28,22 +26,18 @@ const Slider: FC<ISlider.IProps> = ({
       progress < maximumProgress && verticalMeterColor === 'primary-shd5',
     'bg-error': progress < maximumProgress && verticalMeterColor === 'error',
   });
-  const innerVerticalClasses = classNames('w-2 bg-white rounded-t-sm');
-  const wrapperClasses = classNames(
-    'rounded-sm py-1 px-2 bg-white w-3 flex justify-center',
-  );
-  const circularClasses = classNames(
-    '-rotate-90 origin-center stroke-current',
-    {
-      'text-primary': progress > halfMaximumProgress,
-      'text-error': progress < halfMaximumProgress,
-    },
-  );
+  const innerVerticalClasses = classNames([styles.innerVertical]);
+  const wrapperClasses = classNames([styles.wrapper]);
+  const circularClasses = classNames([styles.circular], {
+    [styles['primary-text']]: progress > halfMaximumProgress,
+    [styles['error-text']]: progress < halfMaximumProgress,
+  });
   const circular = {
     radius: 0,
     diameter: 0,
     stroke: 4,
     normalizedRadius: 0,
+    normalizedDiameter: 0,
     circumference: 0,
     doubleStroke: 0,
   };
@@ -52,10 +46,12 @@ const Slider: FC<ISlider.IProps> = ({
   circular.diameter = circular.radius + circular.radius;
   circular.doubleStroke = circular.stroke + circular.stroke;
   circular.normalizedRadius = circular.radius - circular.doubleStroke;
-  circular.circumference = circular.diameter * Math.PI;
+  circular.normalizedDiameter =
+    circular.normalizedRadius + circular.normalizedRadius;
+  circular.circumference = circular.normalizedDiameter * Math.PI;
   if (type === 'horizontal') {
     return (
-      <div className={outerHorizontalClasses}>
+      <div className={styles.outerHorizontal}>
         <div
           className={innerHorizontalClasses}
           style={{ width: `${progress}%` }}
@@ -91,7 +87,7 @@ const Slider: FC<ISlider.IProps> = ({
           }`,
         }}
         fill="transparent"
-        r={circular.radius - circular.doubleStroke}
+        r={circular.normalizedRadius}
         cx={circular.radius}
         cy={circular.radius}
       />

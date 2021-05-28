@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import Slider from '.';
+import Slider from './Slider';
 import type { ISlider } from './ISlider';
 
 export default {
