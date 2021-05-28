@@ -40,7 +40,7 @@ exports[`snapshot testing should render vertically when given vertical property 
   className=""
 >
   <div
-    className="w-2 rounded-sm bg-primary"
+    className=""
     style={
       Object {
         "height": "300px",
