@@ -1,6 +1,6 @@
-import type { FC, ReactElement } from 'react';
 import React from 'react';
 import classNames from 'classnames';
+import type { FC, ReactElement } from 'react';
 import type { ISlider } from './ISlider';
 import styles from './Slider.module.css';
 
