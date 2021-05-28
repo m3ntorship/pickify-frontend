@@ -26,6 +26,10 @@
   @apply w-2 bg-white;
 }
 
+.outerVertical {
+  @apply w-2 rounded-sm;
+}
+
 .wrapper {
   @apply rounded-sm py-1 px-2 bg-white w-3 flex justify-center;
 }

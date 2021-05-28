@@ -18,13 +18,14 @@ const Slider: FC<ISlider.IProps> = ({
     [styles.success]: progress === maximumProgress,
     [styles.primary]: progress < maximumProgress,
   });
-  const outerVerticalClasses = classNames('w-2 rounded-sm', {
-    'bg-success': progress === maximumProgress,
-    'bg-primary':
+  const outerVerticalClasses = classNames([styles.outerVertical], {
+    [styles.success]: progress === maximumProgress,
+    [styles.primary]:
       progress < maximumProgress && verticalMeterColor === 'primary',
-    'bg-primary-shd5':
+    [styles['primary-shd5']]:
       progress < maximumProgress && verticalMeterColor === 'primary-shd5',
-    'bg-error': progress < maximumProgress && verticalMeterColor === 'error',
+    [styles.error]:
+      progress < maximumProgress && verticalMeterColor === 'error',
   });
   const innerVerticalClasses = classNames([styles.innerVertical]);
   const wrapperClasses = classNames([styles.wrapper]);
