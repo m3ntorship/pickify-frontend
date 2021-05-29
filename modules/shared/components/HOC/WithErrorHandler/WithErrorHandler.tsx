@@ -1,14 +1,8 @@
 import React from 'react';
 import type { ReactElement } from 'react';
+import type { IWithErrorHandler } from './IwithErrorHandler';
 
-interface IProps {
-  data: {
-    error: boolean;
-    message: string;
-    errorCode: number;
-  };
-}
-const WithErrorHandler = <P extends IProps>(
+const WithErrorHandler = <P extends IWithErrorHandler.IProps>(
   WrappedComponent: React.ComponentType<P>,
 ): React.FC<P> => {
   const Result: React.FC<P> = (props): ReactElement => {
