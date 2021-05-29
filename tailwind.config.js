@@ -87,8 +87,7 @@ module.exports = {
       full: '999px',
     },
     boxShadow: {
-      dark:
-        '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
+      dark: '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
       heavy:
         '0px 16px 24px rgba(0, 0, 0, 0.04), 0px 8px 12px rgba(0, 0, 0, 0.08);',
       none: 'none',
@@ -137,6 +136,8 @@ module.exports = {
       },
       backgroundOpacity: {
         24: '0.24',
+        8: '0.08',
+        64: '0.64',
       },
       width: {
         '2xl': '2.625rem', // 42px
@@ -145,7 +146,6 @@ module.exports = {
         '18xl': '18.5rem', // 296px
         '28xl': '28.5rem', // 456px
         '29xl': '29.5rem', // 472px
-
         '30xl': '30rem', // 480px
         '32xl': '32.625rem', // 522px
         '33xl': '33.25rem', // 532px
@@ -170,15 +170,27 @@ module.exports = {
       accent: theme('colors.accent'),
       white: theme('colors.white'),
       'dark-grey': theme('colors.dark.grey'),
+      dark: theme('colors.dark'),
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
     }),
+    screens: {
+      sm: '375px',
+      // => @media (min-width: 375px) { ... }
+
+      md: '834px',
+      // => @media (min-width: 834px) { ... }
+
+      lg: '1440px',
+      // => @media (min-width: 1440px) { ... }
+    },
   },
   variants: {
     extend: {
       textDecoration: ['group-focus'],
       backgroundColor: ['group-focus'],
       opacity: ['disabled'],
+      margin: ['first', 'last', 'odd', 'even'],
     },
     fill: ['hover', 'focus'],
   },

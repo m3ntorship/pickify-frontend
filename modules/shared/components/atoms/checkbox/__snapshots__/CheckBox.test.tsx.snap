@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and disabled true 1`] = `
+<label
+  className="label size-default"
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className="input-unchecked input-unchecked-disabled size-default"
+    data-testid="input-test"
+    disabled={true}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and not disabled 1`] = `
+<label
+  className="label label-undisabled size-default"
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className="input-unchecked input-unchecked-undisabled size-default"
+    data-testid="input-test"
+    disabled={false}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and  disabled true 1`] = `
+<label
+  className="label size-small"
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className="input-unchecked input-unchecked-disabled size-small"
+    data-testid="input-test"
+    disabled={true}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and not disabled 1`] = `
+<label
+  className="label label-undisabled size-small"
+  htmlFor="checkbox"
+>
+  <input
+    checked={false}
+    className="input-unchecked input-unchecked-undisabled size-small"
+    data-testid="input-test"
+    disabled={false}
+    id="checkbox"
+    onChange={[Function]}
+    type="checkbox"
+  />
+</label>
+`;

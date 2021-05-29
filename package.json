@@ -11,7 +11,7 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "storybook:build": "build-storybook",
     "lint:js": "eslint . --fix",
-    "lint:styles": "stylelint **/*.css --fix",
+    "lint:styles": "stylelint '**/*.css' --fix",
     "lint:fix": "yarn lint:js && yarn lint:styles"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
+      "pre-push": "yarn test && yarn build"
     }
   },
   "devDependencies": {
@@ -69,6 +69,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.3.8",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-css-modules-transform": "^4.2.1",
     "jest-svg-transformer": "^1.0.0",

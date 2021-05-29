@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Radio with snapshot Testing Radio with required and optional props 1`] = `
-<div>
+<div
+  className="radio_container"
+>
   <input
-    className=""
+    className="radio_input size_small"
     data-testid="Radio"
     defaultChecked={false}
     disabled={true}
@@ -14,15 +16,17 @@ exports[`Testing Radio with snapshot Testing Radio with required and optional pr
     value="dell"
   />
   <div
-    className="undefined"
+    className="radio_background unchecked size_small checkmark_small unchecked_disabled"
   />
 </div>
 `;
 
 exports[`Testing Radio with snapshot Testing Radio with required props 1`] = `
-<div>
+<div
+  className="radio_container"
+>
   <input
-    className="undefined"
+    className="radio_input size_default"
     data-testid="Radio"
     defaultChecked={false}
     disabled={false}
@@ -33,7 +37,7 @@ exports[`Testing Radio with snapshot Testing Radio with required props 1`] = `
     value="dell"
   />
   <div
-    className=""
+    className="radio_background unchecked size_default checkmark_default"
   />
 </div>
 `;
