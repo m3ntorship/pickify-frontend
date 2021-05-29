@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { getPosts } from '@modules/shared/api/getPosts.api';
+import WithErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
 import type { GetServerSideProps } from 'next';
 import type { FC, ReactElement } from 'react';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
@@ -31,4 +32,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default Home;
+export default WithErrorHandler(Home);
