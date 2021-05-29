@@ -2,10 +2,13 @@ import type { EPostType } from './EPostType';
 
 declare namespace IPostFeed {
   export interface IPosts {
-    postsCount: number;
-    posts: IPost[];
-    message: string;
-    statusCode: number;
+    data: {
+      postsCount: number;
+      posts: IPost[];
+      error: boolean;
+      message: string;
+      errorCode: number;
+    };
   }
 
   export interface IPost {
