@@ -6,19 +6,18 @@ import styles from './Slider.module.css';
 
 const Slider: FC<ISlider.IProps> = ({
   progress,
-  type,
-  height,
-  verticalMeterColor,
+  type = 'horizontal',
+  verticalMeterHeight,
+  verticalMeterColor = 'primary',
   radius,
 }): ReactElement => {
   const maximumProgress = 100;
   const halfMaximumProgress = 50;
-  const defaultHeight = 300;
-  const innerHorizontalClasses = classNames([styles.innerHorizontal], {
+  const innerHorizontalClasses = classNames([styles['inner-horizontal']], {
     [styles.success]: progress === maximumProgress,
     [styles.primary]: progress < maximumProgress,
   });
-  const outerVerticalClasses = classNames([styles.outerVertical], {
+  const outerVerticalClasses = classNames([styles['outer-vertical']], {
     [styles.success]: progress === maximumProgress,
     [styles.primary]:
       progress < maximumProgress && verticalMeterColor === 'primary',
@@ -27,11 +26,11 @@ const Slider: FC<ISlider.IProps> = ({
     [styles.error]:
       progress < maximumProgress && verticalMeterColor === 'error',
   });
-  const innerVerticalClasses = classNames([styles.innerVertical]);
+  const innerVerticalClasses = classNames([styles['inner-vertical']]);
   const wrapperClasses = classNames([styles.wrapper]);
   const circularClasses = classNames([styles.circular], {
     [styles['primary-text']]: progress > halfMaximumProgress,
-    [styles['error-text']]: progress < halfMaximumProgress,
+    [styles['error-text']]: progress <= halfMaximumProgress,
   });
   const circular = {
     radius: 0,
@@ -52,7 +51,7 @@ const Slider: FC<ISlider.IProps> = ({
   circular.circumference = circular.normalizedDiameter * Math.PI;
   if (type === 'horizontal') {
     return (
-      <div className={styles.outerHorizontal}>
+      <div className={styles['outer-horizontal']}>
         <div
           className={innerHorizontalClasses}
           style={{ width: `${progress}%` }}
@@ -62,9 +61,20 @@ const Slider: FC<ISlider.IProps> = ({
   }
   if (type === 'vertical') {
     return (
-      <div className={wrapperClasses}>
+      <div
+        className={wrapperClasses}
+        style={{
+          height: `${
+            verticalMeterHeight ? `${verticalMeterHeight}px` : '100%'
+          }`,
+        }}
+      >
         <div
-          style={{ height: `${height ?? defaultHeight}px` }}
+          style={{
+            height: `${
+              verticalMeterHeight ? `${verticalMeterHeight}px` : '100%'
+            }`,
+          }}
           className={outerVerticalClasses}
         >
           <div

@@ -6,7 +6,7 @@ exports[`snapshot testing should render circular when given circular property 1`
   width={120}
 >
   <circle
-    className="circular"
+    className="circular error-text"
     cx={60}
     cy={60}
     fill="transparent"
@@ -24,10 +24,10 @@ exports[`snapshot testing should render circular when given circular property 1`
 
 exports[`snapshot testing should render horizontally when given horizontal property 1`] = `
 <div
-  className="outerHorizontal"
+  className="outer-horizontal"
 >
   <div
-    className="innerHorizontal primary"
+    className="inner-horizontal primary"
     style={
       Object {
         "width": "50%",
@@ -40,9 +40,14 @@ exports[`snapshot testing should render horizontally when given horizontal prope
 exports[`snapshot testing should render vertically when given vertical property 1`] = `
 <div
   className="wrapper"
+  style={
+    Object {
+      "height": "300px",
+    }
+  }
 >
   <div
-    className="outerVertical primary"
+    className="outer-vertical primary"
     style={
       Object {
         "height": "300px",
@@ -50,7 +55,7 @@ exports[`snapshot testing should render vertically when given vertical property 
     }
   >
     <div
-      className="innerVertical"
+      className="inner-vertical"
       style={
         Object {
           "height": "50%",

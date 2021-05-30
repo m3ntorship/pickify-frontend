@@ -16,7 +16,7 @@ describe('snapshot testing', () => {
         <Slider
           type="vertical"
           progress={50}
-          height={300}
+          verticalMeterHeight={300}
           verticalMeterColor="primary"
         />,
       )

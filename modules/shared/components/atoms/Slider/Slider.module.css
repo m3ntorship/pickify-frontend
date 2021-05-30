@@ -1,8 +1,8 @@
-.outerHorizontal {
+.outer-horizontal {
   @apply w-full h-3 bg-white flex items-center p-1 rounded-sm;
 }
 
-.innerHorizontal {
+.inner-horizontal {
   @apply h-1 rounded-sm;
 }
 
@@ -22,11 +22,11 @@
   @apply bg-error;
 }
 
-.innerVertical {
+.inner-vertical {
   @apply w-2 bg-white;
 }
 
-.outerVertical {
+.outer-vertical {
   @apply w-2 rounded-sm;
 }
 

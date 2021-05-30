@@ -21,7 +21,7 @@ export default {
         step: 1,
       },
     },
-    height: {
+    verticalMeterHeight: {
       control: {
         type: 'number',
       },
@@ -48,7 +48,7 @@ export const sliderStory = Template.bind({});
 sliderStory.args = {
   progress: 90,
   type: 'vertical',
-  height: 300,
+  verticalMeterHeight: 300,
   radius: 60,
   verticalMeterColor: 'primary',
 };
