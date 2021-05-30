@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Avatar from './Avatar';
-import { determineAvatarSize } from './utils';
+import { determineAvatarSize } from '../../../logic/avatarUtils/utils';
 
 describe('Avatar', () => {
   it('make sure that imageSize works correctly', () => {
