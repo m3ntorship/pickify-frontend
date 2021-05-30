@@ -1,9 +1,15 @@
 declare namespace IDataTests {
   export interface IDataSucccess {
-    postTitle: string;
+    data: {
+      postTitle: string;
+    };
   }
   export interface IDataError {
-    errorCode: number;
+    data: {
+      error: boolean;
+      message: string;
+      errorCode: number;
+    };
   }
 }
 
