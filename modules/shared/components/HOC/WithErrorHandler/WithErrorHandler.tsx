@@ -3,7 +3,7 @@ import type { ReactElement, FC } from 'react';
 import type { IWithErrorHandler } from './IwithErrorHandler';
 
 function withErrorHandler<T>(WrappedComponent: FC<T>): FC<T> {
-  const Result: FC<IWithErrorHandler.IProps & T> = (props): ReactElement => {
+  return (props: IWithErrorHandler.IProps & T): ReactElement => {
     const { data } = props;
     if (data?.error) {
       return <div>{data.message}</div>;
@@ -14,6 +14,5 @@ function withErrorHandler<T>(WrappedComponent: FC<T>): FC<T> {
       </>
     );
   };
-  return Result;
 }
 export default withErrorHandler;
