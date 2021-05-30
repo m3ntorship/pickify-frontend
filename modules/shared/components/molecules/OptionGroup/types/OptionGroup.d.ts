@@ -4,5 +4,8 @@ declare namespace IOptionGroup {
     letter?: string;
     value?: string;
   }
+  export interface IProps {
+    handleGroupDelete: () => void;
+  }
 }
 export { IOptionGroup };

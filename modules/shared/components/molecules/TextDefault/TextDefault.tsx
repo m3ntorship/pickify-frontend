@@ -16,13 +16,16 @@ const TextDefault: FC<ITextDefault.IProps> = ({
   return (
     <div className="flex items-center" id={`option-${id}-box`}>
       <DragIcon className="mr-3" />
-      <TextInput
-        id={id}
-        variants={ETextInput.Variants.Default}
-        inputType={ETextInput.InputType.Choices}
-        letter={letter}
-        placeholder={placeholder}
-      />
+      <span className="flex-1">
+        <TextInput
+          id={id}
+          variants={ETextInput.Variants.Default}
+          inputType={ETextInput.InputType.Choices}
+          letter={letter}
+          placeholder={placeholder}
+          disabled={false}
+        />
+      </span>
       {deletable ? (
         <DeleteIcon
           className="ml-3 cursor-pointer"
