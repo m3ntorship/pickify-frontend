@@ -6,7 +6,7 @@ import type { IAvatar } from './IAvatar';
 import AnonymousIcon from '../../icons/anonymous.svg';
 import NotFilledIcon from '../../icons/notFilled.svg';
 import styles from './Avatar.module.css';
-import { determineAvatarSize } from '../../../logic/avatarUtils/utils';
+import { determineAvatarSize } from '../../../logic/avatarLogic/avatarLogic';
 
 const Avatar: FC<IAvatar.IProps> = ({
   size,

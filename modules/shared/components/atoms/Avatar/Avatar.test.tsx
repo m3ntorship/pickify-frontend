@@ -1,21 +1,8 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Avatar from './Avatar';
-import { determineAvatarSize } from '../../../logic/avatarUtils/utils';
 
 describe('Avatar', () => {
-  it('make sure that imageSize works correctly', () => {
-    const small = 32;
-    const medium = 40;
-    const large = 56;
-    const smallSize = determineAvatarSize('small');
-    expect(smallSize).toEqual(small);
-    const mediumSize = determineAvatarSize('medium');
-    expect(mediumSize).toEqual(medium);
-    const largeSize = determineAvatarSize('large');
-    expect(largeSize).toEqual(large);
-  });
-
   it('renders with large size and filled variant', () => {
     const tree = renderer.create(
       <Avatar
