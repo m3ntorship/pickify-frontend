@@ -1,13 +1,10 @@
 import Head from 'next/head';
 import { getPosts } from '@modules/shared/api/getPosts.api';
-import WithErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
-import type { GetServerSideProps } from 'next';
 import type { FC, ReactElement } from 'react';
+import type { GetServerSideProps } from 'next';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 
-const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  console.log(data);
-
+const Home: FC<IPostFeed.Posts> = ({ data }): ReactElement => {
   return (
     <>
       <Head>
@@ -16,6 +13,7 @@ const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       <div className="w-96 m-6">
         <div className="h-screen flex font-bold">
           <h1>Pickly</h1>
+          <h1>{data.postsCount}</h1>
         </div>
       </div>
     </>
@@ -24,7 +22,6 @@ const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const { data } = await getPosts();
-
   return {
     props: {
       data,
@@ -32,4 +29,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default WithErrorHandler(Home);
+export default Home;

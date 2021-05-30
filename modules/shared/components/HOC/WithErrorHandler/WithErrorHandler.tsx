@@ -1,13 +1,11 @@
 import React from 'react';
-import type { ReactElement } from 'react';
+import type { ReactElement, FC } from 'react';
 import type { IWithErrorHandler } from './IwithErrorHandler';
 
-const WithErrorHandler = <P extends IWithErrorHandler.IProps>(
-  WrappedComponent: React.ComponentType<P>,
-): React.FC<P> => {
-  const Result: React.FC<P> = (props): ReactElement => {
+function withErrorHandler<T>(WrappedComponent: FC<T>): FC<T> {
+  const Result: FC<IWithErrorHandler.IProps & T> = (props): ReactElement => {
     const { data } = props;
-    if (data.error) {
+    if (data?.error) {
       return <div>{data.message}</div>;
     }
     return (
@@ -17,5 +15,5 @@ const WithErrorHandler = <P extends IWithErrorHandler.IProps>(
     );
   };
   return Result;
-};
-export default WithErrorHandler;
+}
+export default withErrorHandler;

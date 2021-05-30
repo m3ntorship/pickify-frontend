@@ -1,6 +1,6 @@
 declare namespace IWithErrorHandler {
   export interface IProps {
-    data: {
+    data?: {
       error: boolean;
       message: string;
       errorCode: number;
