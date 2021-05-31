@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import Toggler from './index';
-import type { ITogglerTypes } from './TogglerTypes';
+import type { IToggler } from './IToggler';
 
 export default {
   component: Toggler,
@@ -14,7 +14,7 @@ export default {
   },
 };
 
-const Template: Story<ITogglerTypes.IProps> = (args): ReactElement => (
+const Template: Story<IToggler.IProps> = (args): ReactElement => (
   <Toggler {...args} />
 );
 export const toggler = Template.bind({});

@@ -23,7 +23,7 @@ export const determineAvatarSize = (componentSize: string): number => {
 const Avatar: FC<IAvatar.IProps> = ({
   size,
   variant,
-  imgSrc,
+  profile_pic,
 }): ReactElement => {
   const wrapperClasses = classNames([styles.wrapper], {
     [styles.small]: size === 'small',
@@ -33,15 +33,15 @@ const Avatar: FC<IAvatar.IProps> = ({
   const avatarSize = determineAvatarSize(size);
   return (
     <div className={wrapperClasses}>
-      {variant === 'filled' && imgSrc !== undefined && (
+      {variant === 'filled' && profile_pic !== undefined && (
         <Image
           height={avatarSize}
           width={avatarSize}
           className="absolute w-full h-full"
-          src={imgSrc}
+          src={profile_pic}
         />
       )}
-      {(variant === 'anonymous' || imgSrc === undefined) && (
+      {(variant === 'anonymous' || profile_pic === undefined) && (
         <AnonymousIcon
           className="absolute w-full h-full"
           width={avatarSize}

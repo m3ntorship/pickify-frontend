@@ -22,7 +22,7 @@ export default {
   },
 };
 
-const Template: Story<ICheckbox.ICheckBoxProps> = (args): ReactElement => (
+const Template: Story<ICheckbox.IProps> = (args): ReactElement => (
   <Checkbox {...args} />
 );
 export const checkbox = Template.bind({});

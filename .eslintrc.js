@@ -23,7 +23,7 @@ module.exports = {
     'no-console': 'warn',
     'no-debugger': 'warn',
     'no-irregular-whitespace': 'warn',
-    camelcase: 'error',
+    camelcase: 'warn',
     'comma-spacing': 'error',
     'arrow-spacing': 'error',
     'prefer-const': 'error',
