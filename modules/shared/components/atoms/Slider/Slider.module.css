@@ -3,7 +3,7 @@
 }
 
 .inner-horizontal {
-  @apply h-1 rounded-sm;
+  @apply h-1 rounded-sm transition-all;
 }
 
 .success {
@@ -23,7 +23,7 @@
 }
 
 .inner-vertical {
-  @apply w-2 bg-white;
+  @apply w-2 bg-white transition-all;
 }
 
 .outer-vertical {
@@ -35,7 +35,7 @@
 }
 
 .circular {
-  @apply -rotate-90 origin-center stroke-current;
+  @apply -rotate-90 origin-center stroke-current transition-all;
 }
 
 .primary-text {
