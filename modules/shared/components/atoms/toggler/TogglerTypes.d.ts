@@ -1,13 +1,17 @@
 import type React from 'react';
 
-declare namespace TogglerTypes {
-  export interface Props {
+declare namespace ITogglerTypes {
+  export interface IProps extends IData, IHandlers {
     size: 'default' | 'sm';
-    disabled?: boolean;
+  }
+  export interface IData {
+    disabled: boolean;
     checked: boolean;
     id: string;
+  }
+  export interface IHandlers {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }
 }
 
-export { TogglerTypes };
+export { ITogglerTypes };

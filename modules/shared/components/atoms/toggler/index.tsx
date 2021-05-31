@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import type { FC, ReactElement } from 'react';
 import styles from './Toggler.module.css';
-import type { TogglerTypes } from './TogglerTypes';
+import type { ITogglerTypes } from './TogglerTypes';
 /** 
 * @example : <Toggler size="sm" id="test" checked={isChecked} onChange={handleTogglerChange} disabled={true} />
 * @Parameters size, id, checked and onChange are required for Toggler component to function, The prop disabled is optional.
@@ -11,7 +11,7 @@ const [isChecked,setIsChecked] = useState(false);
 cosnt handleTogglerChange = ():void => { setIsChecked(!isChecked) };
 */
 
-const Toggler: FC<TogglerTypes.Props> = ({
+const Toggler: FC<ITogglerTypes.IProps> = ({
   size,
   disabled = false,
   checked,
