@@ -12,7 +12,7 @@ declare namespace IButton {
   }
 
   export interface IHandlers {
-    onClick: () => void;
+    onClick?: () => void;
   }
 }
 export { IButton };
