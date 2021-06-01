@@ -6,19 +6,7 @@ import type { IAvatar } from './IAvatar';
 import AnonymousIcon from '../../icons/anonymous.svg';
 import NotFilledIcon from '../../icons/notFilled.svg';
 import styles from './Avatar.module.css';
-
-export const determineAvatarSize = (componentSize: string): number => {
-  const smallSize = 32;
-  const mediumSize = 40;
-  const largeSize = 56;
-  if (componentSize === 'small') {
-    return smallSize;
-  }
-  if (componentSize === 'medium') {
-    return mediumSize;
-  }
-  return largeSize;
-};
+import { determineAvatarSize } from '../../../logic/avatarLogic/avatarLogic';
 
 const Avatar: FC<IAvatar.IProps> = ({
   size,
