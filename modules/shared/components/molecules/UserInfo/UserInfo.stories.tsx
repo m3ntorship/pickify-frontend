@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import UserInfo from './Index';
+import UserInfo from './UserInfo';
 import type { IUserInfo } from './IUserInfo';
 
 export default {

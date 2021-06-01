@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import UserInfo from './Index';
+import UserInfo from './UserInfo';
 
 describe('UserInfo', () => {
   it('if variant equalls annonymous, name becomes Anonymous as well', () => {
