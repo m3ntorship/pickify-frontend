@@ -1,10 +1,16 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import UserInfo from './Index';
+import UserInfo from './UserInfo';
 
 describe('UserInfo', () => {
   it('if variant equalls annonymous, name becomes Anonymous as well', () => {
-    render(<UserInfo size="medium" variant="anonymous" date="2 hours" />);
+    render(
+      <UserInfo
+        size="medium"
+        variant="anonymous"
+        date={new Date('2021-05-24T23:10:24.114Z')}
+      />,
+    );
     expect(screen.getByTestId('name')).toHaveTextContent('Anonymous');
   });
 
@@ -13,7 +19,7 @@ describe('UserInfo', () => {
       <UserInfo
         size="medium"
         variant="anonymous"
-        date="2 hours"
+        date={new Date('2021-05-24T23:10:24.114Z')}
         name="Ahmed Ayoub"
       />,
     );
@@ -25,7 +31,7 @@ describe('UserInfo', () => {
       <UserInfo
         size="medium"
         variant="filled"
-        date="2 hours"
+        date={new Date('2021-05-24T23:10:24.114Z')}
         name="Ahmed Ayoub"
       />,
     );
@@ -37,7 +43,7 @@ describe('UserInfo', () => {
       <UserInfo
         size="medium"
         variant="notFilled"
-        date="2 hours"
+        date={new Date('2021-05-24T23:10:24.114Z')}
         name="Ahmed Ayoub"
       />,
     );
