@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import TextDefault from '../TextDefault/TextDefault';
-import type { IOptionGroup } from './types/OptionGroup';
+import type { IOptionGroup } from './types/IOptionGroup';
 import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import CheckSmall from '../../icons/checkMarkSmall.svg';
 import XIcon from '../../icons/xicon.svg';
@@ -32,7 +32,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
     setOptions([...options, { id: id.toString() }]);
   }
   return (
-    <div className="flex flex-col bg-grey-bg">
+    <div className="flex flex-col bg-grey-bg p-4">
       <div className="flex justify-between">
         {!isGroupNameAdded ? (
           <>
