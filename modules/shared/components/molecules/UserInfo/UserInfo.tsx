@@ -1,8 +1,12 @@
 import React from 'react';
 import type { ReactElement, FC } from 'react';
 import type { IUserInfo } from './IUserInfo';
-import Avatar from '../../atoms/Avatar/Avatar';
+import Avatar from '../../atoms/avatar/Avatar';
 import styles from './UserInfo.module.css';
+import {
+  humanReadableDate,
+  exactDate,
+} from '../../../logic/formatDate/FormatDate';
 
 const UserInfo: FC<IUserInfo.IProps> = ({
   size,
@@ -18,7 +22,9 @@ const UserInfo: FC<IUserInfo.IProps> = ({
         <span className={styles.name} data-testid="name">
           {variant === 'anonymous' ? 'Anonymous' : name}
         </span>
-        <span className={styles.date}>{date} ago</span>
+        <span title={exactDate(date)} className={styles.date}>
+          {humanReadableDate(date)}
+        </span>
       </div>
     </div>
   );

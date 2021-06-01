@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import UserInfo from './Index';
+import UserInfo from './UserInfo';
 import type { IUserInfo } from './IUserInfo';
 
 export default {
@@ -45,5 +45,5 @@ UserInfoStory.args = {
   size: 'medium',
   variant: 'filled',
   name: 'Ahmed Ayoub',
-  date: '2 hours',
+  date: new Date('2021-05-24T23:10:24.114Z'),
 };
