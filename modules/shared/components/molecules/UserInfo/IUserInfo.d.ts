@@ -1,4 +1,4 @@
-import type { IAvatar } from '../../atoms/avatar/IAvatar';
+import type { IAvatar } from '../../atoms/Avatar/IAvatar';
 
 declare namespace IUserInfo {
   export interface IProps extends IAvatar.IProps {

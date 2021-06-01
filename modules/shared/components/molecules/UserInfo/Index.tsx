@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ReactElement, FC } from 'react';
 import type { IUserInfo } from './IUserInfo';
-import Avatar from '../../atoms/avatar/Avatar';
+import Avatar from '../../atoms/Avatar/Avatar';
 import styles from './UserInfo.module.css';
 import {
   humanReadableDate,
