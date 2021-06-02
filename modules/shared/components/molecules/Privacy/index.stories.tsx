@@ -1,13 +1,13 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import Privacy from './index';
-import type { PrivacyTypes } from './PrivacyTypes';
+import type { IPrivacy } from './PrivacyTypes';
 
 export default {
   component: Privacy,
   title: 'Molecules/Privacy',
 };
-const Template: Story<PrivacyTypes.Props> = (args): ReactElement => (
+const Template: Story<IPrivacy.IProps> = (args): ReactElement => (
   <Privacy {...args} />
 );
 export const privacy = Template.bind({});
