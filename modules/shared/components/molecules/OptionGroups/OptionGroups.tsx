@@ -15,27 +15,9 @@ const OptionGroups: FC = (): ReactElement => {
   const incrementByOne = 1;
   const decrementByOne = 1;
 
-  const initialOptionGroups = [
-    {
-      id: initialFirstGroupId,
-      options: [
-        {
-          id: initialFirstOptionId,
-          letter: alphabet[initialFirstOptionId],
-          value: '',
-        },
-        {
-          id: initialSecondOptionId,
-          letter: alphabet[initialSecondOptionId],
-          value: '',
-        },
-      ],
-      groupName: '',
-    },
-  ];
-
-  const [optionGroups, setOptionGroups] =
-    useState<IOptionGroups.IOptionGroup[]>(initialOptionGroups);
+  const [optionGroups, setOptionGroups] = useState<
+    IOptionGroups.IOptionGroup[]
+  >([]);
 
   const addGroupHandler = (): void => {
     setOptionGroups([
