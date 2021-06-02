@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import Toggler from '../../atoms/toggler';
 import type { FC, ReactElement } from 'react';
+import Toggler from '../../atoms/toggler';
 import type { IPrivacy } from './PrivacyTypes';
 import styles from './Privacy.module.css';
 
