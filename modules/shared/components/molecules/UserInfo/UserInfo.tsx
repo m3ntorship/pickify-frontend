@@ -8,19 +8,24 @@ import {
   exactDate,
 } from '../../../logic/formatDate/FormatDate';
 
+import { handleAvatarVariant } from '../../../logic/userInfoVariant/userInfoVariant';
+
 const UserInfo: FC<IUserInfo.IProps> = ({
-  size,
-  variant,
+  isHidden,
   profile_pic,
   name,
   date,
 }): ReactElement => {
   return (
     <div className={styles['outer-wrapper']}>
-      <Avatar size={size} variant={variant} profile_pic={profile_pic} />
+      <Avatar
+        size="medium"
+        variant={handleAvatarVariant(isHidden, profile_pic)}
+        profile_pic={profile_pic}
+      />
       <div className={styles['user-wrapper']}>
         <span className={styles.name} data-testid="name">
-          {variant === 'anonymous' ? 'Anonymous' : name}
+          {isHidden ? 'Anonymous' : name}
         </span>
         <span title={exactDate(date)} className={styles.date}>
           {humanReadableDate(date)}

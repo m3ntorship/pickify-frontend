@@ -57,7 +57,7 @@ module.exports = {
           'warn',
           {
             selector: 'function',
-            format: ['PascalCase', 'camelCase'],
+            format: ['PascalCase'],
           },
         ],
         'import/extensions': [
