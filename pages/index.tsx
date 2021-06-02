@@ -2,7 +2,7 @@
 import Head from 'next/head';
 import { getPosts } from '@modules/shared/api/getPosts.api';
 import type { FC, ReactElement } from 'react';
-import type { GetServerSideProps } from 'next';
+import type { GetServerSideProps, GetStaticProps } from 'next';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
 
@@ -33,7 +33,7 @@ const Home: FC<IPostFeed.Posts> = ({ data }): ReactElement => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     const { data } = await getPosts();
     return {
