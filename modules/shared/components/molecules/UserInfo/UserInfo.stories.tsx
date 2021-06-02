@@ -1,25 +1,13 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import UserInfo from './Index';
+import UserInfo from './UserInfo';
 import type { IUserInfo } from './IUserInfo';
 
 export default {
   title: 'molecules/UserInfo',
   component: UserInfo,
   argTypes: {
-    size: {
-      control: {
-        type: 'select',
-        options: ['large', 'medium', 'small'],
-      },
-    },
-    variant: {
-      control: {
-        type: 'select',
-        options: ['filled', 'notFilled', 'anonymous'],
-      },
-    },
-    imgSrc: {
+    profile_pic: {
       control: {
         type: 'text',
       },
@@ -42,8 +30,7 @@ const Template: Story<IUserInfo.IProps> = (args): ReactElement => (
 );
 export const UserInfoStory = Template.bind({});
 UserInfoStory.args = {
-  size: 'medium',
-  variant: 'filled',
+  isHidden: true,
   name: 'Ahmed Ayoub',
-  date: '2 hours',
+  date: new Date('2021-05-24T23:10:24.114Z'),
 };
