@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ReactElement, FC } from 'react';
 import type { IUserInfo } from './IUserInfo';
-import Avatar from '../../atoms/avatar/Avatar';
+import Avatar from '../../atoms/Avatar/Avatar';
 import styles from './UserInfo.module.css';
 import {
   humanReadableDate,
@@ -12,7 +12,7 @@ import { handleAvatarVariant } from '../../../logic/userInfoVariant/userInfoVari
 
 const UserInfo: FC<IUserInfo.IProps> = ({
   isHidden,
-  profile_pic,
+  profilePic,
   name,
   date,
 }): ReactElement => {
@@ -20,8 +20,8 @@ const UserInfo: FC<IUserInfo.IProps> = ({
     <div className={styles['outer-wrapper']}>
       <Avatar
         size="medium"
-        variant={handleAvatarVariant(isHidden, profile_pic)}
-        profile_pic={profile_pic}
+        variant={handleAvatarVariant(isHidden, profilePic)}
+        profilePic={profilePic}
       />
       <div className={styles['user-wrapper']}>
         <span className={styles.name} data-testid="name">

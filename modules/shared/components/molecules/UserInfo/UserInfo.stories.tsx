@@ -7,7 +7,7 @@ export default {
   title: 'molecules/UserInfo',
   component: UserInfo,
   argTypes: {
-    profile_pic: {
+    profilePic: {
       control: {
         type: 'text',
       },
