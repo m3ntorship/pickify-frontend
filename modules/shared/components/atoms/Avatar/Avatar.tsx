@@ -11,7 +11,7 @@ import { determineAvatarSize } from '../../../logic/avatarLogic/avatarLogic';
 const Avatar: FC<IAvatar.IProps> = ({
   size,
   variant,
-  profile_pic,
+  profilePic,
 }): ReactElement => {
   const wrapperClasses = classNames([styles.wrapper], {
     [styles.small]: size === 'small',
@@ -21,15 +21,15 @@ const Avatar: FC<IAvatar.IProps> = ({
   const avatarSize = determineAvatarSize(size);
   return (
     <div className={wrapperClasses}>
-      {variant === 'filled' && profile_pic !== undefined && (
+      {variant === 'filled' && profilePic !== undefined && (
         <Image
           height={avatarSize}
           width={avatarSize}
           className="absolute w-full h-full"
-          src={profile_pic}
+          src={profilePic}
         />
       )}
-      {(variant === 'anonymous' || profile_pic === undefined) && (
+      {(variant === 'anonymous' || profilePic === undefined) && (
         <AnonymousIcon
           className="absolute w-full h-full"
           width={avatarSize}

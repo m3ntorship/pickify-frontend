@@ -5,7 +5,7 @@ declare namespace IAvatar {
   }
 
   export interface IData {
-    profile_pic?: string;
+    profilePic?: string;
   }
 }
 

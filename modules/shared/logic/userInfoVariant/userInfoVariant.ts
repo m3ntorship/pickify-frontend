@@ -1,6 +1,6 @@
 export const handleAvatarVariant = (
   isHidden: boolean,
-  profile_pic: string | undefined,
+  profilePic: string | undefined,
 ): 'anonymous' | 'filled' | 'notFilled' => {
   const anonymous = 'anonymous';
   const filled = 'filled';
@@ -8,5 +8,5 @@ export const handleAvatarVariant = (
   if (isHidden) {
     return anonymous;
   }
-  return profile_pic ? filled : notFilled;
+  return profilePic ? filled : notFilled;
 };
