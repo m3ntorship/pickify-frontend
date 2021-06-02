@@ -23,7 +23,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
 
   return (
     <div className="flex flex-col bg-grey-bg p-4 rounded-md">
-      <div className="flex justify-between">
+      <div className="flex justify-between pb-2 mb-2">
         {!isGroupNameAdded ? (
           <>
             <input
@@ -70,7 +70,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
         )}
       </div>
       {options.map((option, index) => (
-        <div className="my-2" key={option.id}>
+        <div className="mb-2" key={option.id}>
           <TextDefault
             id={`${option.id}`}
             letter={option.letter}
