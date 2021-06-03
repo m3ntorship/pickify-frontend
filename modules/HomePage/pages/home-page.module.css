@@ -1,5 +1,5 @@
 .layout-parent {
-  @apply w-2/3 mx-auto mt-12 flex;
+  @apply w-2/3 mx-auto mt-12 flex justify-between;
 }
 
 .posts-feed {
@@ -7,7 +7,7 @@
 }
 
 .widgets {
-  @apply w-19xl;
+  @apply w-19xl hidden md:block;
 }
 
 .widget {

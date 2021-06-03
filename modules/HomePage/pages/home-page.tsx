@@ -10,6 +10,7 @@ interface WidgetData {
 }
 
 const HomePage: FC<IPostFeed.IPosts> = (): ReactElement => {
+  const firstIndex = 0;
   const widgetData: WidgetData[] = [
     {
       content:
@@ -29,7 +30,11 @@ const HomePage: FC<IPostFeed.IPosts> = (): ReactElement => {
     <section className="bg-grey-bg2 min-h-screen">
       <Navigation />
       <section className={styles['layout-parent']}>
-        <div className={styles['posts-feed']}>aaaaaa</div>
+        <div className={styles['posts-feed']}>
+          <div className={styles.widget}>
+            <Widget>{widgetData[firstIndex].content}</Widget>
+          </div>
+        </div>
         <div className={styles.widgets}>
           {widgetData.map((widget) => (
             <div className={styles.widget}>
