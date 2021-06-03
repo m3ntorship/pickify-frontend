@@ -9,3 +9,7 @@
 .widgets {
   @apply w-19xl;
 }
+
+.widget {
+  @apply mb-6;
+}
