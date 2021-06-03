@@ -32,3 +32,4 @@ declare namespace IPostFeed {
     posts: EPostType;
   }
 }
+export { IPostFeed };
