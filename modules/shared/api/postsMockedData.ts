@@ -17,7 +17,7 @@ const createPostOption = (max: number): IPostFeed.IOptions[] => {
     }));
 };
 
-const createPostOptionsGroup = (): IPostFeed.IGroups[] => {
+const createPostOptionsGroup = (): IPostFeed.IGroup[] => {
   const maxOptionCount = 10;
   return [
     {
