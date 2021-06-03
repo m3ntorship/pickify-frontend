@@ -10,6 +10,7 @@
   @apply w-19xl hidden md:block;
 }
 
-.widget {
+.widget,
+.posts {
   @apply mb-6;
 }
