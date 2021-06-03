@@ -1,27 +1,25 @@
 import React from 'react';
-import Divider from '../../../atoms/Divider/Divider';
 import type { ReactElement, FC } from 'react';
+import Divider from '../../../atoms/Divider/Divider';
 import VerticalThreeDotsIcon from '../../../icons/verticalThreeDots.svg';
-import type { PostViewHeaderTypes } from './PostViewHeaderTypes';
-import UserInfo from '../../UserInfo/Index';
+import type { IPostViewHeader } from './IPostViewHeader';
 import * as EDivider from '../../../atoms/Divider/types/EDivider';
+import UserInfo from '../../UserInfo/UserInfo';
 
-const PostViewHeader: FC<PostViewHeaderTypes.IProps> = ({
-  size = 'medium',
-  variant,
-  imgSrc,
+const PostViewHeader: FC<IPostViewHeader.IProps> = ({
+  profilePic,
   name,
   date,
   handleEditIconClick,
   id,
+  isHidden,
 }): ReactElement => {
   return (
     <div>
       <div className="flex justify-between items-start pb-s">
         <UserInfo
-          size={size}
-          variant={variant}
-          imgSrc={imgSrc}
+          isHidden={isHidden}
+          profilePic={profilePic}
           name={name}
           date={date}
         />

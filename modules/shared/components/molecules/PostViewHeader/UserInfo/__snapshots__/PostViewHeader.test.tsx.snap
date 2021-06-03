@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing postViewHeader with snapshot if variant equalls annonymous, name becomes Anonymous as well even if a name is set 1`] = `
+exports[`Testing postViewHeader with snapshot if isHidden is true, name becomes Anonymous as well even if a name is given 1`] = `
 <div>
   <div
     className="flex justify-between items-start pb-s"
@@ -29,9 +29,9 @@ exports[`Testing postViewHeader with snapshot if variant equalls annonymous, nam
         </span>
         <span
           className="date"
+          title="01/11/1967 21:15:45"
         >
-          2 hours
-           ago
+          54 years ago
         </span>
       </div>
     </div>
