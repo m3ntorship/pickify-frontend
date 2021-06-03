@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import OptionGroup from './OptionGroup';
-import type { IOptionGroup } from './IOptionGroupl';
+import type { IOptionGroup } from './IOptionGroup';
 import { apiDummyData } from './data';
 
 export default {
