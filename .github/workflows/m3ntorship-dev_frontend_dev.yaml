@@ -17,7 +17,7 @@ env:
   M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
   M3_DEPLOYMENT_PATH: deploy/dev/frontend
   M3_TEMP_DIR: temp
-  M3_REPLICAS: '1'  
+  M3_REPLICAS: '1'
   M3_PORT: '5000'
   M3_MEMORY: '200Mi'
   M3_CPU: '50m'
@@ -50,23 +50,17 @@ jobs:
         with:
           username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
           password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
-      
+
       # install dependencies
       - name: install app dependencies
         run: |
           yarn
-      
+
       # run tests
       - name: run tests
         run: |
           yarn test
-      
-      # build app
-      - name: build and export the app
-        run: |
-          yarn build
-          yarn export
-      
+
       # build and push docker image
       - name: build and push docker image
         run: |
@@ -94,7 +88,7 @@ jobs:
           chmod +x mo
           sudo mv mo /usr/local/bin
           echo "works" | mo
-      
+
       - name: deployment-preparation
         run: |
           echo $M3_NAMESPACE
@@ -107,12 +101,12 @@ jobs:
       - name: deploy
         run: |
           kubectl apply -f $M3_TEMP_DIR
-      
+
       #cleanup temp directories
       - name: clean-temp-files
         run: rm -rf $M3_TEMP_DIR
   cleanup_docker_tags:
-    needs: 
+    needs:
       - deploy_dev
     runs-on: ubuntu-latest
     steps:
@@ -122,6 +116,6 @@ jobs:
         with:
           token: ${{secrets.DOCKER_HUB_M3NTORSHIPCI_TOKEN}}
           keep-last: 5
-          user: "m3ntorshipci"
-          repos: '["pickify-frontend"]'   
+          user: 'm3ntorshipci'
+          repos: '["pickify-frontend"]'
           substrings: '["dev-"]'

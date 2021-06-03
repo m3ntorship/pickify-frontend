@@ -1,6 +1,6 @@
 import { getPosts } from '@modules/shared/api/getPosts.api';
 import type { FC, ReactElement } from 'react';
-import type { GetStaticProps } from 'next';
+import type { GetServerSideProps } from 'next';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import { HomePage } from '@modules/HomePage';
 
@@ -21,12 +21,11 @@ import { HomePage } from '@modules/HomePage';
 // };
 // const TempTextPollFeedWithError = withErrorHandler(TempTextPollFeed);
 
-const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  console.log(data);
-  return <HomePage data={data} />;
-};
+const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => (
+  <HomePage data={data} />
+);
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const { data }: IPostFeed.IPosts = await getPosts();
     return {
