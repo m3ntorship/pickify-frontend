@@ -13,6 +13,7 @@ import { DividerType } from '../../atoms/Divider/types/EDivider';
 
 const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
   const { profilePic } = props;
+  const avatarVariant = profilePic ? 'filled' : 'notFilled';
   return (
     <nav className={styles.navigation}>
       <div className={styles['links-container']}>
@@ -39,7 +40,7 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
           <li>
             <Avatar
               size="extra-small"
-              variant="filled"
+              variant={avatarVariant}
               profilePic={profilePic}
             />
           </li>
