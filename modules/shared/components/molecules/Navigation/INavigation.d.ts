@@ -1,6 +1,6 @@
 declare namespace INavigation {
   export interface IProps {
-    profilePic: string;
+    profilePic?: string;
   }
 }
 export { INavigation };

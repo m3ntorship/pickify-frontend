@@ -11,7 +11,3 @@ export default {
 const Template: Story<INavigation.IProps> = (args) => <Navigation {...args} />;
 
 export const navigation = Template.bind({});
-// navigation.args = {
-//   profilePic:
-//     '',
-// };

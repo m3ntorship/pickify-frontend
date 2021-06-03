@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation should render Navigation component with filled avatar and Vertical divider 1`] = `
+<nav
+  className="navigation"
+>
+  <div
+    className="links-container"
+  >
+    <h1
+      className="brand-name"
+    >
+      Pickify
+    </h1>
+    <ul>
+      <li>
+        <svg
+          data-file-name="SvgHome"
+        />
+      </li>
+      <li>
+        <svg
+          data-file-name="SvgFriends"
+        />
+      </li>
+      <li>
+        <svg
+          data-file-name="SvgBill"
+        />
+      </li>
+      <li>
+        <div
+          className="bg-grey-shd6 w-px"
+          style={
+            Object {
+              "height": "16px",
+            }
+          }
+        />
+      </li>
+      <li>
+        <svg
+          data-file-name="SvgHelp"
+        />
+      </li>
+      <li>
+        <svg
+          data-file-name="SvgHappy"
+        />
+      </li>
+      <li>
+        <div
+          className="wrapper extra-small"
+        >
+          <svg
+            className="absolute w-full h-full"
+            data-file-name="SvgAnonymous"
+            height={24}
+            width={24}
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;
