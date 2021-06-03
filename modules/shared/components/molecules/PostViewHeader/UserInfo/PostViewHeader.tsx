@@ -10,7 +10,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   profilePic,
   name,
   date,
-  handleEditIconClick,
+  handlePostOptionsIconClick,
   id,
   isHidden,
 }): ReactElement => {
@@ -24,7 +24,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
           date={date}
         />
         <VerticalThreeDotsIcon
-          onClick={handleEditIconClick}
+          onClick={handlePostOptionsIconClick}
           className="fill-grey cursor-pointer"
           data-testid={id}
         />

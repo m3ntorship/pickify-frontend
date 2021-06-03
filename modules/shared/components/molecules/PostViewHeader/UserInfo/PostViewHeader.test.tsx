@@ -14,7 +14,7 @@ describe('Testing postViewHeader with snapshot', () => {
           id="test"
           isHidden
           name="Marzouk el akta3"
-          handleEditIconClick={(): boolean => {
+          handlePostOptionsIconClick={(): boolean => {
             return true;
           }}
         />,
@@ -32,12 +32,12 @@ describe('Testing postViewHeader react testing library', () => {
         isHidden
         date={new Date('1967-11-01T19:15:45.339Z')}
         name="Marzouk el akta3"
-        handleEditIconClick={handleClick}
+        handlePostOptionsIconClick={handleClick}
       />,
     );
-    const editIcon: TargetElement = screen.getByTestId('test');
+    const postOptionsIcon: TargetElement = screen.getByTestId('test');
     const timesOfClick = 1;
-    userEvent.click(editIcon);
+    userEvent.click(postOptionsIcon);
     expect(handleClick).toBeCalledTimes(timesOfClick);
   });
 });
