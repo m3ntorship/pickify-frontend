@@ -18,7 +18,7 @@ env:
   M3_DEPLOYMENT_PATH: deploy/dev/frontend
   M3_TEMP_DIR: temp
   M3_REPLICAS: '1'
-  M3_PORT: '5000'
+  M3_PORT: '3000'
   M3_MEMORY: '200Mi'
   M3_CPU: '50m'
 
