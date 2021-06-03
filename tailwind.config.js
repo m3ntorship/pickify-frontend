@@ -147,6 +147,7 @@ module.exports = {
         '4sxl': '4.1875rem', // 67px
         '8xl': '8.8125rem', // 141px
         '18xl': '18.5rem', // 296px
+        '19xl': '19rem', // 304px
         '28xl': '28.5rem', // 456px
         '29xl': '29.5rem', // 472px
         '30xl': '30rem', // 480px
