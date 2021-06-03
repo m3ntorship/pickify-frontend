@@ -10,11 +10,11 @@ declare namespace IPostFeed {
     is_hidden: boolean;
     id: string;
     type: 'image poll' | 'mini_survey' | 'text poll';
-    options_groups: { groups: IGroups[] };
+    options_groups: { groups: IGroup[] };
     caption: string;
     user: IUser;
   }
-  export interface IGroups {
+  export interface IGroup {
     id: string;
     options: IOptions[];
     name: string;
