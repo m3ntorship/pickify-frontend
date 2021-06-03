@@ -1,9 +1,8 @@
-/* eslint-disable */
-import type { AxiosError } from 'axios';
-import type { IGetPosts } from './IGetPosts';
-import { postsApi } from './postsApi.api';
+// import type { AxiosError } from 'axios';
+import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
+// import type { IGetPosts } from './IGetPosts';
+// import { postsApi } from './postsApi.api';
 import { mockedData } from './postsMockedData';
-
 // export const getPosts = async (): Promise<IGetPosts.IData> => {
 //   const notFound = 404;
 //   return postsApi
@@ -22,7 +21,7 @@ import { mockedData } from './postsMockedData';
 //     });
 // };
 
-export const getPosts = async (): Promise<any> =>
+export const getPosts = async (): Promise<IPostFeed.IPosts> =>
   Promise.resolve({ data: mockedData });
 // Promise.reject({
 //   error: true,
