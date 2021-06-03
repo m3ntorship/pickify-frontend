@@ -1,10 +1,10 @@
 import React from 'react';
 import type { ReactElement, FC } from 'react';
-import Divider from '../../../atoms/Divider/Divider';
-import VerticalThreeDotsIcon from '../../../icons/verticalThreeDots.svg';
+import Divider from '../../atoms/Divider/Divider';
+import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import type { IPostViewHeader } from './IPostViewHeader';
-import * as EDivider from '../../../atoms/Divider/types/EDivider';
-import UserInfo from '../../UserInfo/UserInfo';
+import * as EDivider from '../../atoms/Divider/types/EDivider';
+import UserInfo from '../UserInfo/UserInfo';
 
 const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   profilePic,

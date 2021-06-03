@@ -1,4 +1,4 @@
-import type { IUserInfo } from '../../UserInfo/IUserInfo';
+import type { IUserInfo } from '../UserInfo/IUserInfo';
 
 declare namespace IPostViewHeader {
   export interface IProps extends IUserInfo.IData {
