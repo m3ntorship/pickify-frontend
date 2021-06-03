@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
 import type { TargetElement } from '@testing-library/user-event';
-import OptionGroup from './index';
+import OptionGroup from './OptionGroup';
 import { apiDummyData } from './data';
 
 describe('OptionGroup component', () => {
