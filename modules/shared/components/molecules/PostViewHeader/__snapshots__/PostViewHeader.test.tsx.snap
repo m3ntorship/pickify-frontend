@@ -29,7 +29,7 @@ exports[`Testing postViewHeader with snapshot if isHidden is true, name becomes 
         </span>
         <span
           className="date"
-          title="01/11/1967 19:15:45"
+          title="01/11/1967 21:15:45"
         >
           54 years ago
         </span>
