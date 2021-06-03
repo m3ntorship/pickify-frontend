@@ -6,16 +6,16 @@ exports[`snapshot testing should render circular when given circular property 1`
   width={120}
 >
   <circle
-    className="-rotate-90 origin-center stroke-current"
+    className="circular error-text"
     cx={60}
     cy={60}
     fill="transparent"
     r={52}
-    strokeDasharray="376.99111843077515 376.99111843077515"
+    strokeDasharray="326.7256359733385 326.7256359733385"
     strokeWidth={4}
     style={
       Object {
-        "strokeDashoffset": "188.49555921538757",
+        "strokeDashoffset": "163.36281798666926",
       }
     }
   />
@@ -24,10 +24,10 @@ exports[`snapshot testing should render circular when given circular property 1`
 
 exports[`snapshot testing should render horizontally when given horizontal property 1`] = `
 <div
-  className="w-full h-3 bg-white flex items-center p-1 rounded-sm"
+  className="outer-horizontal"
 >
   <div
-    className="h-1 rounded-sm bg-primary"
+    className="inner-horizontal primary"
     style={
       Object {
         "width": "50%",
@@ -39,10 +39,15 @@ exports[`snapshot testing should render horizontally when given horizontal prope
 
 exports[`snapshot testing should render vertically when given vertical property 1`] = `
 <div
-  className="rounded-sm py-1 px-2 bg-white w-3 flex justify-center"
+  className="wrapper"
+  style={
+    Object {
+      "height": "300px",
+    }
+  }
 >
   <div
-    className="w-2 rounded-sm bg-primary"
+    className="outer-vertical primary"
     style={
       Object {
         "height": "300px",
@@ -50,7 +55,7 @@ exports[`snapshot testing should render vertically when given vertical property 
     }
   >
     <div
-      className="w-2 bg-white rounded-t-sm"
+      className="inner-vertical"
       style={
         Object {
           "height": "50%",
