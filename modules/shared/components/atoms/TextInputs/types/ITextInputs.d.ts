@@ -1,14 +1,17 @@
 import type * as ETextInput from './ETextInput';
 
 declare namespace ITextInputs {
-  export interface IProps {
+  export interface IProps extends IData {
     [property: string]: unknown;
     label?: string;
-    id: string;
     variants: ETextInput.Variants;
     inputType: ETextInput.InputType;
-    disabled: boolean;
+    disabled?: boolean;
     letter?: string;
+  }
+
+  export interface IData {
+    id: string;
   }
 }
 export { ITextInputs };

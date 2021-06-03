@@ -90,6 +90,7 @@ module.exports = {
       dark: '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
       heavy:
         '0px 16px 24px rgba(0, 0, 0, 0.04), 0px 8px 12px rgba(0, 0, 0, 0.08);',
+      navshd: '0px 1px 0px #F1F2F3',
       none: 'none',
     },
     fontSize: {
@@ -97,6 +98,7 @@ module.exports = {
       xs: ['.75rem', '1.4'], // 12px
       sm: ['.875rem', '1.4'], // 14px
       base: ['1rem', '1.4'], // 16px
+      basev: ['1.125rem', '1.4'], // 18px
       md: ['1.25rem', '1.4'], // 20px
       lg: ['1.5rem', '1.4'], // 24px
       xl: ['1.75rem', '1.4'], // 28px
@@ -137,6 +139,7 @@ module.exports = {
       backgroundOpacity: {
         24: '0.24',
         8: '0.08',
+        64: '0.64',
       },
       width: {
         '2xl': '2.625rem', // 42px
