@@ -1,3 +1,7 @@
+.extra-small {
+  @apply w-6 h-6;
+}
+
 .small {
   @apply w-8 h-8;
 }

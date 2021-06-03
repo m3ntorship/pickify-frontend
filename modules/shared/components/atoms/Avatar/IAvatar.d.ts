@@ -1,8 +1,11 @@
 declare namespace IAvatar {
-  export interface IProps {
-    size: 'large' | 'medium' | 'small';
+  export interface IProps extends IData {
+    size: 'extra-small' | 'large' | 'medium' | 'small';
     variant: 'anonymous' | 'filled' | 'notFilled';
-    imgSrc?: string;
+  }
+
+  export interface IData {
+    profilePic?: string;
   }
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import type { FC, ReactElement } from 'react';
 import Toggler from '../../atoms/toggler';
-import type { PrivacyTypes } from './PrivacyTypes';
+import type { IPrivacy } from './PrivacyTypes';
 import styles from './Privacy.module.css';
 
 /** 
@@ -14,7 +14,7 @@ const [togglerIsChecked,setTogglerIsChecked] = useState(false);
 cosnt handleTogglerChange = (e: React.ChangeEvent<HTMLInputElement>):void => { setTogglerIsChecked(e.target.checked) }<Test>;
 const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>):void => {console.log(e.target.value)};
 */
-const Privacy: FC<PrivacyTypes.Props> = ({
+const Privacy: FC<IPrivacy.IProps> = ({
   togglerLabel = 'Hide my identity',
   privacySelectorLabel = 'Privacy:',
   privacyOptions,

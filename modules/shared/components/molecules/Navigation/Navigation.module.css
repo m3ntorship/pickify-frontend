@@ -1,0 +1,19 @@
+.navigation {
+  @apply py-4 bg-white shadow-navshd;
+}
+
+.links-container {
+  @apply w-5/6 m-auto flex justify-between items-center;
+}
+
+.brand-name {
+  @apply font-bold text-basev;
+}
+
+.links-container ul {
+  @apply flex items-center;
+}
+
+.links-container ul li {
+  @apply mr-6 last:mr-0;
+}
