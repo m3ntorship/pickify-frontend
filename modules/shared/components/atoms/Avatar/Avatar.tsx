@@ -14,6 +14,7 @@ const Avatar: FC<IAvatar.IProps> = ({
   profilePic,
 }): ReactElement => {
   const wrapperClasses = classNames([styles.wrapper], {
+    [styles['extra-small']]: size === 'extra-small',
     [styles.small]: size === 'small',
     [styles.medium]: size === 'medium',
     [styles.large]: size === 'large',
