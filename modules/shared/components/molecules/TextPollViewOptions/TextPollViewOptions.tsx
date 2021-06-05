@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import type { ITextPollViewOptions } from './ITextPollViewOptions';
 import TextPoll from '../../atoms/textPoll/index';
@@ -6,8 +6,15 @@ import TextPoll from '../../atoms/textPoll/index';
 const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
   optionsGroups,
 }): ReactElement => {
+  const [isOptionChecked, setIsOptionChecked] = useState(false);
+  const [optionCheckedId, setOptionCheckedId] = useState('');
+  const fullPrecentage = 100;
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
   const firstGroupOfTheArray = 0;
+  const onOptionClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    setIsOptionChecked(true);
+    setOptionCheckedId(e.currentTarget.id);
+  };
   return (
     <div className="grid-rows-1 gap-2 grid mb-m">
       {optionsGroups.groups[firstGroupOfTheArray].options.map(
@@ -15,13 +22,26 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
           const letter = alphabet[index];
           return (
             <div key={option.id} data-testid="option">
-              <TextPoll
-                option={option.body}
-                id={option.id}
-                onOptionClick={(): void => undefined}
-                showResult={false}
-                letter={letter}
-              />
+              {option.id === optionCheckedId ? (
+                <TextPoll
+                  option={option.body}
+                  id={option.id}
+                  isChecked={isOptionChecked}
+                  onOptionClick={onOptionClick}
+                  showResult
+                  letter={letter}
+                  percentage={Math.round(Math.random() * fullPrecentage)}
+                  mostVoted
+                />
+              ) : (
+                <TextPoll
+                  option={option.body}
+                  id={option.id}
+                  onOptionClick={onOptionClick}
+                  showResult={false}
+                  letter={letter}
+                />
+              )}
             </div>
           );
         },

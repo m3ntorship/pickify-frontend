@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import type { IMiniSurveyViewOptions } from './IMiniSurveyViewOptions';
 import TextPoll from '../../atoms/textPoll/index';
@@ -6,7 +6,15 @@ import TextPoll from '../../atoms/textPoll/index';
 const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
   optionsGroups,
 }): ReactElement => {
+  const [isOptionChecked, setIsOptionChecked] = useState(false);
+  const [optionCheckedId, setOptionCheckedId] = useState('');
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const fullPrecentage = 100;
+
+  const onOptionClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    setIsOptionChecked(true);
+    setOptionCheckedId(e.currentTarget.id);
+  };
   return (
     <div className="grid-rows-1 gap-4 grid">
       {optionsGroups.groups.map((group) => {
@@ -19,15 +27,29 @@ const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
                 index: number,
               ): ReactElement => {
                 const letter = alphabet[index];
+
                 return (
                   <div key={option.id} data-testid="option">
-                    <TextPoll
-                      option={option.body}
-                      id={option.id}
-                      onOptionClick={(): void => undefined}
-                      showResult={false}
-                      letter={letter}
-                    />
+                    {option.id === optionCheckedId ? (
+                      <TextPoll
+                        option={option.body}
+                        id={option.id}
+                        isChecked={isOptionChecked}
+                        onOptionClick={onOptionClick}
+                        showResult
+                        letter={letter}
+                        percentage={Math.round(Math.random() * fullPrecentage)}
+                        mostVoted
+                      />
+                    ) : (
+                      <TextPoll
+                        option={option.body}
+                        id={option.id}
+                        onOptionClick={onOptionClick}
+                        showResult={false}
+                        letter={letter}
+                      />
+                    )}
                   </div>
                 );
               },
