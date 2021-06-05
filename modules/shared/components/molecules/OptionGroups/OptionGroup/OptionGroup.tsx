@@ -1,39 +1,29 @@
 import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
-import TextDefault from '../TextDefault/TextDefault';
-import type { IOptionGroup } from './types/OptionGroup';
-import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
-import CheckSmall from '../../icons/checkMarkSmall.svg';
-import XIcon from '../../icons/xicon.svg';
-import PlusCircle from '../../icons/plusCircle.svg';
+import TextDefault from '../../TextDefault/TextDefault';
+import type { IOptionGroup } from './types/IOptionGroup';
+import ThreeDotsIcon from '../../../icons/verticalThreeDots.svg';
+import CheckSmall from '../../../icons/checkMarkSmall.svg';
+import XIcon from '../../../icons/xicon.svg';
+import PlusCircle from '../../../icons/plusCircle.svg';
 
 const OptionGroup: FC<IOptionGroup.IProps> = ({
-  handleGroupDelete,
+  groupId,
+  defaultName,
+  deleteGroupHandler,
+  addOptionHandler,
+  deleteOptionHandler,
+  options,
 }): ReactElement => {
-  const [options, setOptions] = useState<IOptionGroup.IOption[]>([
-    { id: '1' },
-    { id: '2' },
-  ]);
-  const [groupName, setGroupName] = useState<string>('');
-  const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(false);
+  const [groupName, setGroupName] = useState<string>(defaultName);
+  const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(true);
   const initialOptionsLength = 2;
   const initialIndexAdder = 1;
-  const alphabet: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const optionsLimit = 26;
 
-  function deleteInputHandler(optionId: string): void {
-    const newOptions: IOptionGroup.IOption[] = options.filter(
-      (option) => option.id !== optionId,
-    );
-    setOptions(newOptions);
-  }
-
-  function addOptionHandler(): void {
-    const id: number = Math.random();
-    setOptions([...options, { id: id.toString() }]);
-  }
   return (
-    <div className="flex flex-col bg-grey-bg">
-      <div className="flex justify-between">
+    <div className="flex flex-col bg-grey-bg p-4 rounded-md">
+      <div className="flex justify-between pb-2 mb-2">
         {!isGroupNameAdded ? (
           <>
             <input
@@ -50,7 +40,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
               <button
                 type="button"
                 className="h-4 w-4 bg-error-shd7 focus:outline-none rounded-full flex justify-center items-center mr-xs"
-                onClick={handleGroupDelete}
+                onClick={deleteGroupHandler}
               >
                 <XIcon className="fill-error" />
               </button>
@@ -67,7 +57,9 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
           </>
         ) : (
           <>
-            <span className="text-dark-grey font-normal">{groupName}</span>
+            <span className="text-dark-grey font-normal text-sm">
+              {groupName}
+            </span>
             <ThreeDotsIcon
               className="cursor-pointer"
               onClick={(): void => {
@@ -78,27 +70,31 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
         )}
       </div>
       {options.map((option, index) => (
-        <div className="my-2" key={option.id}>
+        <div className="mb-2" key={option.id}>
           <TextDefault
-            id={option.id}
-            letter={alphabet[index]}
+            id={`${option.id}`}
+            letter={option.letter}
             deletable={options.length > initialOptionsLength}
             deleteInputHandler={(): void => {
-              deleteInputHandler(option.id);
+              deleteOptionHandler(option.id);
             }}
             placeholder={`Option ${index + initialIndexAdder}`}
           />
         </div>
       ))}
-      {options.length < alphabet.length ? (
-        <button
-          type="button"
-          className="text-accent cursor-pointer flex items-center self-start focus:outline-none"
-          onClick={addOptionHandler}
-        >
-          <PlusCircle className="fill-accent mr-1 my-3xxs" />
-          <span className="text-sm font-medium">Add choice</span>
-        </button>
+      {options.length < optionsLimit ? (
+        <div className="py-2.5">
+          <button
+            type="button"
+            className="text-accent cursor-pointer flex items-center self-start focus:outline-none"
+            onClick={(): void => {
+              addOptionHandler(groupId);
+            }}
+          >
+            <PlusCircle className="fill-accent mr-1 my-3xxs" />
+            <span className="text-sm font-medium">Add choice</span>
+          </button>
+        </div>
       ) : null}
     </div>
   );
