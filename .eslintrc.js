@@ -19,11 +19,10 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 0,
     'react/jsx-filename-extension': 0,
-
     'no-console': 'warn',
     'no-debugger': 'warn',
     'no-irregular-whitespace': 'warn',
-    camelcase: 'error',
+    camelcase: 'warn',
     'comma-spacing': 'error',
     'arrow-spacing': 'error',
     'prefer-const': 'error',
@@ -57,7 +56,7 @@ module.exports = {
           'warn',
           {
             selector: 'function',
-            format: ['PascalCase', 'camelCase'],
+            format: ['PascalCase'],
           },
         ],
         'import/extensions': [
