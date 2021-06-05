@@ -168,6 +168,9 @@ module.exports = {
         5: '5px',
         7: '7px',
       },
+      scale: {
+        145: '1.4',
+      },
     },
     fill: (theme) => ({
       primary: theme('colors.primary'),

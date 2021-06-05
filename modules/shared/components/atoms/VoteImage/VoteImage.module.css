@@ -1,0 +1,11 @@
+.love {
+  @apply bg-primary hover:ring-4 transition-all ring-primary ring-opacity-25 w-10 h-10 focus:outline-none transform hover:scale-145 flex justify-center items-center rounded-full cursor-pointer;
+}
+
+.like {
+  @apply bg-primary ml-4 hover:ml-8 hover:ring-4 transition-all ring-primary ring-opacity-25 w-10 h-10 focus:outline-none transform hover:scale-145 flex justify-center items-center rounded-full cursor-pointer;
+}
+
+.dislike {
+  @apply bg-error hover:mr-4 hover:ring-4 transition-all ring-error ring-opacity-25 w-10 h-10 focus:outline-none transform hover:scale-145 flex justify-center items-center rounded-full cursor-pointer;
+}

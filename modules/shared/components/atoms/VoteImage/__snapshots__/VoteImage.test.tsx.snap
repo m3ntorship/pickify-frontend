@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing should render heart button when oneImage is true 1`] = `
+<div
+  className="relative"
+>
+  <div>
+    <button
+      className="love group"
+      type="button"
+    >
+      <svg
+        className="group-hover:hidden"
+        data-file-name="SvgOutlinedHeart"
+      />
+      <svg
+        className="group-hover:block hidden"
+        data-file-name="SvgFilledHeart"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`snapshot testing should render two buttons when oneImage is true 1`] = `
+<div
+  className="relative"
+>
+  <div>
+    <div
+      className="flex"
+    >
+      <button
+        className="dislike group"
+        type="button"
+      >
+        <svg
+          data-file-name="SvgOutlinedDislike"
+        />
+      </button>
+      <button
+        className="like group"
+        type="button"
+      >
+        <svg
+          className="group-hover:hidden"
+          data-file-name="SvgOutlinedLike"
+        />
+        <svg
+          className="group-hover:block hidden"
+          data-file-name="SvgFilledLike"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
