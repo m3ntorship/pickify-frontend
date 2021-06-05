@@ -13,6 +13,7 @@ declare namespace IPostFeed {
     options_groups: { groups: IGroup[] };
     caption: string;
     user: IUser;
+    media: { url: string }[];
   }
   export interface IGroup {
     id: string;

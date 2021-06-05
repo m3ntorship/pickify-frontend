@@ -8,7 +8,7 @@ export const apiDummyData = {
         options: [
           {
             id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d',
-            body: 'ali tramsy',
+            body: 'ali tramsi',
           },
           {
             id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa',

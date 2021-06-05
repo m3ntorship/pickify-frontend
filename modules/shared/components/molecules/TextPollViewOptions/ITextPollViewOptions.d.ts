@@ -1,9 +1,12 @@
-declare namespace IOptionGroup {
+declare namespace ITextPollViewOptions {
   export interface IProps {
-    caption: string;
     optionsGroups: IOptionGroups;
   }
 
+  export interface IOption {
+    id: string;
+    body: string;
+  }
   export interface IGroup {
     id: string;
     options: IOptions[];
@@ -13,10 +16,6 @@ declare namespace IOptionGroup {
   export interface IOptionGroups {
     groups: IGroup[];
   }
-  export interface IOption {
-    id: string;
-    body: string;
-  }
 }
 
-export { IOptionGroup };
+export { ITextPollViewOptions };
