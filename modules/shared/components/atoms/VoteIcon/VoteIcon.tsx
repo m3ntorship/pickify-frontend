@@ -11,7 +11,7 @@ const VoteIcon: FC<IVoteIcon.IProps> = ({ isOneImageVote }): ReactElement => {
     <div className="flex justify-center">
       {!isOneImageVote && (
         <button type="button" className={`${styles.love} group`}>
-          <FilledHeartIcon className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white" />
+          <FilledHeartIcon className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white" />
         </button>
       )}
       {isOneImageVote && (
@@ -20,7 +20,6 @@ const VoteIcon: FC<IVoteIcon.IProps> = ({ isOneImageVote }): ReactElement => {
             <FilledDislikeIcon className="fill-error stroke-current stroke-1 text-white group-hover:fill-white" />
           </button>
           <button type="button" className={`${styles.like} group`}>
-            {/* <OutlinedLikeIcon className="group-hover:hidden" /> */}
             <FilledLikeIcon className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white" />
           </button>
         </div>

@@ -38,7 +38,7 @@ exports[`snapshot testing should render two buttons when oneImage is true 1`] = 
     type="button"
   >
     <svg
-      className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+      className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
       data-file-name="SvgFilledHeart"
     />
   </button>
