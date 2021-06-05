@@ -10,25 +10,23 @@ import styles from './VoteImage.module.css';
 
 const VoteImage: FC<IVoteImage.IProps> = ({ oneImage }): ReactElement => {
   return (
-    <div className="relative">
-      <div>
-        {oneImage ? (
-          <button type="button" className={`${styles.love} group`}>
-            <OutlinedHeartIcon className="group-hover:hidden" />
-            <FilledHeartIcon className="group-hover:block hidden" />
+    <div className="flex justify-end">
+      {!oneImage ? (
+        <button type="button" className={`${styles.love} group`}>
+          <OutlinedHeartIcon className="group-hover:hidden" />
+          <FilledHeartIcon className="group-hover:block hidden" />
+        </button>
+      ) : (
+        <div className="flex">
+          <button type="button" className={`${styles.dislike} group`}>
+            <OutlinedDislikeIcon />
           </button>
-        ) : (
-          <div className="flex">
-            <button type="button" className={`${styles.dislike} group`}>
-              <OutlinedDislikeIcon />
-            </button>
-            <button type="button" className={`${styles.like} group`}>
-              <OutlinedLikeIcon className="group-hover:hidden" />
-              <FilledLikeIcon className="group-hover:block hidden" />
-            </button>
-          </div>
-        )}
-      </div>
+          <button type="button" className={`${styles.like} group`}>
+            <OutlinedLikeIcon className="group-hover:hidden" />
+            <FilledLikeIcon className="group-hover:block hidden" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
