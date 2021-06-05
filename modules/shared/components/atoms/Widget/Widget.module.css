@@ -1,0 +1,7 @@
+.widget-box {
+  @apply bg-grey-bg rounded-md shadow-soft py-4 px-4;
+}
+
+.widget-box p {
+  @apply font-normal text-grey text-sm;
+}

@@ -2,12 +2,12 @@
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and disabled true 1`] = `
 <label
-  className=""
+  className="label size-default"
   htmlFor="checkbox"
 >
   <input
     checked={false}
-    className=""
+    className="input-unchecked input-unchecked-disabled size-default"
     data-testid="input-test"
     disabled={true}
     id="checkbox"
@@ -19,12 +19,12 @@ exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and not disabled 1`] = `
 <label
-  className=""
+  className="label label-undisabled size-default"
   htmlFor="checkbox"
 >
   <input
     checked={false}
-    className=""
+    className="input-unchecked input-unchecked-undisabled size-default"
     data-testid="input-test"
     disabled={false}
     id="checkbox"
@@ -36,12 +36,12 @@ exports[`Snapshot tests for Checkbox component Testing Checkbox size Default and
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and  disabled true 1`] = `
 <label
-  className="undefined"
+  className="label size-small"
   htmlFor="checkbox"
 >
   <input
     checked={false}
-    className="undefined"
+    className="input-unchecked input-unchecked-disabled size-small"
     data-testid="input-test"
     disabled={true}
     id="checkbox"
@@ -53,12 +53,12 @@ exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and  
 
 exports[`Snapshot tests for Checkbox component Testing Checkbox size Small and not disabled 1`] = `
 <label
-  className="undefined"
+  className="label label-undisabled size-small"
   htmlFor="checkbox"
 >
   <input
     checked={false}
-    className="undefined"
+    className="input-unchecked input-unchecked-undisabled size-small"
     data-testid="input-test"
     disabled={false}
     id="checkbox"

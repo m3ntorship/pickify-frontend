@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
+import type { FC, ReactElement } from 'react';
 import type { ICheckbox } from './types/ICheckbox';
 import CheckMarkDefault from '../../icons/checkMarkDefault.svg';
 import CheckMarkSmall from '../../icons/checkMarkSmall.svg';
 import * as ECheckbox from './types/ECheckbox';
 import styles from './CheckBox.module.css';
 
-const Checkbox: FC<ICheckbox.ICheckBoxProps> = ({
+const Checkbox: FC<ICheckbox.IProps> = ({
   disabled = false,
   size = 'Default',
   onMockClick,

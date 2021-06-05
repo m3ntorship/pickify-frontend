@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 // import classNames from 'classnames';
-import Slider from '../../atoms/Slider';
+import Slider from '../../atoms/Slider/Slider';
 import type { IVotingStats } from './types/IVontingStats';
 
 const findMinMaxVotes = (votes: number[]): number[] => {
