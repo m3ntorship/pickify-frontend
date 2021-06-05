@@ -16,10 +16,10 @@ const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
     setOptionCheckedId(e.currentTarget.id);
   };
   return (
-    <div className="grid-rows-1 gap-4 grid">
+    <div className="space-y-4">
       {optionsGroups.groups.map((group) => {
         return (
-          <div key={group.id} className="grid-rows-1 gap-2 grid">
+          <div key={group.id} className="space-y-2">
             <div className="text-dark-grey text-sm">{group.name}</div>
             {group.options.map(
               (

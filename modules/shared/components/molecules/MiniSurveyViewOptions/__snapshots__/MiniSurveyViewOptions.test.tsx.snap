@@ -2,10 +2,10 @@
 
 exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
 <div
-  className="grid-rows-1 gap-4 grid"
+  className="space-y-4"
 >
   <div
-    className="grid-rows-1 gap-2 grid"
+    className="space-y-2"
   >
     <div
       className="text-dark-grey text-sm"

@@ -2,7 +2,7 @@
 
 exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
 <div
-  className="grid-rows-1 gap-2 grid mb-m"
+  className="grid-rows-1 space-y-2"
 >
   <div
     data-testid="option"

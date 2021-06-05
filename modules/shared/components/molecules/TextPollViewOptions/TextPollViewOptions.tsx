@@ -16,7 +16,7 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
     setOptionCheckedId(e.currentTarget.id);
   };
   return (
-    <div className="grid-rows-1 gap-2 grid mb-m">
+    <div className="grid-rows-1 space-y-2">
       {optionsGroups.groups[firstGroupOfTheArray].options.map(
         (option: ITextPollViewOptions.IOption, index: number): ReactElement => {
           const letter = alphabet[index];

@@ -6,8 +6,6 @@ import type { FC, ReactElement } from 'react';
 import styles from '../pages/home-page.module.css';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  console.log(data);
-
   return (
     <div className={styles.posts}>
       {data.posts.map((post) => {

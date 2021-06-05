@@ -9,10 +9,7 @@ import type { IMiniSurveyView } from './IMiniSurveyView';
 const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
   const indexOfImage = 0;
   return (
-    <div
-      className="bg-white p-m shadow-soft rounded-md grid-rows-1 gap-4 grid"
-      id={post.id}
-    >
+    <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
         id={post.id}
         date={new Date(post.created_at)}
