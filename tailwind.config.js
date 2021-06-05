@@ -180,6 +180,7 @@ module.exports = {
       dark: theme('colors.dark'),
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
+      error: theme('colors.error'),
     }),
     screens: {
       sm: '375px',
@@ -203,8 +204,8 @@ module.exports = {
       margin: ['first', 'last', 'odd', 'even', 'hover'],
       display: ['group-hover'],
       ringWidth: ['hover'],
+      fill: ['hover', 'focus', 'group-hover'],
     },
-    fill: ['hover', 'focus'],
   },
   plugins: [],
 };

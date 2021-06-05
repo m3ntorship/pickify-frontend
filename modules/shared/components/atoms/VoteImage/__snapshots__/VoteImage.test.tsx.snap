@@ -2,20 +2,27 @@
 
 exports[`snapshot testing should render heart button when oneImage is true 1`] = `
 <div
-  className="relative"
+  className="flex justify-center"
 >
-  <div>
+  <div
+    className="flex"
+  >
     <button
-      className="love group"
+      className="dislike group"
       type="button"
     >
       <svg
-        className="group-hover:hidden"
-        data-file-name="SvgOutlinedHeart"
+        className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
+        data-file-name="SvgFilledDislike"
       />
+    </button>
+    <button
+      className="like group"
+      type="button"
+    >
       <svg
-        className="group-hover:block hidden"
-        data-file-name="SvgFilledHeart"
+        className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+        data-file-name="SvgFilledLike"
       />
     </button>
   </div>
@@ -24,34 +31,16 @@ exports[`snapshot testing should render heart button when oneImage is true 1`] =
 
 exports[`snapshot testing should render two buttons when oneImage is true 1`] = `
 <div
-  className="relative"
+  className="flex justify-center"
 >
-  <div>
-    <div
-      className="flex"
-    >
-      <button
-        className="dislike group"
-        type="button"
-      >
-        <svg
-          data-file-name="SvgOutlinedDislike"
-        />
-      </button>
-      <button
-        className="like group"
-        type="button"
-      >
-        <svg
-          className="group-hover:hidden"
-          data-file-name="SvgOutlinedLike"
-        />
-        <svg
-          className="group-hover:block hidden"
-          data-file-name="SvgFilledLike"
-        />
-      </button>
-    </div>
-  </div>
+  <button
+    className="love group"
+    type="button"
+  >
+    <svg
+      className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+      data-file-name="SvgFilledHeart"
+    />
+  </button>
 </div>
 `;
