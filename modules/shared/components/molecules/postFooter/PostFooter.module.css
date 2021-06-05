@@ -1,0 +1,4 @@
+.container {
+  @apply flex justify-between
+  text-grey font-normal text-sm;
+}

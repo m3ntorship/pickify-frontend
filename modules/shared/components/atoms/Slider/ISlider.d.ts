@@ -2,7 +2,7 @@ declare namespace ISlider {
   export interface IProps {
     type: 'circular' | 'horizontal' | 'vertical';
     progress: number;
-    height?: number;
+    verticalMeterHeight?: number;
     verticalMeterColor?: 'error' | 'primary-shd5' | 'primary';
     radius?: number;
   }

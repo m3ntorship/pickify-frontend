@@ -87,9 +87,11 @@ module.exports = {
       full: '999px',
     },
     boxShadow: {
+      soft: '0px 4px 12px rgba(0, 0, 0, 0.02), 0px 2px 4px rgba(0, 0, 0, 0.04);',
       dark: '0px 8px 16px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.08);',
       heavy:
         '0px 16px 24px rgba(0, 0, 0, 0.04), 0px 8px 12px rgba(0, 0, 0, 0.08);',
+      navshd: '0px 1px 0px #F1F2F3',
       none: 'none',
     },
     fontSize: {
@@ -97,6 +99,7 @@ module.exports = {
       xs: ['.75rem', '1.4'], // 12px
       sm: ['.875rem', '1.4'], // 14px
       base: ['1rem', '1.4'], // 16px
+      basev: ['1.125rem', '1.4'], // 18px
       md: ['1.25rem', '1.4'], // 20px
       lg: ['1.5rem', '1.4'], // 24px
       xl: ['1.75rem', '1.4'], // 28px
@@ -137,12 +140,14 @@ module.exports = {
       backgroundOpacity: {
         24: '0.24',
         8: '0.08',
+        64: '0.64',
       },
       width: {
         '2xl': '2.625rem', // 42px
         '4sxl': '4.1875rem', // 67px
         '8xl': '8.8125rem', // 141px
         '18xl': '18.5rem', // 296px
+        '19xl': '19rem', // 304px
         '28xl': '28.5rem', // 456px
         '29xl': '29.5rem', // 472px
         '30xl': '30rem', // 480px
@@ -163,6 +168,9 @@ module.exports = {
         5: '5px',
         7: '7px',
       },
+      scale: {
+        145: '1.4',
+      },
     },
     fill: (theme) => ({
       primary: theme('colors.primary'),
@@ -172,6 +180,7 @@ module.exports = {
       dark: theme('colors.dark'),
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
+      error: theme('colors.error'),
     }),
     screens: {
       sm: '375px',
@@ -183,15 +192,20 @@ module.exports = {
       lg: '1440px',
       // => @media (min-width: 1440px) { ... }
     },
+    scale: {
+      145: '1.4',
+    },
   },
   variants: {
     extend: {
       textDecoration: ['group-focus'],
       backgroundColor: ['group-focus'],
       opacity: ['disabled'],
-      margin: ['first', 'last', 'odd', 'even'],
+      margin: ['first', 'last', 'odd', 'even', 'hover'],
+      display: ['group-hover'],
+      ringWidth: ['hover'],
+      fill: ['hover', 'focus', 'group-hover'],
     },
-    fill: ['hover', 'focus'],
   },
   plugins: [],
 };

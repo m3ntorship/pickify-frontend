@@ -1,5 +1,5 @@
-declare namespace PrivacyTypes {
-  export interface Props {
+declare namespace IPrivacy {
+  export interface IProps {
     togglerLabel?: string;
     privacySelectorLabel?: string;
     privacyOptions: string[];
@@ -10,4 +10,4 @@ declare namespace PrivacyTypes {
   }
 }
 
-export { PrivacyTypes };
+export { IPrivacy };
