@@ -1,15 +1,15 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import PostViewWrapper from './PostViewWrapper';
-import type { IPostViewWrapper } from './IPostViewWrapper';
+import TextPollView from './TextPollView';
+import type { ITextPollView } from './ITextPollView';
 
 export default {
   title: 'organisms/PostViewWrapper',
-  component: PostViewWrapper,
+  component: TextPollView,
 };
 
-const Template: Story<IPostViewWrapper.IProps> = (args): ReactElement => (
-  <PostViewWrapper {...args} />
+const Template: Story<ITextPollView.IProps> = (args): ReactElement => (
+  <TextPollView {...args} />
 );
 export const Default = Template.bind({});
 Default.args = {
@@ -25,6 +25,7 @@ Default.args = {
     },
     type: 'text poll',
     is_hidden: false,
+    media: [{ url: 'notUsed' }],
     options_groups: {
       groups: [
         {

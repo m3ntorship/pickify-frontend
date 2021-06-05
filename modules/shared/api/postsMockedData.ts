@@ -45,6 +45,7 @@ const createMockedPost = (): IPostFeed.IPost[] => {
         options_groups: {
           groups: createPostOptionsGroup(),
         },
+        media: [{ url: faker.image.avatar() }],
         user: {
           profile_pic: faker.image.avatar(),
           id: faker.datatype.uuid(),

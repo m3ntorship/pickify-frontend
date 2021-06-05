@@ -2,17 +2,12 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
-import OptionGroup from '../../molecules/optionGroup/OptionGroup';
-import type { IPostViewWrapper } from './IPostViewWrapper';
+import type { ITextPollView } from './ITextPollView';
+import TextPollViewOptions from '../../molecules/TextPollViewOptions/TextPollViewOptions';
 
-const PostViewWrapper: FC<IPostViewWrapper.IProps> = ({
-  post,
-}): ReactElement => {
+const PostViewWrapper: FC<ITextPollView.IProps> = ({ post }): ReactElement => {
   return (
-    <div
-      className="post-view-wrapper bg-white p-m shadow-soft rounded-md"
-      id={post.id}
-    >
+    <div className="bg-white p-m shadow-soft rounded-md" id={post.id}>
       <PostViewHeader
         id={post.id}
         date={new Date(post.created_at)}
@@ -23,7 +18,10 @@ const PostViewWrapper: FC<IPostViewWrapper.IProps> = ({
           return true;
         }}
       />
-      <OptionGroup optionsGroups={post.options_groups} caption={post.caption} />
+      <div>
+        <h3 className="font-normal text-md my-m">{post.caption}</h3>
+      </div>
+      <TextPollViewOptions optionsGroups={post.options_groups} />
       <PostViewFooter />
     </div>
   );
