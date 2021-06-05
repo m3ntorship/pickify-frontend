@@ -188,13 +188,18 @@ module.exports = {
       lg: '1440px',
       // => @media (min-width: 1440px) { ... }
     },
+    scale: {
+      145: '1.4',
+    },
   },
   variants: {
     extend: {
       textDecoration: ['group-focus'],
       backgroundColor: ['group-focus'],
       opacity: ['disabled'],
-      margin: ['first', 'last', 'odd', 'even'],
+      margin: ['first', 'last', 'odd', 'even', 'hover'],
+      display: ['group-hover'],
+      ringWidth: ['hover'],
     },
     fill: ['hover', 'focus'],
   },
