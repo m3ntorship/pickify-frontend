@@ -7,51 +7,45 @@ import OptionGroup from './OptionGroup/OptionGroup';
 const OptionGroups: FC = (): ReactElement => {
   const alphabet: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-  const initialGroupsLength = 0;
-  const initialFirstGroupId = 0;
   const initialFirstOptionId = 0;
   const initialSecondOptionId = 1;
-  const numberOfRemovedOptions = 1;
-  const incrementByOne = 1;
-  const decrementByOne = 1;
 
   const [optionGroups, setOptionGroups] = useState<
     IOptionGroups.IOptionGroup[]
   >([]);
-
+  const randomId = (): string => {
+    const randomHelper = 10000000000;
+    return `id_${Math.round(Math.random() * randomHelper)}`;
+  };
   const addGroupHandler = (): void => {
-    const groupId =
-      optionGroups.length > initialGroupsLength
-        ? optionGroups[optionGroups.length - decrementByOne].id + incrementByOne
-        : initialFirstGroupId;
     setOptionGroups([
       ...optionGroups,
       {
-        id: groupId,
+        id: randomId(),
         options: [
           {
-            id: initialFirstOptionId,
+            id: randomId(),
             letter: alphabet[initialFirstOptionId],
             value: '',
           },
           {
-            id: initialSecondOptionId,
+            id: randomId(),
             letter: alphabet[initialSecondOptionId],
             value: '',
           },
         ],
-        groupName: `Group ${groupId}`,
+        groupName: `Group 0`,
       },
     ]);
   };
 
-  const deleteGroupHandler = (id: number): void => {
+  const deleteGroupHandler = (id: string): void => {
     setOptionGroups(
       optionGroups.filter((optionGroup) => optionGroup.id !== id),
     );
   };
 
-  const addOptionHandler = (groupId: number): void => {
+  const addOptionHandler = (groupId: string): void => {
     let newOptionGroups = [];
     const chosenOptionGroup = optionGroups.find(
       (optionGroup) => optionGroup.id === groupId,
@@ -59,7 +53,7 @@ const OptionGroups: FC = (): ReactElement => {
     if (chosenOptionGroup) {
       const newGroup = { ...chosenOptionGroup };
       newGroup.options.push({
-        id: newGroup.options.length,
+        id: randomId(),
         value: '',
         letter: alphabet[newGroup.options.length],
       });
@@ -73,31 +67,32 @@ const OptionGroups: FC = (): ReactElement => {
     }
   };
 
-  const deleteOptionHandler = (groupId: number, optionId: number): void => {
-    let newOptionGroups = [];
+  const deleteOptionHandler = (groupId: string, optionId: string): void => {
     const chosenOptionGroup = optionGroups.find(
       (optionGroup) => optionGroup.id === groupId,
     );
     if (chosenOptionGroup) {
-      const newGroup = { ...chosenOptionGroup };
-      newGroup.options.splice(optionId, numberOfRemovedOptions);
-      newOptionGroups = optionGroups.map((optionGroup) => {
-        if (optionGroup.id === groupId) {
-          return newGroup;
-        }
-        return optionGroup;
-      });
-      setOptionGroups(newOptionGroups);
+      setOptionGroups(
+        optionGroups.map((optionGroup) => {
+          if (optionGroup.id === groupId) {
+            const newOptions = optionGroup.options.filter(
+              (option) => option.id !== optionId,
+            );
+            return { ...optionGroup, options: newOptions };
+          }
+          return optionGroup;
+        }),
+      );
     }
   };
 
   return (
     <>
-      {optionGroups.map((optionGroup) => (
+      {optionGroups.map((optionGroup, index) => (
         <div key={`Group${optionGroup.id}`} className="mb-2">
           <OptionGroup
             groupId={optionGroup.id}
-            defaultName={optionGroup.groupName}
+            defaultName={`Group ${index}`}
             deleteGroupHandler={(): void => {
               deleteGroupHandler(optionGroup.id);
             }}

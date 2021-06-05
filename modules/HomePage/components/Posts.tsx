@@ -1,4 +1,5 @@
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
+import OptionGroups from '@modules/shared/components/molecules/OptionGroups/OptionGroups';
 import TextPollView from '@modules/shared/components/organisms/TextPollView/TextPollView';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
@@ -7,6 +8,7 @@ import styles from '../pages/home-page.module.css';
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   return (
     <div className={styles.posts}>
+      <OptionGroups />
       {data.posts.map((post) => {
         switch (post.type) {
           case 'text poll':

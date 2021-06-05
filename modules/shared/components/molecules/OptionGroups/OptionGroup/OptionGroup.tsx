@@ -16,11 +16,11 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
   options,
 }): ReactElement => {
   const [groupName, setGroupName] = useState<string>(defaultName);
-  const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(true);
+  const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(false);
   const initialOptionsLength = 2;
   const initialIndexAdder = 1;
   const optionsLimit = 26;
-
+  const alphabet: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   return (
     <div className="flex flex-col bg-grey-bg p-4 rounded-md">
       <div className="flex justify-between pb-2 mb-2">
@@ -61,7 +61,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
               {groupName}
             </span>
             <ThreeDotsIcon
-              className="cursor-pointer"
+              className="cursor-pointer fill-grey"
               onClick={(): void => {
                 setIsGroupNameAdded(false);
               }}
@@ -73,7 +73,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
         <div className="mb-2" key={option.id}>
           <TextDefault
             id={`${option.id}`}
-            letter={option.letter}
+            letter={alphabet[index]}
             deletable={options.length > initialOptionsLength}
             deleteInputHandler={(): void => {
               deleteOptionHandler(option.id);

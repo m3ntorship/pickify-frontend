@@ -1,8 +1,8 @@
 declare namespace IOptionGroups {
   export interface IOptionGroup {
-    id: number;
+    id: string;
     groupName: string;
-    options: { id: number; letter: string; value: string }[];
+    options: { id: string; letter: string; value: string }[];
   }
 }
 export { IOptionGroups };
