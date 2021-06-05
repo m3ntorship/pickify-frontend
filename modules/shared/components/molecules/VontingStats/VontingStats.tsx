@@ -18,7 +18,7 @@ const VotingStats: FC<IVotingStats.IProps> = ({
 }): ReactElement => {
   const totalProfress = 100;
   const progress: number = (votes / totalVotes) * totalProfress;
-  // const height = progress * 3;
+  const height = 300;
   // const radius = (progress * 6) / 10;
   const minMaxVotes: number[] = findMinMaxVotes(optionVotes);
   const firstIndex = 0;
@@ -38,20 +38,15 @@ const VotingStats: FC<IVotingStats.IProps> = ({
   const circularContent = votes === minMaxVotes[firstIndex] ? `👍` : `👎`;
   if (type === 'circular') {
     return (
-      <>
-        <div className="flex justify-center items-center w-max py-xxsvl px-m bg-white rounded-full">
+      <div className="flex justify-center items-center w-20 h-20">
+        <div className="absolute flex justify-center items-center w-max py-xxsvl px-m bg-white rounded-full">
           <p>
             {circularContent}
             <span className="block">{Math.round(progress)}%</span>
           </p>
         </div>
-        <Slider
-          type={type}
-          radius={41}
-          progress={progress}
-          verticalMeterColor={verticalMeterColor}
-        />
-      </>
+        <Slider progress={progress} type={type} radius={40} />
+      </div>
     );
   }
   return (
@@ -64,6 +59,7 @@ const VotingStats: FC<IVotingStats.IProps> = ({
       <Slider
         type={type}
         progress={progress}
+        verticalMeterHeight={height}
         verticalMeterColor={verticalMeterColor}
       />
     </div>
