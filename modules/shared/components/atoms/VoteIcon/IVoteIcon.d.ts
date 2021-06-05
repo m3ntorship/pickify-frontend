@@ -1,6 +1,6 @@
 declare namespace IVoteIcon {
   export interface IProps {
-    isOneImage: boolean;
+    isOneImageVote: boolean;
   }
 }
 

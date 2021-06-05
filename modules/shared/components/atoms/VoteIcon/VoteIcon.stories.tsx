@@ -7,7 +7,7 @@ export default {
   title: 'Atoms/VoteIcon',
   component: VoteIcon,
   argTypes: {
-    isOneImage: {
+    isOneImageVote: {
       control: {
         type: 'boolean',
       },
@@ -21,5 +21,5 @@ const Template: Story<IVoteIcon.IProps> = (args): ReactElement => (
 
 export const VoteIconStory = Template.bind({});
 VoteIconStory.args = {
-  isOneImage: false,
+  isOneImageVote: false,
 };
