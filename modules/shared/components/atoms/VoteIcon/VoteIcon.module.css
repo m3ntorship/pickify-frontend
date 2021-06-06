@@ -9,9 +9,9 @@
 }
 
 .like {
-  @apply ml-4 hover:ml-8 bg-primary ring-primary ring-opacity-25;
+  @apply ml-5 bg-primary ring-primary ring-opacity-25;
 }
 
 .dislike {
-  @apply bg-error hover:mr-4 ring-error ring-opacity-25;
+  @apply bg-error ring-error ring-opacity-25;
 }
