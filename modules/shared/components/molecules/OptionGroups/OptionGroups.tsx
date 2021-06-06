@@ -88,11 +88,10 @@ const OptionGroups: FC = (): ReactElement => {
 
   return (
     <>
-      {optionGroups.map((optionGroup, index) => (
+      {optionGroups.map((optionGroup) => (
         <div key={`Group${optionGroup.id}`} className="mb-2">
           <OptionGroup
             groupId={optionGroup.id}
-            defaultName={`Group ${index}`}
             deleteGroupHandler={(): void => {
               deleteGroupHandler(optionGroup.id);
             }}
