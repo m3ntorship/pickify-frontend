@@ -2,7 +2,7 @@
 
 exports[`snapshot testing should render heart button when oneImage is true 1`] = `
 <div
-  className="flex justify-center"
+  className="flex justify-end"
 >
   <div
     className="flex"
@@ -31,7 +31,7 @@ exports[`snapshot testing should render heart button when oneImage is true 1`] =
 
 exports[`snapshot testing should render two buttons when oneImage is true 1`] = `
 <div
-  className="flex justify-center"
+  className="flex justify-end"
 >
   <button
     className="love group"
