@@ -2,7 +2,7 @@ import faker from 'faker';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 
 const getRandomBetween = (max: number): number => {
-  return faker.datatype.number({ min: 2, max });
+  return faker.datatype.number({ min: 1, max });
 };
 
 const createPostOption = (max: number): IPostFeed.IOptions[] => {
