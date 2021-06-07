@@ -23,6 +23,7 @@ declare namespace IPostFeed {
   export interface IOptions {
     id: string;
     body: string;
+    media: { url: string }[];
   }
   export interface IUser {
     profile_pic: string;
