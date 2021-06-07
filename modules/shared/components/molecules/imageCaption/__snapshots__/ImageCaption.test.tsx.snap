@@ -9,13 +9,11 @@ exports[`imageCaption snapshots should render caption with text (Black T-shirt) 
   >
     <span
       className=""
-      data-testid="captionLetter"
     >
       A
     </span>
     <div
       className="captionDivider"
-      data-testid="captionDivider"
     />
     <span>
       Black T-shirt
@@ -33,11 +31,9 @@ exports[`imageCaption snapshots should render caption without letter and divider
   >
     <span
       className=" hidden "
-      data-testid="captionLetter"
     />
     <div
       className="captionDivider hidden "
-      data-testid="captionDivider"
     />
     <span>
       Black T-shirt

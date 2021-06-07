@@ -1,6 +1,6 @@
 import React from 'react';
 import * as renderer from 'react-test-renderer';
-import ImageCaption from '.';
+import ImageCaption from './ImageCaption';
 
 describe('imageCaption snapshots', () => {
   it('should render caption with text (Black T-shirt) and letter (A) when given this as property', () => {

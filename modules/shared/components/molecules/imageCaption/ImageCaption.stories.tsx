@@ -1,14 +1,14 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import ImageCaption from '.';
-import type { IImgCaption } from './IImgCaption';
+import ImageCaption from './ImageCaption';
+import type { IImageCaption } from './IImageCaption';
 
 export default {
   title: 'molecules/imgCaption',
   component: ImageCaption,
 };
 
-const Template: Story<IImgCaption.IProps> = (args): ReactElement => (
+const Template: Story<IImageCaption.IProps> = (args): ReactElement => (
   <ImageCaption {...args} />
 );
 

@@ -1,8 +1,8 @@
-declare namespace IImgCaption {
+declare namespace IImageCaption {
   export interface IProps {
     imgCaptionLetter?: string;
     imgCaption: string;
   }
 }
 
-export { IImgCaption };
+export { IImageCaption };
