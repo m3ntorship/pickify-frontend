@@ -8,7 +8,7 @@ import styles from './VoteIcon.module.css';
 
 const VoteIcon: FC<IVoteIcon.IProps> = ({ isOneImageVote }): ReactElement => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-end">
       {!isOneImageVote && (
         <button type="button" className={`${styles.love} group`}>
           <FilledHeartIcon className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white" />
