@@ -2,7 +2,7 @@ import faker from 'faker';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 
 const getRandomBetween = (max: number): number => {
-  return faker.datatype.number({ min: 2, max });
+  return faker.datatype.number({ min: 1, max });
 };
 
 const createPostOption = (max: number): IPostFeed.IOptions[] => {
@@ -14,6 +14,7 @@ const createPostOption = (max: number): IPostFeed.IOptions[] => {
     .map(() => ({
       id: faker.datatype.uuid(),
       body: faker.lorem.words(optionBodyWordsNumber),
+      media: [{ url: faker.image.imageUrl() }],
     }));
 };
 
@@ -43,7 +44,11 @@ const createMockedPost = (): IPostFeed.IPost[] => {
         created_at: faker.date.past(magicOne).toISOString(),
         is_hidden: faker.datatype.boolean(),
         id: faker.datatype.uuid(),
-        type: faker.random.arrayElement(['text poll', 'mini_survey']),
+        type: faker.random.arrayElement([
+          'text poll',
+          'mini_survey',
+          'image poll',
+        ]),
         options_groups: {
           groups: createPostOptionsGroups(postPostOptionsGroupsCount),
         },
