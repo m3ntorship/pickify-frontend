@@ -11,4 +11,7 @@ const Template: Story<IImagePollImage.IProps> = (args): ReactElement => (
   <ImagePollImage {...args} />
 );
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  imageUrl: 'https://source.unsplash.com/random',
+  isOneImageVote: true,
+};

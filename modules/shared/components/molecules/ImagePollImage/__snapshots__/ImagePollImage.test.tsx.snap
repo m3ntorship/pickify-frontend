@@ -2,179 +2,163 @@
 
 exports[`Privacy Component with snapshot should render the heart voteIcon   1`] = `
 <div
-  className=" bg-accent"
+  className="relative w-auto"
 >
   <div
-    className="relative w-auto bg-primary-dark"
+    style={
+      Object {
+        "bottom": 0,
+        "boxSizing": "border-box",
+        "display": "block",
+        "left": 0,
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
   >
-    <div
+    <img
+      className="w-full h-full"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
         Object {
+          "border": "none",
+          "bottom": 0,
           "boxSizing": "border-box",
           "display": "block",
-          "margin": 0,
-          "overflow": "hidden",
-          "position": "relative",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": "contain",
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
         }
       }
-    >
-      <div
-        style={
-          Object {
-            "boxSizing": "border-box",
-            "display": "block",
-            "paddingTop": "107.33333333333333%",
-          }
-        }
-      />
-      <img
-        decoding="async"
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        style={
-          Object {
-            "border": "none",
-            "bottom": 0,
-            "boxSizing": "border-box",
-            "display": "block",
-            "height": 0,
-            "left": 0,
-            "margin": "auto",
-            "maxHeight": "100%",
-            "maxWidth": "100%",
-            "minHeight": "100%",
-            "minWidth": "100%",
-            "objectFit": undefined,
-            "objectPosition": undefined,
-            "padding": 0,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-            "visibility": "hidden",
-            "width": 0,
-          }
-        }
-      />
-    </div>
+    />
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
     <div
-      className="absolute bottom-4 right-4  "
+      className="flex justify-center"
     >
-      <div
-        className="flex justify-center"
+      <button
+        className="love group"
+        type="button"
       >
-        <button
-          className="love group"
-          type="button"
-        >
-          <svg
-            className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
-            data-file-name="SvgFilledHeart"
-          />
-        </button>
-      </div>
+        <svg
+          className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+          data-file-name="SvgFilledHeart"
+        />
+      </button>
     </div>
-    <div
-      className="absolute bottom-4 left-4 bg-grey-shd1"
-    >
-      <p>
-        image caption
-      </p>
-    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <p>
+      image caption
+    </p>
   </div>
 </div>
 `;
 
 exports[`Privacy Component with snapshot should render the like and dislike voteIcon   1`] = `
 <div
-  className=" bg-accent"
+  className="relative w-auto"
 >
   <div
-    className="relative w-auto bg-primary-dark"
+    style={
+      Object {
+        "bottom": 0,
+        "boxSizing": "border-box",
+        "display": "block",
+        "left": 0,
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
   >
-    <div
+    <img
+      className="w-full h-full"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
         Object {
+          "border": "none",
+          "bottom": 0,
           "boxSizing": "border-box",
           "display": "block",
-          "margin": 0,
-          "overflow": "hidden",
-          "position": "relative",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": "contain",
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
         }
       }
-    >
-      <div
-        style={
-          Object {
-            "boxSizing": "border-box",
-            "display": "block",
-            "paddingTop": "107.33333333333333%",
-          }
-        }
-      />
-      <img
-        decoding="async"
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        style={
-          Object {
-            "border": "none",
-            "bottom": 0,
-            "boxSizing": "border-box",
-            "display": "block",
-            "height": 0,
-            "left": 0,
-            "margin": "auto",
-            "maxHeight": "100%",
-            "maxWidth": "100%",
-            "minHeight": "100%",
-            "minWidth": "100%",
-            "objectFit": undefined,
-            "objectPosition": undefined,
-            "padding": 0,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-            "visibility": "hidden",
-            "width": 0,
-          }
-        }
-      />
-    </div>
+    />
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
     <div
-      className="absolute bottom-4 right-4  "
+      className="flex justify-center"
     >
       <div
-        className="flex justify-center"
+        className="flex"
       >
-        <div
-          className="flex"
+        <button
+          className="dislike group"
+          type="button"
         >
-          <button
-            className="dislike group"
-            type="button"
-          >
-            <svg
-              className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
-              data-file-name="SvgFilledDislike"
-            />
-          </button>
-          <button
-            className="like group"
-            type="button"
-          >
-            <svg
-              className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
-              data-file-name="SvgFilledLike"
-            />
-          </button>
-        </div>
+          <svg
+            className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
+            data-file-name="SvgFilledDislike"
+          />
+        </button>
+        <button
+          className="like group"
+          type="button"
+        >
+          <svg
+            className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+            data-file-name="SvgFilledLike"
+          />
+        </button>
       </div>
     </div>
-    <div
-      className="absolute bottom-4 left-4 bg-grey-shd1"
-    >
-      <p>
-        image caption
-      </p>
-    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <p>
+      image caption
+    </p>
   </div>
 </div>
 `;
