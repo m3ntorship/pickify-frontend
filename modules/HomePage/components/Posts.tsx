@@ -1,5 +1,6 @@
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
 import OptionGroups from '@modules/shared/components/molecules/OptionGroups/OptionGroups';
+import MiniSurveyView from '@modules/shared/components/organisms/MiniSurveyView/MiniSurveyView';
 import TextPollView from '@modules/shared/components/organisms/TextPollView/TextPollView';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
@@ -18,7 +19,11 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
               </div>
             );
           case 'mini_survey':
-            return null;
+            return (
+              <div key={post.id} className={styles.posts}>
+                <MiniSurveyView post={post} />
+              </div>
+            );
           case 'image poll':
             return null;
           default:

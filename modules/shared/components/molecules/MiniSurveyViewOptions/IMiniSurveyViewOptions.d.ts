@@ -1,4 +1,4 @@
-declare namespace ITextPollViewOptions {
+declare namespace IMiniSurveyViewOptions {
   export interface IProps {
     optionsGroups: IOptionGroups;
   }
@@ -18,4 +18,4 @@ declare namespace ITextPollViewOptions {
   }
 }
 
-export { ITextPollViewOptions };
+export { IMiniSurveyViewOptions };
