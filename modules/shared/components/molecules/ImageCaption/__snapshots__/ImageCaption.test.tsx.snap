@@ -2,42 +2,34 @@
 
 exports[`imageCaption snapshots should render caption with text (Black T-shirt) and letter (A) when given this as property 1`] = `
 <div
-  className="captionContainer"
+  className="captionContent"
 >
-  <div
-    className="captionContent"
+  <span
+    className=""
   >
-    <span
-      className=""
-    >
-      A
-    </span>
-    <div
-      className="captionDivider"
-    />
-    <span>
-      Black T-shirt
-    </span>
-  </div>
+    A
+  </span>
+  <div
+    className="captionDivider "
+  />
+  <span>
+    Black T-shirt
+  </span>
 </div>
 `;
 
 exports[`imageCaption snapshots should render caption without letter and divider when not given this as a property 1`] = `
 <div
-  className="captionContainer"
+  className="captionContent"
 >
+  <span
+    className="hidden"
+  />
   <div
-    className="captionContent"
-  >
-    <span
-      className=" hidden "
-    />
-    <div
-      className="captionDivider hidden "
-    />
-    <span>
-      Black T-shirt
-    </span>
-  </div>
+    className="captionDivider hidden"
+  />
+  <span>
+    Black T-shirt
+  </span>
 </div>
 `;

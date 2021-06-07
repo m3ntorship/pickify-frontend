@@ -77,7 +77,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon with i
         A
       </span>
       <div
-        className="captionDivider"
+        className="captionDivider "
       />
       <span>
         aaaaaaa
@@ -162,7 +162,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon withou
         className="hidden"
       />
       <div
-        className="captionDividerhidden"
+        className="captionDivider hidden"
       />
       <span>
         aaaaaaa
@@ -262,7 +262,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
         A
       </span>
       <div
-        className="captionDivider"
+        className="captionDivider "
       />
       <span>
         aaaaaaa
@@ -360,7 +360,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
         className="hidden"
       />
       <div
-        className="captionDividerhidden"
+        className="captionDivider hidden"
       />
       <span>
         aaaaaaa
