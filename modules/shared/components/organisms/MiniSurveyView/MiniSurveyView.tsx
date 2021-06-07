@@ -1,11 +1,13 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import Image from 'next/image';
+import MiniSurveyViewOptions from '../../molecules/MiniSurveyViewOptions/MiniSurveyViewOptions';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
-import type { ITextPollView } from './ITextPollView';
-import TextPollViewOptions from '../../molecules/TextPollViewOptions/TextPollViewOptions';
+import type { IMiniSurveyView } from './IMiniSurveyView';
 
-const PostViewWrapper: FC<ITextPollView.IProps> = ({ post }): ReactElement => {
+const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
+  const indexOfImage = 0;
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
@@ -21,11 +23,20 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({ post }): ReactElement => {
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
-      <TextPollViewOptions optionsGroups={post.options_groups} />
       <div>
-        <PostViewFooter />
+        {post.media[indexOfImage].url && (
+          <Image
+            width={600}
+            height={450}
+            layout="responsive"
+            src={post.media[indexOfImage].url}
+            className="rounded-md"
+          />
+        )}
       </div>
+      <MiniSurveyViewOptions optionsGroups={post.options_groups} />
+      <PostViewFooter />
     </div>
   );
 };
-export default PostViewWrapper;
+export default MiniSurveyView;
