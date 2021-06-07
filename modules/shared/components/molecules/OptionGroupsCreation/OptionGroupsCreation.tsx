@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import PlusIcon from '../../icons/plus.svg';
-import type { IOptionGroups } from './types/IOptionGroups';
-import OptionGroup from './OptionGroup/OptionGroup';
+import type { IOptionGroupCreations } from './types/IOptionGroupCreations';
+import OptionGroup from '../OptionGroupCreation/OptionGroupCreation';
 
-const OptionGroups: FC = (): ReactElement => {
+const OptionGroupsCreation: FC = (): ReactElement => {
   const alphabet: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   const initialFirstOptionId = 0;
   const initialSecondOptionId = 1;
 
   const [optionGroups, setOptionGroups] = useState<
-    IOptionGroups.IOptionGroup[]
+    IOptionGroupCreations.IOptionGroup[]
   >([]);
   const randomId = (): string => {
     const randomHelper = 10000000000;
@@ -119,4 +119,4 @@ const OptionGroups: FC = (): ReactElement => {
   );
 };
 
-export default OptionGroups;
+export default OptionGroupsCreation;

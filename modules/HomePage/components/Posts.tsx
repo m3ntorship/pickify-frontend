@@ -1,5 +1,5 @@
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
-import OptionGroups from '@modules/shared/components/molecules/OptionGroups/OptionGroups';
+import MiniSurveyCreationBody from '@modules/shared/components/molecules/MiniSurveyCreationBody/MiniSurveyCreationBody';
 import MiniSurveyView from '@modules/shared/components/organisms/MiniSurveyView/MiniSurveyView';
 import TextPollView from '@modules/shared/components/organisms/TextPollView/TextPollView';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
@@ -9,7 +9,7 @@ import styles from '../pages/home-page.module.css';
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   return (
     <div className={styles.posts}>
-      <OptionGroups />
+      <MiniSurveyCreationBody />
       {data.posts.map((post) => {
         switch (post.type) {
           case 'text poll':

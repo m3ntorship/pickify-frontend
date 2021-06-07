@@ -1,4 +1,4 @@
-declare namespace IOptionGroup {
+declare namespace IOptionGroupCreation {
   export interface IOption {
     id: string;
     letter: string;
@@ -12,4 +12,4 @@ declare namespace IOptionGroup {
     deleteGroupHandler: () => void;
   }
 }
-export { IOptionGroup };
+export { IOptionGroupCreation };

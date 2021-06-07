@@ -1,11 +1,11 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import TextDefault from '../../TextDefault/TextDefault';
-import type { IOptionGroup } from './types/IOptionGroup';
-import PlusCircle from '../../../icons/plusCircle.svg';
-import OptionGroupsHeader from '../OptionGroupsHeader/OptionGroupHeader';
+import PlusCircle from '../../icons/plusCircle.svg';
+import TextDefault from '../TextDefault/TextDefault';
+import type { IOptionGroupCreation } from './types/IOptionGroupCreation';
+import OptionGroupsHeader from '../OptionGroupsCreation/OptionGroupsHeader/OptionGroupHeader';
 
-const OptionGroup: FC<IOptionGroup.IProps> = ({
+const OptionGroup: FC<IOptionGroupCreation.IProps> = ({
   groupId,
   deleteGroupHandler,
   addOptionHandler,
