@@ -157,6 +157,9 @@ module.exports = {
         '37xl': '37.5rem', // 600px
         '39xl': '39.5rem', // 632px
       },
+      maxWidth: {
+        '12xl': '12rem', // 92px
+      },
       height: {
         '21xl': '21.25rem', // 340px
         '61xl': '61.0625rem', // 977px

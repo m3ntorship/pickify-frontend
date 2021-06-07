@@ -15,9 +15,10 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
     <div className="relative w-auto" data-testid="image-poll-option">
       <Image
         src={imageUrl}
-        layout="fill"
-        objectFit="contain"
-        className="w-full h-full rounded-md"
+        layout="responsive"
+        className="rounded-md object-cover"
+        width={300}
+        height={300}
       />
       <div className="absolute bottom-4 right-4">
         <VoteIcon isOneImageVote={isOneImageVote} />

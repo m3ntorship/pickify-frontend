@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import classNames from 'classnames';
 import type { IImagePollGroup } from './IImagePollGroup';
 import ImagePollOption from '../ImagePollOption/ImagePollOption';
 import styles from './ImagePollGroup.module.css';
@@ -10,13 +11,13 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   const firstIndex = 0;
   const singleOption = 1;
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
+  const optionClasses = classNames(styles['image-poll-view'], {
+    'grid-cols-1': group.options.length === singleOption,
+    'grid-cols-2': group.options.length > singleOption,
+  });
   return (
-    <div
-      className={styles['image-poll-view']}
-      style={{
-        gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
-      }}
-    >
+    <div className={optionClasses}>
       {group.options.map((option, index) => {
         const letter = alphabet[index];
         return (

@@ -1,6 +1,11 @@
 .captionContent {
-  @apply flex justify-center items-center font-normal text-sm text-dark capitalize  px-xsvvl py-xxsv h-8 rounded-sm bg-white backdrop-blur-sm bg-opacity-64;
+  @apply flex justify-center items-center font-normal text-sm text-dark capitalize max-w-12xl px-xsvvl py-xxsv rounded-sm bg-white backdrop-blur-sm bg-opacity-64;
 }
+
 .captionDivider {
   @apply mx-2 bg-dark-grey w-px h-3;
+}
+
+.image-caption {
+  @apply whitespace-nowrap overflow-hidden overflow-ellipsis;
 }

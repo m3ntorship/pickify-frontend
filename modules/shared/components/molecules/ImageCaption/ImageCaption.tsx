@@ -18,7 +18,9 @@ const ImageCaption: FC<IImageCaption.IProps> = ({
 
       <div className={`${styles.captionDivider} ${captionLetterClasses}`} />
 
-      <span>{imgCaption}</span>
+      <span className={styles['image-caption']} title={imgCaption}>
+        {imgCaption}
+      </span>
     </div>
   );
 };

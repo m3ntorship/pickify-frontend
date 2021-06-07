@@ -2,12 +2,7 @@
 
 exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
 <div
-  className="image-poll-view"
-  style={
-    Object {
-      "gridTemplateColumns": "repeat(auto-fit, minmax(240px, 1fr))",
-    }
-  }
+  className="image-poll-view grid-cols-2"
 >
   <div
     className="relative w-auto"
@@ -16,20 +11,25 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
     <div
       style={
         Object {
-          "bottom": 0,
           "boxSizing": "border-box",
           "display": "block",
-          "left": 0,
           "margin": 0,
           "overflow": "hidden",
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
+          "position": "relative",
         }
       }
     >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
+        }
+      />
       <img
-        className="w-full h-full rounded-md"
+        className="rounded-md object-cover"
         decoding="async"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
@@ -45,7 +45,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             "maxWidth": "100%",
             "minHeight": "100%",
             "minWidth": "100%",
-            "objectFit": "contain",
+            "objectFit": undefined,
             "objectPosition": undefined,
             "padding": 0,
             "position": "absolute",
@@ -88,7 +88,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
         <div
           className="captionDivider "
         />
-        <span>
+        <span
+          className="image-caption"
+          title="ali tramsy"
+        >
           ali tramsy
         </span>
       </div>
@@ -101,20 +104,25 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
     <div
       style={
         Object {
-          "bottom": 0,
           "boxSizing": "border-box",
           "display": "block",
-          "left": 0,
           "margin": 0,
           "overflow": "hidden",
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
+          "position": "relative",
         }
       }
     >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
+        }
+      />
       <img
-        className="w-full h-full rounded-md"
+        className="rounded-md object-cover"
         decoding="async"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
@@ -130,7 +138,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             "maxWidth": "100%",
             "minHeight": "100%",
             "minWidth": "100%",
-            "objectFit": "contain",
+            "objectFit": undefined,
             "objectPosition": undefined,
             "padding": 0,
             "position": "absolute",
@@ -173,7 +181,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
         <div
           className="captionDivider "
         />
-        <span>
+        <span
+          className="image-caption"
+          title=" ahmed essam"
+        >
            ahmed essam
         </span>
       </div>
@@ -186,20 +197,25 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
     <div
       style={
         Object {
-          "bottom": 0,
           "boxSizing": "border-box",
           "display": "block",
-          "left": 0,
           "margin": 0,
           "overflow": "hidden",
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
+          "position": "relative",
         }
       }
     >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
+        }
+      />
       <img
-        className="w-full h-full rounded-md"
+        className="rounded-md object-cover"
         decoding="async"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
@@ -215,7 +231,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             "maxWidth": "100%",
             "minHeight": "100%",
             "minWidth": "100%",
-            "objectFit": "contain",
+            "objectFit": undefined,
             "objectPosition": undefined,
             "padding": 0,
             "position": "absolute",
@@ -258,7 +274,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
         <div
           className="captionDivider "
         />
-        <span>
+        <span
+          className="image-caption"
+          title=" omar gamal"
+        >
            omar gamal
         </span>
       </div>
