@@ -23,16 +23,17 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
-      {post.media[indexOfImage].url && (
-        <Image
-          width={600}
-          height={450}
-          layout="responsive"
-          src={post.media[indexOfImage].url}
-          className="rounded-md"
-        />
-      )}
-
+      <div>
+        {post.media[indexOfImage].url && (
+          <Image
+            width={600}
+            height={450}
+            layout="responsive"
+            src={post.media[indexOfImage].url}
+            className="rounded-md"
+          />
+        )}
+      </div>
       <MiniSurveyViewOptions optionsGroups={post.options_groups} />
       <PostViewFooter />
     </div>

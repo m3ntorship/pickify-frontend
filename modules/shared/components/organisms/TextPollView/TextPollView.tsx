@@ -7,7 +7,7 @@ import TextPollViewOptions from '../../molecules/TextPollViewOptions/TextPollVie
 
 const PostViewWrapper: FC<ITextPollView.IProps> = ({ post }): ReactElement => {
   return (
-    <div className="bg-white p-m shadow-soft rounded-md" id={post.id}>
+    <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
         id={post.id}
         date={new Date(post.created_at)}
@@ -19,10 +19,12 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({ post }): ReactElement => {
         }}
       />
       <div>
-        <h3 className="font-normal text-md my-m">{post.caption}</h3>
+        <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
       <TextPollViewOptions optionsGroups={post.options_groups} />
-      <PostViewFooter />
+      <div>
+        <PostViewFooter />
+      </div>
     </div>
   );
 };
