@@ -1,8 +1,10 @@
 import type { IVoteIcon } from '../../atoms/VoteIcon/IVoteIcon';
 
-declare namespace IImagePollImage {
+declare namespace IImagePollOption {
   export interface IProps extends IVoteIcon.IProps {
     imageUrl: string;
+    imgCaption: string;
+    imgCaptionLetter?: string;
   }
 }
-export { IImagePollImage };
+export { IImagePollOption };

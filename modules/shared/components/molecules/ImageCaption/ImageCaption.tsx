@@ -10,17 +10,15 @@ const ImageCaption: FC<IImageCaption.IProps> = ({
 }): ReactElement => {
   // make letter and divider (|) hidden when not pass letter as a props
   const captionLetterClasses = classNames({
-    ' hidden ': !imgCaptionLetter,
+    hidden: !imgCaptionLetter,
   });
   return (
-    <div className={styles.captionContainer}>
-      <div className={styles.captionContent}>
-        <span className={captionLetterClasses}>{imgCaptionLetter}</span>
+    <div className={styles.captionContent}>
+      <span className={captionLetterClasses}>{imgCaptionLetter}</span>
 
-        <div className={styles.captionDivider + captionLetterClasses} />
+      <div className={styles.captionDivider + captionLetterClasses} />
 
-        <span>{imgCaption}</span>
-      </div>
+      <span>{imgCaption}</span>
     </div>
   );
 };

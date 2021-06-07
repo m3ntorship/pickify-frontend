@@ -1,12 +1,15 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import type { IImagePollImage } from './IImagePollImage';
+import type { IImagePollOption } from './IImagePollOption';
 import VoteIcon from '../../atoms/VoteIcon/VoteIcon';
+import ImageCaption from '../ImageCaption/ImageCaption';
 
-const ImagePollImage: FC<IImagePollImage.IProps> = ({
+const ImagePollOption: FC<IImagePollOption.IProps> = ({
   isOneImageVote,
   imageUrl,
+  imgCaption,
+  imgCaptionLetter,
 }): ReactElement => {
   return (
     <div className="relative w-auto">
@@ -20,10 +23,13 @@ const ImagePollImage: FC<IImagePollImage.IProps> = ({
         <VoteIcon isOneImageVote={isOneImageVote} />
       </div>
       <div className="absolute bottom-4 left-4">
-        <p>image caption</p>
+        <ImageCaption
+          imgCaption={imgCaption}
+          imgCaptionLetter={imgCaptionLetter}
+        />
       </div>
     </div>
   );
 };
 
-export default ImagePollImage;
+export default ImagePollOption;

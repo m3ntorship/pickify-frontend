@@ -1,0 +1,371 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Privacy Component with snapshot should render the heart voteIcon with imgCaptionLetter 1`] = `
+<div
+  className="relative w-auto"
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "boxSizing": "border-box",
+        "display": "block",
+        "left": 0,
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <img
+      className="w-full h-full"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": "contain",
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
+    <div
+      className="flex justify-end"
+    >
+      <button
+        className="love group"
+        type="button"
+      >
+        <svg
+          className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+          data-file-name="SvgFilledHeart"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className=""
+      >
+        A
+      </span>
+      <div
+        className="captionDivider"
+      />
+      <span>
+        aaaaaaa
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Privacy Component with snapshot should render the heart voteIcon without imgCaptionLetter 1`] = `
+<div
+  className="relative w-auto"
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "boxSizing": "border-box",
+        "display": "block",
+        "left": 0,
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <img
+      className="w-full h-full"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": "contain",
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
+    <div
+      className="flex justify-end"
+    >
+      <button
+        className="love group"
+        type="button"
+      >
+        <svg
+          className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+          data-file-name="SvgFilledHeart"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className="hidden"
+      />
+      <div
+        className="captionDividerhidden"
+      />
+      <span>
+        aaaaaaa
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Privacy Component with snapshot should render the like and dislike voteIcon with imgCaptionLetter 1`] = `
+<div
+  className="relative w-auto"
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "boxSizing": "border-box",
+        "display": "block",
+        "left": 0,
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <img
+      className="w-full h-full"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": "contain",
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
+    <div
+      className="flex justify-end"
+    >
+      <div
+        className="flex"
+      >
+        <button
+          className="dislike group"
+          type="button"
+        >
+          <svg
+            className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
+            data-file-name="SvgFilledDislike"
+          />
+        </button>
+        <button
+          className="like group"
+          type="button"
+        >
+          <svg
+            className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+            data-file-name="SvgFilledLike"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className=""
+      >
+        A
+      </span>
+      <div
+        className="captionDivider"
+      />
+      <span>
+        aaaaaaa
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Privacy Component with snapshot should render the like and dislike voteIcon without imgCaptionLetter 1`] = `
+<div
+  className="relative w-auto"
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "boxSizing": "border-box",
+        "display": "block",
+        "left": 0,
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <img
+      className="w-full h-full"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": "contain",
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
+    <div
+      className="flex justify-end"
+    >
+      <div
+        className="flex"
+      >
+        <button
+          className="dislike group"
+          type="button"
+        >
+          <svg
+            className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
+            data-file-name="SvgFilledDislike"
+          />
+        </button>
+        <button
+          className="like group"
+          type="button"
+        >
+          <svg
+            className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+            data-file-name="SvgFilledLike"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className="hidden"
+      />
+      <div
+        className="captionDividerhidden"
+      />
+      <span>
+        aaaaaaa
+      </span>
+    </div>
+  </div>
+</div>
+`;

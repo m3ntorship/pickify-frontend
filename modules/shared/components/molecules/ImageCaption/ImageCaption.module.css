@@ -1,6 +1,3 @@
-.captionContainer {
-  @apply absolute;
-}
 .captionContent {
   @apply flex justify-center items-center font-normal text-sm text-dark capitalize  px-xsvvl py-xxsv h-8 rounded-sm bg-white backdrop-blur-sm bg-opacity-64;
 }
