@@ -3,6 +3,7 @@
 exports[`Privacy Component with snapshot should render the heart voteIcon with imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
@@ -20,7 +21,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon with i
     }
   >
     <img
-      className="w-full h-full"
+      className="w-full h-full rounded-md"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
@@ -90,6 +91,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon with i
 exports[`Privacy Component with snapshot should render the heart voteIcon without imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
@@ -107,7 +109,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon withou
     }
   >
     <img
-      className="w-full h-full"
+      className="w-full h-full rounded-md"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
@@ -175,6 +177,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon withou
 exports[`Privacy Component with snapshot should render the like and dislike voteIcon with imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
@@ -192,7 +195,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
     }
   >
     <img
-      className="w-full h-full"
+      className="w-full h-full rounded-md"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
@@ -275,6 +278,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
 exports[`Privacy Component with snapshot should render the like and dislike voteIcon without imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
@@ -292,7 +296,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
     }
   >
     <img
-      className="w-full h-full"
+      className="w-full h-full rounded-md"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={

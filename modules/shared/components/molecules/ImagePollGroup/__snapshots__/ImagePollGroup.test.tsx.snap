@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
+<div
+  className="image-poll-view"
+  style={
+    Object {
+      "gridTemplateColumns": "repeat(auto-fit, minmax(240px, 1fr))",
+    }
+  }
+>
+  <div
+    className="relative w-auto"
+    data-testid="image-poll-option"
+  >
+    <div
+      style={
+        Object {
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "left": 0,
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <img
+        className="w-full h-full rounded-md"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+    <div
+      className="absolute bottom-4 right-4"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <button
+          className="love group"
+          type="button"
+        >
+          <svg
+            className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+            data-file-name="SvgFilledHeart"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 left-4"
+    >
+      <div
+        className="captionContent"
+      >
+        <span
+          className=""
+        >
+          a
+        </span>
+        <div
+          className="captionDivider "
+        />
+        <span>
+          ali tramsy
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="relative w-auto"
+    data-testid="image-poll-option"
+  >
+    <div
+      style={
+        Object {
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "left": 0,
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <img
+        className="w-full h-full rounded-md"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+    <div
+      className="absolute bottom-4 right-4"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <button
+          className="love group"
+          type="button"
+        >
+          <svg
+            className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+            data-file-name="SvgFilledHeart"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 left-4"
+    >
+      <div
+        className="captionContent"
+      >
+        <span
+          className=""
+        >
+          b
+        </span>
+        <div
+          className="captionDivider "
+        />
+        <span>
+           ahmed essam
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="relative w-auto"
+    data-testid="image-poll-option"
+  >
+    <div
+      style={
+        Object {
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "left": 0,
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <img
+        className="w-full h-full rounded-md"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+    <div
+      className="absolute bottom-4 right-4"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <button
+          className="love group"
+          type="button"
+        >
+          <svg
+            className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+            data-file-name="SvgFilledHeart"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 left-4"
+    >
+      <div
+        className="captionContent"
+      >
+        <span
+          className=""
+        >
+          c
+        </span>
+        <div
+          className="captionDivider "
+        />
+        <span>
+           omar gamal
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
