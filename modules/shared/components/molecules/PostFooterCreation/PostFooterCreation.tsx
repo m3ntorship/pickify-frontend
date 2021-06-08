@@ -16,7 +16,7 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
   handleSelectChange,
   togglerIsChecked,
   handleTogglerChange,
-  disabled,
+  disabled = true,
   handleSubmitClick,
   handleCancelClick,
 }): ReactElement => {
