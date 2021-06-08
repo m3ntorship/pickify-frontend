@@ -11,20 +11,20 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
       className="hideMyIdentityContainer"
     >
       <label
-        className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesUncheckedAndEnabled toggleBodyClassesSmallUnchecked"
+        className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesCheckedAndEnabled toggleBodyClassesSmallChecked"
         htmlFor="hideMyIdentityToggler"
       >
         <input
           className="opacity-0 absolute checkBoxInputEnabled"
           data-testid="hideMyIdentityToggler"
-          defaultChecked={false}
+          defaultChecked={true}
           disabled={false}
           id="hideMyIdentityToggler"
           onChange={[Function]}
           type="checkbox"
         />
         <div
-          className="circleClasses circleClassesUnChecked circleClassesSmall"
+          className="circleClasses circleClassesChecked circleClassesCheckedSmall circleClassesSmall"
         />
       </label>
       <span
@@ -78,6 +78,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   </div>
   <button
     className="primary-button"
+    disabled={true}
     type="button"
   >
     post
@@ -99,12 +100,14 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   >
     <button
       className="cancel-responsive-button"
+      disabled={true}
       type="button"
     >
       cancel
     </button>
     <button
       className="primary-responsive-button"
+      disabled={true}
       type="button"
     >
       post
@@ -124,20 +127,20 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
       className="hideMyIdentityContainer"
     >
       <label
-        className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesUncheckedAndEnabled toggleBodyClassesSmallUnchecked"
+        className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesCheckedAndEnabled toggleBodyClassesSmallChecked"
         htmlFor="hideMyIdentityToggler"
       >
         <input
           className="opacity-0 absolute checkBoxInputEnabled"
           data-testid="hideMyIdentityToggler"
-          defaultChecked={false}
+          defaultChecked={true}
           disabled={false}
           id="hideMyIdentityToggler"
           onChange={[Function]}
           type="checkbox"
         />
         <div
-          className="circleClasses circleClassesUnChecked circleClassesSmall"
+          className="circleClasses circleClassesChecked circleClassesCheckedSmall circleClassesSmall"
         />
       </label>
       <span
@@ -191,6 +194,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
   </div>
   <button
     className="primary-button"
+    disabled={false}
     type="button"
   >
     post
@@ -212,12 +216,14 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
   >
     <button
       className="cancel-responsive-button"
+      disabled={false}
       type="button"
     >
       cancel
     </button>
     <button
       className="primary-responsive-button"
+      disabled={false}
       type="button"
     >
       post

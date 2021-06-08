@@ -10,6 +10,11 @@ describe('Testing Footer with snapshot', () => {
           handleSelectChange={(): boolean => {
             return true;
           }}
+          togglerIsChecked
+          handleTogglerChange={(): boolean => {
+            return true;
+          }}
+          disabled
         />,
       )
       .toJSON();
@@ -22,6 +27,11 @@ describe('Testing Footer with snapshot', () => {
           handleSelectChange={(): boolean => {
             return true;
           }}
+          togglerIsChecked
+          handleTogglerChange={(): boolean => {
+            return true;
+          }}
+          disabled={false}
         />,
       )
       .toJSON();
