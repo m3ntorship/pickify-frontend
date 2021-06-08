@@ -78,6 +78,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   </div>
   <button
     className="primary-button"
+    type="button"
   >
     post
   </button>
@@ -98,11 +99,13 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   >
     <button
       className="cancel-responsive-button"
+      type="button"
     >
       cancel
     </button>
     <button
       className="primary-responsive-button"
+      type="button"
     >
       post
     </button>
@@ -188,6 +191,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
   </div>
   <button
     className="primary-button"
+    type="button"
   >
     post
   </button>
@@ -208,11 +212,13 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
   >
     <button
       className="cancel-responsive-button"
+      type="button"
     >
       cancel
     </button>
     <button
       className="primary-responsive-button"
+      type="button"
     >
       post
     </button>
