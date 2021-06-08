@@ -1,0 +1,33 @@
+.container {
+  @apply md:flex md:justify-between;
+}
+.primary-button {
+  @apply sm:hidden md:flex py-1.5 px-4
+   bg-primary rounded-xl opacity-25 outline-none
+    hover:opacity-70 focus:outline-none  
+   text-white font-medium text-sm capitalize;
+}
+/* add padding 34.5px to tailwind config   */
+.cancel-responsive-button {
+  @apply py-1.5 px-xl 
+  bg-white rounded-xl outline-none
+    focus:outline-none  
+   border
+   border-primary-shd7
+   text-error font-medium text-sm capitalize;
+}
+/* add padding 93px to tailwind config  */
+.primary-responsive-button {
+  @apply py-1.5 px-24 
+  bg-primary rounded-xl opacity-25 outline-none
+   hover:opacity-70 focus:outline-none  
+  text-white font-medium text-sm capitalize;
+}
+
+.divider {
+  @apply md:hidden mt-mx mb-4;
+}
+
+.responsive-button {
+  @apply md:hidden flex justify-between;
+}
