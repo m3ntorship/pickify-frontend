@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import Tab from '../../atoms/Tab/Tab';
-import type { ITabGroup } from './types/ITabGroup';
+import type { ITabGroup } from './ITabGroup';
 
 /**
  * @Props tabsData, checkedValue setCheckedValue are required
@@ -12,11 +12,7 @@ import type { ITabGroup } from './types/ITabGroup';
  * */
 
 const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
-  const { tabsData, checkedValue, setCheckedValue } = props;
-
-  const changeValHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setCheckedValue(e.target.value);
-  };
+  const { tabsData, checkedValue, changeValHandler } = props;
 
   return (
     <div className="flex items-center">

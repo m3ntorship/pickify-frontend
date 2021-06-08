@@ -1,12 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import type { TargetElement } from '@testing-library/user-event';
 import TabGroup from './TabGroup';
 import { tabGroupData } from './data';
 
 describe('TabGroup', () => {
   it('should render three tabs', () => {
-    const setCheckedValue = jest.fn();
+    const changeValHandler = jest.fn();
 
     const threeItems = 3;
 
@@ -14,7 +15,7 @@ describe('TabGroup', () => {
       <TabGroup
         tabsData={tabGroupData()}
         checkedValue="Text Poll"
-        setCheckedValue={setCheckedValue}
+        changeValHandler={changeValHandler}
       />,
     );
 
@@ -26,7 +27,7 @@ describe('TabGroup', () => {
   });
 
   it('should render checked Text Poll Tab and unChecked Image Poll and Mini Survey Tab', () => {
-    const setCheckedValue = jest.fn();
+    const changeValHandler = jest.fn();
 
     const firstItem = 0;
     const secondItem = 1;
@@ -36,7 +37,7 @@ describe('TabGroup', () => {
       <TabGroup
         tabsData={tabGroupData()}
         checkedValue="Text Poll"
-        setCheckedValue={setCheckedValue}
+        changeValHandler={changeValHandler}
       />,
     );
 
@@ -47,5 +48,27 @@ describe('TabGroup', () => {
     expect(inputRadio[firstItem]).not.toBeChecked();
     expect(inputRadio[secondItem]).toBeChecked();
     expect(inputRadio[thirdItem]).not.toBeChecked();
+  });
+
+  it('should call changeValHandler once', () => {
+    const changeValHandler = jest.fn();
+
+    const calledOnce = 1;
+    const thirdItem = 2;
+
+    render(
+      <TabGroup
+        tabsData={tabGroupData()}
+        checkedValue="Text Poll"
+        changeValHandler={changeValHandler}
+      />,
+    );
+
+    // envolved elements
+    const tab: TargetElement[] = screen.getAllByTestId('tab');
+
+    // assertions
+    userEvent.click(tab[thirdItem]);
+    expect(changeValHandler).toHaveBeenCalledTimes(calledOnce);
   });
 });

@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import TabGroup from './TabGroup';
-import type { ITabGroup } from './types/ITabGroup';
+import type { ITabGroup } from './ITabGroup';
 import { tabGroupData } from './data';
 
 export default {

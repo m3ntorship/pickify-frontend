@@ -1,6 +1,7 @@
+import type { ITab } from '../../atoms/Tab/ITab';
+
 declare namespace ITabGroup {
-  export interface IProps extends IData {
-    setCheckedValue: (val: string) => void;
+  export interface IProps extends IData, ITab.IHandlers {
     checkedValue: string;
   }
 

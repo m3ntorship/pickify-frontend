@@ -3,7 +3,7 @@ import ImagePoll from '../../icons/imagePoll.svg';
 import TextPoll from '../../icons/textPoll.svg';
 import MiniSurvey from '../../icons/miniSurvey.svg';
 import styles from '../../atoms/Tab/Tab.module.css';
-import type { ITabGroup } from './types/ITabGroup';
+import type { ITabGroup } from './ITabGroup';
 
 export const tabGroupData = (): ITabGroup.ITabGroupData[] => {
   return [
