@@ -1,0 +1,15 @@
+.outer-wrapper {
+  @apply flex w-min;
+}
+
+.user-wrapper {
+  @apply flex-col ml-4 whitespace-nowrap;
+}
+
+.name {
+  @apply font-sans text-sm font-medium block;
+}
+
+.date {
+  @apply font-sans text-sm font-light	text-dark-grey block;
+}

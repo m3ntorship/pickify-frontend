@@ -1,0 +1,16 @@
+.layout-parent {
+  @apply w-2/3 mx-auto mt-12 flex justify-between;
+}
+
+.posts-feed {
+  @apply w-39xl mr-6;
+}
+
+.widgets {
+  @apply w-19xl hidden md:block;
+}
+
+.widget,
+.posts {
+  @apply mb-6;
+}

@@ -1,0 +1,17 @@
+.love,
+.like,
+.dislike {
+  @apply outline-none hover:ring-4 transition-all w-10 h-10 focus:outline-none transform hover:scale-145 flex justify-center items-center rounded-full cursor-pointer;
+}
+
+.love {
+  @apply bg-primary ring-primary ring-opacity-25;
+}
+
+.like {
+  @apply ml-5 bg-primary ring-primary ring-opacity-25;
+}
+
+.dislike {
+  @apply bg-error ring-error ring-opacity-25;
+}

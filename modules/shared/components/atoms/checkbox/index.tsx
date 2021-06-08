@@ -7,7 +7,7 @@ import CheckMarkSmall from '../../icons/checkMarkSmall.svg';
 import * as ECheckbox from './types/ECheckbox';
 import styles from './CheckBox.module.css';
 
-const Checkbox: FC<ICheckbox.ICheckBoxProps> = ({
+const Checkbox: FC<ICheckbox.IProps> = ({
   disabled = false,
   size = 'Default',
   onMockClick,
