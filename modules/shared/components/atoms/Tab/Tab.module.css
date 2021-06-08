@@ -1,5 +1,5 @@
 .tab-default {
-  @apply cursor-pointer mr-xs last:mr-0 hover:bg-grey-shd6 flex items-center py-1.5 pr-3.5 pl-3 rounded-full;
+  @apply cursor-pointer hover:bg-grey-shd6 flex items-center py-1.5 pr-3.5 pl-3 rounded-full;
 }
 .tab-checked {
   @apply bg-transparent md:bg-white border border-grey;
