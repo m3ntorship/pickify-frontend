@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing component with snapshot Testing component with required props 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="relative"
+  >
+    <div
+      style={
+        Object {
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "left": 0,
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <img
+        className="w-full h-full rounded-t-md mb-1 "
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+    <div
+      className="absolute top-4 right-4"
+    >
+      <svg
+        data-file-name="SvgVerticalThreeDots"
+      />
+    </div>
+  </div>
+  <div
+    className="form-group"
+  >
+     
+    <div
+      className="form-control"
+    >
+      <input
+        className="form-input input-with-choices"
+        data-input-type="choices"
+        data-testid="text-input"
+        data-variant="default"
+        id="1"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <span
+        className="status-icon"
+      >
+        
+      </span>
+      <span
+        className="control-icon"
+      >
+        <span
+          className="letter"
+        >
+          A
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
