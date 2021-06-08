@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import OptionGroupsCreation from '../OptionGroupsCreation/OptionGroupsCreation';
+import OptionGroupsCreation from '../OptionGroups/OptionGroups';
 import ImageUpload from '../../atoms/ImageUpload';
 import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import type { IMiniSurveyCreationBody } from './IMiniSurveyCreationBody';
