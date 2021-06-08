@@ -1,6 +1,6 @@
 declare namespace IUploadingImage {
   export interface IProps {
-    imageUrl: string;
+    imageUrl?: string;
   }
 }
 export { IUploadingImage };
