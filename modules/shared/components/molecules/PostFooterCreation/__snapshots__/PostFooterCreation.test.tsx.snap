@@ -79,7 +79,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   <button
     className="primary-button"
     disabled={true}
-    type="button"
+    type="submit"
   >
     post
   </button>
@@ -100,7 +100,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   >
     <button
       className="cancel-responsive-button"
-      disabled={true}
       type="button"
     >
       cancel
@@ -108,7 +107,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
     <button
       className="primary-responsive-button"
       disabled={true}
-      type="button"
+      type="submit"
     >
       post
     </button>
@@ -195,7 +194,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
   <button
     className="primary-button"
     disabled={false}
-    type="button"
+    type="submit"
   >
     post
   </button>
@@ -216,7 +215,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
   >
     <button
       className="cancel-responsive-button"
-      disabled={false}
       type="button"
     >
       cancel
@@ -224,7 +222,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
     <button
       className="primary-responsive-button"
       disabled={false}
-      type="button"
+      type="submit"
     >
       post
     </button>

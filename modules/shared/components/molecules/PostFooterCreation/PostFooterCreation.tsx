@@ -17,6 +17,8 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
   togglerIsChecked,
   handleTogglerChange,
   disabled,
+  handleSubmitClick,
+  handleCancelClick,
 }): ReactElement => {
   return (
     <div className={styles.container}>
@@ -29,8 +31,9 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
       />
       <button
         disabled={disabled}
-        type="button"
+        type="submit"
         className={styles['primary-button']}
+        onClick={handleSubmitClick}
       >
         post
       </button>
@@ -40,16 +43,17 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
 
       <div className={styles['responsive-button']}>
         <button
-          disabled={disabled}
           type="button"
           className={styles['cancel-responsive-button']}
+          onClick={handleCancelClick}
         >
           cancel
         </button>
         <button
           disabled={disabled}
-          type="button"
+          type="submit"
           className={styles['primary-responsive-button']}
+          onClick={handleSubmitClick}
         >
           post
         </button>
