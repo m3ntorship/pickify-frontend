@@ -9,6 +9,9 @@ import VerticalThreeDots from '../../icons/verticalThreeDots.svg';
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   imageUrl = 'https://source.unsplash.com/random',
+  handleVerticalThreeDotsClick,
+  textInputLetter,
+  textInputId,
 }): ReactElement => {
   return (
     <div className={styles.container}>
@@ -19,15 +22,21 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
           objectFit="contain"
           className="w-full h-full rounded-t-md mb-1 "
         />
-        <div className="absolute top-4 right-4">
-          <VerticalThreeDots />
-        </div>
+        <button
+          type="button"
+          onClick={handleVerticalThreeDotsClick}
+          className={styles.button}
+        >
+          <VerticalThreeDots className="fill-dark-grey" />
+        </button>
       </div>
       <TextInput
         variants={ETextInput.Variants.Default}
         inputType={ETextInput.InputType.Choices}
-        letter="A"
-        id="1"
+        letter={textInputLetter}
+        id={textInputId}
+        placeholder="Type caption (optional)"
+        style={{ borderTopLeftRadius: '0', borderTopRightRadius: '0' }}
       />
     </div>
   );

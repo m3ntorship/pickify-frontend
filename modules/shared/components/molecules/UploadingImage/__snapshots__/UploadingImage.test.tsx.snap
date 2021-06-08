@@ -51,13 +51,15 @@ exports[`Testing component with snapshot Testing component with required props 1
         }
       />
     </div>
-    <div
-      className="absolute top-4 right-4"
+    <button
+      className="button"
+      type="button"
     >
       <svg
+        className="fill-dark-grey"
         data-file-name="SvgVerticalThreeDots"
       />
-    </div>
+    </button>
   </div>
   <div
     className="form-group"
@@ -73,6 +75,13 @@ exports[`Testing component with snapshot Testing component with required props 1
         data-variant="default"
         id="1"
         onChange={[Function]}
+        placeholder="Type caption (optional)"
+        style={
+          Object {
+            "borderTopLeftRadius": "0",
+            "borderTopRightRadius": "0",
+          }
+        }
         type="text"
         value=""
       />

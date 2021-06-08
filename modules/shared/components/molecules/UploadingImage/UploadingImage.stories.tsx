@@ -14,4 +14,8 @@ const Template: Story<IUploadingImage.IProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  imageUrl: 'https://source.unsplash.com/random',
+  textInputLetter: 'a',
+  textInputId: '1',
+};
