@@ -9,7 +9,7 @@ import styles from '../pages/home-page.module.css';
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   return (
     <div className={styles.posts}>
-      <MiniSurveyCreationBody />
+      <MiniSurveyCreationBody handleImageEdit={(): boolean => true} />
       {data.posts.map((post) => {
         switch (post.type) {
           case 'text poll':
