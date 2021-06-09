@@ -5,6 +5,7 @@ declare namespace ITextDefault {
     letter: string;
     deleteInputHandler?: (e: Event) => void;
     placeholder?: string;
+    register: UseFormRegister<FieldValues>;
   }
 }
 export { ITextDefault };
