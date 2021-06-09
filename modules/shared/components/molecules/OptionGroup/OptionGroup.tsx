@@ -8,7 +8,11 @@ import type { IOptionGroup } from './types/IOptionGroup';
 const OptionGroup: FC<IOptionGroup.IProps> = ({
   id: groupId,
 }): ReactElement => {
-  const { register, handleSubmit } = useForm({ shouldUnregister: true });
+  const { register, handleSubmit, reset } = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onSubmit',
+    shouldUnregister: true,
+  });
   console.log(groupId);
   const randomId = (): string => {
     const randomHelper = 10000000000;
@@ -55,7 +59,8 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
                 deleteOptionHandler(option.id);
               }}
               placeholder={`Option ${index + initialIndexAdder}`}
-              register={{ ...register(option.id, { required: true }) }}
+              register={{ ...register(option.id) }}
+              reset={reset}
             />
           </div>
         ))}

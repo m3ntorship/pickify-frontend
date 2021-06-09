@@ -8,6 +8,7 @@ declare namespace ITextInputs {
     inputType: ETextInput.InputType;
     disabled?: boolean;
     letter?: string;
+    reset?: ({ [key]: unknown }) => void;
   }
 
   export interface IData {

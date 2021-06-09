@@ -15,7 +15,7 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
   ITextInputs.IProps
 >(
   (
-    { label, variants, inputType, disabled, letter, ...props },
+    { label, variants, inputType, disabled, letter, reset, ...props },
     ref,
   ): ReactElement => {
     const [inputVal, setInputVal] = React.useState<string>('');
@@ -25,6 +25,9 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
     };
 
     const hideIconHandler = (): void => {
+      if (reset) {
+        reset({ [`${props.id}`]: '' });
+      }
       setInputVal('');
     };
 
