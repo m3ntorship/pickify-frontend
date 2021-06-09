@@ -1,3 +1,4 @@
+import type { ChangeEvent } from 'react';
 import type * as ETextInput from './ETextInput';
 
 declare namespace ITextInputs {
@@ -9,6 +10,7 @@ declare namespace ITextInputs {
     disabled?: boolean;
     letter?: string;
     reset?: ({ [key]: unknown }) => void;
+    onChange?: (e: ChangeEvent) => void;
   }
 
   export interface IData {

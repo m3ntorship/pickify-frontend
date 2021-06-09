@@ -14,6 +14,7 @@ const TextDefault: FC<ITextDefault.IProps> = ({
   deleteInputHandler,
   register,
   reset,
+  variants,
 }): ReactElement => {
   return (
     <div className="flex items-center" id={`option-${id}-box`}>
@@ -21,7 +22,7 @@ const TextDefault: FC<ITextDefault.IProps> = ({
       <span className="flex-1">
         <TextInput
           id={id}
-          variants={ETextInput.Variants.Default}
+          variants={variants}
           inputType={ETextInput.InputType.Choices}
           letter={letter}
           placeholder={placeholder}

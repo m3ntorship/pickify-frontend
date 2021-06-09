@@ -8,9 +8,15 @@ import type { IOptionGroup } from './types/IOptionGroup';
 const OptionGroup: FC<IOptionGroup.IProps> = ({
   id: groupId,
 }): ReactElement => {
-  const { register, handleSubmit, reset } = useForm({
+  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, dirtyFields },
+  } = useForm({
     mode: 'onSubmit',
-    reValidateMode: 'onSubmit',
+    reValidateMode: 'onChange',
     shouldUnregister: true,
   });
   console.log(groupId);
@@ -40,12 +46,23 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
     setOptions(options.filter((option) => option.id !== optionId));
   };
 
-  const onSubmit = (data: Record<string, unknown>): void => {
-    console.log('data', data);
+  const onSubmit = (dataObj: Record<string, unknown>): void => {
+    setFormSubmitted(true);
+    console.log('data', dataObj);
   };
-  const onError = (errors: Record<string, unknown>): void => {
-    console.log('errors', errors);
+  const onError = (errorsObj: Record<string, unknown>): void => {
+    setFormSubmitted(true);
+    console.log('errors', errorsObj);
   };
+  function variantMessage(optionId: string): string {
+    if (errors[optionId]) {
+      return 'error';
+    }
+    if (dirtyFields[optionId]) {
+      return 'success';
+    }
+    return 'default';
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)}>
       <div className="flex flex-col space-y-2">
@@ -59,8 +76,11 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
                 deleteOptionHandler(option.id);
               }}
               placeholder={`Option ${index + initialIndexAdder}`}
-              register={{ ...register(option.id) }}
+              register={{
+                ...register(option.id, { required: true, minLength: 3 }),
+              }}
               reset={reset}
+              variants={formSubmitted ? variantMessage(option.id) : ''}
             />
           </div>
         ))}

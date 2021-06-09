@@ -15,7 +15,7 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
   ITextInputs.IProps
 >(
   (
-    { label, variants, inputType, disabled, letter, reset, ...props },
+    { label, variants, inputType, disabled, letter, reset, onChange, ...props },
     ref,
   ): ReactElement => {
     const [inputVal, setInputVal] = React.useState<string>('');
@@ -77,8 +77,13 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
             value={inputVal}
             data-variant={variants}
             data-input-type={inputType}
+            onChange={(e): void => {
+              if (onChange) {
+                onChange(e);
+              }
+              changeHandler(e);
+            }}
             {...(props as unknown)}
-            onChange={changeHandler}
           />
           <span className={styles['status-icon']}>
             {variants === ETextInput.Variants.Default &&

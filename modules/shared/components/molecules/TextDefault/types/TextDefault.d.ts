@@ -7,6 +7,7 @@ declare namespace ITextDefault {
     placeholder?: string;
     register?: UseFormRegister;
     reset?: () => void;
+    variants: string;
   }
 }
 export { ITextDefault };
