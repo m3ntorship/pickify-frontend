@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
+<div
+  className="flex items-center"
+>
+  <div
+    className="m-4"
+  >
+    <div
+      className="wrapper medium"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="flex items-center"
+    >
+      <div
+        className="mr-xs last:mr-0"
+      >
+        <div
+          className="flex"
+        >
+          <label
+            className="tab-default tab-checked"
+            data-testid="tab"
+            data-value="Image Poll"
+            htmlFor="1"
+          >
+            <div
+              className="radio_container"
+            >
+              <input
+                className="radio_input size_small"
+                data-testid="Radio"
+                defaultChecked={true}
+                disabled={false}
+                id="1"
+                name="tab groub"
+                onChange={[MockFunction]}
+                type="radio"
+                value="Image Poll"
+              />
+              <div
+                className="radio_background unchecked size_small checkmark_small"
+              />
+            </div>
+            <svg
+              className="icon"
+              data-file-name="SvgImagePoll"
+              data-testid="image-poll-icon"
+            />
+            <span
+              className="tab-type"
+            >
+              Image Poll
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="mr-xs last:mr-0"
+      >
+        <div
+          className="flex"
+        >
+          <label
+            className="tab-default tab-unchecked"
+            data-testid="tab"
+            data-value="Text Poll"
+            htmlFor="2"
+          >
+            <div
+              className="radio_container"
+            >
+              <input
+                className="radio_input size_small"
+                data-testid="Radio"
+                defaultChecked={false}
+                disabled={false}
+                id="2"
+                name="tab groub"
+                onChange={[MockFunction]}
+                type="radio"
+                value="Text Poll"
+              />
+              <div
+                className="radio_background unchecked size_small checkmark_small"
+              />
+            </div>
+            <svg
+              className="icon"
+              data-file-name="SvgTextPoll"
+            />
+            <span
+              className="tab-type"
+            >
+              Text Poll
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="mr-xs last:mr-0"
+      >
+        <div
+          className="flex"
+        >
+          <label
+            className="tab-default tab-unchecked"
+            data-testid="tab"
+            data-value="Mini survey"
+            htmlFor="3"
+          >
+            <div
+              className="radio_container"
+            >
+              <input
+                className="radio_input size_small"
+                data-testid="Radio"
+                defaultChecked={false}
+                disabled={false}
+                id="3"
+                name="tab groub"
+                onChange={[MockFunction]}
+                type="radio"
+                value="Mini survey"
+              />
+              <div
+                className="radio_background unchecked size_small checkmark_small"
+              />
+            </div>
+            <svg
+              className="icon"
+              data-file-name="SvgMiniSurvey"
+            />
+            <span
+              className="tab-type"
+            >
+              Mini survey
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
+<div
+  className="flex items-center"
+>
+  <div
+    className="m-4"
+  >
+    <div
+      className="wrapper medium"
+    >
+      <svg
+        className="absolute w-full h-full"
+        data-file-name="SvgAnonymous"
+        height={40}
+        width={40}
+      />
+      <svg
+        className="absolute w-full h-full"
+        data-file-name="SvgNotFilled"
+        height={40}
+        width={40}
+      />
+    </div>
+  </div>
+  <div>
+    <div
+      className="flex items-center"
+    >
+      <div
+        className="mr-xs last:mr-0"
+      >
+        <div
+          className="flex"
+        >
+          <label
+            className="tab-default tab-checked"
+            data-testid="tab"
+            data-value="Image Poll"
+            htmlFor="1"
+          >
+            <div
+              className="radio_container"
+            >
+              <input
+                className="radio_input size_small"
+                data-testid="Radio"
+                defaultChecked={true}
+                disabled={false}
+                id="1"
+                name="tab groub"
+                onChange={[MockFunction]}
+                type="radio"
+                value="Image Poll"
+              />
+              <div
+                className="radio_background unchecked size_small checkmark_small"
+              />
+            </div>
+            <svg
+              className="icon"
+              data-file-name="SvgImagePoll"
+              data-testid="image-poll-icon"
+            />
+            <span
+              className="tab-type"
+            >
+              Image Poll
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="mr-xs last:mr-0"
+      >
+        <div
+          className="flex"
+        >
+          <label
+            className="tab-default tab-unchecked"
+            data-testid="tab"
+            data-value="Text Poll"
+            htmlFor="2"
+          >
+            <div
+              className="radio_container"
+            >
+              <input
+                className="radio_input size_small"
+                data-testid="Radio"
+                defaultChecked={false}
+                disabled={false}
+                id="2"
+                name="tab groub"
+                onChange={[MockFunction]}
+                type="radio"
+                value="Text Poll"
+              />
+              <div
+                className="radio_background unchecked size_small checkmark_small"
+              />
+            </div>
+            <svg
+              className="icon"
+              data-file-name="SvgTextPoll"
+            />
+            <span
+              className="tab-type"
+            >
+              Text Poll
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        className="mr-xs last:mr-0"
+      >
+        <div
+          className="flex"
+        >
+          <label
+            className="tab-default tab-unchecked"
+            data-testid="tab"
+            data-value="Mini survey"
+            htmlFor="3"
+          >
+            <div
+              className="radio_container"
+            >
+              <input
+                className="radio_input size_small"
+                data-testid="Radio"
+                defaultChecked={false}
+                disabled={false}
+                id="3"
+                name="tab groub"
+                onChange={[MockFunction]}
+                type="radio"
+                value="Mini survey"
+              />
+              <div
+                className="radio_background unchecked size_small checkmark_small"
+              />
+            </div>
+            <svg
+              className="icon"
+              data-file-name="SvgMiniSurvey"
+            />
+            <span
+              className="tab-type"
+            >
+              Mini survey
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
