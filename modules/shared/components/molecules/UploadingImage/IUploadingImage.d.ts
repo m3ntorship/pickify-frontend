@@ -1,11 +1,14 @@
 declare namespace IUploadingImage {
   export interface IProps extends IHandlers {
-    imageUrl?: string;
+    file: Blob;
     textInputLetter: string;
-    textInputId: string;
+    id: string;
+    textInputValue?: string;
   }
   export interface IHandlers {
     handleVerticalThreeDotsClick?: () => void;
+    handleTextInputOnChange?: () => void;
+    handleTextInputOnBlur?: () => void;
   }
 }
 export { IUploadingImage };
