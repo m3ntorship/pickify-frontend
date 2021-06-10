@@ -2,6 +2,7 @@ import type * as EButton from './EButton';
 
 declare namespace IButton {
   export interface IProps {
+    [property: string]: unknown;
     children?: string | null;
     disabled?: boolean;
     variant: EButton.buttonVariantValues;

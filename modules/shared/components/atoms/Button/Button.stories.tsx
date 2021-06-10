@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import Button from '.';
+import Button from './Button';
 import type { IButton } from './types/IButton';
 import * as EButton from './types/EButton';
 

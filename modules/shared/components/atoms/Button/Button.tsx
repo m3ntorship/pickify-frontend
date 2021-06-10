@@ -14,6 +14,7 @@ const Button: FC<IButton.IProps> = ({
   rightIcon = false,
   onlyIcon = false,
   onClick,
+  ...props
 }): ReactElement => {
   const btnClasses = classnames(
     styles.btn,
@@ -40,6 +41,7 @@ const Button: FC<IButton.IProps> = ({
       onClick={onClick}
       className={btnClasses}
       disabled={disabled}
+      {...(props as unknown)}
     >
       {leftIcon && (
         <span>
