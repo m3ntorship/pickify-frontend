@@ -1,15 +1,26 @@
+import type {
+  UseFormRegister,
+  FieldValues,
+  UseFormReset,
+  DeepMap,
+  FieldError,
+} from 'react-hook-form';
+
 declare namespace IOptionGroup {
   export interface IOption {
     id: string;
     value: string;
   }
   export interface IProps {
-    id: string;
+    groupId: string;
+    options: IOption[];
     groupName?: string;
-    // options: { id: string; letter: string; value: string }[];
-    // addOptionHandler: (GroupId: string) => void;
-    // deleteOptionHandler: (optionId: string) => void;
-    // deleteGroupHandler: () => void;
+    setOptions: React.Dispatch<React.SetStateAction<IOption[]>>;
+    register: UseFormRegister<FieldValues>;
+    formSubmitted: boolean;
+    reset: UseFormReset<FieldValues>;
+    errors: DeepMap<FieldValues, FieldError>;
+    dirtyFields: DeepMap<FieldValues, true>;
   }
 }
 export { IOptionGroup };

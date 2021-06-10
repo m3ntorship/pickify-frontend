@@ -15,5 +15,9 @@ const Template: Story<IOptionGroup.IProps> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  id: '0',
+  groupId: '0',
+  options: [
+    { id: 'test', value: '' },
+    { id: 'test1', value: '' },
+  ],
 };
