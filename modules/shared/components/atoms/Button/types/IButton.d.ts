@@ -1,7 +1,7 @@
 import type * as EButton from './EButton';
 
 declare namespace IButton {
-  export interface IProps {
+  export interface IProps extends IHandlers {
     [property: string]: unknown;
     children?: string | null;
     disabled?: boolean;
@@ -10,6 +10,9 @@ declare namespace IButton {
     leftIcon?: boolean;
     rightIcon?: boolean;
     onlyIcon?: boolean;
+  }
+
+  export interface IHandlers {
     onClick?: () => void;
   }
 }

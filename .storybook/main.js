@@ -8,4 +8,5 @@ module.exports = {
     '@storybook/addon-essentials',
     'storybook-css-modules-preset',
   ],
+  typescript: { reactDocgen: 'react-docgen' },
 };
