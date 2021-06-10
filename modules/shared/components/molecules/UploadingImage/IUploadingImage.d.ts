@@ -4,6 +4,7 @@ declare namespace IUploadingImage {
     textInputLetter: string;
     id: string;
     textInputValue?: string;
+    filesNumber?: number;
   }
   export interface IHandlers {
     handleVerticalThreeDotsClick?: () => void;

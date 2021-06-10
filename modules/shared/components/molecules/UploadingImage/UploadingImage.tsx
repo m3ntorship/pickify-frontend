@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import Image from 'next/image';
 import type { IUploadingImage } from './IUploadingImage';
@@ -6,6 +6,7 @@ import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import VerticalThreeDots from '../../icons/verticalThreeDots.svg';
+// import classnames from 'classnames';
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
@@ -24,14 +25,22 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
       setUrl(e.target?.result as string);
     });
   }, [file]);
+
+  // const numbOne = 1;
+
+  /*   const imgStyle = classnames('object-cover', {
+    'w-full max-h-96': filesNumber === numbOne,
+    'w-96 h-72': filesNumber > numbOne,
+  }); */
+
   return (
     <div className={styles.container}>
       <div className="relative">
         <Image
-          src={url}
+          src={`${url}`}
           layout="fill"
           objectFit="contain"
-          className="w-full h-full rounded-t-md mb-1 "
+          className="w-96 h-72"
           id={id}
         />
         <button
