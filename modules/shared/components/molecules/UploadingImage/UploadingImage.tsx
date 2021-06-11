@@ -6,7 +6,8 @@ import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import VerticalThreeDots from '../../icons/verticalThreeDots.svg';
-// import classnames from 'classnames';
+import Misc from '../Misc/Misc';
+import { MiscType } from '../Misc/types/EMisc';
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
@@ -14,33 +15,42 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   id,
   textInputValue,
   handleVerticalThreeDotsClick,
-  handleTextInputOnChange,
+  imgCaptionHandler,
   handleTextInputOnBlur,
+  error,
+  message,
 }): ReactElement => {
   const [url, setUrl] = useState<string>('');
+
   useEffect(() => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.addEventListener('load', function (e) {
-      setUrl(e.target?.result as string);
-    });
-  }, [file]);
+    if (!error) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.addEventListener('load', (e) => {
+        setUrl(e.target?.result as string);
+      });
+    }
+  }, [file, error]);
 
-  // const numbOne = 1;
-
-  /*   const imgStyle = classnames('object-cover', {
-    'w-full max-h-96': filesNumber === numbOne,
-    'w-96 h-72': filesNumber > numbOne,
-  }); */
+  if (error) {
+    return (
+      <Misc
+        msg="Image couldn’t be uploaded!"
+        subMsg={message}
+        type={MiscType.Error}
+      />
+    );
+  }
 
   return (
     <div className={styles.container}>
-      <div className="relative">
+      <div className="relative w-full h-full mb-1">
         <Image
           src={`${url}`}
-          layout="fill"
-          objectFit="contain"
-          className="w-96 h-72"
+          layout="responsive"
+          width={300}
+          height={300}
+          className="object-cover rounded-t-md w-full h-full"
           id={id}
         />
         <button
@@ -57,7 +67,7 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
         inputType={ETextInput.InputType.Choices}
         letter={textInputLetter}
         id={id}
-        onChange={handleTextInputOnChange}
+        onChange={imgCaptionHandler}
         onBlur={handleTextInputOnBlur}
         value={textInputValue}
         placeholder="Type caption (optional)"

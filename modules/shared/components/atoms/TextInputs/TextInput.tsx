@@ -17,12 +17,16 @@ const TextInput: FC<ITextInputs.IProps> = ({
   inputType,
   disabled,
   letter,
+  onChange = (): void => {
+    // console.log('a');
+  },
   ...props
 }): ReactElement => {
   const [inputVal, setInputVal] = React.useState<string>('');
 
   const changeHandler = (e: React.FormEvent<HTMLInputElement>): void => {
     setInputVal(e.currentTarget.value);
+    onChange(e);
   };
 
   const hideIconHandler = (): void => {

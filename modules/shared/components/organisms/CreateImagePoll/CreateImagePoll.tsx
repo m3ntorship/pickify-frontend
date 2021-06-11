@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { ReactElement, FC } from 'react';
-import conditionalProperties from 'classnames';
+import classNames from 'classnames';
 import ImageUpload from '../../atoms/ImageUpload/index';
 import styles from './CreateImagePoll.module.css';
 import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
@@ -9,44 +9,78 @@ import {
   randId,
 } from '../../../logic/createImagePoll/createImagePoll';
 
+interface ImageData {
+  caption: string;
+  imgId: string;
+  file: File;
+  error: boolean;
+  message: string;
+}
+
 const CreateImagePoll: FC = (): ReactElement => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [imagesData, setImagesData] = useState<ImageData[]>([]);
+
+  const singleOption = 1;
 
   const onChangeHanlder = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const filesArr: File[] = [];
     const numbZero = 0;
     const numbFive = 5;
-    Array.prototype.map.call(e.target.files, function (file: File) {
-      if (file.type.substr(numbZero, numbFive) === 'image') {
-        filesArr.push(file);
-      }
-    });
-    setFiles([...files, ...filesArr]);
+    const maxFileSizeInByte = 2000000;
+    const uploadedFiles = Array.prototype.map.call(
+      e.target.files,
+      (file: File) => {
+        if (file.type.substr(numbZero, numbFive) !== 'image') {
+          return { error: true, message: 'invalid file type must be an image' };
+        }
+        if (file.size > maxFileSizeInByte) {
+          return { error: true, message: `Max size is ${file.size} MB` };
+        }
+        return { imgId: `${randId()}`, file, caption: '', error: false };
+
+        // return file;
+      },
+    ) as ImageData[];
+    setImagesData([...imagesData, ...uploadedFiles]);
   };
 
-  const imgClasses = conditionalProperties(
-    `grid ${styles.gridImgUpload} gap-x-2 gap-y-4 rounded-md relative mb-m`,
-  );
+  const imgCaptionHandler = (e: React.FormEvent<HTMLInputElement>): void => {
+    setImagesData(
+      imagesData.map((imageData) => {
+        if (imageData.imgId === e.currentTarget.id) {
+          return { ...imageData, caption: e.currentTarget.value };
+        }
+        return imageData;
+      }),
+    );
+  };
+
+  const imgPollClasses = classNames(styles['create-inage-poll'], {
+    'grid-cols-1': imagesData.length === singleOption,
+    'md:grid-cols-2 grid-cols-1': imagesData.length > singleOption,
+  });
+
   const maxLength = 3;
   return (
     <>
-      <div className={imgClasses}>
-        {files.map((file, index) => {
+      <div className={imgPollClasses}>
+        {imagesData.map((imgData, index) => {
           return (
             <UploadingImage
-              file={file}
+              file={imgData.file}
               key={randId()}
-              textInputLetter={alphabet[index]}
-              id={`${index}`}
-              filesNumber={files.length}
+              textInputLetter={alphabet[index].toUpperCase()}
+              id={imgData.imgId}
+              filesNumber={imagesData.length}
+              textInputValue={imgData.caption}
+              imgCaptionHandler={imgCaptionHandler}
+              error={imgData.error}
+              message={imgData.message}
             />
           );
         })}
       </div>
-      {files.length <= maxLength ? (
+      {imagesData.length <= maxLength && (
         <ImageUpload onChangeInputHandler={onChangeHanlder} />
-      ) : (
-        ''
       )}
     </>
   );

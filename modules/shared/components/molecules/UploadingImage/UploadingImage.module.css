@@ -3,7 +3,5 @@
 }
 
 .button {
-  @apply absolute top-4 right-4
-  w-8 h-8 rounded-full bg-white
-  flex justify-center items-center;
+  @apply absolute top-4 right-4 w-8 h-8 rounded-full bg-white flex justify-center items-center outline-none focus:outline-none;
 }
