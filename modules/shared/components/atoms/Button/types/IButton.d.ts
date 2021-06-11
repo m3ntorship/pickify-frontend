@@ -10,6 +10,7 @@ declare namespace IButton {
     leftIcon?: boolean;
     rightIcon?: boolean;
     onlyIcon?: boolean;
+    buttonType: 'button' | 'reset' | 'submit' | undefined;
   }
 
   export interface IHandlers {

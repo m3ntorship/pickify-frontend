@@ -11,13 +11,13 @@ export default {
     size: {
       control: {
         type: 'inline-radio',
-        options: ['large', 'medium', 'small'],
+        options: ['xlarge', 'large', 'medium', 'small'],
       },
     },
     variant: {
       control: {
         type: 'inline-radio',
-        options: ['primary', 'secondary', 'text'],
+        options: ['primary', 'secondary', 'tertiary', 'text'],
       },
     },
   },
