@@ -5,7 +5,7 @@ export enum buttonVariantValues {
   TEXT = 'text',
 }
 export enum buttonSizeValues {
-  XLARGE = 'Xlarge',
+  XLARGE = 'xlarge',
   LARGE = 'large',
   MEDIUM = 'medium',
   SMALL = 'small',
