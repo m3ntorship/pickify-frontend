@@ -8,5 +8,6 @@ export enum buttonSizeValues {
   XLARGE = 'xlarge',
   LARGE = 'large',
   MEDIUM = 'medium',
+  NORMAL = 'normal',
   SMALL = 'small',
 }

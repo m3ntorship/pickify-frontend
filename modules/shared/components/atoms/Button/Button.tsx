@@ -4,7 +4,7 @@ import type { FC, ReactElement } from 'react';
 import type { IButton } from './types/IButton';
 import styles from './Button.module.css';
 import ArowDown from '../../icons/buttonArowDown.svg';
-
+// THE normal porp should only be passed with the tertiary variant
 const Button: FC<IButton.IProps> = ({
   children = 'Button',
   disabled = false,
@@ -28,6 +28,7 @@ const Button: FC<IButton.IProps> = ({
       [styles['btn-xlarge']]: size === 'xlarge',
       [styles['btn-large']]: size === 'large',
       [styles['btn-medium']]: size === 'medium',
+      [styles['btn-normal']]: size === 'normal',
       [styles['btn-small']]: size === 'small',
     },
     {

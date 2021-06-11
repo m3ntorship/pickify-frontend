@@ -31,6 +31,10 @@
   @apply text-base font-medium;
 }
 
+.btn-normal {
+  @apply text-sm font-medium;
+}
+
 .btn-small {
   @apply text-sm font-medium;
 }
@@ -41,6 +45,11 @@
 }
 
 /* //////////// condition css //////////// */
+
+/* the only of it is kind  -the responsive cancel button-  */
+.btn-normal.btn-tertiary {
+  @apply px-xll py-1.5;
+}
 
 .btn-xlarge.btn-primary,
 .btn-xlarge.btn-secondary,

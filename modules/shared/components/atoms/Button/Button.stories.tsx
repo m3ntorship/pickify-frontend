@@ -11,7 +11,7 @@ export default {
     size: {
       control: {
         type: 'inline-radio',
-        options: ['xlarge', 'large', 'medium', 'small'],
+        options: ['xlarge', 'large', 'normal', 'medium', 'small'],
       },
     },
     variant: {
