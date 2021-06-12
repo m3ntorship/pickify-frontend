@@ -21,26 +21,38 @@ const CreateImagePoll: FC = (): ReactElement => {
   const [imagesData, setImagesData] = useState<ImageData[]>([]);
 
   const singleOption = 1;
+  const maxLength = 3;
 
   const onChangeHanlder = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const numbZero = 0;
-    const numbFive = 5;
+    const firstIndex = 0;
+    const lastLetter = 5;
+    const maxFilesLength = 4;
     const maxFileSizeInByte = 2000000;
-    const uploadedFiles = Array.prototype.map.call(
-      e.target.files,
-      (file: File) => {
-        if (file.type.substr(numbZero, numbFive) !== 'image') {
-          return { error: true, message: 'invalid file type must be an image' };
-        }
-        if (file.size > maxFileSizeInByte) {
-          return { error: true, message: `Max size is ${file.size} MB` };
-        }
-        return { imgId: `${randId()}`, file, caption: '', error: false };
 
-        // return file;
-      },
-    ) as ImageData[];
-    setImagesData([...imagesData, ...uploadedFiles]);
+    const maxFiles = Array.prototype.slice.call(
+      e.target.files,
+      firstIndex,
+      maxFilesLength,
+    );
+
+    const uploadedFiles = Array.prototype.map.call(maxFiles, (file: File) => {
+      if (file.type.substr(firstIndex, lastLetter) !== 'image') {
+        return {
+          error: true,
+          message: 'invalid file type, must be an image!!',
+        };
+      }
+
+      if (file.size > maxFileSizeInByte) {
+        return { error: true, message: `Max size is ${file.size} MB!!` };
+      }
+
+      return { imgId: `${randId()}`, file, caption: '', error: false };
+    }) as ImageData[];
+
+    const removeInvalidImages = imagesData.filter((image) => !image.error);
+
+    setImagesData([...removeInvalidImages, ...uploadedFiles]);
   };
 
   const imgCaptionHandler = (e: React.FormEvent<HTMLInputElement>): void => {
@@ -58,8 +70,6 @@ const CreateImagePoll: FC = (): ReactElement => {
     'grid-cols-1': imagesData.length === singleOption,
     'md:grid-cols-2 grid-cols-1': imagesData.length > singleOption,
   });
-
-  const maxLength = 3;
   return (
     <>
       <div className={imgPollClasses}>

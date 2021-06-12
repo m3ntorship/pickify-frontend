@@ -21,6 +21,7 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   message,
 }): ReactElement => {
   const [url, setUrl] = useState<string>('');
+  // const [caption, setCaption] = useState<string>('');
 
   useEffect(() => {
     if (!error) {
