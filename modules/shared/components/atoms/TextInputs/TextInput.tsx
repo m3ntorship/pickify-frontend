@@ -17,20 +17,16 @@ const TextInput: FC<ITextInputs.IProps> = ({
   inputType,
   disabled,
   letter,
-  ...props
+  extraClasses = '',
+  placeholder,
+  value,
+  onChange,
+  onBlur,
+  onClick,
 }): ReactElement => {
-  const [inputVal, setInputVal] = React.useState<string>('');
-
-  const changeHandler = (e: React.FormEvent<HTMLInputElement>): void => {
-    setInputVal(e.currentTarget.value);
-  };
-
-  const hideIconHandler = (): void => {
-    setInputVal('');
-  };
-
   const inputClasses: string = className(
     styles['form-input'],
+    extraClasses,
     {
       [styles.error]: variants === ETextInput.Variants.Error && !disabled,
       [styles.success]: variants === ETextInput.Variants.Success && !disabled,
@@ -55,14 +51,11 @@ const TextInput: FC<ITextInputs.IProps> = ({
 
   return (
     <div className={styles['form-group']}>
-      {label ? (
+      {label && (
         <label htmlFor={id} className={styles['form-label']}>
           {label}
         </label>
-      ) : (
-        ' '
       )}
-
       <div className={styles['form-control']}>
         <input
           className={inputClasses}
@@ -70,18 +63,17 @@ const TextInput: FC<ITextInputs.IProps> = ({
           type="text"
           id={id}
           disabled={disabled}
-          onChange={changeHandler}
-          value={inputVal}
+          onChange={onChange}
+          onBlur={onBlur}
+          value={value}
           data-variant={variants}
           data-input-type={inputType}
-          {...(props as unknown)}
+          placeholder={placeholder}
         />
         <span className={styles['status-icon']}>
-          {variants === ETextInput.Variants.Default &&
-            !disabled &&
-            inputVal && (
-              <DeleteIcon onClick={hideIconHandler} data-testid="delete-icon" />
-            )}
+          {variants === ETextInput.Variants.Default && !disabled && value && (
+            <DeleteIcon onClick={onClick} data-testid="delete-icon" />
+          )}
           {variants === ETextInput.Variants.Error && !disabled && <ErrorIcon />}
           {variants === ETextInput.Variants.Success && !disabled && (
             <SuccessIcon />
