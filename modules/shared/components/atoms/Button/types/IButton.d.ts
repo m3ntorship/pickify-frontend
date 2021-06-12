@@ -3,7 +3,7 @@ import type * as EButton from './EButton';
 declare namespace IButton {
   export interface IProps extends IHandlers {
     [property: string]: unknown;
-    children?: string | null;
+    buttonText?: string | null;
     disabled?: boolean;
     variant: EButton.buttonVariantValues;
     size: EButton.buttonSizeValues;
