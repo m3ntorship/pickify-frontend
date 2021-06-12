@@ -11,17 +11,25 @@ import { MiscType } from '../Misc/types/EMisc';
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
-  textInputLetter,
+  letter,
   id,
-  textInputValue,
   handleVerticalThreeDotsClick,
-  imgCaptionHandler,
   handleTextInputOnBlur,
   error,
   message,
 }): ReactElement => {
   const [url, setUrl] = useState<string>('');
-  // const [caption, setCaption] = useState<string>('');
+  const [caption, setCaption] = useState<string>('');
+
+  const updateImgCaptionHandler = (
+    e: React.FormEvent<HTMLInputElement>,
+  ): void => {
+    setCaption(e.currentTarget.value);
+  };
+
+  const resetCaptionValueHandler = (): void => {
+    setCaption('');
+  };
 
   useEffect(() => {
     if (!error) {
@@ -66,13 +74,13 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
       <TextInput
         variants={ETextInput.Variants.Default}
         inputType={ETextInput.InputType.Choices}
-        letter={textInputLetter}
+        letter={letter}
         id={id}
-        onChange={imgCaptionHandler}
+        onChange={updateImgCaptionHandler}
         onBlur={handleTextInputOnBlur}
-        value={textInputValue}
+        value={caption}
         placeholder="Type caption (optional)"
-        style={{ borderTopLeftRadius: '0', borderTopRightRadius: '0' }}
+        onClick={resetCaptionValueHandler}
       />
     </div>
   );
