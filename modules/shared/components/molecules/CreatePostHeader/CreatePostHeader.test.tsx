@@ -5,14 +5,14 @@ import { tabGroupData } from '../TabGroup/data';
 
 describe('CreatePostHeader', () => {
   it('should render three tabs with filled avatar', () => {
-    const changeValHandler = jest.fn();
+    const onTabChangeHandler = jest.fn();
 
     const tree = renderer
       .create(
         <CreatePostHeader
           tabsData={tabGroupData()}
           checkedValue="Image Poll"
-          changeValHandler={changeValHandler}
+          onTabChangeHandler={onTabChangeHandler}
           profilePic="https://images.unsplash.com/photo-1620577610365-86c411bad78d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
         />,
       )
@@ -22,14 +22,14 @@ describe('CreatePostHeader', () => {
   });
 
   it('should render three tabs with notFilled avatar', () => {
-    const changeValHandler = jest.fn();
+    const onTabChangeHandler = jest.fn();
 
     const tree = renderer
       .create(
         <CreatePostHeader
           tabsData={tabGroupData()}
           checkedValue="Image Poll"
-          changeValHandler={changeValHandler}
+          onTabChangeHandler={onTabChangeHandler}
         />,
       )
       .toJSON();

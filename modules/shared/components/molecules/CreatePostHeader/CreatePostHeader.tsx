@@ -4,12 +4,15 @@ import type { ICreatePostHeader } from './ICreatePostHeader';
 import Avatar from '../../atoms/Avatar/Avatar';
 import TabGroup from '../TabGroup/TabGroup';
 
-const CreatePostHeader: FC<ICreatePostHeader.IProps> = (
-  props,
-): ReactElement => {
-  const { tabsData, checkedValue, changeValHandler, profilePic } = props;
-
-  const avatarVariant = profilePic ? 'filled' : 'notFilled';
+const CreatePostHeader: FC<ICreatePostHeader.IProps> = ({
+  tabsData,
+  checkedValue,
+  onTabChangeHandler,
+  profilePic,
+}): ReactElement => {
+  const avatarVariant: 'filled' | 'notFilled' = profilePic
+    ? 'filled'
+    : 'notFilled';
 
   return (
     <div className="flex items-center">
@@ -18,7 +21,7 @@ const CreatePostHeader: FC<ICreatePostHeader.IProps> = (
       </div>
       <div>
         <TabGroup
-          changeValHandler={changeValHandler}
+          changeValHandler={onTabChangeHandler}
           checkedValue={checkedValue}
           tabsData={tabsData}
         />
