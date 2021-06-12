@@ -1,3 +1,10 @@
+import type { ReactElement } from 'react';
+import React from 'react';
+
+const Useless = (): ReactElement => {
+  return <div>useless</div>;
+};
+export default Useless;
 // import React from 'react';
 // import type { FC, ReactElement } from 'react';
 // import PlusCircle from '../../icons/plusCircle.svg';

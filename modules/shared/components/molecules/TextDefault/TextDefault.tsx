@@ -1,3 +1,11 @@
+import type { ReactElement } from 'react';
+import React from 'react';
+
+const Useless3 = (): ReactElement => {
+  return <div>useless</div>;
+};
+export default Useless3;
+
 // import React, { useState } from 'react';
 // import type { FC, ReactElement } from 'react';
 // import DragIcon from '../../icons/drag.svg';

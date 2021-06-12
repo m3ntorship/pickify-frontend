@@ -1,3 +1,11 @@
+import type { ReactElement } from 'react';
+import React from 'react';
+
+const Useless2 = (): ReactElement => {
+  return <div>useless</div>;
+};
+export default Useless2;
+
 // import React, { useEffect, useState } from 'react';
 // import type { FC, ReactElement } from 'react';
 // import { useForm } from 'react-hook-form';
