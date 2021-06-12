@@ -1,30 +1,19 @@
+import React from 'react';
 import type { FC, ReactElement } from 'react';
 import PlusCircle from '../../icons/plusCircle.svg';
 import TextDefault from '../TextDefault/TextDefault';
 import type { IOptionGroup } from './types/IOptionGroup';
 
 const OptionGroup: FC<IOptionGroup.IProps> = ({
-  groupId,
+  // groupId,
+  // onChange,
   options,
   setOptions,
   register,
   formSubmitted,
   reset,
-  errors,
-  dirtyFields,
+  variantMessage,
 }): ReactElement => {
-  console.log(groupId);
-  // const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   reset,
-  //   formState: { errors, dirtyFields },
-  // } = useForm({
-  //   mode: 'onSubmit',
-  //   reValidateMode: 'onChange',
-  //   shouldUnregister: true,
-  // });
   const randomId = (): string => {
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;
@@ -42,18 +31,8 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
     setOptions(options.filter((option) => option.id !== optionId));
   };
 
-  const variantMessage = (optionId: string): string => {
-    if (errors[optionId]) {
-      return 'error';
-    }
-    if (dirtyFields[optionId]) {
-      return 'success';
-    }
-    return 'default';
-  };
   return (
     <>
-      {/* <form onSubmit={handleSubmit(onSubmit, onError)}> */}
       <div className="flex flex-col space-y-2">
         <div className="flex flex-col space-y-2" data-testid="optionsWrapper">
           {options.map((option, index) => (
@@ -66,15 +45,17 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
                   deleteOptionHandler(option.id);
                 }}
                 placeholder={`Option ${index + initialIndexAdder}`}
-                register={{
-                  ...register(option.id, {
-                    required: {
-                      value: true,
-                      message: 'This field is required',
-                    },
-                    minLength: { value: 3, message: 'Minimum letters is 3' },
-                  }),
-                }}
+                register={
+                  register && {
+                    ...register(option.id, {
+                      required: {
+                        value: true,
+                        message: 'This field is required',
+                      },
+                      minLength: { value: 3, message: 'Minimum letters is 3' },
+                    }),
+                  }
+                }
                 reset={reset}
                 variants={formSubmitted ? variantMessage(option.id) : ''}
               />
@@ -87,7 +68,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
         {options.length < optionsLimit ? (
           <div className="py-2.5">
             <button
-              data-testid="addButtonTest"
+              data-testid="addOptionBtn"
               type="button"
               className="text-accent cursor-pointer flex items-center self-start focus:outline-none"
               onClick={(): void => {
@@ -100,9 +81,6 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
           </div>
         ) : null}
       </div>
-      {/* <button type="submit">Submit</button> */}
-
-      {/* </form> */}
     </>
   );
 };

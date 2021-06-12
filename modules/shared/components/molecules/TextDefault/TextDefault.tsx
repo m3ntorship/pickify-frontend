@@ -15,6 +15,7 @@ const TextDefault: FC<ITextDefault.IProps> = ({
   register,
   reset,
   variants,
+  // onChange,
 }): ReactElement => {
   return (
     <div className="flex items-center" id={`option-${id}-box`}>
@@ -33,6 +34,7 @@ const TextDefault: FC<ITextDefault.IProps> = ({
       </span>
       {deletable ? (
         <DeleteIcon
+          data-testid="deleteOptionBtn"
           className="ml-3 cursor-pointer"
           onClick={deleteInputHandler}
         />
