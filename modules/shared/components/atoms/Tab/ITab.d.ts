@@ -13,7 +13,7 @@ declare namespace ITab {
   }
 
   export interface IHandlers {
-    changeValHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    changeValHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }
 }
 export { ITab };
