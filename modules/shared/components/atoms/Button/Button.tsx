@@ -6,7 +6,7 @@ import styles from './Button.module.css';
 import ArrowDownIcon from '../../icons/buttonArowDown.svg';
 // THE normal prop should only be passed with the tertiary variant
 const Button: FC<IButton.IProps> = ({
-  children = 'Button',
+  buttonText = 'Button',
   disabled = false,
   variant = 'primary',
   size = 'medium',
@@ -57,7 +57,7 @@ const Button: FC<IButton.IProps> = ({
           <ArrowDownIcon />
         </span>
       ) : (
-        children
+        buttonText
       )}
       {rightIcon && (
         <span>
