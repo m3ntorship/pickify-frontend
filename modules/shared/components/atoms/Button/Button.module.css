@@ -10,7 +10,7 @@
 .btn-secondary {
   @apply rounded-full bg-white border border-primary text-primary hover:bg-grey-bg  focus:ring-2 focus:ring-primary-dark   m-0;
 }
-.btn-tertiary {
+.btn-quaternary {
   @apply rounded-full bg-white text-error m-0;
 }
 
@@ -47,13 +47,13 @@
 /* //////////// condition css //////////// */
 
 /* the only of it is kind  -the responsive cancel button-  */
-.btn-normal.btn-tertiary {
+.btn-normal.btn-quaternary {
   @apply px-xll py-1.5;
 }
 
 .btn-xlarge.btn-primary,
 .btn-xlarge.btn-secondary,
-.btn-xlarge.btn-tertiary {
+.btn-xlarge.btn-quaternary {
   @apply px-4xvxl py-1.5;
 }
 
