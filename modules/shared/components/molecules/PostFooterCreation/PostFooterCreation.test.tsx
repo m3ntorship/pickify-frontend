@@ -7,14 +7,14 @@ describe('Testing Footer with snapshot', () => {
     const tree = renderer
       .create(
         <PostFooterCreation
-          handleSelectChange={(): boolean => {
+          handlePrivacySelectChange={(): boolean => {
             return true;
           }}
           togglerIsChecked
-          handleTogglerChange={(): boolean => {
+          handleTheRadioButtonOnChange={(): boolean => {
             return true;
           }}
-          disabled
+          postButtonIsDisabled
         />,
       )
       .toJSON();
@@ -24,14 +24,14 @@ describe('Testing Footer with snapshot', () => {
     const tree = renderer
       .create(
         <PostFooterCreation
-          handleSelectChange={(): boolean => {
+          handlePrivacySelectChange={(): boolean => {
             return true;
           }}
           togglerIsChecked
-          handleTogglerChange={(): boolean => {
+          handleTheRadioButtonOnChange={(): boolean => {
             return true;
           }}
-          disabled={false}
+          postButtonIsDisabled={false}
         />,
       )
       .toJSON();

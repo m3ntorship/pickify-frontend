@@ -1,13 +1,17 @@
 declare namespace IPostFooterCreation {
   export interface IProps extends IHandlers {
-    handleSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+    handlePrivacySelectChange: (
+      e: React.ChangeEvent<HTMLSelectElement>,
+    ) => void;
     togglerIsChecked: boolean;
-    disabled: boolean;
-    handleTogglerChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    postButtonIsDisabled: boolean;
+    handleTheRadioButtonOnChange: (
+      e: React.ChangeEvent<HTMLInputElement>,
+    ) => void;
   }
   export interface IHandlers {
-    handleCancelClick?: () => void;
-    handleSubmitClick?: () => void;
+    handleCancelButtonClick?: () => void;
+    handleSubmitButtonClick?: () => void;
   }
 }
 export { IPostFooterCreation };

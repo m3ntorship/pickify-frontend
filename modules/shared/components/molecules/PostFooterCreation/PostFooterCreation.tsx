@@ -4,6 +4,8 @@ import type { IPostFooterCreation } from './IPostFooterCreation';
 import styles from './PostFooterCreation.module.css';
 import Privacy from '../Privacy/Privacy';
 import Divider from '../../atoms/Divider/Divider';
+import Button from '../../atoms/Button/Button';
+import * as EButton from '../../atoms/Button/types/EButton';
 
 /** 
 * @Notice you will use the handleChange functions to get and use the value of the toggler and the select
@@ -13,12 +15,12 @@ const handleTogglerChange = (e: React.ChangeEvent<HTMLInputElement>):void => { s
 const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>):void => {console.log(e.target.value)};
 */
 const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
-  handleSelectChange,
+  handlePrivacySelectChange,
   togglerIsChecked,
-  handleTogglerChange,
-  disabled = true,
-  handleSubmitClick,
-  handleCancelClick,
+  handleTheRadioButtonOnChange,
+  postButtonIsDisabled = true,
+  handleSubmitButtonClick,
+  handleCancelButtonClick,
 }): ReactElement => {
   return (
     <div className={styles.container}>
@@ -26,37 +28,38 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
         privacyOptions={['friends', 'family']}
         withDivider
         togglerIsChecked={togglerIsChecked}
-        handleTogglerChange={handleTogglerChange}
-        handleSelectChange={handleSelectChange}
+        handleTogglerChange={handleTheRadioButtonOnChange}
+        handleSelectChange={handlePrivacySelectChange}
       />
-      <button
-        disabled={disabled}
-        type="submit"
-        className={styles['primary-button']}
-        onClick={handleSubmitClick}
-      >
-        post
-      </button>
+      <div className={styles['primary-button']}>
+        <Button
+          size={EButton.buttonSizeValues.SMALL}
+          variant={EButton.buttonVariantValues.PRIMARY}
+          disabled={postButtonIsDisabled}
+          buttonType="submit"
+          onClick={handleSubmitButtonClick}
+          buttonText="post"
+        />
+      </div>
       <div className={styles.divider}>
         <Divider type="horizontal" length="auto" />
       </div>
 
       <div className={styles['responsive-button']}>
-        <button
-          type="button"
-          className={styles['cancel-responsive-button']}
-          onClick={handleCancelClick}
-        >
-          cancel
-        </button>
-        <button
-          disabled={disabled}
-          type="submit"
-          className={styles['primary-responsive-button']}
-          onClick={handleSubmitClick}
-        >
-          post
-        </button>
+        <Button
+          size={EButton.buttonSizeValues.NORMAL}
+          variant={EButton.buttonVariantValues.QUATERNARY}
+          onClick={handleCancelButtonClick}
+          buttonText="cancel"
+        />
+        <Button
+          size={EButton.buttonSizeValues.XLARGE}
+          variant={EButton.buttonVariantValues.PRIMARY}
+          disabled={postButtonIsDisabled}
+          buttonType="submit"
+          onClick={handleSubmitButtonClick}
+          buttonText="post"
+        />
       </div>
     </div>
   );

@@ -76,13 +76,17 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
       </select>
     </div>
   </div>
-  <button
+  <div
     className="primary-button"
-    disabled={true}
-    type="submit"
   >
-    post
-  </button>
+    <button
+      className="btn btn-primary btn-small"
+      disabled={true}
+      type="submit"
+    >
+      post
+    </button>
+  </div>
   <div
     className="divider"
   >
@@ -99,13 +103,14 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
     className="responsive-button"
   >
     <button
-      className="cancel-responsive-button"
+      className="btn btn-quaternary btn-normal"
+      disabled={false}
       type="button"
     >
       cancel
     </button>
     <button
-      className="primary-responsive-button"
+      className="btn btn-primary btn-xlarge"
       disabled={true}
       type="submit"
     >
@@ -191,13 +196,17 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
       </select>
     </div>
   </div>
-  <button
+  <div
     className="primary-button"
-    disabled={false}
-    type="submit"
   >
-    post
-  </button>
+    <button
+      className="btn btn-primary btn-small"
+      disabled={false}
+      type="submit"
+    >
+      post
+    </button>
+  </div>
   <div
     className="divider"
   >
@@ -214,13 +223,14 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
     className="responsive-button"
   >
     <button
-      className="cancel-responsive-button"
+      className="btn btn-quaternary btn-normal"
+      disabled={false}
       type="button"
     >
       cancel
     </button>
     <button
-      className="primary-responsive-button"
+      className="btn btn-primary btn-xlarge"
       disabled={false}
       type="submit"
     >
