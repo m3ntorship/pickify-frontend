@@ -1,12 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import * as renderer from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
 import type { TargetElement } from '@testing-library/user-event';
 import TextInput from './TextInput';
 import * as ETextInput from './types/ETextInput';
 
 describe('TextInput', () => {
-  it('should render TextInput with DeleteIcon', () => {
+  it('should render TextInput with DeleteIcon when we pass filled value', () => {
+    const onChange = jest.fn();
+    const onClick = jest.fn();
+
     render(
       <TextInput
         label="label"
@@ -14,171 +18,248 @@ describe('TextInput', () => {
         inputType={ETextInput.InputType.Default}
         variants={ETextInput.Variants.Default}
         disabled={false}
+        value="aaa"
+        onChange={onChange}
+        placeholder="Type something..."
+        onClick={onClick}
+      />,
+    );
+
+    const deleteIcon: TargetElement = screen.getByTestId('delete-icon');
+
+    expect(deleteIcon).toBeInTheDocument();
+  });
+
+  it('should call onChange Handler', () => {
+    const onChange = jest.fn();
+    const onClick = jest.fn();
+    const calledTwice = 2;
+
+    render(
+      <TextInput
+        label="label"
+        id="my label"
+        inputType={ETextInput.InputType.Default}
+        variants={ETextInput.Variants.Default}
+        disabled={false}
+        value=""
+        onChange={onChange}
+        placeholder="Type something..."
+        onClick={onClick}
       />,
     );
 
     const input: TargetElement = screen.getByTestId('text-input');
 
-    expect(input).toBeInTheDocument();
-
     userEvent.type(input, 'aa');
 
-    const deleteIcon: TargetElement = screen.getByTestId('delete-icon');
+    expect(onChange).toHaveBeenCalledTimes(calledTwice);
+  });
 
-    expect(input).toHaveValue('aa');
-    expect(deleteIcon).toBeInTheDocument();
+  it('should call onClick Handler', () => {
+    const onChange = jest.fn();
+    const onClick = jest.fn();
+    const calledOnce = 1;
+
+    render(
+      <TextInput
+        label="label"
+        id="my label"
+        inputType={ETextInput.InputType.Default}
+        variants={ETextInput.Variants.Default}
+        disabled={false}
+        value="aaa"
+        onChange={onChange}
+        placeholder="Type something..."
+        onClick={onClick}
+      />,
+    );
+
+    const input: TargetElement = screen.getByTestId('delete-icon');
+
+    userEvent.click(input);
+
+    expect(onClick).toHaveBeenCalledTimes(calledOnce);
+  });
+
+  it('should call onBlur Handler', () => {
+    const onChange = jest.fn();
+    const onClick = jest.fn();
+    const onBlur = jest.fn();
+    const calledOnce = 1;
+
+    render(
+      <TextInput
+        label="label"
+        id="my label"
+        inputType={ETextInput.InputType.Default}
+        variants={ETextInput.Variants.Default}
+        disabled={false}
+        value=""
+        onChange={onChange}
+        placeholder="Type something..."
+        onClick={onClick}
+        onBlur={onBlur}
+      />,
+    );
+
+    const input: TargetElement = screen.getByTestId('text-input');
+
+    userEvent.click(input);
+    userEvent.tab();
+
+    expect(onBlur).toHaveBeenCalledTimes(calledOnce);
   });
 
   it('should render TextInput with variant [error]', () => {
-    render(
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.Default}
         variants={ETextInput.Variants.Error}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-variant', 'error');
+    expect(tree).toMatchSnapshot();
   });
 
-  it('should render TextInput with variant [default]', () => {
-    render(
+  it('should render TextInput with variant and input type [default]', () => {
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.Default}
         variants={ETextInput.Variants.Default}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-variant', 'default');
+    expect(tree).toMatchSnapshot();
   });
 
   it('should render TextInput with variant [success]', () => {
-    render(
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.Default}
         variants={ETextInput.Variants.Success}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-variant', 'success');
-  });
-
-  it('should render TextInput with input type [default]', () => {
-    render(
-      <TextInput
-        label="label"
-        id="my label"
-        inputType={ETextInput.InputType.Default}
-        variants={ETextInput.Variants.Default}
-        disabled={false}
-      />,
-    );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-input-type', 'default');
+    expect(tree).toMatchSnapshot();
   });
 
   it('should render TextInput with input type [left-icon]', () => {
-    render(
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.LeftIcon}
         variants={ETextInput.Variants.Default}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-input-type', 'left-icon');
+    expect(tree).toMatchSnapshot();
   });
 
   it('should render TextInput with input type [prefix-dropdown]', () => {
-    render(
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.PrefixDropdown}
         variants={ETextInput.Variants.Default}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-input-type', 'prefix-dropdown');
+    expect(tree).toMatchSnapshot();
   });
 
   it('should render TextInput with input type [prefix]', () => {
-    render(
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.Prefix}
         variants={ETextInput.Variants.Default}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-input-type', 'prefix');
+    expect(tree).toMatchSnapshot();
   });
 
   it('should render TextInput with input type [right-icon]', () => {
-    render(
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.RightIcon}
         variants={ETextInput.Variants.Default}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-input-type', 'right-icon');
+    expect(tree).toMatchSnapshot();
   });
 
   it('should render TextInput with input type [choices]', () => {
-    render(
+    const funHandler = jest.fn();
+
+    const tree = renderer.create(
       <TextInput
         label="label"
         id="my label"
         inputType={ETextInput.InputType.Choices}
         variants={ETextInput.Variants.Default}
         disabled={false}
+        value=""
+        onChange={funHandler}
+        placeholder="Type something..."
+        onClick={funHandler}
       />,
     );
-
-    const input: TargetElement = screen.getByTestId('text-input');
-
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute('data-input-type', 'choices');
+    expect(tree).toMatchSnapshot();
   });
 });
