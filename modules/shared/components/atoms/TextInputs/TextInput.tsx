@@ -15,24 +15,25 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
   ITextInputs.IProps
 >(
   (
-    { label, variants, inputType, disabled, letter, reset, onChange, ...props },
+    {
+      id,
+      label,
+      value,
+      onChange,
+      onBlur,
+      onClick,
+      variants,
+      inputType,
+      disabled,
+      letter,
+      extraClasses = '',
+      placeholder,
+    },
     ref,
   ): ReactElement => {
-    const [inputVal, setInputVal] = React.useState<string>('');
-
-    const changeHandler = (e: React.FormEvent<HTMLInputElement>): void => {
-      setInputVal(e.currentTarget.value);
-    };
-
-    const hideIconHandler = (): void => {
-      if (reset) {
-        reset({ [`${props.id}`]: '' });
-      }
-      setInputVal('');
-    };
-
     const inputClasses: string = className(
       styles['form-input'],
+      extraClasses,
       {
         [styles.error]: variants === ETextInput.Variants.Error && !disabled,
         [styles.success]: variants === ETextInput.Variants.Success && !disabled,
@@ -50,16 +51,10 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
           inputType === ETextInput.InputType.Choices,
       },
     );
-
-    /*
-    when it comes to authentication we need to validate
-  */
-    // const inputId = id.trim().split(' ').join('');
-
     return (
       <div className={styles['form-group']}>
         {label ? (
-          <label htmlFor={props.id} className={styles['form-label']}>
+          <label htmlFor={id} className={styles['form-label']}>
             {label}
           </label>
         ) : (
@@ -72,28 +67,19 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
             className={inputClasses}
             data-testid="text-input"
             type="text"
-            id={props.id}
+            id={id}
             disabled={disabled}
-            value={inputVal}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
             data-variant={variants}
             data-input-type={inputType}
-            onChange={(e): void => {
-              if (onChange) {
-                onChange(e);
-              }
-              changeHandler(e);
-            }}
-            {...(props as unknown)}
+            placeholder={placeholder}
           />
           <span className={styles['status-icon']}>
-            {variants === ETextInput.Variants.Default &&
-              !disabled &&
-              inputVal && (
-                <DeleteIcon
-                  onClick={hideIconHandler}
-                  data-testid="delete-icon"
-                />
-              )}
+            {variants === ETextInput.Variants.Default && !disabled && value && (
+              <DeleteIcon onClick={onClick} data-testid="delete-icon" />
+            )}
             {variants === ETextInput.Variants.Error && !disabled && (
               <ErrorIcon />
             )}

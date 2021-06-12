@@ -18,6 +18,7 @@ textInput.args = {
   inputType: ETextInput.InputType.RightIcon,
   variants: ETextInput.Variants.Default,
   disabled: false,
-  placeholder: 'text Input ',
+  placeholder: 'text Input',
   letter: 'A',
+  extraClasses: 'rounded-t-none',
 };
