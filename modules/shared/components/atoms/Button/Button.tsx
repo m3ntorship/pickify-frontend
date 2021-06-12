@@ -13,7 +13,7 @@ const Button: FC<IButton.IProps> = ({
   leftIcon = false,
   rightIcon = false,
   onlyIcon = false,
-  buttonType,
+  buttonType = 'button',
   onClick,
 }): ReactElement => {
   const btnClasses = classnames(
