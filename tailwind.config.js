@@ -129,12 +129,14 @@ module.exports = {
         l: '1.5rem', // 24px
         lx: ' 1.625rem', // 26px
         xl: '2rem', // 32px
+        xll: '2.156rem', // 34.5px
         xxl: '2.5rem', // 40px
         xvxl: '2.666rem',
         '3xl': '3rem', // 48px
         '3xxl': '3.6875rem', // 59px
         '4xl': '4rem', // 64px
         '4xxl': '4.25rem', // 68px
+        '4xvxl': '5.813rem', // 96px
         '5xl': '8rem', // 128px
       },
       backgroundOpacity: {

@@ -10,18 +10,29 @@
 .btn-secondary {
   @apply rounded-full bg-white border border-primary text-primary hover:bg-grey-bg  focus:ring-2 focus:ring-primary-dark   m-0;
 }
+.btn-quaternary {
+  @apply rounded-full bg-white text-error m-0;
+}
 
 .btn-text {
   @apply bg-transparent text-accent hover:text-accent-hover border-0 focus:underline p-0;
 }
 
 /* // the size of the buttons  */
+.btn-xlarge {
+  @apply text-sm font-medium;
+}
+
 .btn-large {
   @apply text-md font-bold;
 }
 
 .btn-medium {
   @apply text-base font-medium;
+}
+
+.btn-normal {
+  @apply text-sm font-medium;
 }
 
 .btn-small {
@@ -35,8 +46,20 @@
 
 /* //////////// condition css //////////// */
 
+/* the only of it is kind  -the responsive cancel button-  */
+.btn-normal.btn-quaternary {
+  @apply px-xll py-1.5;
+}
+
+.btn-xlarge.btn-primary,
+.btn-xlarge.btn-secondary,
+.btn-xlarge.btn-quaternary {
+  @apply px-4xvxl py-1.5;
+}
+
 .btn-large.btn-primary,
-.btn-large.btn-secondary {
+.btn-large.btn-secondary,
+.btn-large.btn-tertiary {
   @apply px-xl py-sx;
 }
 .btn-large.btn-primary.right-icon,
@@ -49,7 +72,8 @@
 }
 
 .btn-medium.btn-primary,
-.btn-medium.btn-secondary {
+.btn-medium.btn-secondary,
+.btn-medium.btn-tertiary {
   @apply px-l py-xsv text-base;
 }
 .btn-medium.btn-primary.right-icon,
@@ -70,7 +94,8 @@
   @apply pl-m pr-xsvv py-xxsv;
 }
 .btn-small.btn-primary.left-icon,
-.btn-small.btn-secondary.left-icon {
+.btn-small.btn-secondary.left-icon,
+.btn-small.btn-tertiary {
   @apply pr-m pl-xsvv py-xxsv;
 }
 

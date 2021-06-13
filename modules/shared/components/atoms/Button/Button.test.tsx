@@ -2,7 +2,7 @@ import * as React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
-import Button from './index';
+import Button from './Button';
 import * as EButton from './types/EButton';
 
 describe('Button component', () => {
