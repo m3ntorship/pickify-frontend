@@ -15,7 +15,7 @@ const PostCreation: FC = (): ReactElement => {
   };
 
   return (
-    <div className="bg-white shadow-soft m-2 p-m pt-0 rounded-md">
+    <div className="bg-white shadow-soft m-2 p-m rounded-md">
       <CreatePostHeader
         profilePic=""
         checkedValue={checkedValue}

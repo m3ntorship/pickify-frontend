@@ -15,8 +15,8 @@ const CreatePostHeader: FC<ICreatePostHeader.IProps> = ({
     : 'notFilled';
 
   return (
-    <div className="flex items-center">
-      <div className="m-4">
+    <div className="flex items-center mb-4">
+      <div className="mr-4">
         <Avatar variant={avatarVariant} profilePic={profilePic} size="medium" />
       </div>
       <div>
