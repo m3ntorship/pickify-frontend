@@ -2,10 +2,10 @@
 
 exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
 <div
-  className="flex items-center"
+  className="flex items-center mb-4"
 >
   <div
-    className="m-4"
+    className="mr-4"
   >
     <div
       className="wrapper medium"
@@ -216,10 +216,10 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
 
 exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
 <div
-  className="flex items-center"
+  className="flex items-center mb-4"
 >
   <div
-    className="m-4"
+    className="mr-4"
   >
     <div
       className="wrapper medium"
