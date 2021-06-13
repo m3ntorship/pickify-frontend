@@ -10,6 +10,7 @@ declare namespace ITextInputs {
     letter?: string;
     extraClasses?: string;
     placeholder: string;
+    name?: string;
   }
 
   export interface IData {

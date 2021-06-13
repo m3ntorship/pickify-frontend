@@ -28,6 +28,7 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
       letter,
       extraClasses = '',
       placeholder,
+      name,
     },
     ref,
   ): ReactElement => {
@@ -60,7 +61,6 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
         ) : (
           ' '
         )}
-
         <div className={styles['form-control']}>
           <input
             ref={ref}
@@ -75,6 +75,7 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
             data-variant={variants}
             data-input-type={inputType}
             placeholder={placeholder}
+            name={name}
           />
           <span className={styles['status-icon']}>
             {variants === ETextInput.Variants.Default && !disabled && value && (

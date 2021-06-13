@@ -1,3 +1,4 @@
+import type { ITextPollCreation } from '@modules/shared/components/organisms/TextPollCreation/types/ITextPollCreation';
 import type {
   UseFormRegister,
   FieldValues,
@@ -23,6 +24,8 @@ declare namespace IOptionGroup {
     reset?: UseFormReset<FieldValues>;
     errors?: DeepMap<FieldValues, FieldError>;
     dirtyFields?: DeepMap<FieldValues, true>;
+    textPollState?: ITextPollCreation.IState;
+    setTextPollState?: (state: ITextPollCreation.IState) => void;
   }
 }
 export { IOptionGroup };
