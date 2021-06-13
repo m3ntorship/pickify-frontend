@@ -157,8 +157,12 @@ module.exports = {
         '37xl': '37.5rem', // 600px
         '39xl': '39.5rem', // 632px
       },
+      maxWidth: {
+        '12xl': '12.375rem', // 198px
+      },
       height: {
         '21xl': '21.25rem', // 340px
+        '22xl': '22.375rem', // 358px
         '61xl': '61.0625rem', // 977px
       },
       translate: {
@@ -173,6 +177,7 @@ module.exports = {
       },
     },
     fill: (theme) => ({
+      success: theme('colors.success'),
       primary: theme('colors.primary'),
       accent: theme('colors.accent'),
       white: theme('colors.white'),

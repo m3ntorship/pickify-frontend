@@ -1,4 +1,4 @@
-import type React from 'react';
+import type React, { ChangeEvent } from 'react';
 import type * as ETextInput from './ETextInput';
 
 declare namespace ITextInputs {
@@ -10,11 +10,11 @@ declare namespace ITextInputs {
     letter?: string;
     extraClasses?: string;
     placeholder: string;
+    name?: string;
   }
 
   export interface IData {
     id: string;
-    register?: () => unknown;
     value: string;
   }
 
