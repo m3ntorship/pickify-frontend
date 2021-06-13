@@ -14,4 +14,7 @@ const Template: Story<IPostFooterCreation.IProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  togglerIsChecked: false,
+  postButtonIsDisabled: true,
+};
