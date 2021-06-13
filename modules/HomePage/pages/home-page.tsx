@@ -3,6 +3,7 @@ import type { FC, ReactElement } from 'react';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import Navigation from '@modules/shared/components/molecules/Navigation/Navigation';
 import Widget from '@modules/shared/components/atoms/Widget/Widget';
+import PostCreation from '@modules/shared/components/organisms/PostCreation/PostCreation';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts';
 
@@ -39,6 +40,7 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           <div className={styles.widget}>
             <Widget>{widgetData[firstIndex].content}</Widget>
           </div>
+          <PostCreation />
           <Posts data={data} />
         </div>
         <div className={styles.widgets}>

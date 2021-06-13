@@ -11,7 +11,3 @@
 .responsive-button {
   @apply md:hidden flex justify-between;
 }
-
-.primary-button {
-  @apply sm:hidden md:block;
-}

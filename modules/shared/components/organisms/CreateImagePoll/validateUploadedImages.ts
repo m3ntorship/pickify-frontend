@@ -27,7 +27,7 @@ export const validateUploadedImages = (
       return { error: true, message: `Max size is 2 MB!!` };
     }
 
-    return { imgId: `${randId()}`, file, error: false };
+    return { imgId: `${randId()}`, file, error: false, caption: '' };
   }) as ICreateImagePoll.IProps[];
 
   return uploadedFiles;

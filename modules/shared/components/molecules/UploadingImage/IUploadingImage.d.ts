@@ -8,7 +8,7 @@ declare namespace IUploadingImage {
   }
   export interface IHandlers {
     handleVerticalThreeDotsClick?: () => void;
-    handleTextInputOnBlur?: () => void;
+    handleTextInputOnBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   }
 }
 export { IUploadingImage };

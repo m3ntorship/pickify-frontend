@@ -4,6 +4,7 @@ declare namespace ICreateImagePoll {
     file: File;
     error: boolean;
     message: string;
+    caption: string;
   }
 }
 export { ICreateImagePoll };

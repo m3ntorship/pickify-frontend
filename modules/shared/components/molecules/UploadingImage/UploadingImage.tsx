@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
@@ -54,13 +54,13 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   return (
     <div className={styles.container}>
       <div className="relative w-full h-full mb-1">
-        <Image
+        <img
           src={`${url}`}
-          layout="responsive"
           width={300}
           height={300}
           className="object-cover rounded-t-md w-full h-full"
           id={id}
+          alt={`${url}`}
         />
         <button
           type="button"
