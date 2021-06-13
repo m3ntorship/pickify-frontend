@@ -1,0 +1,17 @@
+.container {
+  @apply md:flex md:justify-between;
+}
+.primary-button {
+  @apply sm:hidden md:flex;
+}
+.divider {
+  @apply md:hidden mt-mx mb-4;
+}
+
+.responsive-button {
+  @apply md:hidden flex justify-between;
+}
+
+.primary-button {
+  @apply sm:hidden md:block;
+}

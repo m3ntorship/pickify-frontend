@@ -3,7 +3,7 @@ import * as renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { TargetElement } from '@testing-library/user-event';
-import Privacy from './index';
+import Privacy from './Privacy';
 
 describe('Privacy Component with snapshot', () => {
   it('should render with no options on the select when giving it empty array without a divider', () => {

@@ -1,7 +1,7 @@
 export enum buttonVariantValues {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  Tertiary = 'tertiary',
+  QUATERNARY = 'quaternary',
   TEXT = 'text',
 }
 export enum buttonSizeValues {
