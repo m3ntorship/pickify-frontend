@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { FC, ReactElement } from 'react';
-// import Image from 'next/image';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
@@ -8,6 +7,18 @@ import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import VerticalThreeDots from '../../icons/verticalThreeDots.svg';
 import Misc from '../Misc/Misc';
 import { MiscType } from '../Misc/types/EMisc';
+
+const useIsMounted = (): React.MutableRefObject<boolean> => {
+  const isMounted: React.MutableRefObject<boolean> = useRef<boolean>(true);
+
+  useEffect(() => {
+    return (): void => {
+      isMounted.current = false;
+    };
+  }, []);
+
+  return isMounted;
+};
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
@@ -20,6 +31,7 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
 }): ReactElement => {
   const [url, setUrl] = useState<string>('');
   const [caption, setCaption] = useState<string>('');
+  const isMounted: React.MutableRefObject<boolean> = useIsMounted();
 
   const updateImgCaptionHandler = (
     e: React.FormEvent<HTMLInputElement>,
@@ -36,10 +48,12 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
       fileReader.addEventListener('load', (e) => {
-        setUrl(e.target?.result as string);
+        if (isMounted.current) {
+          setUrl(e.target?.result as string);
+        }
       });
     }
-  }, [file, error]);
+  }, [file, error, isMounted]);
 
   if (error) {
     return (
