@@ -6,14 +6,26 @@
   @apply w-2/3 m-auto flex justify-between items-center;
 }
 
+.home-links {
+  @apply md:w-11/12  flex justify-between items-center;
+}
+
+.home-links ul {
+  @apply flex items-center mr-6 last:mr-0;
+}
+
+.home-links ul li {
+  @apply mr-6;
+}
+
 .brand-name {
-  @apply font-bold text-basev;
+  @apply font-bold text-basev sm:mr-5;
 }
 
-.links-container ul {
-  @apply flex items-center;
+.navigation .menu-links {
+  @apply hidden md:flex md:flex-row;
 }
 
-.links-container ul li {
+.navigation .menu-links li {
   @apply mr-6 last:mr-0;
 }
