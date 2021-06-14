@@ -172,7 +172,7 @@
 /* //////////////////////overwrite padding when we have an icon  */
 
 /* ////////////////////the disabled buttons //////////// */
-button[disabled] {
+.btn[disabled] {
   @apply disabled:opacity-25 cursor-not-allowed;
 }
 
