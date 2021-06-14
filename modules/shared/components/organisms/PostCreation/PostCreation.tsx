@@ -3,6 +3,7 @@ import type { FC, ReactElement } from 'react';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
 import TextPollCreation from '../TextPollCreation/TextPollCreation';
+import MiniSurveyPollCreation from '../MiniSurveyPollCreation/MiniSurveyPollCreation';
 
 const PostCreation: FC = (): ReactElement => {
   const [checkedValue, setCheckedValue] = useState('Text Poll');
@@ -12,7 +13,6 @@ const PostCreation: FC = (): ReactElement => {
   ): void => {
     setCheckedValue(e.target.value);
   };
-
   return (
     <div className="bg-white shadow-soft m-2 p-m rounded-md">
       <CreatePostHeader
@@ -23,6 +23,8 @@ const PostCreation: FC = (): ReactElement => {
       />
 
       {checkedValue === 'Text Poll' && <TextPollCreation />}
+
+      {checkedValue === 'Mini survey' && <MiniSurveyPollCreation />}
     </div>
   );
 };

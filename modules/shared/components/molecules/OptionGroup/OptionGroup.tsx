@@ -17,6 +17,8 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
   variantMessage,
   textPollState,
   setTextPollState,
+  miniSurveyState,
+  setMiniSurveyState,
 }): ReactElement => {
   const randomId = (): string => {
     const randomHelper = 10000000000;
@@ -55,6 +57,8 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
               <TextDefault
                 textPollState={textPollState}
                 setTextPollState={setTextPollState}
+                miniSurveyState={miniSurveyState}
+                setMiniSurveyState={setMiniSurveyState}
                 id={`${option.id}`}
                 letter={alphabet[index]}
                 deletable={options.length > initialOptionsLength}

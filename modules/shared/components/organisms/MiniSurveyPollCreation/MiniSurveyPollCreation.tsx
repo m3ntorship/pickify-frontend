@@ -20,11 +20,11 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       postCaption: { id: 'id_123181239', value: '' },
       groups: [
         {
-          id: 'G0',
+          id: randomId(),
           groupName: '',
           options: [
-            { id: 'O0', value: '' },
-            { id: 'O1', value: '' },
+            { id: randomId(), value: '' },
+            { id: randomId(), value: '' },
           ],
         },
       ],
@@ -34,7 +34,6 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
 
   const {
     register,
-    getValues,
     handleSubmit,
     reset,
     formState: { errors, dirtyFields, isSubmitted },
@@ -74,7 +73,6 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       },
     });
   };
-  console.log('this is getValues', getValues());
   const captionInputRegister = {
     ...register('id_123181239', {
       required: {
@@ -192,6 +190,8 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
             addOptionGroup={addGroupHandler}
             deleteOptionGroup={deleteGroupHandler}
             setOptionsInGroup={setOptionsInGroup}
+            miniSurveyState={miniSurveyState}
+            setMiniSurveyState={setMiniSurveyState}
           />
           <PostFooterCreation
             postButtonIsDisabled={false}

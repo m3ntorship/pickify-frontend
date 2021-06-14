@@ -6,10 +6,17 @@ import CheckSmall from '../../../icons/checkMarkSmall.svg';
 import type { IOptionGroupHeader } from './IOptionGroupHeader';
 
 const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
+  groupId,
   deleteGroupHandler,
+  miniSurveyState,
+  setMiniSurveyState,
+  register,
 }): ReactElement => {
   const [groupName, setGroupName] = useState<string>('');
   const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(false);
+  const groupNameRegister = register && {
+    ...register(`${groupId}`),
+  };
   return (
     <>
       {!isGroupNameAdded ? (
@@ -19,7 +26,9 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
             placeholder="Group name"
             className="focus:outline-none pr-1 bg-accent-shd7 text-sm text-dark max-w-12xl w-full"
             value={groupName}
+            {...groupNameRegister}
             onChange={(e): void => {
+              groupNameRegister?.onChange(e);
               setGroupName(e.target.value);
             }}
           />
@@ -36,6 +45,15 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
               className="h-4 w-4 bg-success-shd7 focus:outline-none rounded-full flex justify-center items-center"
               onClick={(): void => {
                 setIsGroupNameAdded(true);
+                setMiniSurveyState({
+                  ...miniSurveyState,
+                  groups: miniSurveyState.groups.map((group) => {
+                    if (group.id === groupId) {
+                      return { ...group, groupName };
+                    }
+                    return group;
+                  }),
+                });
               }}
             >
               <CheckSmall className="fill-success" />

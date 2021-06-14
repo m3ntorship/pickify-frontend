@@ -7,6 +7,7 @@ import type {
 } from 'react-hook-form';
 
 import type * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
+import type { IMiniSurveyPollCreation } from '../../organisms/MiniSurveyPollCreation/IMiniSurveyPollCreation';
 
 declare namespace IOptionGroups {
   export interface IProps {
@@ -30,6 +31,10 @@ declare namespace IOptionGroups {
       options: IOptionGroup.IOption[],
       groupId: string,
     ) => void;
+    miniSurveyState: IMiniSurveyPollCreation.IState;
+    setMiniSurveyState: React.Dispatch<
+      React.SetStateAction<IMiniSurveyPollCreation.IState>
+    >;
   }
 }
 export { IOptionGroups };

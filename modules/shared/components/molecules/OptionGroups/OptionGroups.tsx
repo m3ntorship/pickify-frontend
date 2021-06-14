@@ -16,6 +16,8 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
   addOptionGroup,
   deleteOptionGroup,
   setOptionsInGroup,
+  miniSurveyState,
+  setMiniSurveyState,
 }): ReactElement => {
   return (
     <>
@@ -23,9 +25,13 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
         <div key={optionGroup.id} className="mb-2 bg-grey-bg p-4 rounded-md ">
           <div className="flex justify-between pb-2">
             <OptionGroupsHeader
+              groupId={optionGroup.id}
               deleteGroupHandler={(): void => {
                 deleteOptionGroup(optionGroup.id);
               }}
+              miniSurveyState={miniSurveyState}
+              setMiniSurveyState={setMiniSurveyState}
+              register={register}
             />
           </div>
           <OptionGroup
@@ -38,6 +44,8 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
             errors={errors}
             dirtyFields={dirtyFields}
             setOptionsInGroup={setOptionsInGroup}
+            miniSurveyState={miniSurveyState}
+            setMiniSurveyState={setMiniSurveyState}
           />
         </div>
       ))}
