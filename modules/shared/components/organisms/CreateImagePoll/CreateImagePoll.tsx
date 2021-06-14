@@ -36,11 +36,12 @@ const CreateImagePoll: FC = (): ReactElement => {
     shouldUnregister: true,
   });
 
+  const firstIndex = 0;
   const singleOption = 1;
   const maxLength = 3;
 
   const onChangeHanlder = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const removeInvalidImages = imagePollState.imagesData.filter(
+    const removedInvalidImages = imagePollState.imagesData.filter(
       (image) => !image.error,
     );
 
@@ -49,7 +50,7 @@ const CreateImagePoll: FC = (): ReactElement => {
     setImagePollState({
       ...imagePollState,
       imagesData: [
-        ...removeInvalidImages,
+        ...removedInvalidImages,
         ...validatedFiles,
       ] as ICreateImagePoll.IImagesData[],
     });
@@ -106,7 +107,9 @@ const CreateImagePoll: FC = (): ReactElement => {
   };
 
   const onSubmit = (): void => {
-    console.log(imagePollState);
+    if (imagePollState.imagesData.length !== firstIndex) {
+      console.log(imagePollState);
+    }
   };
 
   const variantMessage = (captionId: string): ETextInput.Variants => {
