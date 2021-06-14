@@ -18,7 +18,8 @@ declare namespace IOptionGroup {
     groupId: string;
     options: IOption[];
     groupName?: string;
-    setOptions: React.Dispatch<React.SetStateAction<IOption[]>>;
+    setOptions?: React.Dispatch<React.SetStateAction<IOption[]>>;
+    setOptionsInGroup?: (options: IOption[], groupId: string) => void;
     register?: UseFormRegister<FieldValues>;
     formSubmitted?: boolean;
     reset?: UseFormReset<FieldValues>;
