@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { ReactElement, FC } from 'react';
+import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
 import ImageUpload from '../../atoms/ImageUpload/index';
 import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
@@ -14,33 +15,64 @@ import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
 const CreateImagePoll: FC = (): ReactElement => {
-  const [imagesData, setImagesData] = useState<ICreateImagePoll.IProps[]>([]);
+  const [imagePollState, setImagePollState] = useState<ICreateImagePoll.IProps>(
+    {
+      postType: 'Image Poll',
+      postCaption: { id: 'id_123181287', value: '' },
+      imagesData: [],
+      hiddenIdentity: false,
+      privacy: 'friends',
+    },
+  );
 
-  const [imagePollState, setImagePollState] = useState({
-    postType: 'Image Poll',
-    postCaption: { id: 'id_123181287', value: '' },
-    media: [],
-    hiddenIdentity: false,
-    privacy: 'friends',
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, dirtyFields, isSubmitted },
+  } = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+    shouldUnregister: true,
   });
+
   const singleOption = 1;
   const maxLength = 3;
 
   const onChangeHanlder = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const removeInvalidImages = imagesData.filter((image) => !image.error);
+    const removeInvalidImages = imagePollState.imagesData.filter(
+      (image) => !image.error,
+    );
 
     const validatedFiles = validateUploadedImages(e.target.files);
 
-    setImagesData([...removeInvalidImages, ...validatedFiles]);
+    setImagePollState({
+      ...imagePollState,
+      imagesData: [
+        ...removeInvalidImages,
+        ...validatedFiles,
+      ] as ICreateImagePoll.IImagesData[],
+    });
   };
 
   const imgPollClasses = classNames(
     'grid gap-x-2 gap-y-4 rounded-md relative mb-m',
     {
-      'grid-cols-1': imagesData.length === singleOption,
-      'md:grid-cols-2 grid-cols-1': imagesData.length > singleOption,
+      'grid-cols-1': imagePollState.imagesData.length === singleOption,
+      'md:grid-cols-2 grid-cols-1':
+        imagePollState.imagesData.length > singleOption,
     },
   );
+
+  const captionInputRegister = {
+    ...register('id_123181287', {
+      required: {
+        value: true,
+        message: 'This field is required',
+      },
+      minLength: { value: 3, message: 'Minimum letters is 3' },
+    }),
+  };
 
   const updatePostCaptionHandler = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -49,6 +81,8 @@ const CreateImagePoll: FC = (): ReactElement => {
       ...imagePollState,
       postCaption: { ...imagePollState.postCaption, value: e.target.value },
     });
+    /* eslint-disable @typescript-eslint/no-floating-promises */
+    captionInputRegister.onChange(e);
   };
 
   const resetPostCaptionHandler = (): void => {
@@ -56,6 +90,7 @@ const CreateImagePoll: FC = (): ReactElement => {
       ...imagePollState,
       postCaption: { ...imagePollState.postCaption, value: '' },
     });
+    reset({ id_123181239: '' });
   };
 
   const handleTheRadioButtonOnChange = (
@@ -70,34 +105,61 @@ const CreateImagePoll: FC = (): ReactElement => {
     setImagePollState({ ...imagePollState, privacy: e.target.value });
   };
 
+  const onSubmit = (): void => {
+    console.log(imagePollState);
+  };
+
+  const variantMessage = (captionId: string): ETextInput.Variants => {
+    if (errors[captionId]) {
+      return ETextInput.Variants.Error;
+    }
+    if (dirtyFields[captionId]) {
+      return ETextInput.Variants.Success;
+    }
+
+    return ETextInput.Variants.Default;
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-4">
         <TextInput
           id={imagePollState.postCaption.id}
-          onChange={updatePostCaptionHandler}
           onClick={resetPostCaptionHandler}
           value={imagePollState.postCaption.value}
           inputType={ETextInput.InputType.Default}
-          variants={ETextInput.Variants.Default}
+          variants={
+            isSubmitted
+              ? variantMessage('id_123181287')
+              : ETextInput.Variants.Default
+          }
           placeholder="What do you want to ask about?"
+          {...captionInputRegister}
+          onChange={updatePostCaptionHandler}
         />
       </div>
-      <div className={imgPollClasses}>
-        {imagesData.map((imgData, index) => {
-          return (
-            <UploadingImage
-              file={imgData.file}
-              key={randId()}
-              letter={alphabet[index].toUpperCase()}
-              id={imgData.imgId}
-              error={imgData.error}
-              message={imgData.message}
-            />
-          );
-        })}
-      </div>
-      {imagesData.length <= maxLength && (
+      {imagePollState.imagesData.length ? (
+        <div className={imgPollClasses}>
+          {imagePollState.imagesData.map((imgData, index) => {
+            return (
+              <UploadingImage
+                file={imgData.file}
+                key={randId()}
+                letter={alphabet[index].toUpperCase()}
+                id={imgData.imgId}
+                error={imgData.error}
+                message={imgData.message}
+                imagePollState={imagePollState}
+                setImagePollState={setImagePollState}
+                imgCaption={imgData.imgCaption}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        ''
+      )}
+      {imagePollState.imagesData.length <= maxLength && (
         <ImageUpload onChangeInputHandler={onChangeHanlder} />
       )}
       <PostFooterCreation
