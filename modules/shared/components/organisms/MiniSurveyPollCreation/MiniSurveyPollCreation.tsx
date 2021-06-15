@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
+import Image from 'next/image';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { IMiniSurveyPollCreation } from './IMiniSurveyPollCreation';
 import type { IOptionGroup } from '../../molecules/OptionGroup/types/IOptionGroup';
+import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
+import ImageUpload from '../../atoms/ImageUpload';
+import Misc from '../../molecules/Misc/Misc';
+import { MiscType } from '../../molecules/Misc/types/EMisc';
 
 const MiniSurveyPollCreation: FC = (): ReactElement => {
   const randomId = (): string => {
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;
   };
-
+  const zero = 0;
   const [miniSurveyState, setMiniSurveyState] =
     useState<IMiniSurveyPollCreation.IState>({
       postType: 'MiniSurvey Poll',
@@ -30,8 +35,14 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       ],
       hiddenIdentity: false,
       privacy: 'friends',
+      image: '',
     });
 
+  const [imageFile, setImageFile] = useState<File[]>([]);
+  const [imageUploadError, setImageUploadError] = useState<{
+    msg: string;
+    subMsg: string;
+  }>({ msg: '', subMsg: '' });
   const {
     register,
     handleSubmit,
@@ -43,11 +54,14 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
     shouldUnregister: true,
   });
 
-  const onSubmit = (): boolean => {
-    console.log(miniSurveyState);
+  const onError = (): boolean => {
     return true;
   };
-  const onError = (): boolean => {
+  const onSubmit = (): boolean => {
+    if (imageUploadError.msg) {
+      return onError();
+    }
+    console.log(miniSurveyState);
     return true;
   };
 
@@ -136,6 +150,45 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       }),
     });
   };
+  const imageUplaodChangeHandler = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    const limitOfUplaodingFilesNumber = 1;
+    const allowedExtentions = ['image/png', 'image/jpg', 'image/jpeg'];
+    if (
+      e.target.files?.length === undefined ||
+      e.target.files.length !== limitOfUplaodingFilesNumber
+    ) {
+      setImageUploadError({
+        msg: 'Error',
+        subMsg: 'Maximum number of images is 1',
+      });
+    } else if (!allowedExtentions.includes(e.target.files[zero].type)) {
+      console.log(e.target.files[zero].type);
+      setImageUploadError({
+        msg: 'Error',
+        subMsg: 'The image must be .png or .jpg',
+      });
+    } else {
+      setImageUploadError({
+        msg: '',
+        subMsg: '',
+      });
+      setImageFile([...e.target.files]);
+    }
+  };
+  useEffect(() => {
+    if (imageFile[zero]) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(imageFile[zero]);
+      fileReader.addEventListener('load', (e: ProgressEvent<FileReader>) => {
+        if (typeof e.target?.result === 'string') {
+          setMiniSurveyState({ ...miniSurveyState, image: e.target.result });
+        }
+      });
+    }
+  }, [imageFile]);
+
   return (
     <>
       <div className="space-y-4">
@@ -179,6 +232,38 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
               });
             }}
           />
+          <div className="px-4">
+            {miniSurveyState.image ? (
+              <div className="relative">
+                <button
+                  type="button"
+                  className="absolute z-50 rounded-full focus:outline-none right-4 top-4 bg-white h-8 w-8 flex justify-center items-center cursor-pointer"
+                >
+                  <ThreeDotsIcon className="fill-dark-grey w-4 h-4" />
+                </button>
+                <Image
+                  alt="Mountains"
+                  src={miniSurveyState.image}
+                  layout="fill"
+                  className="rounded-lg"
+                />
+              </div>
+            ) : (
+              imageUploadError.msg && (
+                <Misc
+                  msg={imageUploadError.msg}
+                  subMsg={imageUploadError.subMsg}
+                  type={MiscType.Error}
+                />
+              )
+            )}
+            {!miniSurveyState.image && (
+              <ImageUpload
+                register={register}
+                onChangeInputHandler={imageUplaodChangeHandler}
+              />
+            )}
+          </div>
           <OptionGroups
             groups={miniSurveyState.groups}
             register={register}

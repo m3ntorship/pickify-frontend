@@ -15,6 +15,7 @@ declare namespace IMiniSurveyPollCreation {
     }[];
     hiddenIdentity: boolean;
     privacy: string;
+    image: string;
   }
 }
 export { IMiniSurveyPollCreation };
