@@ -5,6 +5,7 @@ import type { IMiniSurveyPollCreation } from '@modules/shared/components/organis
 declare namespace IOptionGroupHeader {
   export interface IProps {
     deleteGroupHandler: () => void;
+    groupIndex: number;
     groupId: string;
     miniSurveyState: IMiniSurveyPollCreation.IState;
     setMiniSurveyState: React.Dispatch<

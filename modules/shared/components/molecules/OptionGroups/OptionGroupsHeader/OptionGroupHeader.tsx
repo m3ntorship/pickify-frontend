@@ -6,12 +6,14 @@ import CheckSmall from '../../../icons/checkMarkSmall.svg';
 import type { IOptionGroupHeader } from './IOptionGroupHeader';
 
 const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
+  groupIndex,
   groupId,
   deleteGroupHandler,
   miniSurveyState,
   setMiniSurveyState,
   register,
 }): ReactElement => {
+  const zero = 0;
   const [groupName, setGroupName] = useState<string>('');
   const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(false);
   const groupNameRegister = register && {
@@ -33,13 +35,15 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
             }}
           />
           <div className="flex">
-            <button
-              type="button"
-              className="h-4 w-4 bg-error-shd7 focus:outline-none rounded-full flex justify-center items-center mr-xs"
-              onClick={deleteGroupHandler}
-            >
-              <XIcon className="fill-error" />
-            </button>
+            {groupIndex !== zero && (
+              <button
+                type="button"
+                className="h-4 w-4 bg-error-shd7 focus:outline-none rounded-full flex justify-center items-center mr-xs"
+                onClick={deleteGroupHandler}
+              >
+                <XIcon className="fill-error" />
+              </button>
+            )}
             <button
               type="button"
               className="h-4 w-4 bg-success-shd7 focus:outline-none rounded-full flex justify-center items-center"

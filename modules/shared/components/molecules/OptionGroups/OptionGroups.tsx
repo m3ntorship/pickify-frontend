@@ -21,10 +21,11 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
 }): ReactElement => {
   return (
     <>
-      {groups.map((optionGroup) => (
+      {groups.map((optionGroup, index) => (
         <div key={optionGroup.id} className="mb-2 bg-grey-bg p-4 rounded-md ">
           <div className="flex justify-between pb-2">
             <OptionGroupsHeader
+              groupIndex={index}
               groupId={optionGroup.id}
               deleteGroupHandler={(): void => {
                 deleteOptionGroup(optionGroup.id);
