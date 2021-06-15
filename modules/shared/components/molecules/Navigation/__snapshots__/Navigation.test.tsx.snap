@@ -7,27 +7,43 @@ exports[`Navigation should render Navigation component with filled avatar and Ve
   <div
     className="links-container"
   >
-    <h1
-      className="brand-name"
+    <div
+      className="home-links"
     >
-      Pickify
-    </h1>
-    <ul>
-      <li>
-        <svg
-          data-file-name="SvgHome"
-        />
-      </li>
-      <li>
-        <svg
-          data-file-name="SvgFriends"
-        />
-      </li>
-      <li>
-        <svg
-          data-file-name="SvgBill"
-        />
-      </li>
+      <div>
+        <h1
+          className="brand-name"
+        >
+          Pickify
+        </h1>
+      </div>
+      <ul>
+        <li>
+          <svg
+            data-file-name="SvgHome"
+          />
+        </li>
+        <li>
+          <svg
+            data-file-name="SvgFriends"
+          />
+        </li>
+        <li>
+          <svg
+            data-file-name="SvgBill"
+          />
+        </li>
+        <li>
+          <svg
+            className="md:hidden"
+            data-file-name="SvgMenu"
+          />
+        </li>
+      </ul>
+    </div>
+    <ul
+      className="menu-links"
+    >
       <li>
         <div
           className="bg-grey-shd6 w-px"
@@ -132,27 +148,43 @@ exports[`Navigation should render Navigation component with notFilled avatar and
   <div
     className="links-container"
   >
-    <h1
-      className="brand-name"
+    <div
+      className="home-links"
     >
-      Pickify
-    </h1>
-    <ul>
-      <li>
-        <svg
-          data-file-name="SvgHome"
-        />
-      </li>
-      <li>
-        <svg
-          data-file-name="SvgFriends"
-        />
-      </li>
-      <li>
-        <svg
-          data-file-name="SvgBill"
-        />
-      </li>
+      <div>
+        <h1
+          className="brand-name"
+        >
+          Pickify
+        </h1>
+      </div>
+      <ul>
+        <li>
+          <svg
+            data-file-name="SvgHome"
+          />
+        </li>
+        <li>
+          <svg
+            data-file-name="SvgFriends"
+          />
+        </li>
+        <li>
+          <svg
+            data-file-name="SvgBill"
+          />
+        </li>
+        <li>
+          <svg
+            className="md:hidden"
+            data-file-name="SvgMenu"
+          />
+        </li>
+      </ul>
+    </div>
+    <ul
+      className="menu-links"
+    >
       <li>
         <div
           className="bg-grey-shd6 w-px"
