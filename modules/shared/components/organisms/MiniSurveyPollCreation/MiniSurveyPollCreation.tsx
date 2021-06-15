@@ -245,7 +245,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
                   alt="image"
                   src={miniSurveyState.image}
                   layout="fill"
-                  className="rounded-lg w-full h-full"
+                  className="rounded-md w-full h-full"
                 />
               </div>
             ) : (
