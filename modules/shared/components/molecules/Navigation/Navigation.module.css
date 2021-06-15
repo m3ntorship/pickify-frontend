@@ -7,7 +7,7 @@
 }
 
 .home-links {
-  @apply md:w-11/12  flex justify-between items-center;
+  @apply md:w-11/12 flex justify-between items-center;
 }
 
 .home-links ul {
