@@ -18,6 +18,8 @@ const TextDefault: FC<ITextDefault.IProps> = ({
   variants,
   textPollState,
   setTextPollState,
+  miniSurveyState,
+  setMiniSurveyState,
   // onChange,
 }): ReactElement => {
   const [inputVal, setInputVal] = useState('');
@@ -35,6 +37,22 @@ const TextDefault: FC<ITextDefault.IProps> = ({
             return option;
           },
         ),
+      });
+    }
+    if (setMiniSurveyState && miniSurveyState) {
+      setMiniSurveyState({
+        ...miniSurveyState,
+        groups: miniSurveyState.groups.map((group) => {
+          return {
+            ...group,
+            options: group.options.map((option) => {
+              if (option.id === id) {
+                return { ...option, value: e.target.value };
+              }
+              return option;
+            }),
+          };
+        }),
       });
     }
   };
@@ -81,6 +99,22 @@ const TextDefault: FC<ITextDefault.IProps> = ({
                     return option;
                   },
                 ),
+              });
+            }
+            if (setMiniSurveyState && miniSurveyState) {
+              setMiniSurveyState({
+                ...miniSurveyState,
+                groups: miniSurveyState.groups.map((group) => {
+                  return {
+                    ...group,
+                    options: group.options.map((option) => {
+                      if (option.id === id) {
+                        return { ...option, value: '' };
+                      }
+                      return option;
+                    }),
+                  };
+                }),
               });
             }
           }}

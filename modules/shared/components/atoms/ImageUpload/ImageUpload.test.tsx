@@ -33,7 +33,7 @@ it('renders correctly', () => {
         data-testid="image-upload"
         id="image"
         multiple={true}
-        name="filename"
+        onChange={[Function]}
         type="file"
       />
     </label>

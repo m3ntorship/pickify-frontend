@@ -1,3 +1,4 @@
+import type { IMiniSurveyPollCreation } from '@modules/shared/components/organisms/MiniSurveyPollCreation/IMiniSurveyPollCreation';
 import type { ITextPollCreation } from '@modules/shared/components/organisms/TextPollCreation/types/ITextPollCreation';
 import type {
   ChangeHandler,
@@ -24,6 +25,10 @@ declare namespace ITextDefault {
     variants: ETextInput.Variants;
     textPollState?: ITextPollCreation.IState;
     setTextPollState?: (state: ITextPollCreation) => void;
+    miniSurveyState?: IMiniSurveyPollCreation.IState;
+    setMiniSurveyState?: React.Dispatch<
+      React.SetStateAction<IMiniSurveyPollCreation.IState>
+    >;
   }
 }
 export { ITextDefault };
