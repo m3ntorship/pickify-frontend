@@ -281,10 +281,10 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
           <PostFooterCreation
             postButtonIsDisabled={false}
             handleSubmitButtonClick={(): void => {
-              console.log('submitted');
+              console.log('post button clicked');
             }}
             handleCancelButtonClick={(): void => {
-              console.log('canceled');
+              console.log('cancel button clicked');
             }}
             handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
             handlePrivacySelectChange={handlePrivacySelectChange}
