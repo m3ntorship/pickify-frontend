@@ -232,9 +232,9 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
               });
             }}
           />
-          <div className="px-4">
+          <>
             {miniSurveyState.image ? (
-              <div className="relative">
+              <div className="relative  h-22xl">
                 <button
                   type="button"
                   className="absolute z-50 rounded-full focus:outline-none right-4 top-4 bg-white h-8 w-8 flex justify-center items-center cursor-pointer"
@@ -263,7 +263,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
                 onChangeInputHandler={imageUplaodChangeHandler}
               />
             )}
-          </div>
+          </>
           <OptionGroups
             groups={miniSurveyState.groups}
             register={register}
