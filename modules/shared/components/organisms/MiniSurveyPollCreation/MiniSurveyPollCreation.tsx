@@ -164,7 +164,6 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
         subMsg: 'Maximum number of images is 1',
       });
     } else if (!allowedExtentions.includes(e.target.files[zero].type)) {
-      console.log(e.target.files[zero].type);
       setImageUploadError({
         msg: 'Error',
         subMsg: 'The image must be .png or .jpg',
