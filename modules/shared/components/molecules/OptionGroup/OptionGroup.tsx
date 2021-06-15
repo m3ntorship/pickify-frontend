@@ -6,16 +6,19 @@ import type { IOptionGroup } from './types/IOptionGroup';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
 const OptionGroup: FC<IOptionGroup.IProps> = ({
-  // groupId,
+  groupId,
   // onChange,
   options,
   setOptions,
+  setOptionsInGroup,
   register,
   formSubmitted,
   reset,
   variantMessage,
   textPollState,
   setTextPollState,
+  miniSurveyState,
+  setMiniSurveyState,
 }): ReactElement => {
   const randomId = (): string => {
     const randomHelper = 10000000000;
@@ -28,10 +31,21 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
   const alphabet: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   const addOptionHandler = (): void => {
-    setOptions([...options, { id: randomId(), value: '' }]);
+    if (setOptionsInGroup) {
+      setOptionsInGroup([...options, { id: randomId(), value: '' }], groupId);
+    } else if (setOptions) {
+      setOptions([...options, { id: randomId(), value: '' }]);
+    }
   };
   const deleteOptionHandler = (optionId: string): void => {
-    setOptions(options.filter((option) => option.id !== optionId));
+    if (setOptionsInGroup) {
+      setOptionsInGroup(
+        options.filter((option) => option.id !== optionId),
+        groupId,
+      );
+    } else if (setOptions) {
+      setOptions(options.filter((option) => option.id !== optionId));
+    }
   };
 
   return (
@@ -43,6 +57,8 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
               <TextDefault
                 textPollState={textPollState}
                 setTextPollState={setTextPollState}
+                miniSurveyState={miniSurveyState}
+                setMiniSurveyState={setMiniSurveyState}
                 id={`${option.id}`}
                 letter={alphabet[index]}
                 deletable={options.length > initialOptionsLength}
