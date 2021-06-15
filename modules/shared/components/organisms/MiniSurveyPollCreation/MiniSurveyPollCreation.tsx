@@ -242,10 +242,10 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
                   <ThreeDotsIcon className="fill-dark-grey w-4 h-4" />
                 </button>
                 <Image
-                  alt="Mountains"
+                  alt="image"
                   src={miniSurveyState.image}
                   layout="fill"
-                  className="rounded-lg"
+                  className="rounded-lg w-full h-full"
                 />
               </div>
             ) : (
