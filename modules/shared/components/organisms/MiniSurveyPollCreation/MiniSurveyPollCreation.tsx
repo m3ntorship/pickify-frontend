@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import Image from 'next/image';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
@@ -233,18 +232,19 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
           />
           <>
             {miniSurveyState.image ? (
-              <div className="relative  h-22xl">
+              <div className="relative">
                 <button
                   type="button"
                   className="absolute z-50 rounded-full focus:outline-none right-4 top-4 bg-white h-8 w-8 flex justify-center items-center cursor-pointer"
                 >
                   <ThreeDotsIcon className="fill-dark-grey w-4 h-4" />
                 </button>
-                <Image
-                  alt="image"
+                <img
+                  alt="mini survey"
                   src={miniSurveyState.image}
-                  layout="fill"
-                  className="rounded-md w-full h-full"
+                  width={300}
+                  height={300}
+                  className="rounded-md object-cover w-full h-full"
                 />
               </div>
             ) : (

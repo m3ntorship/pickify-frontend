@@ -3,7 +3,7 @@
 }
 
 .posts-feed {
-  @apply w-39xl mr-6;
+  @apply w-39xl md:mr-6;
 }
 
 .widgets {

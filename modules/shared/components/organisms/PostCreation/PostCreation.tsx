@@ -3,6 +3,7 @@ import type { FC, ReactElement } from 'react';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
 import TextPollCreation from '../TextPollCreation/TextPollCreation';
+import CreateImagePoll from '../CreateImagePoll/CreateImagePoll';
 import MiniSurveyPollCreation from '../MiniSurveyPollCreation/MiniSurveyPollCreation';
 
 const PostCreation: FC = (): ReactElement => {
@@ -14,7 +15,7 @@ const PostCreation: FC = (): ReactElement => {
     setCheckedValue(e.target.value);
   };
   return (
-    <div className="bg-white shadow-soft m-2 p-m rounded-md">
+    <div className="bg-white shadow-soft mb-6 p-m rounded-md">
       <CreatePostHeader
         profilePic=""
         checkedValue={checkedValue}
@@ -23,7 +24,7 @@ const PostCreation: FC = (): ReactElement => {
       />
 
       {checkedValue === 'Text Poll' && <TextPollCreation />}
-
+      {checkedValue === 'Image Poll' && <CreateImagePoll />}
       {checkedValue === 'Mini survey' && <MiniSurveyPollCreation />}
     </div>
   );
