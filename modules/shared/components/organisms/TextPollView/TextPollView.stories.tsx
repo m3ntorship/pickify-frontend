@@ -4,7 +4,7 @@ import TextPollView from './TextPollView';
 import type { ITextPollView } from './ITextPollView';
 
 export default {
-  title: 'organisms/PostViewWrapper',
+  title: 'organisms/TextPollView',
   component: TextPollView,
 };
 
