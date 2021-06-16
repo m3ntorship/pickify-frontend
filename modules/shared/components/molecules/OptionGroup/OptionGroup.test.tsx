@@ -23,13 +23,8 @@ describe('OptionGroup molecule', () => {
   });
 
   it('should not render the add options button if more than 26 options being passed', () => {
-    const options = [];
-    const zero = 0;
-    const one = 1;
     const optionsLimit = 26;
-    for (let i = zero; i < optionsLimit; i + one) {
-      options.push({ id: `${i}`, value: '' });
-    }
+    const options = new Array(optionsLimit);
     render(
       <OptionGroup
         variantMessage={(): ETextInput.Variants => {
