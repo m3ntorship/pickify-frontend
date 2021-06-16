@@ -114,7 +114,7 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="uploaded-box">
       <div className="relative w-full h-full mb-1">
         <img
           src={file as string}
@@ -122,7 +122,7 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
           height={300}
           className="object-cover rounded-t-md w-full h-full"
           id={id}
-          alt={`${url}`}
+          alt="uploaded option"
         />
         <button
           type="button"
