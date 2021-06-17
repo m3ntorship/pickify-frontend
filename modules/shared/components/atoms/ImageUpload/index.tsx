@@ -60,7 +60,7 @@ const ImageUpload: FC<IImageUpload.IProps> = ({
   });
 
   return (
-    <label className={inputFileClasses} htmlFor="image">
+    <label className={inputFileClasses} data-testid="file-box" htmlFor="image">
       <span>
         <Image className={svgClasses} />
       </span>
@@ -70,10 +70,10 @@ const ImageUpload: FC<IImageUpload.IProps> = ({
         id="image"
         accept="images/*"
         multiple
-        data-testid="image-upload"
         className={styles['inputfile-for-type-image']}
         {...ImageUploaderRegister}
         onChange={uploadFilesHandler}
+        data-testid="file-input"
       />
     </label>
   );
