@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ReactElement, FC } from 'react';
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
@@ -8,7 +8,6 @@ import {
   alphabet,
   randId,
 } from '../../../logic/createImagePoll/createImagePoll';
-import { validateUploadedImages } from './validateUploadedImages';
 import type { ICreateImagePoll } from './ICreateImagePoll';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
 import TextInput from '../../atoms/TextInputs/TextInput';
@@ -23,6 +22,9 @@ const CreateImagePoll: FC = (): ReactElement => {
       hiddenIdentity: false,
       privacy: 'friends',
     },
+  );
+  const [imageFiles, setImageFiles] = useState<ICreateImagePoll.IImagesData[]>(
+    [],
   );
 
   const {
@@ -40,21 +42,9 @@ const CreateImagePoll: FC = (): ReactElement => {
   const singleOption = 1;
   const maxLength = 3;
 
-  const onChangeHanlder = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const removedInvalidImages = imagePollState.imagesData.filter(
-      (image) => !image.error,
-    );
-
-    const validatedFiles = validateUploadedImages(e.target.files);
-
-    setImagePollState({
-      ...imagePollState,
-      imagesData: [
-        ...removedInvalidImages,
-        ...validatedFiles,
-      ] as ICreateImagePoll.IImagesData[],
-    });
-  };
+  useEffect(() => {
+    setImagePollState({ ...imagePollState, imagesData: imageFiles });
+  }, [imageFiles]);
 
   const imgPollClasses = classNames(
     'grid gap-x-2 gap-y-4 rounded-md relative mb-m',
@@ -163,7 +153,7 @@ const CreateImagePoll: FC = (): ReactElement => {
         ''
       )}
       {imagePollState.imagesData.length <= maxLength && (
-        <ImageUpload onChangeInputHandler={onChangeHanlder} />
+        <ImageUpload state={imageFiles} setState={setImageFiles} maxFiles={4} />
       )}
       <PostFooterCreation
         postButtonIsDisabled={false}
