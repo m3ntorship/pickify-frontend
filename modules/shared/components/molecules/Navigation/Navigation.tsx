@@ -9,6 +9,7 @@ import HelpIcon from '../../icons/help.svg';
 import HappyIcon from '../../icons/happy.svg';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Divider from '../../atoms/Divider/Divider';
+import MenuIcon from '../../icons/menu.svg';
 import { DividerType } from '../../atoms/Divider/types/EDivider';
 
 const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
@@ -17,17 +18,26 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
   return (
     <nav className={styles.navigation}>
       <div className={styles['links-container']}>
-        <h1 className={styles['brand-name']}>Pickify</h1>
-        <ul>
-          <li>
-            <HomeIcon />
-          </li>
-          <li>
-            <FriendsIcon />
-          </li>
-          <li>
-            <BillIcon />
-          </li>
+        <div className={styles['home-links']}>
+          <div>
+            <h1 className={styles['brand-name']}>Pickify</h1>
+          </div>
+          <ul>
+            <li>
+              <HomeIcon />
+            </li>
+            <li>
+              <FriendsIcon />
+            </li>
+            <li>
+              <BillIcon />
+            </li>
+            <li>
+              <MenuIcon className="md:hidden" />
+            </li>
+          </ul>
+        </div>
+        <ul className={styles['menu-links']}>
           <li>
             <Divider length="16px" type={DividerType.Vertical} />
           </li>

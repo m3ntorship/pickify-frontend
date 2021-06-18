@@ -14,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "downlevelIteration": true,
     // "strictNullChecks": true,
     "paths": {
       "@modules/*": ["./modules/*"],

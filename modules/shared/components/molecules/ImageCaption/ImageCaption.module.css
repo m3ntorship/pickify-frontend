@@ -1,5 +1,5 @@
 .captionContent {
-  @apply flex justify-center items-center font-normal text-sm text-dark capitalize max-w-12xl px-xsvvl py-xxsv rounded-sm bg-white backdrop-blur-sm bg-opacity-64;
+  @apply flex justify-center items-center font-normal text-sm text-dark capitalize max-w-12xvl px-xsvvl py-xxsv rounded-sm bg-white backdrop-blur-sm bg-opacity-64;
 }
 
 .captionDivider {
