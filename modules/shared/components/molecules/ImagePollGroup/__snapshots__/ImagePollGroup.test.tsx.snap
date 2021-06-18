@@ -2,7 +2,7 @@
 
 exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
 <div
-  className="image-poll-view grid-cols-2"
+  className="image-poll-view md:grid-cols-2 grid-cols-1"
 >
   <div
     className="relative w-auto"
