@@ -14,7 +14,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
 
   const optionClasses = classNames(styles['image-poll-view'], {
     'grid-cols-1': group.options.length === singleOption,
-    'grid-cols-2': group.options.length > singleOption,
+    'md:grid-cols-2 grid-cols-1': group.options.length > singleOption,
   });
   return (
     <div className={optionClasses}>
