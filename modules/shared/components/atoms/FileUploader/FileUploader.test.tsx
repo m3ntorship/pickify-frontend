@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import type { TargetElement } from '@testing-library/user-event';
 import userEvent from '@testing-library/user-event';
-import ImageUpload from '.';
+import ImageUpload from './FileUploader';
 
 describe('ImageUpload', () => {
   it('should upload the choosen files successfully', () => {

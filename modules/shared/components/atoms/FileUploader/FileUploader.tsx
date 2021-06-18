@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import type { ReactElement, FC, ChangeEvent } from 'react';
 import classNames from 'classnames';
-import styles from './imageUpload.module.css';
+import styles from './FileUploader.module.css';
 import Image from '../../icons/image.svg';
-import type { IImageUpload } from './IImageUpload';
+import type { IFileUploader } from './IFileUploader';
 import { validateUploadedImages } from '../../../logic/uploadedFiles/uploadedFiles';
 
-const ImageUpload: FC<IImageUpload.IProps> = ({
+const FileUploader: FC<IFileUploader.IProps> = ({
   register,
   files,
   setFiles,
@@ -79,4 +79,4 @@ const ImageUpload: FC<IImageUpload.IProps> = ({
   );
 };
 
-export default ImageUpload;
+export default FileUploader;

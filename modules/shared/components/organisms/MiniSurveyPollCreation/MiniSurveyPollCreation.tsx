@@ -9,7 +9,7 @@ import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { IMiniSurveyPollCreation } from './IMiniSurveyPollCreation';
 import type { IOptionGroup } from '../../molecules/OptionGroup/types/IOptionGroup';
 import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
-import ImageUpload from '../../atoms/ImageUpload';
+import FileUploader from '../../atoms/FileUploader/FileUploader';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
 
@@ -237,7 +237,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
               )
             )}
             {!miniSurveyState.image && (
-              <ImageUpload
+              <FileUploader
                 register={register}
                 files={imageFiles}
                 setFiles={setImageFiles}

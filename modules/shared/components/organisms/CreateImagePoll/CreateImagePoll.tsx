@@ -3,7 +3,7 @@ import type { ReactElement, FC } from 'react';
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
 import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
-import ImageUpload from '../../atoms/ImageUpload/index';
+import FileUploader from '../../atoms/FileUploader/FileUploader';
 import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
 import {
   alphabet,
@@ -154,7 +154,11 @@ const CreateImagePoll: FC = (): ReactElement => {
         ''
       )}
       {imagePollState.imagesData.length <= maxLength && (
-        <ImageUpload files={imageFiles} setFiles={setImageFiles} maxFiles={4} />
+        <FileUploader
+          files={imageFiles}
+          setFiles={setImageFiles}
+          maxFiles={4}
+        />
       )}
       <PostFooterCreation
         postButtonIsDisabled={false}
