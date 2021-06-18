@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import styles from './imageUpload.module.css';
 import Image from '../../icons/image.svg';
 import type { IImageUpload } from './IImageUpload';
-import { validateUploadedImages } from './uploadedFiles';
+import { validateUploadedImages } from '../../../logic/uploadedFiles/uploadedFiles';
 
 const ImageUpload: FC<IImageUpload.IProps> = ({
   register,
-  state,
-  setState,
+  files,
+  setFiles,
   maxFiles,
 }): ReactElement => {
   const [isError, setIsError] = useState<boolean>(false);
@@ -23,14 +23,14 @@ const ImageUpload: FC<IImageUpload.IProps> = ({
   const uploadFilesHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     const filrstIndex = 0;
 
-    const removedInvalidImages = state.filter((image) => !image.error);
+    const removedInvalidImages = files.filter((image) => !image.error);
     const validatedFiles = validateUploadedImages(e.target.files);
     const updatedImages = [...removedInvalidImages, ...validatedFiles].slice(
       filrstIndex,
       maxFiles,
     );
 
-    setState(updatedImages);
+    setFiles(updatedImages);
 
     validatedFiles.map((file) => {
       if (file.error) {

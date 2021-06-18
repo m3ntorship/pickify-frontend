@@ -9,14 +9,15 @@ describe('ImageUpload', () => {
     const firstFile = 0;
     const secondFile = 1;
     const twoFiles = 2;
-    const files = [
+
+    const filesInput = [
       new File(['hello'], 'image-one.png', { type: 'image/png' }),
       new File(['there'], 'image-two.png', { type: 'image/png' }),
     ];
-    const state = [
+    const oldFiles = [
       {
         imgId: 'id_151515115',
-        file: files[firstFile],
+        file: filesInput[firstFile],
         error: false,
         imgCaption: '',
         message: '',
@@ -25,30 +26,34 @@ describe('ImageUpload', () => {
     const updateFilesState = jest.fn();
 
     render(
-      <ImageUpload state={state} setState={updateFilesState} maxFiles={4} />,
+      <ImageUpload files={oldFiles} setFiles={updateFilesState} maxFiles={4} />,
     );
 
     // envolved elements
     const fileInput = screen.getByTestId('file-input') as HTMLInputElement;
 
-    userEvent.upload(fileInput, files);
+    userEvent.upload(fileInput, filesInput);
+
+    const { files } = fileInput;
 
     // assertions
     expect(fileInput.files).toHaveLength(twoFiles);
-    expect(fileInput.files[firstFile]).toStrictEqual(files[firstFile]);
-    expect(fileInput.files[secondFile]).toStrictEqual(files[secondFile]);
+    if (files) {
+      expect(files[firstFile]).toEqual(filesInput[firstFile]);
+      expect(files[secondFile]).toEqual(filesInput[secondFile]);
+    }
   });
 
   it('should render upload button with accent colors when we upload valid files', () => {
     const firstFile = 0;
-    const files = [
+    const filesInput = [
       new File(['hello'], 'image-one.png', { type: 'image/png' }),
       new File(['there'], 'image-two.png', { type: 'image/png' }),
     ];
-    const state = [
+    const files = [
       {
         imgId: 'id_151515115',
-        file: files[firstFile],
+        file: filesInput[firstFile],
         error: false,
         imgCaption: '',
         message: '',
@@ -57,14 +62,14 @@ describe('ImageUpload', () => {
     const updateFilesState = jest.fn();
 
     render(
-      <ImageUpload state={state} setState={updateFilesState} maxFiles={4} />,
+      <ImageUpload files={files} setFiles={updateFilesState} maxFiles={4} />,
     );
 
     // envolved elements
     const fileInput = screen.getByTestId('file-input') as HTMLInputElement;
     const fileBox: TargetElement = screen.getByTestId('file-box');
 
-    userEvent.upload(fileInput, files);
+    userEvent.upload(fileInput, filesInput);
 
     // assertions
     expect(fileBox).toHaveClass('border-accent bg-grey-shd7');
@@ -72,14 +77,14 @@ describe('ImageUpload', () => {
 
   it('should render upload button with error colors when we upload invalid files', () => {
     const firstFile = 0;
-    const files = [
+    const filesInput = [
       new File(['hello'], 'index-one.js', { type: 'js' }),
       new File(['there'], 'index-two.js', { type: 'js' }),
     ];
-    const state = [
+    const files = [
       {
         imgId: 'id_151515115',
-        file: files[firstFile],
+        file: filesInput[firstFile],
         error: false,
         imgCaption: '',
         message: '',
@@ -88,14 +93,14 @@ describe('ImageUpload', () => {
     const updateFilesState = jest.fn();
 
     render(
-      <ImageUpload state={state} setState={updateFilesState} maxFiles={4} />,
+      <ImageUpload files={files} setFiles={updateFilesState} maxFiles={4} />,
     );
 
     // envolved elements
     const fileInput = screen.getByTestId('file-input') as HTMLInputElement;
     const fileBox: TargetElement = screen.getByTestId('file-box');
 
-    userEvent.upload(fileInput, files);
+    userEvent.upload(fileInput, filesInput);
 
     // assertions
     expect(fileBox).toHaveClass('border-error bg-error-shd7');

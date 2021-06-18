@@ -15,6 +15,6 @@ const Template: Story<IImageUpload.IProps> = (args): ReactElement => (
 
 export const Default = Template.bind({});
 Default.args = {
-  state: [],
-  setState: (): boolean => true,
+  files: [],
+  setFiles: (): boolean => true,
 };

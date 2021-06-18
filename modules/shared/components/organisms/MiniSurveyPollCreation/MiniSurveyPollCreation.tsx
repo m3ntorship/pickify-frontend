@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
+import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
@@ -11,7 +12,6 @@ import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import ImageUpload from '../../atoms/ImageUpload';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
-import type { IImageUpload } from '../../atoms/ImageUpload/IImageUpload';
 
 const MiniSurveyPollCreation: FC = (): ReactElement => {
   const randomId = (): string => {
@@ -38,7 +38,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       image: '',
     });
 
-  const [imageFiles, setImageFiles] = useState<IImageUpload.IImagesData[]>([
+  const [imageFiles, setImageFiles] = useState<IUploadedFiles.IImagesData[]>([
     {
       error: true,
       file: new File(['hello'], 'hello.png', { type: 'image/png' }),
@@ -239,8 +239,8 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
             {!miniSurveyState.image && (
               <ImageUpload
                 register={register}
-                state={imageFiles}
-                setState={setImageFiles}
+                files={imageFiles}
+                setFiles={setImageFiles}
                 maxFiles={1}
               />
             )}

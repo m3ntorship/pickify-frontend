@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { ReactElement, FC } from 'react';
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
+import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
 import ImageUpload from '../../atoms/ImageUpload/index';
 import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
 import {
@@ -23,7 +24,7 @@ const CreateImagePoll: FC = (): ReactElement => {
       privacy: 'friends',
     },
   );
-  const [imageFiles, setImageFiles] = useState<ICreateImagePoll.IImagesData[]>(
+  const [imageFiles, setImageFiles] = useState<IUploadedFiles.IImagesData[]>(
     [],
   );
 
@@ -153,7 +154,7 @@ const CreateImagePoll: FC = (): ReactElement => {
         ''
       )}
       {imagePollState.imagesData.length <= maxLength && (
-        <ImageUpload state={imageFiles} setState={setImageFiles} maxFiles={4} />
+        <ImageUpload files={imageFiles} setFiles={setImageFiles} maxFiles={4} />
       )}
       <PostFooterCreation
         postButtonIsDisabled={false}
