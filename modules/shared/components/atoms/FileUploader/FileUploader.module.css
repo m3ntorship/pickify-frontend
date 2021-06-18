@@ -1,0 +1,13 @@
+.inputfile-for-type-image {
+  @apply opacity-0 w-full h-full absolute cursor-pointer;
+}
+.container-for-image-upload {
+  @apply box-border rounded-md border border-dashed flex flex-row justify-center items-center relative w-auto py-mx;
+}
+.text-for-image-upload {
+  @apply text-sm font-medium not-italic;
+}
+
+.svg-media-icon {
+  @apply mr-1;
+}

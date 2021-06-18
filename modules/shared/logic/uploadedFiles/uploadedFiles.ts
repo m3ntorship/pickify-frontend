@@ -1,21 +1,14 @@
-import { randId } from '../../../logic/createImagePoll/createImagePoll';
-import type { ICreateImagePoll } from './ICreateImagePoll';
+import { randId } from '../createImagePoll/createImagePoll';
+import type { IUploadedFiles } from './IUploadedFiles';
 
 export const validateUploadedImages = (
-  files: FileList | null,
-): ICreateImagePoll.IProps[] => {
+  files: File[] | FileList | null,
+): IUploadedFiles.IImagesData[] => {
   const firstIndex = 0;
   const lastLetter = 5;
-  const maxFilesLength = 4;
-  const maxFileSizeInByte = 2000000;
+  const maxFileSizeInByte = 2_000_000;
 
-  const maxFiles = Array.prototype.slice.call(
-    files,
-    firstIndex,
-    maxFilesLength,
-  );
-
-  const uploadedFiles = Array.prototype.map.call(maxFiles, (file: File) => {
+  const uploadedFiles = Array.prototype.map.call(files, (file: File) => {
     if (file.type.substr(firstIndex, lastLetter) !== 'image') {
       return {
         error: true,
@@ -28,7 +21,7 @@ export const validateUploadedImages = (
     }
 
     return { imgId: `${randId()}`, file, error: false, imgCaption: '' };
-  }) as ICreateImagePoll.IProps[];
+  }) as IUploadedFiles.IImagesData[];
 
   return uploadedFiles;
 };

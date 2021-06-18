@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
+import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
@@ -8,7 +9,7 @@ import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { IMiniSurveyPollCreation } from './IMiniSurveyPollCreation';
 import type { IOptionGroup } from '../../molecules/OptionGroup/types/IOptionGroup';
 import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
-import ImageUpload from '../../atoms/ImageUpload';
+import FileUploader from '../../atoms/FileUploader/FileUploader';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
 
@@ -37,11 +38,15 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       image: '',
     });
 
-  const [imageFile, setImageFile] = useState<File[]>([]);
-  const [imageUploadError, setImageUploadError] = useState<{
-    msg: string;
-    subMsg: string;
-  }>({ msg: '', subMsg: '' });
+  const [imageFiles, setImageFiles] = useState<IUploadedFiles.IImagesData[]>([
+    {
+      error: true,
+      file: new File(['hello'], 'hello.png', { type: 'image/png' }),
+      message: '',
+      imgCaption: '',
+      imgId: 'id_1212312',
+    },
+  ]);
   const {
     register,
     handleSubmit,
@@ -57,7 +62,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
     return true;
   };
   const onSubmit = (): boolean => {
-    if (imageUploadError.msg) {
+    if (imageFiles[zero].error) {
       return onError();
     }
     console.log(miniSurveyState);
@@ -149,43 +154,18 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       }),
     });
   };
-  const imageUplaodChangeHandler = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ): void => {
-    const limitOfUplaodingFilesNumber = 1;
-    const allowedExtentions = ['image/png', 'image/jpg', 'image/jpeg'];
-    if (
-      e.target.files?.length === undefined ||
-      e.target.files.length !== limitOfUplaodingFilesNumber
-    ) {
-      setImageUploadError({
-        msg: 'Error',
-        subMsg: 'Maximum number of images is 1',
-      });
-    } else if (!allowedExtentions.includes(e.target.files[zero].type)) {
-      setImageUploadError({
-        msg: 'Error',
-        subMsg: 'The image must be .png or .jpg',
-      });
-    } else {
-      setImageUploadError({
-        msg: '',
-        subMsg: '',
-      });
-      setImageFile([...e.target.files]);
-    }
-  };
   useEffect(() => {
-    if (imageFile[zero]) {
+    if (!imageFiles[zero].error) {
       const fileReader = new FileReader();
-      fileReader.readAsDataURL(imageFile[zero]);
-      fileReader.addEventListener('load', (e: ProgressEvent<FileReader>) => {
-        if (typeof e.target?.result === 'string') {
-          setMiniSurveyState({ ...miniSurveyState, image: e.target.result });
-        }
-      });
+      fileReader.readAsDataURL(imageFiles[zero].file as Blob);
+      fileReader.onload = (): void => {
+        setMiniSurveyState({
+          ...miniSurveyState,
+          image: fileReader.result as string,
+        });
+      };
     }
-  }, [imageFile]);
+  }, [imageFiles]);
 
   return (
     <>
@@ -248,18 +228,20 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
                 />
               </div>
             ) : (
-              imageUploadError.msg && (
+              imageFiles[zero].error && (
                 <Misc
-                  msg={imageUploadError.msg}
-                  subMsg={imageUploadError.subMsg}
+                  msg="Image couldn’t be uploaded!"
+                  subMsg={imageFiles[zero].message}
                   type={MiscType.Error}
                 />
               )
             )}
             {!miniSurveyState.image && (
-              <ImageUpload
+              <FileUploader
                 register={register}
-                onChangeInputHandler={imageUplaodChangeHandler}
+                files={imageFiles}
+                setFiles={setImageFiles}
+                maxFiles={1}
               />
             )}
           </>
