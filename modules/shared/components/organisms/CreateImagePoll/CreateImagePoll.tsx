@@ -191,7 +191,6 @@ const CreateImagePoll: FC = (): ReactElement => {
                 id={imgData.imgId}
                 imagePollState={imagePollState}
                 setImagePollState={setImagePollState}
-                imgCaption={imgData.imgCaption}
               />
             );
           })}

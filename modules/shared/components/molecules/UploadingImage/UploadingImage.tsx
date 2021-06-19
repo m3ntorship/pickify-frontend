@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
+import { useUploadedFiles } from '@modules/shared/hooks/useUploadedFiles/useUploadedFiles';
+import { useIsMounted } from '@modules/shared/hooks/useIsMounted/useIsMounted';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
@@ -9,50 +11,6 @@ import VerticalThreeDots from '../../icons/verticalThreeDots.svg';
 import Misc from '../Misc/Misc';
 import { MiscType } from '../Misc/types/EMisc';
 
-const useIsMounted = (): React.MutableRefObject<boolean> => {
-  const isMounted: React.MutableRefObject<boolean> = useRef<boolean>(true);
-
-  useEffect(() => {
-    return (): void => {
-      isMounted.current = false;
-    };
-  }, []);
-
-  return isMounted;
-};
-
-const useUploadedFiles = (
-  uploadedFile: Blob,
-): IUploadingImage.IUseUploadedFiles => {
-  const [response, setResopnse] = useState<Blob | null>(null);
-  const [error, serError] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>('');
-
-  useEffect(() => {
-    const maxFileSizeInByte = 200_000;
-
-    const promise: Promise<Blob> = new Promise((resolve, reject) => {
-      if (uploadedFile.size < maxFileSizeInByte) {
-        resolve(uploadedFile);
-      } else {
-        reject(new Error('Max size is 2 MB!!'));
-      }
-    });
-
-    promise
-      .then((data) => {
-        setResopnse(data);
-        serError(false);
-      })
-      .catch((err: Error) => {
-        serError(true);
-        setMessage(err.message);
-      });
-  }, []);
-
-  return { response, error, message };
-};
-
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
   letter,
@@ -60,7 +18,6 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   handleVerticalThreeDotsClick,
   imagePollState,
   setImagePollState,
-  imgCaption,
 }): ReactElement => {
   const [url, setUrl] = useState<string>('');
   const [caption, setCaption] = useState<string>('');
@@ -102,10 +59,6 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
       });
     }
   }, [file, isMounted]);
-
-  useEffect(() => {
-    setCaption(imgCaption);
-  }, [imgCaption]);
 
   useEffect(() => {
     if (url) {
