@@ -5,7 +5,7 @@ export const useUploadedFiles = (
   uploadedFile: Blob,
 ): IUseUploadedFiles.IUploadedFiles => {
   const [response, setResopnse] = useState<Blob | null>(null);
-  const [error, serError] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
@@ -22,10 +22,10 @@ export const useUploadedFiles = (
     promise
       .then((data) => {
         setResopnse(data);
-        serError(false);
+        setError(false);
       })
       .catch((err: Error) => {
-        serError(true);
+        setError(true);
         setMessage(err.message);
       });
   }, []);

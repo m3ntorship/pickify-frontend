@@ -1,145 +1,106 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import type { TargetElement } from '@testing-library/user-event';
 import userEvent from '@testing-library/user-event';
 import UploadingImage from './UploadingImage';
-import type { ICreateImagePoll } from '../../organisms/CreateImagePoll/ICreateImagePoll';
 
 describe('UploadingImage', () => {
-  it('should render Misc component when we pass error={true}', () => {
+  it('should render Misc component when we pass invalid file', async () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
+    const fileSizeInBytes = 10_000_000;
+    Object.defineProperty(file, 'size', { value: fileSizeInBytes });
+
     const imagePollState = {
       postType: 'Image Poll',
       postCaption: { id: 'id_123181287', value: '' },
-      imagesData: [],
+      validImages: [],
       hiddenIdentity: false,
       privacy: 'friends',
     };
 
     render(
       <UploadingImage
-        error
         file={file}
         id="someId"
         imagePollState={imagePollState}
         setImagePollState={(): boolean => true}
-        imgCaption=""
         letter="A"
-        message="Max size is 2 MB"
       />,
     );
 
-    const miscComponent: TargetElement = screen.getByTestId('misc-box');
-    const uploadedBox = screen.queryByTestId('uploaded-box');
-    const subMsg: TargetElement = screen.getByTestId('sub-msg');
+    const miscComponent = screen.findByTestId('misc-box');
+    const subMsg = screen.findByTestId('sub-msg');
 
-    expect(miscComponent).toBeInTheDocument();
-    expect(uploadedBox).not.toBeInTheDocument();
-    expect(subMsg).toHaveTextContent('Max size is 2 MB');
+    await waitFor(async () => {
+      expect(await miscComponent).toBeInTheDocument();
+      expect(await subMsg).toHaveTextContent('Max size is 2 MB');
+    });
   });
 
-  it('should render the uploaded image when we pass error={false}', () => {
-    const file = new File(['hello'], 'hello.png', { type: 'image/png' });
-    const imagePollState: ICreateImagePoll.IProps = {
-      postType: 'Image Poll',
-      postCaption: { id: 'id_123181287', value: '' },
-      imagesData: [],
-      hiddenIdentity: false,
-      privacy: 'friends',
-    };
-
-    render(
-      <UploadingImage
-        error={false}
-        file={file}
-        id="someId"
-        imagePollState={imagePollState}
-        setImagePollState={(): boolean => true}
-        imgCaption=""
-        letter="A"
-        message="ay 7aga"
-      />,
-    );
-
-    const uploadedBox: TargetElement = screen.getByTestId('uploaded-box');
-    const miscComponent = screen.queryByTestId('misc-box');
-
-    expect(uploadedBox).toBeInTheDocument();
-    expect(miscComponent).not.toBeInTheDocument();
-  });
-
-  it('should call setImagePollState function when we blur the TextInput', () => {
+  it('should call setImagePollState function when we type something in the TextInput', () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
     const imagePollState = {
       postType: 'Image Poll',
       postCaption: { id: 'id_123181287', value: '' },
-      imagesData: [],
+      validImages: [],
       hiddenIdentity: false,
       privacy: 'friends',
     };
 
     const setImagePollState = jest.fn();
 
-    const calledOnce = 1;
+    const calledThreeTimes = 3;
 
     render(
       <UploadingImage
-        error={false}
         file={file}
         id="2"
         imagePollState={imagePollState}
         setImagePollState={setImagePollState}
-        imgCaption=""
         letter="A"
-        message=""
       />,
     );
 
     const textInput: TargetElement = screen.getByTestId('text-input');
 
-    userEvent.type(textInput, 'some caption');
-    userEvent.tab();
+    userEvent.type(textInput, 'hi');
 
-    expect(textInput).toHaveValue('some caption');
-    expect(setImagePollState).toHaveBeenCalledTimes(calledOnce);
+    expect(textInput).toHaveValue('hi');
+    expect(setImagePollState).toHaveBeenCalledTimes(calledThreeTimes);
   });
 
-  //   it('should call setImagePollState function when we reset the TextInput', () => {
-  //     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
-  //     const imagePollState = {
-  //       postType: 'Image Poll',
-  //       postCaption: { id: 'id_123181287', value: '' },
-  //       imagesData: [],
-  //       hiddenIdentity: false,
-  //       privacy: 'friends',
-  //     };
+  it('should call setImagePollState function when we reset the TextInput', () => {
+    const file = new File(['hello'], 'hello.png', { type: 'image/png' });
+    const imagePollState = {
+      postType: 'Image Poll',
+      postCaption: { id: 'id_123181287', value: '' },
+      validImages: [],
+      hiddenIdentity: false,
+      privacy: 'friends',
+    };
 
-  //     const setImagePollState = jest.fn();
+    const setImagePollState = jest.fn();
 
-  //     const calledOnce = 1;
+    const calledFourTimes = 4;
 
-  //     render(
-  //       <UploadingImage
-  //         error={false}
-  //         file={file}
-  //         id="2"
-  //         imagePollState={imagePollState}
-  //         setImagePollState={setImagePollState}
-  //         imgCaption=""
-  //         letter="A"
-  //         message=""
-  //       />,
-  //     );
+    render(
+      <UploadingImage
+        file={file}
+        id="2"
+        imagePollState={imagePollState}
+        setImagePollState={setImagePollState}
+        letter="A"
+      />,
+    );
 
-  //     const textInput: TargetElement = screen.getByTestId('text-input');
+    const textInput: TargetElement = screen.getByTestId('text-input');
 
-  //     userEvent.type(textInput, 'some caption');
+    userEvent.type(textInput, 'hi');
 
-  //     const deleteIcon: TargetElement = screen.getByTestId('delete-icon');
-  //     userEvent.tab();
-  //     userEvent.click(deleteIcon);
+    const deleteIcon: TargetElement = screen.getByTestId('delete-icon');
+    userEvent.click(deleteIcon);
 
-  //     expect(textInput).toHaveValue('');
-  //     expect(setImagePollState).toHaveBeenCalledTimes(calledOnce);
-  //   });
+    expect(textInput).toHaveValue('');
+    expect(setImagePollState).toHaveBeenCalledTimes(calledFourTimes);
+  });
 });

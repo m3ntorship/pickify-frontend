@@ -25,7 +25,8 @@ describe('useUploadedFiles', () => {
 
   it('should return error and error message when it recieves invalid file', async () => {
     const file = new File(['hello'], 'image.png', { type: 'image/png' });
-    Object.defineProperty(file, 'size', { value: 2_000_000 });
+    const fileSizeInBytes = 10_000_000;
+    Object.defineProperty(file, 'size', { value: fileSizeInBytes });
 
     render(<TargetComponent file={file} />);
 

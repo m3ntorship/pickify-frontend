@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
-import { useUploadedFiles } from '@modules/shared/hooks/useUploadedFiles/useUploadedFiles';
-import { useIsMounted } from '@modules/shared/hooks/useIsMounted/useIsMounted';
+import { useUploadedFiles } from '../../../hooks/useUploadedFiles/useUploadedFiles';
+import { useIsMounted } from '../../../hooks/useIsMounted/useIsMounted';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
