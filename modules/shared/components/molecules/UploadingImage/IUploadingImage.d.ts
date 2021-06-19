@@ -5,8 +5,6 @@ declare namespace IUploadingImage {
     file: Blob | string;
     letter: string;
     id: string;
-    error: boolean;
-    message: string;
     imgCaption: string;
     imagePollState: ICreateImagePoll.IProps;
     setImagePollState: (imagesData: imagePollState) => void;
@@ -14,6 +12,12 @@ declare namespace IUploadingImage {
   export interface IHandlers {
     handleVerticalThreeDotsClick?: () => void;
     handleTextInputOnBlur?: (e: FocusEvent<HTMLInputElement>) => void;
+  }
+
+  export interface IUseUploadedFiles {
+    error: boolean;
+    response: Blob | null;
+    message: string;
   }
 }
 export { IUploadingImage };

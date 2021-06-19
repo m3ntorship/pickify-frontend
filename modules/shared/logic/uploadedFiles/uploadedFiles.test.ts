@@ -14,17 +14,13 @@ describe('ImageUpload', () => {
 
     const uploadedImages = [
       {
-        imgId: 'id_151515115',
         file: files[firstFile],
         error: false,
-        imgCaption: '',
         message: '',
       },
       {
-        imgId: 'id_151515115',
         file: files[secondFile],
         error: false,
-        imgCaption: '',
         message: '',
       },
     ];
@@ -56,10 +52,8 @@ describe('ImageUpload', () => {
 
     const uploadedImages = [
       {
-        imgId: 'id_151515115',
         file: files[firstFile],
         error: true,
-        imgCaption: '',
         message: 'invalid file type, must be an image!!',
       },
     ];

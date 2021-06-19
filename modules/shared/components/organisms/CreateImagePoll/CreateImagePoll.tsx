@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { ReactElement, FC } from 'react';
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
@@ -13,20 +13,24 @@ import type { ICreateImagePoll } from './ICreateImagePoll';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
+import { MiscType } from '../../molecules/Misc/types/EMisc';
+import Misc from '../../molecules/Misc/Misc';
 
 const CreateImagePoll: FC = (): ReactElement => {
   const [imagePollState, setImagePollState] = useState<ICreateImagePoll.IProps>(
     {
       postType: 'Image Poll',
       postCaption: { id: 'id_123181287', value: '' },
-      imagesData: [],
+      validImages: [],
       hiddenIdentity: false,
       privacy: 'friends',
     },
   );
-  const [imageFiles, setImageFiles] = useState<IUploadedFiles.IImagesData[]>(
-    [],
-  );
+  const [invalidImages, setInvalidImages] = useState<
+    ICreateImagePoll.InvalidImages[]
+  >([]);
+  const [maxFilesError, setMaxFilesError] =
+    useState<ICreateImagePoll.InvalidImages>({ error: false, message: '' });
 
   const {
     register,
@@ -43,18 +47,50 @@ const CreateImagePoll: FC = (): ReactElement => {
   const singleOption = 1;
   const maxLength = 3;
 
-  useEffect(() => {
-    setImagePollState({ ...imagePollState, imagesData: imageFiles });
-  }, [imageFiles]);
+  const onUploadValidImages = (images: IUploadedFiles.IImagesData[]): void => {
+    const newValidImages = images.map((img) => {
+      const imageData = {
+        imgId: `${randId()}`,
+        imgCaption: '',
+        file: img.file,
+      };
+      return imageData;
+    });
 
-  const imgPollClasses = classNames(
-    'grid gap-x-2 gap-y-4 rounded-md relative mb-m',
-    {
-      'grid-cols-1': imagePollState.imagesData.length === singleOption,
-      'md:grid-cols-2 grid-cols-1':
-        imagePollState.imagesData.length > singleOption,
-    },
-  );
+    setImagePollState({
+      ...imagePollState,
+      validImages: [
+        ...imagePollState.validImages,
+        ...newValidImages,
+      ] as ICreateImagePoll.ValidImages[],
+    });
+    setInvalidImages([]);
+    setMaxFilesError({ error: false, message: '' });
+  };
+  const onUploadInvalidImages = (
+    images: IUploadedFiles.IImagesData[],
+  ): void => {
+    const newInvalidImages = images.map((img) => {
+      const imageData = {
+        imgId: `${randId()}`,
+        error: img.error,
+        message: img.message,
+      };
+      return imageData;
+    });
+
+    setInvalidImages([...invalidImages, ...newInvalidImages]);
+    setMaxFilesError({ error: false, message: '' });
+  };
+  const onUploadMaxLimitImages = (maxLimitImage: {
+    error: boolean;
+    message: string;
+  }): void => {
+    setMaxFilesError({
+      error: maxLimitImage.error,
+      message: maxLimitImage.message,
+    });
+  };
 
   const captionInputRegister = {
     ...register('id_123181287', {
@@ -98,7 +134,7 @@ const CreateImagePoll: FC = (): ReactElement => {
   };
 
   const onSubmit = (): void => {
-    if (imagePollState.imagesData.length !== firstIndex) {
+    if (imagePollState.validImages.length !== firstIndex) {
       console.log(imagePollState);
     }
   };
@@ -113,6 +149,18 @@ const CreateImagePoll: FC = (): ReactElement => {
 
     return ETextInput.Variants.Default;
   };
+
+  const imgPollClasses = classNames(
+    'grid gap-x-2 gap-y-4 rounded-md relative mb-m',
+    {
+      'grid-cols-1':
+        imagePollState.validImages.length === singleOption ||
+        invalidImages.length === singleOption,
+      'md:grid-cols-2 grid-cols-1':
+        imagePollState.validImages.length > singleOption ||
+        invalidImages.length > singleOption,
+    },
+  );
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -132,17 +180,15 @@ const CreateImagePoll: FC = (): ReactElement => {
           onChange={updatePostCaptionHandler}
         />
       </div>
-      {imagePollState.imagesData.length ? (
+      {imagePollState.validImages.length ? (
         <div className={imgPollClasses}>
-          {imagePollState.imagesData.map((imgData, index) => {
+          {imagePollState.validImages.map((imgData, index) => {
             return (
               <UploadingImage
                 file={imgData.file}
-                key={randId()}
+                key={imgData.imgId}
                 letter={alphabet[index].toUpperCase()}
                 id={imgData.imgId}
-                error={imgData.error}
-                message={imgData.message}
                 imagePollState={imagePollState}
                 setImagePollState={setImagePollState}
                 imgCaption={imgData.imgCaption}
@@ -153,10 +199,34 @@ const CreateImagePoll: FC = (): ReactElement => {
       ) : (
         ''
       )}
-      {imagePollState.imagesData.length <= maxLength && (
+      {invalidImages.length ? (
+        <div className={imgPollClasses}>
+          {invalidImages.map((imgData) => {
+            return (
+              <Misc
+                key={imgData.imgId}
+                msg="Image couldn’t be uploaded!"
+                subMsg={imgData.message}
+                type={MiscType.Error}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        ''
+      )}
+      {maxFilesError.error && (
+        <Misc
+          msg="Images couldn’t be uploaded!"
+          subMsg={maxFilesError.message}
+          type={MiscType.Error}
+        />
+      )}
+      {imagePollState.validImages.length <= maxLength && (
         <FileUploader
-          files={imageFiles}
-          setFiles={setImageFiles}
+          onFileSuccess={onUploadValidImages}
+          onFileError={onUploadInvalidImages}
+          onMaxFilesError={onUploadMaxLimitImages}
           maxFiles={4}
         />
       )}

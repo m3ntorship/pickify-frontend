@@ -15,6 +15,8 @@ const Template: Story<IFileUploader.IProps> = (args): ReactElement => (
 
 export const Default = Template.bind({});
 Default.args = {
-  files: [],
-  setFiles: (): boolean => true,
+  maxFiles: 4,
+  onFileSuccess: (): boolean => true,
+  onFileError: (): boolean => true,
+  onMaxFilesError: (): boolean => true,
 };

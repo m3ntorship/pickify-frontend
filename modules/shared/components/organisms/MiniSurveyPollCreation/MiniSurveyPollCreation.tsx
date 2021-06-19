@@ -12,6 +12,7 @@ import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import FileUploader from '../../atoms/FileUploader/FileUploader';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
+import type { ICreateImagePoll } from '../CreateImagePoll/ICreateImagePoll';
 
 const MiniSurveyPollCreation: FC = (): ReactElement => {
   const randomId = (): string => {
@@ -38,15 +39,15 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       image: '',
     });
 
-  const [imageFiles, setImageFiles] = useState<IUploadedFiles.IImagesData[]>([
-    {
-      error: true,
-      file: new File(['hello'], 'hello.png', { type: 'image/png' }),
-      message: '',
-      imgCaption: '',
-      imgId: 'id_1212312',
-    },
-  ]);
+  const [validImages, setValidImages] = useState<
+    ICreateImagePoll.ValidImages[]
+  >([]);
+  const [invalidImages, setInvalidImages] = useState<
+    ICreateImagePoll.InvalidImages[]
+  >([]);
+  const [maxFilesError, setMaxFilesError] =
+    useState<ICreateImagePoll.InvalidImages>({ error: false, message: '' });
+
   const {
     register,
     handleSubmit,
@@ -58,11 +59,50 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
     shouldUnregister: true,
   });
 
+  const onUploadValidImages = (images: IUploadedFiles.IImagesData[]): void => {
+    const newValidImages = images.map((img) => {
+      const imageData = {
+        imgId: randomId(),
+        imgCaption: '',
+        file: img.file,
+      };
+      return imageData;
+    });
+
+    setValidImages([...validImages, ...newValidImages]);
+    setInvalidImages([]);
+    setMaxFilesError({ error: false, message: '' });
+  };
+  const onUploadInvalidImages = (
+    images: IUploadedFiles.IImagesData[],
+  ): void => {
+    const newInvalidImages = images.map((img) => {
+      const imageData = {
+        imgId: randomId(),
+        error: img.error,
+        message: img.message,
+      };
+      return imageData;
+    });
+
+    setInvalidImages([...invalidImages, ...newInvalidImages]);
+    setMaxFilesError({ error: false, message: '' });
+  };
+  const onUploadMaxLimitImages = (maxLimitImage: {
+    error: boolean;
+    message: string;
+  }): void => {
+    setMaxFilesError({
+      error: maxLimitImage.error,
+      message: maxLimitImage.message,
+    });
+  };
+
   const onError = (): boolean => {
     return true;
   };
   const onSubmit = (): boolean => {
-    if (imageFiles[zero].error) {
+    if (validImages.length !== zero) {
       return onError();
     }
     console.log(miniSurveyState);
@@ -155,9 +195,9 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
     });
   };
   useEffect(() => {
-    if (!imageFiles[zero].error) {
+    if (validImages.length !== zero) {
       const fileReader = new FileReader();
-      fileReader.readAsDataURL(imageFiles[zero].file as Blob);
+      fileReader.readAsDataURL(validImages[zero].file as Blob);
       fileReader.onload = (): void => {
         setMiniSurveyState({
           ...miniSurveyState,
@@ -165,7 +205,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
         });
       };
     }
-  }, [imageFiles]);
+  }, [validImages]);
 
   return (
     <>
@@ -228,19 +268,35 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
                 />
               </div>
             ) : (
-              imageFiles[zero].error && (
+              maxFilesError.error && (
                 <Misc
                   msg="Image couldn’t be uploaded!"
-                  subMsg={imageFiles[zero].message}
+                  subMsg={maxFilesError.message}
                   type={MiscType.Error}
                 />
               )
             )}
+            {invalidImages.length ? (
+              <div>
+                {invalidImages.map((imgData) => {
+                  return (
+                    <Misc
+                      key={imgData.imgId}
+                      msg="Image couldn’t be uploaded!"
+                      subMsg={imgData.message}
+                      type={MiscType.Error}
+                    />
+                  );
+                })}
+              </div>
+            ) : (
+              ''
+            )}
             {!miniSurveyState.image && (
               <FileUploader
-                register={register}
-                files={imageFiles}
-                setFiles={setImageFiles}
+                onFileSuccess={onUploadValidImages}
+                onFileError={onUploadInvalidImages}
+                onMaxFilesError={onUploadMaxLimitImages}
                 maxFiles={1}
               />
             )}
