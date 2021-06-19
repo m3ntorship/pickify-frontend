@@ -1,8 +1,9 @@
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
-// import MiniSurveyCreationBody from '@modules/shared/components/molecules/MiniSurveyCreationBody/MiniSurveyCreationBody';
-import MiniSurveyView from '@modules/shared/components/organisms/MiniSurveyView/MiniSurveyView';
-// import TextPollCreation from '@modules/shared/components/organisms/TextPollCreation/TextPollCreation';
-import TextPollView from '@modules/shared/components/organisms/TextPollView/TextPollView';
+import {
+  TextPollView,
+  MiniSurveyView,
+  ImagePollView,
+} from '@modules/shared/components/organisms';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
 import styles from '../pages/home-page.module.css';
@@ -10,7 +11,6 @@ import styles from '../pages/home-page.module.css';
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   return (
     <div className={styles.posts}>
-      {/* <TextPollCreation /> */}
       {data.posts.map((post) => {
         switch (post.type) {
           case 'text poll':
@@ -26,7 +26,11 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
               </div>
             );
           case 'image poll':
-            return null;
+            return (
+              <div key={post.id} className={styles.posts}>
+                <ImagePollView post={post} />
+              </div>
+            );
           default:
             return null;
         }

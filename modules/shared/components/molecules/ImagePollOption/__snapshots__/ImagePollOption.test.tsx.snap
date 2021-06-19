@@ -3,24 +3,30 @@
 exports[`Privacy Component with snapshot should render the heart voteIcon with imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
       Object {
-        "bottom": 0,
         "boxSizing": "border-box",
         "display": "block",
-        "left": 0,
         "margin": 0,
         "overflow": "hidden",
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "position": "relative",
       }
     }
   >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "paddingTop": "100%",
+        }
+      }
+    />
     <img
-      className="w-full h-full"
+      className="rounded-md object-cover"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
@@ -36,7 +42,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon with i
           "maxWidth": "100%",
           "minHeight": "100%",
           "minWidth": "100%",
-          "objectFit": "contain",
+          "objectFit": undefined,
           "objectPosition": undefined,
           "padding": 0,
           "position": "absolute",
@@ -79,7 +85,10 @@ exports[`Privacy Component with snapshot should render the heart voteIcon with i
       <div
         className="captionDivider "
       />
-      <span>
+      <span
+        className="image-caption"
+        title="aaaaaaa"
+      >
         aaaaaaa
       </span>
     </div>
@@ -90,24 +99,30 @@ exports[`Privacy Component with snapshot should render the heart voteIcon with i
 exports[`Privacy Component with snapshot should render the heart voteIcon without imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
       Object {
-        "bottom": 0,
         "boxSizing": "border-box",
         "display": "block",
-        "left": 0,
         "margin": 0,
         "overflow": "hidden",
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "position": "relative",
       }
     }
   >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "paddingTop": "100%",
+        }
+      }
+    />
     <img
-      className="w-full h-full"
+      className="rounded-md object-cover"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
@@ -123,7 +138,7 @@ exports[`Privacy Component with snapshot should render the heart voteIcon withou
           "maxWidth": "100%",
           "minHeight": "100%",
           "minWidth": "100%",
-          "objectFit": "contain",
+          "objectFit": undefined,
           "objectPosition": undefined,
           "padding": 0,
           "position": "absolute",
@@ -164,7 +179,10 @@ exports[`Privacy Component with snapshot should render the heart voteIcon withou
       <div
         className="captionDivider hidden"
       />
-      <span>
+      <span
+        className="image-caption"
+        title="aaaaaaa"
+      >
         aaaaaaa
       </span>
     </div>
@@ -175,24 +193,30 @@ exports[`Privacy Component with snapshot should render the heart voteIcon withou
 exports[`Privacy Component with snapshot should render the like and dislike voteIcon with imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
       Object {
-        "bottom": 0,
         "boxSizing": "border-box",
         "display": "block",
-        "left": 0,
         "margin": 0,
         "overflow": "hidden",
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "position": "relative",
       }
     }
   >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "paddingTop": "100%",
+        }
+      }
+    />
     <img
-      className="w-full h-full"
+      className="rounded-md object-cover"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
@@ -208,7 +232,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
           "maxWidth": "100%",
           "minHeight": "100%",
           "minWidth": "100%",
-          "objectFit": "contain",
+          "objectFit": undefined,
           "objectPosition": undefined,
           "padding": 0,
           "position": "absolute",
@@ -264,7 +288,10 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
       <div
         className="captionDivider "
       />
-      <span>
+      <span
+        className="image-caption"
+        title="aaaaaaa"
+      >
         aaaaaaa
       </span>
     </div>
@@ -275,24 +302,30 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
 exports[`Privacy Component with snapshot should render the like and dislike voteIcon without imgCaptionLetter 1`] = `
 <div
   className="relative w-auto"
+  data-testid="image-poll-option"
 >
   <div
     style={
       Object {
-        "bottom": 0,
         "boxSizing": "border-box",
         "display": "block",
-        "left": 0,
         "margin": 0,
         "overflow": "hidden",
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "position": "relative",
       }
     }
   >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "paddingTop": "100%",
+        }
+      }
+    />
     <img
-      className="w-full h-full"
+      className="rounded-md object-cover"
       decoding="async"
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
@@ -308,7 +341,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
           "maxWidth": "100%",
           "minHeight": "100%",
           "minWidth": "100%",
-          "objectFit": "contain",
+          "objectFit": undefined,
           "objectPosition": undefined,
           "padding": 0,
           "position": "absolute",
@@ -362,7 +395,10 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
       <div
         className="captionDivider hidden"
       />
-      <span>
+      <span
+        className="image-caption"
+        title="aaaaaaa"
+      >
         aaaaaaa
       </span>
     </div>

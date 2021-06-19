@@ -160,6 +160,7 @@ module.exports = {
         '39xl': '39.5rem', // 632px
       },
       maxWidth: {
+        '12xvl': '12rem', // 192px
         '12xl': '12.375rem', // 198px
       },
       height: {
