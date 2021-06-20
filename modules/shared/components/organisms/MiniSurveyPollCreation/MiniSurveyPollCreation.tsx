@@ -197,7 +197,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
   useEffect(() => {
     if (validImages.length !== zero) {
       const fileReader = new FileReader();
-      fileReader.readAsDataURL(validImages[zero].file as Blob);
+      fileReader.readAsDataURL(validImages[zero].file as File);
       fileReader.onload = (): void => {
         setMiniSurveyState({
           ...miniSurveyState,

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
+import { useUpdatedImageData } from '../../../hooks/useUpdatedImageData/useUpdatedImageData';
 import { useUploadedFiles } from '../../../hooks/useUploadedFiles/useUploadedFiles';
-import { useIsMounted } from '../../../hooks/useIsMounted/useIsMounted';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
@@ -16,13 +16,18 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   letter,
   id,
   handleVerticalThreeDotsClick,
-  imagePollState,
-  setImagePollState,
+  imagesData,
+  setImagesData,
 }): ReactElement => {
-  const [url, setUrl] = useState<string>('');
   const [caption, setCaption] = useState<string>('');
-  const isMounted: React.MutableRefObject<boolean> = useIsMounted();
-  const { error, message } = useUploadedFiles(file as Blob);
+  const { error, message } = useUploadedFiles(file as File);
+  const url = useUpdatedImageData({
+    file,
+    imagesData,
+    setImagesData,
+    id,
+    caption,
+  });
 
   const updateImgCaptionHandler = (
     e: React.FormEvent<HTMLInputElement>,
@@ -33,47 +38,6 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   const resetCaptionValueHandler = (): void => {
     setCaption('');
   };
-
-  useEffect(() => {
-    const resetImagesCaption = imagePollState.validImages.map((image) => {
-      if (image.imgId === id) {
-        return { ...image, imgCaption: caption };
-      }
-      return image;
-    });
-    setImagePollState({
-      ...imagePollState,
-      validImages: resetImagesCaption,
-    });
-  }, [caption]);
-
-  useEffect(() => {
-    const { type } = file as Blob;
-    if (type) {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file as Blob);
-      fileReader.addEventListener('load', (e) => {
-        if (isMounted.current) {
-          setUrl(e.target?.result as string);
-        }
-      });
-    }
-  }, [file, isMounted]);
-
-  useEffect(() => {
-    if (url) {
-      const uploadedImages = imagePollState.validImages.map((image) => {
-        if (image.imgId === id) {
-          return { ...image, file: url };
-        }
-        return image;
-      });
-      setImagePollState({
-        ...imagePollState,
-        validImages: uploadedImages,
-      });
-    }
-  }, [url]);
 
   const imgClasses = classNames(styles.image, {
     'filter blur-sm': error,

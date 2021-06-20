@@ -10,7 +10,7 @@ describe('UploadingImage', () => {
     const fileSizeInBytes = 10_000_000;
     Object.defineProperty(file, 'size', { value: fileSizeInBytes });
 
-    const imagePollState = {
+    const imagesData = {
       postType: 'Image Poll',
       postCaption: { id: 'id_123181287', value: '' },
       validImages: [],
@@ -18,12 +18,14 @@ describe('UploadingImage', () => {
       privacy: 'friends',
     };
 
+    const setImagesData = jest.fn();
+
     render(
       <UploadingImage
         file={file}
         id="someId"
-        imagePollState={imagePollState}
-        setImagePollState={(): boolean => true}
+        imagesData={imagesData}
+        setImagesData={setImagesData}
         letter="A"
       />,
     );
@@ -39,7 +41,7 @@ describe('UploadingImage', () => {
 
   it('should call setImagePollState function when we type something in the TextInput', () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
-    const imagePollState = {
+    const imagesData = {
       postType: 'Image Poll',
       postCaption: { id: 'id_123181287', value: '' },
       validImages: [],
@@ -47,7 +49,7 @@ describe('UploadingImage', () => {
       privacy: 'friends',
     };
 
-    const setImagePollState = jest.fn();
+    const setImagesData = jest.fn();
 
     const calledThreeTimes = 3;
 
@@ -55,8 +57,8 @@ describe('UploadingImage', () => {
       <UploadingImage
         file={file}
         id="2"
-        imagePollState={imagePollState}
-        setImagePollState={setImagePollState}
+        imagesData={imagesData}
+        setImagesData={setImagesData}
         letter="A"
       />,
     );
@@ -66,12 +68,12 @@ describe('UploadingImage', () => {
     userEvent.type(textInput, 'hi');
 
     expect(textInput).toHaveValue('hi');
-    expect(setImagePollState).toHaveBeenCalledTimes(calledThreeTimes);
+    expect(setImagesData).toHaveBeenCalledTimes(calledThreeTimes);
   });
 
   it('should call setImagePollState function when we reset the TextInput', () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
-    const imagePollState = {
+    const imagesData = {
       postType: 'Image Poll',
       postCaption: { id: 'id_123181287', value: '' },
       validImages: [],
@@ -79,7 +81,7 @@ describe('UploadingImage', () => {
       privacy: 'friends',
     };
 
-    const setImagePollState = jest.fn();
+    const setImagesData = jest.fn();
 
     const calledFourTimes = 4;
 
@@ -87,8 +89,8 @@ describe('UploadingImage', () => {
       <UploadingImage
         file={file}
         id="2"
-        imagePollState={imagePollState}
-        setImagePollState={setImagePollState}
+        imagesData={imagesData}
+        setImagesData={setImagesData}
         letter="A"
       />,
     );
@@ -101,6 +103,6 @@ describe('UploadingImage', () => {
     userEvent.click(deleteIcon);
 
     expect(textInput).toHaveValue('');
-    expect(setImagePollState).toHaveBeenCalledTimes(calledFourTimes);
+    expect(setImagesData).toHaveBeenCalledTimes(calledFourTimes);
   });
 });

@@ -1,17 +1,20 @@
+import type { MutableRefObject } from 'react';
 import { useState, useEffect } from 'react';
+import { useIsMounted } from '../useIsMounted/useIsMounted';
 import type { IUseUploadedFiles } from './IUseUploadedFiles';
 
 export const useUploadedFiles = (
-  uploadedFile: Blob,
+  uploadedFile: File,
 ): IUseUploadedFiles.IUploadedFiles => {
-  const [response, setResopnse] = useState<Blob | null>(null);
+  const [response, setResopnse] = useState<File | null>(null);
   const [error, setError] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
+  const isMounted: MutableRefObject<boolean> = useIsMounted();
 
   useEffect(() => {
     const maxFileSizeInByte = 200_000;
 
-    const promise: Promise<Blob> = new Promise((resolve, reject) => {
+    const promise: Promise<File> = new Promise((resolve, reject) => {
       if (uploadedFile.size < maxFileSizeInByte) {
         resolve(uploadedFile);
       } else {
@@ -21,12 +24,16 @@ export const useUploadedFiles = (
 
     promise
       .then((data) => {
-        setResopnse(data);
-        setError(false);
+        if (isMounted.current) {
+          setResopnse(data);
+          setError(false);
+        }
       })
       .catch((err: Error) => {
-        setError(true);
-        setMessage(err.message);
+        if (isMounted.current) {
+          setError(true);
+          setMessage(err.message);
+        }
       });
   }, []);
 

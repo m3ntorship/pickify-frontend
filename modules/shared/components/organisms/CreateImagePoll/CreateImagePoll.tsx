@@ -79,7 +79,7 @@ const CreateImagePoll: FC = (): ReactElement => {
       return imageData;
     });
 
-    setInvalidImages([...invalidImages, ...newInvalidImages]);
+    setInvalidImages([...newInvalidImages]);
     setMaxFilesError({ error: false, message: '' });
   };
   const onUploadMaxLimitImages = (maxLimitImage: {
@@ -90,6 +90,7 @@ const CreateImagePoll: FC = (): ReactElement => {
       error: maxLimitImage.error,
       message: maxLimitImage.message,
     });
+    setInvalidImages([]);
   };
 
   const captionInputRegister = {
@@ -189,8 +190,8 @@ const CreateImagePoll: FC = (): ReactElement => {
                 key={imgData.imgId}
                 letter={alphabet[index].toUpperCase()}
                 id={imgData.imgId}
-                imagePollState={imagePollState}
-                setImagePollState={setImagePollState}
+                imagesData={imagePollState}
+                setImagesData={setImagePollState}
               />
             );
           })}

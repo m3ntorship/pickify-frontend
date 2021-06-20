@@ -1,7 +1,7 @@
 declare namespace IUseUploadedFiles {
   export interface IUploadedFiles {
     error: boolean;
-    response: Blob | null;
+    response: File | null;
     message: string;
   }
 }

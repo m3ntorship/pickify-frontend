@@ -1,12 +1,11 @@
-import type { ICreateImagePoll } from '../../organisms/CreateImagePoll/ICreateImagePoll';
+import type { IUseUpdatedImageData } from '@modules/shared/hooks/useUpdatedImageData/IUseUpdatedImageData';
 
 declare namespace IUploadingImage {
-  export interface IProps extends IHandlers {
-    file: Blob | string;
+  export interface IProps
+    extends IHandlers,
+      PostImages,
+      IUseUpdatedImageData.UpdatedImageData {
     letter: string;
-    id: string;
-    imagePollState: ICreateImagePoll.IProps;
-    setImagePollState: (imagesData: imagePollState) => void;
   }
   export interface IHandlers {
     handleVerticalThreeDotsClick?: () => void;
