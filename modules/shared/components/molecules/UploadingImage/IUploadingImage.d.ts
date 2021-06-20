@@ -1,4 +1,4 @@
-import type { IUseUpdatedImageData } from '@modules/shared/hooks/useUpdatedImageData/IUseUpdatedImageData';
+import type { IUseUpdatedImageData } from '../../../hooks/useUpdatedImageData/IUseUpdatedImageData';
 
 declare namespace IUploadingImage {
   export interface IProps
