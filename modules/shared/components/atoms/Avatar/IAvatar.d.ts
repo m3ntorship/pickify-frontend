@@ -6,6 +6,7 @@ declare namespace IAvatar {
 
   export interface IData {
     profilePic?: string;
+    onClick: () => void;
   }
 }
 

@@ -1,3 +1,4 @@
+import faker from 'faker';
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
 import {
   TextPollView,
@@ -13,10 +14,19 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     <div className={styles.posts}>
       {data.posts.map((post) => {
         switch (post.type) {
-          case 'text poll':
+          case 'Text Poll':
             return (
               <div key={post.id} className={styles.posts}>
-                <TextPollView post={post} />
+                <TextPollView
+                  post={{
+                    ...post,
+                    user: {
+                      id: 'ahmed',
+                      name: 'ayoub',
+                      profile_pic: faker.image.avatar(),
+                    },
+                  }}
+                />
               </div>
             );
           case 'mini_survey':

@@ -1,8 +1,9 @@
+import type { SinglePostResponse } from '@m3ntorship/posts-client/dist/client';
 import type { EPostType } from './EPostType';
 
 declare namespace IPostFeed {
   export interface IPosts {
-    data: { posts: IPost[] };
+    data: { posts: SinglePostResponse[] | undefined };
   }
 
   export interface IPost {

@@ -28,10 +28,20 @@ const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const { data }: IPostFeed.IPosts = await getPosts();
+    console.log('-----------');
+    console.log(data);
+    console.log('-----------');
     return {
       props: { data },
     };
   } catch (error: unknown) {
+    console.error(
+      '-----------------------------_______-------------------------------',
+    );
+    console.error(error);
+    console.error(
+      '-----------------------------_______-------------------------------',
+    );
     return {
       props: { data: error },
     };

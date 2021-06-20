@@ -1,12 +1,77 @@
 import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { postsApi } from '@modules/shared/api/postsApi.api';
+import type {
+  PostCreationRequestTypeEnum,
+  OptionsGroupCreation,
+} from '@m3ntorship/posts-client/dist/client';
 import OptionGroup from '../../molecules/OptionGroup/OptionGroup';
 import type { IOptionGroup } from '../../molecules/OptionGroup/types/IOptionGroup';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { ITextPollCreation } from './types/ITextPollCreation';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
+
+export interface Post {
+  postType: PostCreationRequestTypeEnum;
+  postCaption: OptionsEntityOrPostCaption;
+  options?: OptionsEntityOrPostCaption[] | null;
+  hiddenIdentity: boolean;
+  privacy: string;
+}
+export interface OptionsEntityOrPostCaption {
+  id: string;
+  value: string;
+}
+
+// const getTextPollOptionGroup = (post: Post): OptionsGroupCreation => {
+//   const options = post.options?.map((option: OptionsEntityOrPostCaption) => {
+//     return { body: option.value };
+//   });
+
+//   return {
+//     groups: options,
+//   };
+// };
+
+const createPostTemporarly = async (post: Post): Promise<void> => {
+  const {
+    data: { id: postId },
+  } = await postsApi.createPost({
+    is_hidden: post.hiddenIdentity,
+    type: post.postType,
+    caption: post.postCaption.value,
+  });
+
+  const firstOption = post.options[0] || { value: '' };
+  const secondOption = post.options[1] || { value: '' };
+
+  const groups: OptionsGroupCreation = {
+    groups: [
+      {
+        name: 'text poll name',
+        options: [
+          {
+            body: firstOption.value,
+          },
+          {
+            body: secondOption.value,
+          },
+        ],
+      },
+    ],
+  };
+
+  const optionResponse = await postsApi.createOptionsGroup(postId, groups);
+  console.log(optionResponse);
+
+  const flagResponse = await postsApi.flagPostAsFinished(postId, {
+    finished: true,
+  });
+  console.log(flagResponse);
+};
 
 const TextPollCreation: FC = (): ReactElement => {
   const randomId = (): string => {
@@ -47,7 +112,9 @@ const TextPollCreation: FC = (): ReactElement => {
     shouldUnregister: true,
   });
   const onSubmit = (): boolean => {
-    console.log(textPollState);
+    console.log(JSON.stringify(textPollState));
+    createPostTemporarly(textPollState);
+
     return true;
   };
   const onError = (): boolean => {

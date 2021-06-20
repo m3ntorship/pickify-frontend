@@ -12,6 +12,9 @@ const Avatar: FC<IAvatar.IProps> = ({
   size,
   variant,
   profilePic,
+  onClick = (): void => {
+    // void
+  },
 }): ReactElement => {
   const wrapperClasses = classNames([styles.wrapper], {
     [styles['extra-small']]: size === 'extra-small',
@@ -28,6 +31,7 @@ const Avatar: FC<IAvatar.IProps> = ({
           width={avatarSize}
           className="absolute w-full h-full"
           src={profilePic}
+          onClick={onClick}
         />
       )}
       {(variant === 'anonymous' || profilePic === undefined) && (
@@ -35,6 +39,7 @@ const Avatar: FC<IAvatar.IProps> = ({
           className="absolute w-full h-full"
           width={avatarSize}
           height={avatarSize}
+          onClick={onClick}
         />
       )}
       {variant === 'notFilled' && (
@@ -42,6 +47,7 @@ const Avatar: FC<IAvatar.IProps> = ({
           className="absolute w-full h-full"
           width={avatarSize}
           height={avatarSize}
+          onClick={onClick}
         />
       )}
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import { setUser } from '@modules/shared/logic/user';
 import styles from './Navigation.module.css';
 import type { INavigation } from './INavigation';
 import HomeIcon from '../../icons/home.svg';
@@ -52,6 +53,7 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
               size="extra-small"
               variant={avatarVariant}
               profilePic={profilePic}
+              onClick={setUser}
             />
           </li>
         </ul>
