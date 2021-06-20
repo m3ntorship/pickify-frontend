@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import { useUpdatedImageData } from '../../../hooks/useUpdatedImageData/useUpdatedImageData';
@@ -28,6 +28,23 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
     id,
     caption,
   });
+
+  useEffect(() => {
+    return (): void => {
+      const { type } = file as File;
+      if (!type) {
+        if (error) {
+          const filteredImage = imagesData.validImages.filter(
+            (image) => image.imgId !== id,
+          );
+          setImagesData({
+            ...imagesData,
+            validImages: filteredImage,
+          });
+        }
+      }
+    };
+  }, [imagesData]);
 
   const updateImgCaptionHandler = (
     e: React.FormEvent<HTMLInputElement>,
