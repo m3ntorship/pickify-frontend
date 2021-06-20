@@ -6,7 +6,15 @@ import { useUploadedFiles } from './useUploadedFiles';
 const TargetComponent: FC<{ file: File }> = ({ file }): ReactElement => {
   const { error, message } = useUploadedFiles(file);
 
-  return <>{error && <div data-testid="message">{message}</div>}</>;
+  return (
+    <>
+      {error ? (
+        <div data-testid="error-message">{message}</div>
+      ) : (
+        <div data-testid="success-message">valid file</div>
+      )}
+    </>
+  );
 };
 
 describe('useUploadedFiles', () => {
@@ -15,11 +23,14 @@ describe('useUploadedFiles', () => {
 
     render(<TargetComponent file={file} />);
 
-    const mesage = screen.queryByTestId('message');
+    const errorMesage = screen.queryByTestId('error-message');
+    const successMesage = screen.queryByTestId('success-message');
 
     // assertions
     await waitFor(() => {
-      expect(mesage).not.toBeInTheDocument();
+      expect(errorMesage).not.toBeInTheDocument();
+      expect(successMesage).toBeInTheDocument();
+      expect(successMesage).toHaveTextContent('valid file');
     });
   });
 
@@ -30,12 +41,12 @@ describe('useUploadedFiles', () => {
 
     render(<TargetComponent file={file} />);
 
-    const mesage = screen.findByTestId('message');
+    const errorMesage = screen.findByTestId('error-message');
 
     // assertions
     await waitFor(async () => {
-      expect(await mesage).toBeInTheDocument();
-      expect(await mesage).toHaveTextContent('Max size is 2 MB!!');
+      expect(await errorMesage).toBeInTheDocument();
+      expect(await errorMesage).toHaveTextContent('Max size is 2 MB!!');
     });
   });
 });
