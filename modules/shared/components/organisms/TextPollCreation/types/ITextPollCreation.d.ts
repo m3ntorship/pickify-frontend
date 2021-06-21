@@ -1,8 +1,9 @@
 import type { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
+import type { IGetPosts } from '../../../../api/IGetPosts';
 
 declare namespace ITextPollCreation {
   export interface IProps {
-    createTextPollPost: (state: IState) => void;
+    createTextPollPost: (state: IState) => Promise<IGetPosts.IErrorData>;
   }
   export interface IState {
     postType: PostCreationRequestTypeEnum;

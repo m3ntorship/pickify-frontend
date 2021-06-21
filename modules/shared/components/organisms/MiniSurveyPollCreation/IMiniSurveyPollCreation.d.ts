@@ -1,6 +1,8 @@
+import type { IGetPosts } from '../../../api/IGetPosts';
+
 declare namespace IMiniSurveyPollCreation {
   export interface IProps {
-    createMiniSurveyPollPost: (state: IState) => void;
+    createMiniSurveyPollPost: (state: IState) => Promise<IGetPosts.IErrorData>;
   }
   export interface IState {
     postType: string;

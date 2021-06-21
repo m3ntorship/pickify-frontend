@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
+import type { IGetPosts } from '../../../api/IGetPosts';
 import OptionGroup from '../../molecules/OptionGroup/OptionGroup';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { ITextPollCreation } from './types/ITextPollCreation';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
+import Misc from '../../molecules/Misc/Misc';
+import { MiscType } from '../../molecules/Misc/types/EMisc';
 
 const TextPollCreation: FC<ITextPollCreation.IProps> = ({
   createTextPollPost,
@@ -19,6 +22,12 @@ const TextPollCreation: FC<ITextPollCreation.IProps> = ({
   const firstGroup = 0;
 
   const [options, setOptions] = useState<ITextPollCreation.IOption[]>([]);
+  const [errorData, setErrorData] = useState<IGetPosts.IErrorData>({
+    error: false,
+    message: '',
+    errorCode: 0,
+  });
+  const [loading, setLoading] = useState<boolean>(false);
 
   // const [captionInputVal, setCaptionInputVal] = useState<string>('');
   const [textPollState, setTextPollState] = useState<ITextPollCreation.IState>({
@@ -53,10 +62,15 @@ const TextPollCreation: FC<ITextPollCreation.IProps> = ({
     reValidateMode: 'onChange',
     shouldUnregister: true,
   });
-  const onSubmit = (): boolean => {
-    createTextPollPost(textPollState);
-    console.log(textPollState);
-    return true;
+  const onSubmit = async (): Promise<void> => {
+    setLoading(true);
+    const data: IGetPosts.IErrorData = await createTextPollPost(textPollState);
+    setLoading(false);
+    setErrorData({
+      error: data.error,
+      message: data.message,
+      errorCode: data.errorCode,
+    });
   };
   const onError = (): boolean => {
     return true;
@@ -129,6 +143,29 @@ const TextPollCreation: FC<ITextPollCreation.IProps> = ({
           }}
           onSubmit={handleSubmit(onSubmit, onError)}
         >
+          {loading ? (
+            'loading...'
+          ) : (
+            <>
+              {errorData.error ? (
+                <Misc
+                  type={MiscType.Error}
+                  msg="failed to create your post :("
+                  subMsg={errorData.message}
+                />
+              ) : (
+                <>
+                  {errorData.message && (
+                    <Misc
+                      type={MiscType.Success}
+                      msg="success"
+                      subMsg={errorData.message}
+                    />
+                  )}
+                </>
+              )}
+            </>
+          )}
           <TextInput
             id="id_123181239"
             value={textPollState.postCaption.value}

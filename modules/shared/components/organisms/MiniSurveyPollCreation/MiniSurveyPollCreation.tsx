@@ -13,6 +13,7 @@ import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import FileUploader from '../../atoms/FileUploader/FileUploader';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
+import type { IGetPosts } from '../../../api/IGetPosts';
 
 const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
   createMiniSurveyPollPost,
@@ -50,6 +51,12 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
       imgId: 'id_1212312',
     },
   ]);
+  const [errorData, setErrorData] = useState<IGetPosts.IErrorData>({
+    error: false,
+    message: '',
+    errorCode: 0,
+  });
+  const [loading, setLoading] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -64,12 +71,20 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
   const onError = (): boolean => {
     return true;
   };
-  const onSubmit = (): boolean => {
+  const onSubmit = async (): Promise<boolean> => {
     if (imageFiles[zero].error) {
       return onError();
     }
-    createMiniSurveyPollPost(miniSurveyState);
-    console.log(miniSurveyState);
+    setLoading(true);
+    const data: IGetPosts.IErrorData = await createMiniSurveyPollPost(
+      miniSurveyState,
+    );
+    setLoading(false);
+    setErrorData({
+      error: data.error,
+      message: data.message,
+      errorCode: data.errorCode,
+    });
     return true;
   };
 
@@ -175,6 +190,29 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
     <>
       <div className="space-y-4">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit, onError)}>
+          {loading ? (
+            'loading...'
+          ) : (
+            <>
+              {errorData.error ? (
+                <Misc
+                  type={MiscType.Error}
+                  msg="failed to create your post :("
+                  subMsg={errorData.message}
+                />
+              ) : (
+                <>
+                  {errorData.message && (
+                    <Misc
+                      type={MiscType.Success}
+                      msg="success"
+                      subMsg={errorData.message}
+                    />
+                  )}
+                </>
+              )}
+            </>
+          )}
           <TextInput
             id="id_123181239"
             value={miniSurveyState.postCaption.value}
