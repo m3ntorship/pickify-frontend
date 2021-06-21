@@ -1,6 +1,33 @@
 import { PostsApi } from '@m3ntorship/posts-client';
 import type { Configuration } from '@m3ntorship/posts-client/dist/client';
+import type { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
+import { getUser } from '../logic/userId/userId';
 
-export const postsApi = new PostsApi({
-  basePath: 'http://localhost:4010',
-} as Configuration);
+const postsApiAxiosInstance = axios.create({});
+
+interface AxiosConfig {
+  headers: { Authorization: string };
+}
+
+// postsApiAxiosInstance.interceptors.response.use(
+//   ({ data }) => data, // eslint-disable-line @typescript-eslint/no-unsafe-return
+//   async (e) => Promise.reject(e),
+// );
+
+postsApiAxiosInstance.interceptors.request.use(
+  (config: AxiosRequestConfig) => {
+    const { headers } = config as AxiosConfig;
+    headers.Authorization = `Bearer ${getUser()}`;
+    return config;
+  },
+  async (e: Error) => Promise.reject(e),
+);
+
+export const postsApi = new PostsApi(
+  {
+    basePath: 'https://pickify-posts-be-dev.pickify.net/api',
+  } as Configuration,
+  undefined,
+  postsApiAxiosInstance,
+);

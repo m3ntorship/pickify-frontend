@@ -32,9 +32,9 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
 
   const addOptionHandler = (): void => {
     if (setOptionsInGroup) {
-      setOptionsInGroup([...options, { id: randomId(), value: '' }], groupId);
+      setOptionsInGroup([...options, { id: randomId(), body: '' }], groupId);
     } else if (setOptions) {
-      setOptions([...options, { id: randomId(), value: '' }]);
+      setOptions([...options, { id: randomId(), body: '' }]);
     }
   };
   const deleteOptionHandler = (optionId: string): void => {

@@ -13,10 +13,10 @@ declare namespace IOptionGroups {
   export interface IProps {
     groups: {
       id: string;
-      groupName: string;
+      name: string;
       options: {
         id: string;
-        value: string;
+        body: string;
       }[];
     }[];
     register?: UseFormRegister<FieldValues>;

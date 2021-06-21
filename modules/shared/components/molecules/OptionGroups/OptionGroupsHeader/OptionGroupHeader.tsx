@@ -53,7 +53,7 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
                   ...miniSurveyState,
                   groups: miniSurveyState.groups.map((group) => {
                     if (group.id === groupId) {
-                      return { ...group, groupName };
+                      return { ...group, name: groupName };
                     }
                     return group;
                   }),

@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { TargetElement } from '@testing-library/user-event';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import TabGroup from './TabGroup';
 import { tabGroupData } from './data';
 
@@ -14,7 +15,7 @@ describe('TabGroup', () => {
     render(
       <TabGroup
         tabsData={tabGroupData()}
-        checkedValue="Text Poll"
+        checkedValue={EPostType.TextPoll}
         changeValHandler={changeValHandler}
       />,
     );
@@ -36,7 +37,7 @@ describe('TabGroup', () => {
     render(
       <TabGroup
         tabsData={tabGroupData()}
-        checkedValue="Text Poll"
+        checkedValue={EPostType.TextPoll}
         changeValHandler={changeValHandler}
       />,
     );
@@ -59,7 +60,7 @@ describe('TabGroup', () => {
     render(
       <TabGroup
         tabsData={tabGroupData()}
-        checkedValue="Text Poll"
+        checkedValue={EPostType.TextPoll}
         changeValHandler={changeValHandler}
       />,
     );

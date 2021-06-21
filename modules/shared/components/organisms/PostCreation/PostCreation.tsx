@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
+import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
 import TextPollCreation from '../TextPollCreation/TextPollCreation';
 import CreateImagePoll from '../CreateImagePoll/CreateImagePoll';
 import MiniSurveyPollCreation from '../MiniSurveyPollCreation/MiniSurveyPollCreation';
+import type { IPostCreation } from './IPostCreation';
 
-const PostCreation: FC = (): ReactElement => {
-  const [checkedValue, setCheckedValue] = useState('Text Poll');
+const PostCreation: FC<IPostCreation.IProps> = ({
+  createTextPollPost,
+  createMiniSurveyPollPost,
+}): ReactElement => {
+  const [checkedValue, setCheckedValue] = useState<string>('text poll');
 
   const handleChangeTabsValue = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -23,9 +28,17 @@ const PostCreation: FC = (): ReactElement => {
         onTabChangeHandler={handleChangeTabsValue}
       />
 
-      {checkedValue === 'Text Poll' && <TextPollCreation />}
-      {checkedValue === 'Image Poll' && <CreateImagePoll />}
-      {checkedValue === 'Mini survey' && <MiniSurveyPollCreation />}
+      {checkedValue === PostCreationRequestTypeEnum.TextPoll && (
+        <TextPollCreation createTextPollPost={createTextPollPost} />
+      )}
+      {checkedValue === PostCreationRequestTypeEnum.ImagePoll && (
+        <CreateImagePoll />
+      )}
+      {checkedValue === PostCreationRequestTypeEnum.MiniSurvey && (
+        <MiniSurveyPollCreation
+          createMiniSurveyPollPost={createMiniSurveyPollPost}
+        />
+      )}
     </div>
   );
 };

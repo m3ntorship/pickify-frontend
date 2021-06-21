@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
+import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
@@ -13,7 +14,9 @@ import FileUploader from '../../atoms/FileUploader/FileUploader';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
 
-const MiniSurveyPollCreation: FC = (): ReactElement => {
+const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
+  createMiniSurveyPollPost,
+}): ReactElement => {
   const randomId = (): string => {
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;
@@ -21,15 +24,15 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
   const zero = 0;
   const [miniSurveyState, setMiniSurveyState] =
     useState<IMiniSurveyPollCreation.IState>({
-      postType: 'MiniSurvey Poll',
+      postType: PostCreationRequestTypeEnum.MiniSurvey,
       postCaption: { id: 'id_123181239', value: '' },
       groups: [
         {
           id: randomId(),
-          groupName: '',
+          name: '',
           options: [
-            { id: randomId(), value: '' },
-            { id: randomId(), value: '' },
+            { id: randomId(), body: '' },
+            { id: randomId(), body: '' },
           ],
         },
       ],
@@ -65,6 +68,7 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
     if (imageFiles[zero].error) {
       return onError();
     }
+    createMiniSurveyPollPost(miniSurveyState);
     console.log(miniSurveyState);
     return true;
   };
@@ -123,10 +127,10 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
         ...miniSurveyState.groups,
         {
           id: randomId(),
-          groupName: '',
+          name: '',
           options: [
-            { id: randomId(), value: '' },
-            { id: randomId(), value: '' },
+            { id: randomId(), body: '' },
+            { id: randomId(), body: '' },
           ],
         },
       ],

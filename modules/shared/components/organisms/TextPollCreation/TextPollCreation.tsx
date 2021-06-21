@@ -1,39 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
+import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
 import OptionGroup from '../../molecules/OptionGroup/OptionGroup';
-import type { IOptionGroup } from '../../molecules/OptionGroup/types/IOptionGroup';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { ITextPollCreation } from './types/ITextPollCreation';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
 
-const TextPollCreation: FC = (): ReactElement => {
+const TextPollCreation: FC<ITextPollCreation.IProps> = ({
+  createTextPollPost,
+}): ReactElement => {
   const randomId = (): string => {
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;
   };
 
-  const [options, setOptions] = useState<IOptionGroup.IOption[]>([]);
+  const firstGroup = 0;
+
+  const [options, setOptions] = useState<ITextPollCreation.IOption[]>([]);
 
   // const [captionInputVal, setCaptionInputVal] = useState<string>('');
   const [textPollState, setTextPollState] = useState<ITextPollCreation.IState>({
-    postType: 'Text Poll',
+    postType: PostCreationRequestTypeEnum.TextPoll,
     postCaption: { id: 'id_123181239', value: '' },
-    options,
+    groups: [{ name: 'ay 7aga', options }],
     hiddenIdentity: false,
     privacy: 'friends',
   });
 
   useEffect(() => {
     setOptions([
-      { id: randomId(), value: '' },
-      { id: randomId(), value: '' },
+      { id: randomId(), body: '' },
+      { id: randomId(), body: '' },
     ]);
   }, []);
 
   useEffect(() => {
-    setTextPollState({ ...textPollState, options });
+    setTextPollState({
+      ...textPollState,
+      groups: [{ name: 'ay 7aga', options }],
+    });
   }, [options]);
 
   const {
@@ -47,6 +54,7 @@ const TextPollCreation: FC = (): ReactElement => {
     shouldUnregister: true,
   });
   const onSubmit = (): boolean => {
+    createTextPollPost(textPollState);
     console.log(textPollState);
     return true;
   };
@@ -103,15 +111,20 @@ const TextPollCreation: FC = (): ReactElement => {
           onBlur={(e: FocusEvent<HTMLFormElement>): void => {
             setTextPollState({
               ...textPollState,
-              options: textPollState.options.map(
-                (option: IOptionGroup.IOption): IOptionGroup.IOption => {
-                  if (option.id === e.target.id) {
-                    const inputValue = e.target.value as string;
-                    return { ...option, value: inputValue };
-                  }
-                  return option;
+              groups: [
+                {
+                  name: 'ay 7aga',
+                  options: textPollState.groups[firstGroup].options.map(
+                    (option) => {
+                      if (option.id === e.target.id) {
+                        const inputValue = e.target.value as string;
+                        return { ...option, body: inputValue };
+                      }
+                      return option;
+                    },
+                  ),
                 },
-              ),
+              ],
             });
           }}
           onSubmit={handleSubmit(onSubmit, onError)}
@@ -157,7 +170,7 @@ const TextPollCreation: FC = (): ReactElement => {
           />
           <OptionGroup
             groupId="0"
-            options={textPollState.options}
+            options={textPollState.groups[firstGroup].options}
             setOptions={setOptions}
             variantMessage={variantMessage}
             register={register}

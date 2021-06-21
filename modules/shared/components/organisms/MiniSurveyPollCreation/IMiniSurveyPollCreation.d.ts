@@ -1,4 +1,7 @@
 declare namespace IMiniSurveyPollCreation {
+  export interface IProps {
+    createMiniSurveyPollPost: (state: IState) => void;
+  }
   export interface IState {
     postType: string;
     postCaption: {
@@ -7,10 +10,10 @@ declare namespace IMiniSurveyPollCreation {
     };
     groups: {
       id: string;
-      groupName: string;
+      name: string;
       options: {
         id: string;
-        value: string;
+        body: string;
       }[];
     }[];
     hiddenIdentity: boolean;

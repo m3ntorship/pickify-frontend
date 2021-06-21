@@ -5,7 +5,7 @@ import DeleteIcon from '../../icons/delete.svg';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { ITextDefault } from './types/TextDefault';
-import type { IOptionGroup } from '../OptionGroup/types/IOptionGroup';
+import type { ITextPollCreation } from '../../organisms/TextPollCreation/types/ITextPollCreation';
 
 const TextDefault: FC<ITextDefault.IProps> = ({
   id,
@@ -24,19 +24,25 @@ const TextDefault: FC<ITextDefault.IProps> = ({
 }): ReactElement => {
   const [inputVal, setInputVal] = useState('');
   const validationRegister = { ...register };
+  const firstGroup = 0;
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputVal(e.target.value);
     if (setTextPollState) {
       setTextPollState({
         ...textPollState,
-        options: textPollState?.options.map(
-          (option: IOptionGroup.IOption): IOptionGroup.IOption => {
-            if (option.id === id) {
-              return { ...option, value: e.target.value };
-            }
-            return option;
+        groups: [
+          {
+            name: 'ay 7aga 2',
+            options: textPollState?.groups[firstGroup].options.map(
+              (option: ITextPollCreation.IOption) => {
+                if (option.id === e.target.id) {
+                  return { ...option, body: e.target.value };
+                }
+                return option;
+              },
+            ),
           },
-        ),
+        ],
       });
     }
     if (setMiniSurveyState && miniSurveyState) {
@@ -47,7 +53,7 @@ const TextDefault: FC<ITextDefault.IProps> = ({
             ...group,
             options: group.options.map((option) => {
               if (option.id === id) {
-                return { ...option, value: e.target.value };
+                return { ...option, body: e.target.value };
               }
               return option;
             }),
@@ -91,14 +97,19 @@ const TextDefault: FC<ITextDefault.IProps> = ({
             if (setTextPollState) {
               setTextPollState({
                 ...textPollState,
-                options: textPollState?.options.map(
-                  (option: IOptionGroup.IOption) => {
-                    if (option.id === id) {
-                      return { ...option, value: '' };
-                    }
-                    return option;
+                groups: [
+                  {
+                    name: 'ay 7aga 2',
+                    options: textPollState?.groups[firstGroup].options.map(
+                      (option) => {
+                        if (option.id === id) {
+                          return { ...option, body: '' };
+                        }
+                        return option;
+                      },
+                    ),
                   },
-                ),
+                ],
               });
             }
             if (setMiniSurveyState && miniSurveyState) {
@@ -109,7 +120,7 @@ const TextDefault: FC<ITextDefault.IProps> = ({
                     ...group,
                     options: group.options.map((option) => {
                       if (option.id === id) {
-                        return { ...option, value: '' };
+                        return { ...option, body: '' };
                       }
                       return option;
                     }),
