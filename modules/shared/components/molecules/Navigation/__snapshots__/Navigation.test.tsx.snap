@@ -108,6 +108,7 @@ exports[`Navigation should render Navigation component with filled avatar and Ve
             <img
               className="absolute w-full h-full"
               decoding="async"
+              onClick={[Function]}
               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
               style={
                 Object {
@@ -213,12 +214,14 @@ exports[`Navigation should render Navigation component with notFilled avatar and
             className="absolute w-full h-full"
             data-file-name="SvgAnonymous"
             height={24}
+            onClick={[Function]}
             width={24}
           />
           <svg
             className="absolute w-full h-full"
             data-file-name="SvgNotFilled"
             height={24}
+            onClick={[Function]}
             width={24}
           />
         </div>

@@ -8,6 +8,7 @@ exports[`Avatar renders with large size and anonymous variant 1`] = `
     className="absolute w-full h-full"
     data-file-name="SvgAnonymous"
     height={56}
+    onClick={[Function]}
     width={56}
   />
 </div>
@@ -57,6 +58,7 @@ exports[`Avatar renders with large size and filled variant 1`] = `
     <img
       className="absolute w-full h-full"
       decoding="async"
+      onClick={[Function]}
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
         Object {
@@ -94,12 +96,14 @@ exports[`Avatar renders with large size and not filled variant 1`] = `
     className="absolute w-full h-full"
     data-file-name="SvgAnonymous"
     height={56}
+    onClick={[Function]}
     width={56}
   />
   <svg
     className="absolute w-full h-full"
     data-file-name="SvgNotFilled"
     height={56}
+    onClick={[Function]}
     width={56}
   />
 </div>
@@ -113,6 +117,7 @@ exports[`Avatar renders with medium size and anonymous variant 1`] = `
     className="absolute w-full h-full"
     data-file-name="SvgAnonymous"
     height={40}
+    onClick={[Function]}
     width={40}
   />
 </div>
@@ -162,6 +167,7 @@ exports[`Avatar renders with medium size and filled variant 1`] = `
     <img
       className="absolute w-full h-full"
       decoding="async"
+      onClick={[Function]}
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
         Object {
@@ -199,12 +205,14 @@ exports[`Avatar renders with medium size and not filled variant 1`] = `
     className="absolute w-full h-full"
     data-file-name="SvgAnonymous"
     height={40}
+    onClick={[Function]}
     width={40}
   />
   <svg
     className="absolute w-full h-full"
     data-file-name="SvgNotFilled"
     height={40}
+    onClick={[Function]}
     width={40}
   />
 </div>
@@ -218,6 +226,7 @@ exports[`Avatar renders with small size and anonymous variant 1`] = `
     className="absolute w-full h-full"
     data-file-name="SvgAnonymous"
     height={32}
+    onClick={[Function]}
     width={32}
   />
 </div>
@@ -267,6 +276,7 @@ exports[`Avatar renders with small size and filled variant 1`] = `
     <img
       className="absolute w-full h-full"
       decoding="async"
+      onClick={[Function]}
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       style={
         Object {
@@ -304,12 +314,14 @@ exports[`Avatar renders with small size and not filled variant 1`] = `
     className="absolute w-full h-full"
     data-file-name="SvgAnonymous"
     height={32}
+    onClick={[Function]}
     width={32}
   />
   <svg
     className="absolute w-full h-full"
     data-file-name="SvgNotFilled"
     height={32}
+    onClick={[Function]}
     width={32}
   />
 </div>

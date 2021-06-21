@@ -50,6 +50,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
         <img
           className="absolute w-full h-full"
           decoding="async"
+          onClick={[Function]}
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -228,12 +229,14 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
         className="absolute w-full h-full"
         data-file-name="SvgAnonymous"
         height={40}
+        onClick={[Function]}
         width={40}
       />
       <svg
         className="absolute w-full h-full"
         data-file-name="SvgNotFilled"
         height={40}
+        onClick={[Function]}
         width={40}
       />
     </div>
