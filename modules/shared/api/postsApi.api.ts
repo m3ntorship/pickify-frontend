@@ -3,12 +3,9 @@ import type { Configuration } from '@m3ntorship/posts-client/dist/client';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
 import { getUser } from '../logic/userId/userId';
+import type { IGetPosts } from './IGetPosts';
 
 const postsApiAxiosInstance = axios.create({});
-
-interface AxiosConfig {
-  headers: { Authorization: string };
-}
 
 // postsApiAxiosInstance.interceptors.response.use(
 //   ({ data }) => data, // eslint-disable-line @typescript-eslint/no-unsafe-return
@@ -17,7 +14,7 @@ interface AxiosConfig {
 
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    const { headers } = config as AxiosConfig;
+    const { headers } = config as IGetPosts.IAxiosConfig;
     headers.Authorization = `Bearer ${getUser()}`;
     return config;
   },

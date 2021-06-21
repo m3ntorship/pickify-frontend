@@ -4,6 +4,7 @@ import {
   MiniSurveyView,
   ImagePollView,
 } from '@modules/shared/components/organisms';
+import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
 import styles from '../pages/home-page.module.css';
@@ -13,19 +14,19 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     <div className={styles.posts}>
       {data.posts.map((post) => {
         switch (post.type) {
-          case 'text poll':
+          case EPostType.TextPoll:
             return (
               <div key={post.id} className={styles.posts}>
                 <TextPollView post={post} />
               </div>
             );
-          case 'mini_survey':
+          case EPostType.MiniSurvey:
             return (
               <div key={post.id} className={styles.posts}>
                 <MiniSurveyView post={post} />
               </div>
             );
-          case 'image poll':
+          case EPostType.ImagePoll:
             return (
               <div key={post.id} className={styles.posts}>
                 <ImagePollView post={post} />

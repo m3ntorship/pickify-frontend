@@ -11,8 +11,8 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({ post }): ReactElement => {
       <PostViewHeader
         id={post.id}
         date={new Date(post.created_at)}
-        name={post.user.name}
-        profilePic={post.user.profile_pic}
+        name="ahmed"
+        profilePic=""
         isHidden={post.is_hidden}
         handlePostOptionsIconClick={(): boolean => {
           return true;
