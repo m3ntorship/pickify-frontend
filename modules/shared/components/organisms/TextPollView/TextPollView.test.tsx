@@ -1,19 +1,10 @@
-import type { ReactElement } from 'react';
-import type { Story } from '@storybook/react';
+import React from 'react';
+import * as renderer from 'react-test-renderer';
 import TextPollView from './TextPollView';
-import type { ITextPollView } from './ITextPollView';
+import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 
-export default {
-  title: 'organisms/TextPollView',
-  component: TextPollView,
-};
-
-const Template: Story<ITextPollView.IProps> = (args): ReactElement => (
-  <TextPollView {...args} />
-);
-export const Default = Template.bind({});
-Default.args = {
-  post: {
+describe('ITextPollView', () => {
+  const mockedPost: IPostFeed.IPost = {
     caption: 'nalyzing Delaware Frozen',
     id: '03644270-7171-4147-b5a1-4233ff547f7ddda',
     created_at: '2021-05-24T23:10:24.114Z',
@@ -51,5 +42,9 @@ Default.args = {
         },
       ],
     },
-  },
-};
+  };
+  it('should render ITextPollView Compnent with the mocked data', () => {
+    const tree = renderer.create(<TextPollView post={mockedPost} />);
+    expect(tree).toMatchSnapshot();
+  });
+});
