@@ -58,7 +58,7 @@ const Option: FC<IOption.IProps> = ({
   };
   return (
     <div className="flex items-center" id={`option-${id}-box`}>
-      <DragIcon className="mr-3" />
+      <DragIcon className="mr-3" data-testid="dragOptionBtn" />
       <span className="flex-1">
         <TextInput
           id={id}

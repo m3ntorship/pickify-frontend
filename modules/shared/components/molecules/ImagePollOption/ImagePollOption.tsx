@@ -12,12 +12,13 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
   imgCaptionLetter,
 }): ReactElement => {
   return (
-    <div className="relative w-auto">
+    <div className="relative w-auto" data-testid="image-poll-option">
       <Image
         src={imageUrl}
-        layout="fill"
-        objectFit="contain"
-        className="w-full h-full"
+        layout="responsive"
+        className="rounded-md object-cover"
+        width={300}
+        height={300}
       />
       <div className="absolute bottom-4 right-4">
         <VoteIcon isOneImageVote={isOneImageVote} />

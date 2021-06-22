@@ -1,40 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import Image from 'next/image';
-import ImageUpload from '../../atoms/ImageUpload';
+import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
+import FileUploader from '../../atoms/FileUploader/FileUploader';
 import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import type { IMiniSurveyCreationBody } from './IMiniSurveyCreationBody';
 
 const MiniSurveyCreationBody: FC<IMiniSurveyCreationBody.IProps> = ({
   handleImageEdit,
 }): ReactElement => {
-  const [imageFile, setImageFile] = useState<File[]>([]);
+  const [imageFiles, setImageFiles] = useState<IUploadedFiles.IImagesData[]>([
+    {
+      error: true,
+      file: new File(['hello'], 'hello.png', { type: 'image/png' }),
+      message: '',
+      imgCaption: '',
+      imgId: 'id_1212312',
+    },
+  ]);
   const [imageFileUrl, setImageFileURl] = useState<string>('');
-  const imageUplaodChangeHandler = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ): void => {
-    const limitOfUplaodingFilesNumber = 1;
-    if (
-      e.target.files?.length !== undefined &&
-      e.target.files.length === limitOfUplaodingFilesNumber
-    ) {
-      setImageFile([...e.target.files]);
-    } else {
-      alert('You can upload up to 1 image');
-    }
-  };
+
   useEffect(() => {
     const zero = 0;
-    if (imageFile[zero]) {
+    if (!imageFiles[zero].error) {
       const fileReader = new FileReader();
-      fileReader.readAsDataURL(imageFile[zero]);
-      fileReader.addEventListener('load', (e: ProgressEvent<FileReader>) => {
-        if (typeof e.target?.result === 'string') {
-          setImageFileURl(e.target.result);
-        }
-      });
+      fileReader.readAsDataURL(imageFiles[zero].file as Blob);
+      fileReader.onload = (): void => {
+        setImageFileURl(fileReader.result as string);
+      };
     }
-  }, [imageFile]);
+  }, [imageFiles]);
 
   return (
     <div className="px-4">
@@ -56,7 +51,11 @@ const MiniSurveyCreationBody: FC<IMiniSurveyCreationBody.IProps> = ({
           />
         </div>
       ) : (
-        <ImageUpload onChangeInputHandler={imageUplaodChangeHandler} />
+        <FileUploader
+          files={imageFiles}
+          setFiles={setImageFiles}
+          maxFiles={1}
+        />
       )}
     </div>
   );

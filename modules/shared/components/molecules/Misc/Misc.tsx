@@ -18,12 +18,14 @@ const Misc: FC<IMisc.IProps> = ({
   });
 
   return (
-    <div className={boxWrapper}>
+    <div className={boxWrapper} data-testid="misc-box">
       {type === EMisc.MiscType.Success ? <SuccessIcon /> : null}
       {type === EMisc.MiscType.Error ? <ErrorIcon /> : null}
       <div className={styles['msg-box']}>
         <h3 className={styles.msg}>{msg}</h3>
-        <p className={styles['sub-msg']}>{subMsg}</p>
+        <p className={styles['sub-msg']} data-testid="sub-msg">
+          {subMsg}
+        </p>
       </div>
     </div>
   );

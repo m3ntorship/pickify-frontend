@@ -1,15 +1,15 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import TextPollView from './TextPollView';
-import type { ITextPollView } from './ITextPollView';
+import ImagePollView from './ImagePollView';
+import type { IImagePollView } from './IImagePollView';
 
 export default {
-  title: 'organisms/TextPollView',
-  component: TextPollView,
+  title: 'organisms/ImagePollView',
+  component: ImagePollView,
 };
 
-const Template: Story<ITextPollView.IProps> = (args): ReactElement => (
-  <TextPollView {...args} />
+const Template: Story<IImagePollView.IProps> = (args): ReactElement => (
+  <ImagePollView {...args} />
 );
 export const Default = Template.bind({});
 Default.args = {
@@ -25,7 +25,7 @@ Default.args = {
     },
     type: 'text poll',
     is_hidden: false,
-    media: [{ url: 'notUsed' }],
+    media: [{ url: 'http://placeimg.com/640/480/nature?t=1622888620897' }],
     options_groups: {
       groups: [
         {
