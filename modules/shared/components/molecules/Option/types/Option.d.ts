@@ -8,7 +8,7 @@ import type { IMiniSurveyPollCreation } from '../../../organisms/MiniSurveyPollC
 import type { ITextPollCreation } from '../../../organisms/TextPollCreation/types/ITextPollCreation';
 import type * as ETextInput from '../../../atoms/TextInputs/types/ETextInput';
 
-declare namespace ITextDefault {
+declare namespace IOption {
   export interface IProps {
     id: string;
     deletable?: boolean;
@@ -31,4 +31,4 @@ declare namespace ITextDefault {
     >;
   }
 }
-export { ITextDefault };
+export { IOption };

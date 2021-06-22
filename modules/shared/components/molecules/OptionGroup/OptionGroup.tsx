@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import PlusCircle from '../../icons/plusCircle.svg';
-import TextDefault from '../TextDefault/TextDefault';
+import Option from '../Option/Option';
 import type { IOptionGroup } from './types/IOptionGroup';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
@@ -54,7 +54,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
         <div className="flex flex-col space-y-2" data-testid="optionsWrapper">
           {options.map((option, index) => (
             <div key={option.id}>
-              <TextDefault
+              <Option
                 textPollState={textPollState}
                 setTextPollState={setTextPollState}
                 miniSurveyState={miniSurveyState}
