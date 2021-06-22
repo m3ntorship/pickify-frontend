@@ -1,7 +1,7 @@
-import type { IGetPosts } from '@modules/shared/api/IGetPosts';
-import { postsApi } from '@modules/shared/api/postsApi.api';
-import type { ITextPollCreation } from '@modules/shared/components/organisms/TextPollCreation/types/ITextPollCreation';
 import type { AxiosError } from 'axios';
+import type { IGetPosts } from '../../shared/api/IGetPosts';
+import { postsApi } from '../../shared/api/postsApi.api';
+import type { ITextPollCreation } from '../../shared/components/organisms/TextPollCreation/types/ITextPollCreation';
 
 export const createPollPost = async (
   post: ITextPollCreation.IState,
