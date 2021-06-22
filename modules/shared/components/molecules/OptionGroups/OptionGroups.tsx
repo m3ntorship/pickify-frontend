@@ -49,6 +49,7 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
       <div className="flex flex-col bg-grey-bg p-4 rounded-md ">
         <button
           type="button"
+          data-testid="addOptionGroupBtn"
           className="text-dark-grey cursor-pointer flex items-center self-start focus:outline-none"
           onClick={addOptionGroup}
         >

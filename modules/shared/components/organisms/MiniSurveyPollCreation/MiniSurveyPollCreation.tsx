@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
+import type { IUploadedFiles } from '../../../logic/uploadedFiles/IUploadedFiles';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
