@@ -93,9 +93,9 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
           </span>
           <span
             className="date"
-            title="25/05/2021 01:10:24"
+            title="31/12/2020 02:00:00"
           >
-            23 days ago
+            a day ago
           </span>
         </div>
       </div>

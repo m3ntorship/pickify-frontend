@@ -3,11 +3,13 @@ import * as renderer from 'react-test-renderer';
 import TextPollView from './TextPollView';
 import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 
+jest.mock('../../../logic/formatDate/getNow');
+
 describe('ITextPollView', () => {
   const mockedPost: IPostFeed.IPost = {
     caption: 'nalyzing Delaware Frozen',
     id: '03644270-7171-4147-b5a1-4233ff547f7ddda',
-    created_at: '2021-05-24T23:10:24.114Z',
+    created_at: '2020-12-31T00:00:00.000Z',
     user: {
       name: 'Ahmed Ayoub',
       id: '465456',
