@@ -41,10 +41,13 @@ describe('createPollPost', () => {
 
   it('createOptionsGroup should return true of we passed a valid id and false if not', () => {
     const firstCall = 0;
+    const secondCall = 1;
     const createOptionsGroup = jest.fn((id: string): boolean => !!id);
 
     createOptionsGroup('1');
+    createOptionsGroup('');
 
     expect(createOptionsGroup.mock.results[firstCall].value).toEqual(true);
+    expect(createOptionsGroup.mock.results[secondCall].value).toEqual(false);
   });
 });
