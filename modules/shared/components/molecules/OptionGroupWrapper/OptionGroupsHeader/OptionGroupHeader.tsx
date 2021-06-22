@@ -38,6 +38,7 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
             {groupIndex !== zero && (
               <button
                 type="button"
+                data-testid="removeGroup-button"
                 className="h-4 w-4 bg-error-shd7 focus:outline-none rounded-full flex justify-center items-center mr-xs"
                 onClick={deleteGroupHandler}
               >
@@ -46,6 +47,7 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
             )}
             <button
               type="button"
+              data-testid="addGroupName-button"
               className="h-4 w-4 bg-success-shd7 focus:outline-none rounded-full flex justify-center items-center"
               onClick={(): void => {
                 setIsGroupNameAdded(true);
@@ -66,7 +68,10 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
         </>
       ) : (
         <>
-          <span className="text-dark-grey font-normal text-sm">
+          <span
+            className="text-dark-grey font-normal text-sm"
+            data-testid="inputName-text"
+          >
             {groupName}
           </span>
           <ThreeDotsIcon
@@ -74,6 +79,7 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
             onClick={(): void => {
               setIsGroupNameAdded(false);
             }}
+            data-testid="three-dots"
           />
         </>
       )}

@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TextDefault from './TextDefault';
+import Option from './Option';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
 describe('TextDefault', () => {
   it('should render TextInput with dragOptionBtn and deleteOptionBtn', () => {
     render(
-      <TextDefault
+      <Option
         id="0"
         letter="A"
         variants={ETextInput.Variants.Default}
@@ -25,7 +25,7 @@ describe('TextDefault', () => {
     const mockDeleteFunction = jest.fn();
     const numberOfCalls = 1;
     render(
-      <TextDefault
+      <Option
         id="0"
         letter="A"
         variants={ETextInput.Variants.Default}
