@@ -1,5 +1,5 @@
 .layout-parent {
-  @apply md:w-2/3 mx-auto mt-12 flex justify-between;
+  @apply mt-12 p-4 md:p-0 flex justify-center;
 }
 
 .posts-feed {

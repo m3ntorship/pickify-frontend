@@ -16,45 +16,49 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
   const { profilePic } = props;
   const avatarVariant = profilePic ? 'filled' : 'notFilled';
   return (
-    <nav className={styles.navigation}>
-      <div className={styles['links-container']}>
-        <div className={styles['home-links']}>
-          <div>
-            <h1 className={styles['brand-name']}>Pickify</h1>
-          </div>
-          <ul>
-            <li>
-              <HomeIcon />
-            </li>
-            <li>
-              <FriendsIcon />
-            </li>
-            <li>
-              <BillIcon />
-            </li>
-            <li>
-              <MenuIcon className="md:hidden" />
-            </li>
-          </ul>
+    <nav className={styles['navigation-wrapper']}>
+      <div className={styles.navigation}>
+        <div className="brand-name-container">
+          <h1 className={styles['brand-name']}>Pickify</h1>
         </div>
-        <ul className={styles['menu-links']}>
-          <li>
-            <Divider length="16px" type={DividerType.Vertical} />
-          </li>
-          <li>
-            <HelpIcon />
-          </li>
-          <li>
-            <HappyIcon />
-          </li>
-          <li>
-            <Avatar
-              size="extra-small"
-              variant={avatarVariant}
-              profilePic={profilePic}
-            />
-          </li>
-        </ul>
+        <div className={styles['nav-links-container']}>
+          <div className={styles['home-nav-links']}>
+            <ul>
+              <li>
+                <HomeIcon />
+              </li>
+              <li>
+                <FriendsIcon />
+              </li>
+              <li>
+                <BillIcon />
+              </li>
+              <li>
+                <MenuIcon className={styles['menu-icon']} />
+              </li>
+            </ul>
+          </div>
+          <div className={styles['user-nav-links']}>
+            <ul>
+              <li>
+                <Divider length="16px" type={DividerType.Vertical} />
+              </li>
+              <li>
+                <HelpIcon />
+              </li>
+              <li>
+                <HappyIcon />
+              </li>
+              <li>
+                <Avatar
+                  size="extra-small"
+                  variant={avatarVariant}
+                  profilePic={profilePic}
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
   );
