@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
-import type { IGetPosts } from '../../../api/IGetPosts';
+import { useApiAddPostCreation } from '../../../hooks/useApiAddPostCreation/useApiAddPostCreation';
 import OptionGroup from '../../molecules/OptionGroup/OptionGroup';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
@@ -18,18 +18,9 @@ const TextPollCreation: FC<ITextPollCreation.IProps> = ({
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;
   };
-
   const firstGroup = 0;
-
   const [options, setOptions] = useState<ITextPollCreation.IOption[]>([]);
-  const [errorData, setErrorData] = useState<IGetPosts.IErrorData>({
-    error: false,
-    message: '',
-    errorCode: 0,
-  });
-  const [loading, setLoading] = useState<boolean>(false);
 
-  // const [captionInputVal, setCaptionInputVal] = useState<string>('');
   const [textPollState, setTextPollState] = useState<ITextPollCreation.IState>({
     postType: PostCreationRequestTypeEnum.TextPoll,
     postCaption: { id: 'id_123181239', value: '' },
@@ -37,6 +28,11 @@ const TextPollCreation: FC<ITextPollCreation.IProps> = ({
     hiddenIdentity: false,
     privacy: 'friends',
   });
+
+  const { loading, errorData, apiPostCreation } = useApiAddPostCreation(
+    textPollState,
+    createTextPollPost,
+  );
 
   useEffect(() => {
     setOptions([
@@ -63,14 +59,7 @@ const TextPollCreation: FC<ITextPollCreation.IProps> = ({
     shouldUnregister: true,
   });
   const onSubmit = async (): Promise<void> => {
-    setLoading(true);
-    const data: IGetPosts.IErrorData = await createTextPollPost(textPollState);
-    setLoading(false);
-    setErrorData({
-      error: data.error,
-      message: data.message,
-      errorCode: data.errorCode,
-    });
+    await apiPostCreation();
   };
   const onError = (): boolean => {
     return true;

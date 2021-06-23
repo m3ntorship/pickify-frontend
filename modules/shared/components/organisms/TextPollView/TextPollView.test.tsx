@@ -1,5 +1,6 @@
 import React from 'react';
 import * as renderer from 'react-test-renderer';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import TextPollView from './TextPollView';
 import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 
@@ -16,7 +17,7 @@ describe('ITextPollView', () => {
       profile_pic:
         'https://i.pinimg.com/736x/10/61/c8/1061c85ea0dfd3a6655b4b3b6e71ade9.jpg',
     },
-    type: 'text poll',
+    type: EPostType.TextPoll,
     is_hidden: false,
     media: [{ url: 'notUsed' }],
     options_groups: {

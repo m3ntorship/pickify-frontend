@@ -11,6 +11,7 @@ declare namespace ITextPollCreation {
     groups: IGroups[];
     hiddenIdentity: boolean;
     privacy: string;
+    image?: string;
   }
 
   export interface IOption {
@@ -19,6 +20,7 @@ declare namespace ITextPollCreation {
   }
 
   export interface IGroups {
+    id?: string;
     name: string;
     options: IOption[];
   }

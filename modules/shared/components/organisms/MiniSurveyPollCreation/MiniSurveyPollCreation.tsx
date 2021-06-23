@@ -3,6 +3,7 @@ import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
 import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
+import { useApiAddPostCreation } from '../../../hooks/useApiAddPostCreation/useApiAddPostCreation';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
@@ -13,7 +14,6 @@ import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import FileUploader from '../../atoms/FileUploader/FileUploader';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
-import type { IGetPosts } from '../../../api/IGetPosts';
 
 const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
   createMiniSurveyPollPost,
@@ -51,12 +51,12 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
       imgId: 'id_1212312',
     },
   ]);
-  const [errorData, setErrorData] = useState<IGetPosts.IErrorData>({
-    error: false,
-    message: '',
-    errorCode: 0,
-  });
-  const [loading, setLoading] = useState<boolean>(false);
+
+  const { loading, errorData, apiPostCreation } = useApiAddPostCreation(
+    miniSurveyState,
+    createMiniSurveyPollPost,
+  );
+
   const {
     register,
     handleSubmit,
@@ -75,16 +75,7 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
     if (imageFiles[zero].error) {
       return onError();
     }
-    setLoading(true);
-    const data: IGetPosts.IErrorData = await createMiniSurveyPollPost(
-      miniSurveyState,
-    );
-    setLoading(false);
-    setErrorData({
-      error: data.error,
-      message: data.message,
-      errorCode: data.errorCode,
-    });
+    await apiPostCreation();
     return true;
   };
 
@@ -152,7 +143,7 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
     });
   };
 
-  const deleteGroupHandler = (groupId: string): void => {
+  const deleteGroupHandler = (groupId?: string): void => {
     setMiniSurveyState({
       ...miniSurveyState,
       groups: miniSurveyState.groups.filter((group) => group.id !== groupId),

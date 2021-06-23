@@ -5,21 +5,22 @@ import Option from '../Option/Option';
 import type { IOptionGroup } from './types/IOptionGroup';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
-const OptionGroup: FC<IOptionGroup.IProps> = ({
-  groupId,
-  // onChange,
-  options,
-  setOptions,
-  setOptionsInGroup,
-  register,
-  formSubmitted,
-  reset,
-  variantMessage,
-  textPollState,
-  setTextPollState,
-  miniSurveyState,
-  setMiniSurveyState,
-}): ReactElement => {
+const OptionGroup: FC<IOptionGroup.IProps> = (props): ReactElement => {
+  const {
+    groupId = '1',
+    // onChange,
+    options,
+    setOptions,
+    setOptionsInGroup,
+    register,
+    formSubmitted,
+    reset,
+    variantMessage,
+    textPollState,
+    setTextPollState,
+    miniSurveyState,
+    setMiniSurveyState,
+  } = props;
   const randomId = (): string => {
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;

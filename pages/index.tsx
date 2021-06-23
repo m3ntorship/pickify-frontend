@@ -23,6 +23,7 @@ import { HomePage } from '@modules/HomePage';
 
 const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   console.log(data);
+
   return <HomePage data={data} />;
 };
 

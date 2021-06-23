@@ -18,10 +18,10 @@ Default.args = {
   groups: [
     {
       id: '0',
-      groupName: '',
+      name: '',
       options: [
-        { id: '0', value: '' },
-        { id: '1', value: '' },
+        { id: '0', body: '' },
+        { id: '1', body: '' },
       ],
     },
   ],

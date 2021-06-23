@@ -16,7 +16,7 @@ declare namespace IOptionGroup {
   }
   export interface IProps {
     variantMessage: (id: string) => ETextInput.Variants;
-    groupId: string;
+    groupId?: string;
     options: IOption[];
     groupName?: string;
     setOptions?: React.Dispatch<React.SetStateAction<IOption[]>>;
