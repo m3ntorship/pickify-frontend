@@ -15,72 +15,13 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
         <div
           className="wrapper medium"
         >
-          <div
-            style={
-              Object {
-                "boxSizing": "border-box",
-                "display": "inline-block",
-                "margin": 0,
-                "maxWidth": "100%",
-                "overflow": "hidden",
-                "position": "relative",
-              }
-            }
-          >
-            <div
-              style={
-                Object {
-                  "boxSizing": "border-box",
-                  "display": "block",
-                  "maxWidth": "100%",
-                }
-              }
-            >
-              <img
-                alt=""
-                aria-hidden={true}
-                role="presentation"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-                style={
-                  Object {
-                    "border": "none",
-                    "display": "block",
-                    "margin": 0,
-                    "maxWidth": "100%",
-                    "padding": 0,
-                  }
-                }
-              />
-            </div>
-            <img
-              className="absolute w-full h-full"
-              decoding="async"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              style={
-                Object {
-                  "border": "none",
-                  "bottom": 0,
-                  "boxSizing": "border-box",
-                  "display": "block",
-                  "height": 0,
-                  "left": 0,
-                  "margin": "auto",
-                  "maxHeight": "100%",
-                  "maxWidth": "100%",
-                  "minHeight": "100%",
-                  "minWidth": "100%",
-                  "objectFit": undefined,
-                  "objectPosition": undefined,
-                  "padding": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                  "visibility": "hidden",
-                  "width": 0,
-                }
-              }
-            />
-          </div>
+          <svg
+            className="absolute w-full h-full"
+            data-file-name="SvgNotFilled"
+            height={40}
+            onClick={[Function]}
+            width={40}
+          />
         </div>
         <div
           className="user-wrapper"
@@ -89,7 +30,7 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             className="name"
             data-testid="name"
           >
-            Ahmed Ayoub
+            ayoub
           </span>
           <span
             className="date"
@@ -121,57 +62,6 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
     >
       nalyzing Delaware Frozen
     </h3>
-  </div>
-  <div>
-    <div
-      style={
-        Object {
-          "boxSizing": "border-box",
-          "display": "block",
-          "margin": 0,
-          "overflow": "hidden",
-          "position": "relative",
-        }
-      }
-    >
-      <div
-        style={
-          Object {
-            "boxSizing": "border-box",
-            "display": "block",
-            "paddingTop": "75%",
-          }
-        }
-      />
-      <img
-        className="rounded-md"
-        decoding="async"
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        style={
-          Object {
-            "border": "none",
-            "bottom": 0,
-            "boxSizing": "border-box",
-            "display": "block",
-            "height": 0,
-            "left": 0,
-            "margin": "auto",
-            "maxHeight": "100%",
-            "maxWidth": "100%",
-            "minHeight": "100%",
-            "minWidth": "100%",
-            "objectFit": undefined,
-            "objectPosition": undefined,
-            "padding": 0,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-            "visibility": "hidden",
-            "width": 0,
-          }
-        }
-      />
-    </div>
   </div>
   <div
     className="space-y-4"

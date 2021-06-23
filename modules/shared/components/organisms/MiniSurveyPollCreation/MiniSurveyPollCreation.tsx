@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
 import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
+import type { IUploadedFiles } from '../../../logic/uploadedFiles/IUploadedFiles';
 import { useApiAddPostCreation } from '../../../hooks/useApiAddPostCreation/useApiAddPostCreation';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
