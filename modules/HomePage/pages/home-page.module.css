@@ -1,5 +1,5 @@
 .layout-parent {
-  @apply mt-12 p-4 md:p-0 flex justify-center;
+  @apply mt-12 px-4 md:px-2 flex justify-center;
 }
 
 .posts-feed {
