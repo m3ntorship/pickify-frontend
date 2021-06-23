@@ -150,6 +150,7 @@ module.exports = {
         '8xl': '8.8125rem', // 141px
         '18xl': '18.5rem', // 296px
         '19xl': '19rem', // 304px
+        '21xl': '21.18rem', // 339px
         '28xl': '28.5rem', // 456px
         '29xl': '29.5rem', // 472px
         '30xl': '30rem', // 480px
@@ -158,6 +159,7 @@ module.exports = {
         '35xl': '35.25rem', // 564px
         '37xl': '37.5rem', // 600px
         '39xl': '39.5rem', // 632px
+        '60xl': '60rem', // 960px
       },
       maxWidth: {
         '12xvl': '12rem', // 192px
