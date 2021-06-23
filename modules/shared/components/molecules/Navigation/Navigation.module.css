@@ -1,31 +1,32 @@
+.navigation-wrapper {
+  @apply p-4 md:px-2 bg-white shadow-navshd flex justify-center;
+}
+
 .navigation {
-  @apply py-4 bg-white shadow-navshd;
+  @apply w-39xl md:w-60xl flex justify-between items-center;
 }
 
-.links-container {
-  @apply w-2/3 m-auto flex justify-between items-center;
-}
-
-.home-links {
-  @apply md:w-11/12 flex justify-between items-center;
-}
-
-.home-links ul {
-  @apply flex items-center mr-6 last:mr-0;
-}
-
-.home-links ul li {
-  @apply mr-6;
+.nav-links-container {
+  @apply flex;
 }
 
 .brand-name {
   @apply font-bold text-basev sm:mr-5;
 }
 
-.navigation .menu-links {
+.home-nav-links ul {
+  @apply flex flex-row;
+}
+
+.home-nav-links ul .menu-icon {
+  @apply md:hidden;
+}
+
+.user-nav-links ul {
   @apply hidden md:flex md:flex-row;
 }
 
-.navigation .menu-links li {
+.user-nav-links li,
+.home-nav-links li {
   @apply mr-6 last:mr-0;
 }
