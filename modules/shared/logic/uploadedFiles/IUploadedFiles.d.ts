@@ -1,8 +1,6 @@
 declare namespace IUploadedFiles {
   export interface IImagesData {
-    file: File | string;
-    imgId: string;
-    imgCaption: string;
+    file: File;
     error: boolean;
     message: string;
   }

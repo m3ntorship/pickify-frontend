@@ -1,4 +1,3 @@
-import { randId } from '../createImagePoll/createImagePoll';
 import type { IUploadedFiles } from './IUploadedFiles';
 
 export const validateUploadedImages = (
@@ -6,7 +5,6 @@ export const validateUploadedImages = (
 ): IUploadedFiles.IImagesData[] => {
   const firstIndex = 0;
   const lastLetter = 5;
-  const maxFileSizeInByte = 2_000_000;
 
   const uploadedFiles = Array.prototype.map.call(files, (file: File) => {
     if (file.type.substr(firstIndex, lastLetter) !== 'image') {
@@ -16,11 +14,7 @@ export const validateUploadedImages = (
       };
     }
 
-    if (file.size > maxFileSizeInByte) {
-      return { error: true, message: `Max size is 2 MB!!` };
-    }
-
-    return { imgId: `${randId()}`, file, error: false, imgCaption: '' };
+    return { file, error: false };
   }) as IUploadedFiles.IImagesData[];
 
   return uploadedFiles;

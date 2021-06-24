@@ -8,11 +8,12 @@ import { validateUploadedImages } from '../../../logic/uploadedFiles/uploadedFil
 
 const FileUploader: FC<IFileUploader.IProps> = ({
   register,
-  files,
-  setFiles,
+  onFileSuccess,
+  onFileError,
+  onMaxFilesError,
   maxFiles,
 }): ReactElement => {
-  const [isError, setIsError] = useState<boolean>(false);
+  const [isFileError, setIsFileError] = useState(false);
 
   const ImageUploaderRegister = register && {
     ...register('image', {
@@ -21,42 +22,45 @@ const FileUploader: FC<IFileUploader.IProps> = ({
   };
 
   const uploadFilesHandler = (e: ChangeEvent<HTMLInputElement>): void => {
-    const filrstIndex = 0;
+    const firstIndex = 0;
 
-    const removedInvalidImages = files.filter((image) => !image.error);
-    const validatedFiles = validateUploadedImages(e.target.files);
-    const updatedImages = [...removedInvalidImages, ...validatedFiles].slice(
-      filrstIndex,
-      maxFiles,
-    );
+    const validatedImages = validateUploadedImages(e.target.files);
 
-    setFiles(updatedImages);
-
-    validatedFiles.map((file) => {
-      if (file.error) {
-        setIsError(true);
-      } else {
-        setIsError(false);
+    if (validatedImages.length > maxFiles) {
+      onMaxFilesError({
+        error: true,
+        message: `cannot upload more than ${maxFiles} images`,
+      });
+      setIsFileError(true);
+    } else {
+      const validImages = validatedImages.filter((image) => !image.error);
+      const invalidImages = validatedImages.filter((image) => image.error);
+      if (validImages.length > firstIndex) {
+        onFileSuccess(validImages);
+        setIsFileError(false);
       }
-      return file;
-    });
+      if (invalidImages.length > firstIndex) {
+        onFileError(invalidImages);
+        setIsFileError(true);
+      }
+    }
 
     ImageUploaderRegister?.onChange(e);
   };
 
   const inputFileClasses = classNames(styles['container-for-image-upload'], {
-    'border-accent bg-grey-shd7': !isError,
-    'border-error bg-error-shd7': isError,
+    'border-accent bg-grey-shd7': !isFileError,
+    'border-error bg-error-shd7': isFileError,
   });
 
   const textClasses = classNames(styles['text-for-image-upload'], {
-    'text-accent': !isError,
-    'text-error': isError,
+    'text-accent': !isFileError,
+    'text-error': isFileError,
   });
 
   const svgClasses = classNames(styles['svg-media-icon'], {
-    'fill-accent': !isError,
-    'fill-error': isError,
+    'fill-accent': !isFileError,
+    'fill-error': isFileError,
   });
 
   return (

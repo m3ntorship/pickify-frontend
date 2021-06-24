@@ -3,5 +3,21 @@
 }
 
 .button {
-  @apply absolute top-4 right-4 w-8 h-8 rounded-full bg-white flex justify-center items-center outline-none focus:outline-none;
+  @apply absolute top-4 right-4 w-8 h-8 rounded-full bg-white flex justify-center items-center outline-none focus:outline-none z-20;
+}
+
+.layout {
+  @apply absolute inset-0 bg-white opacity-95 flex justify-center items-center;
+}
+
+.error-box {
+  @apply z-10 absolute inset-0;
+}
+
+.image-container {
+  @apply relative w-full h-full mb-1 overflow-hidden;
+}
+
+.image {
+  @apply object-cover rounded-t-md w-full h-full;
 }

@@ -14,6 +14,7 @@ import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import FileUploader from '../../atoms/FileUploader/FileUploader';
 import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
+import type { ICreateImagePoll } from '../CreateImagePoll/ICreateImagePoll';
 
 const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
   createMiniSurveyPollPost,
@@ -42,20 +43,18 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
       image: '',
     });
 
-  const [imageFiles, setImageFiles] = useState<IUploadedFiles.IImagesData[]>([
-    {
-      error: true,
-      file: new File(['hello'], 'hello.png', { type: 'image/png' }),
-      message: '',
-      imgCaption: '',
-      imgId: 'id_1212312',
-    },
-  ]);
-
   const { loading, errorData, apiPostCreation } = useApiAddPostCreation(
     miniSurveyState,
     createMiniSurveyPollPost,
   );
+  const [validImages, setValidImages] = useState<
+    ICreateImagePoll.ValidImages[]
+  >([]);
+  const [invalidImages, setInvalidImages] = useState<
+    ICreateImagePoll.InvalidImages[]
+  >([]);
+  const [maxFilesError, setMaxFilesError] =
+    useState<ICreateImagePoll.InvalidImages>({ error: false, message: '' });
 
   const {
     register,
@@ -68,11 +67,50 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
     shouldUnregister: true,
   });
 
+  const onUploadValidImages = (images: IUploadedFiles.IImagesData[]): void => {
+    const newValidImages = images.map((img) => {
+      const imageData = {
+        imgId: randomId(),
+        imgCaption: '',
+        file: img.file,
+      };
+      return imageData;
+    });
+
+    setValidImages([...validImages, ...newValidImages]);
+    setInvalidImages([]);
+    setMaxFilesError({ error: false, message: '' });
+  };
+  const onUploadInvalidImages = (
+    images: IUploadedFiles.IImagesData[],
+  ): void => {
+    const newInvalidImages = images.map((img) => {
+      const imageData = {
+        imgId: randomId(),
+        error: img.error,
+        message: img.message,
+      };
+      return imageData;
+    });
+
+    setInvalidImages([...invalidImages, ...newInvalidImages]);
+    setMaxFilesError({ error: false, message: '' });
+  };
+  const onUploadMaxLimitImages = (maxLimitImage: {
+    error: boolean;
+    message: string;
+  }): void => {
+    setMaxFilesError({
+      error: maxLimitImage.error,
+      message: maxLimitImage.message,
+    });
+  };
+
   const onError = (): boolean => {
     return true;
   };
   const onSubmit = async (): Promise<boolean> => {
-    if (imageFiles[zero].error) {
+    if (validImages.length !== zero) {
       return onError();
     }
     await apiPostCreation();
@@ -165,9 +203,9 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
     });
   };
   useEffect(() => {
-    if (!imageFiles[zero].error) {
+    if (validImages.length !== zero) {
       const fileReader = new FileReader();
-      fileReader.readAsDataURL(imageFiles[zero].file as Blob);
+      fileReader.readAsDataURL(validImages[zero].file as File);
       fileReader.onload = (): void => {
         setMiniSurveyState({
           ...miniSurveyState,
@@ -175,7 +213,7 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
         });
       };
     }
-  }, [imageFiles]);
+  }, [validImages]);
 
   return (
     <>
@@ -261,19 +299,35 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
                 />
               </div>
             ) : (
-              imageFiles[zero].error && (
+              maxFilesError.error && (
                 <Misc
                   msg="Image couldn’t be uploaded!"
-                  subMsg={imageFiles[zero].message}
+                  subMsg={maxFilesError.message}
                   type={MiscType.Error}
                 />
               )
             )}
+            {invalidImages.length ? (
+              <div>
+                {invalidImages.map((imgData) => {
+                  return (
+                    <Misc
+                      key={imgData.imgId}
+                      msg="Image couldn’t be uploaded!"
+                      subMsg={imgData.message}
+                      type={MiscType.Error}
+                    />
+                  );
+                })}
+              </div>
+            ) : (
+              ''
+            )}
             {!miniSurveyState.image && (
               <FileUploader
-                register={register}
-                files={imageFiles}
-                setFiles={setImageFiles}
+                onFileSuccess={onUploadValidImages}
+                onFileError={onUploadInvalidImages}
+                onMaxFilesError={onUploadMaxLimitImages}
                 maxFiles={1}
               />
             )}
