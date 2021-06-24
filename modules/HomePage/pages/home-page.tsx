@@ -1,9 +1,13 @@
-import React from 'react';
-import type { FC, ReactElement } from 'react';
+import React, { useState } from 'react';
+import type { FC, ReactElement, MouseEvent } from 'react';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import Navigation from '@modules/shared/components/molecules/Navigation/Navigation';
 import Widget from '@modules/shared/components/atoms/Widget/Widget';
 import PostCreation from '@modules/shared/components/organisms/PostCreation/PostCreation';
+import Modal from '@modules/shared/components/organisms/Modal/Modal';
+import TextInput from '@modules/shared/components/atoms/TextInputs/TextInput';
+import * as ETextInput from '@modules/shared/components/atoms/TextInputs/types/ETextInput';
+import Avatar from '@modules/shared/components/atoms/Avatar/Avatar';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts';
 
@@ -13,7 +17,7 @@ interface WidgetData {
 }
 
 const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  const firstIndex = 0;
+  const [showModal, setShowModal] = useState(false);
   const widgetData: WidgetData[] = [
     {
       id: '1',
@@ -32,15 +36,43 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     },
   ];
 
+  const showModalHandler = (): void => {
+    setShowModal(true);
+  };
+
+  const closeModalHandler = (e: MouseEvent<HTMLDivElement>): void => {
+    e.stopPropagation();
+    setShowModal(false);
+  };
+
   return (
-    <section className="bg-grey-bg2 min-h-screen">
+    <section className="bg-grey-bg2 min-h-screen relative">
       <Navigation />
       <section className={styles['layout-parent']}>
         <div className={styles['posts-feed']}>
-          <div className={styles.widget}>
-            <Widget>{widgetData[firstIndex].content}</Widget>
+          <div className={styles['input-creation']}>
+            <div className="flex">
+              <div className="mr-4">
+                <Avatar size="medium" variant="notFilled" />
+              </div>
+              <div className="w-full" aria-hidden onClick={showModalHandler}>
+                <TextInput
+                  variants={ETextInput.Variants.Default}
+                  inputType={ETextInput.InputType.Default}
+                  id="1"
+                  onChange={(): boolean => false}
+                  value=""
+                  placeholder="What do you want to ask about?"
+                  onClick={(): boolean => false}
+                />
+              </div>
+            </div>
           </div>
-          <PostCreation />
+          {showModal && (
+            <Modal closeModalHandler={closeModalHandler}>
+              <PostCreation />
+            </Modal>
+          )}
           <Posts data={data} />
         </div>
         <div className={styles.widgets}>
