@@ -12,7 +12,10 @@ exports[`imageCaption snapshots should render caption with text (Black T-shirt) 
   <div
     className="captionDivider "
   />
-  <span>
+  <span
+    className="image-caption"
+    title="Black T-shirt"
+  >
     Black T-shirt
   </span>
 </div>
@@ -28,7 +31,10 @@ exports[`imageCaption snapshots should render caption without letter and divider
   <div
     className="captionDivider hidden"
   />
-  <span>
+  <span
+    className="image-caption"
+    title="Black T-shirt"
+  >
     Black T-shirt
   </span>
 </div>

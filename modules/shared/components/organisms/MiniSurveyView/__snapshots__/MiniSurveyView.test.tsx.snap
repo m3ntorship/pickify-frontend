@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ITextPollView should render ITextPollView Compnent with the mocked data 1`] = `
+<div
+  className="bg-white p-m shadow-soft rounded-md space-y-4"
+  id="03644270-7171-4147-b5a1-4233ff547f7ddda"
+>
+  <div>
+    <div
+      className="flex justify-between items-start pb-s"
+    >
+      <div
+        className="outer-wrapper"
+      >
+        <div
+          className="wrapper medium"
+        >
+          <div
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "overflow": "hidden",
+                "position": "relative",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "maxWidth": "100%",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                role="presentation"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+                style={
+                  Object {
+                    "border": "none",
+                    "display": "block",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "padding": 0,
+                  }
+                }
+              />
+            </div>
+            <img
+              className="absolute w-full h-full"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                Object {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "visibility": "hidden",
+                  "width": 0,
+                }
+              }
+            />
+          </div>
+        </div>
+        <div
+          className="user-wrapper"
+        >
+          <span
+            className="name"
+            data-testid="name"
+          >
+            Ahmed Ayoub
+          </span>
+          <span
+            className="date"
+            title="31/12/2020 00:00:00"
+          >
+            a day ago
+          </span>
+        </div>
+      </div>
+      <svg
+        className="fill-grey cursor-pointer w-6 h-6"
+        data-file-name="SvgVerticalThreeDots"
+        data-testid="03644270-7171-4147-b5a1-4233ff547f7ddda"
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="bg-grey-shd6 h-px"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <div>
+    <h3
+      className="font-normal text-md"
+    >
+      nalyzing Delaware Frozen
+    </h3>
+  </div>
+  <div>
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "75%",
+          }
+        }
+      />
+      <img
+        className="rounded-md"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="space-y-4"
+  >
+    <div
+      className="space-y-2"
+    >
+      <div
+        className="text-dark-grey text-sm"
+      >
+        Group Name
+      </div>
+      <div
+        data-testid="option"
+      >
+        <button
+          className="btnBody"
+          data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
+          disabled={false}
+          id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="flex-container"
+          >
+            <span
+              className="letter"
+            >
+              a
+            </span>
+            <p
+              className="option"
+            >
+               
+              ali tramsy
+               
+            </p>
+            <span />
+          </span>
+        </button>
+      </div>
+      <div
+        data-testid="option"
+      >
+        <button
+          className="btnBody"
+          data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
+          disabled={false}
+          id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="flex-container"
+          >
+            <span
+              className="letter"
+            >
+              b
+            </span>
+            <p
+              className="option"
+            >
+               
+               ahmed essam
+               
+            </p>
+            <span />
+          </span>
+        </button>
+      </div>
+      <div
+        data-testid="option"
+      >
+        <button
+          className="btnBody"
+          data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
+          disabled={false}
+          id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="flex-container"
+          >
+            <span
+              className="letter"
+            >
+              c
+            </span>
+            <p
+              className="option"
+            >
+               
+               omar gamal
+               
+            </p>
+            <span />
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+  >
+    <span>
+       Vote to uncover the total number of voters 
+    </span>
+    <button
+      type="button"
+    >
+      <svg
+        data-file-name="SvgShare"
+      />
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,3 @@
+.image-poll-view {
+  @apply grid gap-x-2 gap-y-4;
+}

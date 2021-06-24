@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement } from 'react';
-// import Image from 'next/image';
+import classNames from 'classnames';
+import { useUpdatedImageData } from '../../../hooks/useUpdatedImageData/useUpdatedImageData';
+import { useUploadedFiles } from '../../../hooks/useUploadedFiles/useUploadedFiles';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
 import TextInput from '../../atoms/TextInputs/TextInput';
@@ -14,12 +16,35 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   letter,
   id,
   handleVerticalThreeDotsClick,
-  handleTextInputOnBlur,
-  error,
-  message,
+  imagesData,
+  setImagesData,
 }): ReactElement => {
-  const [url, setUrl] = useState<string>('');
   const [caption, setCaption] = useState<string>('');
+  const { error, message } = useUploadedFiles(file as File);
+  const url = useUpdatedImageData({
+    file,
+    imagesData,
+    setImagesData,
+    id,
+    caption,
+  });
+
+  useEffect(() => {
+    return (): void => {
+      const { type } = file as File;
+      if (!type) {
+        if (error) {
+          const filteredImage = imagesData.validImages.filter(
+            (image) => image.imgId !== id,
+          );
+          setImagesData({
+            ...imagesData,
+            validImages: filteredImage,
+          });
+        }
+      }
+    };
+  }, [imagesData]);
 
   const updateImgCaptionHandler = (
     e: React.FormEvent<HTMLInputElement>,
@@ -31,36 +56,20 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
     setCaption('');
   };
 
-  useEffect(() => {
-    if (!error) {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.addEventListener('load', (e) => {
-        setUrl(e.target?.result as string);
-      });
-    }
-  }, [file, error]);
-
-  if (error) {
-    return (
-      <Misc
-        msg="Image couldn’t be uploaded!"
-        subMsg={message}
-        type={MiscType.Error}
-      />
-    );
-  }
+  const imgClasses = classNames(styles.image, {
+    'filter blur-sm': error,
+  });
 
   return (
-    <div className={styles.container}>
-      <div className="relative w-full h-full mb-1">
+    <div className={styles.container} data-testid="uploaded-box">
+      <div className={styles['image-container']}>
         <img
-          src={`${url}`}
+          src={url}
           width={300}
           height={300}
-          className="object-cover rounded-t-md w-full h-full"
+          className={imgClasses}
           id={id}
-          alt={`${url}`}
+          alt="uploaded option"
         />
         <button
           type="button"
@@ -70,18 +79,31 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
         >
           <VerticalThreeDots className="fill-dark-grey" />
         </button>
+        {error ? (
+          <>
+            <div className={styles.layout} />
+            <div className={styles['error-box']}>
+              <Misc
+                msg="Image couldn’t be uploaded!"
+                subMsg={message}
+                type={MiscType.Error}
+              />
+            </div>
+          </>
+        ) : null}
       </div>
-      <TextInput
-        variants={ETextInput.Variants.Default}
-        inputType={ETextInput.InputType.Choices}
-        letter={letter}
-        id={id}
-        onChange={updateImgCaptionHandler}
-        onBlur={handleTextInputOnBlur}
-        value={caption}
-        placeholder="Type caption (optional)"
-        onClick={resetCaptionValueHandler}
-      />
+      {!error ? (
+        <TextInput
+          variants={ETextInput.Variants.Default}
+          inputType={ETextInput.InputType.Choices}
+          letter={letter}
+          id={id}
+          onChange={updateImgCaptionHandler}
+          value={caption}
+          placeholder="Type caption (optional)"
+          onClick={resetCaptionValueHandler}
+        />
+      ) : null}
     </div>
   );
 };
