@@ -10,6 +10,10 @@ declare namespace IGetPosts {
     errorCode: number;
     message: string;
   }
+
+  export interface IAxiosConfig {
+    headers: { Authorization: string };
+  }
 }
 
 export { IGetPosts };

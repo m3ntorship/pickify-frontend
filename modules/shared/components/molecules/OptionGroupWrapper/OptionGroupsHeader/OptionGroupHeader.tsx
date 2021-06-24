@@ -5,14 +5,17 @@ import XIcon from '../../../icons/xicon.svg';
 import CheckSmall from '../../../icons/checkMarkSmall.svg';
 import type { IOptionGroupHeader } from './IOptionGroupHeader';
 
-const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
-  groupIndex,
-  groupId,
-  deleteGroupHandler,
-  miniSurveyState,
-  setMiniSurveyState,
-  register,
-}): ReactElement => {
+const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = (
+  props,
+): ReactElement => {
+  const {
+    groupIndex,
+    groupId = '1',
+    deleteGroupHandler,
+    miniSurveyState,
+    setMiniSurveyState,
+    register,
+  } = props;
   const zero = 0;
   const [groupName, setGroupName] = useState<string>('');
   const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(false);
@@ -55,7 +58,7 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
                   ...miniSurveyState,
                   groups: miniSurveyState.groups.map((group) => {
                     if (group.id === groupId) {
-                      return { ...group, groupName };
+                      return { ...group, name: groupName };
                     }
                     return group;
                   }),

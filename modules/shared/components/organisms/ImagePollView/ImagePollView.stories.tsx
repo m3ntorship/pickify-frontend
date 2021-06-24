@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import ImagePollView from './ImagePollView';
 import type { IImagePollView } from './IImagePollView';
 
@@ -23,7 +24,7 @@ Default.args = {
       profile_pic:
         'https://i.pinimg.com/736x/10/61/c8/1061c85ea0dfd3a6655b4b3b6e71ade9.jpg',
     },
-    type: 'text poll',
+    type: EPostType.ImagePoll,
     is_hidden: false,
     media: [{ url: 'http://placeimg.com/640/480/nature?t=1622888620897' }],
     options_groups: {

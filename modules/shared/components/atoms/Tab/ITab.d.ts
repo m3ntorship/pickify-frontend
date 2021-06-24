@@ -1,3 +1,4 @@
+import type { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IRadio } from '../Radio/IRadio';
 
 declare namespace ITab {
@@ -7,7 +8,7 @@ declare namespace ITab {
   }
 
   export interface IData extends IRadio.IData {
-    value: 'Image Poll' | 'Mini survey' | 'Text Poll';
+    value: EPostType;
     checkedValue: string;
     svg: JSX.Element;
   }

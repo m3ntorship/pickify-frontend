@@ -12,11 +12,11 @@ import type { IMiniSurveyPollCreation } from '../../organisms/MiniSurveyPollCrea
 declare namespace IOptionGroups {
   export interface IProps {
     groups: {
-      id: string;
-      groupName: string;
+      id?: string;
+      name: string;
       options: {
         id: string;
-        value: string;
+        body: string;
       }[];
     }[];
     register?: UseFormRegister<FieldValues>;
@@ -26,7 +26,7 @@ declare namespace IOptionGroups {
     dirtyFields?: DeepMap<FieldValues, true>;
     variantMessage: (id: string) => ETextInput.Variants;
     addOptionGroup: () => void;
-    deleteOptionGroup: (groupId: string) => void;
+    deleteOptionGroup: (groupId?: string) => void;
     setOptionsInGroup?: (
       options: IOptionGroup.IOption[],
       groupId: string,

@@ -21,7 +21,7 @@ const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
           <Tab
             id={tab.id}
             svg={tab.svg}
-            value={tab.value}
+            value={tab.postType}
             changeValHandler={changeValHandler}
             checkedValue={checkedValue}
           />

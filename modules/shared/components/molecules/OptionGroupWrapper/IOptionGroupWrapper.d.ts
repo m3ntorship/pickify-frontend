@@ -4,16 +4,16 @@ import type { IMiniSurveyPollCreation } from '../../organisms/MiniSurveyPollCrea
 declare namespace IOptionGroupWrapper {
   export interface IProps {
     optionGroup: {
-      id: string;
-      groupName: string;
+      id?: string;
+      name: string;
       options: {
         id: string;
-        value: string;
+        body: string;
       }[];
     };
     index: number;
     register?: UseFormRegister<FieldValues>;
-    deleteOptionGroup: (groupId: string) => void;
+    deleteOptionGroup: (groupId?: string) => void;
     miniSurveyState: IMiniSurveyPollCreation.IState;
     setMiniSurveyState: React.Dispatch<
       React.SetStateAction<IMiniSurveyPollCreation.IState>
