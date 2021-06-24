@@ -8,7 +8,7 @@ const users: Record<string, string> = {
 
 const getUserId = (userName: string | null): string => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return users[userName!.toLocaleLowerCase()] || users.ahmed;
+  return users[userName!.toLowerCase()] || users.ahmed;
 };
 
 export const setUser = (): void => {
