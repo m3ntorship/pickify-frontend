@@ -55,11 +55,17 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
               <div className="mr-4">
                 <Avatar size="medium" variant="notFilled" />
               </div>
-              <div className="w-full" aria-hidden onClick={showModalHandler}>
+              <div className="relative flex w-full">
+                <div
+                  className="absolute h-full w-full z-10 cursor-pointer"
+                  onClick={showModalHandler}
+                  role="button"
+                  aria-hidden
+                />
                 <TextInput
                   variants={ETextInput.Variants.Default}
                   inputType={ETextInput.InputType.Default}
-                  id="1"
+                  id="id_1"
                   onChange={(): boolean => false}
                   value=""
                   placeholder="What do you want to ask about?"

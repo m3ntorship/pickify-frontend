@@ -15,6 +15,7 @@
 }
 
 .posts,
+.widget,
 .input-creation {
   @apply mb-6;
 }

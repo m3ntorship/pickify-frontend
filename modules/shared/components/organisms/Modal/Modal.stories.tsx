@@ -1,15 +1,15 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import PostPollModal from './Modal';
+import Modal from './Modal';
 import type { IModal } from './IModal';
 
 export default {
-  title: 'organisms/PostPollModal',
-  component: PostPollModal,
+  title: 'organisms/Modal',
+  component: Modal,
 };
 
 const Template: Story<IModal.IProps> = (args): ReactElement => (
-  <PostPollModal {...args} />
+  <Modal {...args} />
 );
 export const Default = Template.bind({});
 Default.args = {};
