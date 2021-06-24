@@ -7,7 +7,8 @@ const two = 2;
 const three = 3;
 describe('TextPollCreation', () => {
   it('should be able to write post Caption', () => {
-    render(<TextPollCreation />);
+    const mockedFn = jest.fn();
+    render(<TextPollCreation createTextPollPost={mockedFn} />);
     const postCaption = screen.getByPlaceholderText(
       'What do you want to ask about?',
     );
@@ -15,7 +16,8 @@ describe('TextPollCreation', () => {
     expect(postCaption).toHaveValue('this is post caption');
   });
   it('should be able to fill the default two options', () => {
-    render(<TextPollCreation />);
+    const mockedFn = jest.fn();
+    render(<TextPollCreation createTextPollPost={mockedFn} />);
     const option1 = screen.getByPlaceholderText('Option 1');
     const option2 = screen.getByPlaceholderText('Option 2');
     userEvent.type(option1, 'this is option1');
@@ -25,14 +27,16 @@ describe('TextPollCreation', () => {
   });
 
   it('should render as default of two options without delete option icon but if you click on addOptionBtn should render deleteOptionBtn', () => {
-    render(<TextPollCreation />);
+    const mockedFn = jest.fn();
+    render(<TextPollCreation createTextPollPost={mockedFn} />);
     expect(screen.queryByTestId('deleteOptionBtn')).not.toBeInTheDocument();
     userEvent.click(screen.getByTestId('addOptionBtn'));
     expect(screen.getAllByTestId('deleteOptionBtn')).toHaveLength(three);
   });
 
   it('click on the third deleteOptionBtn should delete this option and then component get back to default without deleteOptionBtns', () => {
-    render(<TextPollCreation />);
+    const mockedFn = jest.fn();
+    render(<TextPollCreation createTextPollPost={mockedFn} />);
     userEvent.click(screen.getByTestId('addOptionBtn'));
     expect(screen.getByPlaceholderText('Option 3')).toBeInTheDocument();
     // click on the third option delete button
