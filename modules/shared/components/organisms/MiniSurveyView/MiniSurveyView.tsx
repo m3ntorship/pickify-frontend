@@ -13,8 +13,8 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
       <PostViewHeader
         id={post.id}
         date={new Date(post.created_at)}
-        name="ayoub"
-        profilePic=""
+        name={post.user.name}
+        profilePic={post.user.profile_pic}
         isHidden={post.is_hidden}
         handlePostOptionsIconClick={(): boolean => {
           return true;
