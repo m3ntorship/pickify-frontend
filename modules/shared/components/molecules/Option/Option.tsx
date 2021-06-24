@@ -4,10 +4,10 @@ import DragIcon from '../../icons/drag.svg';
 import DeleteIcon from '../../icons/delete.svg';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
-import type { ITextDefault } from './types/TextDefault';
+import type { IOption } from './types/Option';
 import type { IOptionGroup } from '../OptionGroup/types/IOptionGroup';
 
-const TextDefault: FC<ITextDefault.IProps> = ({
+const Option: FC<IOption.IProps> = ({
   id,
   letter = '#',
   deletable = false,
@@ -58,7 +58,7 @@ const TextDefault: FC<ITextDefault.IProps> = ({
   };
   return (
     <div className="flex items-center" id={`option-${id}-box`}>
-      <DragIcon className="mr-3" />
+      <DragIcon className="mr-3" data-testid="dragOptionBtn" />
       <span className="flex-1">
         <TextInput
           id={id}
@@ -131,4 +131,4 @@ const TextDefault: FC<ITextDefault.IProps> = ({
   );
 };
 
-export default TextDefault;
+export default Option;

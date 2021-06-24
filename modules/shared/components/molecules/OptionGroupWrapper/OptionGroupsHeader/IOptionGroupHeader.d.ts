@@ -4,14 +4,14 @@ import type { IMiniSurveyPollCreation } from '@modules/shared/components/organis
 
 declare namespace IOptionGroupHeader {
   export interface IProps {
-    deleteGroupHandler: () => void;
+    deleteGroupHandler?: () => void;
     groupIndex: number;
     groupId: string;
     miniSurveyState: IMiniSurveyPollCreation.IState;
     setMiniSurveyState: React.Dispatch<
       React.SetStateAction<IMiniSurveyPollCreation.IState>
     >;
-    register: UseFormRegister<FieldValues> | undefined;
+    register?: UseFormRegister<FieldValues> | undefined;
   }
 }
 export { IOptionGroupHeader };

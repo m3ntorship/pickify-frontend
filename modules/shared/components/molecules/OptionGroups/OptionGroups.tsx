@@ -2,8 +2,8 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import PlusIcon from '../../icons/plus.svg';
 import OptionGroup from '../OptionGroup/OptionGroup';
-import OptionGroupsHeader from './OptionGroupsHeader/OptionGroupHeader';
 import type { IOptionGroups } from './IOptionGroups';
+import OptionGroupWrapper from '../OptionGroupWrapper/OptionGroupWrapper';
 
 const OptionGroups: FC<IOptionGroups.IProps> = ({
   groups,
@@ -22,19 +22,15 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
   return (
     <>
       {groups.map((optionGroup, index) => (
-        <div key={optionGroup.id} className="mb-2 bg-grey-bg p-4 rounded-md ">
-          <div className="flex justify-between pb-2">
-            <OptionGroupsHeader
-              groupIndex={index}
-              groupId={optionGroup.id}
-              deleteGroupHandler={(): void => {
-                deleteOptionGroup(optionGroup.id);
-              }}
-              miniSurveyState={miniSurveyState}
-              setMiniSurveyState={setMiniSurveyState}
-              register={register}
-            />
-          </div>
+        <OptionGroupWrapper
+          key={optionGroup.id}
+          optionGroup={optionGroup}
+          index={index}
+          register={register}
+          deleteOptionGroup={deleteOptionGroup}
+          miniSurveyState={miniSurveyState}
+          setMiniSurveyState={setMiniSurveyState}
+        >
           <OptionGroup
             groupId={optionGroup.id}
             options={optionGroup.options}
@@ -48,11 +44,12 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
             miniSurveyState={miniSurveyState}
             setMiniSurveyState={setMiniSurveyState}
           />
-        </div>
+        </OptionGroupWrapper>
       ))}
       <div className="flex flex-col bg-grey-bg p-4 rounded-md ">
         <button
           type="button"
+          data-testid="addOptionGroupBtn"
           className="text-dark-grey cursor-pointer flex items-center self-start focus:outline-none"
           onClick={addOptionGroup}
         >

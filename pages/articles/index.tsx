@@ -1,5 +1,5 @@
-import { ArticlesPage } from '@modules/articles';
 import type { ReactElement } from 'react';
+import { ArticlesPage } from '../../modules/articles';
 
 const Articles = (): ReactElement => <ArticlesPage />;
 
