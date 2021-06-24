@@ -7,8 +7,8 @@ import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 describe('OptionGroup molecule', () => {
   it('should render the exact options being passed', () => {
     const options = [
-      { id: '0', value: '' },
-      { id: '1', value: '' },
+      { id: '0', body: '' },
+      { id: '1', body: '' },
     ];
     render(
       <OptionGroup
@@ -25,8 +25,8 @@ describe('OptionGroup molecule', () => {
 
   it('click on add choice (option) button', () => {
     const options = [
-      { id: '0', value: '' },
-      { id: '1', value: '' },
+      { id: '0', body: '' },
+      { id: '1', body: '' },
     ];
     const onClick = jest.fn();
     render(

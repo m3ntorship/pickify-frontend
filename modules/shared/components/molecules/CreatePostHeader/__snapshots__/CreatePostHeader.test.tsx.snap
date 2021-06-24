@@ -50,6 +50,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
         <img
           className="absolute w-full h-full"
           decoding="async"
+          onClick={[Function]}
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -91,7 +92,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
           <label
             className="tab-default tab-checked"
             data-testid="tab"
-            data-value="Image Poll"
+            data-value="image poll"
             htmlFor="1"
           >
             <div
@@ -106,7 +107,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
                 name="tab groub"
                 onChange={[MockFunction]}
                 type="radio"
-                value="Image Poll"
+                value="image poll"
               />
               <div
                 className="radio_background unchecked size_small checkmark_small"
@@ -134,7 +135,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
           <label
             className="tab-default tab-unchecked"
             data-testid="tab"
-            data-value="Text Poll"
+            data-value="text poll"
             htmlFor="2"
           >
             <div
@@ -149,7 +150,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
                 name="tab groub"
                 onChange={[MockFunction]}
                 type="radio"
-                value="Text Poll"
+                value="text poll"
               />
               <div
                 className="radio_background unchecked size_small checkmark_small"
@@ -176,7 +177,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
           <label
             className="tab-default tab-unchecked"
             data-testid="tab"
-            data-value="Mini survey"
+            data-value="mini survey"
             htmlFor="3"
           >
             <div
@@ -191,7 +192,7 @@ exports[`CreatePostHeader should render three tabs with filled avatar 1`] = `
                 name="tab groub"
                 onChange={[MockFunction]}
                 type="radio"
-                value="Mini survey"
+                value="mini survey"
               />
               <div
                 className="radio_background unchecked size_small checkmark_small"
@@ -228,12 +229,14 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
         className="absolute w-full h-full"
         data-file-name="SvgAnonymous"
         height={40}
+        onClick={[Function]}
         width={40}
       />
       <svg
         className="absolute w-full h-full"
         data-file-name="SvgNotFilled"
         height={40}
+        onClick={[Function]}
         width={40}
       />
     </div>
@@ -251,7 +254,7 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
           <label
             className="tab-default tab-checked"
             data-testid="tab"
-            data-value="Image Poll"
+            data-value="image poll"
             htmlFor="1"
           >
             <div
@@ -266,7 +269,7 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
                 name="tab groub"
                 onChange={[MockFunction]}
                 type="radio"
-                value="Image Poll"
+                value="image poll"
               />
               <div
                 className="radio_background unchecked size_small checkmark_small"
@@ -294,7 +297,7 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
           <label
             className="tab-default tab-unchecked"
             data-testid="tab"
-            data-value="Text Poll"
+            data-value="text poll"
             htmlFor="2"
           >
             <div
@@ -309,7 +312,7 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
                 name="tab groub"
                 onChange={[MockFunction]}
                 type="radio"
-                value="Text Poll"
+                value="text poll"
               />
               <div
                 className="radio_background unchecked size_small checkmark_small"
@@ -336,7 +339,7 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
           <label
             className="tab-default tab-unchecked"
             data-testid="tab"
-            data-value="Mini survey"
+            data-value="mini survey"
             htmlFor="3"
           >
             <div
@@ -351,7 +354,7 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
                 name="tab groub"
                 onChange={[MockFunction]}
                 type="radio"
-                value="Mini survey"
+                value="mini survey"
               />
               <div
                 className="radio_background unchecked size_small checkmark_small"

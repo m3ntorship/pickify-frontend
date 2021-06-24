@@ -1,4 +1,3 @@
-import type { ITextPollCreation } from '@modules/shared/components/organisms/TextPollCreation/types/ITextPollCreation';
 import type {
   UseFormRegister,
   FieldValues,
@@ -6,17 +5,18 @@ import type {
   DeepMap,
   FieldError,
 } from 'react-hook-form';
-import type { IMiniSurveyPollCreation } from '@modules/shared/components/organisms/MiniSurveyPollCreation/IMiniSurveyPollCreation';
+import type { ITextPollCreation } from '../../../organisms/TextPollCreation/types/ITextPollCreation';
+import type { IMiniSurveyPollCreation } from '../../../organisms/MiniSurveyPollCreation/IMiniSurveyPollCreation';
 import type * as ETextInput from '../../../atoms/TextInputs/types/ETextInput';
 
 declare namespace IOptionGroup {
   export interface IOption {
     id: string;
-    value: string;
+    body: string;
   }
   export interface IProps {
     variantMessage: (id: string) => ETextInput.Variants;
-    groupId: string;
+    groupId?: string;
     options: IOption[];
     groupName?: string;
     setOptions?: React.Dispatch<React.SetStateAction<IOption[]>>;

@@ -5,21 +5,22 @@ import Option from '../Option/Option';
 import type { IOptionGroup } from './types/IOptionGroup';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
-const OptionGroup: FC<IOptionGroup.IProps> = ({
-  groupId,
-  // onChange,
-  options,
-  setOptions,
-  setOptionsInGroup,
-  register,
-  formSubmitted,
-  reset,
-  variantMessage,
-  textPollState,
-  setTextPollState,
-  miniSurveyState,
-  setMiniSurveyState,
-}): ReactElement => {
+const OptionGroup: FC<IOptionGroup.IProps> = (props): ReactElement => {
+  const {
+    groupId = '1',
+    // onChange,
+    options,
+    setOptions,
+    setOptionsInGroup,
+    register,
+    formSubmitted,
+    reset,
+    variantMessage,
+    textPollState,
+    setTextPollState,
+    miniSurveyState,
+    setMiniSurveyState,
+  } = props;
   const randomId = (): string => {
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;
@@ -32,9 +33,9 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
 
   const addOptionHandler = (): void => {
     if (setOptionsInGroup) {
-      setOptionsInGroup([...options, { id: randomId(), value: '' }], groupId);
+      setOptionsInGroup([...options, { id: randomId(), body: '' }], groupId);
     } else if (setOptions) {
-      setOptions([...options, { id: randomId(), value: '' }]);
+      setOptions([...options, { id: randomId(), body: '' }]);
     }
   };
   const deleteOptionHandler = (optionId: string): void => {

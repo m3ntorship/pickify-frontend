@@ -7,7 +7,12 @@ const one = 1;
 const two = 2;
 describe('MiniSurveyPollCreation', () => {
   it('should be able to write post Caption', () => {
-    render(<MiniSurveyPollCreation />);
+    const createMiniSurveyPollPost = jest.fn();
+    render(
+      <MiniSurveyPollCreation
+        createMiniSurveyPollPost={createMiniSurveyPollPost}
+      />,
+    );
     const postCaption = screen.getByPlaceholderText(
       'What do you want to ask about?',
     );
@@ -15,7 +20,12 @@ describe('MiniSurveyPollCreation', () => {
     expect(postCaption).toHaveValue('this is post caption');
   });
   it('should be able to fill the default two options in the first default group', () => {
-    render(<MiniSurveyPollCreation />);
+    const createMiniSurveyPollPost = jest.fn();
+    render(
+      <MiniSurveyPollCreation
+        createMiniSurveyPollPost={createMiniSurveyPollPost}
+      />,
+    );
     const option1 = screen.getByPlaceholderText('Option 1');
     const option2 = screen.getByPlaceholderText('Option 2');
     userEvent.type(option1, 'this is option1');
@@ -24,13 +34,23 @@ describe('MiniSurveyPollCreation', () => {
     expect(option2).toHaveValue('this is option2');
   });
   it('should add two goups after clicking "Add Option Group" button', () => {
-    render(<MiniSurveyPollCreation />);
+    const createMiniSurveyPollPost = jest.fn();
+    render(
+      <MiniSurveyPollCreation
+        createMiniSurveyPollPost={createMiniSurveyPollPost}
+      />,
+    );
     const addOptionGroupBtn = screen.getByTestId('addOptionGroupBtn');
     userEvent.click(addOptionGroupBtn);
     expect(screen.getAllByTestId('optionsWrapper').length).toBe(two);
   });
   it('should delete last group clicking delete group button', () => {
-    render(<MiniSurveyPollCreation />);
+    const createMiniSurveyPollPost = jest.fn();
+    render(
+      <MiniSurveyPollCreation
+        createMiniSurveyPollPost={createMiniSurveyPollPost}
+      />,
+    );
     const addOptionGroupBtn = screen.getByTestId('addOptionGroupBtn');
     userEvent.click(addOptionGroupBtn);
     const detetGroupBtn = screen.getByTestId('removeGroup-button');

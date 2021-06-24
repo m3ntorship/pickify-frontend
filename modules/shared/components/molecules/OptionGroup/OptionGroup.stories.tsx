@@ -17,7 +17,7 @@ export const Default = Template.bind({});
 Default.args = {
   groupId: '0',
   options: [
-    { id: 'test', value: '' },
-    { id: 'test1', value: '' },
+    { id: 'test', body: '' },
+    { id: 'test1', body: '' },
   ],
 };

@@ -9,7 +9,7 @@ export default {
   component: TabGroup,
   argTypes: {
     checkedValue: {
-      options: ['Image Poll', 'Text Poll', 'Mini survey'],
+      options: ['image poll', 'text poll', 'mini survey'],
       control: { type: 'select' },
     },
   },

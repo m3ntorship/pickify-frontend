@@ -1,13 +1,13 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import MiniSurveyViewOptions from '../../molecules/MiniSurveyViewOptions/MiniSurveyViewOptions';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IMiniSurveyView } from './IMiniSurveyView';
 
 const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
-  const indexOfImage = 0;
+  // const indexOfImage = 0;
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
@@ -23,7 +23,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
-      <div>
+      {/* <div>
         {post.media[indexOfImage].url && (
           <Image
             width={600}
@@ -33,7 +33,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
             className="rounded-md"
           />
         )}
-      </div>
+      </div> */}
       <MiniSurveyViewOptions optionsGroups={post.options_groups} />
       <PostViewFooter />
     </div>

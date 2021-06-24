@@ -6,7 +6,7 @@ declare namespace IOptionGroupHeader {
   export interface IProps {
     deleteGroupHandler?: () => void;
     groupIndex: number;
-    groupId: string;
+    groupId?: string;
     miniSurveyState: IMiniSurveyPollCreation.IState;
     setMiniSurveyState: React.Dispatch<
       React.SetStateAction<IMiniSurveyPollCreation.IState>

@@ -22,12 +22,14 @@ import { HomePage } from '@modules/HomePage';
 // const TempTextPollFeedWithError = withErrorHandler(TempTextPollFeed);
 
 const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
+  console.log(data);
+
   return <HomePage data={data} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const { data }: IPostFeed.IPosts = await getPosts();
+    const { data } = await getPosts();
     return {
       props: { data },
     };

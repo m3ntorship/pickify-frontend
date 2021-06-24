@@ -1,21 +1,27 @@
+import type { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
+import type { IGetPosts } from '../../../api/IGetPosts';
+
 declare namespace IMiniSurveyPollCreation {
+  export interface IProps {
+    createMiniSurveyPollPost: (state: IState) => Promise<IGetPosts.IErrorData>;
+  }
   export interface IState {
-    postType: string;
+    postType: PostCreationRequestTypeEnum;
     postCaption: {
       id: string;
       value: string;
     };
     groups: {
-      id: string;
-      groupName: string;
+      id?: string;
+      name: string;
       options: {
         id: string;
-        value: string;
+        body: string;
       }[];
     }[];
     hiddenIdentity: boolean;
     privacy: string;
-    image: string;
+    image?: string;
   }
 }
 export { IMiniSurveyPollCreation };

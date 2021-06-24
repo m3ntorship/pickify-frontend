@@ -1,5 +1,6 @@
 import React from 'react';
 import * as renderer from 'react-test-renderer';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import CreatePostHeader from './CreatePostHeader';
 import { tabGroupData } from '../TabGroup/data';
 
@@ -11,7 +12,7 @@ describe('CreatePostHeader', () => {
       .create(
         <CreatePostHeader
           tabsData={tabGroupData()}
-          checkedValue="Image Poll"
+          checkedValue={EPostType.ImagePoll}
           onTabChangeHandler={onTabChangeHandler}
           profilePic="https://images.unsplash.com/photo-1620577610365-86c411bad78d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
         />,
@@ -28,7 +29,7 @@ describe('CreatePostHeader', () => {
       .create(
         <CreatePostHeader
           tabsData={tabGroupData()}
-          checkedValue="Image Poll"
+          checkedValue={EPostType.ImagePoll}
           onTabChangeHandler={onTabChangeHandler}
         />,
       )

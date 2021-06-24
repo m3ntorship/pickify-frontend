@@ -10,6 +10,7 @@ import * as ETextInput from '@modules/shared/components/atoms/TextInputs/types/E
 import Avatar from '@modules/shared/components/atoms/Avatar/Avatar';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts';
+import { createPollPost } from '../api/createPollPost';
 
 interface WidgetData {
   content: string;
@@ -76,7 +77,10 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           </div>
           {showModal && (
             <Modal closeModalHandler={closeModalHandler}>
-              <PostCreation />
+              <PostCreation
+                createTextPollPost={createPollPost}
+                createMiniSurveyPollPost={createPollPost}
+              />
             </Modal>
           )}
           <Posts data={data} />

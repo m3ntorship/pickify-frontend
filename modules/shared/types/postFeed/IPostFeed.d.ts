@@ -9,7 +9,7 @@ declare namespace IPostFeed {
     created_at: string;
     is_hidden: boolean;
     id: string;
-    type: 'image poll' | 'mini_survey' | 'text poll';
+    type: EPostType;
     options_groups: { groups: IGroup[] };
     caption: string;
     user: IUser;

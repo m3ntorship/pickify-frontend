@@ -15,5 +15,5 @@
 }
 
 .wrapper {
-  @apply relative rounded-full overflow-hidden;
+  @apply relative rounded-full overflow-hidden cursor-pointer;
 }

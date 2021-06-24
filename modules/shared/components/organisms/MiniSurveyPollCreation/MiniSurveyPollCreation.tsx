@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
 import { useForm } from 'react-hook-form';
+import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
 import type { IUploadedFiles } from '../../../logic/uploadedFiles/IUploadedFiles';
+import { useApiAddPostCreation } from '../../../hooks/useApiAddPostCreation/useApiAddPostCreation';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
@@ -14,7 +16,9 @@ import Misc from '../../molecules/Misc/Misc';
 import { MiscType } from '../../molecules/Misc/types/EMisc';
 import type { ICreateImagePoll } from '../CreateImagePoll/ICreateImagePoll';
 
-const MiniSurveyPollCreation: FC = (): ReactElement => {
+const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
+  createMiniSurveyPollPost,
+}): ReactElement => {
   const randomId = (): string => {
     const randomHelper = 10000000000;
     return `id_${Math.round(Math.random() * randomHelper)}`;
@@ -22,15 +26,15 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
   const zero = 0;
   const [miniSurveyState, setMiniSurveyState] =
     useState<IMiniSurveyPollCreation.IState>({
-      postType: 'MiniSurvey Poll',
+      postType: PostCreationRequestTypeEnum.MiniSurvey,
       postCaption: { id: 'id_123181239', value: '' },
       groups: [
         {
           id: randomId(),
-          groupName: '',
+          name: '',
           options: [
-            { id: randomId(), value: '' },
-            { id: randomId(), value: '' },
+            { id: randomId(), body: '' },
+            { id: randomId(), body: '' },
           ],
         },
       ],
@@ -39,6 +43,10 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
       image: '',
     });
 
+  const { loading, errorData, apiPostCreation } = useApiAddPostCreation(
+    miniSurveyState,
+    createMiniSurveyPollPost,
+  );
   const [validImages, setValidImages] = useState<
     ICreateImagePoll.ValidImages[]
   >([]);
@@ -101,11 +109,11 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
   const onError = (): boolean => {
     return true;
   };
-  const onSubmit = (): boolean => {
+  const onSubmit = async (): Promise<boolean> => {
     if (validImages.length !== zero) {
       return onError();
     }
-    console.log(miniSurveyState);
+    await apiPostCreation();
     return true;
   };
 
@@ -163,17 +171,17 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
         ...miniSurveyState.groups,
         {
           id: randomId(),
-          groupName: '',
+          name: '',
           options: [
-            { id: randomId(), value: '' },
-            { id: randomId(), value: '' },
+            { id: randomId(), body: '' },
+            { id: randomId(), body: '' },
           ],
         },
       ],
     });
   };
 
-  const deleteGroupHandler = (groupId: string): void => {
+  const deleteGroupHandler = (groupId?: string): void => {
     setMiniSurveyState({
       ...miniSurveyState,
       groups: miniSurveyState.groups.filter((group) => group.id !== groupId),
@@ -211,6 +219,29 @@ const MiniSurveyPollCreation: FC = (): ReactElement => {
     <>
       <div className="space-y-4">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit, onError)}>
+          {loading ? (
+            'loading...'
+          ) : (
+            <>
+              {errorData.error ? (
+                <Misc
+                  type={MiscType.Error}
+                  msg="failed to create your post :("
+                  subMsg={errorData.message}
+                />
+              ) : (
+                <>
+                  {errorData.message && (
+                    <Misc
+                      type={MiscType.Success}
+                      msg="success"
+                      subMsg={errorData.message}
+                    />
+                  )}
+                </>
+              )}
+            </>
+          )}
           <TextInput
             id="id_123181239"
             value={miniSurveyState.postCaption.value}
