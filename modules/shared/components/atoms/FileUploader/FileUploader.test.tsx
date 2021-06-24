@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ImageUpload from './FileUploader';
+import FileUploader from './FileUploader';
 
-describe('ImageUpload', () => {
+describe('FileUploader', () => {
   it('should upload the 2 files successfully', () => {
     const firstFile = 0;
     const secondFile = 1;
@@ -19,7 +19,7 @@ describe('ImageUpload', () => {
     const onMaxFilesError = jest.fn();
 
     render(
-      <ImageUpload
+      <FileUploader
         onFileSuccess={onFileSuccess}
         onMaxFilesError={onMaxFilesError}
         onFileError={onFileError}
@@ -56,7 +56,7 @@ describe('ImageUpload', () => {
     const onMaxFilesError = jest.fn();
 
     render(
-      <ImageUpload
+      <FileUploader
         onFileSuccess={onFileSuccess}
         onMaxFilesError={onMaxFilesError}
         onFileError={onFileError}
@@ -89,7 +89,7 @@ describe('ImageUpload', () => {
     const onMaxFilesError = jest.fn();
 
     render(
-      <ImageUpload
+      <FileUploader
         onFileSuccess={onFileSuccess}
         onMaxFilesError={onMaxFilesError}
         onFileError={onFileError}
@@ -122,7 +122,7 @@ describe('ImageUpload', () => {
     const onMaxFilesError = jest.fn();
 
     render(
-      <ImageUpload
+      <FileUploader
         onFileSuccess={onFileSuccess}
         onMaxFilesError={onMaxFilesError}
         onFileError={onFileError}
@@ -156,7 +156,7 @@ describe('ImageUpload', () => {
     const onMaxFilesError = jest.fn();
 
     render(
-      <ImageUpload
+      <FileUploader
         onFileSuccess={onFileSuccess}
         onMaxFilesError={onMaxFilesError}
         onFileError={onFileError}
