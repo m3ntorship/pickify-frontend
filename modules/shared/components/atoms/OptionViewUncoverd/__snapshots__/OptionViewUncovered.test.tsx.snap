@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot testing for OptionViewUncoverd component should have checkmark svg while Testing OptionViewUncoverd with the necessary props with isOptionChecked={true} 1`] = `
+<button
+  className="btnBody leastVoted"
+  data-testid="test1"
+  disabled={true}
+  id="test1"
+  type="button"
+>
+  <span
+    className="flex-container"
+  >
+    <span
+      className="letter"
+    >
+      A
+    </span>
+    <p
+      className="option"
+    >
+       
+      option 1
+       
+    </p>
+    <span />
+    <span
+      className="svg-check"
+    >
+      <svg
+        className="svgDark"
+        data-file-name="SvgCheckMarkDefault"
+      />
+    </span>
+  </span>
+  <span
+    className="percentage"
+  >
+    
+    20
+    %
+  </span>
+</button>
+`;
+
+exports[`Snapshot testing for OptionViewUncoverd component should have class of bg-primary-shd1 while Testing OptionViewUncoverd with mostVoted to true 1`] = `
+<button
+  className="btnBody mostVoted"
+  data-testid="test1"
+  disabled={true}
+  id="test1"
+  type="button"
+>
+  <span
+    className="flex-container"
+  >
+    <span
+      className="letter"
+    >
+      A
+    </span>
+    <p
+      className="option"
+    >
+       
+      option 1
+       
+    </p>
+    <span />
+  </span>
+  <span
+    className="percentage"
+  >
+    <svg
+      className="goldenStarIcon"
+      data-file-name="SvgGoldenStar"
+    />
+    20
+    %
+  </span>
+</button>
+`;
