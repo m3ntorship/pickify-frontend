@@ -35,7 +35,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
         )}
       </div> */}
       <MiniSurveyViewOptions optionsGroups={post.options_groups} />
-      <PostViewFooter />
+      <PostViewFooter numberOfVotes={100} showResult={false} />
     </div>
   );
 };

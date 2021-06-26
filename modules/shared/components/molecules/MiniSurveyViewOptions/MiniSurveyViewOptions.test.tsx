@@ -5,7 +5,7 @@ import type { TargetElement } from '@testing-library/user-event';
 import MiniSurveyViewOptions from './MiniSurveyViewOptions';
 import { optionsGroups } from './data';
 
-describe('OptionGroup component', () => {
+describe('MiniSurveyViewOptions component', () => {
   it('should render () OptionGroup when we apply ()', () => {
     const tree = renderer
       .create(<MiniSurveyViewOptions optionsGroups={optionsGroups} />)

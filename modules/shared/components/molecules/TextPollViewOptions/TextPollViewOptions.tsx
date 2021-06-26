@@ -1,44 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
+import TextOptionViewCovered from '../../atoms/TextOptionViewCovered/TextOptionViewCovered';
+import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptionViewUncoverd';
 import type { ITextPollViewOptions } from './ITextPollViewOptions';
-import TextPoll from '../../atoms/textPoll/index';
+import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
   optionsGroups,
+  onOptionClick,
+  isOptionChecked,
+  optionCheckedId,
 }): ReactElement => {
-  const [isOptionChecked, setIsOptionChecked] = useState(false);
-  const [optionCheckedId, setOptionCheckedId] = useState('');
-  const fullPrecentage = 100;
+  const firstGroup = 0;
+  const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
+    optionsGroups.groups[firstGroup].options,
+  );
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
-  const firstGroupOfTheArray = 0;
-  const onOptionClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    setIsOptionChecked(true);
-    setOptionCheckedId(e.currentTarget.id);
-  };
   return (
     <div className="grid-rows-1 space-y-2">
-      {optionsGroups.groups[firstGroupOfTheArray].options.map(
-        (option: ITextPollViewOptions.IOption, index: number): ReactElement => {
+      {optionsGroups.groups[firstGroup].options.map(
+        (option, index): ReactElement => {
           const letter = alphabet[index];
           return (
             <div key={option.id} data-testid="option">
-              {option.id === optionCheckedId ? (
-                <TextPoll
-                  option={option.body}
+              {isOptionChecked ? (
+                <TextOptionViewUncoverd
                   id={option.id}
-                  isChecked={isOptionChecked}
-                  onOptionClick={onOptionClick}
-                  showResult
+                  optionBody={option.body}
+                  isOptionChecked={optionCheckedId === option.id}
                   letter={letter}
-                  percentage={Math.round(Math.random() * fullPrecentage)}
-                  mostVoted
+                  mostVoted={
+                    option.vote_count === mostAndLeastVoted[firstGroup]
+                  }
+                  percentage={optionsPercentage[index]}
                 />
               ) : (
-                <TextPoll
-                  option={option.body}
+                <TextOptionViewCovered
                   id={option.id}
                   onOptionClick={onOptionClick}
-                  showResult={false}
+                  optionBody={option.body}
                   letter={letter}
                 />
               )}

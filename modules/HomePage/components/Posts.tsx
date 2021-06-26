@@ -17,7 +17,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           case EPostType.TextPoll:
             return (
               <div key={post.id} className={styles.posts}>
-                <TextPollView post={post} />
+                <TextPollView post={post} addOneVote={(): boolean => true} />
               </div>
             );
           case EPostType.MiniSurvey:

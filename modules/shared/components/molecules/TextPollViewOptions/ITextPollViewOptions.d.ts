@@ -1,20 +1,12 @@
+import type { MouseEvent } from 'react';
+import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
+
 declare namespace ITextPollViewOptions {
   export interface IProps {
-    optionsGroups: IOptionGroups;
-  }
-
-  export interface IOption {
-    id: string;
-    body: string;
-  }
-  export interface IGroup {
-    id: string;
-    options: IOption[];
-    name: string;
-  }
-
-  export interface IOptionGroups {
-    groups: IGroup[];
+    optionsGroups: { groups: IPostFeed.IGroup[] };
+    onOptionClick: (e: MouseEvent<HTMLButtonElement>) => void;
+    isOptionChecked: boolean;
+    optionCheckedId: string;
   }
 }
 
