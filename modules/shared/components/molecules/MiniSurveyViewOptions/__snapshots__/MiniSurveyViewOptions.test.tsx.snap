@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
+exports[`MiniSurveyViewOptions component should render () OptionGroup when we apply () 1`] = `
 <div
   className="space-y-4"
 >
@@ -35,7 +35,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             className="option"
           >
              
-            ali tramsi
+            ali tramsy
              
           </p>
           <span />

@@ -46,7 +46,7 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
       <div>
         <PostViewFooter
           numberOfVotes={totalVotes}
-          showResult={!isOptionChecked}
+          showResult={isOptionChecked}
         />
       </div>
     </div>
