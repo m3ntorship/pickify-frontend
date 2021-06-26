@@ -1,4 +1,4 @@
-declare namespace IOptionViewUncoverd {
+declare namespace ITextOptionViewUncoverd {
   export interface IProps extends IData {
     letter?: string;
     percentage?: number;
@@ -11,4 +11,4 @@ declare namespace IOptionViewUncoverd {
   }
 }
 
-export { IOptionViewUncoverd };
+export { ITextOptionViewUncoverd };

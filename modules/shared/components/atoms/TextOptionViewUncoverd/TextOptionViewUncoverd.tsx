@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import type { FC, ReactElement } from 'react';
-import type { IOptionViewUncoverd } from './IOptionViewUncoverd';
-import styles from './OptionViewUncoverd.module.css';
+import type { ITextOptionViewUncoverd } from './ITextOptionViewUncoverd';
+import styles from './TextOptionViewUncoverd.module.css';
 import Check from '../../icons/checkMarkDefault.svg';
 import GoldenStarIcon from '../../icons/goldenStar.svg';
 
-const OptionViewUncoverd: FC<IOptionViewUncoverd.IProps> = ({
+const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
   letter,
   optionBody,
   percentage,
@@ -48,4 +48,4 @@ const OptionViewUncoverd: FC<IOptionViewUncoverd.IProps> = ({
     </button>
   );
 };
-export default OptionViewUncoverd;
+export default TextOptionViewUncoverd;
