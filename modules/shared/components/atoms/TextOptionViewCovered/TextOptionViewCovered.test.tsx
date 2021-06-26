@@ -2,13 +2,13 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import OptionViewCovered from './OptionViewCovered';
+import TextOptionViewCovered from './TextOptionViewCovered';
 
 describe('Snapshot testing for OptionViewCoverd component', () => {
-  it('Testing OptionViewCovered with the necessary props', () => {
+  it('Testing TextOptionViewCovered with the necessary props', () => {
     const tree = renderer
       .create(
-        <OptionViewCovered
+        <TextOptionViewCovered
           id="test1"
           optionBody="option 1"
           letter="A"
@@ -22,11 +22,11 @@ describe('Snapshot testing for OptionViewCoverd component', () => {
   });
 });
 
-describe('Behavioural tests for optionViewCovered component ', () => {
+describe('Behavioural tests for TextOptionViewCovered component ', () => {
   const one = 1;
   it('should render "option 1 " as option body', () => {
     render(
-      <OptionViewCovered
+      <TextOptionViewCovered
         id="test1"
         optionBody="option 1"
         letter="A"
@@ -41,7 +41,7 @@ describe('Behavioural tests for optionViewCovered component ', () => {
   it('the option should be clicked once', () => {
     const handleClick = jest.fn();
     render(
-      <OptionViewCovered
+      <TextOptionViewCovered
         id="test1"
         optionBody="option 1"
         letter="A"
@@ -56,7 +56,7 @@ describe('Behavioural tests for optionViewCovered component ', () => {
   it('should be active while its covered', () => {
     const handleClick = jest.fn();
     render(
-      <OptionViewCovered
+      <TextOptionViewCovered
         id="test1"
         optionBody="option 1"
         letter="A"
