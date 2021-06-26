@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import TextOptionViewCovered from './TextOptionViewCovered';
 
 describe('Snapshot testing for OptionViewCoverd component', () => {
-  it('Testing OptionViewCovered with the necessary props', () => {
+  it('Testing TextOptionViewCovered with the necessary props', () => {
     const tree = renderer
       .create(
         <TextOptionViewCovered
@@ -22,7 +22,7 @@ describe('Snapshot testing for OptionViewCoverd component', () => {
   });
 });
 
-describe('Behavioural tests for optionViewCovered component ', () => {
+describe('Behavioural tests for TextOptionViewCovered component ', () => {
   const one = 1;
   it('should render "option 1 " as option body', () => {
     render(

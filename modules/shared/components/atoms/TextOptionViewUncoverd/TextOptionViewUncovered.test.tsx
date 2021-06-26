@@ -3,7 +3,7 @@ import * as renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import TextOptionViewUncoverd from './TextOptionViewUncoverd';
 
-describe('Snapshot testing for OptionViewUncoverd component', () => {
+describe('Snapshot testing for TextOptionViewUncoverd component', () => {
   const twenty = 20;
   it('should have class of bg-primary-shd1 while Testing OptionViewUncoverd with mostVoted to true', () => {
     const tree = renderer
@@ -36,7 +36,7 @@ describe('Snapshot testing for OptionViewUncoverd component', () => {
   });
 });
 
-describe('Behavioural tests for OptionViewUncoverd component ', () => {
+describe('Behavioural tests for TextOptionViewUncoverd component ', () => {
   const twenty = 20;
   it('should render "option 1 " as option body', () => {
     render(
