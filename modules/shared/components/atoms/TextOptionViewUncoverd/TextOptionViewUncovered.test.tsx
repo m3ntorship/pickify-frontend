@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
-import OptionViewUncovered from './OptionViewUncoverd';
+import TextOptionViewUncoverd from './TextOptionViewUncoverd';
 
-describe('Snapshot testing for OptionViewUncoverd component', () => {
+describe('Snapshot testing for TextOptionViewUncoverd component', () => {
   const twenty = 20;
   it('should have class of bg-primary-shd1 while Testing OptionViewUncoverd with mostVoted to true', () => {
     const tree = renderer
       .create(
-        <OptionViewUncovered
+        <TextOptionViewUncoverd
           id="test1"
           optionBody="option 1"
           letter="A"
@@ -23,7 +23,7 @@ describe('Snapshot testing for OptionViewUncoverd component', () => {
   it('should have checkmark svg while Testing OptionViewUncoverd with the necessary props with isOptionChecked={true}', () => {
     const tree = renderer
       .create(
-        <OptionViewUncovered
+        <TextOptionViewUncoverd
           id="test1"
           optionBody="option 1"
           letter="A"
@@ -36,17 +36,19 @@ describe('Snapshot testing for OptionViewUncoverd component', () => {
   });
 });
 
-describe('Behavioural tests for OptionViewUncoverd component ', () => {
+describe('Behavioural tests for TextOptionViewUncoverd component ', () => {
   const twenty = 20;
   it('should render "option 1 " as option body', () => {
-    render(<OptionViewUncovered id="test1" optionBody="option 1" letter="A" />);
+    render(
+      <TextOptionViewUncoverd id="test1" optionBody="option 1" letter="A" />,
+    );
     const testBtn = screen.getByText('option 1');
     expect(testBtn).toBeInTheDocument();
   });
 
   it('should render "20%" as percentage', () => {
     render(
-      <OptionViewUncovered
+      <TextOptionViewUncoverd
         id="test1"
         optionBody="option 1"
         percentage={twenty}
@@ -58,7 +60,9 @@ describe('Behavioural tests for OptionViewUncoverd component ', () => {
   });
 
   it('should be disabled  while its uncovered', () => {
-    render(<OptionViewUncovered id="test1" optionBody="option 1" letter="A" />);
+    render(
+      <TextOptionViewUncoverd id="test1" optionBody="option 1" letter="A" />,
+    );
 
     const testBtn = screen.getByTestId('test1');
     expect(testBtn).toBeDisabled();

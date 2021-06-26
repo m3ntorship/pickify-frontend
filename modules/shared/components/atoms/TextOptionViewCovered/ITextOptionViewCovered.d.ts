@@ -1,6 +1,6 @@
 import type React from 'react';
 
-declare namespace IOptionViewCovered {
+declare namespace ITextOptionViewCovered {
   export interface IProps extends IData, IHandlers {
     letter?: string;
   }
@@ -13,4 +13,4 @@ declare namespace IOptionViewCovered {
   }
 }
 
-export { IOptionViewCovered };
+export { ITextOptionViewCovered };

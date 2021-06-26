@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import type { FC, ReactElement } from 'react';
-import type { IOptionViewCovered } from './IOptionViewCovered';
-import styles from './OptionViewCovered.module.css';
+import type { ITextOptionViewCovered } from './ITextOptionViewCovered';
+import styles from './TextOptionViewCovered.module.css';
 
-const OptionViewCovered: FC<IOptionViewCovered.IProps> = ({
+const TextOptionViewCovered: FC<ITextOptionViewCovered.IProps> = ({
   letter,
   optionBody,
   id,
@@ -29,4 +29,4 @@ const OptionViewCovered: FC<IOptionViewCovered.IProps> = ({
     </button>
   );
 };
-export default OptionViewCovered;
+export default TextOptionViewCovered;
