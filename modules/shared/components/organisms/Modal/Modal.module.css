@@ -1,0 +1,7 @@
+.layer {
+  @apply flex justify-center items-start absolute inset-0 w-full h-full bg-dark bg-opacity-50 z-20 px-4;
+}
+
+.modal {
+  @apply z-10 transform translate-y-48 w-39xl;
+}
