@@ -99,7 +99,8 @@ describe('Testing voting stats logic', () => {
     const thirdPercentage = 16;
     const fourthPercentage = 24;
 
-    const { mostAndLeastVoted, optionsPercentage } = getVotesResults(options);
+    const { mostAndLeastVoted, optionsPercentage, totalVotes } =
+      getVotesResults(options);
 
     const resultOne = [mostVoted, leastVoted];
 
@@ -110,7 +111,10 @@ describe('Testing voting stats logic', () => {
       fourthPercentage,
     ];
 
+    const resultThree = 250;
+
     expect(mostAndLeastVoted).toEqual(resultOne);
     expect(optionsPercentage).toEqual(resultTwo);
+    expect(totalVotes).toEqual(resultThree);
   });
 });

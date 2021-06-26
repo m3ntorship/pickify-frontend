@@ -21,39 +21,34 @@ const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
         return (
           <div key={group.id} className="space-y-2">
             <div className="text-dark-grey text-sm">{group.name}</div>
-            {group.options.map(
-              (
-                option: IMiniSurveyViewOptions.IOption,
-                index: number,
-              ): ReactElement => {
-                const letter = alphabet[index];
+            {group.options.map((option, index): ReactElement => {
+              const letter = alphabet[index];
 
-                return (
-                  <div key={option.id} data-testid="option">
-                    {option.id === optionCheckedId ? (
-                      <TextPoll
-                        option={option.body}
-                        id={option.id}
-                        isChecked={isOptionChecked}
-                        onOptionClick={onOptionClick}
-                        showResult
-                        letter={letter}
-                        percentage={Math.round(Math.random() * fullPrecentage)}
-                        mostVoted
-                      />
-                    ) : (
-                      <TextPoll
-                        option={option.body}
-                        id={option.id}
-                        onOptionClick={onOptionClick}
-                        showResult={false}
-                        letter={letter}
-                      />
-                    )}
-                  </div>
-                );
-              },
-            )}
+              return (
+                <div key={option.id} data-testid="option">
+                  {option.id === optionCheckedId ? (
+                    <TextPoll
+                      option={option.body}
+                      id={option.id}
+                      isChecked={isOptionChecked}
+                      onOptionClick={onOptionClick}
+                      showResult
+                      letter={letter}
+                      percentage={Math.round(Math.random() * fullPrecentage)}
+                      mostVoted
+                    />
+                  ) : (
+                    <TextPoll
+                      option={option.body}
+                      id={option.id}
+                      onOptionClick={onOptionClick}
+                      showResult={false}
+                      letter={letter}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         );
       })}

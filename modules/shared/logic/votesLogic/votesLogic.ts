@@ -13,9 +13,12 @@ export const calculatePercentage = (
   optionsVotes: number[],
   totalVotes: number,
 ): number[] => {
+  const zeroProgress = 0;
   const maximumProgress = 100;
   const optionsProgress = optionsVotes.map((optionVotes) => {
     const progress = (optionVotes / totalVotes) * maximumProgress;
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(progress)) return zeroProgress;
     return Math.round(progress);
   });
   return optionsProgress;
@@ -36,5 +39,5 @@ export const getVotesResults = (
   const mostAndLeastVoted = findMinMaxVotes(optionsVotes);
   const optionsPercentage = calculatePercentage(optionsVotes, totalVotes);
 
-  return { mostAndLeastVoted, optionsPercentage };
+  return { mostAndLeastVoted, optionsPercentage, totalVotes };
 };
