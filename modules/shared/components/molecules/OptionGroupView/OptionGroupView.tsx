@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 import type { IOptionGroupView } from './IOptionGroupView';
-import OptionViewCovered from '../../atoms/OptionViewCovered/OptionViewCovered';
-import OptionViewUncoverd from '../../atoms/OptionViewUncoverd/OptionViewUncoverd';
+import TextOptionViewCovered from '../../atoms/TextOptionViewCovered/TextOptionViewCovered';
+import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptionViewUncoverd';
 
 const OptionGroup: FC<IOptionGroupView.IProps> = ({ group }): ReactElement => {
   const zero = 0;
@@ -27,7 +27,7 @@ const OptionGroup: FC<IOptionGroupView.IProps> = ({ group }): ReactElement => {
         return (
           <div key={option.id} data-testid="option">
             {isOptionChecked ? (
-              <OptionViewUncoverd
+              <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}
                 isOptionChecked={optionCheckedId === option.id}
@@ -36,7 +36,7 @@ const OptionGroup: FC<IOptionGroupView.IProps> = ({ group }): ReactElement => {
                 percentage={optionsPercentage[index]}
               />
             ) : (
-              <OptionViewCovered
+              <TextOptionViewCovered
                 id={option.id}
                 onOptionClick={onOptionClick}
                 optionBody={option.body}

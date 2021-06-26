@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import OptionViewCovered from '../../atoms/OptionViewCovered/OptionViewCovered';
-import OptionViewUncoverd from '../../atoms/OptionViewUncoverd/OptionViewUncoverd';
+import TextOptionViewCovered from '../../atoms/TextOptionViewCovered/TextOptionViewCovered';
+import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptionViewUncoverd';
 import type { ITextPollViewOptions } from './ITextPollViewOptions';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
@@ -24,7 +24,7 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
           return (
             <div key={option.id} data-testid="option">
               {isOptionChecked ? (
-                <OptionViewUncoverd
+                <TextOptionViewUncoverd
                   id={option.id}
                   optionBody={option.body}
                   isOptionChecked={optionCheckedId === option.id}
@@ -35,7 +35,7 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
                   percentage={optionsPercentage[index]}
                 />
               ) : (
-                <OptionViewCovered
+                <TextOptionViewCovered
                   id={option.id}
                   onOptionClick={onOptionClick}
                   optionBody={option.body}
