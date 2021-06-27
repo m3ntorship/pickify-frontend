@@ -11,6 +11,7 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
   optionCheckedId,
 }): ReactElement => {
   const firstGroup = 0;
+  const minusOne = -1;
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
     optionsGroups.groups[firstGroup].options,
   );
@@ -22,7 +23,7 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
         const { vote_count } = option;
         return (
           <div key={option.id} data-testid="option">
-            {vote_count !== undefined ? (
+            {vote_count !== minusOne ? (
               <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}

@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 import type { IOptionGroupView } from './IOptionGroupView';
 import TextOptionViewCovered from '../../atoms/TextOptionViewCovered/TextOptionViewCovered';
 import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptionViewUncoverd';
 
-const OptionGroup: FC<IOptionGroupView.IProps> = ({ group }): ReactElement => {
+const OptionGroup: FC<IOptionGroupView.IProps> = ({
+  group,
+  optionCheckedId,
+  onOptionClick,
+}): ReactElement => {
   const zero = 0;
-  const [isOptionChecked, setIsOptionChecked] = useState(false);
-  const [optionCheckedId, setOptionCheckedId] = useState('');
+  const minusOne = -1;
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
     group.options,
   );
-
-  const onOptionClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    setIsOptionChecked(true);
-    setOptionCheckedId(e.currentTarget.id);
-  };
 
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
   return (
@@ -24,9 +22,10 @@ const OptionGroup: FC<IOptionGroupView.IProps> = ({ group }): ReactElement => {
       <div className="text-dark-grey text-sm">{group.name}</div>
       {group.options.map((option, index): ReactElement => {
         const letter = alphabet[index];
+        const { vote_count } = option;
         return (
           <div key={option.id} data-testid="option">
-            {isOptionChecked ? (
+            {vote_count !== minusOne ? (
               <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';

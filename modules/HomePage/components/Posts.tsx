@@ -10,7 +10,6 @@ import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
 import { votesApi } from '@modules/shared/api/postsApi.api';
 import styles from '../pages/home-page.module.css';
-import { addOneVote } from '../api/addOneVote';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
@@ -18,22 +17,27 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
 
   useEffect(() => {
     const userId = localStorage.getItem('user');
-    const authorizedPosts = posts.map(({ options_groups, ...post }) => {
-      if (post.user.id === userId) {
-        return { ...post, options_groups };
-      }
-      const groups = options_groups.groups.map(({ options, ...group }) => {
-        const newOptions = options.map(({ vote_count, ...option }) => option);
-        return { ...group, options: newOptions };
-      });
-      return { ...post, options_groups: { groups } };
-    });
+    const authorizedPosts = posts.map(
+      ({ options_groups, ...post }): IPostFeed.IPost => {
+        if (post.user.id === userId) {
+          return { ...post, options_groups };
+        }
+        const groups = options_groups.groups.map(({ options, ...group }) => {
+          const newOptions = options.map((option) => {
+            return { ...option, vote_count: -1 };
+          });
+          console.log(newOptions);
+          return { ...group, options: newOptions };
+        });
+        return { ...post, options_groups: { groups } };
+      },
+    );
     setPosts(authorizedPosts);
   }, []);
 
   const onOptionClick = async (
     e: React.MouseEvent<HTMLButtonElement>,
-  ): void => {
+  ): Promise<void> => {
     setOptionCheckedId(e.currentTarget.id);
     const res = await votesApi.addVote(e.currentTarget.id);
     console.log(res);
@@ -56,7 +60,11 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           case EPostType.MiniSurvey:
             return (
               <div key={post.id} className={styles.posts}>
-                <MiniSurveyView post={post} />
+                <MiniSurveyView
+                  post={post}
+                  optionCheckedId={optionCheckedId}
+                  onOptionClick={onOptionClick}
+                />
               </div>
             );
           case EPostType.ImagePoll:

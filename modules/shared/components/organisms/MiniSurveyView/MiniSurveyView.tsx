@@ -6,7 +6,11 @@ import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IMiniSurveyView } from './IMiniSurveyView';
 
-const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
+const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
+  post,
+  optionCheckedId,
+  onOptionClick,
+}): ReactElement => {
   // const indexOfImage = 0;
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
@@ -34,7 +38,11 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
           />
         )}
       </div> */}
-      <MiniSurveyViewOptions optionsGroups={post.options_groups} />
+      <MiniSurveyViewOptions
+        optionsGroups={post.options_groups}
+        onOptionClick={onOptionClick}
+        optionCheckedId={optionCheckedId}
+      />
       <PostViewFooter numberOfVotes={100} showResult={false} />
     </div>
   );
