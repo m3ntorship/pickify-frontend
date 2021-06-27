@@ -8,20 +8,14 @@ import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const PostViewWrapper: FC<ITextPollView.IProps> = ({
   post,
-  addOneVote,
+  optionCheckedId,
+  onOptionClick,
 }): ReactElement => {
   const firstGroup = 0;
   const { totalVotes } = getVotesResults(
     post.options_groups.groups[firstGroup].options,
   );
-  const [isOptionChecked, setIsOptionChecked] = useState(false);
-  const [optionCheckedId, setOptionCheckedId] = useState('');
 
-  const onOptionClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    setIsOptionChecked(true);
-    setOptionCheckedId(e.currentTarget.id);
-    addOneVote(e.currentTarget.id);
-  };
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
@@ -40,14 +34,10 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
       <TextPollViewOptions
         optionsGroups={post.options_groups}
         onOptionClick={onOptionClick}
-        isOptionChecked={isOptionChecked}
         optionCheckedId={optionCheckedId}
       />
       <div>
-        <PostViewFooter
-          numberOfVotes={totalVotes}
-          showResult={isOptionChecked}
-        />
+        <PostViewFooter numberOfVotes={totalVotes} showResult={false} />
       </div>
     </div>
   );
