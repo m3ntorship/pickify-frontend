@@ -23,7 +23,7 @@ declare namespace IPostFeed {
   export interface IOptions {
     id: string;
     body: string;
-    vote_count: number;
+    vote_count?: number;
     media: { url: string }[];
   }
   export interface IUser {

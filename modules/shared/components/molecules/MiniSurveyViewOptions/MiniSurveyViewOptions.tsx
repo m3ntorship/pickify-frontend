@@ -5,11 +5,20 @@ import OptionGroupView from '../OptionGroupView/OptionGroupView';
 
 const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
   optionsGroups,
+  addOneVote,
+  optionCheckedId,
 }): ReactElement => {
   return (
     <div className="space-y-4">
       {optionsGroups.groups.map((group) => {
-        return <OptionGroupView key={group.id} group={group} />;
+        return (
+          <OptionGroupView
+            key={group.id}
+            group={group}
+            addOneVote={addOneVote}
+            optionCheckedId={optionCheckedId}
+          />
+        );
       })}
     </div>
   );

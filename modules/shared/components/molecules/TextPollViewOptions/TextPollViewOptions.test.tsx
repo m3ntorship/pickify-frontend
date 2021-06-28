@@ -12,8 +12,7 @@ describe('TextPollViewOptions component', () => {
       .create(
         <TextPollViewOptions
           optionCheckedId="1"
-          isOptionChecked
-          onOptionClick={mockedFn}
+          addOneVote={mockedFn}
           optionsGroups={apiDummyData.options_groups}
         />,
       )
@@ -28,8 +27,7 @@ describe('TextPollViewOptions component', () => {
     render(
       <TextPollViewOptions
         optionCheckedId="1"
-        isOptionChecked
-        onOptionClick={mockedFn}
+        addOneVote={mockedFn}
         optionsGroups={apiDummyData.options_groups}
       />,
     );
