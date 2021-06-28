@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDown should render the only menu icon 1`] = `
+<div
+  className="flex"
+>
+  <svg
+    className="menu-icon"
+    data-file-name="SvgVerticalThreeDots"
+    data-testid="menu-icon"
+    onClick={[Function]}
+  />
+</div>
+`;

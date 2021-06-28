@@ -1,5 +1,5 @@
 .menu-icon {
-  @apply fill-grey cursor-pointer w-6 h-6 rounded-full;
+  @apply fill-grey cursor-pointer w-6 h-6 rounded-full mr-2;
 }
 
 .menu {

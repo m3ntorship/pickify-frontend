@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import type { FC, ReactElement } from 'react';
 import type { IDropDown } from './IDropDown';
 import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
@@ -22,15 +23,17 @@ const DropDown: FC<IDropDown.IProps> = ({
         data-testid="menu-icon"
       />
       {showMenu && (
-        <div role="menu" className={styles.menu}>
+        <div role="menu" className={styles.menu} data-testid="menu">
           {options.map((option) => (
             <button
               className={styles['menu-item']}
+              role="menuitem"
               type="button"
               name="option"
               id={option.id}
               key={option.id}
               onClick={onOptionMenuClick}
+              data-testid="menu-button"
             >
               {option.body}
             </button>
