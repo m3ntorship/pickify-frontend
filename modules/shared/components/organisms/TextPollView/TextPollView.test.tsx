@@ -47,7 +47,10 @@ describe('ITextPollView', () => {
     },
   };
   it('should render ITextPollView Compnent with the mocked data', () => {
-    const tree = renderer.create(<TextPollView post={mockedPost} />);
+    const handleClick = jest.fn();
+    const tree = renderer.create(
+      <TextPollView post={mockedPost} deletePostHandler={handleClick} />,
+    );
     expect(tree).toMatchSnapshot();
   });
 });
