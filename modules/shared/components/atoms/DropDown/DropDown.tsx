@@ -16,7 +16,7 @@ const DropDown: FC<IDropDown.IProps> = ({
   };
 
   return (
-    <div className="flex items-start">
+    <div className="flex items-start relative">
       <div
         aria-hidden
         onClick={showMenuHandler}
@@ -35,7 +35,9 @@ const DropDown: FC<IDropDown.IProps> = ({
               name="option"
               id={option.id}
               key={option.id}
-              onClick={onOptionMenuClick}
+              onClick={(e): void => {
+                onOptionMenuClick(e.currentTarget.id);
+              }}
               data-testid="menu-button"
             >
               {option.body}

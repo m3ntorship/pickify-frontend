@@ -5,18 +5,19 @@ import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { ITextPollView } from './ITextPollView';
 import TextPollViewOptions from '../../molecules/TextPollViewOptions/TextPollViewOptions';
 
-const PostViewWrapper: FC<ITextPollView.IProps> = ({ post }): ReactElement => {
+const PostViewWrapper: FC<ITextPollView.IProps> = ({
+  post,
+  deletePostHandler,
+}): ReactElement => {
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
-        id={post.id}
+        postId={post.id}
         date={new Date(post.created_at)}
         name={post.user.name}
         profilePic={post.user.profile_pic}
         isHidden={post.is_hidden}
-        handlePostOptionsIconClick={(): boolean => {
-          return true;
-        }}
+        deletePostHandler={deletePostHandler}
       />
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>

@@ -2,7 +2,7 @@
 
 exports[`DropDown should render the only menu icon 1`] = `
 <div
-  className="flex items-start"
+  className="flex items-start relative"
 >
   <div
     aria-hidden={true}

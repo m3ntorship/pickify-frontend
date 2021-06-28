@@ -9,7 +9,7 @@ declare namespace IDropDown {
   }
 
   export interface IHandlers {
-    onOptionMenuClick: () => void;
+    onOptionMenuClick: (id: string) => void;
   }
 }
 
