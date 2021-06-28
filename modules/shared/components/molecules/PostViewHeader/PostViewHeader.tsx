@@ -44,7 +44,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   };
 
   return (
-    <>
+    <div>
       <div className="flex justify-between items-start pb-s">
         <UserInfo
           isHidden={isHidden}
@@ -55,10 +55,11 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         <DropDown
           onOptionMenuClick={onOptionClickHandler}
           options={getPostOptions(options, userId)}
+          variant="post"
         />
       </div>
       <Divider type={EDivider.DividerType.Horizontal} length="100%" />
-    </>
+    </div>
   );
 };
 

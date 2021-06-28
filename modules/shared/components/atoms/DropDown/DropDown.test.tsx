@@ -7,10 +7,31 @@ import DropDown from './DropDown';
 import { options } from './mockedOptions';
 
 describe('DropDown', () => {
-  it('should render the only menu icon', () => {
+  it('should render the only menu icon with variant=[post]', () => {
     const mockedFn = jest.fn();
     const tree = renderer
-      .create(<DropDown onOptionMenuClick={mockedFn} options={options} />)
+      .create(
+        <DropDown
+          onOptionMenuClick={mockedFn}
+          options={options}
+          variant="post"
+        />,
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render the only menu icon with variant=[image]', () => {
+    const mockedFn = jest.fn();
+    const tree = renderer
+      .create(
+        <DropDown
+          onOptionMenuClick={mockedFn}
+          options={options}
+          variant="image"
+        />,
+      )
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -20,7 +41,13 @@ describe('DropDown', () => {
     const threeMenuItems = 3;
 
     const mockedFn = jest.fn();
-    render(<DropDown onOptionMenuClick={mockedFn} options={options} />);
+    render(
+      <DropDown
+        onOptionMenuClick={mockedFn}
+        options={options}
+        variant="post"
+      />,
+    );
 
     const menuIcon: TargetElement = screen.getByTestId('menu-icon');
 
@@ -38,7 +65,13 @@ describe('DropDown', () => {
     const calledOnce = 1;
 
     const mockedFn = jest.fn();
-    render(<DropDown onOptionMenuClick={mockedFn} options={options} />);
+    render(
+      <DropDown
+        onOptionMenuClick={mockedFn}
+        options={options}
+        variant="post"
+      />,
+    );
 
     const menuIcon: TargetElement = screen.getByTestId('menu-icon');
 

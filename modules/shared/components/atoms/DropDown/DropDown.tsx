@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
 import type { FC, ReactElement } from 'react';
+import classNames from 'classnames';
 import type { IDropDown } from './IDropDown';
 import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import styles from './DropDown.module.css';
@@ -8,6 +8,7 @@ import styles from './DropDown.module.css';
 const DropDown: FC<IDropDown.IProps> = ({
   options,
   onOptionMenuClick,
+  variant,
 }): ReactElement => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
@@ -15,13 +16,17 @@ const DropDown: FC<IDropDown.IProps> = ({
     setShowMenu(!showMenu);
   };
 
+  const menuIconClasses = classNames(styles['menu-icon-container'], {
+    'rounded-full p-2': variant === 'image',
+  });
+
   return (
     <div className="flex items-start relative">
       <div
         aria-hidden
         onClick={showMenuHandler}
         data-testid="menu-icon"
-        className={styles['menu-icon-container']}
+        className={menuIconClasses}
       >
         <VerticalThreeDotsIcon className={styles['menu-icon']} />
       </div>
