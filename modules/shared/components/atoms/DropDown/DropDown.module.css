@@ -1,0 +1,11 @@
+.menu-icon {
+  @apply fill-grey cursor-pointer w-6 h-6 rounded-full;
+}
+
+.menu {
+  @apply bg-white shadow-soft rounded-md p-2 flex flex-col;
+}
+
+.menu-item {
+  @apply bg-white hover:bg-grey-bg py-1 px-2 rounded-sm cursor-pointer hover:text-dark text-dark-grey text-sm;
+}
