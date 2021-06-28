@@ -6,19 +6,21 @@ import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IMiniSurveyView } from './IMiniSurveyView';
 
-const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({ post }): ReactElement => {
+const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
+  post,
+  deletePostHandler,
+}): ReactElement => {
   // const indexOfImage = 0;
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
-        id={post.id}
+        postId={post.id}
         date={new Date(post.created_at)}
         name={post.user.name}
         profilePic={post.user.profile_pic}
         isHidden={post.is_hidden}
-        handlePostOptionsIconClick={(): boolean => {
-          return true;
-        }}
+        userId={post.user.id}
+        deletePostHandler={deletePostHandler}
       />
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>

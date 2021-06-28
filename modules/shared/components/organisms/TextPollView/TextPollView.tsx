@@ -13,6 +13,7 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
         postId={post.id}
+        userId={post.user.id}
         date={new Date(post.created_at)}
         name={post.user.name}
         profilePic={post.user.profile_pic}

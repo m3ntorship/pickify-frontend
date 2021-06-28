@@ -7,9 +7,21 @@ import UserInfo from '../UserInfo/UserInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
 
+const getPostOptions = (
+  updatedOptions: { id: string; body: string }[],
+  userId: string,
+): { id: string; body: string }[] => {
+  const loggedInUser = localStorage.getItem('user');
+  if (userId !== loggedInUser) {
+    return updatedOptions.filter((option) => option.id !== 'delete');
+  }
+  return options;
+};
+
 const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   profilePic,
   name,
+  userId,
   date,
   deletePostHandler,
   postId,
@@ -21,10 +33,10 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         deletePostHandler(postId);
         break;
       case 'report':
-        console.log('report');
+        console.log('reported');
         break;
       case 'save':
-        console.log('save');
+        console.log('saved');
         break;
       default:
         console.log('default');
@@ -40,7 +52,10 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
           name={name}
           date={date}
         />
-        <DropDown onOptionMenuClick={onOptionClickHandler} options={options} />
+        <DropDown
+          onOptionMenuClick={onOptionClickHandler}
+          options={getPostOptions(options, userId)}
+        />
       </div>
       <Divider type={EDivider.DividerType.Horizontal} length="100%" />
     </>
