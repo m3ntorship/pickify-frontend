@@ -48,7 +48,10 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           case EPostType.ImagePoll:
             return (
               <div key={post.id} className={styles.posts}>
-                <ImagePollView post={post} />
+                <ImagePollView
+                  post={post}
+                  deletePostHandler={deletePostHandler}
+                />
               </div>
             );
           default:
