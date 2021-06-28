@@ -8,7 +8,7 @@ import {
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
-import { votesApi } from '@modules/shared/api/postsApi.api';
+import { addOneVote } from '../api/voteApi';
 import styles from '../pages/home-page.module.css';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
@@ -41,28 +41,37 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   ): Promise<void> => {
     const zeroVote = 0;
     setOptionCheckedId(optionId);
-    const res = await votesApi.addVote(optionId);
+    const { resData, error, message } = await addOneVote(optionId);
+
     const votes: Record<string, number> = {
       id_41651616515616: 0,
     };
-    res.data.map((option) => {
-      votes[option.optionId ?? 'id_12652151'] = option.votes_count ?? zeroVote;
-      return option;
-    });
-    const showVotedOptionsOnClick = posts.map(({ options_groups, ...post }) => {
-      const groups = options_groups.groups.map((group) => {
-        if (group.id === groupId) {
-          const newVotedGroups = group.options.map((option) => ({
-            ...option,
-            vote_count: votes[option.id],
-          }));
-          return { ...group, options: newVotedGroups };
-        }
-        return group;
+
+    if (!error) {
+      resData.map((option) => {
+        votes[option.optionId ?? 'id_12652151'] =
+          option.votes_count ?? zeroVote;
+        return option;
       });
-      return { ...post, options_groups: { groups } };
-    });
-    setPosts(showVotedOptionsOnClick);
+      const showVotedOptionsOnClick = posts.map(
+        ({ options_groups, ...post }) => {
+          const groups = options_groups.groups.map((group) => {
+            if (group.id === groupId) {
+              const newVotedGroups = group.options.map((option) => ({
+                ...option,
+                vote_count: votes[option.id],
+              }));
+              return { ...group, options: newVotedGroups };
+            }
+            return group;
+          });
+          return { ...post, options_groups: { groups } };
+        },
+      );
+      setPosts(showVotedOptionsOnClick);
+    } else {
+      console.log(message);
+    }
   };
 
   return (
