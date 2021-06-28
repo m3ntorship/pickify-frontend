@@ -1,17 +1,26 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 // import Image from 'next/image';
+import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 import MiniSurveyViewOptions from '../../molecules/MiniSurveyViewOptions/MiniSurveyViewOptions';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IMiniSurveyView } from './IMiniSurveyView';
+import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
   post,
   optionCheckedId,
-  onOptionClick,
+  addOneVote,
 }): ReactElement => {
-  // const indexOfImage = 0;
+  const firstOption = 0;
+  let votedOptions: IPostFeed.IOptions[] = [];
+  post.options_groups.groups.map((group) => {
+    const votes = group.options.map((option) => option);
+    votedOptions = [...votedOptions, ...votes];
+    return group;
+  });
+  const { totalVotes } = getVotesResults(votedOptions);
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
@@ -40,10 +49,13 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
       </div> */}
       <MiniSurveyViewOptions
         optionsGroups={post.options_groups}
-        onOptionClick={onOptionClick}
+        addOneVote={addOneVote}
         optionCheckedId={optionCheckedId}
       />
-      <PostViewFooter numberOfVotes={100} showResult={false} />
+      <PostViewFooter
+        numberOfVotes={totalVotes}
+        showResult={votedOptions[firstOption].vote_count !== undefined}
+      />
     </div>
   );
 };

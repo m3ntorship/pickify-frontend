@@ -2,7 +2,9 @@ import type { IPostFeed } from '../../types/postFeed/IPostFeed';
 import type { IVotesLogic } from './IVotesLogic';
 
 export const getOptionsVotes = (options: IPostFeed.IOptions[]): number[] => {
-  const optionsVotes: number[] = options.map((option) => option.vote_count);
+  const zeroVote = 0;
+  // const zeroVotes = [zeroVote, zeroVote];
+  const optionsVotes = options.map((option) => option.vote_count ?? zeroVote);
   return optionsVotes;
 };
 

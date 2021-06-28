@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FC, ReactElement } from 'react';
+import type { FC, ReactElement, MouseEvent } from 'react';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 import type { IOptionGroupView } from './IOptionGroupView';
 import TextOptionViewCovered from '../../atoms/TextOptionViewCovered/TextOptionViewCovered';
@@ -8,13 +8,16 @@ import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptio
 const OptionGroup: FC<IOptionGroupView.IProps> = ({
   group,
   optionCheckedId,
-  onOptionClick,
+  addOneVote,
 }): ReactElement => {
   const zero = 0;
-  const minusOne = -1;
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
     group.options,
   );
+
+  const onOptionClick = (e: MouseEvent<HTMLButtonElement>): void => {
+    addOneVote(e.currentTarget.id, group.id);
+  };
 
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
   return (
@@ -25,7 +28,7 @@ const OptionGroup: FC<IOptionGroupView.IProps> = ({
         const { vote_count } = option;
         return (
           <div key={option.id} data-testid="option">
-            {vote_count !== minusOne ? (
+            {vote_count !== undefined ? (
               <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}

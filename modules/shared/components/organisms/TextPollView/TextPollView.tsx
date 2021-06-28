@@ -9,7 +9,7 @@ import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 const PostViewWrapper: FC<ITextPollView.IProps> = ({
   post,
   optionCheckedId,
-  onOptionClick,
+  addOneVote,
 }): ReactElement => {
   const firstGroup = 0;
   const { totalVotes } = getVotesResults(
@@ -33,11 +33,17 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
       </div>
       <TextPollViewOptions
         optionsGroups={post.options_groups}
-        onOptionClick={onOptionClick}
+        addOneVote={addOneVote}
         optionCheckedId={optionCheckedId}
       />
       <div>
-        <PostViewFooter numberOfVotes={totalVotes} showResult={false} />
+        <PostViewFooter
+          numberOfVotes={totalVotes}
+          showResult={
+            post.options_groups.groups[firstGroup].options[firstGroup]
+              .vote_count !== undefined
+          }
+        />
       </div>
     </div>
   );

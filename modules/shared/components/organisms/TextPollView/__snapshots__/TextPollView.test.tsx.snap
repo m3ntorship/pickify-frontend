@@ -249,7 +249,8 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
       className="container"
     >
       <span>
-         Vote to uncover the total number of voters 
+        0
+         votes
       </span>
       <button
         type="button"

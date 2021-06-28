@@ -54,7 +54,7 @@ describe('ITextPollView', () => {
       <MiniSurveyView
         post={mockedPost}
         optionCheckedId="1"
-        onOptionClick={(): boolean => true}
+        addOneVote={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();

@@ -12,7 +12,7 @@ describe('MiniSurveyViewOptions component', () => {
         <MiniSurveyViewOptions
           optionsGroups={optionsGroups}
           optionCheckedId="1"
-          onOptionClick={(): boolean => true}
+          addOneVote={(): boolean => true}
         />,
       )
       .toJSON();
@@ -26,7 +26,7 @@ describe('MiniSurveyViewOptions component', () => {
       <MiniSurveyViewOptions
         optionsGroups={optionsGroups}
         optionCheckedId="1"
-        onOptionClick={(): boolean => true}
+        addOneVote={(): boolean => true}
       />,
     );
 

@@ -23,24 +23,46 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           return { ...post, options_groups };
         }
         const groups = options_groups.groups.map(({ options, ...group }) => {
-          const newOptions = options.map((option) => {
-            return { ...option, vote_count: -1 };
+          const newOptions = options.map(({ id, body, media }) => {
+            return { id, body, media };
           });
-          console.log(newOptions);
           return { ...group, options: newOptions };
         });
         return { ...post, options_groups: { groups } };
       },
     );
+    console.log(authorizedPosts);
     setPosts(authorizedPosts);
-  }, []);
+  }, [data]);
 
-  const onOptionClick = async (
-    e: React.MouseEvent<HTMLButtonElement>,
+  const addOneVoteHandler = async (
+    optionId: string,
+    groupId: string,
   ): Promise<void> => {
-    setOptionCheckedId(e.currentTarget.id);
-    const res = await votesApi.addVote(e.currentTarget.id);
-    console.log(res);
+    const zeroVote = 0;
+    setOptionCheckedId(optionId);
+    const res = await votesApi.addVote(optionId);
+    const votes: Record<string, number> = {
+      id_41651616515616: 0,
+    };
+    res.data.map((option) => {
+      votes[option.optionId ?? 'id_12652151'] = option.votes_count ?? zeroVote;
+      return option;
+    });
+    const showVotedOptionsOnClick = posts.map(({ options_groups, ...post }) => {
+      const groups = options_groups.groups.map((group) => {
+        if (group.id === groupId) {
+          const newVotedGroups = group.options.map((option) => ({
+            ...option,
+            vote_count: votes[option.id],
+          }));
+          return { ...group, options: newVotedGroups };
+        }
+        return group;
+      });
+      return { ...post, options_groups: { groups } };
+    });
+    setPosts(showVotedOptionsOnClick);
   };
 
   return (
@@ -53,7 +75,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                 <TextPollView
                   post={post}
                   optionCheckedId={optionCheckedId}
-                  onOptionClick={onOptionClick}
+                  addOneVote={addOneVoteHandler}
                 />
               </div>
             );
@@ -63,7 +85,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                 <MiniSurveyView
                   post={post}
                   optionCheckedId={optionCheckedId}
-                  onOptionClick={onOptionClick}
+                  addOneVote={addOneVoteHandler}
                 />
               </div>
             );

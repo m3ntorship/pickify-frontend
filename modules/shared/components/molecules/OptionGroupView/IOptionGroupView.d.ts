@@ -3,7 +3,7 @@ import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 declare namespace IOptionGroupView {
   export interface IProps {
     group: IPostFeed.IGroup;
-    onOptionClick: (e: MouseEvent<HTMLButtonElement>) => void;
+    addOneVote: (optionId: string, grouId: string) => void;
     optionCheckedId: string;
   }
 }
