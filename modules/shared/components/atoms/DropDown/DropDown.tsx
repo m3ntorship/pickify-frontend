@@ -16,12 +16,15 @@ const DropDown: FC<IDropDown.IProps> = ({
   };
 
   return (
-    <div className="flex">
-      <VerticalThreeDotsIcon
+    <div className="flex items-start">
+      <div
+        aria-hidden
         onClick={showMenuHandler}
-        className={styles['menu-icon']}
         data-testid="menu-icon"
-      />
+        className={styles['menu-icon-container']}
+      >
+        <VerticalThreeDotsIcon className={styles['menu-icon']} />
+      </div>
       {showMenu && (
         <div role="menu" className={styles.menu} data-testid="menu">
           {options.map((option) => (

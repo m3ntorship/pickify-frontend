@@ -1,5 +1,9 @@
+.menu-icon-container {
+  @apply cursor-pointer rounded-full mr-2 p-2 bg-white;
+}
+
 .menu-icon {
-  @apply fill-grey cursor-pointer w-6 h-6 rounded-full mr-2;
+  @apply fill-grey w-6 h-6;
 }
 
 .menu {

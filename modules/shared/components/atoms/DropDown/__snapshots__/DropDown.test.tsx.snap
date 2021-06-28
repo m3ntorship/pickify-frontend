@@ -2,13 +2,18 @@
 
 exports[`DropDown should render the only menu icon 1`] = `
 <div
-  className="flex"
+  className="flex items-start"
 >
-  <svg
-    className="menu-icon"
-    data-file-name="SvgVerticalThreeDots"
+  <div
+    aria-hidden={true}
+    className="menu-icon-container"
     data-testid="menu-icon"
     onClick={[Function]}
-  />
+  >
+    <svg
+      className="menu-icon"
+      data-file-name="SvgVerticalThreeDots"
+    />
+  </div>
 </div>
 `;
