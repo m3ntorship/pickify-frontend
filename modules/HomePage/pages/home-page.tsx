@@ -6,7 +6,6 @@ import Widget from '@modules/shared/components/atoms/Widget/Widget';
 import PostCreation from '@modules/shared/components/organisms/PostCreation/PostCreation';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts';
-import { createPollPost } from '../api/createPollPost';
 
 interface WidgetData {
   content: string;
@@ -41,10 +40,7 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           <div className={styles.widget}>
             <Widget>{widgetData[firstIndex].content}</Widget>
           </div>
-          <PostCreation
-            createTextPollPost={createPollPost}
-            createMiniSurveyPollPost={createPollPost}
-          />
+          <PostCreation />
           <Posts data={data} />
         </div>
         <div className={styles.widgets}>

@@ -2,17 +2,19 @@ import { useState } from 'react';
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import { useForm, FormProvider } from 'react-hook-form';
-import TextPollCreation from './TextPollCreation';
-import type { ITextPollCreation } from './types/ITextPollCreation';
-import postCreationInitialState from '../PostCreation/postCreationInitialState';
+import MiniSurveyPollCreation from './MiniSurveyPollCreation';
+import type { IMiniSurveyPollCreation } from './IMiniSurveyPollCreation';
 import type { IPostCreation } from '../PostCreation/types/IPostCreation';
+import postCreationInitialState from '../PostCreation/postCreationInitialState';
 
 export default {
-  title: 'organisms/TextPollCreation',
-  component: TextPollCreation,
+  title: 'organisms/MiniSurveyPollCreation',
+  component: MiniSurveyPollCreation,
 };
 
-const Template: Story<ITextPollCreation.IProps> = (args): ReactElement => {
+const Template: Story<IMiniSurveyPollCreation.IPorps> = (
+  args,
+): ReactElement => {
   const methods = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
@@ -23,9 +25,9 @@ const Template: Story<ITextPollCreation.IProps> = (args): ReactElement => {
 
   return (
     <FormProvider {...methods}>
-      <TextPollCreation
+      <MiniSurveyPollCreation
         {...args}
-        post={postCreationGlobalState.textPoll}
+        post={postCreationGlobalState.miniSurvey}
         setPostCreationGlobalState={setPostCreationGlobalState}
         postCreationGlobalState={postCreationGlobalState}
       />

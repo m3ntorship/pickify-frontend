@@ -3,19 +3,18 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import OptionGroupsHeader from './OptionGroupHeader';
 
+const zero = 0;
 describe('OptionGroupHeader', () => {
-  const first = 0;
-  const second = 1;
   const miniSurveyState = {
     postType: 'MiniSurvey Poll',
-    postCaption: { id: 'id_123181239', value: '' },
+    postCaption: { id: 'id_123181239', body: '', media: [] },
     groups: [
       {
         id: '0',
-        groupName: '',
+        name: '',
         options: [
-          { id: '0', value: '' },
-          { id: '0', value: '' },
+          { id: '0', body: '', media: [] },
+          { id: '0', body: '', media: [] },
         ],
       },
     ],
@@ -24,44 +23,34 @@ describe('OptionGroupHeader', () => {
     image: '',
   };
 
-  it('As default if this is the firt group, render with an empty groupName value and addName button but without the group remove button', () => {
+  it('should render default group header with the name "Group 0" and three dots icon used to edit that name or remove the group', () => {
     render(
       <OptionGroupsHeader
-        groupIndex={first}
-        groupId="0"
-        setMiniSurveyState={(): void => undefined}
-        miniSurveyState={miniSurveyState}
+        id={miniSurveyState.groups[zero].id}
+        index={zero}
+        optionGroupName={miniSurveyState.groups[zero].name}
+        deleteOptionsGroupHandler={(): boolean => true}
+        updateOptionsGroupNameHandler={(): boolean => true}
       />,
     );
-    expect(screen.getByPlaceholderText('Group name')).toBeInTheDocument();
-    expect(screen.getByTestId('addGroupName-button')).toBeInTheDocument();
-    expect(screen.queryByTestId('removeGroup-button')).not.toBeInTheDocument();
-  });
-
-  it('As default if this is NOT the firt group, render with an empty groupName value but WITH the group remove button and addName button', () => {
-    render(
-      <OptionGroupsHeader
-        groupIndex={second}
-        groupId="1"
-        setMiniSurveyState={(): void => undefined}
-        miniSurveyState={miniSurveyState}
-      />,
-    );
-    expect(screen.getByPlaceholderText('Group name')).toBeInTheDocument();
-    expect(screen.getByTestId('addGroupName-button')).toBeInTheDocument();
-    expect(screen.getByTestId('removeGroup-button')).toBeInTheDocument();
+    expect(screen.getByText('Group 0')).toBeInTheDocument();
+    expect(screen.getByTestId('editGroupButton')).toBeInTheDocument();
   });
 
   it('input name value being set correctly', () => {
     render(
       <OptionGroupsHeader
-        groupIndex={first}
-        groupId="0"
-        setMiniSurveyState={(): void => undefined}
-        miniSurveyState={miniSurveyState}
+        id={miniSurveyState.groups[zero].id}
+        index={zero}
+        optionGroupName={miniSurveyState.groups[zero].name}
+        deleteOptionsGroupHandler={(): boolean => true}
+        updateOptionsGroupNameHandler={(): boolean => true}
       />,
     );
+    const editGroupBtn = screen.getByTestId('editGroupButton');
+    userEvent.click(editGroupBtn);
     const input = screen.getByPlaceholderText('Group name');
+    userEvent.clear(input);
     userEvent.type(input, 'React');
     expect(input).toHaveValue('React');
   });
@@ -69,43 +58,36 @@ describe('OptionGroupHeader', () => {
   it('clicking on addName Button causing the button itself being removed, name being set and three dot icon displays', () => {
     render(
       <OptionGroupsHeader
-        groupIndex={first}
-        groupId="0"
-        setMiniSurveyState={(): void => undefined}
-        miniSurveyState={miniSurveyState}
+        id={miniSurveyState.groups[zero].id}
+        index={zero}
+        optionGroupName={miniSurveyState.groups[zero].name}
+        deleteOptionsGroupHandler={(): boolean => true}
+        updateOptionsGroupNameHandler={(): boolean => true}
       />,
     );
-    const input = screen.getByPlaceholderText('Group name');
-    userEvent.type(input, 'React');
-    userEvent.click(screen.getByTestId('addGroupName-button'));
 
-    expect(screen.queryByTestId('addGroupName-button')).not.toBeInTheDocument();
-    expect(input).not.toBeInTheDocument();
-    expect(screen.queryByTestId('removeGroup-button')).not.toBeInTheDocument();
-    expect(screen.getByTestId('inputName-text')).toHaveTextContent('React');
-    expect(screen.getByTestId('three-dots')).toBeInTheDocument();
+    const editGroupBtn = screen.getByTestId('editGroupButton');
+    userEvent.click(editGroupBtn);
+    const checkEditGroupBtn = screen.getByTestId('checkEditGroupButton');
+    userEvent.click(checkEditGroupBtn);
   });
 
-  it('after clicking on addName Button and three dot icon displays, clicking on three dot icon causing it to be removed and groupName input and addName button as well as removeGroup button (if its not the first group) get back into the document', () => {
+  it('should call remove group function once', () => {
+    const deleteGroupMockedFunction = jest.fn();
+    const once = 1;
     render(
       <OptionGroupsHeader
-        groupIndex={second}
-        groupId="1"
-        setMiniSurveyState={(): void => undefined}
-        miniSurveyState={miniSurveyState}
+        id={miniSurveyState.groups[zero].id}
+        index={1}
+        optionGroupName={miniSurveyState.groups[zero].name}
+        deleteOptionsGroupHandler={deleteGroupMockedFunction}
+        updateOptionsGroupNameHandler={(): boolean => true}
       />,
     );
-    const input = screen.getByPlaceholderText('Group name');
-    userEvent.type(input, 'React');
-    userEvent.click(screen.getByTestId('addGroupName-button'));
-
-    expect(screen.getByTestId('three-dots')).toBeInTheDocument();
-
-    userEvent.click(screen.getByTestId('three-dots'));
-
-    expect(screen.queryByTestId('three-dots')).not.toBeInTheDocument();
-    expect(screen.getByDisplayValue('React')).toBeInTheDocument();
-    expect(screen.getByTestId('addGroupName-button')).toBeInTheDocument();
-    expect(screen.getByTestId('removeGroup-button')).toBeInTheDocument();
+    const editGroupBtn = screen.getByTestId('editGroupButton');
+    userEvent.click(editGroupBtn);
+    const removeGroupBtn = screen.getByTestId('removeGroupButton');
+    userEvent.click(removeGroupBtn);
+    expect(deleteGroupMockedFunction).toBeCalledTimes(once);
   });
 });

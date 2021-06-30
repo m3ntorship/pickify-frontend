@@ -28,6 +28,14 @@ module.exports = {
     'prefer-const': 'error',
     'prefer-destructuring': 'error',
     'import/no-extraneous-dependencies': 0,
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
   },
   settings: { react: { version: 'detect' } },
 

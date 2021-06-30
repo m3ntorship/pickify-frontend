@@ -1,15 +1,14 @@
 import type { NextRouter } from 'next/router';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import type { IMiniSurveyPollCreation } from '../../components/organisms/MiniSurveyPollCreation/IMiniSurveyPollCreation';
-import type { ITextPollCreation } from '../../components/organisms/TextPollCreation/types/ITextPollCreation';
+import type { IPostCreation } from '@modules/shared/components/organisms/PostCreation/types/IPostCreation';
 import type { IGetPosts } from '../../api/IGetPosts';
 import type { IUseApiAddPostCreation } from './IUseApiAddPostCreation';
 
 export const useApiAddPostCreation = (
-  postData: ITextPollCreation.IState,
+  postData: IPostCreation.IPostStructure,
   createPollPost: (
-    state: IMiniSurveyPollCreation.IState | ITextPollCreation.IState,
+    state: IPostCreation.IPostStructure,
   ) => Promise<IGetPosts.IErrorData>,
 ): IUseApiAddPostCreation.IApiAddPostCreation => {
   const [errorData, setErrorData] = useState<IGetPosts.IErrorData>({
