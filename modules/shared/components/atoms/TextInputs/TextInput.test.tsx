@@ -19,9 +19,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value="aaa"
-        onChange={onChange}
         placeholder="Type something..."
-        onClick={onClick}
+        onChangeInputValueHandler={onChange}
+        onClickDeleteInputValueHandler={onClick}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
 
@@ -43,9 +44,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={onChange}
+        onChangeInputValueHandler={onChange}
+        onClickDeleteInputValueHandler={onClick}
+        onBlurInputHandler={(): boolean => true}
         placeholder="Type something..."
-        onClick={onClick}
       />,
     );
 
@@ -69,9 +71,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value="aaa"
-        onChange={onChange}
         placeholder="Type something..."
-        onClick={onClick}
+        onChangeInputValueHandler={onChange}
+        onClickDeleteInputValueHandler={onClick}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
 
@@ -96,10 +99,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={onChange}
         placeholder="Type something..."
-        onClick={onClick}
-        onBlur={onBlur}
+        onChangeInputValueHandler={onChange}
+        onClickDeleteInputValueHandler={onClick}
+        onBlurInputHandler={onBlur}
       />,
     );
 
@@ -122,9 +125,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Error}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();
@@ -141,9 +145,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();
@@ -160,9 +165,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Success}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();
@@ -179,9 +185,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();
@@ -198,9 +205,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();
@@ -217,9 +225,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();
@@ -236,9 +245,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();
@@ -255,9 +265,10 @@ describe('TextInput', () => {
         variants={ETextInput.Variants.Default}
         disabled={false}
         value=""
-        onChange={funHandler}
         placeholder="Type something..."
-        onClick={funHandler}
+        onChangeInputValueHandler={funHandler}
+        onClickDeleteInputValueHandler={funHandler}
+        onBlurInputHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();

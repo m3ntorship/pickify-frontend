@@ -19,9 +19,15 @@ declare namespace ITextInputs {
   }
 
   export interface IHandlers {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-    onClick: (e: React.MouseEvent<SVGElement>) => void;
+    onChangeInputValueHandler: (
+      inputId: string,
+      e: React.ChangeEvent<HTMLInputElement>,
+    ) => void;
+    onBlurInputHandler: (
+      inputId: string,
+      e: React.FocusEvent<HTMLInputElement>,
+    ) => void;
+    onClickDeleteInputValueHandler: (inputId: string) => void;
   }
 }
 export { ITextInputs };
