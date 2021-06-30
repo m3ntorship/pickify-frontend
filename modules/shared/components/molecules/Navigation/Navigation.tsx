@@ -31,8 +31,18 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
               <li>
                 <FriendsIcon />
               </li>
-              <li>
+              <li className="hidden md:inline">
                 <BillIcon />
+              </li>
+              <li className="md:hidden">
+                <Avatar
+                  size="extra-small"
+                  variant={avatarVariant}
+                  profilePic={profilePic}
+                  onClick={(): void => {
+                    setUser();
+                  }}
+                />
               </li>
               <li>
                 <MenuIcon className={styles['menu-icon']} />
