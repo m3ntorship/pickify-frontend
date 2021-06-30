@@ -17,6 +17,4 @@ export const Default = Template.bind({});
 Default.args = {
   maxFiles: 4,
   onFileSuccess: (): boolean => true,
-  onFileError: (): boolean => true,
-  onMaxFilesError: (): boolean => true,
 };
