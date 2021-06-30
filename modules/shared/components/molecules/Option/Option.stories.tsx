@@ -7,6 +7,11 @@ import type { IOption } from './types/Option';
 export default {
   title: 'Molecules/Option',
   component: Option,
+  argTypes: {
+    index: {
+      control: { type: 'range', min: 0, max: 25, step: 1 },
+    },
+  },
 } as Meta;
 
 const Template: Story<IOption.IProps> = (args) => {
