@@ -6,16 +6,6 @@ const users: Record<string, string> = {
   abdo: '6c1f812c-2fca-4c05-8cec-2a9eb56c35d0',
 };
 
-const getUserId = (userName: string | null): string => {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return users[userName!.toLowerCase()] || users.ahmed;
-};
-
-export const setUser = (): void => {
-  const username: string | null = prompt('username?');
-  localStorage.setItem('user', String(getUserId(username)));
-};
-
 export const getUser = (): string => {
   if (process.browser) {
     return (
@@ -23,4 +13,16 @@ export const getUser = (): string => {
     );
   }
   return '3ad4e0f5-1787-46fa-851f-d7dddbfaf2c3';
+};
+
+const getUserId = (userName: string | null): string => {
+  if (userName && users[userName.toLowerCase()]) {
+    return users[userName.toLowerCase()];
+  }
+  return getUser();
+};
+
+export const setUser = (): void => {
+  const username: string | null = prompt('username?');
+  localStorage.setItem('user', String(getUserId(username)));
 };
