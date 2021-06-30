@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import PostCreation from './PostCreation';
-import type { IPostCreation } from './IPostCreation';
+import type { IPostCreation } from './types/IPostCreation';
 
 export default {
   title: 'organisms/PostCreation',
