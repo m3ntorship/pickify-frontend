@@ -1,13 +1,15 @@
 import type { IPostCreation } from '../../PostCreation/types/IPostCreation';
 
-declare namespace ITextPollCreation {
+declare namespace IImagePollCreation {
   export interface IProps {
     post: IPostCreation.IPostStructure;
     postCreationGlobalState: IPostCreation.IState;
     setPostCreationGlobalState: (state: IPostCreation.IState) => void;
   }
-  interface ITextPollMap {
-    textPoll: Record<string, Record<string, string>>;
+  export interface InvalidImages {
+    id?: string;
+    error: boolean;
+    message: string;
   }
 }
-export { ITextPollCreation };
+export { IImagePollCreation };

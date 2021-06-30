@@ -1,14 +1,13 @@
-import type { IUseUpdatedImageData } from '../../../hooks/useUpdatedImageData/IUseUpdatedImageData';
+import type { ReactElement } from 'react';
 
 declare namespace IUploadingImage {
-  export interface IProps
-    extends IHandlers,
-      PostImages,
-      IUseUpdatedImageData.UpdatedImageData {
-    letter: string;
-  }
-  export interface IHandlers {
-    handleVerticalThreeDotsClick?: () => void;
+  export interface IProps {
+    id: string;
+    index: number;
+    file: File;
+    children?: ReactElement;
+    entityType: string;
+    handleVerticalThreeDotsClick: (optionId: string) => void;
   }
 }
 export { IUploadingImage };

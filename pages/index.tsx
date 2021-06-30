@@ -22,8 +22,6 @@ import { HomePage } from '@modules/HomePage';
 // const TempTextPollFeedWithError = withErrorHandler(TempTextPollFeed);
 
 const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  console.log(data);
-
   return <HomePage data={data} />;
 };
 

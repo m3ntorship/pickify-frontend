@@ -1,5 +1,5 @@
 .container {
-  @apply flex flex-col;
+  @apply flex flex-col relative;
 }
 
 .button {
@@ -7,17 +7,19 @@
 }
 
 .layout {
-  @apply absolute inset-0 bg-white opacity-95 flex justify-center items-center;
-}
-
-.error-box {
-  @apply z-10 absolute inset-0;
+  @apply absolute w-full h-full top-0 left-0 bg-white opacity-95 flex justify-center items-center z-0;
 }
 
 .image-container {
-  @apply relative w-full h-full mb-1 overflow-hidden;
+  @apply relative w-full h-full mb-1 overflow-hidden rounded-t-md;
 }
 
 .image {
-  @apply object-cover rounded-t-md w-full h-full;
+  @apply object-cover  w-full h-full;
+}
+.image-caption {
+  @apply relative z-50;
+}
+.image-caption input {
+  @apply rounded-t-none;
 }

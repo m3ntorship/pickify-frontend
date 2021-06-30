@@ -1,364 +1,319 @@
-import React, { useState, useEffect } from 'react';
-import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
-import { useForm } from 'react-hook-form';
-import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
+import React from 'react';
+import type { FC, ReactElement } from 'react';
+import { useFormContext } from 'react-hook-form';
 import type { IUploadedFiles } from '../../../logic/uploadedFiles/IUploadedFiles';
-import { useApiAddPostCreation } from '../../../hooks/useApiAddPostCreation/useApiAddPostCreation';
 import OptionGroups from '../../molecules/OptionGroups/OptionGroups';
 import TextInput from '../../atoms/TextInputs/TextInput';
-import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { IMiniSurveyPollCreation } from './IMiniSurveyPollCreation';
-import type { IOptionGroup } from '../../molecules/OptionGroup/types/IOptionGroup';
-import ThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import FileUploader from '../../atoms/FileUploader/FileUploader';
-import Misc from '../../molecules/Misc/Misc';
-import { MiscType } from '../../molecules/Misc/types/EMisc';
-import type { ICreateImagePoll } from '../CreateImagePoll/ICreateImagePoll';
+import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
+import type { IPostCreationValidationFields } from '../../../types/IPostCreationValidationFields';
 
-const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IProps> = ({
-  createMiniSurveyPollPost,
+const randomId = (): string => {
+  const randomHelper = 10000000000;
+  return `id_${Math.round(Math.random() * randomHelper)}`;
+};
+
+const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
+  post,
+  postCreationGlobalState,
+  setPostCreationGlobalState,
 }): ReactElement => {
-  const randomId = (): string => {
-    const randomHelper = 10000000000;
-    return `id_${Math.round(Math.random() * randomHelper)}`;
-  };
   const zero = 0;
-  const [miniSurveyState, setMiniSurveyState] =
-    useState<IMiniSurveyPollCreation.IState>({
-      postType: PostCreationRequestTypeEnum.MiniSurvey,
-      postCaption: { id: 'id_123181239', value: '' },
-      groups: [
-        {
-          id: randomId(),
-          name: '',
-          options: [
-            { id: randomId(), body: '' },
-            { id: randomId(), body: '' },
-          ],
-        },
-      ],
-      hiddenIdentity: false,
-      privacy: 'friends',
-      image: '',
-    });
-
-  const { loading, errorData, apiPostCreation } = useApiAddPostCreation(
-    miniSurveyState,
-    createMiniSurveyPollPost,
-  );
-  const [validImages, setValidImages] = useState<
-    ICreateImagePoll.ValidImages[]
-  >([]);
-  const [invalidImages, setInvalidImages] = useState<
-    ICreateImagePoll.InvalidImages[]
-  >([]);
-  const [maxFilesError, setMaxFilesError] =
-    useState<ICreateImagePoll.InvalidImages>({ error: false, message: '' });
-
+  const one = 1;
   const {
     register,
-    handleSubmit,
-    reset,
+    setValue,
+    getValues,
     formState: { errors, dirtyFields, isSubmitted },
-  } = useForm({
-    mode: 'onSubmit',
-    reValidateMode: 'onChange',
-    shouldUnregister: true,
-  });
+  } = useFormContext<IPostCreationValidationFields.IFields>();
 
-  const onUploadValidImages = (images: IUploadedFiles.IImagesData[]): void => {
-    const newValidImages = images.map((img) => {
-      const imageData = {
-        imgId: randomId(),
-        imgCaption: '',
-        file: img.file,
-      };
-      return imageData;
-    });
-
-    setValidImages([...validImages, ...newValidImages]);
-    setInvalidImages([]);
-    setMaxFilesError({ error: false, message: '' });
-  };
-  const onUploadInvalidImages = (
-    images: IUploadedFiles.IImagesData[],
-  ): void => {
-    const newInvalidImages = images.map((img) => {
-      const imageData = {
-        imgId: randomId(),
-        error: img.error,
-        message: img.message,
-      };
-      return imageData;
-    });
-
-    setInvalidImages([...invalidImages, ...newInvalidImages]);
-    setMaxFilesError({ error: false, message: '' });
-  };
-  const onUploadMaxLimitImages = (maxLimitImage: {
-    error: boolean;
-    message: string;
-  }): void => {
-    setMaxFilesError({
-      error: maxLimitImage.error,
-      message: maxLimitImage.message,
-    });
+  const miniSurveyCaptionRegister = {
+    ...register(`miniSurvey.postCaption.${post.postCaption.id}`, {
+      required: true,
+      shouldUnregister: true,
+    }),
   };
 
-  const onError = (): boolean => {
-    return true;
-  };
-  const onSubmit = async (): Promise<boolean> => {
-    if (validImages.length !== zero) {
-      return onError();
+  const inputVariantsHandler = (optionId: string): ETextInput.Variants => {
+    if (errors.miniSurvey) {
+      if (errors.miniSurvey.postCaption)
+        if (errors.miniSurvey.postCaption[optionId])
+          return ETextInput.Variants.Error;
     }
-    await apiPostCreation();
-    return true;
-  };
-
-  const variantMessage = (optionId: string): ETextInput.Variants => {
-    if (errors[optionId]) {
-      return ETextInput.Variants.Error;
-    }
-    if (dirtyFields[optionId]) {
-      return ETextInput.Variants.Success;
+    if (
+      dirtyFields.miniSurvey &&
+      getValues(`miniSurvey.postCaption.${optionId}`)
+    ) {
+      if (dirtyFields.miniSurvey.postCaption)
+        if (dirtyFields.miniSurvey.postCaption[optionId])
+          return ETextInput.Variants.Success;
     }
 
     return ETextInput.Variants.Default;
   };
 
-  const changeCaptionInputValueHandler = (
-    e: ChangeEvent<HTMLInputElement>,
-  ): void => {
-    setMiniSurveyState({
-      ...miniSurveyState,
-      postCaption: {
-        ...miniSurveyState.postCaption,
-        value: e.target.value,
-      },
-    });
-  };
-  const captionInputRegister = {
-    ...register('id_123181239', {
-      required: {
-        value: true,
-        message: 'This field is required',
-      },
-      minLength: { value: 3, message: 'Minimum letters is 3' },
-    }),
-  };
-
-  const handleTheRadioButtonOnChange = (
+  const onChangePostCaptionInputValueHandler = (
+    inputId: string,
     e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    setMiniSurveyState({
-      ...miniSurveyState,
-      hiddenIdentity: e.target.checked,
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        postCaption: { ...post.postCaption, body: e.target.value },
+      },
     });
   };
 
-  const handlePrivacySelectChange = (
-    e: React.ChangeEvent<HTMLSelectElement>,
+  const onClickDeletePostCaptionInputValueHandler = (): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        postCaption: { ...post.postCaption, body: '' },
+      },
+    });
+  };
+
+  const addOptionsGroupHandler = (): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: [
+          ...post.groups,
+          {
+            id: randomId(),
+            name: '',
+            options: [
+              { id: randomId(), body: '', media: [] },
+              { id: randomId(), body: '', media: [] },
+            ],
+            media: [],
+          },
+        ],
+      },
+    });
+  };
+
+  const deleteOptionsGroupHandler = (groupId: string): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: post.groups.filter((group) => group.id !== groupId),
+      },
+    });
+  };
+
+  const addOptionHandler = (groupId: string): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: post.groups.map((group) => {
+          if (group.id === groupId) {
+            return {
+              ...group,
+              options: [
+                ...group.options,
+                { id: randomId(), body: '', media: [] },
+              ],
+            };
+          }
+          return group;
+        }),
+      },
+    });
+  };
+  const deleteOptionHandler = (optionId: string, groupId: string): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: post.groups.map((group) => {
+          if (group.id === groupId) {
+            return {
+              ...group,
+              options: group.options.filter((option) => option.id !== optionId),
+            };
+          }
+          return group;
+        }),
+      },
+    });
+  };
+  const onChangeOptionValueHandler = (
+    optionId: string,
+    groupId: string,
+    e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    setMiniSurveyState({ ...miniSurveyState, privacy: e.target.value });
-  };
-
-  const addGroupHandler = (): void => {
-    setMiniSurveyState({
-      ...miniSurveyState,
-      groups: [
-        ...miniSurveyState.groups,
-        {
-          id: randomId(),
-          name: '',
-          options: [
-            { id: randomId(), body: '' },
-            { id: randomId(), body: '' },
-          ],
-        },
-      ],
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: post.groups.map((group) => {
+          if (group.id === groupId) {
+            return {
+              ...group,
+              options: group.options.map((option) => {
+                if (option.id === optionId) {
+                  return { ...option, body: e.target.value };
+                }
+                return option;
+              }),
+            };
+          }
+          return group;
+        }),
+      },
     });
   };
 
-  const deleteGroupHandler = (groupId?: string): void => {
-    setMiniSurveyState({
-      ...miniSurveyState,
-      groups: miniSurveyState.groups.filter((group) => group.id !== groupId),
-    });
-  };
-
-  const setOptionsInGroup = (
-    options: IOptionGroup.IOption[],
+  const onClickDeleteOptionValueHandler = (
+    optionId: string,
     groupId: string,
   ): void => {
-    setMiniSurveyState({
-      ...miniSurveyState,
-      groups: miniSurveyState.groups.map((group) => {
-        if (groupId === group.id) {
-          return { ...group, options };
-        }
-        return group;
-      }),
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: post.groups.map((group) => {
+          if (group.id === groupId) {
+            return {
+              ...group,
+              options: group.options.map((option) => {
+                if (option.id === optionId) {
+                  return { ...option, body: '' };
+                }
+                return option;
+              }),
+            };
+          }
+          return group;
+        }),
+      },
     });
   };
-  useEffect(() => {
-    if (validImages.length !== zero) {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(validImages[zero].file as File);
-      fileReader.onload = (): void => {
-        setMiniSurveyState({
-          ...miniSurveyState,
-          image: fileReader.result as string,
-        });
-      };
-    }
-  }, [validImages]);
 
+  const updateOptionsGroupNameHandler = (
+    groupId: string,
+    groupName: string,
+  ): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: post.groups.map((group) => {
+          if (group.id === groupId) {
+            return { ...group, name: groupName };
+          }
+          return group;
+        }),
+      },
+    });
+  };
+
+  const onUploadValidImages = (images: IUploadedFiles.IImagesData[]): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        media: [{ id: randomId(), file: images[zero].file }],
+      },
+    });
+  };
+
+  const handleVerticalThreeDotsClick = (): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        media: [],
+      },
+    });
+  };
+  if (post.media.length < one) {
+    setValue(`uploadedFilesInpost`, ``);
+  }
   return (
     <>
       <div className="space-y-4">
-        <form className="space-y-4" onSubmit={handleSubmit(onSubmit, onError)}>
-          {loading ? (
-            'loading...'
-          ) : (
-            <>
-              {errorData.error ? (
-                <Misc
-                  type={MiscType.Error}
-                  msg="failed to create your post :("
-                  subMsg={errorData.message}
-                />
-              ) : (
-                <>
-                  {errorData.message && (
-                    <Misc
-                      type={MiscType.Success}
-                      msg="success"
-                      subMsg={errorData.message}
-                    />
-                  )}
-                </>
-              )}
-            </>
-          )}
-          <TextInput
-            id="id_123181239"
-            value={miniSurveyState.postCaption.value}
-            variants={
-              isSubmitted
-                ? variantMessage('id_123181239')
-                : ETextInput.Variants.Default
-            }
-            inputType={ETextInput.InputType.Default}
-            placeholder="What do you want  to ask about?"
-            disabled={false}
-            {...captionInputRegister}
-            /* eslint-disable @typescript-eslint/no-floating-promises */
-            onChange={(e: ChangeEvent<HTMLInputElement>): void => {
-              changeCaptionInputValueHandler(e);
-              captionInputRegister.onChange(e);
-            }}
-            onClick={(): void => {
-              setMiniSurveyState({
-                ...miniSurveyState,
-                postCaption: {
-                  ...miniSurveyState.postCaption,
-                  value: '',
-                },
-              });
-              reset({ id_123181239: '' });
-            }}
-            /* eslint-disable @typescript-eslint/no-floating-promises */
-            onBlur={(e: FocusEvent<HTMLInputElement>): void => {
-              captionInputRegister.onBlur(e);
-              setMiniSurveyState({
-                ...miniSurveyState,
-                postCaption: {
-                  ...miniSurveyState.postCaption,
-                  value: e.target.value,
-                },
-              });
-            }}
-          />
-          <>
-            {miniSurveyState.image ? (
-              <div className="relative">
-                <button
-                  type="button"
-                  className="absolute z-50 rounded-full focus:outline-none right-4 top-4 bg-white h-8 w-8 flex justify-center items-center cursor-pointer"
-                >
-                  <ThreeDotsIcon className="fill-dark-grey w-4 h-4" />
-                </button>
-                <img
-                  alt="mini survey"
-                  src={miniSurveyState.image}
-                  width={300}
-                  height={300}
-                  className="rounded-md object-cover w-full h-full"
-                />
-              </div>
-            ) : (
-              maxFilesError.error && (
-                <Misc
-                  msg="Image couldn’t be uploaded!"
-                  subMsg={maxFilesError.message}
-                  type={MiscType.Error}
-                />
-              )
-            )}
-            {invalidImages.length ? (
-              <div>
-                {invalidImages.map((imgData) => {
-                  return (
-                    <Misc
-                      key={imgData.imgId}
-                      msg="Image couldn’t be uploaded!"
-                      subMsg={imgData.message}
-                      type={MiscType.Error}
-                    />
-                  );
-                })}
-              </div>
-            ) : (
-              ''
-            )}
-            {!miniSurveyState.image && (
-              <FileUploader
-                onFileSuccess={onUploadValidImages}
-                onFileError={onUploadInvalidImages}
-                onMaxFilesError={onUploadMaxLimitImages}
-                maxFiles={1}
+        <TextInput
+          id={post.postCaption.id}
+          inputType={ETextInput.InputType.Default}
+          value={post.postCaption.body}
+          placeholder="What do you want to ask about?"
+          variants={
+            isSubmitted
+              ? inputVariantsHandler(post.postCaption.id)
+              : ETextInput.Variants.Default
+          }
+          onChangeInputValueHandler={(inputId, e): void => {
+            miniSurveyCaptionRegister.onChange(e) as Promise<boolean>;
+            onChangePostCaptionInputValueHandler(inputId, e);
+          }}
+          onClickDeleteInputValueHandler={(): void => {
+            setValue(`miniSurvey.postCaption.${post.postCaption.id}`, '');
+            onClickDeletePostCaptionInputValueHandler();
+          }}
+          onBlurInputHandler={(_, e): void => {
+            miniSurveyCaptionRegister.onBlur(e) as Promise<boolean>;
+          }}
+          {...miniSurveyCaptionRegister}
+        />
+        {post.media.length ? (
+          <div className="grid gap-x-2 gap-y-4 rounded-md relative mb-m grid-cols-1">
+            {post.media.map((med, index) => (
+              <UploadingImage
+                key={med.id}
+                id={med.id}
+                index={index}
+                file={med.file}
+                entityType="option"
+                handleVerticalThreeDotsClick={(): void => {
+                  handleVerticalThreeDotsClick();
+                }}
               />
-            )}
-          </>
-          <OptionGroups
-            groups={miniSurveyState.groups}
-            register={register}
-            isSubmitted={isSubmitted}
-            reset={reset}
-            errors={errors}
-            dirtyFields={dirtyFields}
-            variantMessage={variantMessage}
-            addOptionGroup={addGroupHandler}
-            deleteOptionGroup={deleteGroupHandler}
-            setOptionsInGroup={setOptionsInGroup}
-            miniSurveyState={miniSurveyState}
-            setMiniSurveyState={setMiniSurveyState}
+            ))}
+          </div>
+        ) : (
+          ''
+        )}
+        {post.media.length < one && (
+          <FileUploader
+            onFileSuccess={onUploadValidImages}
+            maxFiles={4}
+            entityType="post"
+            lastFilesLength={post.media.length}
           />
-          <PostFooterCreation
-            postButtonIsDisabled={false}
-            handleSubmitButtonClick={(): void => {
-              console.log('post button clicked');
-            }}
-            handleCancelButtonClick={(): void => {
-              console.log('cancel button clicked');
-            }}
-            handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
-            handlePrivacySelectChange={handlePrivacySelectChange}
-            togglerIsChecked={miniSurveyState.hiddenIdentity}
-          />
-        </form>
+        )}
+
+        <OptionGroups
+          groups={post.groups}
+          addOptionsGroupHandler={addOptionsGroupHandler}
+          deleteOptionsGroupHandler={(groupId): void => {
+            deleteOptionsGroupHandler(groupId);
+          }}
+          addOptionHandler={(groupId): void => {
+            addOptionHandler(groupId);
+          }}
+          deleteOptionHandler={(optionId, groupId): void => {
+            deleteOptionHandler(optionId, groupId);
+          }}
+          onBlurOptionHandler={(): boolean => true}
+          onChangeOptionValueHandler={(optionId, groupId, e): void => {
+            onChangeOptionValueHandler(optionId, groupId, e);
+          }}
+          onClickDeleteOptionValueHandler={(optionId, groupId): void => {
+            onClickDeleteOptionValueHandler(optionId, groupId);
+          }}
+          updateOptionsGroupNameHandler={(groupId, groupName): void => {
+            updateOptionsGroupNameHandler(groupId, groupName);
+          }}
+        />
       </div>
     </>
   );

@@ -7,51 +7,57 @@ import OptionGroupWrapper from '../OptionGroupWrapper/OptionGroupWrapper';
 
 const OptionGroups: FC<IOptionGroups.IProps> = ({
   groups,
-  register,
-  isSubmitted,
-  reset,
-  errors,
-  dirtyFields,
-  variantMessage,
-  addOptionGroup,
-  deleteOptionGroup,
-  setOptionsInGroup,
-  miniSurveyState,
-  setMiniSurveyState,
+  addOptionsGroupHandler,
+  deleteOptionsGroupHandler,
+  updateOptionsGroupNameHandler,
+  onChangeOptionValueHandler,
+  onClickDeleteOptionValueHandler,
+  onBlurOptionHandler,
+  addOptionHandler,
+  deleteOptionHandler,
 }): ReactElement => {
+  const one = 1;
   return (
     <>
-      {groups.map((optionGroup, index) => (
-        <OptionGroupWrapper
-          key={optionGroup.id}
-          optionGroup={optionGroup}
-          index={index}
-          register={register}
-          deleteOptionGroup={deleteOptionGroup}
-          miniSurveyState={miniSurveyState}
-          setMiniSurveyState={setMiniSurveyState}
-        >
-          <OptionGroup
-            groupId={optionGroup.id}
-            options={optionGroup.options}
-            variantMessage={variantMessage}
-            register={register}
-            formSubmitted={isSubmitted}
-            reset={reset}
-            errors={errors}
-            dirtyFields={dirtyFields}
-            setOptionsInGroup={setOptionsInGroup}
-            miniSurveyState={miniSurveyState}
-            setMiniSurveyState={setMiniSurveyState}
-          />
-        </OptionGroupWrapper>
-      ))}
+      {groups.map((optionGroup, index) => {
+        return (
+          <OptionGroupWrapper
+            key={optionGroup.id}
+            id={optionGroup.id}
+            index={index + one}
+            optionsGroupName={optionGroup.name}
+            updateOptionsGroupNameHandler={updateOptionsGroupNameHandler}
+            deleteOptionsGroupHandler={deleteOptionsGroupHandler}
+          >
+            <OptionGroup
+              id={optionGroup.id}
+              index={index}
+              options={optionGroup.options}
+              onChangeOptionValueHandler={(optionId, groupId, e): void => {
+                onChangeOptionValueHandler(optionId, groupId, e);
+              }}
+              onClickDeleteOptionValueHandler={(optionId, groupId): void => {
+                onClickDeleteOptionValueHandler(optionId, groupId);
+              }}
+              onBlurOptionHandler={(optionId, groupId, e): void => {
+                onBlurOptionHandler(optionId, groupId, e);
+              }}
+              addOptionHandler={(groupId): void => {
+                addOptionHandler(groupId);
+              }}
+              deleteOptionHandler={(optionId, groupId): void => {
+                deleteOptionHandler(optionId, groupId);
+              }}
+            />
+          </OptionGroupWrapper>
+        );
+      })}
       <div className="flex flex-col bg-grey-bg p-4 rounded-md ">
         <button
           type="button"
           data-testid="addOptionGroupBtn"
-          className="text-dark-grey cursor-pointer flex items-center self-start focus:outline-none"
-          onClick={addOptionGroup}
+          className="text-dark-grey cursor-pointer flex items-center self-start "
+          onClick={addOptionsGroupHandler}
         >
           <PlusIcon className="fill-dark-grey mr-1 my-3xxs" />
           <span className="text-sm font-medium">Add Option Group</span>

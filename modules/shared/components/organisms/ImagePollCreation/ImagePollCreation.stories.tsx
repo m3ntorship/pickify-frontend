@@ -2,17 +2,17 @@ import { useState } from 'react';
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import { useForm, FormProvider } from 'react-hook-form';
-import TextPollCreation from './TextPollCreation';
-import type { ITextPollCreation } from './types/ITextPollCreation';
+import ImagePollCreation from './ImagePollCreation';
+import type { IImagePollCreation } from './types/ImagePollCreation';
 import postCreationInitialState from '../PostCreation/postCreationInitialState';
 import type { IPostCreation } from '../PostCreation/types/IPostCreation';
 
 export default {
-  title: 'organisms/TextPollCreation',
-  component: TextPollCreation,
+  title: 'organisms/ImagePollCreation',
+  component: ImagePollCreation,
 };
 
-const Template: Story<ITextPollCreation.IProps> = (args): ReactElement => {
+const Template: Story<IImagePollCreation.IProps> = (args): ReactElement => {
   const methods = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
@@ -23,9 +23,9 @@ const Template: Story<ITextPollCreation.IProps> = (args): ReactElement => {
 
   return (
     <FormProvider {...methods}>
-      <TextPollCreation
+      <ImagePollCreation
         {...args}
-        post={postCreationGlobalState.textPoll}
+        post={postCreationGlobalState.imagePoll}
         setPostCreationGlobalState={setPostCreationGlobalState}
         postCreationGlobalState={postCreationGlobalState}
       />

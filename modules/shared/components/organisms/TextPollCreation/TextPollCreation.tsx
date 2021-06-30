@@ -1,227 +1,196 @@
-import React, { useEffect, useState } from 'react';
-import type { FC, ReactElement, ChangeEvent, FocusEvent } from 'react';
-import { useForm } from 'react-hook-form';
-import { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
-import { useApiAddPostCreation } from '../../../hooks/useApiAddPostCreation/useApiAddPostCreation';
+import React from 'react';
+import type { FC, ReactElement } from 'react';
+import { useFormContext } from 'react-hook-form';
 import OptionGroup from '../../molecules/OptionGroup/OptionGroup';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { ITextPollCreation } from './types/ITextPollCreation';
-import PostFooterCreation from '../../molecules/PostFooterCreation/PostFooterCreation';
-import Misc from '../../molecules/Misc/Misc';
-import { MiscType } from '../../molecules/Misc/types/EMisc';
+
+const randomId = (): string => {
+  const randomHelper = 10000000000;
+  return `id_${Math.round(Math.random() * randomHelper)}`;
+};
 
 const TextPollCreation: FC<ITextPollCreation.IProps> = ({
-  createTextPollPost,
+  post,
+  postCreationGlobalState,
+  setPostCreationGlobalState,
 }): ReactElement => {
-  const randomId = (): string => {
-    const randomHelper = 10000000000;
-    return `id_${Math.round(Math.random() * randomHelper)}`;
-  };
-  const firstGroup = 0;
-  const [options, setOptions] = useState<ITextPollCreation.IOption[]>([]);
-
-  const [textPollState, setTextPollState] = useState<ITextPollCreation.IState>({
-    postType: PostCreationRequestTypeEnum.TextPoll,
-    postCaption: { id: 'id_123181239', value: '' },
-    groups: [{ name: 'ay 7aga', options }],
-    hiddenIdentity: false,
-    privacy: 'friends',
-  });
-
-  const { loading, errorData, apiPostCreation } = useApiAddPostCreation(
-    textPollState,
-    createTextPollPost,
-  );
-
-  useEffect(() => {
-    setOptions([
-      { id: randomId(), body: '' },
-      { id: randomId(), body: '' },
-    ]);
-  }, []);
-
-  useEffect(() => {
-    setTextPollState({
-      ...textPollState,
-      groups: [{ name: 'ay 7aga', options }],
-    });
-  }, [options]);
-
+  const zero = 0;
   const {
     register,
-    handleSubmit,
-    reset,
+    setValue,
+    getValues,
     formState: { errors, dirtyFields, isSubmitted },
-  } = useForm({
-    mode: 'onSubmit',
-    reValidateMode: 'onChange',
-    shouldUnregister: true,
-  });
-  const onSubmit = async (): Promise<void> => {
-    await apiPostCreation();
-  };
-  const onError = (): boolean => {
-    return true;
-  };
-  const variantMessage = (optionId: string): ETextInput.Variants => {
-    if (errors[optionId]) {
-      return ETextInput.Variants.Error;
+  } = useFormContext<ITextPollCreation.ITextPollMap>();
+
+  const inputVariantsHandler = (optionId: string): ETextInput.Variants => {
+    if (errors.textPoll) {
+      if (errors.textPoll.postCaption)
+        if (errors.textPoll.postCaption[optionId])
+          return ETextInput.Variants.Error;
     }
-    if (dirtyFields[optionId]) {
-      return ETextInput.Variants.Success;
+    if (dirtyFields.textPoll && getValues(`textPoll.postCaption.${optionId}`)) {
+      if (dirtyFields.textPoll.postCaption)
+        if (dirtyFields.textPoll.postCaption[optionId])
+          return ETextInput.Variants.Success;
     }
 
     return ETextInput.Variants.Default;
   };
-  const changeCaptionInputValueHandler = (
-    e: ChangeEvent<HTMLInputElement>,
+
+  const onChangePostCaptionInputValueHandler = (
+    _: string,
+    e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    setTextPollState({
-      ...textPollState,
-      postCaption: {
-        ...textPollState.postCaption,
-        value: e.target.value,
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      textPoll: {
+        ...post,
+        postCaption: { ...post.postCaption, body: e.target.value },
       },
     });
   };
-  const captionInputRegister = {
-    ...register('id_123181239', {
-      required: {
-        value: true,
-        message: 'This field is required',
+
+  const onClickDeletePostCaptionInputValueHandler = (): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      textPoll: {
+        ...post,
+        postCaption: { ...post.postCaption, body: '' },
       },
-      minLength: { value: 3, message: 'Minimum letters is 3' },
-    }),
+    });
   };
 
-  const handleTheRadioButtonOnChange = (
+  const addOptionHandler = (): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      textPoll: {
+        ...post,
+        groups: [
+          {
+            ...post.groups[zero],
+            options: [
+              ...post.groups[zero].options,
+              { id: randomId(), body: '', media: [] },
+            ],
+          },
+        ],
+      },
+    });
+  };
+
+  const deleteOptionHandler = (optionId: string): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      textPoll: {
+        ...post,
+        groups: [
+          {
+            ...post.groups[zero],
+            options: post.groups[zero].options.filter(
+              (option) => option.id !== optionId,
+            ),
+          },
+        ],
+      },
+    });
+  };
+
+  const onChangeOptionValueHandler = (
+    optionId: string,
+    groupId: string,
     e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    setTextPollState({ ...textPollState, hiddenIdentity: e.target.checked });
-  };
-  const handlePrivacySelectChange = (
-    e: React.ChangeEvent<HTMLSelectElement>,
-  ): void => {
-    setTextPollState({ ...textPollState, privacy: e.target.value });
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      textPoll: {
+        ...post,
+        groups: [
+          {
+            ...post.groups[zero],
+            options: post.groups[zero].options.map((option) => {
+              if (option.id === optionId) {
+                return { ...option, body: e.target.value };
+              }
+              return option;
+            }),
+          },
+        ],
+      },
+    });
   };
 
+  const onClickDeleteOptionValueHandler = (optionId: string): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      textPoll: {
+        ...post,
+        groups: [
+          {
+            ...post.groups[zero],
+            options: post.groups[zero].options.map((option) => {
+              if (option.id === optionId) {
+                return { ...option, body: '' };
+              }
+              return option;
+            }),
+          },
+        ],
+      },
+    });
+  };
+
+  const textPollCaptionRegister = {
+    ...register(`textPoll.postCaption.${post.postCaption.id}`, {
+      required: true,
+      shouldUnregister: true,
+    }),
+  };
   return (
-    <>
-      <div className="space-y-4">
-        <form
-          className="space-y-4"
-          onBlur={(e: FocusEvent<HTMLFormElement>): void => {
-            setTextPollState({
-              ...textPollState,
-              groups: [
-                {
-                  name: 'ay 7aga',
-                  options: textPollState.groups[firstGroup].options.map(
-                    (option) => {
-                      if (option.id === e.target.id) {
-                        const inputValue = e.target.value as string;
-                        return { ...option, body: inputValue };
-                      }
-                      return option;
-                    },
-                  ),
-                },
-              ],
-            });
-          }}
-          onSubmit={handleSubmit(onSubmit, onError)}
-        >
-          {loading ? (
-            'loading...'
-          ) : (
-            <>
-              {errorData.error ? (
-                <Misc
-                  type={MiscType.Error}
-                  msg="failed to create your post :("
-                  subMsg={errorData.message}
-                />
-              ) : (
-                <>
-                  {errorData.message && (
-                    <Misc
-                      type={MiscType.Success}
-                      msg="success"
-                      subMsg={errorData.message}
-                    />
-                  )}
-                </>
-              )}
-            </>
-          )}
-          <TextInput
-            id="id_123181239"
-            value={textPollState.postCaption.value}
-            variants={
-              isSubmitted
-                ? variantMessage('id_123181239')
-                : ETextInput.Variants.Default
-            }
-            inputType={ETextInput.InputType.Default}
-            placeholder="What do you want  to ask about?"
-            disabled={false}
-            {...captionInputRegister}
-            /* eslint-disable @typescript-eslint/no-floating-promises */
-            onChange={(e: ChangeEvent<HTMLInputElement>): void => {
-              changeCaptionInputValueHandler(e);
-              captionInputRegister.onChange(e);
-            }}
-            onClick={(): void => {
-              setTextPollState({
-                ...textPollState,
-                postCaption: {
-                  ...textPollState.postCaption,
-                  value: '',
-                },
-              });
-              reset({ id_123181239: '' });
-            }}
-            /* eslint-disable @typescript-eslint/no-floating-promises */
-            onBlur={(e: FocusEvent<HTMLInputElement>): void => {
-              captionInputRegister.onBlur(e);
-              setTextPollState({
-                ...textPollState,
-                postCaption: {
-                  ...textPollState.postCaption,
-                  value: e.target.value,
-                },
-              });
-            }}
-          />
-          <OptionGroup
-            groupId="0"
-            options={textPollState.groups[firstGroup].options}
-            setOptions={setOptions}
-            variantMessage={variantMessage}
-            register={register}
-            formSubmitted={isSubmitted}
-            reset={reset}
-            errors={errors}
-            dirtyFields={dirtyFields}
-            textPollState={textPollState}
-            setTextPollState={setTextPollState}
-          />
-          <PostFooterCreation
-            postButtonIsDisabled={false}
-            handleSubmitButtonClick={(): void => {
-              console.log('post button clicked');
-            }}
-            handleCancelButtonClick={(): void => {
-              console.log('cancel button clicked');
-            }}
-            handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
-            handlePrivacySelectChange={handlePrivacySelectChange}
-            togglerIsChecked={textPollState.hiddenIdentity}
-          />
-        </form>
-      </div>
-    </>
+    <div className="space-y-4">
+      <TextInput
+        id={post.postCaption.id}
+        inputType={ETextInput.InputType.Default}
+        value={post.postCaption.body}
+        placeholder="What do you want to ask about?"
+        variants={
+          isSubmitted
+            ? inputVariantsHandler(post.postCaption.id)
+            : ETextInput.Variants.Default
+        }
+        onChangeInputValueHandler={(inputId, e): void => {
+          textPollCaptionRegister.onChange(e) as Promise<boolean>;
+          onChangePostCaptionInputValueHandler(inputId, e);
+        }}
+        onClickDeleteInputValueHandler={(): void => {
+          setValue(`textPoll.postCaption.${post.postCaption.id}`, '');
+          onClickDeletePostCaptionInputValueHandler();
+        }}
+        onBlurInputHandler={(inputId, e): void => {
+          textPollCaptionRegister.onBlur(e) as Promise<boolean>;
+        }}
+        {...textPollCaptionRegister}
+      />
+      <OptionGroup
+        id={post.groups[zero].id}
+        index={zero}
+        options={post.groups[zero].options}
+        addOptionHandler={(): void => {
+          addOptionHandler();
+        }}
+        deleteOptionHandler={(optionId): void => {
+          deleteOptionHandler(optionId);
+        }}
+        onBlurOptionHandler={(): boolean => true}
+        onChangeOptionValueHandler={(optionId, groupId, e): void => {
+          onChangeOptionValueHandler(optionId, groupId, e);
+        }}
+        onClickDeleteOptionValueHandler={(optionId): void => {
+          onClickDeleteOptionValueHandler(optionId);
+        }}
+      />
+    </div>
   );
 };
 export default TextPollCreation;
