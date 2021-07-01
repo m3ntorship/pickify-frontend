@@ -1,6 +1,6 @@
 .error-box,
 .success-box {
-  @apply w-full h-full flex flex-col items-center justify-between;
+  @apply w-full h-full flex flex-col items-center justify-center;
 }
 .error-box .msg-box,
 .success-box .msg-box {

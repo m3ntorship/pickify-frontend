@@ -8,7 +8,7 @@
   @apply pl-xs text-xs text-dark-grey;
 }
 .divider {
-  @apply w-0.5 h-4 mx-4 bg-grey-shd6;
+  @apply mx-4;
 }
 .privacySelectorContainer {
   @apply flex items-center;
@@ -20,7 +20,7 @@
   @apply pr-xs text-xs text-dark-grey;
 }
 .privacySelector {
-  @apply text-sm capitalize font-medium bg-transparent text-dark-grey focus:outline-none cursor-pointer;
+  @apply text-sm capitalize font-medium bg-transparent text-dark-grey cursor-pointer;
 }
 .privacySelectorOptions {
   @apply font-medium capitalize;

@@ -9,7 +9,7 @@ declare namespace ITextPollViewOptions {
   }
   export interface IGroup {
     id: string;
-    options: IOptions[];
+    options: IOption[];
     name: string;
   }
 

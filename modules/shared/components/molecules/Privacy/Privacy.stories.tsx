@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import Privacy from './index';
+import Privacy from './Privacy';
 import type { IPrivacy } from './PrivacyTypes';
 
 export default {

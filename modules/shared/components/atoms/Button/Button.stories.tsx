@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import Button from '.';
+import Button from './Button';
 import type { IButton } from './types/IButton';
 import * as EButton from './types/EButton';
 
@@ -11,13 +11,13 @@ export default {
     size: {
       control: {
         type: 'inline-radio',
-        options: ['large', 'medium', 'small'],
+        options: ['xlarge', 'large', 'normal', 'medium', 'small'],
       },
     },
     variant: {
       control: {
         type: 'inline-radio',
-        options: ['primary', 'secondary', 'text'],
+        options: ['primary', 'secondary', 'tertiary', 'text'],
       },
     },
   },

@@ -129,12 +129,14 @@ module.exports = {
         l: '1.5rem', // 24px
         lx: ' 1.625rem', // 26px
         xl: '2rem', // 32px
+        xll: '2.156rem', // 34.5px
         xxl: '2.5rem', // 40px
         xvxl: '2.666rem',
         '3xl': '3rem', // 48px
         '3xxl': '3.6875rem', // 59px
         '4xl': '4rem', // 64px
         '4xxl': '4.25rem', // 68px
+        '4xvxl': '5.813rem', // 96px
         '5xl': '8rem', // 128px
       },
       backgroundOpacity: {
@@ -148,6 +150,7 @@ module.exports = {
         '8xl': '8.8125rem', // 141px
         '18xl': '18.5rem', // 296px
         '19xl': '19rem', // 304px
+        '21xl': '21.18rem', // 339px
         '28xl': '28.5rem', // 456px
         '29xl': '29.5rem', // 472px
         '30xl': '30rem', // 480px
@@ -156,9 +159,15 @@ module.exports = {
         '35xl': '35.25rem', // 564px
         '37xl': '37.5rem', // 600px
         '39xl': '39.5rem', // 632px
+        '60xl': '60rem', // 960px
+      },
+      maxWidth: {
+        '12xvl': '12rem', // 192px
+        '12xl': '12.375rem', // 198px
       },
       height: {
         '21xl': '21.25rem', // 340px
+        '22xl': '22.375rem', // 358px
         '61xl': '61.0625rem', // 977px
       },
       translate: {
@@ -173,6 +182,7 @@ module.exports = {
       },
     },
     fill: (theme) => ({
+      success: theme('colors.success'),
       primary: theme('colors.primary'),
       accent: theme('colors.accent'),
       white: theme('colors.white'),

@@ -25,7 +25,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         />
         <VerticalThreeDotsIcon
           onClick={handlePostOptionsIconClick}
-          className="fill-grey cursor-pointer"
+          className="fill-grey cursor-pointer w-6 h-6"
           data-testid={id}
         />
       </div>

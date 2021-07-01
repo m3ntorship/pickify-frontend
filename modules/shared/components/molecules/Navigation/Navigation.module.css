@@ -1,19 +1,32 @@
-.navigation {
-  @apply py-4 bg-white shadow-navshd;
+.navigation-wrapper {
+  @apply p-4 md:px-2 bg-white shadow-navshd flex justify-center;
 }
 
-.links-container {
-  @apply w-2/3 m-auto flex justify-between items-center;
+.navigation {
+  @apply w-39xl md:w-60xl flex justify-between items-center;
+}
+
+.nav-links-container {
+  @apply flex;
 }
 
 .brand-name {
-  @apply font-bold text-basev;
+  @apply font-bold text-basev sm:mr-5;
 }
 
-.links-container ul {
-  @apply flex items-center;
+.home-nav-links ul {
+  @apply flex flex-row;
 }
 
-.links-container ul li {
+.home-nav-links ul .menu-icon {
+  @apply md:hidden;
+}
+
+.user-nav-links ul {
+  @apply hidden md:flex md:flex-row;
+}
+
+.user-nav-links li,
+.home-nav-links li {
   @apply mr-6 last:mr-0;
 }

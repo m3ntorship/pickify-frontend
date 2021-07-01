@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import TextPollView from './TextPollView';
 import type { ITextPollView } from './ITextPollView';
 
 export default {
-  title: 'organisms/PostViewWrapper',
+  title: 'organisms/TextPollView',
   component: TextPollView,
 };
 
@@ -23,7 +24,7 @@ Default.args = {
       profile_pic:
         'https://i.pinimg.com/736x/10/61/c8/1061c85ea0dfd3a6655b4b3b6e71ade9.jpg',
     },
-    type: 'text poll',
+    type: EPostType.TextPoll,
     is_hidden: false,
     media: [{ url: 'notUsed' }],
     options_groups: {
@@ -35,14 +36,17 @@ Default.args = {
             {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d',
               body: 'ali tramsy',
+              media: [{ url: 'https://placeimg.com/640/480/any' }],
             },
             {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa',
               body: ' ahmed essam',
+              media: [{ url: 'https://placeimg.com/640/480/any' }],
             },
             {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c',
               body: ' omar gamal',
+              media: [{ url: 'https://placeimg.com/640/480/any' }],
             },
           ],
         },

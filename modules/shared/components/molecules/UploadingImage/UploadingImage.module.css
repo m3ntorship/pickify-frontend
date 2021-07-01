@@ -1,0 +1,25 @@
+.container {
+  @apply flex flex-col relative;
+}
+
+.button {
+  @apply absolute top-4 right-4 w-8 h-8 rounded-full bg-white flex justify-center items-center outline-none focus:outline-none z-20;
+}
+
+.layout {
+  @apply absolute w-full h-full top-0 left-0 bg-white opacity-95 flex justify-center items-center z-0;
+}
+
+.image-container {
+  @apply relative w-full h-full mb-1 overflow-hidden rounded-t-md;
+}
+
+.image {
+  @apply object-cover  w-full h-full;
+}
+.image-caption {
+  @apply relative z-50;
+}
+.image-caption input {
+  @apply rounded-t-none;
+}

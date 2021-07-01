@@ -21,13 +21,13 @@ import { HomePage } from '@modules/HomePage';
 // };
 // const TempTextPollFeedWithError = withErrorHandler(TempTextPollFeed);
 
-const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => (
-  <HomePage data={data} />
-);
+const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
+  return <HomePage data={data} />;
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const { data }: IPostFeed.IPosts = await getPosts();
+    const { data } = await getPosts();
     return {
       props: { data },
     };
