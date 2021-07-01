@@ -7,15 +7,18 @@ import UserInfo from '../UserInfo/UserInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
 
-const getPostOptions = (
+const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],
   userId: string,
 ): { id: string; body: string }[] => {
-  const loggedInUser = localStorage.getItem('user');
-  if (userId !== loggedInUser) {
-    return updatedOptions.filter((option) => option.id !== 'delete');
+  if (process.browser) {
+    const loggedInUser = localStorage.getItem('user');
+    if (userId !== loggedInUser) {
+      return updatedOptions.filter((option) => option.id !== 'delete');
+    }
+    return updatedOptions;
   }
-  return options;
+  return updatedOptions;
 };
 
 const PostViewHeader: FC<IPostViewHeader.IProps> = ({
@@ -27,7 +30,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   postId,
   isHidden,
 }): ReactElement => {
-  const onOptionClickHandler = (id: string): void => {
+  const onMenuOptionClickHandler = (id: string): void => {
     switch (id) {
       case 'delete':
         deletePostHandler(postId);
@@ -53,8 +56,8 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
           date={date}
         />
         <DropDown
-          onOptionMenuClick={onOptionClickHandler}
-          options={getPostOptions(options, userId)}
+          onOptionMenuClick={onMenuOptionClickHandler}
+          options={getPostMenuOptions(options, userId)}
           variant="post"
         />
       </div>
