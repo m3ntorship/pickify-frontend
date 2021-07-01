@@ -19,9 +19,9 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
       id,
       label,
       value,
-      onChange,
-      onBlur,
-      onClick,
+      onChangeInputValueHandler,
+      onBlurInputHandler,
+      onClickDeleteInputValueHandler,
       variants,
       inputType,
       disabled,
@@ -34,7 +34,6 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
   ): ReactElement => {
     const inputClasses: string = className(
       styles['form-input'],
-      extraClasses,
       {
         [styles.error]: variants === ETextInput.Variants.Error && !disabled,
         [styles.success]: variants === ETextInput.Variants.Success && !disabled,
@@ -51,6 +50,7 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
         [styles['input-with-choices']]:
           inputType === ETextInput.InputType.Choices,
       },
+      extraClasses,
     );
     return (
       <div className={styles['form-group']}>
@@ -70,8 +70,12 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
             id={id}
             disabled={disabled}
             value={value}
-            onChange={onChange}
-            onBlur={onBlur}
+            onChange={(e): void => {
+              onChangeInputValueHandler(id, e);
+            }}
+            onBlur={(e): void => {
+              onBlurInputHandler(id, e);
+            }}
             data-variant={variants}
             data-input-type={inputType}
             placeholder={placeholder}
@@ -79,7 +83,10 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
           />
           <span className={styles['status-icon']}>
             {variants === ETextInput.Variants.Default && !disabled && value && (
-              <DeleteIcon onClick={onClick} data-testid="delete-icon" />
+              <DeleteIcon
+                onClick={onClickDeleteInputValueHandler}
+                data-testid="delete-icon"
+              />
             )}
             {variants === ETextInput.Variants.Error && !disabled && (
               <ErrorIcon />

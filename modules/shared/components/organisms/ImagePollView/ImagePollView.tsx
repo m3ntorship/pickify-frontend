@@ -25,7 +25,7 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
       <ImagePollGroup group={post.options_groups.groups[firstIndex]} />
-      <PostViewFooter />
+      <PostViewFooter numberOfVotes={100} showResult={false} />
     </div>
   );
 };

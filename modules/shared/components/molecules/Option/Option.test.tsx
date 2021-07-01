@@ -1,16 +1,33 @@
+import type { ReactElement } from 'react';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useForm, FormProvider } from 'react-hook-form';
 import Option from './Option';
-import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
-describe('TextDefault', () => {
+const customRender = (ui: ReactElement): unknown => {
+  const Wrapper: React.FC = ({ children }) => {
+    const methods = useForm({
+      mode: 'onSubmit',
+      reValidateMode: 'onChange',
+    });
+    return <FormProvider {...methods}>{children}</FormProvider>;
+  };
+
+  return render(<Wrapper>{ui}</Wrapper>);
+};
+
+describe('Option', () => {
   it('should render TextInput with dragOptionBtn and deleteOptionBtn', () => {
-    render(
+    customRender(
       <Option
         id="0"
-        letter="A"
-        variants={ETextInput.Variants.Default}
+        index={0}
+        optionValue=""
+        onChangeOptionValueHandler={(): boolean => true}
+        onClickDeleteOptionValueHandler={(): boolean => true}
+        deleteOptionHandler={(): boolean => true}
+        onBlurOptionHandler={(): boolean => true}
         deletable
       />,
     );
@@ -24,13 +41,16 @@ describe('TextDefault', () => {
   it('should run delete Option function', () => {
     const mockDeleteFunction = jest.fn();
     const numberOfCalls = 1;
-    render(
+    customRender(
       <Option
         id="0"
-        letter="A"
-        variants={ETextInput.Variants.Default}
+        index={0}
+        optionValue=""
+        onChangeOptionValueHandler={(): boolean => true}
+        onClickDeleteOptionValueHandler={(): boolean => true}
+        deleteOptionHandler={mockDeleteFunction}
+        onBlurOptionHandler={(): boolean => true}
         deletable
-        deleteInputHandler={mockDeleteFunction}
       />,
     );
     const deleteOptionBtn = screen.getByTestId('deleteOptionBtn');

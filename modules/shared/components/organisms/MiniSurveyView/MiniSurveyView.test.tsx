@@ -30,16 +30,19 @@ describe('ITextPollView', () => {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d',
               body: 'ali tramsy',
               media: [{ url: 'https://placeimg.com/640/480/any' }],
+              vote_count: 0,
             },
             {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa',
               body: ' ahmed essam',
               media: [{ url: 'https://placeimg.com/640/480/any' }],
+              vote_count: 0,
             },
             {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c',
               body: ' omar gamal',
               media: [{ url: 'https://placeimg.com/640/480/any' }],
+              vote_count: 0,
             },
           ],
         },
@@ -49,7 +52,12 @@ describe('ITextPollView', () => {
   it('should render ITextPollView Compnent with the mocked data', () => {
     const handleClick = jest.fn();
     const tree = renderer.create(
-      <MiniSurveyView post={mockedPost} deletePostHandler={handleClick} />,
+      <MiniSurveyView
+        post={mockedPost}
+        optionCheckedId="1"
+        addOneVote={(): boolean => true}
+        deletePostHandler={handleClick}
+      />,
     );
     expect(tree).toMatchSnapshot();
   });

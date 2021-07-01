@@ -4,6 +4,8 @@ declare namespace ITextPollView {
   export interface IProps {
     post: IPostFeed.IPost;
     deletePostHandler: (postId: string) => void;
+    addOneVote: (optionId: string, grouId: string) => void;
+    optionCheckedId: string;
   }
 }
 

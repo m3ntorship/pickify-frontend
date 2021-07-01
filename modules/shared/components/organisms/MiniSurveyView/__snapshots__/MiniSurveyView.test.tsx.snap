@@ -147,11 +147,10 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
         data-testid="option"
       >
         <button
-          className="btnBody"
+          className="btnBody mostVoted"
           data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
-          disabled={false}
+          disabled={true}
           id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
-          onClick={[Function]}
           type="button"
         >
           <span
@@ -171,17 +170,26 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </p>
             <span />
           </span>
+          <span
+            className="percentage"
+          >
+            <svg
+              className="goldenStarIcon"
+              data-file-name="SvgGoldenStar"
+            />
+            0
+            %
+          </span>
         </button>
       </div>
       <div
         data-testid="option"
       >
         <button
-          className="btnBody"
+          className="btnBody mostVoted"
           data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
-          disabled={false}
+          disabled={true}
           id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
-          onClick={[Function]}
           type="button"
         >
           <span
@@ -201,17 +209,26 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </p>
             <span />
           </span>
+          <span
+            className="percentage"
+          >
+            <svg
+              className="goldenStarIcon"
+              data-file-name="SvgGoldenStar"
+            />
+            0
+            %
+          </span>
         </button>
       </div>
       <div
         data-testid="option"
       >
         <button
-          className="btnBody"
+          className="btnBody mostVoted"
           data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
-          disabled={false}
+          disabled={true}
           id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
-          onClick={[Function]}
           type="button"
         >
           <span
@@ -231,6 +248,16 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </p>
             <span />
           </span>
+          <span
+            className="percentage"
+          >
+            <svg
+              className="goldenStarIcon"
+              data-file-name="SvgGoldenStar"
+            />
+            0
+            %
+          </span>
         </button>
       </div>
     </div>
@@ -239,7 +266,8 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
     className="container"
   >
     <span>
-       Vote to uncover the total number of voters 
+      0
+       votes
     </span>
     <button
       type="button"

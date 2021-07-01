@@ -1,10 +1,8 @@
 declare namespace IUseUpdatedImageData {
   export interface UpdatedImageData {
-    imagesData: { validImages: ImageData[] };
-    setImagesData: (validImages: imagePollState) => void;
-    file: File | string;
+    file: File;
     id: string;
-    caption?: string;
+    entityType: string;
   }
 
   export interface ImageData {

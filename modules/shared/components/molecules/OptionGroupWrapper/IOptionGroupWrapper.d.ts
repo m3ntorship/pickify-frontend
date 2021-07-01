@@ -1,23 +1,10 @@
-import type { FieldValues, UseFormRegister } from 'react-hook-form';
-import type { IMiniSurveyPollCreation } from '../../organisms/MiniSurveyPollCreation/IMiniSurveyPollCreation';
-
 declare namespace IOptionGroupWrapper {
   export interface IProps {
-    optionGroup: {
-      id?: string;
-      name: string;
-      options: {
-        id: string;
-        body: string;
-      }[];
-    };
+    id: string;
     index: number;
-    register?: UseFormRegister<FieldValues>;
-    deleteOptionGroup: (groupId?: string) => void;
-    miniSurveyState: IMiniSurveyPollCreation.IState;
-    setMiniSurveyState: React.Dispatch<
-      React.SetStateAction<IMiniSurveyPollCreation.IState>
-    >;
+    optionsGroupName: string;
+    updateOptionsGroupNameHandler: (groupId: string, groupName: string) => void;
+    deleteOptionsGroupHandler: (grorupId: string) => void;
     children?: React.ReactNode;
   }
 }

@@ -5,10 +5,16 @@ import type { TargetElement } from '@testing-library/user-event';
 import MiniSurveyViewOptions from './MiniSurveyViewOptions';
 import { optionsGroups } from './data';
 
-describe('OptionGroup component', () => {
+describe('MiniSurveyViewOptions component', () => {
   it('should render () OptionGroup when we apply ()', () => {
     const tree = renderer
-      .create(<MiniSurveyViewOptions optionsGroups={optionsGroups} />)
+      .create(
+        <MiniSurveyViewOptions
+          optionsGroups={optionsGroups}
+          optionCheckedId="1"
+          addOneVote={(): boolean => true}
+        />,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -16,7 +22,13 @@ describe('OptionGroup component', () => {
   it('should render 3 Options when we apply options 3 length', () => {
     const numberOfOptions = 3;
 
-    render(<MiniSurveyViewOptions optionsGroups={optionsGroups} />);
+    render(
+      <MiniSurveyViewOptions
+        optionsGroups={optionsGroups}
+        optionCheckedId="1"
+        addOneVote={(): boolean => true}
+      />,
+    );
 
     const option: TargetElement[] = screen.getAllByTestId('option');
 

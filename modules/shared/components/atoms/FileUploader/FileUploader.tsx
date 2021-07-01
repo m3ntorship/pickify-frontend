@@ -1,74 +1,108 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { ReactElement, FC, ChangeEvent } from 'react';
 import classNames from 'classnames';
+import { useFormContext } from 'react-hook-form';
 import styles from './FileUploader.module.css';
 import Image from '../../icons/image.svg';
 import type { IFileUploader } from './IFileUploader';
 import { validateUploadedImages } from '../../../logic/uploadedFiles/uploadedFiles';
 
 const FileUploader: FC<IFileUploader.IProps> = ({
-  register,
   onFileSuccess,
-  onFileError,
-  onMaxFilesError,
   maxFiles,
+  entityType,
+  lastFilesLength,
 }): ReactElement => {
-  const [isFileError, setIsFileError] = useState(false);
+  const zero = 0;
+  const [filesErrors, setFilesErrors] = useState<
+    { error: boolean; message: string }[]
+  >([]);
 
-  const ImageUploaderRegister = register && {
-    ...register('image', {
+  const {
+    formState: { errors },
+    register,
+    setValue,
+  } = useFormContext();
+
+  useEffect(() => {
+    if (errors[`uploadedFilesIn${entityType}`])
+      setFilesErrors([
+        { error: true, message: 'you need to upload at least one file' },
+      ]);
+  }, [errors[`uploadedFilesIn${entityType}`]]);
+
+  const ImageUploaderRegister = {
+    ...register(`uploadedFilesIn${entityType}`, {
       required: true,
+      shouldUnregister: false,
     }),
   };
 
-  const uploadFilesHandler = (e: ChangeEvent<HTMLInputElement>): void => {
-    const firstIndex = 0;
-
+  const onUploadFilesHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     const validatedImages = validateUploadedImages(e.target.files);
 
-    if (validatedImages.length > maxFiles) {
-      onMaxFilesError({
-        error: true,
-        message: `cannot upload more than ${maxFiles} images`,
-      });
-      setIsFileError(true);
+    if (
+      validatedImages.length > maxFiles ||
+      validatedImages.length + lastFilesLength > maxFiles
+    ) {
+      setFilesErrors([
+        ...filesErrors,
+        {
+          error: true,
+          message: `Can not upload more than ${maxFiles} files`,
+        },
+      ]);
+      if (lastFilesLength === zero)
+        setValue(`uploadedFilesIn${entityType}`, '');
     } else {
-      const validImages = validatedImages.filter((image) => !image.error);
-      const invalidImages = validatedImages.filter((image) => image.error);
-      if (validImages.length > firstIndex) {
-        onFileSuccess(validImages);
-        setIsFileError(false);
+      const validFiles = validatedImages.filter((image) => !image.error);
+      const invalidFiles = validatedImages.filter((image) => image.error);
+      if (validFiles.length > zero) {
+        onFileSuccess(validFiles);
+        setFilesErrors([]);
       }
-      if (invalidImages.length > firstIndex) {
-        onFileError(invalidImages);
-        setIsFileError(true);
+      if (invalidFiles.length > zero) {
+        setValue(`uploadedFilesIn${entityType}`, '');
+        setFilesErrors([...filesErrors, ...invalidFiles]);
       }
     }
-
-    ImageUploaderRegister?.onChange(e);
   };
 
   const inputFileClasses = classNames(styles['container-for-image-upload'], {
-    'border-accent bg-grey-shd7': !isFileError,
-    'border-error bg-error-shd7': isFileError,
+    'border-accent bg-grey-shd7': filesErrors.length === zero,
+    'border-error bg-error-shd7': filesErrors.length > zero,
   });
 
   const textClasses = classNames(styles['text-for-image-upload'], {
-    'text-accent': !isFileError,
-    'text-error': isFileError,
+    'text-accent': filesErrors.length === zero,
+    'text-error': filesErrors.length > zero,
   });
 
   const svgClasses = classNames(styles['svg-media-icon'], {
-    'fill-accent': !isFileError,
-    'fill-error': isFileError,
+    'fill-accent': filesErrors.length === zero,
+    'fill-error': filesErrors.length > zero,
   });
 
+  const imageInputtitle = (): string => {
+    if (filesErrors.length > zero) {
+      const uniqErrors = [
+        ...new Set(
+          filesErrors.map((error) => {
+            return error.message;
+          }),
+        ),
+      ];
+      return uniqErrors
+        .map((errorMessages) => {
+          return errorMessages;
+        })
+        .join(', and ');
+    }
+    return 'Upload one or multiple files';
+  };
+
   return (
-    <label className={inputFileClasses} data-testid="file-box" htmlFor="image">
-      <span>
-        <Image className={svgClasses} />
-      </span>
-      <p className={textClasses}>Upload one or multiple images</p>
+    <div className="relative">
       <input
         type="file"
         id="image"
@@ -76,10 +110,24 @@ const FileUploader: FC<IFileUploader.IProps> = ({
         multiple
         className={styles['inputfile-for-type-image']}
         {...ImageUploaderRegister}
-        onChange={uploadFilesHandler}
+        onChange={(e): void => {
+          onUploadFilesHandler(e);
+          ImageUploaderRegister.onChange(e) as Promise<boolean>;
+        }}
         data-testid="file-input"
+        title={imageInputtitle()}
       />
-    </label>
+      <label
+        className={inputFileClasses}
+        data-testid="file-box"
+        htmlFor="image"
+      >
+        <span>
+          <Image className={svgClasses} />
+        </span>
+        <p className={textClasses}>Upload one or multiple images</p>
+      </label>
+    </div>
   );
 };
 

@@ -1,0 +1,15 @@
+.btnBody {
+  @apply flex justify-between items-center rounded-md w-full focus:outline-none bg-grey-bg hover:bg-grey-shd6 pr-xsvv pl-xs py-xs;
+}
+.btnBody:disabled {
+  @apply cursor-default disabled:opacity-100;
+}
+.letter {
+  @apply bg-white text-dark-grey font-normal capitalize rounded-sm mr-3 w-l h-l flex justify-center items-center;
+}
+.option {
+  @apply text-sm capitalize text-dark;
+}
+.flex-container {
+  @apply flex flex-row justify-center items-center;
+}
