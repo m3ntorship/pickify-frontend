@@ -1,4 +1,4 @@
-import { PostsApi } from '@m3ntorship/posts-client';
+import { PostsApi, VotesApi } from '@m3ntorship/posts-client';
 import type { Configuration } from '@m3ntorship/posts-client/dist/client';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
@@ -22,6 +22,14 @@ postsApiAxiosInstance.interceptors.request.use(
 );
 
 export const postsApi = new PostsApi(
+  {
+    basePath: 'https://pickify-posts-be-dev.pickify.net/api',
+  } as Configuration,
+  undefined,
+  postsApiAxiosInstance,
+);
+
+export const votesApi = new VotesApi(
   {
     basePath: 'https://pickify-posts-be-dev.pickify.net/api',
   } as Configuration,

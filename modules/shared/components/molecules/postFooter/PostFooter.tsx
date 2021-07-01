@@ -6,7 +6,7 @@ import styles from './PostFooter.module.css';
 
 const PostFooter: FC<IPostFooter.IProps> = ({
   numberOfVotes,
-  showResult = false,
+  showResult,
   handleClick,
 }): ReactElement => {
   return (

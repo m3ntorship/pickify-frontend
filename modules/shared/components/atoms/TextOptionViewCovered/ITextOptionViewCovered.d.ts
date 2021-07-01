@@ -1,20 +1,16 @@
 import type React from 'react';
 
-declare namespace ITextPoll {
+declare namespace ITextOptionViewCovered {
   export interface IProps extends IData, IHandlers {
     letter?: string;
-    percentage?: number;
-    showResult: boolean;
-    mostVoted?: boolean;
   }
   export interface IData {
     id: string;
-    option: string;
-    isChecked?: boolean;
+    optionBody: string;
   }
   export interface IHandlers {
     onOptionClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   }
 }
 
-export { ITextPoll };
+export { ITextOptionViewCovered };

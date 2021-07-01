@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
+exports[`MiniSurveyViewOptions component should render () OptionGroup when we apply () 1`] = `
 <div
   className="space-y-4"
 >
@@ -16,11 +16,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
       data-testid="option"
     >
       <button
-        className="btnBody"
+        className="btnBody leastVoted"
         data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
-        disabled={false}
+        disabled={true}
         id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
-        onClick={[Function]}
         type="button"
       >
         <span
@@ -35,10 +34,17 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             className="option"
           >
              
-            ali tramsi
+            ali tramsy
              
           </p>
           <span />
+        </span>
+        <span
+          className="percentage"
+        >
+          
+          17
+          %
         </span>
       </button>
     </div>
@@ -46,11 +52,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
       data-testid="option"
     >
       <button
-        className="btnBody"
+        className="btnBody leastVoted"
         data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
-        disabled={false}
+        disabled={true}
         id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
-        onClick={[Function]}
         type="button"
       >
         <span
@@ -70,17 +75,23 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
           </p>
           <span />
         </span>
+        <span
+          className="percentage"
+        >
+          
+          33
+          %
+        </span>
       </button>
     </div>
     <div
       data-testid="option"
     >
       <button
-        className="btnBody"
+        className="btnBody mostVoted"
         data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
-        disabled={false}
+        disabled={true}
         id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
-        onClick={[Function]}
         type="button"
       >
         <span
@@ -99,6 +110,16 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
              
           </p>
           <span />
+        </span>
+        <span
+          className="percentage"
+        >
+          <svg
+            className="goldenStarIcon"
+            data-file-name="SvgGoldenStar"
+          />
+          50
+          %
         </span>
       </button>
     </div>
