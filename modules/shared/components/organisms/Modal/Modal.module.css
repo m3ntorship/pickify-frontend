@@ -3,5 +3,5 @@
 }
 
 .modal {
-  @apply z-10 transform translate-y-48 w-39xl;
+  @apply z-10 sm:transform sm:translate-y-48 w-39xl;
 }

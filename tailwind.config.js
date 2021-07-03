@@ -168,6 +168,7 @@ module.exports = {
       height: {
         '21xl': '21.25rem', // 340px
         '22xl': '22.375rem', // 358px
+        '33xl': '33.5625rem', // 632px
         '61xl': '61.0625rem', // 977px
       },
       translate: {

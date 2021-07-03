@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { FC, ReactElement, MouseEvent } from 'react';
 import type { IModal } from './IModal';
 import styles from './Modal.module.css';
@@ -7,6 +7,13 @@ const Modal: FC<IModal.IProps> = ({
   children,
   closeModalHandler,
 }): ReactElement => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return (): void => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   const preventClickHandler = (e: MouseEvent<HTMLDivElement>): void => {
     e.stopPropagation();
   };

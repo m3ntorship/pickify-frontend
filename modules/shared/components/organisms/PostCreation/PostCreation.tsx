@@ -143,46 +143,51 @@ const PostCreation: FC = (): ReactElement => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <div className="bg-white shadow-soft mb-6 p-m rounded-md">
-          <CreatePostHeader
-            profilePic=""
-            checkedValue={postCreationGlobalState.currentSelectedTab}
-            tabsData={tabGroupData()}
-            onTabChangeHandler={handleChangeTabsValue}
-          />
-
-          {postCreationGlobalState.currentSelectedTab ===
-            EPollType.TextPoll && (
-            <TextPollCreation
-              post={postCreationGlobalState.textPoll}
-              postCreationGlobalState={postCreationGlobalState}
-              setPostCreationGlobalState={setPostCreationGlobalState}
+        <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-33xl shadow-soft mb-6 p-m rounded-md">
+          <div>
+            <CreatePostHeader
+              profilePic=""
+              checkedValue={postCreationGlobalState.currentSelectedTab}
+              tabsData={tabGroupData()}
+              onTabChangeHandler={handleChangeTabsValue}
             />
-          )}
-          {postCreationGlobalState.currentSelectedTab ===
-            EPollType.ImagePoll && (
-            <ImagePollCreation
-              post={postCreationGlobalState.imagePoll}
-              postCreationGlobalState={postCreationGlobalState}
-              setPostCreationGlobalState={setPostCreationGlobalState}
+          </div>
+          <div className="overflow-y-scroll flex-grow">
+            {postCreationGlobalState.currentSelectedTab ===
+              EPollType.TextPoll && (
+              <TextPollCreation
+                post={postCreationGlobalState.textPoll}
+                postCreationGlobalState={postCreationGlobalState}
+                setPostCreationGlobalState={setPostCreationGlobalState}
+              />
+            )}
+            {postCreationGlobalState.currentSelectedTab ===
+              EPollType.ImagePoll && (
+              <ImagePollCreation
+                post={postCreationGlobalState.imagePoll}
+                postCreationGlobalState={postCreationGlobalState}
+                setPostCreationGlobalState={setPostCreationGlobalState}
+              />
+            )}
+            {postCreationGlobalState.currentSelectedTab ===
+              EPollType.MiniSurvey && (
+              <MiniSurveyPollCreation
+                post={postCreationGlobalState.miniSurvey}
+                postCreationGlobalState={postCreationGlobalState}
+                setPostCreationGlobalState={setPostCreationGlobalState}
+              />
+            )}
+          </div>
+          <div>
+            <PostFooterCreation
+              postButtonIsDisabled={!methods.formState.isDirty}
+              handleSubmitButtonClick={(): boolean => true}
+              handleCancelButtonClick={(): boolean => true}
+              handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
+              handlePrivacySelectChange={handlePrivacySelectChange}
+              togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
             />
-          )}
-          {postCreationGlobalState.currentSelectedTab ===
-            EPollType.MiniSurvey && (
-            <MiniSurveyPollCreation
-              post={postCreationGlobalState.miniSurvey}
-              postCreationGlobalState={postCreationGlobalState}
-              setPostCreationGlobalState={setPostCreationGlobalState}
-            />
-          )}
-          <PostFooterCreation
-            postButtonIsDisabled={!methods.formState.isDirty}
-            handleSubmitButtonClick={(): boolean => true}
-            handleCancelButtonClick={(): boolean => true}
-            handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
-            handlePrivacySelectChange={handlePrivacySelectChange}
-            togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
-          />
+          </div>
         </div>
       </form>
     </FormProvider>
