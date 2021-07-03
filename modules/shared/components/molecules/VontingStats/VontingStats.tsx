@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-// import classNames from 'classnames';
+import styles from './VotingStats.module.css';
 import Slider from '../../atoms/Slider/Slider';
 import type { IVotingStats } from './types/IVontingStats';
 
@@ -26,16 +26,8 @@ const VotingStats: FC<IVotingStats.IProps> = ({
   const circularContent = mostVoted ? `👍` : `👎`;
   if (type === 'circular') {
     return (
-      // <div className="inline-flex flex-col justify-center items-center w-3xl h-3xl bg-white rounded-full">
-      //   <p className="mb-1">{circularContent}</p>
-      //   <p>{percentage}%</p>
-      // </div>
-
-      <div
-        className="flex items-center justify-center w-4xl h-4xl relative"
-        id={id}
-      >
-        <div className="flex flex-col justify-center items-center w-3xl h-3xl bg-white rounded-full">
+      <div className={styles['circular-vote-meter-wrapper']} id={id}>
+        <div className={styles['circular-content']}>
           <p className="mb-1">{circularContent}</p>
           <p>{percentage}%</p>
         </div>
@@ -51,9 +43,9 @@ const VotingStats: FC<IVotingStats.IProps> = ({
     );
   }
   return (
-    <div className="flex items-start h-full" id={id}>
-      <div className="bg-white py-xxs px-xsvv rounded-l-md">
-        <p className="font-medium text-base text-dark">
+    <div className={styles['vertical-vote-meter-wrapper']} id={id}>
+      <div className={styles['percentage-wrapper']}>
+        <p className={styles.percentage}>
           {verticalContent} <span>{percentage}%</span>
         </p>
       </div>

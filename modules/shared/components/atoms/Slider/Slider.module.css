@@ -7,7 +7,7 @@
 }
 
 .outer-vertical {
-  @apply rounded-md rounded-tl-none;
+  @apply rounded-md rounded-tl-none min-h-2xl;
 }
 
 .inner-vertical {

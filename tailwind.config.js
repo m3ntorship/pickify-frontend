@@ -168,6 +168,9 @@ module.exports = {
         '12xvl': '12rem', // 192px
         '12xl': '12.375rem', // 198px
       },
+      minHeight: {
+        '2xl': '2.5rem', // 30px
+      },
       height: {
         '3xl': '4rem', // 58px
         '4xl': '4.5rem', // 72px
