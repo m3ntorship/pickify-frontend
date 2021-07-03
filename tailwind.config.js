@@ -1,3 +1,5 @@
+const scrollbar = require('ps-scrollbar-tailwind');
+
 module.exports = {
   purge: ['./pages/**/*.{js,jsx,ts,tsx}', './modules/**/*.{js,jsx,ts,tsx}'],
   darkMode: false,
@@ -218,5 +220,5 @@ module.exports = {
       fill: ['hover', 'focus', 'group-hover'],
     },
   },
-  plugins: [],
+  plugins: [scrollbar],
 };

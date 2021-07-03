@@ -152,7 +152,7 @@ const PostCreation: FC = (): ReactElement => {
               onTabChangeHandler={handleChangeTabsValue}
             />
           </div>
-          <div className="overflow-y-scroll flex-grow">
+          <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT">
             {postCreationGlobalState.currentSelectedTab ===
               EPollType.TextPoll && (
               <TextPollCreation
