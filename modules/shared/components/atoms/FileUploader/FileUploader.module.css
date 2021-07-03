@@ -1,5 +1,5 @@
 .inputfile-for-type-image {
-  @apply opacity-0 w-full h-full absolute cursor-pointer;
+  @apply opacity-0 z-10 w-full h-full absolute cursor-pointer;
 }
 .container-for-image-upload {
   @apply box-border rounded-md border border-dashed flex flex-row justify-center items-center relative w-auto py-mx;
@@ -7,7 +7,9 @@
 .text-for-image-upload {
   @apply text-sm font-medium not-italic;
 }
-
+.inputfile-for-type-image:focus + .container-for-image-upload {
+  @apply border-dark;
+}
 .svg-media-icon {
   @apply mr-1;
 }

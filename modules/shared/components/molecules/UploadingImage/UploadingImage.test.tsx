@@ -1,8 +1,24 @@
+import type { ReactElement } from 'react';
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import type { TargetElement } from '@testing-library/user-event';
 import userEvent from '@testing-library/user-event';
+import { useForm, FormProvider } from 'react-hook-form';
 import UploadingImage from './UploadingImage';
+import TextInput from '../../atoms/TextInputs/TextInput';
+import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
+
+const customRender = (ui: ReactElement): unknown => {
+  const Wrapper: React.FC = ({ children }) => {
+    const methods = useForm({
+      mode: 'onSubmit',
+      reValidateMode: 'onChange',
+    });
+    return <FormProvider {...methods}>{children}</FormProvider>;
+  };
+
+  return render(<Wrapper>{ui}</Wrapper>);
+};
 
 describe('UploadingImage', () => {
   it('should render Misc component when we pass invalid file', async () => {
@@ -10,23 +26,13 @@ describe('UploadingImage', () => {
     const fileSizeInBytes = 10_000_000;
     Object.defineProperty(file, 'size', { value: fileSizeInBytes });
 
-    const imagesData = {
-      postType: 'Image Poll',
-      postCaption: { id: 'id_123181287', value: '' },
-      validImages: [],
-      hiddenIdentity: false,
-      privacy: 'friends',
-    };
-
-    const setImagesData = jest.fn();
-
-    render(
+    customRender(
       <UploadingImage
+        index={1}
         file={file}
         id="someId"
-        imagesData={imagesData}
-        setImagesData={setImagesData}
-        letter="A"
+        entityType="option"
+        handleVerticalThreeDotsClick={(): boolean => true}
       />,
     );
 
@@ -41,68 +47,37 @@ describe('UploadingImage', () => {
 
   it('should call setImagePollState function when we type something in the TextInput', () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
-    const imagesData = {
-      postType: 'Image Poll',
-      postCaption: { id: 'id_123181287', value: '' },
-      validImages: [],
-      hiddenIdentity: false,
-      privacy: 'friends',
-    };
 
-    const setImagesData = jest.fn();
+    const calledFiveTimes = 5;
 
-    const calledThreeTimes = 3;
+    const optionChangeValueHandlerFn = jest.fn();
 
-    render(
+    customRender(
       <UploadingImage
+        index={1}
         file={file}
-        id="2"
-        imagesData={imagesData}
-        setImagesData={setImagesData}
-        letter="A"
-      />,
+        id="someId"
+        entityType="option"
+        handleVerticalThreeDotsClick={(): boolean => true}
+      >
+        <TextInput
+          id="o1"
+          inputType={ETextInput.InputType.Choices}
+          variants={ETextInput.Variants.Default}
+          value=""
+          placeholder="Type caption (optional)"
+          letter="A"
+          onClickDeleteInputValueHandler={(): boolean => true}
+          onChangeInputValueHandler={optionChangeValueHandlerFn}
+          onBlurInputHandler={(): boolean => true}
+        />
+      </UploadingImage>,
     );
 
     const textInput: TargetElement = screen.getByTestId('text-input');
 
-    userEvent.type(textInput, 'hi');
+    userEvent.type(textInput, 'hello');
 
-    expect(textInput).toHaveValue('hi');
-    expect(setImagesData).toHaveBeenCalledTimes(calledThreeTimes);
-  });
-
-  it('should call setImagePollState function when we reset the TextInput', () => {
-    const file = new File(['hello'], 'hello.png', { type: 'image/png' });
-    const imagesData = {
-      postType: 'Image Poll',
-      postCaption: { id: 'id_123181287', value: '' },
-      validImages: [],
-      hiddenIdentity: false,
-      privacy: 'friends',
-    };
-
-    const setImagesData = jest.fn();
-
-    const calledFourTimes = 4;
-
-    render(
-      <UploadingImage
-        file={file}
-        id="2"
-        imagesData={imagesData}
-        setImagesData={setImagesData}
-        letter="A"
-      />,
-    );
-
-    const textInput: TargetElement = screen.getByTestId('text-input');
-
-    userEvent.type(textInput, 'hi');
-
-    const deleteIcon: TargetElement = screen.getByTestId('delete-icon');
-    userEvent.click(deleteIcon);
-
-    expect(textInput).toHaveValue('');
-    expect(setImagesData).toHaveBeenCalledTimes(calledFourTimes);
+    expect(optionChangeValueHandlerFn).toHaveBeenCalledTimes(calledFiveTimes);
   });
 });

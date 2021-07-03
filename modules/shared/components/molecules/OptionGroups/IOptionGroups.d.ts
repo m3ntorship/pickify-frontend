@@ -1,40 +1,32 @@
-import type {
-  UseFormRegister,
-  FieldValues,
-  UseFormReset,
-  DeepMap,
-  FieldError,
-} from 'react-hook-form';
-
-import type * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
-import type { IMiniSurveyPollCreation } from '../../organisms/MiniSurveyPollCreation/IMiniSurveyPollCreation';
-
 declare namespace IOptionGroups {
   export interface IProps {
     groups: {
-      id?: string;
+      id: string;
       name: string;
       options: {
         id: string;
         body: string;
       }[];
     }[];
-    register?: UseFormRegister<FieldValues>;
-    isSubmitted?: boolean;
-    reset?: UseFormReset<FieldValues>;
-    errors?: DeepMap<FieldValues, FieldError>;
-    dirtyFields?: DeepMap<FieldValues, true>;
-    variantMessage: (id: string) => ETextInput.Variants;
-    addOptionGroup: () => void;
-    deleteOptionGroup: (groupId?: string) => void;
-    setOptionsInGroup?: (
-      options: IOptionGroup.IOption[],
+    updateOptionsGroupNameHandler: (groupId: string, groupName: string) => void;
+    addOptionsGroupHandler: () => void;
+    deleteOptionsGroupHandler: (groupId: string) => void;
+    onChangeOptionValueHandler: (
+      optionId: string,
+      groupId: string,
+      e: React.ChangeEvent<HTMLInputElement>,
+    ) => void;
+    onClickDeleteOptionValueHandler: (
+      optionId: string,
       groupId: string,
     ) => void;
-    miniSurveyState: IMiniSurveyPollCreation.IState;
-    setMiniSurveyState: React.Dispatch<
-      React.SetStateAction<IMiniSurveyPollCreation.IState>
-    >;
+    onBlurOptionHandler: (
+      optionId: string,
+      groupId: string,
+      e: React.ChangeEvent<HTMLInputElement>,
+    ) => void;
+    addOptionHandler: (groupId: string) => void;
+    deleteOptionHandler: (optionId: string, groupId: string) => void;
   }
 }
 export { IOptionGroups };

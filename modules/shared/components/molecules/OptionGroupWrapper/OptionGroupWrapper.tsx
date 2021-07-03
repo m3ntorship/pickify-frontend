@@ -4,12 +4,11 @@ import type { IOptionGroupWrapper } from './IOptionGroupWrapper';
 import OptionGroupsHeader from './OptionGroupsHeader/OptionGroupHeader';
 
 const OptionGroupWrapper: FC<IOptionGroupWrapper.IProps> = ({
-  optionGroup,
+  id,
   index,
-  register,
-  deleteOptionGroup,
-  miniSurveyState,
-  setMiniSurveyState,
+  optionsGroupName,
+  updateOptionsGroupNameHandler,
+  deleteOptionsGroupHandler,
   children,
 }): ReactElement => {
   return (
@@ -17,14 +16,11 @@ const OptionGroupWrapper: FC<IOptionGroupWrapper.IProps> = ({
       <div className="mb-2 bg-grey-bg p-4 rounded-md ">
         <div className="flex justify-between pb-2">
           <OptionGroupsHeader
-            groupIndex={index}
-            groupId={optionGroup.id}
-            deleteGroupHandler={(): void => {
-              deleteOptionGroup(optionGroup.id);
-            }}
-            miniSurveyState={miniSurveyState}
-            setMiniSurveyState={setMiniSurveyState}
-            register={register}
+            id={id}
+            index={index}
+            optionGroupName={optionsGroupName}
+            updateOptionsGroupNameHandler={updateOptionsGroupNameHandler}
+            deleteOptionsGroupHandler={deleteOptionsGroupHandler}
           />
         </div>
         {children}

@@ -1,143 +1,120 @@
-import React, { useState } from 'react';
-import type { FC, ReactElement, ChangeEvent } from 'react';
+import React from 'react';
+import type { FC, ReactElement } from 'react';
+import { useFormContext } from 'react-hook-form';
 import DragIcon from '../../icons/drag.svg';
 import DeleteIcon from '../../icons/delete.svg';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
-import type { ITextPollCreation } from '../../organisms/TextPollCreation/types/ITextPollCreation';
 import type { IOption } from './types/Option';
+
+const symoblGenerator = (index: number): string => {
+  const zero = 0;
+  let letter = '';
+  if (index || index === zero) {
+    letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[index];
+  } else {
+    letter = '#';
+  }
+  return letter;
+};
 
 const Option: FC<IOption.IProps> = ({
   id,
-  letter = '#',
+  index,
   deletable = false,
-  placeholder = '',
-  deleteInputHandler,
-  register,
-  reset,
-  variants,
-  textPollState,
-  setTextPollState,
-  miniSurveyState,
-  setMiniSurveyState,
-  // onChange,
+  optionValue,
+  onChangeOptionValueHandler,
+  onClickDeleteOptionValueHandler,
+  onBlurOptionHandler,
+  deleteOptionHandler,
 }): ReactElement => {
-  const [inputVal, setInputVal] = useState('');
-  const validationRegister = { ...register };
-  const firstGroup = 0;
-  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setInputVal(e.target.value);
-    if (setTextPollState) {
-      setTextPollState({
-        ...textPollState,
-        groups: [
-          {
-            name: 'ay 7aga 2',
-            options: textPollState?.groups[firstGroup].options.map(
-              (option: ITextPollCreation.IOption) => {
-                if (option.id === e.target.id) {
-                  return { ...option, body: e.target.value };
-                }
-                return option;
-              },
-            ),
-          },
-        ],
-      });
-    }
-    if (setMiniSurveyState && miniSurveyState) {
-      setMiniSurveyState({
-        ...miniSurveyState,
-        groups: miniSurveyState.groups.map((group) => {
-          return {
-            ...group,
-            options: group.options.map((option) => {
-              if (option.id === id) {
-                return { ...option, body: e.target.value };
-              }
-              return option;
-            }),
-          };
-        }),
-      });
-    }
+  const one = 1;
+  const {
+    register,
+    setValue,
+    getValues,
+    formState: { errors, dirtyFields, isSubmitted },
+  } = useFormContext<IOption.IOptionsMap>();
+
+  const optionRegister = {
+    ...register(`options.${id}`, { required: true, shouldUnregister: true }),
   };
+
+  const inputVariantsHandler = (optionId: string): ETextInput.Variants => {
+    if (errors.options) {
+      if (errors.options[optionId]) return ETextInput.Variants.Error;
+    }
+    if (dirtyFields.options && getValues(`options.${optionId}`)) {
+      if (dirtyFields.options[optionId]) return ETextInput.Variants.Success;
+    }
+
+    return ETextInput.Variants.Default;
+  };
+
+  const onClickDeleteInputValueHandler = (optionId: string): void => {
+    // reset({ options: { [`${optionId}`]: '' } });
+    setValue(`options.${optionId}`, '');
+    onClickDeleteOptionValueHandler(optionId);
+  };
+
+  const onChangeInputValueHandler = (
+    inputId: string,
+    e: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    optionRegister.onChange(e) as Promise<boolean>;
+    onChangeOptionValueHandler(inputId, e);
+  };
+
+  const onBlurInputHandler = (
+    inputId: string,
+    e: React.FocusEvent<HTMLInputElement>,
+  ): void => {
+    optionRegister.onBlur(e) as Promise<boolean>;
+    onBlurOptionHandler(inputId, e);
+  };
+
   return (
     <div className="flex items-center" id={`option-${id}-box`}>
-      <DragIcon className="mr-3" data-testid="dragOptionBtn" />
+      <button
+        type="button"
+        className="mr-3 cursor-move"
+        data-testid="dragOptionBtn"
+      >
+        <DragIcon />
+      </button>
       <span className="flex-1">
         <TextInput
           id={id}
-          variants={variants}
           inputType={ETextInput.InputType.Choices}
-          letter={letter}
-          placeholder={placeholder}
-          disabled={false}
-          value={inputVal}
-          {...register}
-          name={validationRegister.name}
-          /* eslint-disable @typescript-eslint/no-floating-promises */
-          onChange={(e): void => {
-            if (validationRegister.onChange) {
-              validationRegister.onChange(e);
-            }
-            handleChange(e);
+          variants={
+            isSubmitted ? inputVariantsHandler(id) : ETextInput.Variants.Default
+          }
+          value={optionValue}
+          placeholder={`Option ${index + one}`}
+          letter={symoblGenerator(index)}
+          onClickDeleteInputValueHandler={(): void => {
+            onClickDeleteInputValueHandler(id);
           }}
-          /* eslint-disable @typescript-eslint/no-floating-promises */
-          onBlur={(e): void => {
-            if (validationRegister.onBlur) {
-              validationRegister.onBlur(e);
-            }
+          onChangeInputValueHandler={(inputId, e): void => {
+            onChangeInputValueHandler(inputId, e);
           }}
-          onClick={(): void => {
-            setInputVal('');
-            if (reset) {
-              reset({ [`${id}`]: '' });
-            }
-            if (setTextPollState) {
-              setTextPollState({
-                ...textPollState,
-                groups: [
-                  {
-                    name: 'ay 7aga 2',
-                    options: textPollState?.groups[firstGroup].options.map(
-                      (option) => {
-                        if (option.id === id) {
-                          return { ...option, body: '' };
-                        }
-                        return option;
-                      },
-                    ),
-                  },
-                ],
-              });
-            }
-            if (setMiniSurveyState && miniSurveyState) {
-              setMiniSurveyState({
-                ...miniSurveyState,
-                groups: miniSurveyState.groups.map((group) => {
-                  return {
-                    ...group,
-                    options: group.options.map((option) => {
-                      if (option.id === id) {
-                        return { ...option, body: '' };
-                      }
-                      return option;
-                    }),
-                  };
-                }),
-              });
-            }
+          onBlurInputHandler={(inputId, e): void => {
+            onBlurInputHandler(inputId, e);
           }}
+          {...optionRegister}
         />
       </span>
-      {deletable ? (
-        <DeleteIcon
-          data-testid="deleteOptionBtn"
+      {deletable && (
+        <button
+          type="button"
+          onClick={(): void => {
+            deleteOptionHandler(id);
+          }}
           className="ml-3 cursor-pointer"
-          onClick={deleteInputHandler}
-        />
-      ) : null}
+        >
+          <DeleteIcon data-testid="deleteOptionBtn" />
+        </button>
+      )}
     </div>
   );
 };

@@ -1,63 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
+import { useFormContext } from 'react-hook-form';
 import { useUpdatedImageData } from '../../../hooks/useUpdatedImageData/useUpdatedImageData';
 import { useUploadedFiles } from '../../../hooks/useUploadedFiles/useUploadedFiles';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
-import TextInput from '../../atoms/TextInputs/TextInput';
-import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import VerticalThreeDots from '../../icons/verticalThreeDots.svg';
 import Misc from '../Misc/Misc';
 import { MiscType } from '../Misc/types/EMisc';
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
-  letter,
   id,
+  entityType = 'option',
+  children,
   handleVerticalThreeDotsClick,
-  imagesData,
-  setImagesData,
 }): ReactElement => {
-  const [caption, setCaption] = useState<string>('');
-  const { error, message } = useUploadedFiles(file as File);
-  const url = useUpdatedImageData({
-    file,
-    imagesData,
-    setImagesData,
-    id,
-    caption,
-  });
+  const { register } = useFormContext();
 
-  useEffect(() => {
-    return (): void => {
-      const { type } = file as File;
-      if (!type) {
-        if (error) {
-          const filteredImage = imagesData.validImages.filter(
-            (image) => image.imgId !== id,
-          );
-          setImagesData({
-            ...imagesData,
-            validImages: filteredImage,
-          });
-        }
-      }
-    };
-  }, [imagesData]);
-
-  const updateImgCaptionHandler = (
-    e: React.FormEvent<HTMLInputElement>,
-  ): void => {
-    setCaption(e.currentTarget.value);
-  };
-
-  const resetCaptionValueHandler = (): void => {
-    setCaption('');
-  };
+  const { error, message } = useUploadedFiles(file);
+  const url = useUpdatedImageData({ file, id, entityType });
 
   const imgClasses = classNames(styles.image, {
-    'filter blur-sm': error,
+    'filter blur-sm ': error,
   });
 
   return (
@@ -71,17 +37,8 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
           id={id}
           alt="uploaded option"
         />
-        <button
-          type="button"
-          data-testid="VerticalThreeDots"
-          onClick={handleVerticalThreeDotsClick}
-          className={styles.button}
-        >
-          <VerticalThreeDots className="fill-dark-grey" />
-        </button>
         {error ? (
-          <>
-            <div className={styles.layout} />
+          <div className={styles.layout}>
             <div className={styles['error-box']}>
               <Misc
                 msg="Image couldn’t be uploaded!"
@@ -89,20 +46,32 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
                 type={MiscType.Error}
               />
             </div>
-          </>
-        ) : null}
+          </div>
+        ) : (
+          ''
+        )}
+        <button
+          type="button"
+          data-testid="VerticalThreeDots"
+          onClick={(): void => {
+            handleVerticalThreeDotsClick(id);
+          }}
+          className={styles.button}
+        >
+          <VerticalThreeDots className="fill-dark-grey" />
+        </button>
       </div>
+      {error ? (
+        <div className={styles['image-caption']}>
+          {children &&
+            React.cloneElement(children, {
+              disabled: true,
+              ...register(`options.${id}`, { required: true }),
+            })}
+        </div>
+      ) : null}
       {!error ? (
-        <TextInput
-          variants={ETextInput.Variants.Default}
-          inputType={ETextInput.InputType.Choices}
-          letter={letter}
-          id={id}
-          onChange={updateImgCaptionHandler}
-          value={caption}
-          placeholder="Type caption (optional)"
-          onClick={resetCaptionValueHandler}
-        />
+        <div className={styles['image-caption']}>{children}</div>
       ) : null}
     </div>
   );

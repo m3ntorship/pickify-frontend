@@ -10,7 +10,6 @@ import * as ETextInput from '@modules/shared/components/atoms/TextInputs/types/E
 import Avatar from '@modules/shared/components/atoms/Avatar/Avatar';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts';
-import { createPollPost } from '../api/createPollPost';
 
 interface WidgetData {
   content: string;
@@ -67,20 +66,18 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                   variants={ETextInput.Variants.Default}
                   inputType={ETextInput.InputType.Default}
                   id="id_1"
-                  onChange={(): boolean => false}
                   value=""
                   placeholder="What do you want to ask about?"
-                  onClick={(): boolean => false}
+                  onBlurInputHandler={(): boolean => true}
+                  onChangeInputValueHandler={(): boolean => true}
+                  onClickDeleteInputValueHandler={(): boolean => true}
                 />
               </div>
             </div>
           </div>
           {showModal && (
             <Modal closeModalHandler={closeModalHandler}>
-              <PostCreation
-                createTextPollPost={createPollPost}
-                createMiniSurveyPollPost={createPollPost}
-              />
+              <PostCreation />
             </Modal>
           )}
           <Posts data={data} />

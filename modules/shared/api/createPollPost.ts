@@ -1,19 +1,20 @@
 import type { AxiosError } from 'axios';
-import type { IGetPosts } from '../../shared/api/IGetPosts';
-import { postsApi } from '../../shared/api/postsApi.api';
-import type { ITextPollCreation } from '../../shared/components/organisms/TextPollCreation/types/ITextPollCreation';
+import type { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
+import type { IGetPosts } from './IGetPosts';
+import { postsApi } from './postsApi.api';
+import type { IPostCreation } from '../components/organisms/PostCreation/types/IPostCreation';
 
 export const createPollPost = async (
-  post: ITextPollCreation.IState,
+  post: IPostCreation.IPostRestData & IPostCreation.IPostStructure,
 ): Promise<IGetPosts.IErrorData> => {
   const notFound = 404;
   try {
     const {
       data: { id: postId },
     } = await postsApi.createPost({
-      is_hidden: post.hiddenIdentity,
-      type: post.postType,
-      caption: post.postCaption.value,
+      type: post.postType as unknown as PostCreationRequestTypeEnum,
+      is_hidden: post.isHiddenIdentity,
+      caption: post.postCaption.body,
     });
 
     await postsApi.createOptionsGroup(postId, {
