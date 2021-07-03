@@ -13,30 +13,37 @@ export default {
         options: ['vertical', 'circular'],
       },
     },
+    verticalMeterHeight: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 100,
+        step: 1,
+      },
+    },
+    percentage: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 100,
+        step: 1,
+      },
+    },
   },
 };
 
 const Template: Story<IVotingStats.IProps> = (args): ReactElement => (
-  <VotingStats {...args} />
+  <div className="h-21xl">
+    <VotingStats {...args} />
+  </div>
 );
-
-const firstVoteGroup = 20;
-const secondVoteGroup = 80;
-const thirdVoteGroup = 15;
-const forthVoteGroup = 25;
-const optionVotes: number[] = [
-  firstVoteGroup,
-  secondVoteGroup,
-  thirdVoteGroup,
-  forthVoteGroup,
-];
-const totalVotes = 140;
-const votes = 80;
 
 export const sliderStory = Template.bind({});
 sliderStory.args = {
-  optionVotes,
-  totalVotes,
-  votes,
+  percentage: 30,
+  mostVoted: true,
+  leastVoted: false,
+  verticalMeterHeight: 300,
+  id: 'option_1',
   type: 'vertical',
 };

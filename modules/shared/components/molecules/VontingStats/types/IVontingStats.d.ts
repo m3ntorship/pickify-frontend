@@ -1,9 +1,11 @@
 declare namespace IVotingStats {
   export interface IProps {
-    optionVotes: number[];
-    votes: number;
-    totalVotes: number;
     type: 'circular' | 'vertical';
+    percentage: number;
+    mostVoted: boolean;
+    leastVoted: boolean;
+    id: string;
+    verticalMeterHeight: number;
   }
 }
 

@@ -3,7 +3,7 @@ declare namespace ISlider {
     type: 'circular' | 'horizontal' | 'vertical';
     progress: number;
     verticalMeterHeight?: number;
-    verticalMeterColor?: 'error' | 'primary-shd5' | 'primary';
+    meterColor?: 'error' | 'primary-shd5' | 'primary';
     radius?: number;
   }
 }

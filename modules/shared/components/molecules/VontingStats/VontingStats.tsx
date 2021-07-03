@@ -4,63 +4,64 @@ import type { FC, ReactElement } from 'react';
 import Slider from '../../atoms/Slider/Slider';
 import type { IVotingStats } from './types/IVontingStats';
 
-const findMinMaxVotes = (votes: number[]): number[] => {
-  const maxNum: number = Math.max(...votes);
-  const minNum: number = Math.min(...votes);
-  return [maxNum, minNum];
-};
-
 const VotingStats: FC<IVotingStats.IProps> = ({
-  optionVotes,
-  votes,
-  totalVotes,
   type,
+  percentage,
+  mostVoted,
+  leastVoted,
+  verticalMeterHeight,
+  id,
 }): ReactElement => {
-  const totalProfress = 100;
-  const progress: number = (votes / totalVotes) * totalProfress;
-  const height = 300;
-  // const radius = (progress * 6) / 10;
-  const minMaxVotes: number[] = findMinMaxVotes(optionVotes);
-  const firstIndex = 0;
-  const secondIndex = 1;
-
-  let verticalMeterColor: 'error' | 'primary-shd5' | 'primary' | undefined =
+  let meterColor: 'error' | 'primary-shd5' | 'primary' | undefined =
     'primary-shd5';
 
-  if (votes === minMaxVotes[firstIndex]) {
-    verticalMeterColor = 'primary';
+  if (mostVoted) {
+    meterColor = 'primary';
   }
-  if (votes === minMaxVotes[secondIndex]) {
-    verticalMeterColor = 'error';
+  if (leastVoted) {
+    meterColor = 'error';
   }
 
-  const verticalContent = votes === minMaxVotes[firstIndex] ? `🌟` : '';
-  const circularContent = votes === minMaxVotes[firstIndex] ? `👍` : `👎`;
+  const verticalContent = mostVoted && `🌟`;
+  const circularContent = mostVoted ? `👍` : `👎`;
   if (type === 'circular') {
     return (
-      <div className="flex justify-center items-center w-20 h-20">
-        <div className="absolute flex justify-center items-center w-max py-xxsvl px-m bg-white rounded-full">
-          <p>
-            {circularContent}
-            <span className="block">{Math.round(progress)}%</span>
-          </p>
+      // <div className="inline-flex flex-col justify-center items-center w-3xl h-3xl bg-white rounded-full">
+      //   <p className="mb-1">{circularContent}</p>
+      //   <p>{percentage}%</p>
+      // </div>
+
+      <div
+        className="flex items-center justify-center w-4xl h-4xl relative"
+        id={id}
+      >
+        <div className="flex flex-col justify-center items-center w-3xl h-3xl bg-white rounded-full">
+          <p className="mb-1">{circularContent}</p>
+          <p>{percentage}%</p>
         </div>
-        <Slider progress={progress} type={type} radius={40} />
+        <div className="absolute ">
+          <Slider
+            progress={percentage}
+            type="circular"
+            radius={50}
+            meterColor={meterColor}
+          />
+        </div>
       </div>
     );
   }
   return (
-    <div className="flex items-start">
+    <div className="flex items-start h-full" id={id}>
       <div className="bg-white py-xxs px-xsvv rounded-l-md">
         <p className="font-medium text-base text-dark">
-          {verticalContent} <span>{Math.round(progress)}%</span>
+          {verticalContent} <span>{percentage}%</span>
         </p>
       </div>
       <Slider
-        type={type}
-        progress={progress}
-        verticalMeterHeight={height}
-        verticalMeterColor={verticalMeterColor}
+        type="vertical"
+        progress={percentage}
+        verticalMeterHeight={verticalMeterHeight}
+        meterColor={meterColor}
       />
     </div>
   );
