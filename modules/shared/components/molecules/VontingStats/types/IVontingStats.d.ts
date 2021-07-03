@@ -5,7 +5,7 @@ declare namespace IVotingStats {
     mostVoted: boolean;
     leastVoted: boolean;
     id: string;
-    verticalMeterHeight: number;
+    verticalMeterHeight?: number;
   }
 }
 

@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VotingStats should render circular Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false] 1`] = `
+<div
+  className="circular-vote-meter-wrapper"
+  id="option_1"
+>
+  <div
+    className="circular-content"
+  >
+    <p
+      className="mb-1"
+    >
+      👍
+    </p>
+    <p>
+      50
+      %
+    </p>
+  </div>
+  <div
+    className="absolute "
+  >
+    <svg
+      height={100}
+      width={100}
+    >
+      <circle
+        className="circular primary-text"
+        cx={50}
+        cy={50}
+        fill="transparent"
+        r={36}
+        strokeDasharray="226.1946710584651 226.1946710584651"
+        strokeWidth={7}
+        style={
+          Object {
+            "strokeDashoffset": "113.09733552923255",
+          }
+        }
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`VotingStats should render circular Progress with red meterColor when passing mostVoted=[false] leastVoted=[true] 1`] = `
+<div
+  className="circular-vote-meter-wrapper"
+  id="option_1"
+>
+  <div
+    className="circular-content"
+  >
+    <p
+      className="mb-1"
+    >
+      👎
+    </p>
+    <p>
+      50
+      %
+    </p>
+  </div>
+  <div
+    className="absolute "
+  >
+    <svg
+      height={100}
+      width={100}
+    >
+      <circle
+        className="circular error-text"
+        cx={50}
+        cy={50}
+        fill="transparent"
+        r={36}
+        strokeDasharray="226.1946710584651 226.1946710584651"
+        strokeWidth={7}
+        style={
+          Object {
+            "strokeDashoffset": "113.09733552923255",
+          }
+        }
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`VotingStats should render vertical Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false] 1`] = `
+<div
+  className="vertical-vote-meter-wrapper"
+  id="option_1"
+>
+  <div
+    className="percentage-wrapper"
+  >
+    <p
+      className="percentage"
+    >
+      🌟
+       
+      <span>
+        50
+        %
+      </span>
+    </p>
+  </div>
+  <div
+    className="flex h-full"
+  >
+    <div
+      className="outer-vertical wrapper"
+      style={
+        Object {
+          "height": "150%",
+        }
+      }
+    >
+      <div
+        className="inner-vertical primary"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VotingStats should render vertical Progress with primary-shd05 meterColor when passing mostVoted=[false] leastVoted=[false] 1`] = `
+<div
+  className="vertical-vote-meter-wrapper"
+  id="option_1"
+>
+  <div
+    className="percentage-wrapper"
+  >
+    <p
+      className="percentage"
+    >
+       
+      <span>
+        50
+        %
+      </span>
+    </p>
+  </div>
+  <div
+    className="flex h-full"
+  >
+    <div
+      className="outer-vertical wrapper"
+      style={
+        Object {
+          "height": "150%",
+        }
+      }
+    >
+      <div
+        className="inner-vertical primary-shd5"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`VotingStats should render vertical Progress with red meterColor when passing mostVoted=[false] leastVoted=[true] 1`] = `
+<div
+  className="vertical-vote-meter-wrapper"
+  id="option_1"
+>
+  <div
+    className="percentage-wrapper"
+  >
+    <p
+      className="percentage"
+    >
+       
+      <span>
+        50
+        %
+      </span>
+    </p>
+  </div>
+  <div
+    className="flex h-full"
+  >
+    <div
+      className="outer-vertical wrapper"
+      style={
+        Object {
+          "height": "150%",
+        }
+      }
+    >
+      <div
+        className="inner-vertical error"
+      />
+    </div>
+  </div>
+</div>
+`;

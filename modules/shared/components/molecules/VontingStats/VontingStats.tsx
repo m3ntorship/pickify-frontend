@@ -4,12 +4,14 @@ import styles from './VotingStats.module.css';
 import Slider from '../../atoms/Slider/Slider';
 import type { IVotingStats } from './types/IVontingStats';
 
+const imageHeight = 100;
+
 const VotingStats: FC<IVotingStats.IProps> = ({
   type,
   percentage,
   mostVoted,
   leastVoted,
-  verticalMeterHeight,
+  verticalMeterHeight = imageHeight,
   id,
 }): ReactElement => {
   let meterColor: 'error' | 'primary-shd5' | 'primary' | undefined =
