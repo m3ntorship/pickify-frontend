@@ -1,11 +1,11 @@
 import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 
-declare namespace IMiniSurveyView {
+declare namespace IOptionGroupView {
   export interface IProps {
-    post: IPostFeed.IPost;
+    group: IPostFeed.IGroup;
     addOneVote: (optionId: string, grouId: string) => void;
     optionCheckedId: string;
   }
 }
 
-export { IMiniSurveyView };
+export { IOptionGroupView };

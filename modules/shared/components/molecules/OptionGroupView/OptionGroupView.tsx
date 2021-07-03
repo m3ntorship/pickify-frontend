@@ -1,28 +1,29 @@
 import React from 'react';
 import type { FC, ReactElement, MouseEvent } from 'react';
+import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
+import type { IOptionGroupView } from './IOptionGroupView';
 import TextOptionViewCovered from '../../atoms/TextOptionViewCovered/TextOptionViewCovered';
 import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptionViewUncoverd';
-import type { ITextPollViewOptions } from './ITextPollViewOptions';
-import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
-const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
-  optionsGroups,
-  addOneVote,
+const OptionGroup: FC<IOptionGroupView.IProps> = ({
+  group,
   optionCheckedId,
+  addOneVote,
 }): ReactElement => {
-  const firstGroup = 0;
+  const zero = 0;
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
-    optionsGroups.groups[firstGroup].options,
+    group.options,
   );
-  const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
   const onOptionClick = (e: MouseEvent<HTMLButtonElement>): void => {
-    addOneVote(e.currentTarget.id, optionsGroups.groups[firstGroup].id);
+    addOneVote(e.currentTarget.id, group.id);
   };
 
+  const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
   return (
-    <div className="grid-rows-1 space-y-2">
-      {optionsGroups.groups[firstGroup].options.map((option, index) => {
+    <div className="space-y-2">
+      <div className="text-dark-grey text-sm">{group.name}</div>
+      {group.options.map((option, index): ReactElement => {
         const letter = alphabet[index];
         const { vote_count } = option;
         return (
@@ -33,7 +34,7 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
                 optionBody={option.body}
                 isOptionChecked={optionCheckedId === option.id}
                 letter={letter}
-                mostVoted={option.vote_count === mostAndLeastVoted[firstGroup]}
+                mostVoted={option.vote_count === mostAndLeastVoted[zero]}
                 percentage={optionsPercentage[index]}
               />
             ) : (
@@ -50,4 +51,5 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
     </div>
   );
 };
+
 export default OptionGroup;

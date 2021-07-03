@@ -5,7 +5,8 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
   className="container"
 >
   <span>
-     Vote to uncover the total number of voters 
+    120
+     votes
   </span>
   <button
     type="button"

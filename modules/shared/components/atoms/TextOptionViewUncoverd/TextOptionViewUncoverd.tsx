@@ -1,24 +1,22 @@
 import React from 'react';
 import classNames from 'classnames';
 import type { FC, ReactElement } from 'react';
-import type { ITextPoll } from './ITextPoll';
-import styles from './TextPoll.module.css';
+import type { ITextOptionViewUncoverd } from './ITextOptionViewUncoverd';
+import styles from './TextOptionViewUncoverd.module.css';
 import Check from '../../icons/checkMarkDefault.svg';
 import GoldenStarIcon from '../../icons/goldenStar.svg';
 
-const TextPoll: FC<ITextPoll.IProps> = ({
-  letter = 'A',
-  option = 'option one',
+const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
+  letter,
+  optionBody,
   percentage,
-  isChecked = false,
-  mostVoted = false,
-  showResult,
+  isOptionChecked,
+  mostVoted,
   id,
-  onOptionClick,
 }): ReactElement => {
   const textPoll = classNames(styles.btnBody, {
-    [styles.mostVoted]: showResult && mostVoted,
-    [styles.leastVoted]: showResult && !mostVoted,
+    [styles.mostVoted]: mostVoted,
+    [styles.leastVoted]: !mostVoted,
   });
   const svgClasses = classNames({
     [styles.svgDark]: !mostVoted,
@@ -31,30 +29,23 @@ const TextPoll: FC<ITextPoll.IProps> = ({
       id={id}
       data-testid={id}
       className={textPoll}
-      onClick={onOptionClick}
-      disabled={showResult}
+      disabled
     >
       <span className={styles['flex-container']}>
         {letter && <span className={styles.letter}>{letter}</span>}
-        <p className={styles.option}> {option} </p>
+        <p className={styles.option}> {optionBody} </p>
         <span />
-        {isChecked && (
+        {isOptionChecked && (
           <span className={styles['svg-check']}>
             <Check className={svgClasses} />
           </span>
         )}
       </span>
-      {showResult && (
-        <span className={styles.percentage}>
-          {mostVoted ? (
-            <GoldenStarIcon className={styles.goldenStarIcon} />
-          ) : (
-            ''
-          )}
-          {percentage}%
-        </span>
-      )}
+      <span className={styles.percentage}>
+        {mostVoted ? <GoldenStarIcon className={styles.goldenStarIcon} /> : ''}
+        {percentage}%
+      </span>
     </button>
   );
 };
-export default TextPoll;
+export default TextOptionViewUncoverd;
