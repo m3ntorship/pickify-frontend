@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import VotingStats from './VontingStats';
+import ImagePollUncovoredStory from './ImagePollUncovored';
 
-describe('VotingStats', () => {
+describe('ImagePollUncovoredStory', () => {
   it('should render vertical Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false]', () => {
     const tree = renderer.create(
-      <VotingStats
+      <ImagePollUncovoredStory
         type="vertical"
         mostVoted
         leastVoted={false}
@@ -20,7 +20,7 @@ describe('VotingStats', () => {
 
   it('should render vertical Progress with red meterColor when passing mostVoted=[false] leastVoted=[true]', () => {
     const tree = renderer.create(
-      <VotingStats
+      <ImagePollUncovoredStory
         type="vertical"
         mostVoted={false}
         leastVoted
@@ -35,7 +35,7 @@ describe('VotingStats', () => {
 
   it('should render vertical Progress with primary-shd05 meterColor when passing mostVoted=[false] leastVoted=[false]', () => {
     const tree = renderer.create(
-      <VotingStats
+      <ImagePollUncovoredStory
         type="vertical"
         mostVoted={false}
         leastVoted={false}
@@ -50,7 +50,7 @@ describe('VotingStats', () => {
 
   it('should render circular Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false]', () => {
     const tree = renderer.create(
-      <VotingStats
+      <ImagePollUncovoredStory
         type="circular"
         mostVoted
         leastVoted={false}
@@ -64,7 +64,7 @@ describe('VotingStats', () => {
 
   it('should render circular Progress with red meterColor when passing mostVoted=[false] leastVoted=[true]', () => {
     const tree = renderer.create(
-      <VotingStats
+      <ImagePollUncovoredStory
         type="circular"
         mostVoted={false}
         leastVoted

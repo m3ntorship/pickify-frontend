@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`VotingStats should render circular Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false] 1`] = `
+exports[`ImagePollUncovoredStory should render circular Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false] 1`] = `
 <div
   className="circular-vote-meter-wrapper"
   id="option_1"
@@ -44,7 +44,7 @@ exports[`VotingStats should render circular Progress with primary meterColor whe
 </div>
 `;
 
-exports[`VotingStats should render circular Progress with red meterColor when passing mostVoted=[false] leastVoted=[true] 1`] = `
+exports[`ImagePollUncovoredStory should render circular Progress with red meterColor when passing mostVoted=[false] leastVoted=[true] 1`] = `
 <div
   className="circular-vote-meter-wrapper"
   id="option_1"
@@ -88,7 +88,7 @@ exports[`VotingStats should render circular Progress with red meterColor when pa
 </div>
 `;
 
-exports[`VotingStats should render vertical Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false] 1`] = `
+exports[`ImagePollUncovoredStory should render vertical Progress with primary meterColor when passing mostVoted=[true] leastVoted=[false] 1`] = `
 <div
   className="vertical-vote-meter-wrapper"
   id="option_1"
@@ -126,7 +126,7 @@ exports[`VotingStats should render vertical Progress with primary meterColor whe
 </div>
 `;
 
-exports[`VotingStats should render vertical Progress with primary-shd05 meterColor when passing mostVoted=[false] leastVoted=[false] 1`] = `
+exports[`ImagePollUncovoredStory should render vertical Progress with primary-shd05 meterColor when passing mostVoted=[false] leastVoted=[false] 1`] = `
 <div
   className="vertical-vote-meter-wrapper"
   id="option_1"
@@ -163,7 +163,7 @@ exports[`VotingStats should render vertical Progress with primary-shd05 meterCol
 </div>
 `;
 
-exports[`VotingStats should render vertical Progress with red meterColor when passing mostVoted=[false] leastVoted=[true] 1`] = `
+exports[`ImagePollUncovoredStory should render vertical Progress with red meterColor when passing mostVoted=[false] leastVoted=[true] 1`] = `
 <div
   className="vertical-vote-meter-wrapper"
   id="option_1"

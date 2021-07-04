@@ -1,12 +1,12 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import styles from './VotingStats.module.css';
+import styles from './ImagePollUncovored.module.css';
 import Slider from '../../atoms/Slider/Slider';
-import type { IVotingStats } from './types/IVontingStats';
+import type { IImagePollUncovored } from './types/IImagePollUncovored';
 
 const imageHeight = 100;
 
-const VotingStats: FC<IVotingStats.IProps> = ({
+const ImagePollUncovored: FC<IImagePollUncovored.IProps> = ({
   type,
   percentage,
   mostVoted,
@@ -61,4 +61,4 @@ const VotingStats: FC<IVotingStats.IProps> = ({
   );
 };
 
-export default VotingStats;
+export default ImagePollUncovored;

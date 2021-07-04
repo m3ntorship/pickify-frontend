@@ -1,11 +1,11 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import VotingStats from './VontingStats';
-import type { IVotingStats } from './types/IVontingStats';
+import ImagePollUncovored from './ImagePollUncovored';
+import type { IImagePollUncovored } from './types/IImagePollUncovored';
 
 export default {
-  title: 'molecules/VotingStats',
-  component: VotingStats,
+  title: 'molecules/ImagePollUncovored',
+  component: ImagePollUncovored,
   argTypes: {
     type: {
       control: {
@@ -32,18 +32,17 @@ export default {
   },
 };
 
-const Template: Story<IVotingStats.IProps> = (args): ReactElement => (
+const Template: Story<IImagePollUncovored.IProps> = (args): ReactElement => (
   <div className="h-21xl">
-    <VotingStats {...args} />
+    <ImagePollUncovored {...args} />
   </div>
 );
 
-export const sliderStory = Template.bind({});
-sliderStory.args = {
+export const ImagePollUncovoredStory = Template.bind({});
+ImagePollUncovoredStory.args = {
   percentage: 30,
   mostVoted: true,
   leastVoted: false,
-  verticalMeterHeight: 300,
   id: 'option_1',
   type: 'vertical',
 };

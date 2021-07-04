@@ -1,4 +1,4 @@
-declare namespace IVotingStats {
+declare namespace IImagePollUncovored {
   export interface IProps {
     type: 'circular' | 'vertical';
     percentage: number;
@@ -9,4 +9,4 @@ declare namespace IVotingStats {
   }
 }
 
-export { IVotingStats };
+export { IImagePollUncovored };
