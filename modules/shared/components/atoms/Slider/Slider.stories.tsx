@@ -23,7 +23,10 @@ export default {
     },
     verticalMeterHeight: {
       control: {
-        type: 'number',
+        type: 'range',
+        min: 0,
+        max: 100,
+        step: 1,
       },
     },
     radius: {
@@ -31,7 +34,7 @@ export default {
         type: 'number',
       },
     },
-    verticalMeterColor: {
+    meterColor: {
       control: {
         type: 'radio',
         options: ['primary', 'primary-shd5', 'error'],
@@ -41,7 +44,9 @@ export default {
 };
 
 const Template: Story<ISlider.IProps> = (args): ReactElement => (
-  <Slider {...args} />
+  <div className="h-21xl">
+    <Slider {...args} />
+  </div>
 );
 
 export const sliderStory = Template.bind({});
@@ -50,5 +55,5 @@ sliderStory.args = {
   type: 'vertical',
   verticalMeterHeight: 300,
   radius: 60,
-  verticalMeterColor: 'primary',
+  meterColor: 'primary',
 };
