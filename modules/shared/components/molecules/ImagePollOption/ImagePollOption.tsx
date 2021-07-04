@@ -2,7 +2,7 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import Image from 'next/image';
 import type { IImagePollOption } from './IImagePollOption';
-import VoteIcon from '../../atoms/VoteIcon/VoteIcon';
+import VoteIcon from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
 
 const ImagePollOption: FC<IImagePollOption.IProps> = ({

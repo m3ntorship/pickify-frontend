@@ -1,7 +1,7 @@
-import type { IVoteIcon } from '../../atoms/VoteIcon/IVoteIcon';
+import type { IImagePollCovered } from '../../atoms/ImagePollCovered/IImagePollCovered';
 
 declare namespace IImagePollOption {
-  export interface IProps extends IVoteIcon.IProps {
+  export interface IProps extends IImagePollCovered.IProps {
     imageUrl: string;
     imgCaption: string;
     imgCaptionLetter?: string;

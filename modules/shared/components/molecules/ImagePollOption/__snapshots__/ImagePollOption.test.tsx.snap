@@ -252,26 +252,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
     >
       <div
         className="flex"
-      >
-        <button
-          className="dislike group"
-          type="button"
-        >
-          <svg
-            className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
-            data-file-name="SvgFilledDislike"
-          />
-        </button>
-        <button
-          className="like group"
-          type="button"
-        >
-          <svg
-            className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
-            data-file-name="SvgFilledLike"
-          />
-        </button>
-      </div>
+      />
     </div>
   </div>
   <div
@@ -361,26 +342,7 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
     >
       <div
         className="flex"
-      >
-        <button
-          className="dislike group"
-          type="button"
-        >
-          <svg
-            className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
-            data-file-name="SvgFilledDislike"
-          />
-        </button>
-        <button
-          className="like group"
-          type="button"
-        >
-          <svg
-            className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
-            data-file-name="SvgFilledLike"
-          />
-        </button>
-      </div>
+      />
     </div>
   </div>
   <div

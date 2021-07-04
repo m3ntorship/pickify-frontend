@@ -1,11 +1,11 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import VoteIcon from './VoteIcon';
-import type { IVoteIcon } from './IVoteIcon';
+import ImagePollCovered from './ImagePollCovered';
+import type { IImagePollCovered } from './IImagePollCovered';
 
 export default {
-  title: 'Atoms/VoteIcon',
-  component: VoteIcon,
+  title: 'Atoms/ImagePollCovered',
+  component: ImagePollCovered,
   argTypes: {
     isOneImageVote: {
       control: {
@@ -25,12 +25,12 @@ export default {
   },
 };
 
-const Template: Story<IVoteIcon.IProps> = (args): ReactElement => (
-  <VoteIcon {...args} />
+const Template: Story<IImagePollCovered.IProps> = (args): ReactElement => (
+  <ImagePollCovered {...args} />
 );
 
-export const VoteIconStory = Template.bind({});
-VoteIconStory.args = {
+export const ImagePollCoveredStory = Template.bind({});
+ImagePollCoveredStory.args = {
   isOneImageVote: false,
   like: false,
   dislike: false,

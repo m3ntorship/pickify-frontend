@@ -1,4 +1,4 @@
-declare namespace IVoteIcon {
+declare namespace IImagePollCovered {
   export interface IProps {
     isOneImageVote: boolean;
     like?: boolean;
@@ -6,4 +6,4 @@ declare namespace IVoteIcon {
   }
 }
 
-export { IVoteIcon };
+export { IImagePollCovered };

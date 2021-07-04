@@ -1,12 +1,12 @@
 import type { ReactElement, FC } from 'react';
 import React from 'react';
-import type { IVoteIcon } from './IVoteIcon';
+import type { IImagePollCovered } from './IImagePollCovered';
 import FilledHeartIcon from '../../icons/filledHeart.svg';
 import FilledDislikeIcon from '../../icons/filledDislike.svg';
 import FilledLikeIcon from '../../icons/filledLike.svg';
-import styles from './VoteIcon.module.css';
+import styles from './ImagePollCovered.module.css';
 
-const VoteIcon: FC<IVoteIcon.IProps> = ({
+const ImagePollCovered: FC<IImagePollCovered.IProps> = ({
   isOneImageVote,
   like,
   dislike,
@@ -36,4 +36,4 @@ const VoteIcon: FC<IVoteIcon.IProps> = ({
   );
 };
 
-export default VoteIcon;
+export default ImagePollCovered;
