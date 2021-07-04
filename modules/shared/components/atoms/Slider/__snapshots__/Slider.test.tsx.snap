@@ -2,20 +2,20 @@
 
 exports[`snapshot testing should render circular when given circular property 1`] = `
 <svg
-  height={120}
-  width={120}
+  height={100}
+  width={100}
 >
   <circle
-    className="circular error-text"
-    cx={60}
-    cy={60}
+    className="circular primary-text"
+    cx={50}
+    cy={50}
     fill="transparent"
-    r={52}
-    strokeDasharray="326.7256359733385 326.7256359733385"
-    strokeWidth={4}
+    r={36}
+    strokeDasharray="226.1946710584651 226.1946710584651"
+    strokeWidth={7}
     style={
       Object {
-        "strokeDashoffset": "163.36281798666926",
+        "strokeDashoffset": "113.09733552923255",
       }
     }
   />
@@ -24,7 +24,7 @@ exports[`snapshot testing should render circular when given circular property 1`
 
 exports[`snapshot testing should render horizontally when given horizontal property 1`] = `
 <div
-  className="outer-horizontal"
+  className="outer-horizontal wrapper"
 >
   <div
     className="inner-horizontal primary"
@@ -39,28 +39,18 @@ exports[`snapshot testing should render horizontally when given horizontal prope
 
 exports[`snapshot testing should render vertically when given vertical property 1`] = `
 <div
-  className="wrapper"
-  style={
-    Object {
-      "height": "300px",
-    }
-  }
+  className="flex h-full"
 >
   <div
-    className="outer-vertical primary"
+    className="outer-vertical wrapper"
     style={
       Object {
-        "height": "300px",
+        "height": "150%",
       }
     }
   >
     <div
-      className="inner-vertical"
-      style={
-        Object {
-          "height": "50%",
-        }
-      }
+      className="inner-vertical primary"
     />
   </div>
 </div>

@@ -1,5 +1,17 @@
+.wrapper {
+  @apply p-1 bg-white;
+}
+
 .outer-horizontal {
-  @apply w-full h-3 bg-white flex items-center p-1 rounded-sm;
+  @apply w-full rounded-xs;
+}
+
+.outer-vertical {
+  @apply rounded-md rounded-tl-none min-h-2xl;
+}
+
+.inner-vertical {
+  @apply w-2 transition-all rounded-full h-full;
 }
 
 .inner-horizontal {
@@ -20,18 +32,6 @@
 
 .error {
   @apply bg-error;
-}
-
-.inner-vertical {
-  @apply w-2 bg-white transition-all;
-}
-
-.outer-vertical {
-  @apply w-2 rounded-sm;
-}
-
-.wrapper {
-  @apply rounded-sm py-1 px-2 bg-white w-3 flex justify-center;
 }
 
 .circular {
