@@ -6,7 +6,11 @@ import FilledDislikeIcon from '../../icons/filledDislike.svg';
 import FilledLikeIcon from '../../icons/filledLike.svg';
 import styles from './VoteIcon.module.css';
 
-const VoteIcon: FC<IVoteIcon.IProps> = ({ isOneImageVote }): ReactElement => {
+const VoteIcon: FC<IVoteIcon.IProps> = ({
+  isOneImageVote,
+  like,
+  dislike,
+}): ReactElement => {
   return (
     <div className="flex justify-end">
       {!isOneImageVote && (
@@ -16,12 +20,16 @@ const VoteIcon: FC<IVoteIcon.IProps> = ({ isOneImageVote }): ReactElement => {
       )}
       {isOneImageVote && (
         <div className="flex">
-          <button type="button" className={`${styles.dislike} group`}>
-            <FilledDislikeIcon className="fill-error stroke-current stroke-1 text-white group-hover:fill-white" />
-          </button>
-          <button type="button" className={`${styles.like} group`}>
-            <FilledLikeIcon className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white" />
-          </button>
+          {dislike && (
+            <button type="button" className={`${styles.dislike} group`}>
+              <FilledDislikeIcon className="fill-error stroke-current stroke-1 text-white group-hover:fill-white" />
+            </button>
+          )}
+          {like && (
+            <button type="button" className={`${styles.like} group`}>
+              <FilledLikeIcon className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white" />
+            </button>
+          )}
         </div>
       )}
     </div>

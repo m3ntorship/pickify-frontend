@@ -12,6 +12,16 @@ export default {
         type: 'boolean',
       },
     },
+    like: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    dislike: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 };
 
@@ -22,4 +32,6 @@ const Template: Story<IVoteIcon.IProps> = (args): ReactElement => (
 export const VoteIconStory = Template.bind({});
 VoteIconStory.args = {
   isOneImageVote: false,
+  like: false,
+  dislike: false,
 };
