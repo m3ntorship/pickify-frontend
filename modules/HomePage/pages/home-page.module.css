@@ -10,12 +10,7 @@
   @apply w-19xl hidden md:block;
 }
 
-.input-creation {
-  @apply shadow-soft p-4 bg-white rounded-md;
-}
-
 .posts,
-.widget,
-.input-creation {
+.widget {
   @apply mb-6;
 }

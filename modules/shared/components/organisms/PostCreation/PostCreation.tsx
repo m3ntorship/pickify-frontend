@@ -18,7 +18,9 @@ const randomId = (): string => {
   return `id_${Math.round(Math.random() * randomHelper)}`;
 };
 
-const PostCreation: FC = (): ReactElement => {
+const PostCreation: FC<IPostCreation.IProps> = ({
+  closeModalHandler,
+}): ReactElement => {
   // post creation global initial state setup
   const [postCreationGlobalState, setPostCreationGlobalState] =
     useState<IPostCreation.IState>(initialState);
@@ -182,7 +184,7 @@ const PostCreation: FC = (): ReactElement => {
             <PostFooterCreation
               postButtonIsDisabled={!methods.formState.isDirty}
               handleSubmitButtonClick={(): boolean => true}
-              handleCancelButtonClick={(): boolean => true}
+              handleCancelButtonClick={closeModalHandler}
               handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
               handlePrivacySelectChange={handlePrivacySelectChange}
               togglerIsChecked={postCreationGlobalState.isHiddenIdentity}

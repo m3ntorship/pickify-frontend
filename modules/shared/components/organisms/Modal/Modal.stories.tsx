@@ -9,7 +9,9 @@ export default {
 };
 
 const Template: Story<IModal.IProps> = (args): ReactElement => (
-  <Modal {...args} />
+  <Modal {...args}>
+    <h1>Pickify</h1>
+  </Modal>
 );
 export const Default = Template.bind({});
 Default.args = {};

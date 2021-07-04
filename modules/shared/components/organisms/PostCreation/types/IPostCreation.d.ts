@@ -1,6 +1,9 @@
 import type { EPollType } from './EPollType';
 
 declare namespace IPostCreation {
+  export interface IProps {
+    closeModalHandler: () => void;
+  }
   export interface IPostStructure {
     postType: EPollType.ImagePoll | EPollType.MiniSurvey | EPollType.TextPoll;
     postCaption: { id: string; body: string };
