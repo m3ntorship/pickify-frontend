@@ -4,10 +4,15 @@ import classNames from 'classnames';
 import type { IImagePollGroup } from './IImagePollGroup';
 import ImagePollOption from '../ImagePollOption/ImagePollOption';
 import styles from './ImagePollGroup.module.css';
+import SignleImagePollOption from '../SignleImagePollOption/SignleImagePollOption';
+import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   group,
 }): ReactElement => {
+  const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
+    group.options,
+  );
   const firstIndex = 0;
   const singleOption = 1;
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -18,20 +23,29 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   });
   return (
     <div className={optionClasses}>
-      {group.options.map((option, index) => {
-        const letter = alphabet[index];
-        return (
-          <ImagePollOption
-            key={option.id}
-            imageUrl={option.media[firstIndex].url}
-            isOneImageVote={group.options.length === singleOption}
-            imgCaption={option.body}
-            imgCaptionLetter={
-              group.options.length === singleOption ? '' : letter
-            }
-          />
-        );
-      })}
+      {group.media.length !== firstIndex ? (
+        <SignleImagePollOption
+          groupName={group.name}
+          imageUrl={group.media[firstIndex].url}
+          options={group.options}
+        />
+      ) : (
+        group.options.map((option, index) => {
+          const letter = alphabet[index];
+          return (
+            <ImagePollOption
+              imageUrl={option.media[firstIndex].url}
+              imgCaption={option.body}
+              imgCaptionLetter={letter}
+              optionId={option.id}
+              leastVoted={option.vote_count === mostAndLeastVoted[singleOption]}
+              mostVoted={option.vote_count === mostAndLeastVoted[firstIndex]}
+              percentage={optionsPercentage[index]}
+              isVoted={option.vote_count !== undefined}
+            />
+          );
+        })
+      )}
     </div>
   );
 };

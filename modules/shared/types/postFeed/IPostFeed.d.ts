@@ -19,6 +19,7 @@ declare namespace IPostFeed {
     id: string;
     options: IOptions[];
     name: string;
+    media: { url: string }[];
   }
   export interface IOptions {
     id: string;
