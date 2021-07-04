@@ -2,52 +2,55 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import ImagePollOption from './ImagePollOption';
 
-describe('Privacy Component with snapshot', () => {
-  it('should render the like and dislike voteIcon without imgCaptionLetter', () => {
+describe('ImagePollOption', () => {
+  it('should render heart icon when passing isVoted=[false]', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          isOneImageVote
           imageUrl="https://source.unsplash.com/random"
-          imgCaption="aaaaaaa"
-        />,
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  it('should render the like and dislike voteIcon with imgCaptionLetter', () => {
-    const tree = renderer
-      .create(
-        <ImagePollOption
-          isOneImageVote
-          imageUrl="https://source.unsplash.com/random"
-          imgCaption="aaaaaaa"
+          imgCaption="caption"
           imgCaptionLetter="A"
+          optionId="option_1"
+          leastVoted={false}
+          mostVoted={false}
+          percentage={0}
+          isVoted={false}
         />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('should render the heart voteIcon with imgCaptionLetter', () => {
+
+  it('should render primary progress bar when passing isVoted=[true] and mostVoted=[true]', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          isOneImageVote={false}
           imageUrl="https://source.unsplash.com/random"
-          imgCaption="aaaaaaa"
+          imgCaption="caption"
           imgCaptionLetter="A"
+          optionId="option_1"
+          leastVoted={false}
+          mostVoted
+          percentage={80}
+          isVoted
         />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('should render the heart voteIcon without imgCaptionLetter', () => {
+
+  it('should render red progress bar when passing isVoted=[true] and leastVoted=[true]', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          isOneImageVote={false}
           imageUrl="https://source.unsplash.com/random"
-          imgCaption="aaaaaaa"
+          imgCaption="caption"
+          imgCaptionLetter="A"
+          optionId="option_1"
+          leastVoted
+          mostVoted={false}
+          percentage={20}
+          isVoted
         />,
       )
       .toJSON();

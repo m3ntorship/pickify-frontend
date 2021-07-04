@@ -1,10 +1,13 @@
-import type { IImagePollCovered } from '../../atoms/ImagePollCovered/IImagePollCovered';
-
 declare namespace IImagePollOption {
-  export interface IProps extends IImagePollCovered.IProps {
+  export interface IProps {
     imageUrl: string;
     imgCaption: string;
-    imgCaptionLetter?: string;
+    imgCaptionLetter: string;
+    optionId: string;
+    leastVoted: boolean;
+    mostVoted: boolean;
+    percentage: number;
+    isVoted: boolean;
   }
 }
 export { IImagePollOption };

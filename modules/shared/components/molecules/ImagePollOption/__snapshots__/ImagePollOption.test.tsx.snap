@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Privacy Component with snapshot should render the heart voteIcon with imgCaptionLetter 1`] = `
+exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1`] = `
 <div
   className="relative w-auto"
   data-testid="image-poll-option"
@@ -87,16 +87,16 @@ exports[`Privacy Component with snapshot should render the heart voteIcon with i
       />
       <span
         className="image-caption"
-        title="aaaaaaa"
+        title="caption"
       >
-        aaaaaaa
+        caption
       </span>
     </div>
   </div>
 </div>
 `;
 
-exports[`Privacy Component with snapshot should render the heart voteIcon without imgCaptionLetter 1`] = `
+exports[`ImagePollOption should render primary progress bar when passing isVoted=[true] and mostVoted=[true] 1`] = `
 <div
   className="relative w-auto"
   data-testid="image-poll-option"
@@ -154,105 +154,39 @@ exports[`Privacy Component with snapshot should render the heart voteIcon withou
     className="absolute bottom-4 right-4"
   >
     <div
-      className="flex justify-end"
-    >
-      <button
-        className="love group"
-        type="button"
-      >
-        <svg
-          className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
-          data-file-name="SvgFilledHeart"
-        />
-      </button>
-    </div>
-  </div>
-  <div
-    className="absolute bottom-4 left-4"
-  >
-    <div
-      className="captionContent"
-    >
-      <span
-        className="hidden"
-      />
-      <div
-        className="captionDivider hidden"
-      />
-      <span
-        className="image-caption"
-        title="aaaaaaa"
-      >
-        aaaaaaa
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Privacy Component with snapshot should render the like and dislike voteIcon with imgCaptionLetter 1`] = `
-<div
-  className="relative w-auto"
-  data-testid="image-poll-option"
->
-  <div
-    style={
-      Object {
-        "boxSizing": "border-box",
-        "display": "block",
-        "margin": 0,
-        "overflow": "hidden",
-        "position": "relative",
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "boxSizing": "border-box",
-          "display": "block",
-          "paddingTop": "100%",
-        }
-      }
-    />
-    <img
-      className="rounded-md object-cover"
-      decoding="async"
-      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-      style={
-        Object {
-          "border": "none",
-          "bottom": 0,
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": 0,
-          "left": 0,
-          "margin": "auto",
-          "maxHeight": "100%",
-          "maxWidth": "100%",
-          "minHeight": "100%",
-          "minWidth": "100%",
-          "objectFit": undefined,
-          "objectPosition": undefined,
-          "padding": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "visibility": "hidden",
-          "width": 0,
-        }
-      }
-    />
-  </div>
-  <div
-    className="absolute bottom-4 right-4"
-  >
-    <div
-      className="flex justify-end"
+      className="vertical-vote-meter-wrapper"
+      id="option_1"
     >
       <div
-        className="flex"
-      />
+        className="percentage-wrapper"
+      >
+        <p
+          className="percentage"
+        >
+          🌟
+           
+          <span>
+            80
+            %
+          </span>
+        </p>
+      </div>
+      <div
+        className="flex h-full"
+      >
+        <div
+          className="outer-vertical wrapper"
+          style={
+            Object {
+              "height": "240px",
+            }
+          }
+        >
+          <div
+            className="inner-vertical primary"
+          />
+        </div>
+      </div>
     </div>
   </div>
   <div
@@ -271,16 +205,16 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
       />
       <span
         className="image-caption"
-        title="aaaaaaa"
+        title="caption"
       >
-        aaaaaaa
+        caption
       </span>
     </div>
   </div>
 </div>
 `;
 
-exports[`Privacy Component with snapshot should render the like and dislike voteIcon without imgCaptionLetter 1`] = `
+exports[`ImagePollOption should render red progress bar when passing isVoted=[true] and leastVoted=[true] 1`] = `
 <div
   className="relative w-auto"
   data-testid="image-poll-option"
@@ -338,11 +272,38 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
     className="absolute bottom-4 right-4"
   >
     <div
-      className="flex justify-end"
+      className="vertical-vote-meter-wrapper"
+      id="option_1"
     >
       <div
-        className="flex"
-      />
+        className="percentage-wrapper"
+      >
+        <p
+          className="percentage"
+        >
+           
+          <span>
+            20
+            %
+          </span>
+        </p>
+      </div>
+      <div
+        className="flex h-full"
+      >
+        <div
+          className="outer-vertical wrapper"
+          style={
+            Object {
+              "height": "60px",
+            }
+          }
+        >
+          <div
+            className="inner-vertical error"
+          />
+        </div>
+      </div>
     </div>
   </div>
   <div
@@ -352,16 +313,18 @@ exports[`Privacy Component with snapshot should render the like and dislike vote
       className="captionContent"
     >
       <span
-        className="hidden"
-      />
+        className=""
+      >
+        A
+      </span>
       <div
-        className="captionDivider hidden"
+        className="captionDivider "
       />
       <span
         className="image-caption"
-        title="aaaaaaa"
+        title="caption"
       >
-        aaaaaaa
+        caption
       </span>
     </div>
   </div>
