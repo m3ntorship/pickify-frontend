@@ -114,7 +114,7 @@ exports[`ImagePollUncovoredStory should render vertical Progress with primary me
       className="outer-vertical wrapper"
       style={
         Object {
-          "height": "150%",
+          "height": "150px",
         }
       }
     >
@@ -151,7 +151,7 @@ exports[`ImagePollUncovoredStory should render vertical Progress with primary-sh
       className="outer-vertical wrapper"
       style={
         Object {
-          "height": "150%",
+          "height": "150px",
         }
       }
     >
@@ -188,7 +188,7 @@ exports[`ImagePollUncovoredStory should render vertical Progress with red meterC
       className="outer-vertical wrapper"
       style={
         Object {
-          "height": "150%",
+          "height": "150px",
         }
       }
     >
