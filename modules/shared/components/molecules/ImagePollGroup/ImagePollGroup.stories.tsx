@@ -20,7 +20,7 @@ Default.args = {
     options: [
       {
         id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d',
-        body: 'ali tramsy',
+        body: 'yes',
         media: [{ url: 'https://placeimg.com/640/480/any' }],
         vote_count: 10,
       },
@@ -32,7 +32,7 @@ Default.args = {
       },
       {
         id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c',
-        body: ' omar gamal',
+        body: 'no',
         media: [{ url: 'https://placeimg.com/640/480/any' }],
         vote_count: 30,
       },

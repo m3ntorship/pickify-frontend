@@ -18,8 +18,8 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
   const optionClasses = classNames(styles['image-poll-view'], {
-    'grid-cols-1': group.options.length === singleOption,
-    'md:grid-cols-2 grid-cols-1': group.options.length > singleOption,
+    'grid-cols-1': group.media.length !== firstIndex,
+    'md:grid-cols-2 grid-cols-1': group.media.length === firstIndex,
   });
   return (
     <div className={optionClasses}>
