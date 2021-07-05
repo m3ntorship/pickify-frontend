@@ -1,7 +1,7 @@
 .layer {
-  @apply flex justify-center items-start absolute inset-0 w-full h-full bg-dark bg-opacity-50 z-20 px-4;
+  @apply flex justify-center items-center absolute inset-0 w-full h-screen bg-dark bg-opacity-50 z-20 px-4;
 }
 
 .modal {
-  @apply z-10 sm:transform sm:translate-y-48 w-39xl;
+  @apply z-10 w-39xl;
 }
