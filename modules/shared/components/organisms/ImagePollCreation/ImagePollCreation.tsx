@@ -66,10 +66,12 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
     {
       'grid-cols-1':
         postCreationGlobalState.imagePoll.groups[zero].options.length ===
-        singleOption,
+          singleOption ||
+        postCreationGlobalState.imagePoll.groups[zero].media[zero],
       'md:grid-cols-2 grid-cols-1':
         postCreationGlobalState.imagePoll.groups[zero].options.length >
-        singleOption,
+          singleOption &&
+        !postCreationGlobalState.imagePoll.groups[zero].media[zero],
     },
   );
 
@@ -230,48 +232,97 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
       </div>
       {postCreationGlobalState.imagePoll.groups[zero].options.length ? (
         <div className={imgPollClasses}>
-          {postCreationGlobalState.imagePoll.groups[zero].options.map(
-            (option, index) => (
-              <UploadingImage
-                key={option.id}
-                id={option.id}
-                index={index}
-                file={option.media[zero].file}
-                entityType="option"
-                handleVerticalThreeDotsClick={(optionId): void => {
-                  handleVerticalThreeDotsClick(optionId, post.groups[zero].id);
-                }}
-              >
-                <TextInput
-                  id={option.id}
-                  inputType={ETextInput.InputType.Choices}
-                  variants={
-                    isSubmitted
-                      ? inputVariantsHandler(option.id)
-                      : ETextInput.Variants.Default
-                  }
-                  value={option.body}
-                  placeholder="Type caption (optional)"
-                  letter={symoblGenerator(index)}
-                  onClickDeleteInputValueHandler={(): void => {
-                    setValue(`options.${option.id}`, '');
-                    onClickDeleteOptionValueHandler(
-                      option.id,
-                      post.groups[zero].id,
-                    );
-                  }}
-                  onChangeInputValueHandler={(inputId, e): void => {
-                    onChangeOptionValueHandler(
-                      inputId,
-                      post.groups[zero].id,
-                      e,
-                    );
-                  }}
-                  onBlurInputHandler={(): boolean => true}
-                />
-              </UploadingImage>
-            ),
-          )}
+          {postCreationGlobalState.imagePoll.groups[zero].media[zero]
+            ? postCreationGlobalState.imagePoll.groups.map(
+                ({ name, media }) => (
+                  <UploadingImage
+                    key={media[zero].id}
+                    id={media[zero].id}
+                    index={zero}
+                    file={media[zero].file}
+                    entityType="option"
+                    handleVerticalThreeDotsClick={(optionId): void => {
+                      handleVerticalThreeDotsClick(
+                        optionId,
+                        post.groups[zero].id,
+                      );
+                    }}
+                  >
+                    <TextInput
+                      id={media[zero].id}
+                      inputType={ETextInput.InputType.Choices}
+                      variants={
+                        isSubmitted
+                          ? inputVariantsHandler(media[zero].id)
+                          : ETextInput.Variants.Default
+                      }
+                      value={name}
+                      placeholder="Type caption (optional)"
+                      letter={symoblGenerator(zero)}
+                      onClickDeleteInputValueHandler={(): void => {
+                        setValue(`options.${media[zero].id}`, '');
+                        onClickDeleteOptionValueHandler(
+                          media[zero].id,
+                          post.groups[zero].id,
+                        );
+                      }}
+                      onChangeInputValueHandler={(inputId, e): void => {
+                        onChangeOptionValueHandler(
+                          inputId,
+                          post.groups[zero].id,
+                          e,
+                        );
+                      }}
+                      onBlurInputHandler={(): boolean => true}
+                    />
+                  </UploadingImage>
+                ),
+              )
+            : postCreationGlobalState.imagePoll.groups[zero].options.map(
+                (option, index) => (
+                  <UploadingImage
+                    key={option.id}
+                    id={option.id}
+                    index={index}
+                    file={option.media[zero].file}
+                    entityType="option"
+                    handleVerticalThreeDotsClick={(optionId): void => {
+                      handleVerticalThreeDotsClick(
+                        optionId,
+                        post.groups[zero].id,
+                      );
+                    }}
+                  >
+                    <TextInput
+                      id={option.id}
+                      inputType={ETextInput.InputType.Choices}
+                      variants={
+                        isSubmitted
+                          ? inputVariantsHandler(option.id)
+                          : ETextInput.Variants.Default
+                      }
+                      value={option.body}
+                      placeholder="Type caption (optional)"
+                      letter={symoblGenerator(index)}
+                      onClickDeleteInputValueHandler={(): void => {
+                        setValue(`options.${option.id}`, '');
+                        onClickDeleteOptionValueHandler(
+                          option.id,
+                          post.groups[zero].id,
+                        );
+                      }}
+                      onChangeInputValueHandler={(inputId, e): void => {
+                        onChangeOptionValueHandler(
+                          inputId,
+                          post.groups[zero].id,
+                          e,
+                        );
+                      }}
+                      onBlurInputHandler={(): boolean => true}
+                    />
+                  </UploadingImage>
+                ),
+              )}
         </div>
       ) : (
         ''
