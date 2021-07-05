@@ -8,7 +8,6 @@ exports[`DropDown should render the only menu icon with variant=[image] 1`] = `
     aria-hidden={true}
     className="menu-icon-container rounded-full p-2"
     data-testid="menu-icon"
-    onClick={[Function]}
   >
     <svg
       className="menu-icon"
@@ -26,7 +25,6 @@ exports[`DropDown should render the only menu icon with variant=[post] 1`] = `
     aria-hidden={true}
     className="menu-icon-container"
     data-testid="menu-icon"
-    onClick={[Function]}
   >
     <svg
       className="menu-icon"
