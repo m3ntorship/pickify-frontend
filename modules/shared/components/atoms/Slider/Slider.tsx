@@ -4,38 +4,34 @@ import type { FC, ReactElement } from 'react';
 import type { ISlider } from './ISlider';
 import styles from './Slider.module.css';
 
+const imageHeight = 100;
+
 const Slider: FC<ISlider.IProps> = ({
   progress,
   type = 'horizontal',
-  verticalMeterHeight,
-  verticalMeterColor = 'primary',
+  verticalMeterHeight = imageHeight,
+  meterColor = 'primary',
   radius,
 }): ReactElement => {
   const maximumProgress = 100;
-  const halfMaximumProgress = 50;
+  const height = (progress * verticalMeterHeight) / maximumProgress;
   const innerHorizontalClasses = classNames([styles['inner-horizontal']], {
     [styles.success]: progress === maximumProgress,
     [styles.primary]: progress < maximumProgress,
   });
-  const outerVerticalClasses = classNames([styles['outer-vertical']], {
-    [styles.success]: progress === maximumProgress,
-    [styles.primary]:
-      progress < maximumProgress && verticalMeterColor === 'primary',
-    [styles['primary-shd5']]:
-      progress < maximumProgress && verticalMeterColor === 'primary-shd5',
-    [styles.error]:
-      progress < maximumProgress && verticalMeterColor === 'error',
+  const innerVerticalClasses = classNames([styles['inner-vertical']], {
+    [styles.primary]: meterColor === 'primary',
+    [styles['primary-shd5']]: meterColor === 'primary-shd5',
+    [styles.error]: meterColor === 'error',
   });
-  const innerVerticalClasses = classNames([styles['inner-vertical']]);
-  const wrapperClasses = classNames([styles.wrapper]);
   const circularClasses = classNames([styles.circular], {
-    [styles['primary-text']]: progress > halfMaximumProgress,
-    [styles['error-text']]: progress <= halfMaximumProgress,
+    [styles['primary-text']]: meterColor === 'primary',
+    [styles['error-text']]: meterColor === 'error',
   });
   const circular = {
     radius: 0,
     diameter: 0,
-    stroke: 4,
+    stroke: 7,
     normalizedRadius: 0,
     normalizedDiameter: 0,
     circumference: 0,
@@ -49,9 +45,10 @@ const Slider: FC<ISlider.IProps> = ({
   circular.normalizedDiameter =
     circular.normalizedRadius + circular.normalizedRadius;
   circular.circumference = circular.normalizedDiameter * Math.PI;
+
   if (type === 'horizontal') {
     return (
-      <div className={styles['outer-horizontal']}>
+      <div className={`${styles['outer-horizontal']} ${styles.wrapper}`}>
         <div
           className={innerHorizontalClasses}
           style={{ width: `${progress}%` }}
@@ -61,26 +58,12 @@ const Slider: FC<ISlider.IProps> = ({
   }
   if (type === 'vertical') {
     return (
-      <div
-        className={wrapperClasses}
-        style={{
-          height: `${
-            verticalMeterHeight ? `${verticalMeterHeight}px` : '100%'
-          }`,
-        }}
-      >
+      <div className="flex h-full">
         <div
-          style={{
-            height: `${
-              verticalMeterHeight ? `${verticalMeterHeight}px` : '100%'
-            }`,
-          }}
-          className={outerVerticalClasses}
+          className={`${styles['outer-vertical']} ${styles.wrapper}`}
+          style={{ height: `${height}px` }}
         >
-          <div
-            className={innerVerticalClasses}
-            style={{ height: `${maximumProgress - progress}%` }}
-          />
+          <div className={innerVerticalClasses} />
         </div>
       </div>
     );

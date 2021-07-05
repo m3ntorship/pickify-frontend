@@ -9,7 +9,7 @@
 }
 
 .like {
-  @apply ml-5 bg-primary ring-primary ring-opacity-25;
+  @apply bg-primary ring-primary ring-opacity-25;
 }
 
 .dislike {

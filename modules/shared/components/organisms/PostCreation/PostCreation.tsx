@@ -24,7 +24,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   // post creation global initial state setup
   const [postCreationGlobalState, setPostCreationGlobalState] =
     useState<IPostCreation.IState>(initialState);
-
+  console.log(postCreationGlobalState);
   useEffect(() => {
     setPostCreationGlobalState({
       ...postCreationGlobalState,
@@ -73,6 +73,32 @@ const PostCreation: FC<IPostCreation.IProps> = ({
     });
   }, []);
 
+  const transformFromOptionsToGroup = (): void => {
+    const zero = 0;
+    const one = 1;
+    const imagePollGroup = postCreationGlobalState.imagePoll.groups[zero];
+    if (imagePollGroup.options.length === one) {
+      const firstOption = imagePollGroup.options[zero];
+      setPostCreationGlobalState({
+        ...postCreationGlobalState,
+        imagePoll: {
+          ...postCreationGlobalState.imagePoll,
+          groups: postCreationGlobalState.imagePoll.groups.map((group) => {
+            return {
+              ...group,
+              name: firstOption.body,
+              media: firstOption.media,
+              options: [
+                { id: '', body: 'yes', media: [] },
+                { id: '', body: 'no', media: [] },
+              ],
+            };
+          }),
+        },
+      });
+    }
+  };
+
   // hook-form setup
   const methods = useForm({
     mode: 'onSubmit',
@@ -108,10 +134,12 @@ const PostCreation: FC<IPostCreation.IProps> = ({
         // createPollPost({ ...state, ...imagePoll }).then((res) => {
         //   console.log(res);
         // }) as Promise<IGetPosts.IErrorData>;
+        transformFromOptionsToGroup();
         break;
       default:
         break;
     }
+    setPostCreationGlobalState(initialState);
   };
 
   // Header and footer events handlers

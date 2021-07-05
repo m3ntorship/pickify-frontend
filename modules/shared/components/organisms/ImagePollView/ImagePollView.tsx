@@ -5,7 +5,10 @@ import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IImagePollView } from './IImagePollView';
 import ImagePollGroup from '../../molecules/ImagePollGroup/ImagePollGroup';
 
-const ImagePollView: FC<IImagePollView.IProps> = ({ post }): ReactElement => {
+const ImagePollView: FC<IImagePollView.IProps> = ({
+  post,
+  addOneVote,
+}): ReactElement => {
   const firstIndex = 0;
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
@@ -22,7 +25,10 @@ const ImagePollView: FC<IImagePollView.IProps> = ({ post }): ReactElement => {
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
-      <ImagePollGroup group={post.options_groups.groups[firstIndex]} />
+      <ImagePollGroup
+        group={post.options_groups.groups[firstIndex]}
+        addOneVote={addOneVote}
+      />
       <PostViewFooter numberOfVotes={100} showResult={false} />
     </div>
   );

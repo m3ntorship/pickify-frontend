@@ -8,7 +8,12 @@ import { apiDummyData } from './data';
 describe('OptionGroup component', () => {
   it('should render () OptionGroup when we apply ()', () => {
     const tree = renderer
-      .create(<ImagePollGroup group={apiDummyData.group} />)
+      .create(
+        <ImagePollGroup
+          group={apiDummyData.group}
+          addOneVote={(): boolean => true}
+        />,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -16,7 +21,12 @@ describe('OptionGroup component', () => {
   it('should render 3 Options when we apply options 3 length', () => {
     const numberOfOptions = 3;
 
-    render(<ImagePollGroup group={apiDummyData.group} />);
+    render(
+      <ImagePollGroup
+        group={apiDummyData.group}
+        addOneVote={(): boolean => true}
+      />,
+    );
 
     const option: TargetElement[] = screen.getAllByTestId('image-poll-option');
 

@@ -17,7 +17,7 @@ describe('snapshot testing', () => {
           type="vertical"
           progress={50}
           verticalMeterHeight={300}
-          verticalMeterColor="primary"
+          meterColor="primary"
         />,
       )
       .toJSON();
@@ -26,7 +26,7 @@ describe('snapshot testing', () => {
 
   it('should render circular when given circular property', () => {
     const tree = renderer
-      .create(<Slider type="circular" progress={50} />)
+      .create(<Slider type="circular" progress={50} radius={50} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

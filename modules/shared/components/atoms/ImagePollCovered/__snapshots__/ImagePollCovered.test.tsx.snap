@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImagePollCovered should render dislike button when passing isOneImageVote=[true] and dislike=[true] 1`] = `
+<div
+  className="flex justify-end"
+>
+  <div
+    className="flex"
+  >
+    <button
+      className="dislike group"
+      id="option_1"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
+        data-file-name="SvgFilledDislike"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ImagePollCovered should render heart button when passing isOneImageVote=[false] 1`] = `
+<div
+  className="flex justify-end"
+>
+  <button
+    className="love group"
+    id="option_1"
+    onClick={[Function]}
+    type="button"
+  >
+    <svg
+      className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+      data-file-name="SvgFilledHeart"
+    />
+  </button>
+</div>
+`;
+
+exports[`ImagePollCovered should render like button when passing isOneImageVote=[true] and like=[true] 1`] = `
+<div
+  className="flex justify-end"
+>
+  <div
+    className="flex"
+  >
+    <button
+      className="like group"
+      id="option_1"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+        data-file-name="SvgFilledLike"
+      />
+    </button>
+  </div>
+</div>
+`;
