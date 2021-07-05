@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import type { IDropDown } from './IDropDown';
 import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import styles from './DropDown.module.css';
+import { useDetectClickOut } from '../../../hooks/useDetectClickOut/useDetectClickOut';
 
 const DropDown: FC<IDropDown.IProps> = ({
   options,
   onOptionMenuClick,
   variant,
 }): ReactElement => {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
-
-  const showMenuHandler = (): void => {
-    setShowMenu(!showMenu);
-  };
+  const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
 
   const menuIconClasses = classNames(styles['menu-icon-container'], {
     'rounded-full p-2': variant === 'image',
@@ -24,14 +21,19 @@ const DropDown: FC<IDropDown.IProps> = ({
     <div className="flex items-start relative">
       <div
         aria-hidden
-        onClick={showMenuHandler}
         data-testid="menu-icon"
         className={menuIconClasses}
+        ref={triggerRef}
       >
         <VerticalThreeDotsIcon className={styles['menu-icon']} />
       </div>
-      {showMenu && (
-        <div role="menu" className={styles.menu} data-testid="menu">
+      {show && (
+        <div
+          role="menu"
+          className={styles.menu}
+          data-testid="menu"
+          ref={nodeRef}
+        >
           {options.map((option) => (
             <button
               className={styles['menu-item']}
@@ -42,6 +44,7 @@ const DropDown: FC<IDropDown.IProps> = ({
               key={option.id}
               onClick={(e): void => {
                 onOptionMenuClick(e.currentTarget.id);
+                setShow(!show);
               }}
               data-testid="menu-button"
             >
