@@ -167,6 +167,9 @@ module.exports = {
         '12xvl': '12rem', // 192px
         '12xl': '12.375rem', // 198px
       },
+      maxHeight: {
+        '33xl': '33.5625rem', // 632px
+      },
       height: {
         '21xl': '21.25rem', // 340px
         '22xl': '22.375rem', // 358px

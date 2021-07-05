@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import type { ReactElement } from 'react';
-import PostCreation from '@modules/shared/components/organisms/PostCreation/PostCreation';
-import Modal from '@modules/shared/components/organisms/Modal/Modal';
-import TextInput from '@modules/shared/components/atoms/TextInputs/TextInput';
-import * as ETextInput from '@modules/shared/components/atoms/TextInputs/types/ETextInput';
-import Avatar from '@modules/shared/components/atoms/Avatar/Avatar';
+import PostCreation from '../../../shared/components/organisms/PostCreation/PostCreation';
+import Modal from '../../../shared/components/organisms/Modal/Modal';
+import TextInput from '../../../shared/components/atoms/TextInputs/TextInput';
+import * as ETextInput from '../../../shared/components/atoms/TextInputs/types/ETextInput';
+import Avatar from '../../../shared/components/atoms/Avatar/Avatar';
 import styles from './NewPost.module.css';
 
 const NewPost = (): ReactElement => {
@@ -27,6 +27,7 @@ const NewPost = (): ReactElement => {
             <div
               className={styles['input-placeholder']}
               onClick={showModalHandler}
+              data-testid="post-creation-input"
               role="button"
               aria-hidden
             />

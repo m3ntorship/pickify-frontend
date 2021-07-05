@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import type { IGetPosts } from '@modules/shared/api/IGetPosts';
+import type { IGetPosts } from '../../../api/IGetPosts';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
 import TextPollCreation from '../TextPollCreation/TextPollCreation';
@@ -145,7 +145,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-33xl shadow-soft mb-6 p-m rounded-md">
+        <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft mb-6 p-m rounded-md">
           <div>
             <CreatePostHeader
               profilePic=""

@@ -48,11 +48,11 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
         </div>
       </div>
       {options.length < maximumOptionsLength && (
-        <div className="py-2.5">
+        <div className="pb-2.5 pt-3xxs">
           <button
             data-testid="addOptionBtn"
             type="button"
-            className="text-accent cursor-pointer flex items-center self-start "
+            className="text-accent cursor-pointer flex items-center self-start"
             onClick={(): void => {
               addOptionHandler(id);
             }}
