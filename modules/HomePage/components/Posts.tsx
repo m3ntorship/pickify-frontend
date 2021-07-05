@@ -113,6 +113,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                 <ImagePollView
                   post={post}
                   deletePostHandler={deletePostHandler}
+                  addOneVote={addOneVoteHandler}
                 />
               </div>
             );

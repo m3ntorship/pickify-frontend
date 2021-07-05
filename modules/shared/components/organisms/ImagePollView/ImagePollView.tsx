@@ -8,6 +8,7 @@ import ImagePollGroup from '../../molecules/ImagePollGroup/ImagePollGroup';
 const ImagePollView: FC<IImagePollView.IProps> = ({
   post,
   deletePostHandler,
+  addOneVote,
 }): ReactElement => {
   const firstIndex = 0;
   return (
@@ -24,7 +25,10 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
-      <ImagePollGroup group={post.options_groups.groups[firstIndex]} />
+      <ImagePollGroup
+        group={post.options_groups.groups[firstIndex]}
+        addOneVote={addOneVote}
+      />
       <PostViewFooter numberOfVotes={100} showResult={false} />
     </div>
   );

@@ -1,0 +1,19 @@
+.circular-vote-meter-wrapper {
+  @apply flex items-center justify-center w-4xl h-4xl relative;
+}
+
+.circular-content {
+  @apply flex flex-col justify-center items-center w-3xl h-3xl bg-white rounded-full;
+}
+
+.vertical-vote-meter-wrapper {
+  @apply flex items-start h-full;
+}
+
+.percentage-wrapper {
+  @apply bg-white py-xxs px-xsvv rounded-l-md;
+}
+
+.percentage {
+  @apply font-medium text-base text-dark;
+}
