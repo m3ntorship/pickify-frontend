@@ -16,6 +16,7 @@ const NewPost = (): ReactElement => {
   const closeModalHandler = (): void => {
     setShowModal(false);
   };
+
   return (
     <>
       <div className={styles['input-creation']}>
