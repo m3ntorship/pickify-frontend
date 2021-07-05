@@ -1,11 +1,11 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import ImagePollUncovored from './ImagePollUncovored';
-import type { IImagePollUncovored } from './types/IImagePollUncovored';
+import ImagePollUncovered from './ImagePollUncovered';
+import type { IImagePollUncovered } from './types/IImagePollUncovered';
 
 export default {
-  title: 'molecules/ImagePollUncovored',
-  component: ImagePollUncovored,
+  title: 'molecules/ImagePollUncovered',
+  component: ImagePollUncovered,
   argTypes: {
     type: {
       control: {
@@ -32,14 +32,14 @@ export default {
   },
 };
 
-const Template: Story<IImagePollUncovored.IProps> = (args): ReactElement => (
+const Template: Story<IImagePollUncovered.IProps> = (args): ReactElement => (
   <div className="h-21xl">
-    <ImagePollUncovored {...args} />
+    <ImagePollUncovered {...args} />
   </div>
 );
 
-export const ImagePollUncovoredStory = Template.bind({});
-ImagePollUncovoredStory.args = {
+export const ImagePollUncoveredStory = Template.bind({});
+ImagePollUncoveredStory.args = {
   percentage: 30,
   mostVoted: true,
   leastVoted: false,

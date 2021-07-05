@@ -7,11 +7,11 @@
 }
 
 .outer-vertical {
-  @apply rounded-md rounded-tl-none min-h-2xl;
+  @apply rounded-md transition-all duration-700 rounded-tl-none min-h-2xl;
 }
 
 .inner-vertical {
-  @apply w-2 transition-all rounded-full h-full;
+  @apply w-2 rounded-full h-full;
 }
 
 .inner-horizontal {
@@ -35,7 +35,7 @@
 }
 
 .circular {
-  @apply -rotate-90 origin-center stroke-current transition-all;
+  @apply -rotate-90 origin-center stroke-current transition-all duration-700;
 }
 
 .primary-text {

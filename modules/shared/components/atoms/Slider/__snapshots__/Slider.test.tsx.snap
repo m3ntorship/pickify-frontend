@@ -45,7 +45,7 @@ exports[`snapshot testing should render vertically when given vertical property 
     className="outer-vertical wrapper"
     style={
       Object {
-        "height": "150%",
+        "height": "150px",
       }
     }
   >

@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignleImagePollOption should render covored like and dislike icons when passing covored options 1`] = `
+<div
+  className="relative w-auto"
+  data-testid="image-poll-option"
+>
+  <div
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "display": "block",
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "paddingTop": "100%",
+        }
+      }
+    />
+    <img
+      className="rounded-md object-cover"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": undefined,
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+  <div
+    className="absolute flex bottom-4 right-4"
+  >
+    <div
+      className="mr-4 last:mr-0"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <div
+          className="flex"
+        >
+          <button
+            className="like group"
+            id="option_1"
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+              data-file-name="SvgFilledLike"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="mr-4 last:mr-0"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <div
+          className="flex"
+        >
+          <button
+            className="dislike group"
+            id="option_2"
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
+              data-file-name="SvgFilledDislike"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className="hidden"
+      />
+      <div
+        className="captionDivider hidden"
+      />
+      <span
+        className="image-caption"
+        title="caption"
+      >
+        caption
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SignleImagePollOption should render uncovored like and dislike icons when passing uncovored options 1`] = `
+<div
+  className="relative w-auto"
+  data-testid="image-poll-option"
+>
+  <div
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "display": "block",
+        "margin": 0,
+        "overflow": "hidden",
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "paddingTop": "100%",
+        }
+      }
+    />
+    <img
+      className="rounded-md object-cover"
+      decoding="async"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": undefined,
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+  <div
+    className="absolute flex bottom-4 right-4"
+  >
+    <div
+      className="mr-4 last:mr-0"
+    >
+      <div
+        className="circular-vote-meter-wrapper"
+        id="option_1"
+      >
+        <div
+          className="circular-content"
+        >
+          <p
+            className="mb-1"
+          >
+            👍
+          </p>
+          <p>
+            75
+            %
+          </p>
+        </div>
+        <div
+          className="absolute "
+        >
+          <svg
+            height={100}
+            width={100}
+          >
+            <circle
+              className="circular primary-text"
+              cx={50}
+              cy={50}
+              fill="transparent"
+              r={36}
+              strokeDasharray="226.1946710584651 226.1946710584651"
+              strokeWidth={7}
+              style={
+                Object {
+                  "strokeDashoffset": "56.54866776461628",
+                }
+              }
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="mr-4 last:mr-0"
+    >
+      <div
+        className="circular-vote-meter-wrapper"
+        id="option_2"
+      >
+        <div
+          className="circular-content"
+        >
+          <p
+            className="mb-1"
+          >
+            👎
+          </p>
+          <p>
+            25
+            %
+          </p>
+        </div>
+        <div
+          className="absolute "
+        >
+          <svg
+            height={100}
+            width={100}
+          >
+            <circle
+              className="circular error-text"
+              cx={50}
+              cy={50}
+              fill="transparent"
+              r={36}
+              strokeDasharray="226.1946710584651 226.1946710584651"
+              strokeWidth={7}
+              style={
+                Object {
+                  "strokeDashoffset": "169.64600329384882",
+                }
+              }
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className="hidden"
+      />
+      <div
+        className="captionDivider hidden"
+      />
+      <span
+        className="image-caption"
+        title="caption"
+      >
+        caption
+      </span>
+    </div>
+  </div>
+</div>
+`;

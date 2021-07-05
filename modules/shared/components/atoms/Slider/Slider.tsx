@@ -61,7 +61,7 @@ const Slider: FC<ISlider.IProps> = ({
       <div className="flex h-full">
         <div
           className={`${styles['outer-vertical']} ${styles.wrapper}`}
-          style={{ height: `${height}%` }}
+          style={{ height: `${height}px` }}
         >
           <div className={innerVerticalClasses} />
         </div>
