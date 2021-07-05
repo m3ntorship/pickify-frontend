@@ -4,7 +4,7 @@ import Image from 'next/image';
 import type { IImagePollOption } from './IImagePollOption';
 import ImagePollCovered from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
-import ImagePollUncovored from '../ImagePollUncovored/ImagePollUncovored';
+import ImagePollUncovered from '../ImagePollUncovered/ImagePollUncovered';
 
 const ImagePollOption: FC<IImagePollOption.IProps> = ({
   imageUrl,
@@ -28,7 +28,7 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
       />
       <div className="absolute bottom-4 right-4">
         {isVoted ? (
-          <ImagePollUncovored
+          <ImagePollUncovered
             id={optionId}
             type="vertical"
             leastVoted={leastVoted}

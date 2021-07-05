@@ -5,7 +5,7 @@ import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 import type { ISignleImagePollOption } from './ISignleImagePollOption';
 import ImagePollCovered from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
-import ImagePollUncovored from '../ImagePollUncovored/ImagePollUncovored';
+import ImagePollUncovered from '../ImagePollUncovered/ImagePollUncovered';
 
 const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
   groupName,
@@ -30,7 +30,7 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
         {options.map((option, index) => (
           <div className="mr-4 last:mr-0" key={option.id}>
             {option.vote_count !== undefined ? (
-              <ImagePollUncovored
+              <ImagePollUncovered
                 id={option.id}
                 percentage={optionsPercentage[index]}
                 mostVoted={option.vote_count === mostAndLeastVoted[firstVote]}
