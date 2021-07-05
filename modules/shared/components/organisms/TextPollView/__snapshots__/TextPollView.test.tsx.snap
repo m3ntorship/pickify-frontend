@@ -100,12 +100,20 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
           </span>
         </div>
       </div>
-      <svg
-        className="fill-grey cursor-pointer w-6 h-6"
-        data-file-name="SvgVerticalThreeDots"
-        data-testid="03644270-7171-4147-b5a1-4233ff547f7ddda"
-        onClick={[Function]}
-      />
+      <div
+        className="flex items-start relative"
+      >
+        <div
+          aria-hidden={true}
+          className="menu-icon-container"
+          data-testid="menu-icon"
+        >
+          <svg
+            className="menu-icon"
+            data-file-name="SvgVerticalThreeDots"
+          />
+        </div>
+      </div>
     </div>
     <div
       className="bg-grey-shd6 h-px"

@@ -1,0 +1,15 @@
+.menu-icon-container {
+  @apply cursor-pointer bg-white;
+}
+
+.menu-icon {
+  @apply fill-grey w-6 h-6;
+}
+
+.menu {
+  @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute -top-2 right-8 md:left-12 w-5xl;
+}
+
+.menu-item {
+  @apply bg-white hover:bg-grey-bg py-1 px-2 rounded-sm cursor-pointer hover:text-dark text-dark-grey text-sm;
+}

@@ -7,20 +7,20 @@ import ImagePollGroup from '../../molecules/ImagePollGroup/ImagePollGroup';
 
 const ImagePollView: FC<IImagePollView.IProps> = ({
   post,
+  deletePostHandler,
   addOneVote,
 }): ReactElement => {
   const firstIndex = 0;
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
-        id={post.id}
+        postId={post.id}
+        userId={post.user.id}
         date={new Date(post.created_at)}
         name={post.user.name}
         profilePic={post.user.profile_pic}
         isHidden={post.is_hidden}
-        handlePostOptionsIconClick={(): boolean => {
-          return true;
-        }}
+        deletePostHandler={deletePostHandler}
       />
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>

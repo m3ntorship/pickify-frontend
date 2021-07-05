@@ -51,11 +51,13 @@ describe('ITextPollView', () => {
     },
   };
   it('should render ITextPollView Compnent with the mocked data', () => {
+    const handleClick = jest.fn();
     const tree = renderer.create(
       <MiniSurveyView
         post={mockedPost}
         optionCheckedId="1"
         addOneVote={(): boolean => true}
+        deletePostHandler={handleClick}
       />,
     );
     expect(tree).toMatchSnapshot();

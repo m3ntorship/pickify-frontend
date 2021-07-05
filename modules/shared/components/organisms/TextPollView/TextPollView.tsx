@@ -10,6 +10,7 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
   post,
   optionCheckedId,
   addOneVote,
+  deletePostHandler,
 }): ReactElement => {
   const firstGroup = 0;
   const { totalVotes } = getVotesResults(
@@ -19,14 +20,13 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
-        id={post.id}
+        postId={post.id}
+        userId={post.user.id}
         date={new Date(post.created_at)}
         name={post.user.name}
         profilePic={post.user.profile_pic}
         isHidden={post.is_hidden}
-        handlePostOptionsIconClick={(): boolean => {
-          return true;
-        }}
+        deletePostHandler={deletePostHandler}
       />
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>

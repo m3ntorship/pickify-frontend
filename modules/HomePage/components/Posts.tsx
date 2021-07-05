@@ -8,6 +8,7 @@ import {
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
+import { postsApi } from '@modules/shared/api/postsApi.api';
 import { addOneVote } from '../api/voteApi';
 import styles from '../pages/home-page.module.css';
 
@@ -73,6 +74,12 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       console.log(message);
     }
   };
+  const deletePostHandler = async (postId: string): Promise<void> => {
+    const res = await postsApi.deleteOnePost(postId);
+    console.log(res);
+    const updatedPosts = posts.filter((post) => post.id !== postId);
+    setPosts(updatedPosts);
+  };
 
   return (
     <div className={styles.posts}>
@@ -83,6 +90,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
               <div key={post.id} className={styles.posts}>
                 <TextPollView
                   post={post}
+                  deletePostHandler={deletePostHandler}
                   optionCheckedId={optionCheckedId}
                   addOneVote={addOneVoteHandler}
                 />
@@ -93,6 +101,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
               <div key={post.id} className={styles.posts}>
                 <MiniSurveyView
                   post={post}
+                  deletePostHandler={deletePostHandler}
                   optionCheckedId={optionCheckedId}
                   addOneVote={addOneVoteHandler}
                 />
@@ -101,7 +110,11 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           case EPostType.ImagePoll:
             return (
               <div key={post.id} className={styles.posts}>
-                <ImagePollView post={post} addOneVote={addOneVoteHandler} />
+                <ImagePollView
+                  post={post}
+                  deletePostHandler={deletePostHandler}
+                  addOneVote={addOneVoteHandler}
+                />
               </div>
             );
           default:
