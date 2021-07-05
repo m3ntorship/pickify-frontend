@@ -68,6 +68,8 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
         >
           <button
             className="like group"
+            id="option_1"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -89,6 +91,8 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
         >
           <button
             className="dislike group"
+            id="option_2"
+            onClick={[Function]}
             type="button"
           >
             <svg

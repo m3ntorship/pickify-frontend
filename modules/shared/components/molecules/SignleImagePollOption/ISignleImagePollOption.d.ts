@@ -5,6 +5,7 @@ declare namespace ISignleImagePollOption {
     groupName: string;
     imageUrl: string;
     options: IPostFeed.IOptions[];
+    onOptionClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   }
 }
 export { ISignleImagePollOption };

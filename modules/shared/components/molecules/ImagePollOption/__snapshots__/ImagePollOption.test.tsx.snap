@@ -62,6 +62,8 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
     >
       <button
         className="love group"
+        id="option_1"
+        onClick={[Function]}
         type="button"
       >
         <svg

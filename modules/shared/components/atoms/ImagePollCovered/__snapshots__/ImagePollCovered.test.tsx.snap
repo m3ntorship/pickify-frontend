@@ -9,6 +9,8 @@ exports[`ImagePollCovered should render dislike button when passing isOneImageVo
   >
     <button
       className="dislike group"
+      id="option_1"
+      onClick={[Function]}
       type="button"
     >
       <svg
@@ -26,6 +28,8 @@ exports[`ImagePollCovered should render heart button when passing isOneImageVote
 >
   <button
     className="love group"
+    id="option_1"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -45,6 +49,8 @@ exports[`ImagePollCovered should render like button when passing isOneImageVote=
   >
     <button
       className="like group"
+      id="option_1"
+      onClick={[Function]}
       type="button"
     >
       <svg

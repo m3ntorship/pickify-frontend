@@ -11,10 +11,12 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
   groupName,
   imageUrl,
   options,
+  onOptionClick,
 }): ReactElement => {
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(options);
   const firstVote = 0;
   const secondVote = 1;
+
   return (
     <div className="relative w-auto" data-testid="image-poll-option">
       <Image
@@ -40,6 +42,8 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
                 isOneImageVote
                 like={option.body === 'yes'}
                 dislike={option.body === 'no'}
+                onOptionClick={onOptionClick}
+                id={option.id}
               />
             )}
           </div>

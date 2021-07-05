@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FC, ReactElement } from 'react';
+import type { FC, ReactElement, MouseEvent } from 'react';
 import classNames from 'classnames';
 import type { IImagePollGroup } from './IImagePollGroup';
 import ImagePollOption from '../ImagePollOption/ImagePollOption';
@@ -9,6 +9,7 @@ import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   group,
+  addOneVote,
 }): ReactElement => {
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
     group.options,
@@ -16,6 +17,10 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   const firstIndex = 0;
   const singleOption = 1;
   const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
+  const onOptionClick = (e: MouseEvent<HTMLButtonElement>): void => {
+    addOneVote(e.currentTarget.id, group.id);
+  };
 
   const optionClasses = classNames(styles['image-poll-view'], {
     'grid-cols-1': group.media.length !== firstIndex,
@@ -28,6 +33,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
           groupName={group.name}
           imageUrl={group.media[firstIndex].url}
           options={group.options}
+          onOptionClick={onOptionClick}
         />
       ) : (
         group.options.map((option, index) => {
@@ -42,6 +48,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
               mostVoted={option.vote_count === mostAndLeastVoted[firstIndex]}
               percentage={optionsPercentage[index]}
               isVoted={option.vote_count !== undefined}
+              onOptionClick={onOptionClick}
             />
           );
         })

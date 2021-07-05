@@ -11,6 +11,7 @@ describe('SignleImagePollOption', () => {
           options={covoredOptions}
           imageUrl="https://source.unsplash.com/random"
           groupName="caption"
+          onOptionClick={(): boolean => true}
         />,
       )
       .toJSON();
@@ -23,6 +24,7 @@ describe('SignleImagePollOption', () => {
           options={unCovoredOptions}
           imageUrl="https://source.unsplash.com/random"
           groupName="caption"
+          onOptionClick={(): boolean => true}
         />,
       )
       .toJSON();

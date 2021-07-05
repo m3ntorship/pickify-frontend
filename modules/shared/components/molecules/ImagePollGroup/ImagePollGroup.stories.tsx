@@ -9,7 +9,9 @@ export default {
 };
 
 const Template: Story<IImagePollGroup.IProps> = (args): ReactElement => (
-  <ImagePollGroup {...args} />
+  <div className="flex">
+    <ImagePollGroup {...args} />
+  </div>
 );
 export const Default = Template.bind({});
 Default.args = {
@@ -23,12 +25,6 @@ Default.args = {
         body: 'yes',
         media: [{ url: 'https://placeimg.com/640/480/any' }],
         vote_count: 10,
-      },
-      {
-        id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa',
-        body: ' ahmed essam',
-        media: [{ url: 'https://placeimg.com/640/480/any' }],
-        vote_count: 20,
       },
       {
         id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c',
