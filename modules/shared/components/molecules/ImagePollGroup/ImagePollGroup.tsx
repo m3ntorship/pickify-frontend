@@ -40,6 +40,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
           const letter = alphabet[index];
           return (
             <ImagePollOption
+              key={option.id}
               imageUrl={option.media[firstIndex].url}
               imgCaption={option.body}
               imgCaptionLetter={letter}
