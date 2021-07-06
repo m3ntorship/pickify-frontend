@@ -1532,10 +1532,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@m3ntorship/posts-client@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@m3ntorship/posts-client/-/posts-client-2.0.3.tgz#0488ffe036ab0ad3450e82577052ff28b45d9c6b"
-  integrity sha512-a+4ZYo5o/3+IhiZFaTh6RKQqjGjyo9APWUCRl6besvm03RD3CZ24fQHNZ6ejC3gch8GREn7B12+nz268yNmrfQ==
+"@m3ntorship/posts-client@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@m3ntorship/posts-client/-/posts-client-2.1.0.tgz#c14590e2c0f77e2a9799131993d1036b0b5981d0"
+  integrity sha512-fPJvzMu7bv97Ba2gzqMvVCk091Meax4Vo/rsuSRkckxASKXcpxnC8Ia9wqRG1qBzmbYMe4nE12K/PCGjdi4d0A==
   dependencies:
     "@openapitools/openapi-generator-cli" "2.2.6"
     axios "0.21.1"

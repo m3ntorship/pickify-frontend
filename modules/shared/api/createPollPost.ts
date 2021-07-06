@@ -15,6 +15,7 @@ export const createPollPost = async (
       type: post.postType as unknown as PostCreationRequestTypeEnum,
       is_hidden: post.isHiddenIdentity,
       caption: post.postCaption.body,
+      media_count: 0,
     });
 
     await postsApi.createOptionsGroup(postId, {
