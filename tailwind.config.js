@@ -1,3 +1,5 @@
+const scrollbar = require('ps-scrollbar-tailwind');
+
 module.exports = {
   purge: ['./pages/**/*.{js,jsx,ts,tsx}', './modules/**/*.{js,jsx,ts,tsx}'],
   darkMode: false,
@@ -168,6 +170,9 @@ module.exports = {
         '12xvl': '12rem', // 192px
         '12xl': '12.375rem', // 198px
       },
+      maxHeight: {
+        '33xl': '33.5625rem', // 632px
+      },
       minHeight: {
         '2xl': '2.5rem', // 30px
       },
@@ -176,6 +181,7 @@ module.exports = {
         '4xl': '4.5rem', // 72px
         '21xl': '21.25rem', // 340px
         '22xl': '22.375rem', // 358px
+        '33xl': '33.5625rem', // 632px
         '61xl': '61.0625rem', // 977px
       },
       translate: {
@@ -225,5 +231,5 @@ module.exports = {
       fill: ['hover', 'focus', 'group-hover'],
     },
   },
-  plugins: [],
+  plugins: [scrollbar],
 };

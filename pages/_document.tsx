@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body className="font-sans">
+        <body className="font-sans overflow-y-scroll scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT scrollbar-width-2">
           <Main />
           <NextScript />
         </body>

@@ -1,0 +1,7 @@
+.layer {
+  @apply flex justify-center items-center fixed inset-0 w-full h-screen bg-dark bg-opacity-50 z-20 px-4;
+}
+
+.modal {
+  @apply z-10 w-39xl;
+}
