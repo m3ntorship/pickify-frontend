@@ -138,7 +138,11 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       default:
         break;
     }
-    setPostCreationGlobalState(initialState);
+    methods.reset();
+    setPostCreationGlobalState({
+      ...initialState,
+      currentSelectedTab: postCreationGlobalState.currentSelectedTab,
+    });
   };
 
   // Header and footer events handlers
@@ -181,7 +185,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
               onTabChangeHandler={handleChangeTabsValue}
             />
           </div>
-          <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-transparent">
+          <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT -mx-4 px-4">
             {postCreationGlobalState.currentSelectedTab ===
               EPollType.TextPoll && (
               <TextPollCreation
