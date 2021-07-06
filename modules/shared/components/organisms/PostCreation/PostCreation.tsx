@@ -24,7 +24,6 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   // post creation global initial state setup
   const [postCreationGlobalState, setPostCreationGlobalState] =
     useState<IPostCreation.IState>(initialState);
-  console.log(postCreationGlobalState);
   useEffect(() => {
     setPostCreationGlobalState({
       ...postCreationGlobalState,
