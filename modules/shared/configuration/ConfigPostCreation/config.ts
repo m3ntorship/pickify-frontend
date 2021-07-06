@@ -1,7 +1,9 @@
 /* eslint-disable */
-export enum postCreation {
-  optionGroupLimit = 4,
-  optionsLimit = 4,
+export enum configPostCreation {
   maxUploadedFiles = 4,
-  fileMaxSize = 1000000, // 10MB
+  maxFileSizeInByte = 10000000, // 10MB
+  maxFileSizeInMegaByte = maxFileSizeInByte / 1000000,
+  maxOptionGroup = 4,
+  maxOptions = 4,
+  minOptions = 2,
 }

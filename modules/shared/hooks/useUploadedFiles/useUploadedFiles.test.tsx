@@ -2,6 +2,7 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { useUploadedFiles } from './useUploadedFiles';
+import { configPostCreation } from '../../configuration/ConfigPostCreation/config';
 
 const TargetComponent: FC<{ file: File }> = ({ file }): ReactElement => {
   const { error, message } = useUploadedFiles(file);
@@ -36,7 +37,7 @@ describe('useUploadedFiles', () => {
 
   it('should return error and error message when it recieves invalid file', async () => {
     const file = new File(['hello'], 'image.png', { type: 'image/png' });
-    const fileSizeInBytes = 10_000_000;
+    const fileSizeInBytes = 11_000_000;
     Object.defineProperty(file, 'size', { value: fileSizeInBytes });
 
     render(<TargetComponent file={file} />);
@@ -46,7 +47,9 @@ describe('useUploadedFiles', () => {
     // assertions
     await waitFor(async () => {
       expect(await errorMesage).toBeInTheDocument();
-      expect(await errorMesage).toHaveTextContent('Max size is 2 MB!!');
+      expect(await errorMesage).toHaveTextContent(
+        `Max size is ${configPostCreation.maxFileSizeInMegaByte} MB!!`,
+      );
     });
   });
 });

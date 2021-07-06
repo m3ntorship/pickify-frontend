@@ -9,6 +9,7 @@ import type { IMiniSurveyPollCreation } from './IMiniSurveyPollCreation';
 import FileUploader from '../../atoms/FileUploader/FileUploader';
 import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
 import type { IPostCreationValidationFields } from '../../../types/IPostCreationValidationFields';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 
 const randomId = (): string => {
   const randomHelper = 10000000000;
@@ -285,7 +286,7 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
         {post.media.length < one && (
           <FileUploader
             onFileSuccess={onUploadValidImages}
-            maxFiles={4}
+            maxFiles={configPostCreation.maxUploadedFiles}
             entityType="post"
             lastFilesLength={post.media.length}
           />
