@@ -10,11 +10,14 @@ const DropDown: FC<IDropDown.IProps> = ({
   options,
   onOptionMenuClick,
   variant,
+  size,
 }): ReactElement => {
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
 
   const menuIconClasses = classNames(styles['menu-icon-container'], {
-    'rounded-full p-2': variant === 'image',
+    'rounded-full': variant === 'image',
+    'w-l h-l': size === 'sm',
+    'w-xl h-xl': size === 'md',
   });
 
   return (

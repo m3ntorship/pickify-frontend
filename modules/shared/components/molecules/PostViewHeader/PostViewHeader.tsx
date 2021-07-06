@@ -59,6 +59,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
           onOptionMenuClick={onMenuOptionClickHandler}
           options={getPostMenuOptions(options, userId)}
           variant="post"
+          size="sm"
         />
       </div>
       <Divider type={EDivider.DividerType.Horizontal} length="100%" />
