@@ -3,9 +3,9 @@ import type { FC, ReactElement } from 'react';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import Navigation from '@modules/shared/components/molecules/Navigation/Navigation';
 import Widget from '@modules/shared/components/atoms/Widget/Widget';
-import PostCreation from '@modules/shared/components/organisms/PostCreation/PostCreation';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts';
+import NewPost from '../components/NewPost/NewPost';
 
 interface WidgetData {
   content: string;
@@ -13,7 +13,6 @@ interface WidgetData {
 }
 
 const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  const firstIndex = 0;
   const widgetData: WidgetData[] = [
     {
       id: '1',
@@ -33,14 +32,11 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   ];
 
   return (
-    <section className="bg-grey-bg2 min-h-screen">
+    <section className="bg-grey-bg2 min-h-screen relative">
       <Navigation />
       <section className={styles['layout-parent']}>
         <div className={styles['posts-feed']}>
-          <div className={styles.widget}>
-            <Widget>{widgetData[firstIndex].content}</Widget>
-          </div>
-          <PostCreation />
+          <NewPost />
           <Posts data={data} />
         </div>
         <div className={styles.widgets}>

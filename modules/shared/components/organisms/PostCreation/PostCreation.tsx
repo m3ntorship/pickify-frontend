@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import type { IGetPosts } from '@modules/shared/api/IGetPosts';
+import type { IGetPosts } from '../../../api/IGetPosts';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
 import TextPollCreation from '../TextPollCreation/TextPollCreation';
@@ -18,11 +18,12 @@ const randomId = (): string => {
   return `id_${Math.round(Math.random() * randomHelper)}`;
 };
 
-const PostCreation: FC = (): ReactElement => {
+const PostCreation: FC<IPostCreation.IProps> = ({
+  closeModalHandler,
+}): ReactElement => {
   // post creation global initial state setup
   const [postCreationGlobalState, setPostCreationGlobalState] =
     useState<IPostCreation.IState>(initialState);
-  console.log(postCreationGlobalState);
   useEffect(() => {
     setPostCreationGlobalState({
       ...postCreationGlobalState,
@@ -137,7 +138,11 @@ const PostCreation: FC = (): ReactElement => {
       default:
         break;
     }
-    setPostCreationGlobalState(initialState);
+    methods.reset();
+    setPostCreationGlobalState({
+      ...initialState,
+      currentSelectedTab: postCreationGlobalState.currentSelectedTab,
+    });
   };
 
   // Header and footer events handlers
@@ -171,46 +176,51 @@ const PostCreation: FC = (): ReactElement => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <div className="bg-white shadow-soft mb-6 p-m rounded-md">
-          <CreatePostHeader
-            profilePic=""
-            checkedValue={postCreationGlobalState.currentSelectedTab}
-            tabsData={tabGroupData()}
-            onTabChangeHandler={handleChangeTabsValue}
-          />
-
-          {postCreationGlobalState.currentSelectedTab ===
-            EPollType.TextPoll && (
-            <TextPollCreation
-              post={postCreationGlobalState.textPoll}
-              postCreationGlobalState={postCreationGlobalState}
-              setPostCreationGlobalState={setPostCreationGlobalState}
+        <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
+          <div>
+            <CreatePostHeader
+              profilePic=""
+              checkedValue={postCreationGlobalState.currentSelectedTab}
+              tabsData={tabGroupData()}
+              onTabChangeHandler={handleChangeTabsValue}
             />
-          )}
-          {postCreationGlobalState.currentSelectedTab ===
-            EPollType.ImagePoll && (
-            <ImagePollCreation
-              post={postCreationGlobalState.imagePoll}
-              postCreationGlobalState={postCreationGlobalState}
-              setPostCreationGlobalState={setPostCreationGlobalState}
+          </div>
+          <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT -mx-4 px-4">
+            {postCreationGlobalState.currentSelectedTab ===
+              EPollType.TextPoll && (
+              <TextPollCreation
+                post={postCreationGlobalState.textPoll}
+                postCreationGlobalState={postCreationGlobalState}
+                setPostCreationGlobalState={setPostCreationGlobalState}
+              />
+            )}
+            {postCreationGlobalState.currentSelectedTab ===
+              EPollType.ImagePoll && (
+              <ImagePollCreation
+                post={postCreationGlobalState.imagePoll}
+                postCreationGlobalState={postCreationGlobalState}
+                setPostCreationGlobalState={setPostCreationGlobalState}
+              />
+            )}
+            {postCreationGlobalState.currentSelectedTab ===
+              EPollType.MiniSurvey && (
+              <MiniSurveyPollCreation
+                post={postCreationGlobalState.miniSurvey}
+                postCreationGlobalState={postCreationGlobalState}
+                setPostCreationGlobalState={setPostCreationGlobalState}
+              />
+            )}
+          </div>
+          <div>
+            <PostFooterCreation
+              postButtonIsDisabled={!methods.formState.isDirty}
+              handleSubmitButtonClick={(): boolean => true}
+              handleCancelButtonClick={closeModalHandler}
+              handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
+              handlePrivacySelectChange={handlePrivacySelectChange}
+              togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
             />
-          )}
-          {postCreationGlobalState.currentSelectedTab ===
-            EPollType.MiniSurvey && (
-            <MiniSurveyPollCreation
-              post={postCreationGlobalState.miniSurvey}
-              postCreationGlobalState={postCreationGlobalState}
-              setPostCreationGlobalState={setPostCreationGlobalState}
-            />
-          )}
-          <PostFooterCreation
-            postButtonIsDisabled={!methods.formState.isDirty}
-            handleSubmitButtonClick={(): boolean => true}
-            handleCancelButtonClick={(): boolean => true}
-            handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
-            handlePrivacySelectChange={handlePrivacySelectChange}
-            togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
-          />
+          </div>
         </div>
       </form>
     </FormProvider>

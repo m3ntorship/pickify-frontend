@@ -6,17 +6,7 @@ import DeleteIcon from '../../icons/delete.svg';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { IOption } from './types/Option';
-
-const symoblGenerator = (index: number): string => {
-  const zero = 0;
-  let letter = '';
-  if (index || index === zero) {
-    letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[index];
-  } else {
-    letter = '#';
-  }
-  return letter;
-};
+import { symbolGenerator } from '../../../logic/symbolGenerator/symbolGenerator';
 
 const Option: FC<IOption.IProps> = ({
   id,
@@ -91,7 +81,7 @@ const Option: FC<IOption.IProps> = ({
           }
           value={optionValue}
           placeholder={`Option ${index + one}`}
-          letter={symoblGenerator(index)}
+          letter={symbolGenerator(index)}
           onClickDeleteInputValueHandler={(): void => {
             onClickDeleteInputValueHandler(id);
           }}
