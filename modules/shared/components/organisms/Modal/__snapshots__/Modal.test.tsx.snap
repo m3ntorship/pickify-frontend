@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render modal component with children elements 1`] = `
+<div
+  aria-hidden={true}
+  className="layer"
+  data-testid="layer"
+  onClick={[MockFunction]}
+  role="banner"
+>
+  <div
+    aria-hidden={true}
+    className="modal"
+    onClick={[Function]}
+    role="treeitem"
+  >
+    <div>
+      Modal
+    </div>
+  </div>
+</div>
+`;

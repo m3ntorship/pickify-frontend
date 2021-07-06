@@ -1,8 +1,8 @@
 import React from 'react';
 import type { ReactElement, FC } from 'react';
 import classNames from 'classnames';
-import type { IUploadedFiles } from '@modules/shared/logic/uploadedFiles/IUploadedFiles';
 import { useFormContext } from 'react-hook-form';
+import type { IUploadedFiles } from '../../../logic/uploadedFiles/IUploadedFiles';
 import FileUploader from '../../atoms/FileUploader/FileUploader';
 import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
 import type { IImagePollCreation } from './types/ImagePollCreation';
@@ -318,14 +318,16 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
       )}
       {postCreationGlobalState.imagePoll.groups[zero].options.length <=
         three && (
-        <FileUploader
-          onFileSuccess={onUploadValidImages}
-          maxFiles={4}
-          entityType="option"
-          lastFilesLength={
-            postCreationGlobalState.imagePoll.groups[zero].options.length
-          }
-        />
+        <div className="mb-4">
+          <FileUploader
+            onFileSuccess={onUploadValidImages}
+            maxFiles={4}
+            entityType="option"
+            lastFilesLength={
+              postCreationGlobalState.imagePoll.groups[zero].options.length
+            }
+          />
+        </div>
       )}
     </>
   );

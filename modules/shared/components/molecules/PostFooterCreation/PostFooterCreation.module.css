@@ -2,7 +2,7 @@
   @apply md:flex md:justify-between;
 }
 .primary-button {
-  @apply sm:hidden md:flex;
+  @apply hidden md:flex;
 }
 .divider {
   @apply md:hidden mt-mx mb-4;
