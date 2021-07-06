@@ -182,7 +182,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
               onTabChangeHandler={handleChangeTabsValue}
             />
           </div>
-          <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT">
+          <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-transparent">
             {postCreationGlobalState.currentSelectedTab ===
               EPollType.TextPoll && (
               <TextPollCreation

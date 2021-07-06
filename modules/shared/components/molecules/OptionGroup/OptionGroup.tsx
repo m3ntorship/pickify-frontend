@@ -48,7 +48,7 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
         </div>
       </div>
       {options.length < maximumOptionsLength && (
-        <div className="pb-2.5 pt-3xxs">
+        <div className="mt-2 py-2.5">
           <button
             data-testid="addOptionBtn"
             type="button"

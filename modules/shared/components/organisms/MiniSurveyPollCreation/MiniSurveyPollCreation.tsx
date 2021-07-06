@@ -240,7 +240,7 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
   }
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 mb-4">
         <TextInput
           id={post.postCaption.id}
           inputType={ETextInput.InputType.Default}
