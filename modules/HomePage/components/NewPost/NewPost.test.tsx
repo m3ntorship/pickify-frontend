@@ -30,17 +30,18 @@ describe('NewPost', () => {
     expect(modal).not.toBeInTheDocument();
   });
 
-  //   it('should remove the modal from the document when clicking on the cancel button', () => {
-  //     render(<NewPost />);
+  it('should remove the modal from the document when clicking on the cancel button', () => {
+    render(<NewPost />);
 
-  //     const postCreationInput = screen.getByTestId('post-creation-input');
+    const postCreationInput = screen.getByTestId('post-creation-input');
 
-  //     userEvent.click(postCreationInput);
+    userEvent.click(postCreationInput);
 
-  //     const cancelButton = screen.getByTestId('button');
+    const cancelButton = screen.getByText('cancel');
+    const modal = screen.getByTestId('layer');
 
-  //     userEvent.click(cancelButton);
+    userEvent.click(cancelButton);
 
-  //     expect(cancelButton).not.toBeInTheDocument();
-  //   });
+    expect(modal).not.toBeInTheDocument();
+  });
 });
