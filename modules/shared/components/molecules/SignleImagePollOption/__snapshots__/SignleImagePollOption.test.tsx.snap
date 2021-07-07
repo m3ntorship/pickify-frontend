@@ -6,53 +6,110 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
   data-testid="image-poll-option"
 >
   <div
-    style={
-      Object {
-        "boxSizing": "border-box",
-        "display": "block",
-        "margin": 0,
-        "overflow": "hidden",
-        "position": "relative",
-      }
-    }
+    className="relative"
   >
+    <div
+      className="absolute w-full h-full"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          className="filter blur-sm"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "cover",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
     <div
       style={
         Object {
           "boxSizing": "border-box",
           "display": "block",
-          "paddingTop": "100%",
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "relative",
         }
       }
-    />
-    <img
-      className="rounded-md object-cover"
-      decoding="async"
-      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-      style={
-        Object {
-          "border": "none",
-          "bottom": 0,
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": 0,
-          "left": 0,
-          "margin": "auto",
-          "maxHeight": "100%",
-          "maxWidth": "100%",
-          "minHeight": "100%",
-          "minWidth": "100%",
-          "objectFit": undefined,
-          "objectPosition": undefined,
-          "padding": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "visibility": "hidden",
-          "width": 0,
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
         }
-      }
-    />
+      />
+      <img
+        className="rounded-md"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
   </div>
   <div
     className="absolute flex bottom-4 right-4"
@@ -133,53 +190,110 @@ exports[`SignleImagePollOption should render uncovored like and dislike icons wh
   data-testid="image-poll-option"
 >
   <div
-    style={
-      Object {
-        "boxSizing": "border-box",
-        "display": "block",
-        "margin": 0,
-        "overflow": "hidden",
-        "position": "relative",
-      }
-    }
+    className="relative"
   >
+    <div
+      className="absolute w-full h-full"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          className="filter blur-sm"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "cover",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
     <div
       style={
         Object {
           "boxSizing": "border-box",
           "display": "block",
-          "paddingTop": "100%",
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "relative",
         }
       }
-    />
-    <img
-      className="rounded-md object-cover"
-      decoding="async"
-      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-      style={
-        Object {
-          "border": "none",
-          "bottom": 0,
-          "boxSizing": "border-box",
-          "display": "block",
-          "height": 0,
-          "left": 0,
-          "margin": "auto",
-          "maxHeight": "100%",
-          "maxWidth": "100%",
-          "minHeight": "100%",
-          "minWidth": "100%",
-          "objectFit": undefined,
-          "objectPosition": undefined,
-          "padding": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "visibility": "hidden",
-          "width": 0,
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
         }
-      }
-    />
+      />
+      <img
+        className="rounded-md"
+        decoding="async"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
   </div>
   <div
     className="absolute flex bottom-4 right-4"
