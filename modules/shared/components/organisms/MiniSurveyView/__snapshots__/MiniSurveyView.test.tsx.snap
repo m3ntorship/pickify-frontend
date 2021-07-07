@@ -105,7 +105,7 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
       >
         <div
           aria-hidden={true}
-          className="menu-icon-container"
+          className="menu-icon-container w-l h-l"
           data-testid="menu-icon"
         >
           <svg

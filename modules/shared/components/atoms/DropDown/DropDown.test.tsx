@@ -15,6 +15,7 @@ describe('DropDown', () => {
           onOptionMenuClick={mockedFn}
           options={options}
           variant="post"
+          size="sm"
         />,
       )
       .toJSON();
@@ -30,6 +31,7 @@ describe('DropDown', () => {
           onOptionMenuClick={mockedFn}
           options={options}
           variant="image"
+          size="sm"
         />,
       )
       .toJSON();
@@ -46,6 +48,7 @@ describe('DropDown', () => {
         onOptionMenuClick={mockedFn}
         options={options}
         variant="post"
+        size="sm"
       />,
     );
 
@@ -70,6 +73,7 @@ describe('DropDown', () => {
         onOptionMenuClick={mockedFn}
         options={options}
         variant="post"
+        size="sm"
       />,
     );
 

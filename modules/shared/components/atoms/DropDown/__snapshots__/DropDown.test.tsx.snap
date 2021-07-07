@@ -6,7 +6,7 @@ exports[`DropDown should render the only menu icon with variant=[image] 1`] = `
 >
   <div
     aria-hidden={true}
-    className="menu-icon-container rounded-full p-2"
+    className="menu-icon-container rounded-full w-l h-l"
     data-testid="menu-icon"
   >
     <svg
@@ -23,7 +23,7 @@ exports[`DropDown should render the only menu icon with variant=[post] 1`] = `
 >
   <div
     aria-hidden={true}
-    className="menu-icon-container"
+    className="menu-icon-container w-l h-l"
     data-testid="menu-icon"
   >
     <svg
