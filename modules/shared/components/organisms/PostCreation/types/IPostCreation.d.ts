@@ -7,7 +7,6 @@ declare namespace IPostCreation {
   export interface IPostStructure {
     postType: EPollType.ImagePoll | EPollType.MiniSurvey | EPollType.TextPoll;
     postCaption: { id: string; body: string };
-    mediaCount: number;
     groups: {
       id: string;
       name: string;
@@ -25,6 +24,7 @@ declare namespace IPostCreation {
     isHiddenIdentity: boolean;
     privacy: string;
     createdAt: string;
+    mediaCount: number;
   }
   export interface IState extends IPostRestData {
     miniSurvey: IPostStructure;

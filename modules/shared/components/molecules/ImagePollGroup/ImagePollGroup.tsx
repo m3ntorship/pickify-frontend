@@ -31,7 +31,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
       {group.media.length !== firstIndex ? (
         <SignleImagePollOption
           groupName={group.name}
-          imageUrl={group.media[firstIndex].url}
+          imageUrl={`https://pickify-media-be-dev.pickify.net/api/media/${group.media[firstIndex].url}`}
           options={group.options}
           onOptionClick={onOptionClick}
         />
@@ -41,7 +41,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
           return (
             <ImagePollOption
               key={option.id}
-              imageUrl={option.media[firstIndex].url}
+              imageUrl={`https://pickify-media-be-dev.pickify.net/api/media/${option.media[firstIndex].url}`}
               imgCaption={option.body}
               imgCaptionLetter={letter}
               optionId={option.id}

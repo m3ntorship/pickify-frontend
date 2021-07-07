@@ -4,7 +4,6 @@ const postCreationInitialState = {
   miniSurvey: {
     postType: EPollType.MiniSurvey,
     postCaption: { id: 'id_123181239001', body: '' },
-    mediaCount: 0,
     groups: [
       {
         id: 'G0',
@@ -21,7 +20,6 @@ const postCreationInitialState = {
   textPoll: {
     postType: EPollType.TextPoll,
     postCaption: { id: 'id_123181239002', body: '' },
-    mediaCount: 0,
     groups: [
       {
         id: 'G0',
@@ -38,7 +36,6 @@ const postCreationInitialState = {
   imagePoll: {
     postType: EPollType.ImagePoll,
     postCaption: { id: 'id_123181239003', body: '' },
-    mediaCount: 0,
     groups: [
       {
         id: 'G0',
@@ -59,5 +56,6 @@ const postCreationInitialState = {
   isHiddenIdentity: false,
   privacy: 'friends',
   createdAt: new Date().toISOString(),
+  mediaCount: 0,
 };
 export default postCreationInitialState;

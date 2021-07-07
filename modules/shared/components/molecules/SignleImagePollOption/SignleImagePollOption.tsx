@@ -20,7 +20,7 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
   return (
     <div className="relative w-auto" data-testid="image-poll-option">
       <Image
-        src={imageUrl}
+        src={`${imageUrl}`}
         layout="responsive"
         className="rounded-md object-cover"
         width={300}
