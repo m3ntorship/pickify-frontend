@@ -207,7 +207,7 @@ module.exports = {
       error: theme('colors.error'),
     }),
     screens: {
-      sm: '374px',
+      sm: '375px',
       // => @media (min-width: 374px) { ... }
 
       md: '834px',
