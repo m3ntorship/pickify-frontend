@@ -5,6 +5,7 @@ module.exports = {
       'cdn.fakercloud.com',
       'placeimg.com',
       'images.unsplash.com',
+      'pickify-media-be-dev.pickify.net',
     ],
   },
 };

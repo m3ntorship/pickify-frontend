@@ -36,3 +36,31 @@ export const votesApi = new VotesApi(
   undefined,
   postsApiAxiosInstance,
 );
+// export const mediaApi = new MediaApi({
+//   basePath: 'https://pickify-media-be-dev.pickify.net/api',
+// });
+
+export const uploadOneMedia = (
+  file: File,
+  entityType: string,
+  entityId: string,
+): void => {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('entity_type', entityType);
+  formData.append('entity_id', entityId);
+  postsApiAxiosInstance({
+    method: 'post',
+    url: 'https://pickify-media-be-dev.pickify.net/api/media',
+    data: formData,
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (response) {
+      // handle error
+      console.log(response);
+    });
+};
