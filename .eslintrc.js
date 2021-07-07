@@ -55,6 +55,7 @@ module.exports = {
       ],
       rules: {
         'react/prop-types': 0,
+        '@typescript-eslint/no-magic-numbers': 0,
         'import/prefer-default-export': 0,
         '@typescript-eslint/prefer-readonly-parameter-types': 0,
         '@typescript-eslint/default-param-last': 0,
