@@ -8,23 +8,14 @@ import UploadingImage from '../../molecules/UploadingImage/UploadingImage';
 import type { IImagePollCreation } from './types/ImagePollCreation';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
-
 import type { IPostCreationValidationFields } from '../../../types/IPostCreationValidationFields';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
+import { symbolGenerator } from '../../../logic/symbolGenerator/symbolGenerator';
+
 
 const randomId = (): string => {
   const randomHelper = 10000000000;
   return `id_${Math.round(Math.random() * randomHelper)}`;
-};
-
-const symoblGenerator = (index: number): string => {
-  const zero = 0;
-  let letter = '';
-  if (index || index === zero) {
-    letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[index];
-  } else {
-    letter = '#';
-  }
-  return letter;
 };
 
 const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
@@ -258,7 +249,7 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
                       }
                       value={name}
                       placeholder="Type caption (optional)"
-                      letter={symoblGenerator(zero)}
+                      letter={symbolGenerator(zero)}
                       onClickDeleteInputValueHandler={(): void => {
                         setValue(`options.${media[zero].id}`, '');
                         onClickDeleteOptionValueHandler(
@@ -303,7 +294,7 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
                       }
                       value={option.body}
                       placeholder="Type caption (optional)"
-                      letter={symoblGenerator(index)}
+                      letter={symbolGenerator(index)}
                       onClickDeleteInputValueHandler={(): void => {
                         setValue(`options.${option.id}`, '');
                         onClickDeleteOptionValueHandler(
@@ -332,7 +323,7 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
         <div className="mb-4">
           <FileUploader
             onFileSuccess={onUploadValidImages}
-            maxFiles={4}
+            maxFiles={configPostCreation.maxUploadedFiles}
             entityType="option"
             lastFilesLength={
               postCreationGlobalState.imagePoll.groups[zero].options.length

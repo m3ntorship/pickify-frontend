@@ -21,6 +21,7 @@ const randomId = (): string => {
 const PostCreation: FC<IPostCreation.IProps> = ({
   closeModalHandler,
 }): ReactElement => {
+  const zero = 0;
   // post creation global initial state setup
   const [postCreationGlobalState, setPostCreationGlobalState] =
     useState<IPostCreation.IState>(initialState);
@@ -71,31 +72,66 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       },
     });
   }, []);
+  const [mediaCount, setMediaCount] = useState<{
+    imagePoll: number;
+    textPoll: number;
+    miniSurvey: number;
+  }>({ imagePoll: 0, textPoll: 0, miniSurvey: 0 });
 
-  const transformFromOptionsToGroup = (): void => {
-    const zero = 0;
+  function getMediaCount(post: IPostCreation.IPostStructure): number {
+    return (
+      post.media.length +
+      post.groups
+        .map((group) => group.media.length)
+        .reduce((prev, current) => prev + current, zero) +
+      post.groups
+        .map((group) =>
+          group.options
+            .map((option) => option.media.length)
+            .reduce((prev, current) => prev + current, zero),
+        )
+        .reduce((prev, current) => prev + current, zero)
+    );
+  }
+  useEffect(() => {
+    setMediaCount({
+      textPoll: getMediaCount(postCreationGlobalState.textPoll),
+      imagePoll: getMediaCount(postCreationGlobalState.imagePoll),
+      miniSurvey: getMediaCount(postCreationGlobalState.miniSurvey),
+    });
+  }, [
+    postCreationGlobalState.imagePoll.media,
+    postCreationGlobalState.imagePoll.groups,
+    postCreationGlobalState.textPoll.media,
+    postCreationGlobalState.textPoll.groups,
+    postCreationGlobalState.miniSurvey.media,
+    postCreationGlobalState.miniSurvey.groups,
+  ]);
+  const transformFromOptionsToGroup = (): IPostCreation.IPostStructure => {
     const one = 1;
     const imagePollGroup = postCreationGlobalState.imagePoll.groups[zero];
     if (imagePollGroup.options.length === one) {
       const firstOption = imagePollGroup.options[zero];
-      setPostCreationGlobalState({
-        ...postCreationGlobalState,
-        imagePoll: {
-          ...postCreationGlobalState.imagePoll,
-          groups: postCreationGlobalState.imagePoll.groups.map((group) => {
-            return {
-              ...group,
-              name: firstOption.body,
-              media: firstOption.media,
-              options: [
-                { id: '', body: 'yes', media: [] },
-                { id: '', body: 'no', media: [] },
-              ],
-            };
-          }),
-        },
-      });
+      return {
+        ...postCreationGlobalState.imagePoll,
+        groups: postCreationGlobalState.imagePoll.groups.map((group) => {
+          return {
+            ...group,
+            name: firstOption.body,
+            media: firstOption.media,
+            options: [
+              { id: '', body: 'yes', media: [] },
+              { id: '', body: 'no', media: [] },
+            ],
+          };
+        }),
+      };
+      // setPostCreationGlobalState({
+      //   ...postCreationGlobalState,
+      //   imagePoll: newImagePoll,
+      // });
     }
+    return postCreationGlobalState.imagePoll;
   };
 
   // hook-form setup
@@ -120,20 +156,32 @@ const PostCreation: FC<IPostCreation.IProps> = ({
     };
     switch (currentSelectedTab) {
       case EPollType.TextPoll:
-        createPollPost({ ...state, ...textPoll }).then((res) => {
+        createPollPost({
+          ...state,
+          mediaCount: mediaCount.textPoll,
+          ...textPoll,
+        }).then((res) => {
           console.log(res);
         }) as Promise<IGetPosts.IErrorData>;
         break;
       case EPollType.MiniSurvey:
-        createPollPost({ ...state, ...miniSurvey }).then((res) => {
+        createPollPost({
+          ...state,
+          mediaCount: mediaCount.miniSurvey,
+          ...miniSurvey,
+        }).then((res) => {
           console.log(res);
         }) as Promise<IGetPosts.IErrorData>;
         break;
       case EPollType.ImagePoll:
-        // createPollPost({ ...state, ...imagePoll }).then((res) => {
-        //   console.log(res);
-        // }) as Promise<IGetPosts.IErrorData>;
-        transformFromOptionsToGroup();
+        createPollPost({
+          ...state,
+          mediaCount: mediaCount.imagePoll,
+          ...transformFromOptionsToGroup(),
+        }).then((res) => {
+          console.log(res);
+        }) as Promise<IGetPosts.IErrorData>;
+
         break;
       default:
         break;

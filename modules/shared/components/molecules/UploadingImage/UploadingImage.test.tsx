@@ -7,6 +7,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import UploadingImage from './UploadingImage';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 
 const customRender = (ui: ReactElement): unknown => {
   const Wrapper: React.FC = ({ children }) => {
@@ -23,7 +24,7 @@ const customRender = (ui: ReactElement): unknown => {
 describe('UploadingImage', () => {
   it('should render Misc component when we pass invalid file', async () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
-    const fileSizeInBytes = 10_000_000;
+    const fileSizeInBytes = 11_000_000;
     Object.defineProperty(file, 'size', { value: fileSizeInBytes });
 
     customRender(
@@ -41,7 +42,9 @@ describe('UploadingImage', () => {
 
     await waitFor(async () => {
       expect(await miscComponent).toBeInTheDocument();
-      expect(await subMsg).toHaveTextContent('Max size is 2 MB');
+      expect(await subMsg).toHaveTextContent(
+        `Max size is ${configPostCreation.maxFileSizeInMegaByte} MB`,
+      );
     });
   });
 

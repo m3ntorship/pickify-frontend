@@ -3,6 +3,7 @@ import type { Story, Meta } from '@storybook/react';
 import Misc from './Misc';
 import type { IMisc } from './types/IMisc';
 import * as EMisc from './types/EMisc';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 
 export default {
   title: 'molecules/Misc',
@@ -23,5 +24,5 @@ export const misc = Template.bind({});
 misc.args = {
   type: EMisc.MiscType.Error,
   msg: 'Image couldn’t be uploaded!',
-  subMsg: 'Max size is 2 MB',
+  subMsg: `Max size is ${configPostCreation.maxFileSizeInMegaByte} MB`,
 };
