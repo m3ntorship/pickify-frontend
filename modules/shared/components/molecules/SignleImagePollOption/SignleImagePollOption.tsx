@@ -14,7 +14,7 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
   options,
   onOptionClick,
 }): ReactElement => {
-  const { mostAndLeastVoted, optionsPercentage } = getVotesResults(options);
+  const { optionsPercentage } = getVotesResults(options);
 
   return (
     <div className="relative w-auto" data-testid="image-poll-option">
@@ -37,8 +37,7 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
                   <ImagePollUncovered
                     id={option.id}
                     percentage={optionsPercentage[index]}
-                    mostVoted={option.vote_count === mostAndLeastVoted[0]}
-                    leastVoted={option.vote_count === mostAndLeastVoted[1]}
+                    optionBody={option.body}
                     type="circular"
                   />
                 ) : (
