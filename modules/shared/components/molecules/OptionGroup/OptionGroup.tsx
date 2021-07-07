@@ -3,6 +3,7 @@ import type { FC, ReactElement } from 'react';
 import PlusCircle from '../../icons/plusCircle.svg';
 import type { IOptionGroup } from './types/IOptionGroup';
 import Option from '../Option/Option';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 
 const OptionGroup: FC<IOptionGroup.IProps> = ({
   id,
@@ -13,8 +14,8 @@ const OptionGroup: FC<IOptionGroup.IProps> = ({
   addOptionHandler,
   deleteOptionHandler,
 }): ReactElement => {
-  const maximumOptionsLength = 26;
-  const minimumOptionsLength = 2;
+  const maximumOptionsLength = configPostCreation.maxOptions;
+  const minimumOptionsLength = configPostCreation.minOptions;
 
   const isDeletable = (): boolean => {
     return options.length > minimumOptionsLength;

@@ -2,6 +2,7 @@ import type { MutableRefObject } from 'react';
 import { useState, useEffect } from 'react';
 import { useIsMounted } from '../useIsMounted/useIsMounted';
 import type { IUseUploadedFiles } from './IUseUploadedFiles';
+import { configPostCreation } from '../../configuration/ConfigPostCreation/config';
 
 export const useUploadedFiles = (
   uploadedFile: File,
@@ -12,13 +13,17 @@ export const useUploadedFiles = (
   const isMounted: MutableRefObject<boolean> = useIsMounted();
 
   useEffect(() => {
-    const maxFileSizeInByte = 200_000;
+    const { maxFileSizeInByte } = configPostCreation;
 
     const promise: Promise<File> = new Promise((resolve, reject) => {
       if (uploadedFile.size < maxFileSizeInByte) {
         resolve(uploadedFile);
       } else {
-        reject(new Error('Max size is 2 MB!!'));
+        reject(
+          new Error(
+            `Max size is ${configPostCreation.maxFileSizeInMegaByte} MB!!`,
+          ),
+        );
       }
     });
 

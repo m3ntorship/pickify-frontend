@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FormProvider, useForm } from 'react-hook-form';
 import FileUploader from './FileUploader';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 
 const customRender = (ui: ReactElement): unknown => {
   const Wrapper: React.FC = ({ children }) => {
@@ -35,7 +36,7 @@ describe('FileUploader', () => {
         entityType="option"
         lastFilesLength={0}
         onFileSuccess={onFileSuccess}
-        maxFiles={4}
+        maxFiles={configPostCreation.maxUploadedFiles}
       />,
     );
 
@@ -68,7 +69,7 @@ describe('FileUploader', () => {
         entityType="option"
         lastFilesLength={0}
         onFileSuccess={onFileSuccess}
-        maxFiles={4}
+        maxFiles={configPostCreation.maxUploadedFiles}
       />,
     );
 
@@ -95,7 +96,7 @@ describe('FileUploader', () => {
         entityType="option"
         lastFilesLength={0}
         onFileSuccess={onFileSuccess}
-        maxFiles={4}
+        maxFiles={configPostCreation.maxUploadedFiles}
       />,
     );
 
@@ -123,7 +124,7 @@ describe('FileUploader', () => {
         entityType="option"
         lastFilesLength={0}
         onFileSuccess={onFileSuccess}
-        maxFiles={4}
+        maxFiles={configPostCreation.maxUploadedFiles}
       />,
     );
 

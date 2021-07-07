@@ -9,7 +9,9 @@ import type { IImagePollCreation } from './types/ImagePollCreation';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import type { IPostCreationValidationFields } from '../../../types/IPostCreationValidationFields';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 import { symbolGenerator } from '../../../logic/symbolGenerator/symbolGenerator';
+
 
 const randomId = (): string => {
   const randomHelper = 10000000000;
@@ -321,7 +323,7 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
         <div className="mb-4">
           <FileUploader
             onFileSuccess={onUploadValidImages}
-            maxFiles={4}
+            maxFiles={configPostCreation.maxUploadedFiles}
             entityType="option"
             lastFilesLength={
               postCreationGlobalState.imagePoll.groups[zero].options.length
