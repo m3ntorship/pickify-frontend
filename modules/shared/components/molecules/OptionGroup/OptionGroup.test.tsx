@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useForm, FormProvider } from 'react-hook-form';
 import OptionGroup from './OptionGroup';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 
 const customRender = (ui: ReactElement): unknown => {
   const Wrapper: React.FC = ({ children }) => {
@@ -63,9 +64,9 @@ describe('OptionGroup molecule', () => {
     expect(onClick).toHaveBeenCalledTimes(one);
   });
 
-  it('should not render the add options button if more than 26 options being passed', () => {
-    const optionsLimit = 26;
-    const options = new Array(optionsLimit);
+  it('should not render the add options button if maxOptions being passed', () => {
+    const { maxOptions } = configPostCreation;
+    const options = new Array(maxOptions);
 
     customRender(
       <OptionGroup
