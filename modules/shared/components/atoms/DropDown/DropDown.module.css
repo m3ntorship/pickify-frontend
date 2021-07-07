@@ -7,7 +7,7 @@
 }
 
 .menu {
-  @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute top-10 right-0 w-5xl;
+  @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute top-10 right-0 w-5xl z-20;
 }
 
 .menu-item {

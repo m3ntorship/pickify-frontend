@@ -6,52 +6,60 @@ import type { ISignleImagePollOption } from './ISignleImagePollOption';
 import ImagePollCovered from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
 import ImagePollUncovered from '../ImagePollUncovered/ImagePollUncovered';
+import { apiUrls } from '../../../configuration/ConfigPostCreation/config';
 
 const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
   groupName,
-  imageUrl,
+  media,
   options,
   onOptionClick,
 }): ReactElement => {
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(options);
-  const firstVote = 0;
-  const secondVote = 1;
 
   return (
     <div className="relative w-auto" data-testid="image-poll-option">
-      <Image
-        src={`${imageUrl}`}
-        layout="responsive"
-        className="rounded-md object-cover"
-        width={300}
-        height={300}
-      />
-      <div className="absolute flex bottom-4 right-4">
-        {options.map((option, index) => (
-          <div className="mr-4 last:mr-0" key={option.id}>
-            {option.vote_count !== undefined ? (
-              <ImagePollUncovered
-                id={option.id}
-                percentage={optionsPercentage[index]}
-                mostVoted={option.vote_count === mostAndLeastVoted[firstVote]}
-                leastVoted={option.vote_count === mostAndLeastVoted[secondVote]}
-                type="circular"
-              />
-            ) : (
-              <ImagePollCovered
-                isOneImageVote
-                like={option.body === 'yes'}
-                dislike={option.body === 'no'}
-                onOptionClick={onOptionClick}
-                id={option.id}
-              />
-            )}
+      {media.length !== 0 ? (
+        <>
+          {media.map((image) => (
+            <Image
+              key={image.url}
+              src={`${apiUrls.mediaAPI}${image.url}`}
+              layout="responsive"
+              className="rounded-md object-cover"
+              width={300}
+              height={300}
+            />
+          ))}
+          <div className="absolute flex bottom-4 right-4">
+            {options.map((option, index) => (
+              <div className="mr-4 last:mr-0" key={option.id}>
+                {option.vote_count !== undefined ? (
+                  <ImagePollUncovered
+                    id={option.id}
+                    percentage={optionsPercentage[index]}
+                    mostVoted={option.vote_count === mostAndLeastVoted[0]}
+                    leastVoted={option.vote_count === mostAndLeastVoted[1]}
+                    type="circular"
+                  />
+                ) : (
+                  <ImagePollCovered
+                    isOneImageVote
+                    like={option.body === 'yes'}
+                    dislike={option.body === 'no'}
+                    onOptionClick={onOptionClick}
+                    id={option.id}
+                  />
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="absolute bottom-4 left-4">
-        <ImageCaption imgCaption={groupName} />
-      </div>
+          <div className="absolute bottom-4 left-4">
+            <ImageCaption imgCaption={groupName} />
+          </div>
+        </>
+      ) : (
+        <p>cannot display this image :(</p>
+      )}
     </div>
   );
 };

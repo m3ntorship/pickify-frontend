@@ -13,7 +13,7 @@ const Template: Story<ISignleImagePollOption.IProps> = (args): ReactElement => (
 export const Default = Template.bind({});
 Default.args = {
   groupName: 'caption',
-  imageUrl: 'https://source.unsplash.com/random',
+  media: [{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }],
   options: [
     { body: 'yes', id: 'option_1', media: [] },
     { body: 'no', id: 'option_2', media: [] },

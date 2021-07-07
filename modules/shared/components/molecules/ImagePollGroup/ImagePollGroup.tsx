@@ -6,7 +6,6 @@ import ImagePollOption from '../ImagePollOption/ImagePollOption';
 import styles from './ImagePollGroup.module.css';
 import SignleImagePollOption from '../SignleImagePollOption/SignleImagePollOption';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
-import { apiUrls } from '../../../configuration/ConfigPostCreation/config';
 
 const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   group,
@@ -32,7 +31,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
       {group.media.length !== firstIndex ? (
         <SignleImagePollOption
           groupName={group.name}
-          imageUrl={`${apiUrls.mediaAPI}${group.media[firstIndex].url}`}
+          media={group.media}
           options={group.options}
           onOptionClick={onOptionClick}
         />
@@ -42,7 +41,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
           return (
             <ImagePollOption
               key={option.id}
-              imageUrl={`${apiUrls.mediaAPI}${option.media[firstIndex].url}`}
+              media={option.media}
               imgCaption={option.body}
               imgCaptionLetter={letter}
               optionId={option.id}
