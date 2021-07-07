@@ -14,6 +14,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/proxy-body-size: 20m
+    nginx.ingress.kubernetes.io/limit-rps: 150
 spec:
   rules:
     - host: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}.m3ntorship.net'
