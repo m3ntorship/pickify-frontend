@@ -12,7 +12,6 @@ import type { IPostCreationValidationFields } from '../../../types/IPostCreation
 import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 import { symbolGenerator } from '../../../logic/symbolGenerator/symbolGenerator';
 
-
 const randomId = (): string => {
   const randomHelper = 10000000000;
   return `id_${Math.round(Math.random() * randomHelper)}`;
