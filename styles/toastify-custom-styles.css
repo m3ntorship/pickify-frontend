@@ -1,0 +1,9 @@
+.Toastify__toast--success {
+  @apply bg-success;
+}
+.Toastify__toast--warning {
+  @apply bg-warning;
+}
+.Toastify__toast--error {
+  @apply bg-error;
+}
