@@ -10,7 +10,9 @@ export default {
 };
 
 const Template: Story<IDropDown.IProps> = (args): ReactElement => (
-  <DropDown {...args} />
+  <div className="flex justify-end">
+    <DropDown {...args} />
+  </div>
 );
 export const postViewHeader = Template.bind({});
 postViewHeader.args = {

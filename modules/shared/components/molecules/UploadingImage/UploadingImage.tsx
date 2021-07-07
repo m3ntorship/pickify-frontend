@@ -48,8 +48,8 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
       <div className={styles['image-container']}>
         <img
           src={url}
-          width={300}
-          height={300}
+          width={600}
+          height={600}
           className="absolute object-cover w-full h-full filter blur-sm"
           id={id}
           alt="uploaded option"

@@ -8,7 +8,9 @@ export default {
   title: 'Molecules/SignleImagePollOption',
 };
 const Template: Story<ISignleImagePollOption.IProps> = (args): ReactElement => (
-  <SignleImagePollOption {...args} />
+  <div className="flex">
+    <SignleImagePollOption {...args} />
+  </div>
 );
 export const Default = Template.bind({});
 Default.args = {

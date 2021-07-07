@@ -18,7 +18,9 @@ export default {
   },
 };
 const Template: Story<IImagePollOption.IProps> = (args): ReactElement => (
-  <ImagePollOption {...args} />
+  <div className="flex">
+    <ImagePollOption {...args} />
+  </div>
 );
 export const Default = Template.bind({});
 Default.args = {

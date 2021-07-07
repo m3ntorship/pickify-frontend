@@ -23,14 +23,27 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
       {media.length !== 0 ? (
         <>
           {media.map((image) => (
-            <Image
-              key={image.url}
-              src={`${apiUrls.mediaAPI}${image.url}`}
-              layout="responsive"
-              className="rounded-md object-cover"
-              width={300}
-              height={300}
-            />
+            <div key={image.url} className="relative">
+              <div className="absolute w-full h-full">
+                <Image
+                  key={image.url}
+                  src={`${apiUrls.mediaAPI}${image.url}`}
+                  layout="responsive"
+                  className="filter blur-sm"
+                  objectFit="cover"
+                  width={600}
+                  height={600}
+                />
+              </div>
+              <Image
+                src={`${apiUrls.mediaAPI}${image.url}`}
+                layout="responsive"
+                className="rounded-md"
+                objectFit="contain"
+                width={600}
+                height={600}
+              />
+            </div>
           ))}
           <div className="absolute bottom-4 right-4">
             {isVoted ? (
