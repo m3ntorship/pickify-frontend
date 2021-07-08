@@ -12,7 +12,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
       className="relative"
     >
       <div
-        className="absolute w-full h-full"
+        className="absolute w-full h-full rounded-md overflow-hidden"
       >
         <div
           style={
@@ -164,7 +164,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
       className="relative"
     >
       <div
-        className="absolute w-full h-full"
+        className="absolute w-full h-full rounded-md overflow-hidden"
       >
         <div
           style={
@@ -316,7 +316,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
       className="relative"
     >
       <div
-        className="absolute w-full h-full"
+        className="absolute w-full h-full rounded-md overflow-hidden"
       >
         <div
           style={

@@ -7,6 +7,14 @@ import { options } from './mockedOptions';
 export default {
   title: 'Atoms/DropDown',
   component: DropDown,
+  argTypes: {
+    size: {
+      control: {
+        type: 'inline-radio',
+        options: ['sm', 'md'],
+      },
+    },
+  },
 };
 
 const Template: Story<IDropDown.IProps> = (args): ReactElement => (
@@ -17,4 +25,5 @@ const Template: Story<IDropDown.IProps> = (args): ReactElement => (
 export const postViewHeader = Template.bind({});
 postViewHeader.args = {
   options,
+  size: 'sm',
 };

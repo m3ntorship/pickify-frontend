@@ -23,6 +23,9 @@ const DropDown: FC<IDropDown.IProps> = ({
   return (
     <div className="flex items-start relative">
       <div
+        role="button"
+        aria-pressed={false}
+        tabIndex={0}
         aria-hidden
         data-testid="menu-icon"
         className={menuIconClasses}

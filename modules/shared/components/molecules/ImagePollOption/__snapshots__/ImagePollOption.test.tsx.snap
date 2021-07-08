@@ -9,7 +9,7 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
     className="relative"
   >
     <div
-      className="absolute w-full h-full"
+      className="absolute w-full h-full rounded-md overflow-hidden"
     >
       <div
         style={
@@ -164,7 +164,7 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
     className="relative"
   >
     <div
-      className="absolute w-full h-full"
+      className="absolute w-full h-full rounded-md overflow-hidden"
     >
       <div
         style={
@@ -339,7 +339,7 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
     className="relative"
   >
     <div
-      className="absolute w-full h-full"
+      className="absolute w-full h-full rounded-md overflow-hidden"
     >
       <div
         style={
