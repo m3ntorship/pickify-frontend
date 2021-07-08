@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import type { IGetPosts } from '../../../api/IGetPosts';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
@@ -13,6 +14,13 @@ import { EPollType } from './types/EPollType';
 import initialState from './postCreationInitialState';
 import { createPollPost } from '../../../api/createPollPost';
 
+const toasterHandler = (res: IGetPosts.IErrorData): void => {
+  if (!res.error) {
+    toast.success('your poll has been created successfully');
+  } else {
+    toast.error('Error has been occured!');
+  }
+};
 const randomId = (): string => {
   const randomHelper = 10000000000;
   return `id_${Math.round(Math.random() * randomHelper)}`;
@@ -161,6 +169,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
           mediaCount: mediaCount.textPoll,
           ...textPoll,
         }).then((res) => {
+          toasterHandler(res);
           console.log(res);
         }) as Promise<IGetPosts.IErrorData>;
         break;
@@ -170,6 +179,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
           mediaCount: mediaCount.miniSurvey,
           ...miniSurvey,
         }).then((res) => {
+          toasterHandler(res);
           console.log(res);
         }) as Promise<IGetPosts.IErrorData>;
         break;
@@ -179,9 +189,9 @@ const PostCreation: FC<IPostCreation.IProps> = ({
           mediaCount: mediaCount.imagePoll,
           ...transformFromOptionsToGroup(),
         }).then((res) => {
+          toasterHandler(res);
           console.log(res);
         }) as Promise<IGetPosts.IErrorData>;
-
         break;
       default:
         break;
@@ -219,6 +229,9 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       ...postCreationGlobalState,
       privacy: e.target.value,
     });
+  };
+  const postButtonHandler = (): ReturnType<typeof setTimeout> => {
+    return setTimeout(closeModalHandler, 200);
   };
 
   return (
@@ -262,7 +275,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
           <div>
             <PostFooterCreation
               postButtonIsDisabled={!methods.formState.isDirty}
-              handleSubmitButtonClick={(): boolean => true}
+              handleSubmitButtonClick={postButtonHandler}
               handleCancelButtonClick={closeModalHandler}
               handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
               handlePrivacySelectChange={handlePrivacySelectChange}
