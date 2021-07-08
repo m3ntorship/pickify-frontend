@@ -1,12 +1,13 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 import MiniSurveyViewOptions from '../../molecules/MiniSurveyViewOptions/MiniSurveyViewOptions';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IMiniSurveyView } from './IMiniSurveyView';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
+import { apiUrls } from '../../../configuration/ConfigPostCreation/config';
 
 const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
   post,
@@ -36,17 +37,33 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
       <div>
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
-      {/* <div>
-        {post.media[indexOfImage].url && (
-          <Image
-            width={600}
-            height={450}
-            layout="responsive"
-            src={post.media[indexOfImage].url}
-            className="rounded-md"
-          />
-        )}
-      </div> */}
+      {post.media.length !== 0 && (
+        <>
+          {post.media.map((image) => (
+            <div key={image.url} className="relative">
+              <div className="absolute w-full h-full rounded-md overflow-hidden">
+                <Image
+                  key={image.url}
+                  src={`${apiUrls.mediaAPI}${image.url}`}
+                  layout="responsive"
+                  className="filter blur-sm"
+                  objectFit="cover"
+                  width={600}
+                  height={600}
+                />
+              </div>
+              <Image
+                src={`${apiUrls.mediaAPI}${image.url}`}
+                layout="responsive"
+                className="rounded-md"
+                objectFit="contain"
+                width={600}
+                height={600}
+              />
+            </div>
+          ))}
+        </>
+      )}
       <MiniSurveyViewOptions
         optionsGroups={post.options_groups}
         addOneVote={addOneVote}
