@@ -10,16 +10,22 @@ const DropDown: FC<IDropDown.IProps> = ({
   options,
   onOptionMenuClick,
   variant,
+  size,
 }): ReactElement => {
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
 
   const menuIconClasses = classNames(styles['menu-icon-container'], {
-    'rounded-full p-2': variant === 'image',
+    'rounded-full': variant === 'image',
+    'w-l h-l': size === 'sm',
+    'w-xl h-xl': size === 'md',
   });
 
   return (
     <div className="flex items-start relative">
       <div
+        role="button"
+        aria-pressed={false}
+        tabIndex={0}
         aria-hidden
         data-testid="menu-icon"
         className={menuIconClasses}

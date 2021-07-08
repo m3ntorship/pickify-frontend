@@ -4,28 +4,29 @@ import styles from './ImagePollUncovered.module.css';
 import Slider from '../../atoms/Slider/Slider';
 import type { IImagePollUncovered } from './types/IImagePollUncovered';
 
-const imageHeight = 100;
-
 const ImagePollUncovered: FC<IImagePollUncovered.IProps> = ({
   type,
   percentage,
   mostVoted,
   leastVoted,
-  verticalMeterHeight = imageHeight,
+  optionBody,
+  verticalMeterHeight,
   id,
 }): ReactElement => {
-  let meterColor: 'error' | 'primary-shd5' | 'primary' | undefined =
+  let verticalMeterColor: 'error' | 'primary-shd5' | 'primary' | undefined =
     'primary-shd5';
 
   if (mostVoted) {
-    meterColor = 'primary';
+    verticalMeterColor = 'primary';
   }
   if (leastVoted) {
-    meterColor = 'error';
+    verticalMeterColor = 'error';
   }
 
   const verticalContent = mostVoted && `🌟`;
-  const circularContent = mostVoted ? `👍` : `👎`;
+  const circularContent = optionBody === 'yes' ? `👍` : `👎`;
+  const circularMeterColor = optionBody === 'yes' ? 'primary' : 'error';
+
   if (type === 'circular') {
     return (
       <div className={styles['circular-vote-meter-wrapper']} id={id}>
@@ -38,7 +39,7 @@ const ImagePollUncovered: FC<IImagePollUncovered.IProps> = ({
             progress={percentage}
             type="circular"
             radius={50}
-            meterColor={meterColor}
+            meterColor={circularMeterColor}
           />
         </div>
       </div>
@@ -55,7 +56,7 @@ const ImagePollUncovered: FC<IImagePollUncovered.IProps> = ({
         type="vertical"
         progress={percentage}
         verticalMeterHeight={verticalMeterHeight}
-        meterColor={meterColor}
+        meterColor={verticalMeterColor}
       />
     </div>
   );

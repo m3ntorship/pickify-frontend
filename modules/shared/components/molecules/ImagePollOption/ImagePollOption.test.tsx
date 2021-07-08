@@ -7,7 +7,7 @@ describe('ImagePollOption', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          imageUrl="https://source.unsplash.com/random"
+          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
           imgCaption="caption"
           imgCaptionLetter="A"
           optionId="option_1"
@@ -26,7 +26,7 @@ describe('ImagePollOption', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          imageUrl="https://source.unsplash.com/random"
+          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
           imgCaption="caption"
           imgCaptionLetter="A"
           optionId="option_1"
@@ -45,7 +45,7 @@ describe('ImagePollOption', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          imageUrl="https://source.unsplash.com/random"
+          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
           imgCaption="caption"
           imgCaptionLetter="A"
           optionId="option_1"

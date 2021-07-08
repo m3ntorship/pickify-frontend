@@ -18,11 +18,13 @@ export default {
   },
 };
 const Template: Story<IImagePollOption.IProps> = (args): ReactElement => (
-  <ImagePollOption {...args} />
+  <div className="flex">
+    <ImagePollOption {...args} />
+  </div>
 );
 export const Default = Template.bind({});
 Default.args = {
-  imageUrl: 'https://source.unsplash.com/random',
+  media: [{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }],
   imgCaption: 'caption 1',
   imgCaptionLetter: 'A',
   optionId: 'option_1',

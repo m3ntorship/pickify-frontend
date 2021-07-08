@@ -9,7 +9,7 @@ describe('SignleImagePollOption', () => {
       .create(
         <SignleImagePollOption
           options={covoredOptions}
-          imageUrl="https://source.unsplash.com/random"
+          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
           groupName="caption"
           onOptionClick={(): boolean => true}
         />,
@@ -22,7 +22,7 @@ describe('SignleImagePollOption', () => {
       .create(
         <SignleImagePollOption
           options={unCovoredOptions}
-          imageUrl="https://source.unsplash.com/random"
+          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
           groupName="caption"
           onOptionClick={(): boolean => true}
         />,

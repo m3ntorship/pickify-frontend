@@ -29,6 +29,12 @@ export default {
         step: 1,
       },
     },
+    optionBody: {
+      control: {
+        type: 'radio',
+        options: ['yes', 'no'],
+      },
+    },
   },
 };
 

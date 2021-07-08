@@ -1,6 +1,6 @@
 declare namespace IImagePollOption {
   export interface IProps {
-    imageUrl: string;
+    media: { url: string }[];
     imgCaption: string;
     imgCaptionLetter: string;
     optionId: string;

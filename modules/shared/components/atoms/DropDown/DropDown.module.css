@@ -1,5 +1,5 @@
 .menu-icon-container {
-  @apply cursor-pointer bg-white;
+  @apply cursor-pointer bg-white flex justify-center items-center;
 }
 
 .menu-icon {
@@ -7,7 +7,7 @@
 }
 
 .menu {
-  @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute -top-2 right-8 md:left-12 w-5xl;
+  @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute top-10 right-0 w-5xl z-20;
 }
 
 .menu-item {

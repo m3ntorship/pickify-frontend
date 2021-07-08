@@ -105,8 +105,11 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
       >
         <div
           aria-hidden={true}
-          className="menu-icon-container"
+          aria-pressed={false}
+          className="menu-icon-container w-l h-l"
           data-testid="menu-icon"
+          role="button"
+          tabIndex={0}
         >
           <svg
             className="menu-icon"
