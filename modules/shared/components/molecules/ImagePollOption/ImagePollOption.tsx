@@ -71,7 +71,9 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
           </div>
         </>
       ) : (
-        <p>cannot display this image :(</p>
+        <div className="flex items-center h-full justify-center">
+          <p>cannot display this image :(</p>
+        </div>
       )}
     </div>
   );

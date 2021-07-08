@@ -70,7 +70,9 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
           </div>
         </>
       ) : (
-        <p>cannot display this image :(</p>
+        <div className="flex items-center justify-center">
+          <p>cannot display this image :(</p>
+        </div>
       )}
     </div>
   );
