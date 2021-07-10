@@ -9,8 +9,18 @@ import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
 import { postsApi } from '@modules/shared/api/postsApi.api';
-import { addOneVote } from '../api/voteApi';
+import { toast } from 'react-toastify';
+import { addOneVote } from '../api/votesApi/voteApi';
 import styles from '../pages/home-page.module.css';
+import type { IVotesApi } from '../api/votesApi/IvotesApi';
+
+const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
+  if (!resData.error) {
+    return null;
+  }
+  toast.error(resData.message);
+  return null;
+};
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
@@ -39,20 +49,20 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     optionId: string,
     groupId: string,
   ): Promise<void> => {
-    const zeroVote = 0;
     setOptionCheckedId(optionId);
-    const { resData, error, message } = await addOneVote(optionId);
+    const { resData } = await addOneVote(optionId);
 
     const votes: Record<string, number> = {
       id_41651616515616: 0,
     };
 
-    if (!error) {
-      resData.map((option) => {
-        votes[option.optionId ?? 'id_12652151'] =
-          option.votes_count ?? zeroVote;
+    if (!resData.error) {
+      const { votesData } = resData as IVotesApi.IVotesSuccessData;
+      votesData.map((option: IVotesApi.IVotesData) => {
+        votes[option.optionId] = option.voteCount;
         return option;
       });
+
       const showVotedOptionsOnClick = posts.map(
         ({ options_groups, ...post }) => {
           const groups = options_groups.groups.map((group) => {
@@ -68,14 +78,15 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           return { ...post, options_groups: { groups } };
         },
       );
+
       setPosts(showVotedOptionsOnClick);
     } else {
-      console.log(message);
+      toasterHandler(resData as IVotesApi.IVotesErrorData);
     }
   };
+
   const deletePostHandler = async (postId: string): Promise<void> => {
-    const res = await postsApi.deleteOnePost(postId);
-    console.log(res);
+    await postsApi.deleteOnePost(postId);
     const updatedPosts = posts.filter((post) => post.id !== postId);
     setPosts(updatedPosts);
   };
