@@ -19,7 +19,7 @@ declare namespace IVotesApi {
   }
 
   export interface IErrorData {
-    response: { data: { message: string; status_code: number } };
+    response?: { data: { message: string; status_code: number } };
   }
 }
 

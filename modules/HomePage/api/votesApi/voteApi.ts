@@ -1,35 +1,32 @@
 import { votesApi } from '@modules/shared/api/postsApi.api';
 import type { IVotesApi } from './IvotesApi';
+import { generateErrorMessage, transformOptions } from './votesHelpers';
 
 export const addOneVote = async (id: string): Promise<IVotesApi.IVotesRes> => {
   try {
     const { data: options } = await votesApi.addVote(id);
 
-    const votesData = options.map((option) => ({
-      voteCount: option.votes_count,
-      optionId: option.optionId,
-    })) as IVotesApi.IVotesData[];
+    const votesData: IVotesApi.IVotesData[] = transformOptions(options);
 
     return { resData: { error: false, votesData } };
   } catch (err: unknown) {
-    const {
-      response: {
-        data: { message, status_code },
-      },
-    } = err as IVotesApi.IErrorData;
+    const { response } = err as IVotesApi.IErrorData;
+    const { errMessage } = err as { errMessage: string };
 
-    let errorMessage = message;
-
-    switch (status_code) {
-      case 409:
-        errorMessage = 'you have already voted for this option group';
-        break;
-      default:
-        errorMessage = message;
+    if (!response) {
+      return {
+        resData: { error: true, message: errMessage },
+      };
     }
 
+    const {
+      data: { message, status_code },
+    } = response;
+
+    const errorMessage = generateErrorMessage(status_code, message);
+
     return {
-      resData: { message: errorMessage, error: true },
+      resData: { error: true, message: errorMessage },
     };
   }
 };

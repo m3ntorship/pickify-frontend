@@ -42,6 +42,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
         return { ...post, options_groups: { groups } };
       },
     );
+    console.log(authorizedPosts);
     setPosts(authorizedPosts);
   }, [data]);
 
