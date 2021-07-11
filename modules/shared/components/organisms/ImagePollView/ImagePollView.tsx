@@ -4,13 +4,18 @@ import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IImagePollView } from './IImagePollView';
 import ImagePollGroup from '../../molecules/ImagePollGroup/ImagePollGroup';
+import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const ImagePollView: FC<IImagePollView.IProps> = ({
   post,
   deletePostHandler,
   addOneVote,
 }): ReactElement => {
-  const firstIndex = 0;
+  const firstGroup = 0;
+
+  const { totalVotes } = getVotesResults(
+    post.options_groups.groups[firstGroup].options,
+  );
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
@@ -26,10 +31,16 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
         <h3 className="font-normal text-md">{post.caption}</h3>
       </div>
       <ImagePollGroup
-        group={post.options_groups.groups[firstIndex]}
+        group={post.options_groups.groups[firstGroup]}
         addOneVote={addOneVote}
       />
-      <PostViewFooter numberOfVotes={100} showResult={false} />
+      <PostViewFooter
+        numberOfVotes={totalVotes}
+        showResult={
+          post.options_groups.groups[firstGroup].options[firstGroup]
+            .vote_count !== undefined
+        }
+      />
     </div>
   );
 };
