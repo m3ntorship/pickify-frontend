@@ -11,7 +11,7 @@ export const addOneVote = async (id: string): Promise<IVotesApi.IVotesRes> => {
     return { resData: { error: false, votesData } };
   } catch (err: unknown) {
     const { response } = err as IVotesApi.IErrorData;
-    const { errMessage } = err as { errMessage: string };
+    const { message: errMessage } = err as { message: string };
 
     if (!response) {
       return {
