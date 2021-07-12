@@ -6,7 +6,6 @@ import type { ISignleImagePollOption } from './ISignleImagePollOption';
 import ImagePollCovered from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
 import ImagePollUncovered from '../ImagePollUncovered/ImagePollUncovered';
-import { apiUrls } from '../../../configuration/ConfigPostCreation/config';
 
 const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
   groupName,
@@ -24,8 +23,7 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
             <div key={image.url} className="relative">
               <div className="absolute w-full h-full rounded-md overflow-hidden">
                 <Image
-                  key={image.url}
-                  src={`${apiUrls.mediaAPI}${image.url}`}
+                  src={image.url}
                   layout="responsive"
                   className="filter blur-sm"
                   objectFit="cover"
@@ -34,7 +32,7 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
                 />
               </div>
               <Image
-                src={`${apiUrls.mediaAPI}${image.url}`}
+                src={image.url}
                 layout="responsive"
                 className="rounded-md"
                 objectFit="contain"

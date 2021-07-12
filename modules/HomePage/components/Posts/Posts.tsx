@@ -8,11 +8,12 @@ import {
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
-import { postsApi } from '@modules/shared/api/postsApi.api';
 import { toast } from 'react-toastify';
-import { addOneVote } from '../api/votesApi/voteApi';
-import styles from '../pages/home-page.module.css';
-import type { IVotesApi } from '../api/votesApi/IvotesApi';
+import { addOneVote } from '../../api/votesApi/voteApi';
+import styles from '../../pages/home-page.module.css';
+import type { IVotesApi } from '../../api/votesApi/IvotesApi';
+import { deletePost } from '../../api/DeletePostApi/deletePostsApi';
+import { transformAuthorizedPosts, transformPostsMedia } from './PostsHelpers';
 
 const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
   if (!resData.error) {
@@ -27,21 +28,9 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [optionCheckedId, setOptionCheckedId] = useState('');
 
   useEffect(() => {
-    const userId = localStorage.getItem('user');
-    const authorizedPosts = posts.map(
-      ({ options_groups, ...post }): IPostFeed.IPost => {
-        if (post.user.id === userId) {
-          return { ...post, options_groups };
-        }
-        const groups = options_groups.groups.map(({ options, ...group }) => {
-          const newOptions = options.map(({ id, body, media }) => {
-            return { id, body, media };
-          });
-          return { ...group, options: newOptions };
-        });
-        return { ...post, options_groups: { groups } };
-      },
-    );
+    const transformedMedia = transformPostsMedia(posts);
+
+    const authorizedPosts = transformAuthorizedPosts(transformedMedia);
     setPosts(authorizedPosts);
   }, [data]);
 
@@ -86,9 +75,14 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   };
 
   const deletePostHandler = async (postId: string): Promise<void> => {
-    await postsApi.deleteOnePost(postId);
-    const updatedPosts = posts.filter((post) => post.id !== postId);
-    setPosts(updatedPosts);
+    const res = await deletePost(postId);
+    if (!res.resData.error) {
+      toast.success('Post has been deleted successfully');
+      const updatedPosts = posts.filter((post) => post.id !== postId);
+      setPosts(updatedPosts);
+    } else {
+      toast.error(res.resData.message);
+    }
   };
 
   return (

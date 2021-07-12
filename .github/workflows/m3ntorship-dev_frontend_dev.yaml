@@ -20,7 +20,7 @@ env:
   M3_REPLICAS: '1'
   M3_PORT: '3000'
   M3_MEMORY: '1000Mi'
-  M3_CPU: '200m'
+  M3_CPU: '500m'
 
 jobs:
   prepare:

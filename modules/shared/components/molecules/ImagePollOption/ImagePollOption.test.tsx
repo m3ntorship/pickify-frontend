@@ -7,7 +7,7 @@ describe('ImagePollOption', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
+          media={[{ url: 'https://placeimg.com/640/480/any' }]}
           imgCaption="caption"
           imgCaptionLetter="A"
           optionId="option_1"
@@ -26,7 +26,7 @@ describe('ImagePollOption', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
+          media={[{ url: 'https://placeimg.com/640/480/any' }]}
           imgCaption="caption"
           imgCaptionLetter="A"
           optionId="option_1"
@@ -45,7 +45,7 @@ describe('ImagePollOption', () => {
     const tree = renderer
       .create(
         <ImagePollOption
-          media={[{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }]}
+          media={[{ url: 'https://placeimg.com/640/480/any' }]}
           imgCaption="caption"
           imgCaptionLetter="A"
           optionId="option_1"
