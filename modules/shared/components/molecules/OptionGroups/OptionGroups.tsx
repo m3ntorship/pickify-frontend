@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 import PlusIcon from '../../icons/plus.svg';
 import OptionGroup from '../OptionGroup/OptionGroup';
 import type { IOptionGroups } from './IOptionGroups';
@@ -16,7 +17,7 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
   addOptionHandler,
   deleteOptionHandler,
 }): ReactElement => {
-  const one = 1;
+  const { maxOptionGroup } = configPostCreation;
   return (
     <>
       {groups.map((optionGroup, index) => {
@@ -24,7 +25,7 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
           <OptionGroupWrapper
             key={optionGroup.id}
             id={optionGroup.id}
-            index={index + one}
+            index={index + 1}
             optionsGroupName={optionGroup.name}
             updateOptionsGroupNameHandler={updateOptionsGroupNameHandler}
             deleteOptionsGroupHandler={deleteOptionsGroupHandler}
@@ -52,17 +53,19 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
           </OptionGroupWrapper>
         );
       })}
-      <div className="flex flex-col bg-grey-bg p-4 rounded-md ">
-        <button
-          type="button"
-          data-testid="addOptionGroupBtn"
-          className="text-dark-grey cursor-pointer flex items-center self-start "
-          onClick={addOptionsGroupHandler}
-        >
-          <PlusIcon className="fill-dark-grey mr-1 my-3xxs" />
-          <span className="text-sm font-medium">Add Option Group</span>
-        </button>
-      </div>
+      {groups.length < maxOptionGroup && (
+        <div className="flex flex-col bg-grey-bg p-4 rounded-md ">
+          <button
+            type="button"
+            data-testid="addOptionGroupBtn"
+            className="text-dark-grey cursor-pointer flex items-center self-start "
+            onClick={addOptionsGroupHandler}
+          >
+            <PlusIcon className="fill-dark-grey mr-1 my-3xxs" />
+            <span className="text-sm font-medium">Add Option Group</span>
+          </button>
+        </div>
+      )}
     </>
   );
 };

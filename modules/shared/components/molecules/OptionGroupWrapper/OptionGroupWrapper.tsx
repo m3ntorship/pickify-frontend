@@ -13,7 +13,10 @@ const OptionGroupWrapper: FC<IOptionGroupWrapper.IProps> = ({
 }): ReactElement => {
   return (
     <>
-      <div className="mb-2 bg-grey-bg p-4 rounded-md ">
+      <div
+        className="mb-2 bg-grey-bg p-4 rounded-md"
+        data-testid="optionGroup-wrapper"
+      >
         <div className="flex justify-between pb-2">
           <OptionGroupsHeader
             id={id}

@@ -8,9 +8,10 @@ import {
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
-import { postsApi } from '@modules/shared/api/postsApi.api';
+import { toast } from 'react-toastify';
 import { addOneVote } from '../../api/voteApi';
 import styles from '../../pages/home-page.module.css';
+import { deletePost } from '../../api/DeletePostApi/deletePostsApi';
 import { transformAuthorizedPosts, transformPostsMedia } from './PostsHelpers';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
@@ -63,10 +64,14 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     }
   };
   const deletePostHandler = async (postId: string): Promise<void> => {
-    const res = await postsApi.deleteOnePost(postId);
-    console.log(res);
-    const updatedPosts = posts.filter((post) => post.id !== postId);
-    setPosts(updatedPosts);
+    const res = await deletePost(postId);
+    if (!res.resData.error) {
+      toast.success('Post has been deleted successfully');
+      const updatedPosts = posts.filter((post) => post.id !== postId);
+      setPosts(updatedPosts);
+    } else {
+      toast.error(res.resData.message);
+    }
   };
 
   return (
