@@ -15,7 +15,7 @@ const Template: Story<ISignleImagePollOption.IProps> = (args): ReactElement => (
 export const Default = Template.bind({});
 Default.args = {
   groupName: 'caption',
-  media: [{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }],
+  media: [{ url: 'https://placeimg.com/640/480/any' }],
   options: [
     { body: 'yes', id: 'option_1', media: [] },
     { body: 'no', id: 'option_2', media: [] },
