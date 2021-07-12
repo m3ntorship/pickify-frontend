@@ -24,7 +24,7 @@ const Template: Story<IImagePollOption.IProps> = (args): ReactElement => (
 );
 export const Default = Template.bind({});
 Default.args = {
-  media: [{ url: 'eb519bfc-6f4c-4dfb-addc-75310e3945aa' }],
+  media: [{ url: 'https://placeimg.com/640/480/any' }],
   imgCaption: 'caption 1',
   imgCaptionLetter: 'A',
   optionId: 'option_1',

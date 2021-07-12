@@ -9,30 +9,19 @@ import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
 import { toast } from 'react-toastify';
-import { addOneVote } from '../api/voteApi';
-import styles from '../pages/home-page.module.css';
-import { deletePost } from '../api/DeletePostApi/deletePostsApi';
+import { addOneVote } from '../../api/voteApi';
+import styles from '../../pages/home-page.module.css';
+import { deletePost } from '../../api/DeletePostApi/deletePostsApi';
+import { transformAuthorizedPosts, transformPostsMedia } from './PostsHelpers';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
   const [optionCheckedId, setOptionCheckedId] = useState('');
 
   useEffect(() => {
-    const userId = localStorage.getItem('user');
-    const authorizedPosts = posts.map(
-      ({ options_groups, ...post }): IPostFeed.IPost => {
-        if (post.user.id === userId) {
-          return { ...post, options_groups };
-        }
-        const groups = options_groups.groups.map(({ options, ...group }) => {
-          const newOptions = options.map(({ id, body, media }) => {
-            return { id, body, media };
-          });
-          return { ...group, options: newOptions };
-        });
-        return { ...post, options_groups: { groups } };
-      },
-    );
+    const transformedMedia = transformPostsMedia(posts);
+
+    const authorizedPosts = transformAuthorizedPosts(transformedMedia);
     setPosts(authorizedPosts);
   }, [data]);
 
