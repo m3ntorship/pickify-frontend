@@ -7,7 +7,6 @@ import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
 import PostViewFooter from '../../molecules/postFooter/PostFooter';
 import type { IMiniSurveyView } from './IMiniSurveyView';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
-import { apiUrls } from '../../../configuration/ConfigPostCreation/config';
 
 const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
   post,
@@ -43,8 +42,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
             <div key={image.url} className="relative">
               <div className="absolute w-full h-full rounded-md overflow-hidden">
                 <Image
-                  key={image.url}
-                  src={`${apiUrls.mediaAPI}${image.url}`}
+                  src={image.url}
                   layout="responsive"
                   className="filter blur-sm"
                   objectFit="cover"
@@ -53,7 +51,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
                 />
               </div>
               <Image
-                src={`${apiUrls.mediaAPI}${image.url}`}
+                src={image.url}
                 layout="responsive"
                 className="rounded-md"
                 objectFit="contain"

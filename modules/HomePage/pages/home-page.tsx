@@ -4,7 +4,7 @@ import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import Navigation from '@modules/shared/components/molecules/Navigation/Navigation';
 import Widget from '@modules/shared/components/atoms/Widget/Widget';
 import styles from './home-page.module.css';
-import Posts from '../components/Posts';
+import Posts from '../components/Posts/Posts';
 import NewPost from '../components/NewPost/NewPost';
 
 interface WidgetData {
