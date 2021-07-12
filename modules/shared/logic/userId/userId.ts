@@ -25,4 +25,5 @@ const getUserId = (userName: string | null): string => {
 export const setUser = (): void => {
   const username: string | null = prompt('username?');
   localStorage.setItem('user', String(getUserId(username)));
+  window.location.reload();
 };
