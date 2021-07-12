@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import { configPostCreation } from '@modules/shared/configuration/ConfigPostCreation/config';
+import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 import PlusIcon from '../../icons/plus.svg';
 import OptionGroup from '../OptionGroup/OptionGroup';
 import type { IOptionGroups } from './IOptionGroups';
