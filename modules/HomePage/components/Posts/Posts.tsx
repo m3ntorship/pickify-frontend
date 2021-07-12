@@ -13,7 +13,11 @@ import { addOneVote } from '../../api/votesApi/voteApi';
 import styles from '../../pages/home-page.module.css';
 import type { IVotesApi } from '../../api/votesApi/IvotesApi';
 import { deletePost } from '../../api/DeletePostApi/deletePostsApi';
-import { transformAuthorizedPosts, transformPostsMedia } from './PostsHelpers';
+import {
+  transformAuthorizedPosts,
+  transformPostsMedia,
+  updateVotedPost,
+} from './PostsHelpers';
 
 const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
   if (!resData.error) {
@@ -41,34 +45,11 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     setOptionCheckedId(optionId);
     const { resData } = await addOneVote(optionId);
 
-    const votes: Record<string, number> = {
-      id_41651616515616: 0,
-    };
-
     if (!resData.error) {
       const { votesData } = resData as IVotesApi.IVotesSuccessData;
-      votesData.map((option: IVotesApi.IVotesData) => {
-        votes[option.optionId] = option.voteCount;
-        return option;
-      });
+      const updatedVotedPosts = updateVotedPost(posts, votesData, groupId);
 
-      const showVotedOptionsOnClick = posts.map(
-        ({ options_groups, ...post }) => {
-          const groups = options_groups.groups.map((group) => {
-            if (group.id === groupId) {
-              const newVotedGroups = group.options.map((option) => ({
-                ...option,
-                vote_count: votes[option.id],
-              }));
-              return { ...group, options: newVotedGroups };
-            }
-            return group;
-          });
-          return { ...post, options_groups: { groups } };
-        },
-      );
-
-      setPosts(showVotedOptionsOnClick);
+      setPosts(updatedVotedPosts);
     } else {
       toasterHandler(resData as IVotesApi.IVotesErrorData);
     }

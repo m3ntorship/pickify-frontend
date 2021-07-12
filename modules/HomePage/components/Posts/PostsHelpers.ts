@@ -1,3 +1,4 @@
+import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
 import { apiUrls } from '@modules/shared/configuration/ConfigPostCreation/config';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 
@@ -48,4 +49,37 @@ export const transformAuthorizedPosts = (
     },
   );
   return authorizedPosts;
+};
+
+export const updateVotedPost = (
+  posts: IPostFeed.IPost[],
+  resData: IVotesApi.IVotesData[],
+  groupId: string,
+): IPostFeed.IPost[] => {
+  const votes: Record<string, number> = {
+    id_41651616515616: 0,
+  };
+
+  resData.map((option: IVotesApi.IVotesData) => {
+    votes[option.optionId] = option.voteCount;
+    return option;
+  });
+
+  const updatedVotedPosts: IPostFeed.IPost[] = posts.map(
+    ({ options_groups, ...post }) => {
+      const groups = options_groups.groups.map((group) => {
+        if (group.id === groupId) {
+          const newVotedGroups = group.options.map((option) => ({
+            ...option,
+            vote_count: votes[option.id],
+          }));
+          return { ...group, options: newVotedGroups };
+        }
+        return group;
+      });
+      return { ...post, options_groups: { groups } };
+    },
+  );
+
+  return updatedVotedPosts;
 };

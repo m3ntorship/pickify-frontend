@@ -5,7 +5,7 @@ declare namespace IVotesApi {
 
   export interface IVotesSuccessData {
     error: boolean;
-    votesData: IvotesData[];
+    votesData: IVotesData[];
   }
 
   export interface IVotesData {
