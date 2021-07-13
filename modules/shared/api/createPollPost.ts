@@ -1,6 +1,6 @@
 import type { AxiosError } from 'axios';
 import type { IGetPosts } from './IGetPosts';
-import { postsApi, uploadOneMedia } from './postsApi.api';
+import { postsApi, mediaApi } from './postsApi.api';
 import type { IPostCreation } from '../components/organisms/PostCreation/types/IPostCreation';
 
 export const createPollPost = async (
@@ -70,7 +70,11 @@ export const createPollPost = async (
     });
 
     files.forEach((file) => {
-      uploadOneMedia(file.file, file.entityType, file.entityId);
+      mediaApi.uploadFile(
+        file.file,
+        file.entityType,
+        file.entityId,
+      ) as unknown as Promise<void>;
     });
 
     await postsApi.flagPostAsFinished(postId, {
