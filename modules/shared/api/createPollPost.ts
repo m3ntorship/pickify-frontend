@@ -1,5 +1,4 @@
 import type { AxiosError } from 'axios';
-import type { PostCreationRequestTypeEnum } from '@m3ntorship/posts-client/dist/client';
 import type { IGetPosts } from './IGetPosts';
 import { postsApi, uploadOneMedia } from './postsApi.api';
 import type { IPostCreation } from '../components/organisms/PostCreation/types/IPostCreation';
@@ -13,7 +12,7 @@ export const createPollPost = async (
     const {
       data: { id: postId },
     } = await postsApi.createPost({
-      type: post.postType as unknown as PostCreationRequestTypeEnum,
+      type: post.postType,
       is_hidden: post.isHiddenIdentity,
       caption: post.postCaption.body,
       media_count: post.mediaCount,
