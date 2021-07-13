@@ -1,7 +1,7 @@
 /* eslint-disable */
 export enum configPostCreation {
   maxUploadedFiles = 4,
-  maxFileSizeInByte = 1024, // 10MB
+  maxFileSizeInByte = 1024, // 1MB
   maxFileSizeInMegaByte = maxFileSizeInByte / 1024,
   maxOptionGroup = 4,
   maxOptions = 4,
