@@ -26,6 +26,7 @@ declare namespace IPostFeed {
     body: string;
     vote_count?: number;
     media: { url: string }[];
+    voted: boolean;
   }
   export interface IUser {
     profile_pic: string;

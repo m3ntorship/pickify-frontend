@@ -10,9 +10,9 @@ const mockeVotesApi = votesApi as jest.Mocked<typeof votesApi>;
 describe('addOneVote', () => {
   it('should return success data with array of updated options', async () => {
     const resolvedData: InlineResponse2001[] = [
-      { votes_count: 5, optionId: '1' },
-      { votes_count: 8, optionId: '2' },
-      { votes_count: 10, optionId: '3' },
+      { votes_count: 5, optionId: '1', voted: false },
+      { votes_count: 8, optionId: '2', voted: true },
+      { votes_count: 10, optionId: '3', voted: false },
     ];
 
     mockeVotesApi.addVote.mockResolvedValue({
@@ -28,9 +28,9 @@ describe('addOneVote', () => {
     const successData: IVotesApi.IVotesSuccessData = {
       error: false,
       votesData: [
-        { voteCount: 5, optionId: '1' },
-        { voteCount: 8, optionId: '2' },
-        { voteCount: 10, optionId: '3' },
+        { voteCount: 5, optionId: '1', voted: false },
+        { voteCount: 8, optionId: '2', voted: true },
+        { voteCount: 10, optionId: '3', voted: false },
       ],
     };
 

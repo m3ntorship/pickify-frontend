@@ -10,7 +10,6 @@ import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
   post,
-  optionCheckedId,
   addOneVote,
   deletePostHandler,
 }): ReactElement => {
@@ -65,7 +64,6 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
       <MiniSurveyViewOptions
         optionsGroups={post.options_groups}
         addOneVote={addOneVote}
-        optionCheckedId={optionCheckedId}
       />
       <PostViewFooter
         numberOfVotes={totalVotes}

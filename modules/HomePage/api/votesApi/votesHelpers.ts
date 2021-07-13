@@ -7,6 +7,7 @@ export const transformOptions = (
   const transformedOptions: IVotesApi.IVotesData[] = options.map((option) => ({
     voteCount: option.votes_count,
     optionId: option.optionId,
+    voted: option.voted,
   })) as IVotesApi.IVotesData[];
 
   return transformedOptions;

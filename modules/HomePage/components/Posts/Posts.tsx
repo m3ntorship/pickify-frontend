@@ -13,11 +13,7 @@ import { addOneVote } from '../../api/votesApi/voteApi';
 import styles from '../../pages/home-page.module.css';
 import type { IVotesApi } from '../../api/votesApi/IvotesApi';
 import { deletePost } from '../../api/DeletePostApi/deletePostsApi';
-import {
-  transformAuthorizedPosts,
-  transformPostsMedia,
-  updateVotedPost,
-} from './PostsHelpers';
+import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
 
 const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
   if (!resData.error) {
@@ -29,20 +25,19 @@ const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
-  const [optionCheckedId, setOptionCheckedId] = useState('');
 
   useEffect(() => {
     const transformedMedia = transformPostsMedia(posts);
 
-    const authorizedPosts = transformAuthorizedPosts(transformedMedia);
-    setPosts(authorizedPosts);
+    // const authorizedPosts = transformAuthorizedPosts(transformedMedia);
+
+    setPosts(transformedMedia);
   }, [data]);
 
   const addOneVoteHandler = async (
     optionId: string,
     groupId: string,
   ): Promise<void> => {
-    setOptionCheckedId(optionId);
     const { resData } = await addOneVote(optionId);
 
     if (!resData.error) {
@@ -76,7 +71,6 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                 <TextPollView
                   post={post}
                   deletePostHandler={deletePostHandler}
-                  optionCheckedId={optionCheckedId}
                   addOneVote={addOneVoteHandler}
                 />
               </div>
@@ -87,7 +81,6 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                 <MiniSurveyView
                   post={post}
                   deletePostHandler={deletePostHandler}
-                  optionCheckedId={optionCheckedId}
                   addOneVote={addOneVoteHandler}
                 />
               </div>
