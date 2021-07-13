@@ -26,6 +26,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
     'grid-cols-1': group.media.length !== firstIndex,
     'md:grid-cols-2 grid-cols-1': group.media.length === firstIndex,
   });
+
   return (
     <div className={optionClasses}>
       {group.media.length !== firstIndex ? (
