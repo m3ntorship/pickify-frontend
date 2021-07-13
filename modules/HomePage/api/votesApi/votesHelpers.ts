@@ -1,8 +1,8 @@
-import type { InlineResponse2002 } from '@m3ntorship/posts-client/dist/client';
+import type { InlineResponse2001 } from '@m3ntorship/posts-client/dist/post-client';
 import type { IVotesApi } from './IvotesApi';
 
 export const transformOptions = (
-  options: InlineResponse2002[],
+  options: InlineResponse2001[],
 ): IVotesApi.IVotesData[] => {
   const transformedOptions: IVotesApi.IVotesData[] = options.map((option) => ({
     voteCount: option.votes_count,

@@ -1,5 +1,5 @@
-import { PostsApi, VotesApi } from '@m3ntorship/posts-client';
-import type { Configuration } from '@m3ntorship/posts-client/dist/client';
+import { postClient } from '@m3ntorship/posts-client';
+import type { Configuration } from '@m3ntorship/posts-client/dist/post-client';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
 import { getUser } from '../logic/userId/userId';
@@ -21,7 +21,7 @@ postsApiAxiosInstance.interceptors.request.use(
   async (e: Error) => Promise.reject(e),
 );
 
-export const postsApi = new PostsApi(
+export const postsApi = new postClient.PostsApi(
   {
     basePath: 'https://pickify-posts-be-dev.pickify.net/api',
   } as Configuration,
@@ -29,7 +29,7 @@ export const postsApi = new PostsApi(
   postsApiAxiosInstance,
 );
 
-export const votesApi = new VotesApi(
+export const votesApi = new postClient.VotesApi(
   {
     basePath: 'https://pickify-posts-be-dev.pickify.net/api',
   } as Configuration,

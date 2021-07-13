@@ -1,4 +1,4 @@
-import type { InlineResponse2002 } from '@m3ntorship/posts-client/dist/client';
+import type { InlineResponse2001 } from '@m3ntorship/posts-client/dist/post-client';
 import { addOneVote } from './voteApi';
 import type { IVotesApi } from './IvotesApi';
 import { votesApi } from '../../../shared/api/postsApi.api';
@@ -9,7 +9,7 @@ const mockeVotesApi = votesApi as jest.Mocked<typeof votesApi>;
 
 describe('addOneVote', () => {
   it('should return success data with array of updated options', async () => {
-    const resolvedData: InlineResponse2002[] = [
+    const resolvedData: InlineResponse2001[] = [
       { votes_count: 5, optionId: '1' },
       { votes_count: 8, optionId: '2' },
       { votes_count: 10, optionId: '3' },
