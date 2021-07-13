@@ -1,4 +1,4 @@
-import { getPostsTemp } from '@modules/shared/api/getPosts.api';
+import { getPosts } from '@modules/shared/api/getPosts.api';
 import type { FC, ReactElement } from 'react';
 import type { GetServerSideProps } from 'next';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { user } = cookies as { user: string };
 
   try {
-    const { data } = await getPostsTemp(user);
+    const { data } = await getPosts(user);
     return {
       props: { data },
     };
