@@ -30,27 +30,6 @@ export const transformPostsMedia = (
   return transformedMedia;
 };
 
-// export const transformAuthorizedPosts = (
-//   posts: IPostFeed.IPost[],
-// ): IPostFeed.IPost[] => {
-//   const loggedInUser = localStorage.getItem('user');
-//   const authorizedPosts: IPostFeed.IPost[] = posts.map(
-//     ({ options_groups, ...post }): IPostFeed.IPost => {
-//       if (post.user.id === loggedInUser) {
-//         return { ...post, options_groups };
-//       }
-//       const groups = options_groups.groups.map(({ options, ...group }) => {
-//         const newOptions = options.map(({ id, body, media }) => {
-//           return { id, body, media };
-//         });
-//         return { ...group, options: newOptions };
-//       });
-//       return { ...post, options_groups: { groups } };
-//     },
-//   );
-//   return authorizedPosts;
-// };
-
 export const updateVotedPost = (
   posts: IPostFeed.IPost[],
   resData: IVotesApi.IVotesData[],

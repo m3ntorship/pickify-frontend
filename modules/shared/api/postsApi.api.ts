@@ -28,10 +28,6 @@ export const postsApi = new postClient.PostsApi(
   undefined,
 );
 
-export const postsApiTemp = axios.create({
-  baseURL: 'https://pickify-posts-be-dev.m3ntorship.net/api',
-});
-
 export const votesApi = new postClient.VotesApi(
   {
     basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
