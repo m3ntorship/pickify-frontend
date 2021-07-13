@@ -19,10 +19,9 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   handleVerticalThreeDotsClick,
 }): ReactElement => {
   const { register } = useFormContext();
-
   const { error, message } = useUploadedFiles(file);
   const url = useUpdatedImageData({ file, id, entityType });
-
+  console.log(file);
   const imgClasses = classNames(styles.image, {
     'filter blur-sm ': error,
   });
@@ -42,7 +41,6 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
         console.log('default');
     }
   };
-
   return (
     <div className={styles.container} data-testid="uploaded-box">
       <div className={styles['image-container']}>
