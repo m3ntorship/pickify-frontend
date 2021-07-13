@@ -31,6 +31,8 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
 
     // const authorizedPosts = transformAuthorizedPosts(transformedMedia);
 
+    // console.log(data);
+
     setPosts(transformedMedia);
   }, [data]);
 
