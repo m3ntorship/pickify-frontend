@@ -11,6 +11,8 @@ import initialState from '../../../shared/components/organisms/PostCreation/post
 import type { IPostCreation } from '../../../shared/components/organisms/PostCreation/types/IPostCreation';
 
 const NewPost = (): ReactElement => {
+  const [creating, setCreating] = useState<boolean>(false);
+
   const [postCreationGlobalState, setPostCreationGlobalState] =
     useState<IPostCreation.IState>(initialState);
 
@@ -64,6 +66,8 @@ const NewPost = (): ReactElement => {
             postCreationGlobalState={postCreationGlobalState}
             setPostCreationGlobalState={setPostCreationGlobalState}
             useFormConfig={useFormConfig}
+            creating={creating}
+            setCreating={setCreating}
           />
         </Modal>
       )}

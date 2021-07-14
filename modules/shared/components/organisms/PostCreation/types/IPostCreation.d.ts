@@ -7,6 +7,8 @@ declare namespace IPostCreation {
     postCreationGlobalState: IState;
     setPostCreationGlobalState: (state: IState) => void;
     useFormConfig: UseFormReturn;
+    creating: boolean;
+    setCreating: React.Dispatch<React.SetStateAction<boolean>>;
   }
   export interface IPostStructure {
     postType: EPollType.ImagePoll | EPollType.MiniSurvey | EPollType.TextPoll;
