@@ -11,6 +11,7 @@ declare namespace IVotesApi {
   export interface IVotesData {
     voteCount: number;
     optionId: string;
+    voted: boolean;
   }
 
   export interface IVotesErrorData {

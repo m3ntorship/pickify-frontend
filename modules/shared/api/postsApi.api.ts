@@ -15,7 +15,10 @@ const postsApiAxiosInstance = axios.create({});
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const { headers } = config as IGetPosts.IAxiosConfig;
-    headers.Authorization = `Bearer ${getUser()}`;
+    if (!headers.Authorization) {
+      headers.Authorization = `Bearer ${getUser()}`;
+      return config;
+    }
     return config;
   },
   async (e: Error) => Promise.reject(e),

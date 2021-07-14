@@ -4,18 +4,21 @@ import type { IGetPosts } from './IGetPosts';
 import { postsApi } from './postsApi.api';
 // import { mockedData } from './postsMockedData';
 
-export const getPosts = async (): Promise<IGetPosts.IData> => {
-  const notFound = 404;
+export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
   return postsApi
-    .getPosts()
+    .getPosts(undefined, undefined, {
+      headers: userId && { Authorization: `Bearer ${userId}` },
+    })
     .then(({ data }) => {
       return { data };
     })
     .catch((error: AxiosError) => {
+      const { response } = error as { response?: { status: number } };
+      const notFound = 500;
       return {
         data: {
           error: true,
-          errorCode: error.response ? error.response.status : notFound,
+          errorCode: response ? response.status : notFound,
           message: error.message,
         },
       };

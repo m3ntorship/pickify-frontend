@@ -11,7 +11,6 @@ describe('MiniSurveyViewOptions component', () => {
       .create(
         <MiniSurveyViewOptions
           optionsGroups={optionsGroups}
-          optionCheckedId="1"
           addOneVote={(): boolean => true}
         />,
       )
@@ -25,7 +24,6 @@ describe('MiniSurveyViewOptions component', () => {
     render(
       <MiniSurveyViewOptions
         optionsGroups={optionsGroups}
-        optionCheckedId="1"
         addOneVote={(): boolean => true}
       />,
     );
