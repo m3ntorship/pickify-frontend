@@ -28,10 +28,11 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   postCreationGlobalState,
   setPostCreationGlobalState,
   useFormConfig,
+  creating,
+  setCreating,
 }): ReactElement => {
   const zero = 0;
   // post creation global initial state setup
-  const [creating, setCreating] = useState<boolean>(false);
 
   const [mediaCount, setMediaCount] = useState<{
     imagePoll: number;
