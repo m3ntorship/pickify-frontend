@@ -63,9 +63,11 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
               </div>
             ))}
           </div>
-          <div className="absolute bottom-4 left-4">
-            <ImageCaption imgCaption={groupName} />
-          </div>
+          {groupName && (
+            <div className="absolute bottom-4 left-4">
+              <ImageCaption imgCaption={groupName} />
+            </div>
+          )}
         </>
       ) : (
         <div className="flex items-center justify-center">
