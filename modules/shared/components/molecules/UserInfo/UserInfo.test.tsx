@@ -8,7 +8,7 @@ describe('UserInfo', () => {
     expect(screen.getByTestId('name')).toHaveTextContent('Anonymous');
   });
 
-  it('if isHidden equalls true, name becomes Anonymous as well even if a name is set', () => {
+  it('if isHidden equalls true, name becomes the passed username if a name is set', () => {
     render(
       <UserInfo
         isHidden
@@ -16,7 +16,7 @@ describe('UserInfo', () => {
         name="Ahmed Ayoub"
       />,
     );
-    expect(screen.getByTestId('name')).toHaveTextContent('Anonymous');
+    expect(screen.getByTestId('name')).toHaveTextContent('Ahmed Ayoub');
   });
 
   it('if isHidden equalls false, name is whatever passed to the name prop', () => {

@@ -12,7 +12,7 @@ declare namespace IPostFeed {
     type: EPostType;
     options_groups: { groups: IGroup[] };
     caption: string;
-    user: IUser;
+    user?: IUser;
     media: { url: string }[];
   }
   export interface IGroup {

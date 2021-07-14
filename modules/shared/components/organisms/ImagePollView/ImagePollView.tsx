@@ -12,14 +12,15 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
   addOneVote,
 }): ReactElement => {
   const { totalVotes } = getVotesResults(post.options_groups.groups[0].options);
+  const { user } = post;
   return (
     <div className="bg-white p-m shadow-soft rounded-md space-y-4" id={post.id}>
       <PostViewHeader
         postId={post.id}
-        userId={post.user.id}
+        userId={user ? user.id : ''}
         date={new Date(post.created_at)}
-        name={post.user.name}
-        profilePic={post.user.profile_pic}
+        name={user ? user.name : undefined}
+        profilePic={user ? user.profile_pic : undefined}
         isHidden={post.is_hidden}
         deletePostHandler={deletePostHandler}
       />

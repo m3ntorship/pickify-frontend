@@ -16,16 +16,21 @@ const UserInfo: FC<IUserInfo.IProps> = ({
   name,
   date,
 }): ReactElement => {
+  const username = name ?? (isHidden ? 'Anonymous' : 'hidden user');
+  const userImage = profilePic ? false : isHidden;
   return (
     <div className={styles['outer-wrapper']}>
       <Avatar
         size="medium"
-        variant={handleAvatarVariant(isHidden, profilePic)}
+        variant={handleAvatarVariant(userImage, profilePic)}
         profilePic={profilePic}
       />
       <div className={styles['user-wrapper']}>
         <span className={styles.name} data-testid="name">
-          {isHidden ? 'Anonymous' : name}
+          {username}
+          {isHidden && name && (
+            <span className="ml-2 text-grey text-xs">(anonymous)</span>
+          )}
         </span>
         <span title={exactDate(date)} className={styles.date}>
           {humanReadableDate(date)}
