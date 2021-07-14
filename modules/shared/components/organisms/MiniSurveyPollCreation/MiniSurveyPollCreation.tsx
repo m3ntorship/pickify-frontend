@@ -289,6 +289,7 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
             maxFiles={configPostCreation.maxUploadedFiles}
             entityType="post"
             lastFilesLength={post.media.length}
+            required={false}
           />
         )}
 

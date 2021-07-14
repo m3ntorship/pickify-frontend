@@ -12,6 +12,7 @@ const FileUploader: FC<IFileUploader.IProps> = ({
   maxFiles,
   entityType,
   lastFilesLength,
+  required = false,
 }): ReactElement => {
   const zero = 0;
   const [filesErrors, setFilesErrors] = useState<
@@ -33,7 +34,7 @@ const FileUploader: FC<IFileUploader.IProps> = ({
 
   const ImageUploaderRegister = {
     ...register(`uploadedFilesIn${entityType}`, {
-      required: true,
+      required,
       shouldUnregister: false,
     }),
   };
