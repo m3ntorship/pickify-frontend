@@ -7,8 +7,8 @@ import TextInput from '../../../shared/components/atoms/TextInputs/TextInput';
 import * as ETextInput from '../../../shared/components/atoms/TextInputs/types/ETextInput';
 import Avatar from '../../../shared/components/atoms/Avatar/Avatar';
 import styles from './NewPost.module.css';
-import initialState from './postCreationInitialState';
-import type { IPostCreation } from './types/IPostCreation';
+import initialState from '../../../shared/components/organisms/PostCreation/postCreationInitialState';
+import type { IPostCreation } from '../../../shared/components/organisms/PostCreation/types/IPostCreation';
 
 const NewPost = (): ReactElement => {
   const [postCreationGlobalState, setPostCreationGlobalState] =
