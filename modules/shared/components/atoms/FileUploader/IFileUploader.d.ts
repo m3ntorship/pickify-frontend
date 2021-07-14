@@ -5,6 +5,7 @@ declare namespace IFileUploader {
     maxFiles: number;
     lastFilesLength: number;
     entityType: 'group' | 'option' | 'post';
+    required?: boolean;
   }
 
   export interface IHandlers {

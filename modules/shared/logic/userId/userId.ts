@@ -24,6 +24,8 @@ const getUserId = (userName: string | null): string => {
 
 export const setUser = (): void => {
   const username: string | null = prompt('username?');
-  localStorage.setItem('user', String(getUserId(username)));
+  const userId = getUserId(username);
+  document.cookie = `user=${String(userId)}`;
+  localStorage.setItem('user', String(userId));
   window.location.reload();
 };

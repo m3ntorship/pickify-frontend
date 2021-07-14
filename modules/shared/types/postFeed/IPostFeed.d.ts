@@ -12,7 +12,7 @@ declare namespace IPostFeed {
     type: EPostType;
     options_groups: { groups: IGroup[] };
     caption: string;
-    user: IUser;
+    user?: IUser;
     media: { url: string }[];
   }
   export interface IGroup {
@@ -26,6 +26,7 @@ declare namespace IPostFeed {
     body: string;
     vote_count?: number;
     media: { url: string }[];
+    voted: boolean;
   }
   export interface IUser {
     profile_pic: string;

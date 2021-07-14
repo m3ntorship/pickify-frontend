@@ -1,4 +1,4 @@
-import { postClient } from '@m3ntorship/posts-client';
+import { postClient, mediaClient } from '@m3ntorship/posts-client';
 import type { Configuration } from '@m3ntorship/posts-client/dist/post-client';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
@@ -15,7 +15,10 @@ const postsApiAxiosInstance = axios.create({});
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const { headers } = config as IGetPosts.IAxiosConfig;
-    headers.Authorization = `Bearer ${getUser()}`;
+    if (!headers.Authorization) {
+      headers.Authorization = `Bearer ${getUser()}`;
+      return config;
+    }
     return config;
   },
   async (e: Error) => Promise.reject(e),
@@ -23,7 +26,7 @@ postsApiAxiosInstance.interceptors.request.use(
 
 export const postsApi = new postClient.PostsApi(
   {
-    basePath: 'https://pickify-posts-be-dev.pickify.net/api',
+    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
@@ -31,36 +34,12 @@ export const postsApi = new postClient.PostsApi(
 
 export const votesApi = new postClient.VotesApi(
   {
-    basePath: 'https://pickify-posts-be-dev.pickify.net/api',
+    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
 );
-// export const mediaApi = new MediaApi({
-//   basePath: 'https://pickify-media-be-dev.pickify.net/api',
-// });
 
-export const uploadOneMedia = (
-  file: File,
-  entityType: string,
-  entityId: string,
-): void => {
-  const formData = new FormData();
-  formData.append('file', file);
-  formData.append('entity_type', entityType);
-  formData.append('entity_id', entityId);
-  postsApiAxiosInstance({
-    method: 'post',
-    url: 'https://pickify-media-be-dev.pickify.net/api/media',
-    data: formData,
-    headers: { 'Content-Type': 'multipart/form-data' },
-  })
-    .then(function (response) {
-      // handle success
-      console.log(response);
-    })
-    .catch(function (response) {
-      // handle error
-      console.log(response);
-    });
-};
+export const mediaApi = new mediaClient.MediaApi({
+  basePath: 'https://pickify-media-be-dev.pickify.net/api',
+} as Configuration);
