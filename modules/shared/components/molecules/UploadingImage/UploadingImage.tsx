@@ -21,7 +21,6 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   const { register } = useFormContext();
   const { error, message } = useUploadedFiles(file);
   const url = useUpdatedImageData({ file, id, entityType });
-  console.log(file);
   const imgClasses = classNames(styles.image, {
     'filter blur-sm ': error,
   });
