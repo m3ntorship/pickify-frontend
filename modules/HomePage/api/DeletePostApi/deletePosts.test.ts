@@ -8,7 +8,7 @@ const mockPostsApi = postsApi as jest.Mocked<typeof postsApi>;
 
 describe('delete Posts api', () => {
   it('assert the resolved state with the returned successfull respond data ', async () => {
-    mockPostsApi.deleteOnePost.mockResolvedValue({
+    const mockPostDeletion = mockPostsApi.deleteOnePost.mockResolvedValue({
       data: undefined,
       status: 204,
       statusText: 'ok',
@@ -22,7 +22,7 @@ describe('delete Posts api', () => {
       error: false,
       message: 'Post has been deleted successfully',
     };
-
+    expect(mockPostDeletion).toHaveBeenCalledWith('1');
     expect(resData).toEqual(resolvedData);
   });
 
