@@ -11,7 +11,6 @@ describe('TextPollViewOptions component', () => {
     const tree = renderer
       .create(
         <TextPollViewOptions
-          optionCheckedId="1"
           addOneVote={mockedFn}
           optionsGroups={apiDummyData.options_groups}
         />,
@@ -26,7 +25,6 @@ describe('TextPollViewOptions component', () => {
 
     render(
       <TextPollViewOptions
-        optionCheckedId="1"
         addOneVote={mockedFn}
         optionsGroups={apiDummyData.options_groups}
       />,

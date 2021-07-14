@@ -15,7 +15,10 @@ const postsApiAxiosInstance = axios.create({});
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const { headers } = config as IGetPosts.IAxiosConfig;
-    headers.Authorization = `Bearer ${getUser()}`;
+    if (!headers.Authorization) {
+      headers.Authorization = `Bearer ${getUser()}`;
+      return config;
+    }
     return config;
   },
   async (e: Error) => Promise.reject(e),
@@ -23,7 +26,7 @@ postsApiAxiosInstance.interceptors.request.use(
 
 export const postsApi = new postClient.PostsApi(
   {
-    basePath: ' https://pickify-posts-be-dev.m3ntorship.net/api',
+    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
@@ -31,7 +34,7 @@ export const postsApi = new postClient.PostsApi(
 
 export const votesApi = new postClient.VotesApi(
   {
-    basePath: ' https://pickify-posts-be-dev.m3ntorship.net/api',
+    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
