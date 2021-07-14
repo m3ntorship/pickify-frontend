@@ -29,6 +29,7 @@ export const postsApi = new postClient.PostsApi(
     basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
   } as Configuration,
   undefined,
+  postsApiAxiosInstance,
 );
 
 export const votesApi = new postClient.VotesApi(
