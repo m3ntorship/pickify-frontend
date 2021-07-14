@@ -277,7 +277,9 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
                 handleVerticalThreeDotsClick={(): void => {
                   handleVerticalThreeDotsClick();
                 }}
-              />
+              >
+                <input type="hidden" />
+              </UploadingImage>
             ))}
           </div>
         ) : (
