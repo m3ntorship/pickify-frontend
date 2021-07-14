@@ -13,13 +13,24 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
   addOneVote,
   deletePostHandler,
 }): ReactElement => {
-  const firstOption = 0;
   let votedOptions: IPostFeed.IOptions[] = [];
+
   post.options_groups.groups.map((group) => {
     const votes = group.options.map((option) => option);
     votedOptions = [...votedOptions, ...votes];
     return group;
   });
+
+  const showTotalVotes = (): boolean => {
+    const totalVotes = votedOptions.filter(
+      (option) => option.vote_count !== undefined,
+    );
+    if (totalVotes.length > 0) {
+      return true;
+    }
+    return false;
+  };
+
   const { totalVotes } = getVotesResults(votedOptions);
   const { user } = post;
   return (
@@ -68,7 +79,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
       />
       <PostViewFooter
         numberOfVotes={totalVotes}
-        showResult={votedOptions[firstOption].vote_count !== undefined}
+        showResult={showTotalVotes()}
       />
     </div>
   );
