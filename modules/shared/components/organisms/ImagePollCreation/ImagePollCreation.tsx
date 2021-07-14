@@ -327,6 +327,7 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
             lastFilesLength={
               postCreationGlobalState.imagePoll.groups[zero].options.length
             }
+            required
           />
         </div>
       )}

@@ -277,7 +277,9 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
                 handleVerticalThreeDotsClick={(): void => {
                   handleVerticalThreeDotsClick();
                 }}
-              />
+              >
+                <input type="hidden" />
+              </UploadingImage>
             ))}
           </div>
         ) : (
@@ -289,6 +291,7 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
             maxFiles={configPostCreation.maxUploadedFiles}
             entityType="post"
             lastFilesLength={post.media.length}
+            required={false}
           />
         )}
 
