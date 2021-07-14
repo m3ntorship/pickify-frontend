@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ReactText } from 'react';
-import { useForm, FormProvider } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
@@ -23,66 +23,16 @@ const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
   }
 };
 
-const randomId = (): string => {
-  const randomHelper = 10000000000;
-  return `id_${Math.round(Math.random() * randomHelper)}`;
-};
-
 const PostCreation: FC<IPostCreation.IProps> = ({
   closeModalHandler,
+  postCreationGlobalState,
+  setPostCreationGlobalState,
+  useFormConfig,
 }): ReactElement => {
   const zero = 0;
   // post creation global initial state setup
   const [creating, setCreating] = useState<boolean>(false);
-  const [postCreationGlobalState, setPostCreationGlobalState] =
-    useState<IPostCreation.IState>(initialState);
-  useEffect(() => {
-    setPostCreationGlobalState({
-      ...postCreationGlobalState,
-      miniSurvey: {
-        ...initialState.miniSurvey,
-        groups: [
-          {
-            id: randomId(),
-            name: '',
-            options: [
-              { id: randomId(), body: '', media: [] },
-              { id: randomId(), body: '', media: [] },
-            ],
-            media: [],
-          },
-        ],
-        media: [],
-      },
-      textPoll: {
-        ...initialState.textPoll,
-        groups: [
-          {
-            id: randomId(),
-            name: 'Group 0',
-            options: [
-              { id: randomId(), body: '', media: [] },
-              { id: randomId(), body: '', media: [] },
-            ],
-            media: [],
-          },
-        ],
-        media: [],
-      },
-      imagePoll: {
-        ...initialState.imagePoll,
-        groups: [
-          {
-            id: randomId(),
-            name: 'Group 0',
-            options: [],
-            media: [],
-          },
-        ],
-        media: [],
-      },
-    });
-  }, []);
+
   const [mediaCount, setMediaCount] = useState<{
     imagePoll: number;
     textPoll: number;
@@ -137,19 +87,15 @@ const PostCreation: FC<IPostCreation.IProps> = ({
           };
         }),
       };
-      // setPostCreationGlobalState({
-      //   ...postCreationGlobalState,
-      //   imagePoll: newImagePoll,
-      // });
     }
     return postCreationGlobalState.imagePoll;
   };
 
   // hook-form setup
-  const methods = useForm({
-    mode: 'onSubmit',
-    reValidateMode: 'onChange',
-  });
+  // const methods = useForm({
+  //   mode: 'onSubmit',
+  //   reValidateMode: 'onChange',
+  // });
   const toastId = React.useRef<ReactText>();
   const onSubmit = (): void => {
     const {
@@ -158,7 +104,6 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       currentSelectedTab,
       textPoll,
       miniSurvey,
-      // imagePoll,
     } = postCreationGlobalState;
     const state = {
       createdAt: new Date().toISOString(),
@@ -206,7 +151,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       toasterHandler(res);
       closeModalHandler();
       // reset
-      methods.reset();
+      useFormConfig.reset();
       setPostCreationGlobalState({
         ...initialState,
         currentSelectedTab: postCreationGlobalState.currentSelectedTab,
@@ -243,8 +188,8 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   };
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+    <FormProvider {...useFormConfig}>
+      <form onSubmit={useFormConfig.handleSubmit(onSubmit)}>
         <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
           <div>
             <CreatePostHeader
@@ -282,7 +227,9 @@ const PostCreation: FC<IPostCreation.IProps> = ({
           </div>
           <div>
             <PostFooterCreation
-              postButtonIsDisabled={!methods.formState.isDirty || creating}
+              postButtonIsDisabled={
+                !useFormConfig.formState.isDirty || creating
+              }
               handleSubmitButtonClick={(): boolean => true}
               handleCancelButtonClick={closeModalHandler}
               handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
