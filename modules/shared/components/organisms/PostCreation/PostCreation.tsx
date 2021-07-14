@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import type { FC, ReactElement } from 'react';
+import type { FC, ReactElement, ReactText } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import type { IGetPosts } from '../../../api/IGetPosts';
+import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
 import TextPollCreation from '../TextPollCreation/TextPollCreation';
@@ -14,13 +14,15 @@ import { EPollType } from './types/EPollType';
 import initialState from './postCreationInitialState';
 import { createPollPost } from '../../../api/createPollPost';
 
-const toasterHandler = (res: IGetPosts.IErrorData): void => {
-  if (!res.error) {
-    toast.success('your poll has been created successfully');
+const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
+  console.log(res);
+  if (res.statusCode >= 400 || res.statusCode === 0) {
+    res.errors.forEach((err) => toast.error(err));
   } else {
-    toast.error('Error has been occured!');
+    toast.success('Your poll has been created successfully!');
   }
 };
+
 const randomId = (): string => {
   const randomHelper = 10000000000;
   return `id_${Math.round(Math.random() * randomHelper)}`;
@@ -31,6 +33,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
 }): ReactElement => {
   const zero = 0;
   // post creation global initial state setup
+  const [creating, setCreating] = useState<boolean>(false);
   const [postCreationGlobalState, setPostCreationGlobalState] =
     useState<IPostCreation.IState>(initialState);
   useEffect(() => {
@@ -147,6 +150,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
   });
+  const toastId = React.useRef<ReactText>();
   const onSubmit = (): void => {
     const {
       privacy,
@@ -162,45 +166,52 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       isHiddenIdentity,
       currentSelectedTab,
     };
-    switch (currentSelectedTab) {
-      case EPollType.TextPoll:
-        createPollPost({
-          ...state,
-          mediaCount: mediaCount.textPoll,
-          ...textPoll,
-        }).then((res) => {
-          toasterHandler(res);
-          console.log(res);
-        }) as Promise<IGetPosts.IErrorData>;
-        break;
-      case EPollType.MiniSurvey:
-        createPollPost({
-          ...state,
-          mediaCount: mediaCount.miniSurvey,
-          ...miniSurvey,
-        }).then((res) => {
-          toasterHandler(res);
-          console.log(res);
-        }) as Promise<IGetPosts.IErrorData>;
-        break;
-      case EPollType.ImagePoll:
-        createPollPost({
-          ...state,
-          mediaCount: mediaCount.imagePoll,
-          ...transformFromOptionsToGroup(),
-        }).then((res) => {
-          toasterHandler(res);
-          console.log(res);
-        }) as Promise<IGetPosts.IErrorData>;
-        break;
-      default:
-        break;
-    }
-    methods.reset();
-    setPostCreationGlobalState({
-      ...initialState,
-      currentSelectedTab: postCreationGlobalState.currentSelectedTab,
-    });
+    let res: IpostCreationAPI.ICreatePollReturnedRes = {
+      data: null,
+      errors: [],
+      statusCode: 0,
+    };
+    (async function (): Promise<void> {
+      setCreating(true);
+      toastId.current = toast.warning('Please wait while creating the poll', {
+        autoClose: false,
+      });
+      switch (currentSelectedTab) {
+        case EPollType.TextPoll:
+          res = await createPollPost({
+            ...state,
+            mediaCount: mediaCount.textPoll,
+            ...textPoll,
+          });
+          break;
+        case EPollType.MiniSurvey:
+          res = await createPollPost({
+            ...state,
+            mediaCount: mediaCount.miniSurvey,
+            ...miniSurvey,
+          });
+          break;
+        case EPollType.ImagePoll:
+          res = await createPollPost({
+            ...state,
+            mediaCount: mediaCount.imagePoll,
+            ...transformFromOptionsToGroup(),
+          });
+          break;
+        default:
+          break;
+      }
+      toast.dismiss(toastId.current);
+      setCreating(false);
+      toasterHandler(res);
+      closeModalHandler();
+      // reset
+      methods.reset();
+      setPostCreationGlobalState({
+        ...initialState,
+        currentSelectedTab: postCreationGlobalState.currentSelectedTab,
+      });
+    })() as unknown as Promise<void>;
   };
 
   // Header and footer events handlers
@@ -229,9 +240,6 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       ...postCreationGlobalState,
       privacy: e.target.value,
     });
-  };
-  const postButtonHandler = (): ReturnType<typeof setTimeout> => {
-    return setTimeout(closeModalHandler, 200);
   };
 
   return (
@@ -274,8 +282,8 @@ const PostCreation: FC<IPostCreation.IProps> = ({
           </div>
           <div>
             <PostFooterCreation
-              postButtonIsDisabled={!methods.formState.isDirty}
-              handleSubmitButtonClick={postButtonHandler}
+              postButtonIsDisabled={!methods.formState.isDirty || creating}
+              handleSubmitButtonClick={(): boolean => true}
               handleCancelButtonClick={closeModalHandler}
               handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
               handlePrivacySelectChange={handlePrivacySelectChange}

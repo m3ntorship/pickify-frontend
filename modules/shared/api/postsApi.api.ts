@@ -23,7 +23,7 @@ postsApiAxiosInstance.interceptors.request.use(
 
 export const postsApi = new postClient.PostsApi(
   {
-    basePath: 'https://pickify-posts-be-dev.pickify.net/api',
+    basePath: ' https://pickify-posts-be-dev.m3ntorship.net/api',
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
@@ -31,7 +31,7 @@ export const postsApi = new postClient.PostsApi(
 
 export const votesApi = new postClient.VotesApi(
   {
-    basePath: 'https://pickify-posts-be-dev.pickify.net/api',
+    basePath: ' https://pickify-posts-be-dev.m3ntorship.net/api',
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
