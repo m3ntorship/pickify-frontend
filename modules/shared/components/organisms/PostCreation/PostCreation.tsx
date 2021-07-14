@@ -159,7 +159,9 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       });
     })() as unknown as Promise<void>;
   };
-
+  const onError = (): void => {
+    toast.error('Please, check the errors, and try again.');
+  };
   // Header and footer events handlers
   const handleChangeTabsValue = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -190,7 +192,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
 
   return (
     <FormProvider {...useFormConfig}>
-      <form onSubmit={useFormConfig.handleSubmit(onSubmit)}>
+      <form onSubmit={useFormConfig.handleSubmit(onSubmit, onError)}>
         <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
           <div>
             <CreatePostHeader
