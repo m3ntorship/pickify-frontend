@@ -7,7 +7,7 @@ import { postsApi } from './postsApi.api';
 export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
   return postsApi
     .getPosts(undefined, undefined, {
-      headers: { Authorization: `Bearer ${userId}` },
+      headers: userId && { Authorization: `Bearer ${userId}` },
     })
     .then(({ data }) => {
       return { data };
