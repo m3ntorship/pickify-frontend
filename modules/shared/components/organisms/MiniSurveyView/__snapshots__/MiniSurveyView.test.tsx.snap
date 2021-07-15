@@ -130,6 +130,7 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
   <div>
     <h3
       className="font-normal text-md"
+      dir="auto"
     >
       nalyzing Delaware Frozen
     </h3>
@@ -275,10 +276,9 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </span>
             <p
               className="option"
+              dir="auto"
             >
-               
               ali tramsy
-               
             </p>
             <span />
           </span>
@@ -314,10 +314,9 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </span>
             <p
               className="option"
+              dir="auto"
             >
-               
                ahmed essam
-               
             </p>
             <span />
           </span>
@@ -353,10 +352,9 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </span>
             <p
               className="option"
+              dir="auto"
             >
-               
                omar gamal
-               
             </p>
             <span />
           </span>

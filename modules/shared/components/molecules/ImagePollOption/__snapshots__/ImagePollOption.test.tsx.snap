@@ -150,6 +150,7 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
       />
       <span
         className="image-caption"
+        dir="auto"
         title="caption"
       >
         caption
@@ -329,6 +330,7 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
       />
       <span
         className="image-caption"
+        dir="auto"
         title="caption"
       >
         caption
@@ -507,6 +509,7 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
       />
       <span
         className="image-caption"
+        dir="auto"
         title="caption"
       >
         caption

@@ -19,10 +19,9 @@ exports[`Snapshot testing for OptionViewCoverd component Testing TextOptionViewC
     </span>
     <p
       className="option"
+      dir="auto"
     >
-       
       option 1
-       
     </p>
     <span />
   </span>

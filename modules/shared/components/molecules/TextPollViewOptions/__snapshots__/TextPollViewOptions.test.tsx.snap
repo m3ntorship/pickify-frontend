@@ -24,10 +24,9 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
         </span>
         <p
           className="option"
+          dir="auto"
         >
-           
           ali tramsi
-           
         </p>
         <span />
       </span>
@@ -60,10 +59,9 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
         </span>
         <p
           className="option"
+          dir="auto"
         >
-           
            ahmed essam
-           
         </p>
         <span />
       </span>
@@ -96,10 +94,9 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
         </span>
         <p
           className="option"
+          dir="auto"
         >
-           
            omar gamal
-           
         </p>
         <span />
       </span>

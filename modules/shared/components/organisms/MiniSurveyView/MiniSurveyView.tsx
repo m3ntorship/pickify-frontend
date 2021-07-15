@@ -45,7 +45,9 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
         deletePostHandler={deletePostHandler}
       />
       <div>
-        <h3 className="font-normal text-md">{post.caption}</h3>
+        <h3 className="font-normal text-md" dir="auto">
+          {post.caption}
+        </h3>
       </div>
       {post.media.length !== 0 && (
         <>

@@ -58,11 +58,10 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
           <label htmlFor={id} className={styles['form-label']}>
             {label}
           </label>
-        ) : (
-          ' '
-        )}
+        ) : null}
         <div className={styles['form-control']}>
           <input
+            dir="auto"
             ref={ref}
             className={inputClasses}
             data-testid="text-input"
