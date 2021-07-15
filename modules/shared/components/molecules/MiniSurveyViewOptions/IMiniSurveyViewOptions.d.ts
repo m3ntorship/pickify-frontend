@@ -4,7 +4,6 @@ declare namespace IMiniSurveyViewOptions {
   export interface IProps {
     optionsGroups: { groups: IPostFeed.IGroup[] };
     addOneVote: (optionId: string, grouId: string) => void;
-    optionCheckedId: string;
   }
 }
 

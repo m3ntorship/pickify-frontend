@@ -7,7 +7,6 @@ import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptio
 
 const OptionGroup: FC<IOptionGroupView.IProps> = ({
   group,
-  optionCheckedId,
   addOneVote,
 }): ReactElement => {
   const zero = 0;
@@ -32,7 +31,7 @@ const OptionGroup: FC<IOptionGroupView.IProps> = ({
               <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}
-                isOptionChecked={optionCheckedId === option.id}
+                isOptionChecked={option.voted}
                 letter={letter}
                 mostVoted={option.vote_count === mostAndLeastVoted[zero]}
                 percentage={optionsPercentage[index]}

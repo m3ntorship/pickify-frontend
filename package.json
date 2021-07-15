@@ -15,7 +15,7 @@
     "lint:fix": "yarn lint:js && yarn lint:styles"
   },
   "dependencies": {
-    "@m3ntorship/posts-client": "^2.1.0",
+    "@m3ntorship/posts-client": "^4.0.0",
     "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",

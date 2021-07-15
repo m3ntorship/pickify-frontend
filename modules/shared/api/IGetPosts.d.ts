@@ -1,4 +1,4 @@
-import type { InlineResponse200 } from '@m3ntorship/posts-client/dist/client';
+import type { InlineResponse200 } from '@m3ntorship/posts-client/dist/post-client';
 
 declare namespace IGetPosts {
   export interface IData {

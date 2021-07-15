@@ -27,7 +27,10 @@ const Option: FC<IOption.IProps> = ({
   } = useFormContext<IOption.IOptionsMap>();
 
   const optionRegister = {
-    ...register(`options.${id}`, { required: true, shouldUnregister: true }),
+    ...register(`options.${id}`, {
+      required: true,
+      shouldUnregister: true,
+    }),
   };
 
   const inputVariantsHandler = (optionId: string): ETextInput.Variants => {

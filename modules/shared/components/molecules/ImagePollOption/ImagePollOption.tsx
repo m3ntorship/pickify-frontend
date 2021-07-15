@@ -5,7 +5,6 @@ import type { IImagePollOption } from './IImagePollOption';
 import ImagePollCovered from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
 import ImagePollUncovered from '../ImagePollUncovered/ImagePollUncovered';
-import { apiUrls } from '../../../configuration/ConfigPostCreation/config';
 
 const ImagePollOption: FC<IImagePollOption.IProps> = ({
   media,
@@ -26,8 +25,7 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
             <div key={image.url} className="relative">
               <div className="absolute w-full h-full rounded-md overflow-hidden">
                 <Image
-                  key={image.url}
-                  src={`${apiUrls.mediaAPI}${image.url}`}
+                  src={image.url}
                   layout="responsive"
                   className="filter blur-sm"
                   objectFit="cover"
@@ -36,7 +34,7 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
                 />
               </div>
               <Image
-                src={`${apiUrls.mediaAPI}${image.url}`}
+                src={image.url}
                 layout="responsive"
                 className="rounded-md"
                 objectFit="contain"

@@ -10,10 +10,10 @@ import {
 describe('Testing voting stats logic', () => {
   it('getOptionsVotes should return array of options votes', () => {
     const options: IPostFeed.IOptions[] = [
-      { vote_count: 80, id: '1', body: 'option 1', media: [] },
-      { vote_count: 70, id: '2', body: 'option 2', media: [] },
-      { vote_count: 40, id: '3', body: 'option 3', media: [] },
-      { vote_count: 60, id: '4', body: 'option 4', media: [] },
+      { vote_count: 80, id: '1', body: 'option 1', media: [], voted: false },
+      { vote_count: 70, id: '2', body: 'option 2', media: [], voted: true },
+      { vote_count: 40, id: '3', body: 'option 3', media: [], voted: false },
+      { vote_count: 60, id: '4', body: 'option 4', media: [], voted: false },
     ];
     const firstVote = 80;
     const secondVote = 70;
@@ -85,10 +85,10 @@ describe('Testing voting stats logic', () => {
 
   it('getVotesResults should return [most and least votes] and array options percentage', () => {
     const options: IPostFeed.IOptions[] = [
-      { vote_count: 80, id: '1', body: 'option 1', media: [] },
-      { vote_count: 70, id: '2', body: 'option 2', media: [] },
-      { vote_count: 40, id: '3', body: 'option 3', media: [] },
-      { vote_count: 60, id: '4', body: 'option 4', media: [] },
+      { vote_count: 80, id: '1', body: 'option 1', media: [], voted: false },
+      { vote_count: 70, id: '2', body: 'option 2', media: [], voted: true },
+      { vote_count: 40, id: '3', body: 'option 3', media: [], voted: false },
+      { vote_count: 60, id: '4', body: 'option 4', media: [], voted: false },
     ];
 
     const mostVoted = 80;
