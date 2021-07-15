@@ -6,10 +6,10 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
   data-testid="image-poll-option"
 >
   <div
-    className="relative"
+    className="image-view-wrapper"
   >
     <div
-      className="absolute w-full h-full rounded-md overflow-hidden"
+      className="bg-image-box"
     >
       <div
         style={
@@ -32,8 +32,10 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
           }
         />
         <img
-          className="filter blur-sm"
+          alt="group"
+          className="bg-image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -82,8 +84,10 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
         }
       />
       <img
-        className="rounded-md"
+        alt="group"
+        className="image"
         decoding="async"
+        id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
           Object {
@@ -190,10 +194,10 @@ exports[`SignleImagePollOption should render uncovored like and dislike icons wh
   data-testid="image-poll-option"
 >
   <div
-    className="relative"
+    className="image-view-wrapper"
   >
     <div
-      className="absolute w-full h-full rounded-md overflow-hidden"
+      className="bg-image-box"
     >
       <div
         style={
@@ -216,8 +220,10 @@ exports[`SignleImagePollOption should render uncovored like and dislike icons wh
           }
         />
         <img
-          className="filter blur-sm"
+          alt="group"
+          className="bg-image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -266,8 +272,10 @@ exports[`SignleImagePollOption should render uncovored like and dislike icons wh
         }
       />
       <img
-        className="rounded-md"
+        alt="group"
+        className="image"
         decoding="async"
+        id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
           Object {

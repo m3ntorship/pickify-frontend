@@ -1,10 +1,10 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import Image from 'next/image';
 import type { IImagePollOption } from './IImagePollOption';
 import ImagePollCovered from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
 import ImagePollUncovered from '../ImagePollUncovered/ImagePollUncovered';
+import ImageView from '../../atoms/ImageView/ImageView';
 
 const ImagePollOption: FC<IImagePollOption.IProps> = ({
   media,
@@ -22,26 +22,12 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
       {media.length !== 0 ? (
         <>
           {media.map((image) => (
-            <div key={image.url} className="relative">
-              <div className="absolute w-full h-full rounded-md overflow-hidden">
-                <Image
-                  src={image.url}
-                  layout="responsive"
-                  className="filter blur-sm"
-                  objectFit="cover"
-                  width={600}
-                  height={600}
-                />
-              </div>
-              <Image
-                src={image.url}
-                layout="responsive"
-                className="rounded-md"
-                objectFit="contain"
-                width={600}
-                height={600}
-              />
-            </div>
+            <ImageView
+              key={image.url}
+              imgSrc={image.url}
+              id={image.url}
+              imgAlt="option"
+            />
           ))}
           <div className="absolute bottom-4 right-4">
             {isVoted ? (
