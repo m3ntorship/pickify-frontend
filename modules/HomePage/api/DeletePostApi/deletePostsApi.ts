@@ -1,9 +1,9 @@
-import { postsApi } from '@modules/shared/api/postsApi.api';
-import type { IPostsApi } from './IPostsApi';
+import { postsApi } from '../../../shared/api/postsApi.api';
+import type { IDeletePostsApi } from './IDeletePostsApi';
 
 export const deletePost = async (
   postId: string,
-): Promise<IPostsApi.IPostsRes> => {
+): Promise<IDeletePostsApi.IDeletePostsRes> => {
   try {
     await postsApi.deleteOnePost(postId);
 
@@ -14,7 +14,7 @@ export const deletePost = async (
       },
     };
   } catch (error: unknown) {
-    const { response } = error as IPostsApi.IErrorData;
+    const { response } = error as IDeletePostsApi.IDeletePostsResErrorData;
     let message = '';
     if (!response) {
       return {
