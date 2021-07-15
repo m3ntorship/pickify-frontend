@@ -25,7 +25,9 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
         deletePostHandler={deletePostHandler}
       />
       <div>
-        <h3 className="font-normal text-md">{post.caption}</h3>
+        <h3 className="font-normal text-md" dir="auto">
+          {post.caption}
+        </h3>
       </div>
       <ImagePollGroup
         group={post.options_groups.groups[0]}

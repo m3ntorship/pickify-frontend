@@ -175,6 +175,7 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
       />
       <span
         className="image-caption"
+        dir="auto"
         title="caption"
       >
         caption
@@ -403,6 +404,7 @@ exports[`SignleImagePollOption should render uncovored like and dislike icons wh
       />
       <span
         className="image-caption"
+        dir="auto"
         title="caption"
       >
         caption

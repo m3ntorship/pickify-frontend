@@ -32,10 +32,9 @@ exports[`MiniSurveyViewOptions component should render () OptionGroup when we ap
           </span>
           <p
             className="option"
+            dir="auto"
           >
-             
             ali tramsy
-             
           </p>
           <span />
         </span>
@@ -68,10 +67,9 @@ exports[`MiniSurveyViewOptions component should render () OptionGroup when we ap
           </span>
           <p
             className="option"
+            dir="auto"
           >
-             
              ahmed essam
-             
           </p>
           <span />
         </span>
@@ -104,10 +102,9 @@ exports[`MiniSurveyViewOptions component should render () OptionGroup when we ap
           </span>
           <p
             className="option"
+            dir="auto"
           >
-             
              omar gamal
-             
           </p>
           <span />
         </span>

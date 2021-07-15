@@ -33,7 +33,9 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
     >
       <span className={styles['flex-container']}>
         {letter && <span className={styles.letter}>{letter}</span>}
-        <p className={styles.option}> {optionBody} </p>
+        <p className={styles.option} dir="auto">
+          {optionBody}
+        </p>
         <span />
         {isOptionChecked && (
           <span className={styles['svg-check']}>
