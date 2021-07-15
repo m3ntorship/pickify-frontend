@@ -6,11 +6,7 @@ const Feature: FC<{ name: string }> = ({
   name,
   children,
 }): ReactElement | null => {
-  const featureFlag = flags.find(
-    (feature: { name: string; desciption: string; active: boolean }) =>
-      feature.name === name,
-  );
-  if (featureFlag?.active) {
+  if (flags[name].active) {
     return <>{children}</>;
   }
   return null;
