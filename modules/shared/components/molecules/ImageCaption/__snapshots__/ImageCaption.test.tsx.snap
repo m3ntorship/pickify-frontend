@@ -14,6 +14,7 @@ exports[`imageCaption snapshots should render caption with text (Black T-shirt) 
   />
   <span
     className="image-caption"
+    dir="auto"
     title="Black T-shirt"
   >
     Black T-shirt
@@ -33,6 +34,7 @@ exports[`imageCaption snapshots should render caption without letter and divider
   />
   <span
     className="image-caption"
+    dir="auto"
     title="Black T-shirt"
   >
     Black T-shirt
