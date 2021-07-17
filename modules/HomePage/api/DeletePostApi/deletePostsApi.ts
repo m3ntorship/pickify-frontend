@@ -1,6 +1,6 @@
 import { postsApi } from '../../../shared/api/postsApi.api';
 import type { IDeletePostsApi } from './IDeletePostsApi';
-import { errorMessage } from './deletePostHandlers';
+import { errorMessage } from './deletePostHelpers';
 import { generateErrMsg } from '../../../shared/logic/generateErrMsg/generateErrMsg';
 
 export const deletePost = async (
