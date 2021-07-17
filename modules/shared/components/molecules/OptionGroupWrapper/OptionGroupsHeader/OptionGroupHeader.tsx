@@ -12,7 +12,6 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
   updateOptionsGroupNameHandler,
   deleteOptionsGroupHandler,
 }): ReactElement => {
-  const zero = 0;
   const [groupName, setGroupName] = useState<string>(
     optionGroupName || `Group ${index}`,
   );
@@ -38,7 +37,7 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
             }}
           />
           <div className="flex">
-            {index !== zero && (
+            {index > 1 && (
               <button
                 data-testid="removeGroupButton"
                 type="button"
