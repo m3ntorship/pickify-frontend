@@ -44,7 +44,7 @@ describe('delete Posts api', () => {
     const { resData } = await deletePost('3');
     const rejectedData: IDeletePostsApi.IDeletePostsErrorData = {
       error: true,
-      message: 'Not Found',
+      message: 'something went wrong',
     };
 
     expect(resData).toEqual(rejectedData);
