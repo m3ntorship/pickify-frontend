@@ -1,5 +1,6 @@
 import type { InlineResponse2001 } from '@m3ntorship/posts-client/dist/post-client';
 import type { IVotesApi } from './IvotesApi';
+import { EStatusCode } from '../../../shared/api/EStatusCode';
 
 export const transformOptions = (
   options: InlineResponse2001[],
@@ -13,16 +14,9 @@ export const transformOptions = (
   return transformedOptions;
 };
 
-export const generateErrorMessage = (
-  statusCode: number,
-  defaultMessage: string,
-): string => {
-  switch (statusCode) {
-    case 409:
-      return 'you have already voted for this option group';
-    case 404:
-      return 'something went wrong';
-    default:
-      return defaultMessage;
-  }
+export const errorMessage: Record<number, string> = {
+  [EStatusCode.Conflict]: 'you have already voted for this option group',
+  [EStatusCode.NotFound]: 'something went wrong',
+  [EStatusCode.Unauthorized]: 'Unauthorized',
+  [EStatusCode.BadRequest]: 'Bad request',
 };
