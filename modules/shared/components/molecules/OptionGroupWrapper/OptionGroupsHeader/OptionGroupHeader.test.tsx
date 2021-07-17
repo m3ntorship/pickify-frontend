@@ -78,7 +78,7 @@ describe('OptionGroupHeader', () => {
     render(
       <OptionGroupsHeader
         id={miniSurveyState.groups[zero].id}
-        index={1}
+        index={2}
         optionGroupName={miniSurveyState.groups[zero].name}
         deleteOptionsGroupHandler={deleteGroupMockedFunction}
         updateOptionsGroupNameHandler={(): boolean => true}
