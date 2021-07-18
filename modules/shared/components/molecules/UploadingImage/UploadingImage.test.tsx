@@ -22,7 +22,7 @@ const customRender = (ui: ReactElement): unknown => {
 };
 
 describe('UploadingImage', () => {
-  it('should render Misc component when we pass invalid file', async () => {
+  it('should render MessageBox component when we pass invalid file', async () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
     const fileSizeInBytes = 11_000_000;
     Object.defineProperty(file, 'size', { value: fileSizeInBytes });
@@ -37,11 +37,11 @@ describe('UploadingImage', () => {
       />,
     );
 
-    const miscComponent = screen.findByTestId('misc-box');
+    const messageBoxComponent = screen.findByTestId('misc-box');
     const subMsg = screen.findByTestId('sub-msg');
 
     await waitFor(async () => {
-      expect(await miscComponent).toBeInTheDocument();
+      expect(await messageBoxComponent).toBeInTheDocument();
       expect(await subMsg).toHaveTextContent(
         `Max size is ${configPostCreation.maxFileSizeInMegaByte} MB`,
       );

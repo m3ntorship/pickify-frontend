@@ -1,15 +1,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Misc from './Misc';
-import * as EMisc from './types/EMisc';
+import MessageBox from './MessageBox';
+import * as EMessageBoxType from './types/EMessageBox';
 import { configPostCreation } from '../../../configuration/ConfigPostCreation/config';
 
-describe('Misc', () => {
+describe('MessageBox', () => {
   const maxSize = configPostCreation.maxFileSizeInMegaByte;
-  it('should render Error Misc', () => {
+  it('should render Error MessageBox', () => {
     render(
-      <Misc
-        type={EMisc.MiscType.Error}
+      <MessageBox
+        type={EMessageBoxType.MessageBoxType.Error}
         msg="Image couldn’t be uploaded!"
         subMsg={`Max size is ${maxSize} MB`}
       />,
@@ -19,10 +19,10 @@ describe('Misc', () => {
     expect(msg.textContent).toEqual('Image couldn’t be uploaded!');
     expect(subMsg).toBeInTheDocument();
   });
-  it('should render success Misc', () => {
+  it('should render success MessageBox', () => {
     render(
-      <Misc
-        type={EMisc.MiscType.Success}
+      <MessageBox
+        type={EMessageBoxType.MessageBoxType.Success}
         msg="Congratulations!"
         subMsg="Subtext"
       />,
