@@ -6,10 +6,10 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
   data-testid="image-poll-option"
 >
   <div
-    className="relative"
+    className="image-view-wrapper"
   >
     <div
-      className="absolute w-full h-full rounded-md overflow-hidden"
+      className="bg-image-box"
     >
       <div
         style={
@@ -32,8 +32,10 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
           }
         />
         <img
-          className="filter blur-sm"
+          alt="option"
+          className="bg-image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -82,8 +84,10 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
         }
       />
       <img
-        className="rounded-md"
+        alt="option"
+        className="image"
         decoding="async"
+        id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
           Object {
@@ -162,10 +166,10 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
   data-testid="image-poll-option"
 >
   <div
-    className="relative"
+    className="image-view-wrapper"
   >
     <div
-      className="absolute w-full h-full rounded-md overflow-hidden"
+      className="bg-image-box"
     >
       <div
         style={
@@ -188,8 +192,10 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
           }
         />
         <img
-          className="filter blur-sm"
+          alt="option"
+          className="bg-image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -238,8 +244,10 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
         }
       />
       <img
-        className="rounded-md"
+        alt="option"
+        className="image"
         decoding="async"
+        id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
           Object {
@@ -338,10 +346,10 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
   data-testid="image-poll-option"
 >
   <div
-    className="relative"
+    className="image-view-wrapper"
   >
     <div
-      className="absolute w-full h-full rounded-md overflow-hidden"
+      className="bg-image-box"
     >
       <div
         style={
@@ -364,8 +372,10 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
           }
         />
         <img
-          className="filter blur-sm"
+          alt="option"
+          className="bg-image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -414,8 +424,10 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
         }
       />
       <img
-        className="rounded-md"
+        alt="option"
+        className="image"
         decoding="async"
+        id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
           Object {

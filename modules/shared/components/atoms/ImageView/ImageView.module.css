@@ -1,0 +1,15 @@
+.image-view-wrapper {
+  @apply relative;
+}
+
+.bg-image-box {
+  @apply absolute w-full h-full rounded-md overflow-hidden;
+}
+
+.bg-image {
+  @apply filter blur-sm;
+}
+
+.image {
+  @apply rounded-md;
+}
