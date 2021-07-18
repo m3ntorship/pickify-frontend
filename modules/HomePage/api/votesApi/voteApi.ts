@@ -1,6 +1,7 @@
 import { votesApi } from '../../../shared/api/postsApi.api';
 import type { IVotesApi } from './IvotesApi';
-import { generateErrorMessage, transformOptions } from './votesHelpers';
+import { transformOptions, errorMessage } from './votesHelpers';
+import { generateErrMsg } from '../../../shared/logic/generateErrMsg/generateErrMsg';
 
 export const addOneVote = async (id: string): Promise<IVotesApi.IVotesRes> => {
   try {
@@ -9,18 +10,18 @@ export const addOneVote = async (id: string): Promise<IVotesApi.IVotesRes> => {
     const votesData: IVotesApi.IVotesData[] = transformOptions(options);
 
     return { resData: { error: false, votesData } };
-  } catch (err: unknown) {
-    const { response } = err as IVotesApi.IErrorData;
-    const { message: errMessage } = err as { message: string };
+  } catch (error: unknown) {
+    const { response } = error as IVotesApi.IErrorData;
+    const { message: errMessage } = error as { message: string };
 
     if (!response) return { resData: { error: true, message: errMessage } };
 
-    const {
-      data: { message, status_code },
-    } = response;
+    const { data } = response;
 
-    const errorMessage = generateErrorMessage(status_code, message);
+    const { message, status_code } = data;
 
-    return { resData: { error: true, message: errorMessage } };
+    const generatedMessage = generateErrMsg(errorMessage, status_code, message);
+
+    return { resData: { error: true, message: generatedMessage } };
   }
 };

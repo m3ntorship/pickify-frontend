@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import type { ReactElement } from 'react';
+import { useForm } from 'react-hook-form';
 import PostCreation from '../../../shared/components/organisms/PostCreation/PostCreation';
 import Modal from '../../../shared/components/organisms/Modal/Modal';
 import TextInput from '../../../shared/components/atoms/TextInputs/TextInput';
 import * as ETextInput from '../../../shared/components/atoms/TextInputs/types/ETextInput';
 import Avatar from '../../../shared/components/atoms/Avatar/Avatar';
 import styles from './NewPost.module.css';
+import initialState from '../../../shared/components/organisms/PostCreation/postCreationInitialState';
+import type { IPostCreation } from '../../../shared/components/organisms/PostCreation/types/IPostCreation';
 
 const NewPost = (): ReactElement => {
+  const [creating, setCreating] = useState<boolean>(false);
+
+  const [postCreationGlobalState, setPostCreationGlobalState] =
+    useState<IPostCreation.IState>(initialState);
+
   const [showModal, setShowModal] = useState(false);
+
   const showModalHandler = (): void => {
     setShowModal(true);
   };
@@ -16,6 +25,11 @@ const NewPost = (): ReactElement => {
   const closeModalHandler = (): void => {
     setShowModal(false);
   };
+
+  const useFormConfig = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+  });
 
   return (
     <>
@@ -47,7 +61,14 @@ const NewPost = (): ReactElement => {
       </div>
       {showModal && (
         <Modal closeModalHandler={closeModalHandler}>
-          <PostCreation closeModalHandler={closeModalHandler} />
+          <PostCreation
+            closeModalHandler={closeModalHandler}
+            postCreationGlobalState={postCreationGlobalState}
+            setPostCreationGlobalState={setPostCreationGlobalState}
+            useFormConfig={useFormConfig}
+            creating={creating}
+            setCreating={setCreating}
+          />
         </Modal>
       )}
     </>

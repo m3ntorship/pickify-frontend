@@ -9,7 +9,7 @@ import styles from './UploadingImage.module.css';
 import Misc from '../Misc/Misc';
 import { MiscType } from '../Misc/types/EMisc';
 import DropDown from '../../atoms/DropDown/DropDown';
-import { options } from '../../atoms/DropDown/mockedOptions';
+import { creationDropDown } from '../../atoms/DropDown/mockedOptions';
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
@@ -19,10 +19,8 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
   handleVerticalThreeDotsClick,
 }): ReactElement => {
   const { register } = useFormContext();
-
   const { error, message } = useUploadedFiles(file);
   const url = useUpdatedImageData({ file, id, entityType });
-
   const imgClasses = classNames(styles.image, {
     'filter blur-sm ': error,
   });
@@ -32,17 +30,13 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
       case 'delete':
         handleVerticalThreeDotsClick(id);
         break;
-      case 'report':
-        console.log('reported');
-        break;
-      case 'save':
-        console.log('saved');
+      case 'order':
+        console.log('order');
         break;
       default:
         console.log('default');
     }
   };
-
   return (
     <div className={styles.container} data-testid="uploaded-box">
       <div className={styles['image-container']}>
@@ -78,7 +72,7 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
         <div className={styles.button}>
           <DropDown
             variant="image"
-            options={options}
+            options={creationDropDown}
             onOptionMenuClick={onMenuOptionClickHandler}
             size="md"
           />

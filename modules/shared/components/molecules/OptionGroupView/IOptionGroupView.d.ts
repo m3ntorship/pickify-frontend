@@ -4,7 +4,6 @@ declare namespace IOptionGroupView {
   export interface IProps {
     group: IPostFeed.IGroup;
     addOneVote: (optionId: string, grouId: string) => void;
-    optionCheckedId: string;
   }
 }
 

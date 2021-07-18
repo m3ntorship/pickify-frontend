@@ -8,7 +8,6 @@ import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
   optionsGroups,
   addOneVote,
-  optionCheckedId,
 }): ReactElement => {
   const firstGroup = 0;
   const { mostAndLeastVoted, optionsPercentage } = getVotesResults(
@@ -31,7 +30,7 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
               <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}
-                isOptionChecked={optionCheckedId === option.id}
+                isOptionChecked={option.voted}
                 letter={letter}
                 mostVoted={option.vote_count === mostAndLeastVoted[firstGroup]}
                 percentage={optionsPercentage[index]}

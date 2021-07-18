@@ -12,6 +12,7 @@ const FileUploader: FC<IFileUploader.IProps> = ({
   maxFiles,
   entityType,
   lastFilesLength,
+  required = false,
 }): ReactElement => {
   const zero = 0;
   const [filesErrors, setFilesErrors] = useState<
@@ -33,7 +34,7 @@ const FileUploader: FC<IFileUploader.IProps> = ({
 
   const ImageUploaderRegister = {
     ...register(`uploadedFilesIn${entityType}`, {
-      required: true,
+      required,
       shouldUnregister: false,
     }),
   };
@@ -98,7 +99,9 @@ const FileUploader: FC<IFileUploader.IProps> = ({
         })
         .join(', and ');
     }
-    return 'Upload one or multiple files';
+    return entityType === 'post'
+      ? 'Attach an image'
+      : 'Upload one or multiple images';
   };
 
   return (
@@ -125,7 +128,11 @@ const FileUploader: FC<IFileUploader.IProps> = ({
         <span>
           <Image className={svgClasses} />
         </span>
-        <p className={textClasses}>Upload one or multiple images</p>
+        <p className={textClasses}>
+          {entityType === 'post'
+            ? 'Attach an image'
+            : 'Upload one or multiple images'}
+        </p>
       </label>
     </div>
   );

@@ -1,8 +1,14 @@
+import type { UseFormReturn } from 'react-hook-form';
 import type { EPollType } from './EPollType';
 
 declare namespace IPostCreation {
   export interface IProps {
     closeModalHandler: () => void;
+    postCreationGlobalState: IState;
+    setPostCreationGlobalState: (state: IState) => void;
+    useFormConfig: UseFormReturn;
+    creating: boolean;
+    setCreating: React.Dispatch<React.SetStateAction<boolean>>;
   }
   export interface IPostStructure {
     postType: EPollType.ImagePoll | EPollType.MiniSurvey | EPollType.TextPoll;

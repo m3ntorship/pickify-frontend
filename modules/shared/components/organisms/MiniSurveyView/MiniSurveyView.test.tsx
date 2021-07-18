@@ -32,18 +32,21 @@ describe('ITextPollView', () => {
               body: 'ali tramsy',
               media: [{ url: 'https://placeimg.com/640/480/any' }],
               vote_count: 0,
+              voted: false,
             },
             {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa',
               body: ' ahmed essam',
               media: [{ url: 'https://placeimg.com/640/480/any' }],
               vote_count: 0,
+              voted: false,
             },
             {
               id: 'eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c',
               body: ' omar gamal',
               media: [{ url: 'https://placeimg.com/640/480/any' }],
               vote_count: 0,
+              voted: false,
             },
           ],
         },
@@ -55,7 +58,6 @@ describe('ITextPollView', () => {
     const tree = renderer.create(
       <MiniSurveyView
         post={mockedPost}
-        optionCheckedId="1"
         addOneVote={(): boolean => true}
         deletePostHandler={handleClick}
       />,

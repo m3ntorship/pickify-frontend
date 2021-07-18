@@ -130,15 +130,16 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
   <div>
     <h3
       className="font-normal text-md"
+      dir="auto"
     >
       nalyzing Delaware Frozen
     </h3>
   </div>
   <div
-    className="relative"
+    className="image-view-wrapper"
   >
     <div
-      className="absolute w-full h-full rounded-md overflow-hidden"
+      className="bg-image-box"
     >
       <div
         style={
@@ -161,8 +162,10 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
           }
         />
         <img
-          className="filter blur-sm"
+          alt="post"
+          className="bg-image"
           decoding="async"
+          id="http://placeimg.com/640/480/nature?t=1622888620897"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -211,8 +214,10 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
         }
       />
       <img
-        className="rounded-md"
+        alt="post"
+        className="image"
         decoding="async"
+        id="http://placeimg.com/640/480/nature?t=1622888620897"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         style={
           Object {
@@ -271,10 +276,9 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </span>
             <p
               className="option"
+              dir="auto"
             >
-               
               ali tramsy
-               
             </p>
             <span />
           </span>
@@ -310,10 +314,9 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </span>
             <p
               className="option"
+              dir="auto"
             >
-               
                ahmed essam
-               
             </p>
             <span />
           </span>
@@ -349,10 +352,9 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
             </span>
             <p
               className="option"
+              dir="auto"
             >
-               
                omar gamal
-               
             </p>
             <span />
           </span>

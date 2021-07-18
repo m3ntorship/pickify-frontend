@@ -9,10 +9,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
     data-testid="image-poll-option"
   >
     <div
-      className="relative"
+      className="image-view-wrapper"
     >
       <div
-        className="absolute w-full h-full rounded-md overflow-hidden"
+        className="bg-image-box"
       >
         <div
           style={
@@ -35,8 +35,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             }
           />
           <img
-            className="filter blur-sm"
+            alt="option"
+            className="bg-image"
             decoding="async"
+            id="https://placeimg.com/640/480/any"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style={
               Object {
@@ -85,8 +87,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
           }
         />
         <img
-          className="rounded-md"
+          alt="option"
+          className="image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -149,6 +153,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
         />
         <span
           className="image-caption"
+          dir="auto"
           title="ali tramsy"
         >
           ali tramsy
@@ -161,10 +166,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
     data-testid="image-poll-option"
   >
     <div
-      className="relative"
+      className="image-view-wrapper"
     >
       <div
-        className="absolute w-full h-full rounded-md overflow-hidden"
+        className="bg-image-box"
       >
         <div
           style={
@@ -187,8 +192,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             }
           />
           <img
-            className="filter blur-sm"
+            alt="option"
+            className="bg-image"
             decoding="async"
+            id="https://placeimg.com/640/480/any"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style={
               Object {
@@ -237,8 +244,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
           }
         />
         <img
-          className="rounded-md"
+          alt="option"
+          className="image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -301,6 +310,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
         />
         <span
           className="image-caption"
+          dir="auto"
           title=" ahmed essam"
         >
            ahmed essam
@@ -313,10 +323,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
     data-testid="image-poll-option"
   >
     <div
-      className="relative"
+      className="image-view-wrapper"
     >
       <div
-        className="absolute w-full h-full rounded-md overflow-hidden"
+        className="bg-image-box"
       >
         <div
           style={
@@ -339,8 +349,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
             }
           />
           <img
-            className="filter blur-sm"
+            alt="option"
+            className="bg-image"
             decoding="async"
+            id="https://placeimg.com/640/480/any"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             style={
               Object {
@@ -389,8 +401,10 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
           }
         />
         <img
-          className="rounded-md"
+          alt="option"
+          className="image"
           decoding="async"
+          id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
           style={
             Object {
@@ -453,6 +467,7 @@ exports[`OptionGroup component should render () OptionGroup when we apply () 1`]
         />
         <span
           className="image-caption"
+          dir="auto"
           title=" omar gamal"
         >
            omar gamal
