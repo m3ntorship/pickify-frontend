@@ -35,7 +35,7 @@
 }
 
 .circular {
-  @apply -rotate-90 origin-center stroke-current transition-all duration-700;
+  @apply transform rotate-90 origin-center stroke-current transition-all duration-700;
 }
 
 .primary-text {
