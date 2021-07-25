@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import { setUser } from '../../../logic/userId/userId';
+import { useRouter } from 'next/router';
 import styles from './Navigation.module.css';
 import type { INavigation } from './INavigation';
 import HomeIcon from '../../icons/home.svg';
@@ -12,9 +12,20 @@ import Avatar from '../../atoms/Avatar/Avatar';
 import Divider from '../../atoms/Divider/Divider';
 import MenuIcon from '../../icons/menu.svg';
 import { DividerType } from '../../atoms/Divider/types/EDivider';
+import { logoutUser } from '../../../api/auth';
 
 const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
   const { profilePic } = props;
+  const router = useRouter();
+  const logout = (): void => {
+    logoutUser();
+    router
+      .push('/login')
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const avatarVariant = profilePic ? 'filled' : 'notFilled';
   return (
     <nav className={styles['navigation-wrapper']}>
@@ -39,9 +50,7 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
                   size="extra-small"
                   variant={avatarVariant}
                   profilePic={profilePic}
-                  onClick={(): void => {
-                    setUser();
-                  }}
+                  onClick={logout}
                 />
               </li>
               <li>
@@ -65,9 +74,7 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
                   size="extra-small"
                   variant={avatarVariant}
                   profilePic={profilePic}
-                  onClick={(): void => {
-                    setUser();
-                  }}
+                  onClick={logout}
                 />
               </li>
             </ul>

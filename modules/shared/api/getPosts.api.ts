@@ -5,6 +5,7 @@ import { postsApi } from './postsApi.api';
 // import { mockedData } from './postsMockedData';
 
 export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
+  console.log({ Authorization: `Bearer ${userId}` });
   return postsApi
     .getPosts(undefined, undefined, {
       headers: userId && { Authorization: `Bearer ${userId}` },

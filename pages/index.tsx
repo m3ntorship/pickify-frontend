@@ -12,9 +12,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const {
     req: { cookies },
   } = context;
-
   const { user } = cookies as { user: string };
 
+  if (!user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
   try {
     const { data } = await getPosts(user);
     return {
