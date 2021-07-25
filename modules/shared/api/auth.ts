@@ -10,9 +10,9 @@ const config = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-let firebaseApp = null;
+let firebaseApp: firebase.app.App = firebase.app();
 if (!firebase.apps.length) {
-  firebase.initializeApp(config);
+  firebaseApp = firebase.initializeApp(config);
 } else {
   firebaseApp = firebase.app();
 }
