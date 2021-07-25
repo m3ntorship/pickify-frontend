@@ -16,7 +16,7 @@ interface WidgetData {
 const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const router = useRouter();
   useEffect(() => {
-    if (!localStorage.getItem('user')) {
+    if (document.cookie.split('=')[0] !== 'user') {
       router
         .push('/login')
         .then()

@@ -17,14 +17,9 @@ import { logoutUser } from '../../../api/auth';
 const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
   const { profilePic } = props;
   const router = useRouter();
-  const logout = (): void => {
-    logoutUser();
-    router
-      .push('/login')
-      .then()
-      .catch((err) => {
-        console.log(err);
-      });
+  const logout = async (): Promise<void> => {
+    await logoutUser();
+    await router.push('/login');
   };
   const avatarVariant = profilePic ? 'filled' : 'notFilled';
   return (

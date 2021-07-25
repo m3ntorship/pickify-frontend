@@ -3,12 +3,12 @@ import type { FC, ReactElement } from 'react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as EButton from '../../shared/components/atoms/Button/types/EButton';
-import { loginUser } from '../api/login';
+import { loginUser, register } from '../../shared/api/auth';
 
 const Login: FC = (): ReactElement => {
   const router = useRouter();
-  useEffect((): void => {
-    if (localStorage.getItem('user')) {
+  useEffect(() => {
+    if (document.cookie.split('=')[0] === 'user') {
       router
         .push('/')
         .then()
@@ -18,14 +18,10 @@ const Login: FC = (): ReactElement => {
     }
   }, []);
 
-  const login = (): void => {
+  const login = async (): Promise<boolean> => {
     loginUser();
-    router
-      .push('/')
-      .then()
-      .catch((err) => {
-        console.log(err);
-      });
+    await register();
+    return router.push('/');
   };
   return (
     <div className="flex justify-center m-3">

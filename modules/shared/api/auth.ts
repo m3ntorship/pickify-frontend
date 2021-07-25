@@ -10,26 +10,48 @@ const config = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-let firebaseApp: firebase.app.App = firebase.app();
-if (!firebase.apps.length) {
-  firebaseApp = firebase.initializeApp(config);
-} else {
-  firebaseApp = firebase.app();
-}
+const firebaseApp =
+  firebase.apps.length === 0 ? firebase.initializeApp(config) : firebase.app();
 
-const firebaseAuth = firebase.auth(firebaseApp);
+const firebaseAuth = firebaseApp.auth();
 
-export const logoutUser = (): void => {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      document.cookie = '';
-      localStorage.removeItem('user');
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+export const logoutUser = async (): Promise<void> => {
+  await firebase.auth().signOut();
+};
+
+export const loginUser = (): void => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebaseAuth.signInWithPopup(provider).then().catch(console.error);
+};
+
+firebaseAuth.onAuthStateChanged((user) => {
+  if (user) {
+    const { displayName } = user as {
+      displayName: string;
+    };
+    document.cookie = `user=${displayName}`;
+    // user.getIdToken().then((token) => {
+    //   document.cookie = `user=${token}`;
+    // });
+  } else {
+    document.cookie = 'user=;expires = Thu, 01 Jan 1970 00:00:00 GMT';
+  }
+});
+
+export const register = async (): Promise<void> => {
+  // axios
+  //   .post(
+  //     'https://pickify-posts-be-dev.m3ntorship.net/api/users/register',
+  //     undefined,
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${getUserToken()}}`,
+  //       },
+  //     },
+  //   )
+  //   .then((data) => console.log(data))
+  //   .catch((err) => console.log(err));
+  return Promise.resolve();
 };
 
 export default firebaseAuth;
