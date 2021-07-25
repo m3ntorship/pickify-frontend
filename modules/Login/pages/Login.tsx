@@ -20,8 +20,11 @@ const Login: FC = (): ReactElement => {
 
   const login = async (): Promise<boolean> => {
     loginUser();
-    await register();
-    return router.push('/');
+    const errorObj = await register();
+    if (!errorObj.error) {
+      return router.push('/');
+    }
+    return false;
   };
   return (
     <div className="flex justify-center m-3">

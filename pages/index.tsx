@@ -3,7 +3,6 @@ import type { FC, ReactElement } from 'react';
 import type { GetServerSideProps } from 'next';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import { HomePage } from '@modules/HomePage';
-import { getUserToken } from '@modules/shared/logic/userId/userId';
 
 const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   return <HomePage data={data} />;
@@ -24,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
   try {
-    const { data } = await getPosts(getUserToken(user));
+    const { data } = await getPosts(user);
     return {
       props: { data },
     };

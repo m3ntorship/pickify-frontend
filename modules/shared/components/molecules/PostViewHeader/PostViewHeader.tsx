@@ -12,7 +12,8 @@ const getPostMenuOptions = (
   userId: string,
 ): { id: string; body: string }[] => {
   if (process.browser) {
-    const loggedInUser = localStorage.getItem('user');
+    console.log(document.cookie);
+    const loggedInUser = localStorage.getItem('uuid');
     if (userId !== loggedInUser) {
       return updatedOptions.filter((option) => option.id !== 'delete');
     }
@@ -45,7 +46,6 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         console.log('default');
     }
   };
-
   return (
     <div>
       <div className="flex justify-between items-start pb-s">

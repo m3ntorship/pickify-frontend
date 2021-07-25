@@ -14,11 +14,12 @@ const postsApiAxiosInstance = axios.create({});
 
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
+    console.log(postsApiAxiosInstance);
     const { headers } = config as IGetPosts.IAxiosConfig;
     if (!headers.Authorization) {
-      const user = getUserToken(document.cookie.split('=')[1]);
+      const user = getUserToken();
       if (user) {
-        headers.Authorization = `Bearer ${user}}`;
+        headers.Authorization = `Bearer ${user}`;
       }
     }
     return config;
