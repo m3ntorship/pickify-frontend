@@ -16,7 +16,7 @@ postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const { headers } = config as IGetPosts.IAxiosConfig;
     if (!headers.Authorization) {
-      const user = getUserToken();
+      const user = getUserToken(document.cookie.split('=')[1]);
       if (user) {
         headers.Authorization = `Bearer ${user}}`;
       }
