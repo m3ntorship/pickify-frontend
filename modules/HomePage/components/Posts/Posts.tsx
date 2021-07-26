@@ -14,6 +14,8 @@ import styles from '../../pages/home-page.module.css';
 import type { IVotesApi } from '../../api/votesApi/IvotesApi';
 import { deletePost } from '../../api/DeletePostApi/deletePostsApi';
 import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
+import { useRedirect } from '../../../shared/hooks/useRedirect/useRedirect';
+import { EStatusCode } from '../../../shared/api/EStatusCode';
 
 const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
   if (!resData.error) {
@@ -25,13 +27,11 @@ const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
-
+  const { redirectToLoginPage } = useRedirect();
   useEffect(() => {
     const transformedMedia = transformPostsMedia(posts);
 
     // const authorizedPosts = transformAuthorizedPosts(transformedMedia);
-
-    // console.log(data);
 
     setPosts(transformedMedia);
   }, [data]);
@@ -41,14 +41,14 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     groupId: string,
   ): Promise<void> => {
     const { resData } = await addOneVote(optionId);
-
     if (!resData.error) {
       const { votesData } = resData as IVotesApi.IVotesSuccessData;
       const updatedVotedPosts = updateVotedPost(posts, votesData, groupId);
-
       setPosts(updatedVotedPosts);
     } else {
+      const { errorCode } = resData as { errorCode: number };
       toasterHandler(resData as IVotesApi.IVotesErrorData);
+      if (errorCode === EStatusCode.Unauthorized) redirectToLoginPage();
     }
   };
 
@@ -60,6 +60,8 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       setPosts(updatedPosts);
     } else {
       toast.error(res.resData.message);
+      const { errorCode } = res.resData as { errorCode: number };
+      if (errorCode === EStatusCode.Unauthorized) redirectToLoginPage();
     }
   };
 

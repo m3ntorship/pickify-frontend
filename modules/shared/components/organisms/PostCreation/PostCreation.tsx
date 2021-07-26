@@ -13,9 +13,9 @@ import type { IPostCreation } from './types/IPostCreation';
 import { EPollType } from './types/EPollType';
 import initialState from './postCreationInitialState';
 import { createPollPost } from '../../../api/createPollPost';
+import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 
 const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
-  console.log(res);
   if (res.statusCode >= 400 || res.statusCode === 0) {
     res.errors.forEach((err) => toast.error(err));
   } else {
@@ -33,7 +33,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
 }): ReactElement => {
   const zero = 0;
   // post creation global initial state setup
-
+  const { redirectToLoginPage } = useRedirect();
   const [mediaCount, setMediaCount] = useState<{
     imagePoll: number;
     textPoll: number;
@@ -151,6 +151,9 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       setCreating(false);
       toasterHandler(res);
       closeModalHandler();
+      if (res.statusCode === 401) {
+        redirectToLoginPage();
+      }
       // reset
       useFormConfig.reset();
       setPostCreationGlobalState({

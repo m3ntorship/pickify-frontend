@@ -45,6 +45,7 @@ describe('delete Posts api', () => {
     const rejectedData: IDeletePostsApi.IDeletePostsErrorData = {
       error: true,
       message: 'something went wrong',
+      errorCode: 404,
     };
 
     expect(resData).toEqual(rejectedData);
@@ -58,6 +59,7 @@ describe('delete Posts api', () => {
     const rejectedData: IDeletePostsApi.IDeletePostsErrorData = {
       error: true,
       message: 'Unauthorized',
+      errorCode: 401,
     };
 
     expect(resData).toEqual(rejectedData);

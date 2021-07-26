@@ -14,14 +14,25 @@ export const addOneVote = async (id: string): Promise<IVotesApi.IVotesRes> => {
     const { response } = error as IVotesApi.IErrorData;
     const { message: errMessage } = error as { message: string };
 
-    if (!response) return { resData: { error: true, message: errMessage } };
+    if (!response)
+      return {
+        resData: {
+          error: true,
+          message: errMessage,
+        },
+      };
 
     const { data } = response;
 
     const { message, status_code } = data;
 
     const generatedMessage = generateErrMsg(errorMessage, status_code, message);
-
-    return { resData: { error: true, message: generatedMessage } };
+    return {
+      resData: {
+        error: true,
+        message: generatedMessage,
+        errorCode: status_code,
+      },
+    };
   }
 };

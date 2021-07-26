@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import Navigation from '@modules/shared/components/molecules/Navigation/Navigation';
 import Widget from '@modules/shared/components/atoms/Widget/Widget';
-import { useRouter } from 'next/router';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts/Posts';
 import NewPost from '../components/NewPost/NewPost';
@@ -14,17 +13,6 @@ interface WidgetData {
 }
 
 const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  const router = useRouter();
-  useEffect(() => {
-    if (document.cookie.split('=')[0] !== 'user') {
-      router
-        .push('/login')
-        .then()
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, []);
   const widgetData: WidgetData[] = [
     {
       id: '1',

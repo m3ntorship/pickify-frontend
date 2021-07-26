@@ -6,14 +6,14 @@ import * as EDivider from '../../atoms/Divider/types/EDivider';
 import UserInfo from '../UserInfo/UserInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
+import { getUserUUID } from '../../../logic/userAuth/userAuth';
 
 const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],
   userId: string,
 ): { id: string; body: string }[] => {
   if (process.browser) {
-    console.log(document.cookie);
-    const loggedInUser = localStorage.getItem('uuid');
+    const loggedInUser = getUserUUID();
     if (userId !== loggedInUser) {
       return updatedOptions.filter((option) => option.id !== 'delete');
     }

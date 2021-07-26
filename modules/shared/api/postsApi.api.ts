@@ -2,7 +2,7 @@ import { postClient, mediaClient } from '@m3ntorship/posts-client';
 import type { Configuration } from '@m3ntorship/posts-client/dist/post-client';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import { getUserToken } from '../logic/userId/userId';
+import { getUserToken } from '../logic/userAuth/userAuth';
 import type { IGetPosts } from './IGetPosts';
 
 const postsApiAxiosInstance = axios.create({});
@@ -14,7 +14,6 @@ const postsApiAxiosInstance = axios.create({});
 
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    console.log(postsApiAxiosInstance);
     const { headers } = config as IGetPosts.IAxiosConfig;
     if (!headers.Authorization) {
       const user = getUserToken();

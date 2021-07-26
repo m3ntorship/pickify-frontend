@@ -15,13 +15,19 @@ export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
     .catch((error: AxiosError) => {
       const { response } = error as { response?: { status: number } };
       const notFound = 500;
-      return {
-        data: {
-          error: true,
-          errorCode: response ? response.status : notFound,
-          message: error.message,
-        },
-      };
+
+      throw Object.assign(new Error(), {
+        error: true,
+        errorCode: response ? response.status : notFound,
+        message: error.message,
+      });
+      // return {
+      //   data: {
+      //     error: true,
+      //     errorCode: response ? response.status : notFound,
+      //     message: error.message,
+      //   },
+      // };
     });
 };
 

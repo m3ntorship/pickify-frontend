@@ -1,6 +1,12 @@
 import firebase from 'firebase';
 import axios from 'axios';
-import { getUserToken } from '../logic/userId/userId';
+import {
+  setUserToken,
+  setUserUUID,
+  clearUserToken,
+  clearUserUUID,
+  getUserToken,
+} from '../logic/userAuth/userAuth';
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -12,7 +18,7 @@ const config = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-const firebaseApp =
+export const firebaseApp =
   firebase.apps.length === 0 ? firebase.initializeApp(config) : firebase.app();
 
 const firebaseAuth = firebaseApp.auth();
@@ -21,9 +27,9 @@ export const logoutUser = async (): Promise<void> => {
   await firebase.auth().signOut();
 };
 
-export const loginUser = (): void => {
+export const loginUser = async (): Promise<void> => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebaseAuth.signInWithPopup(provider).then().catch(console.error);
+  await firebaseAuth.signInWithPopup(provider);
 };
 
 firebaseAuth.onAuthStateChanged((user) => {
@@ -31,17 +37,18 @@ firebaseAuth.onAuthStateChanged((user) => {
     user
       .getIdToken()
       .then((token) => {
-        document.cookie = `user=${token}`;
+        setUserToken(token);
       })
       .catch((err) => {
         console.log(err);
       });
   } else {
-    document.cookie = 'user=;expires = Thu, 01 Jan 1970 00:00:00 GMT';
+    clearUserUUID();
+    clearUserToken();
   }
 });
 
-export const register = async (): Promise<{ error: boolean }> => {
+export const register = async (): Promise<boolean> => {
   return axios
     .post(
       'https://pickify-posts-be-dev.m3ntorship.net/api/users/register',
@@ -54,13 +61,11 @@ export const register = async (): Promise<{ error: boolean }> => {
     )
     .then((data) => {
       const { uuid } = data.data as { uuid: string };
-      localStorage.setItem('uuid', uuid);
-      return {
-        error: false,
-      };
+      setUserUUID(uuid);
+      return false;
     })
     .catch(() => {
-      return { error: true };
+      return true;
     });
 };
 
