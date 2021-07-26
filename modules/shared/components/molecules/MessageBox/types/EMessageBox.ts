@@ -1,4 +1,4 @@
-export enum MiscType {
+export enum MessageBoxType {
   Error = 'error',
   Success = 'success',
 }

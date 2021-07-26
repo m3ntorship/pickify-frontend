@@ -6,8 +6,8 @@ import { useUpdatedImageData } from '../../../hooks/useUpdatedImageData/useUpdat
 import { useUploadedFiles } from '../../../hooks/useUploadedFiles/useUploadedFiles';
 import type { IUploadingImage } from './IUploadingImage';
 import styles from './UploadingImage.module.css';
-import Misc from '../Misc/Misc';
-import { MiscType } from '../Misc/types/EMisc';
+import MessageBox from '../MessageBox/MessageBox';
+import { MessageBoxType } from '../MessageBox/types/EMessageBox';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { creationDropDown } from '../../atoms/DropDown/mockedOptions';
 
@@ -59,10 +59,10 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
         {error ? (
           <div className={styles.layout}>
             <div className={styles['error-box']}>
-              <Misc
+              <MessageBox
                 msg="Image couldn’t be uploaded!"
                 subMsg={message}
-                type={MiscType.Error}
+                type={MessageBoxType.Error}
               />
             </div>
           </div>
