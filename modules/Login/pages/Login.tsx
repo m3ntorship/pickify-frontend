@@ -19,12 +19,12 @@ const Login: FC = (): ReactElement => {
 
   const login = async (): Promise<void> => {
     await loginUser();
-    const isError = await register();
-    if (!isError) {
+    const { resData } = await register();
+    if (!resData.error) {
       redirectToHomePage();
-      toast.success('You logged in successfully');
+      toast.success(resData.message);
     } else {
-      toast.error('An error has occured');
+      toast.error(resData.message);
     }
   };
   return (

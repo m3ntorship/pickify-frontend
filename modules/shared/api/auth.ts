@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import {
   setUserToken,
   setUserUUID,
@@ -7,6 +8,8 @@ import {
   clearUserUUID,
   getUserToken,
 } from '../logic/userAuth/userAuth';
+import { generateErrMsg } from '../logic/generateErrMsg/generateErrMsg';
+import type { IAuth } from './IAuth';
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -29,7 +32,9 @@ export const logoutUser = async (): Promise<void> => {
 
 export const loginUser = async (): Promise<void> => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  await firebaseAuth.signInWithPopup(provider);
+  const data = await firebaseAuth.signInWithPopup(provider);
+  const token = await data.user?.getIdToken();
+  setUserToken(token ?? '');
 };
 
 firebaseAuth.onAuthStateChanged((user) => {
@@ -37,10 +42,14 @@ firebaseAuth.onAuthStateChanged((user) => {
     user
       .getIdToken()
       .then((token) => {
-        setUserToken(token);
+        const isLiggedIn = getUserToken();
+        if (!isLiggedIn) {
+          setUserToken(token);
+        }
       })
       .catch((err) => {
-        console.log(err);
+        const { message } = err as { message: string };
+        toast.error(message);
       });
   } else {
     clearUserUUID();
@@ -48,9 +57,9 @@ firebaseAuth.onAuthStateChanged((user) => {
   }
 });
 
-export const register = async (): Promise<boolean> => {
-  return axios
-    .post(
+export const register = async (): Promise<IAuth.IAuthResData> => {
+  try {
+    const data = await axios.post(
       'https://pickify-posts-be-dev.m3ntorship.net/api/users/register',
       undefined,
       {
@@ -58,15 +67,37 @@ export const register = async (): Promise<boolean> => {
           Authorization: `Bearer ${getUserToken()}`,
         },
       },
-    )
-    .then((data) => {
-      const { uuid } = data.data as { uuid: string };
-      setUserUUID(uuid);
-      return false;
-    })
-    .catch(() => {
-      return true;
-    });
+    );
+    const { uuid } = data.data as { uuid: string };
+    setUserUUID(uuid);
+    return {
+      resData: { error: false, message: 'You have logged in successfully!' },
+    };
+  } catch (error: unknown) {
+    const { response } = error as IAuth.IErrorData;
+    const { message: errMessage } = error as { message: string };
+
+    if (!response)
+      return {
+        resData: {
+          error: true,
+          message: errMessage,
+        },
+      };
+
+    const { data } = response;
+
+    const { message, status_code } = data;
+
+    const generatedMessage = generateErrMsg({}, status_code, message);
+    return {
+      resData: {
+        error: true,
+        message: generatedMessage,
+        errorCode: status_code,
+      },
+    };
+  }
 };
 
 export default firebaseAuth;

@@ -13,5 +13,5 @@ export const setUserUUID = (UUID: string): void => {
   cookieCutter.set('uuid', UUID);
 };
 export const clearUserUUID = (): void => {
-  cookieCutter.set('user', '', { expires: new Date(0) });
+  cookieCutter.set('uuid', '', { expires: new Date(0) });
 };
