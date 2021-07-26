@@ -42,8 +42,8 @@ firebaseAuth.onAuthStateChanged((user) => {
     user
       .getIdToken()
       .then((token) => {
-        const isLiggedIn = getUserToken();
-        if (!isLiggedIn) {
+        const isLoggedIn = getUserToken();
+        if (!isLoggedIn) {
           setUserToken(token);
         }
       })
