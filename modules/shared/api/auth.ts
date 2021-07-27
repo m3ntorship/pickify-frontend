@@ -30,11 +30,12 @@ export const logoutUser = async (): Promise<void> => {
   await firebase.auth().signOut();
 };
 
-export const loginUser = async (): Promise<void> => {
+export const loginUser = async (): Promise<string | undefined> => {
   const provider = new firebase.auth.GoogleAuthProvider();
   const data = await firebaseAuth.signInWithPopup(provider);
   const token = await data.user?.getIdToken();
   setUserToken(token ?? '');
+  return token;
 };
 
 firebaseAuth.onAuthStateChanged((user) => {
@@ -47,7 +48,7 @@ firebaseAuth.onAuthStateChanged((user) => {
           setUserToken(token);
         }
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         const { message } = err as { message: string };
         toast.error(message);
       });
@@ -57,19 +58,23 @@ firebaseAuth.onAuthStateChanged((user) => {
   }
 });
 
-export const register = async (): Promise<IAuth.IAuthResData> => {
+export const register = async (
+  token: string | undefined,
+): Promise<IAuth.IAuthResData> => {
   try {
-    const data = await axios.post(
+    const { data }: { data: { uuid: string } } = await axios.post(
       'https://pickify-posts-be-dev.m3ntorship.net/api/users/register',
       undefined,
       {
         headers: {
-          Authorization: `Bearer ${getUserToken()}`,
+          Authorization: `Bearer ${token ?? ''}`,
         },
       },
     );
-    const { uuid } = data.data as { uuid: string };
+
+    const { uuid } = data;
     setUserUUID(uuid);
+
     return {
       resData: { error: false, message: 'You have logged in successfully!' },
     };
@@ -77,13 +82,7 @@ export const register = async (): Promise<IAuth.IAuthResData> => {
     const { response } = error as IAuth.IErrorData;
     const { message: errMessage } = error as { message: string };
 
-    if (!response)
-      return {
-        resData: {
-          error: true,
-          message: errMessage,
-        },
-      };
+    if (!response) return { resData: { error: true, message: errMessage } };
 
     const { data } = response;
 

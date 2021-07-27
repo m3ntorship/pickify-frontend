@@ -1,6 +1,6 @@
 import Button from '@modules/shared/components/atoms/Button/Button';
-import type { FC, ReactElement } from 'react';
-import { useEffect } from 'react';
+import type { FC, ReactElement, ReactText } from 'react';
+import { useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
 import * as EButton from '../../shared/components/atoms/Button/types/EButton';
 import { loginUser, register } from '../../shared/api/auth';
@@ -9,6 +9,7 @@ import { useRedirect } from '../../shared/hooks/useRedirect/useRedirect';
 
 const Login: FC = (): ReactElement => {
   const { redirectToHomePage } = useRedirect();
+  const toastId = useRef<ReactText>();
 
   useEffect(() => {
     const user = getUserToken();
@@ -18,8 +19,12 @@ const Login: FC = (): ReactElement => {
   }, []);
 
   const login = async (): Promise<void> => {
-    await loginUser();
-    const { resData } = await register();
+    const token: string | undefined = await loginUser();
+    toastId.current = toast.warning('Please wait while logging', {
+      autoClose: false,
+    });
+    const { resData } = await register(token);
+    toast.dismiss(toastId.current);
     if (!resData.error) {
       redirectToHomePage();
       toast.success(resData.message);
