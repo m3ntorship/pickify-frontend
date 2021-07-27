@@ -58,7 +58,7 @@ describe('delete Posts api', () => {
     const { resData } = await deletePost('4');
     const rejectedData: IDeletePostsApi.IDeletePostsErrorData = {
       error: true,
-      message: 'Unauthorized',
+      message: 'Please login first to interact with our app',
       errorCode: 401,
     };
 
