@@ -1,6 +1,5 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import { useRouter } from 'next/router';
 import styles from './Navigation.module.css';
 import type { INavigation } from './INavigation';
 import HomeIcon from '../../icons/home.svg';
@@ -13,13 +12,15 @@ import Divider from '../../atoms/Divider/Divider';
 import MenuIcon from '../../icons/menu.svg';
 import { DividerType } from '../../atoms/Divider/types/EDivider';
 import { logoutUser } from '../../../api/auth';
+import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 
 const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
   const { profilePic } = props;
-  const router = useRouter();
+  const { redirectToLoginPage } = useRedirect();
+
   const logout = async (): Promise<void> => {
     await logoutUser();
-    await router.push('/login');
+    redirectToLoginPage();
   };
   const avatarVariant = profilePic ? 'filled' : 'notFilled';
   return (
