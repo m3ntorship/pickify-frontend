@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
 import {
   TextPollView,
@@ -7,7 +7,7 @@ import {
 } from '@modules/shared/components/organisms';
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
-import type { FC, ReactElement } from 'react';
+import type { FC, ReactElement, ReactText } from 'react';
 import { toast } from 'react-toastify';
 import { addOneVote } from '../../api/votesApi/voteApi';
 import styles from '../../pages/home-page.module.css';
@@ -28,11 +28,10 @@ const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
   const { redirectToLoginPage } = useRedirect();
+  const toastId = useRef<ReactText>();
+
   useEffect(() => {
     const transformedMedia = transformPostsMedia(posts);
-
-    // const authorizedPosts = transformAuthorizedPosts(transformedMedia);
-
     setPosts(transformedMedia);
   }, [data]);
 
@@ -40,7 +39,11 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     optionId: string,
     groupId: string,
   ): Promise<void> => {
+    toastId.current = toast.warning('Please wait while processing your vote', {
+      autoClose: false,
+    });
     const { resData } = await addOneVote(optionId);
+    toast.dismiss(toastId.current);
     if (!resData.error) {
       const { votesData } = resData as IVotesApi.IVotesSuccessData;
       const updatedVotedPosts = updateVotedPost(posts, votesData, groupId);
@@ -53,7 +56,11 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   };
 
   const deletePostHandler = async (postId: string): Promise<void> => {
+    toastId.current = toast.warning('Please wait while deleting your post', {
+      autoClose: false,
+    });
     const res = await deletePost(postId);
+    toast.dismiss(toastId.current);
     if (!res.resData.error) {
       toast.success('Post has been deleted successfully');
       const updatedPosts = posts.filter((post) => post.id !== postId);
