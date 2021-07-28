@@ -1,12 +1,12 @@
 import type firebase from 'firebase';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import {
   clearUserToken,
   clearUserUUID,
   getUserToken,
   setUserToken,
-} from '@modules/shared/logic/userAuth/userAuth';
-import { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
+} from '../../../../modules/shared/logic/userAuth/userAuth';
 import { firebaseAuth } from '../../../../modules/shared/api/auth';
 import type { IUseFirebaseAuth } from './IUseFirebaseAuth';
 
