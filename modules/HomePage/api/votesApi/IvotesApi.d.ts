@@ -17,6 +17,7 @@ declare namespace IVotesApi {
   export interface IVotesErrorData {
     message: string;
     error: boolean;
+    errorCode?: number;
   }
 
   export interface IErrorData {

@@ -115,6 +115,7 @@ async function createMediaFile(file: {
           break;
         case 401:
           errors.push("Couldn't create the Poll. Please, login first.");
+
           break;
         default:
           errors.push('Something went wrong. Please, try again.');
@@ -213,6 +214,7 @@ async function raisePostCreationFinishFlag(
           break;
         case 401:
           errors.push("Couldn't create the Poll. Please, login first.");
+
           break;
         default:
           errors.push('Something went wrong. Please, try again.');

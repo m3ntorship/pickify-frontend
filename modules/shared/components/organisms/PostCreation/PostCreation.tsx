@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ReactText } from 'react';
 import { FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
@@ -13,9 +14,11 @@ import type { IPostCreation } from './types/IPostCreation';
 import { EPollType } from './types/EPollType';
 import initialState from './postCreationInitialState';
 import { createPollPost } from '../../../api/createPollPost';
+import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
+import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
+import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 
 const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
-  console.log(res);
   if (res.statusCode >= 400 || res.statusCode === 0) {
     res.errors.forEach((err) => toast.error(err));
   } else {
@@ -31,9 +34,10 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   creating,
   setCreating,
 }): ReactElement => {
+  const { user } = useAuth();
   const zero = 0;
   // post creation global initial state setup
-
+  const { redirectToLoginPage } = useRedirect();
   const [mediaCount, setMediaCount] = useState<{
     imagePoll: number;
     textPoll: number;
@@ -151,6 +155,10 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       setCreating(false);
       toasterHandler(res);
       closeModalHandler();
+      if (res.statusCode === EStatusCode.Unauthorized) {
+        await logoutUser();
+        redirectToLoginPage();
+      }
       // reset
       useFormConfig.reset();
       setPostCreationGlobalState({
@@ -196,7 +204,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
         <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
           <div>
             <CreatePostHeader
-              profilePic=""
+              profilePic={user?.userImg ?? ''}
               checkedValue={postCreationGlobalState.currentSelectedTab}
               tabsData={tabGroupData()}
               onTabChangeHandler={handleChangeTabsValue}

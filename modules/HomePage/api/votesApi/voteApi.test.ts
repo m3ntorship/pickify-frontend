@@ -54,7 +54,11 @@ describe('addOneVote', () => {
 
     const { resData } = await addOneVote('5');
 
-    const rejectedData = { error: true, message: 'server error' };
+    const rejectedData = {
+      error: true,
+      message: 'server error',
+      errorCode: 500,
+    };
 
     expect(resData).toEqual(rejectedData);
   });

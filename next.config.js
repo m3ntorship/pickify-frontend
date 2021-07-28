@@ -6,6 +6,7 @@ module.exports = {
       'placeimg.com',
       'images.unsplash.com',
       'pickify-media-be-dev.pickify.net',
+      'lh3.googleusercontent.com',
     ],
   },
 };

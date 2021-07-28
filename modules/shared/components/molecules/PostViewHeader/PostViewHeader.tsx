@@ -6,13 +6,14 @@ import * as EDivider from '../../atoms/Divider/types/EDivider';
 import UserInfo from '../UserInfo/UserInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
+import { getUserUUID } from '../../../logic/userAuth/userAuth';
 
 const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],
   userId: string,
 ): { id: string; body: string }[] => {
   if (process.browser) {
-    const loggedInUser = localStorage.getItem('user');
+    const loggedInUser = getUserUUID();
     if (userId !== loggedInUser) {
       return updatedOptions.filter((option) => option.id !== 'delete');
     }
@@ -45,7 +46,6 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         console.log('default');
     }
   };
-
   return (
     <div>
       <div className="flex justify-between items-start pb-s">
