@@ -14,6 +14,7 @@ import { EPollType } from './types/EPollType';
 import initialState from './postCreationInitialState';
 import { createPollPost } from '../../../api/createPollPost';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
+import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 
 const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
   if (res.statusCode >= 400 || res.statusCode === 0) {
@@ -31,6 +32,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   creating,
   setCreating,
 }): ReactElement => {
+  const { user } = useAuth();
   const zero = 0;
   // post creation global initial state setup
   const { redirectToLoginPage } = useRedirect();
@@ -199,7 +201,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
         <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
           <div>
             <CreatePostHeader
-              profilePic=""
+              profilePic={user?.userImg ?? ''}
               checkedValue={postCreationGlobalState.currentSelectedTab}
               tabsData={tabGroupData()}
               onTabChangeHandler={handleChangeTabsValue}
