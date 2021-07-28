@@ -1,15 +1,5 @@
 import firebase from 'firebase';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import {
-  setUserToken,
-  setUserUUID,
-  clearUserToken,
-  clearUserUUID,
-  getUserToken,
-} from '../logic/userAuth/userAuth';
-import { generateErrMsg } from '../logic/generateErrMsg/generateErrMsg';
-import type { IAuth } from './IAuth';
+import 'firebase/auth';
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -21,82 +11,7 @@ const config = {
   measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-export const firebaseApp =
+const firebaseApp =
   firebase.apps.length === 0 ? firebase.initializeApp(config) : firebase.app();
 
-const firebaseAuth = firebaseApp.auth();
-
-export const logoutUser = async (): Promise<void> => {
-  await firebase.auth().signOut();
-};
-
-export const loginUser = async (): Promise<string | undefined> => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  const data = await firebaseAuth.signInWithPopup(provider);
-  const token = await data.user?.getIdToken();
-  setUserToken(token ?? '');
-  return token;
-};
-
-firebaseAuth.onAuthStateChanged((user) => {
-  if (user) {
-    user
-      .getIdToken()
-      .then((token) => {
-        const isLoggedIn = getUserToken();
-        if (!isLoggedIn) {
-          setUserToken(token);
-        }
-      })
-      .catch((err: Error) => {
-        const { message } = err as { message: string };
-        toast.error(message);
-      });
-  } else {
-    clearUserUUID();
-    clearUserToken();
-  }
-});
-
-export const register = async (
-  token: string | undefined,
-): Promise<IAuth.IAuthResData> => {
-  try {
-    const { data }: { data: { uuid: string } } = await axios.post(
-      'https://pickify-posts-be-dev.m3ntorship.net/api/users/register',
-      undefined,
-      {
-        headers: {
-          Authorization: `Bearer ${token ?? ''}`,
-        },
-      },
-    );
-
-    const { uuid } = data;
-    setUserUUID(uuid);
-
-    return {
-      resData: { error: false, message: 'You have logged in successfully!' },
-    };
-  } catch (error: unknown) {
-    const { response } = error as IAuth.IErrorData;
-    const { message: errMessage } = error as { message: string };
-
-    if (!response) return { resData: { error: true, message: errMessage } };
-
-    const { data } = response;
-
-    const { message, status_code } = data;
-
-    const generatedMessage = generateErrMsg({}, status_code, message);
-    return {
-      resData: {
-        error: true,
-        message: generatedMessage,
-        errorCode: status_code,
-      },
-    };
-  }
-};
-
-export default firebaseAuth;
+export const firebaseAuth = firebaseApp.auth();
