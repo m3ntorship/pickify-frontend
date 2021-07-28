@@ -3,20 +3,23 @@ import type { FC, ReactElement, ReactText } from 'react';
 import { useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
 import * as EButton from '../../shared/components/atoms/Button/types/EButton';
-import { loginUser, register } from '../../shared/api/auth';
-import { getUserToken } from '../../shared/logic/userAuth/userAuth';
+import {
+  loginUser,
+  register,
+} from '../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../shared/hooks/useRedirect/useRedirect';
+import { useAuth } from '../../../context/AuthUserContext/AuthUserContext';
 
 const Login: FC = (): ReactElement => {
+  const { loading, isAuthenticated } = useAuth();
   const { redirectToHomePage } = useRedirect();
   const toastId = useRef<ReactText>();
 
   useEffect(() => {
-    const user = getUserToken();
-    if (user) {
+    if (!loading && isAuthenticated) {
       redirectToHomePage();
     }
-  }, []);
+  }, [isAuthenticated, loading]);
 
   const login = async (): Promise<void> => {
     const token: string | undefined = await loginUser();
