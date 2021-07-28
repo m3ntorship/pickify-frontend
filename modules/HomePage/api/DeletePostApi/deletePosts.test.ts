@@ -45,6 +45,7 @@ describe('delete Posts api', () => {
     const rejectedData: IDeletePostsApi.IDeletePostsErrorData = {
       error: true,
       message: 'something went wrong',
+      errorCode: 404,
     };
 
     expect(resData).toEqual(rejectedData);
@@ -57,7 +58,8 @@ describe('delete Posts api', () => {
     const { resData } = await deletePost('4');
     const rejectedData: IDeletePostsApi.IDeletePostsErrorData = {
       error: true,
-      message: 'Unauthorized',
+      message: 'Please login first to interact with our app',
+      errorCode: 401,
     };
 
     expect(resData).toEqual(rejectedData);

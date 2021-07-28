@@ -9,8 +9,11 @@ import Avatar from '../../../shared/components/atoms/Avatar/Avatar';
 import styles from './NewPost.module.css';
 import initialState from '../../../shared/components/organisms/PostCreation/postCreationInitialState';
 import type { IPostCreation } from '../../../shared/components/organisms/PostCreation/types/IPostCreation';
+import { useAuth } from '../../../../context/AuthUserContext/AuthUserContext';
 
 const NewPost = (): ReactElement => {
+  const { user } = useAuth();
+
   const [creating, setCreating] = useState<boolean>(false);
 
   const [postCreationGlobalState, setPostCreationGlobalState] =
@@ -31,12 +34,18 @@ const NewPost = (): ReactElement => {
     reValidateMode: 'onChange',
   });
 
+  const avatarVariant = user?.userImg ? 'filled' : 'notFilled';
+
   return (
     <>
       <div className={styles['input-creation']}>
         <div className="flex">
           <div className="mr-4">
-            <Avatar size="medium" variant="notFilled" />
+            <Avatar
+              size="medium"
+              variant={avatarVariant}
+              profilePic={user?.userImg ?? ''}
+            />
           </div>
           <div className="relative flex w-full">
             <div

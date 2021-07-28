@@ -21,7 +21,12 @@ export const addOneVote = async (id: string): Promise<IVotesApi.IVotesRes> => {
     const { message, status_code } = data;
 
     const generatedMessage = generateErrMsg(errorMessage, status_code, message);
-
-    return { resData: { error: true, message: generatedMessage } };
+    return {
+      resData: {
+        error: true,
+        message: generatedMessage,
+        errorCode: status_code,
+      },
+    };
   }
 };

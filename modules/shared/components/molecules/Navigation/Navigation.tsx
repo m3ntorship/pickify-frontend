@@ -1,8 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import { setUser } from '../../../logic/userId/userId';
 import styles from './Navigation.module.css';
-import type { INavigation } from './INavigation';
 import HomeIcon from '../../icons/home.svg';
 import FriendsIcon from '../../icons/friends.svg';
 import BillIcon from '../../icons/bill.svg';
@@ -12,10 +10,19 @@ import Avatar from '../../atoms/Avatar/Avatar';
 import Divider from '../../atoms/Divider/Divider';
 import MenuIcon from '../../icons/menu.svg';
 import { DividerType } from '../../atoms/Divider/types/EDivider';
+import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
+import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
+import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 
-const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
-  const { profilePic } = props;
-  const avatarVariant = profilePic ? 'filled' : 'notFilled';
+const Navigation: FC = (): ReactElement => {
+  const { user } = useAuth();
+  const { redirectToLoginPage } = useRedirect();
+
+  const logout = async (): Promise<void> => {
+    await logoutUser();
+    redirectToLoginPage();
+  };
+  const avatarVariant = user?.userImg ? 'filled' : 'notFilled';
   return (
     <nav className={styles['navigation-wrapper']}>
       <div className={styles.navigation}>
@@ -38,10 +45,8 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
                 <Avatar
                   size="extra-small"
                   variant={avatarVariant}
-                  profilePic={profilePic}
-                  onClick={(): void => {
-                    setUser();
-                  }}
+                  profilePic={user?.userImg ?? ''}
+                  onClick={logout}
                 />
               </li>
               <li>
@@ -64,10 +69,8 @@ const Navigation: FC<INavigation.IProps> = (props): ReactElement => {
                 <Avatar
                   size="extra-small"
                   variant={avatarVariant}
-                  profilePic={profilePic}
-                  onClick={(): void => {
-                    setUser();
-                  }}
+                  profilePic={user?.userImg ?? ''}
+                  onClick={logout}
                 />
               </li>
             </ul>
