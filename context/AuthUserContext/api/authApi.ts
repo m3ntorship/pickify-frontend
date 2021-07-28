@@ -1,9 +1,6 @@
 import { firebaseAuth } from '@modules/shared/api/auth';
 import { generateErrMsg } from '@modules/shared/logic/generateErrMsg/generateErrMsg';
-import {
-  setUserToken,
-  setUserUUID,
-} from '@modules/shared/logic/userAuth/userAuth';
+import { setUserUUID } from '@modules/shared/logic/userAuth/userAuth';
 import axios from 'axios';
 import firebase from 'firebase/app';
 import type { IAuth } from './IAuth';
@@ -16,7 +13,6 @@ export const loginUser = async (): Promise<string | undefined> => {
   const provider = new firebase.auth.GoogleAuthProvider();
   const data = await firebaseAuth.signInWithPopup(provider);
   const token = await data.user?.getIdToken();
-  setUserToken(token ?? '');
   return token;
 };
 

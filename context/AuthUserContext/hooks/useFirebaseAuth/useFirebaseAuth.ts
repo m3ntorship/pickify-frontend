@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import {
   clearUserToken,
   clearUserUUID,
-  getUserToken,
   setUserToken,
 } from '../../../../modules/shared/logic/userAuth/userAuth';
 import { firebaseAuth } from '../../../../modules/shared/api/auth';
@@ -41,14 +40,11 @@ export const useFirebaseAuth = (): IUseFirebaseAuth.IProps => {
     setLoading(true);
     try {
       const token: string = await userState.getIdToken();
-      const loggedInUser = getUserToken();
       const formattedUser = setUserData(userState);
       setUser(formattedUser);
       setLoading(false);
       setIsAuthenticated(true);
-      if (loggedInUser) {
-        setUserToken(token);
-      }
+      setUserToken(token);
     } catch (error: unknown) {
       const { message } = error as { message: string };
       toast.error(message);

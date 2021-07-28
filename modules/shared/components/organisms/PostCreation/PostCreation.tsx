@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ReactText } from 'react';
 import { FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
@@ -15,6 +16,7 @@ import initialState from './postCreationInitialState';
 import { createPollPost } from '../../../api/createPollPost';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
+import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 
 const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
   if (res.statusCode >= 400 || res.statusCode === 0) {
@@ -153,7 +155,8 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       setCreating(false);
       toasterHandler(res);
       closeModalHandler();
-      if (res.statusCode === 401) {
+      if (res.statusCode === EStatusCode.Unauthorized) {
+        await logoutUser();
         redirectToLoginPage();
       }
       // reset

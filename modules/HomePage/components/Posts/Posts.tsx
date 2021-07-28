@@ -9,6 +9,7 @@ import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement, ReactText } from 'react';
 import { toast } from 'react-toastify';
+import { logoutUser } from '../../../../context/AuthUserContext/api/authApi';
 import { addOneVote } from '../../api/votesApi/voteApi';
 import styles from '../../pages/home-page.module.css';
 import type { IVotesApi } from '../../api/votesApi/IvotesApi';
@@ -51,7 +52,10 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     } else {
       const { errorCode } = resData as { errorCode: number };
       toasterHandler(resData as IVotesApi.IVotesErrorData);
-      if (errorCode === EStatusCode.Unauthorized) redirectToLoginPage();
+      if (errorCode === EStatusCode.Unauthorized) {
+        await logoutUser();
+        redirectToLoginPage();
+      }
     }
   };
 
@@ -68,7 +72,10 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     } else {
       toast.error(res.resData.message);
       const { errorCode } = res.resData as { errorCode: number };
-      if (errorCode === EStatusCode.Unauthorized) redirectToLoginPage();
+      if (errorCode === EStatusCode.Unauthorized) {
+        await logoutUser();
+        redirectToLoginPage();
+      }
     }
   };
 
