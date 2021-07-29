@@ -16,6 +16,7 @@ const PostFooter: FC<IPostFooter.IProps> = ({
       {showResult && <span>{numberOfVotes} votes</span>}
       <button
         type="button"
+        data-testid="share-button-icon"
         onClick={(): void => {
           sharePostHandler(postId);
         }}

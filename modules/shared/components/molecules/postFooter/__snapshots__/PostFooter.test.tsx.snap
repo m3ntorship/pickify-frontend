@@ -9,6 +9,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
      votes
   </span>
   <button
+    data-testid="share-button-icon"
     onClick={[Function]}
     type="button"
   >
@@ -28,6 +29,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
      votes
   </span>
   <button
+    data-testid="share-button-icon"
     onClick={[Function]}
     type="button"
   >
