@@ -5,13 +5,27 @@ import PostFooter from './PostFooter';
 describe('Testing Footer with snapshot', () => {
   it('Testing Footer with required props', () => {
     const tree = renderer
-      .create(<PostFooter numberOfVotes={120} showResult />)
+      .create(
+        <PostFooter
+          numberOfVotes={120}
+          showResult
+          sharePostHandler={(): boolean => true}
+          postId=""
+        />,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('Testing Footer with required props', () => {
     const tree = renderer
-      .create(<PostFooter numberOfVotes={120} showResult />)
+      .create(
+        <PostFooter
+          numberOfVotes={120}
+          showResult
+          sharePostHandler={(): boolean => true}
+          postId=""
+        />,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
