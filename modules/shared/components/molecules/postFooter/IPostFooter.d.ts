@@ -2,7 +2,8 @@ declare namespace IPostFooter {
   export interface IProps {
     numberOfVotes: number;
     showResult: boolean;
-    handleClick?: () => void;
+    sharePostHandler: (postId: string) => void;
+    postId: string;
   }
 }
 export { IPostFooter };

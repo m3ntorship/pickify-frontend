@@ -10,6 +10,7 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
   post,
   deletePostHandler,
   addOneVote,
+  sharePostHandler,
 }): ReactElement => {
   const { totalVotes } = getVotesResults(post.options_groups.groups[0].options);
   const { user } = post;
@@ -38,6 +39,8 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
         showResult={
           post.options_groups.groups[0].options[0].vote_count !== undefined
         }
+        sharePostHandler={sharePostHandler}
+        postId={post.id}
       />
     </div>
   );

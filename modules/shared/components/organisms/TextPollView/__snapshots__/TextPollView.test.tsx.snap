@@ -262,6 +262,8 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
          votes
       </span>
       <button
+        data-testid="share-button-icon"
+        onClick={[Function]}
         type="button"
       >
         <svg

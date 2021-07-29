@@ -12,6 +12,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
   post,
   addOneVote,
   deletePostHandler,
+  sharePostHandler,
 }): ReactElement => {
   let votedOptions: IPostFeed.IOptions[] = [];
 
@@ -68,6 +69,8 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
       <PostViewFooter
         numberOfVotes={totalVotes}
         showResult={showTotalVotes()}
+        sharePostHandler={sharePostHandler}
+        postId={post.id}
       />
     </div>
   );
