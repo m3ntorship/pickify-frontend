@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: [
     '../pages/**/*.stories.(js|mdx|tsx)',
@@ -9,4 +11,11 @@ module.exports = {
     'storybook-css-modules-preset',
   ],
   typescript: { reactDocgen: 'react-docgen' },
+  webpackFinal: async (config, { configType }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@modules': path.resolve(__dirname, '..', 'modules'),
+    };
+    return config;
+  },
 };
