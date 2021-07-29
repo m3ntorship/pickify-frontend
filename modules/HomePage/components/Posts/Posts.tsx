@@ -78,7 +78,17 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       }
     }
   };
-
+  const sharePostHandler = async (postId: string): Promise<void> => {
+    if (typeof window !== 'undefined') {
+      const baseUrl = window.location.href;
+      try {
+        await navigator.clipboard.writeText(`${baseUrl}posts/${postId}`);
+        toast('Copied To Clipboard', { autoClose: 1300 });
+      } catch (err: unknown) {
+        console.log('Clipboard access is denied', err);
+      }
+    }
+  };
   return (
     <div className={styles.posts}>
       {posts.map((post) => {
@@ -90,6 +100,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                   post={post}
                   deletePostHandler={deletePostHandler}
                   addOneVote={addOneVoteHandler}
+                  sharePostHandler={sharePostHandler}
                 />
               </div>
             );
@@ -100,6 +111,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                   post={post}
                   deletePostHandler={deletePostHandler}
                   addOneVote={addOneVoteHandler}
+                  sharePostHandler={sharePostHandler}
                 />
               </div>
             );
@@ -110,6 +122,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                   post={post}
                   deletePostHandler={deletePostHandler}
                   addOneVote={addOneVoteHandler}
+                  sharePostHandler={sharePostHandler}
                 />
               </div>
             );

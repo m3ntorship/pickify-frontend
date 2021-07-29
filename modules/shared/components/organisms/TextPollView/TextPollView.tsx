@@ -10,6 +10,7 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
   post,
   addOneVote,
   deletePostHandler,
+  sharePostHandler,
 }): ReactElement => {
   const firstGroup = 0;
   const { totalVotes } = getVotesResults(
@@ -45,6 +46,8 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
             post.options_groups.groups[firstGroup].options[firstGroup]
               .vote_count !== undefined
           }
+          sharePostHandler={sharePostHandler}
+          postId={post.id}
         />
       </div>
     </div>
