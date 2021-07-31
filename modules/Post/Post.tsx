@@ -1,7 +1,6 @@
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
 import type { FC, ReactElement, ReactText } from 'react';
 import { useEffect, useState, useRef } from 'react';
-
 import { useRedirect } from '@modules/shared/hooks/useRedirect/useRedirect';
 import { addOneVote } from '@modules/HomePage/api/votesApi/voteApi';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
@@ -59,25 +58,26 @@ const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
     groupId: string,
     resData: IVotesApi.IVotesErrorData | IVotesApi.IVotesSuccessData,
   ): IPostFeed.IPost => {
-    let votedOption = { voteCount: 1, optionId: 'bla-bla', voted: true };
     const { votesData } = resData as { votesData: IVotesApi.IVotesData[] };
-    votesData.forEach(
-      (element: { voteCount: number; optionId: string; voted: boolean }) => {
-        if (element.voted) votedOption = element;
-      },
-    );
+    const votes: Record<string, { voteCount: number; voted: boolean }> = {
+      id_41651616515616: { voteCount: 0, voted: false },
+    };
+
+    votesData.map((option: IVotesApi.IVotesData) => {
+      votes[option.optionId] = {
+        voteCount: option.voteCount,
+        voted: option.voted,
+      };
+      return option;
+    });
+
     const groups = post.options_groups.groups.map((group) => {
       if (group.id === groupId) {
-        const newVotedGroups = group.options.map((option) => {
-          if (option.id === votedOption.optionId) {
-            return {
-              ...option,
-              vote_count: votedOption.voteCount,
-              voted: votedOption.voted,
-            };
-          }
-          return option;
-        });
+        const newVotedGroups = group.options.map((option) => ({
+          ...option,
+          vote_count: votes[option.id].voteCount,
+          voted: votes[option.id].voted,
+        }));
         return { ...group, options: newVotedGroups };
       }
       return group;
