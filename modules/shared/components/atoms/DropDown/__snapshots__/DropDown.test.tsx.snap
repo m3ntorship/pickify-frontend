@@ -11,12 +11,7 @@ exports[`DropDown should render the only menu icon with variant=[image] 1`] = `
     data-testid="menu-icon"
     role="button"
     tabIndex={0}
-  >
-    <svg
-      className="menu-icon"
-      data-file-name="SvgVerticalThreeDots"
-    />
-  </div>
+  />
 </div>
 `;
 
@@ -31,11 +26,6 @@ exports[`DropDown should render the only menu icon with variant=[post] 1`] = `
     data-testid="menu-icon"
     role="button"
     tabIndex={0}
-  >
-    <svg
-      className="menu-icon"
-      data-file-name="SvgVerticalThreeDots"
-    />
-  </div>
+  />
 </div>
 `;
