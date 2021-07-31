@@ -18,14 +18,6 @@ import { addOneVote } from '../../../../HomePage/api/votesApi/voteApi';
 import type { IPost } from './ISinglePostView';
 import styles from './SinglePostView.module.css';
 
-const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
-  if (!resData.error) {
-    return null;
-  }
-  toast.error(resData.message);
-  return null;
-};
-
 const SinglePostView: FC<IPost.Props> = ({
   post,
   posts,
@@ -33,6 +25,14 @@ const SinglePostView: FC<IPost.Props> = ({
 }): ReactElement => {
   const { redirectToLoginPage } = useRedirect();
   const toastId = useRef<ReactText>();
+
+  const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
+    if (!resData.error) {
+      return null;
+    }
+    toast.error(resData.message);
+    return null;
+  };
 
   const addOneVoteHandler = async (
     optionId: string,
@@ -76,6 +76,7 @@ const SinglePostView: FC<IPost.Props> = ({
       }
     }
   };
+
   return (
     <div className={styles.posts}>
       {post.type === EPostType.TextPoll && (
@@ -110,3 +111,6 @@ const SinglePostView: FC<IPost.Props> = ({
 };
 
 export default withErrorHandler(SinglePostView);
+// function toasterHandler(arg0: IVotesApi.IVotesErrorData) {
+//   throw new Error('Function not implemented.');
+// }
