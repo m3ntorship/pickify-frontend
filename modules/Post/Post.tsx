@@ -1,10 +1,4 @@
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
-import {
-  TextPollView,
-  MiniSurveyView,
-  ImagePollView,
-} from '@modules/shared/components/organisms';
-import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { FC, ReactElement, ReactText } from 'react';
 import { useEffect, useState, useRef } from 'react';
 
@@ -17,7 +11,7 @@ import { logoutUser } from 'context/AuthUserContext/api/authApi';
 import { deletePost } from '@modules/HomePage/api/DeletePostApi/deletePostsApi';
 import { apiUrls } from '@modules/shared/configuration/ConfigPostCreation/config';
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
-import styles from './Post.module.css';
+import SinglePostView from '@modules/shared/components/organisms/SinglePostView/SinglePostView';
 import type { IPost } from './IPost';
 
 const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
@@ -99,7 +93,6 @@ const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
       autoClose: false,
     });
     const { resData } = await addOneVote(optionId);
-    console.log(resData);
 
     toast.dismiss(toastId.current);
     if (!resData.error) {
@@ -137,34 +130,12 @@ const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
     setPost(transformPostsMedia(postData));
   }, [postData]);
   return (
-    <div className={styles.posts}>
-      {post.type === EPostType.TextPoll && (
-        <div key={post.id} className={styles.posts}>
-          <TextPollView
-            post={post}
-            deletePostHandler={deletePostHandler}
-            addOneVote={addOneVoteHandler}
-          />
-        </div>
-      )}
-      {post.type === EPostType.MiniSurvey && (
-        <div key={post.id} className={styles.posts}>
-          <MiniSurveyView
-            post={post}
-            deletePostHandler={deletePostHandler}
-            addOneVote={addOneVoteHandler}
-          />
-        </div>
-      )}
-      {post.type === EPostType.ImagePoll && (
-        <div key={post.id} className={styles.posts}>
-          <ImagePollView
-            post={post}
-            deletePostHandler={deletePostHandler}
-            addOneVote={addOneVoteHandler}
-          />
-        </div>
-      )}
+    <div className="w-39xl">
+      <SinglePostView
+        deletePostHandler={deletePostHandler}
+        post={post}
+        addOneVoteHandler={addOneVoteHandler}
+      />
     </div>
   );
 };

@@ -7,13 +7,20 @@ import styles from './PostFooter.module.css';
 const PostFooter: FC<IPostFooter.IProps> = ({
   numberOfVotes,
   showResult,
-  handleClick,
+  sharePostHandler,
+  postId,
 }): ReactElement => {
   return (
     <div className={styles.container}>
       {!showResult && <span> Vote to uncover the total number of voters </span>}
       {showResult && <span>{numberOfVotes} votes</span>}
-      <button type="button" onClick={handleClick}>
+      <button
+        type="button"
+        data-testid="share-button-icon"
+        onClick={(): void => {
+          sharePostHandler(postId);
+        }}
+      >
         <Share />
       </button>
     </div>

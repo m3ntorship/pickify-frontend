@@ -14,7 +14,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     req: { cookies },
   } = context;
   const { user } = cookies as { user: string };
-  console.log('this is user from index page', user);
 
   if (!user) {
     return {
@@ -26,7 +25,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
   try {
     const { data } = await getPosts(user);
-    console.log(data);
 
     return {
       props: { data },

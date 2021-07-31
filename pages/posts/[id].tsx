@@ -10,12 +10,12 @@ const SeparatePost: FC<ISeparatePost.IProps> = ({
   error,
 }): ReactElement => {
   return (
-    <>
-      {error.length && (
+    <div className="flex justify-center">
+      {error.length !== 0 && (
         <div className="bg-primary text-xl text-center">Post not found!</div>
       )}
-      {!error.length && <Post postData={data} />} ;
-    </>
+      {error.length === 0 && <Post postData={data} />}
+    </div>
   );
 };
 export default SeparatePost;
