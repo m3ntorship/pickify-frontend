@@ -78,12 +78,19 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       }
     }
   };
-  const sharePostHandler = async (postId: string): Promise<void> => {
+  const sharePostHandler = async (
+    postId: string,
+    setCopied: (copied: boolean) => void,
+    copied: boolean,
+  ): Promise<void> => {
     if (typeof window !== 'undefined') {
       const baseUrl = window.location.href;
       try {
         await navigator.clipboard.writeText(`${baseUrl}posts/${postId}`);
-        toast('Copied To Clipboard', { autoClose: 1300 });
+        setCopied(!copied);
+        setTimeout(() => {
+          setCopied(false);
+        }, 2000);
       } catch (err: unknown) {
         console.log('Clipboard access is denied', err);
       }
