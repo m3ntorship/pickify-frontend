@@ -5,7 +5,6 @@ import type { IWithErrorHandler } from './IwithErrorHandler';
 function withErrorHandler<T>(WrappedComponent: FC<T>): FC<T> {
   return (props: IWithErrorHandler.IProps & T): ReactElement => {
     const { data } = props;
-    console.log(data);
     if (data?.error) {
       return <div>{data.message}</div>;
     }

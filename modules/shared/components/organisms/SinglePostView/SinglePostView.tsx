@@ -68,6 +68,3 @@ const SinglePostView: FC<IPost.Props> = ({
 };
 
 export default withErrorHandler(SinglePostView);
-// function toasterHandler(arg0: IVotesApi.IVotesErrorData) {
-//   throw new Error('Function not implemented.');
-// }
