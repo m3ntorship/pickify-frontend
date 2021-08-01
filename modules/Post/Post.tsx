@@ -8,13 +8,16 @@ import { toast } from 'react-toastify';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import { logoutUser } from 'context/AuthUserContext/api/authApi';
 import { deletePost } from '@modules/HomePage/api/DeletePostApi/deletePostsApi';
-import { apiUrls } from '@modules/shared/configuration/ConfigPostCreation/config';
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
 import SinglePostView from '@modules/shared/components/organisms/SinglePostView/SinglePostView';
+import {
+  transformPostsMedia,
+  updateVotedPost,
+} from '@modules/HomePage/components/Posts/PostsHelpers';
 import type { IPost } from './IPost';
 
-const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
-  const [post, setPost] = useState<IPostFeed.IPost>(postData);
+const Post: FC<IPost.Props> = ({ data }): ReactElement => {
+  const [post, setPost] = useState<IPostFeed.IPost>(data);
   const { redirectToLoginPage, redirectToHomePage } = useRedirect();
   const toastId = useRef<ReactText>();
 
@@ -24,65 +27,6 @@ const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
     }
     toast.error(resData.message);
     return null;
-  };
-
-  const transformPostsMedia = (
-    singlePost: IPostFeed.IPost,
-  ): IPostFeed.IPost => {
-    const groups = singlePost.options_groups.groups.map(
-      ({ options, ...group }) => {
-        const newOptions = options.map(
-          ({ vote_count, voted, id, body, ...option }) => {
-            const optionMedia = option.media.map(({ url }) => {
-              if (!url.includes('/')) {
-                return { url: `${apiUrls.mediaAPI}${url}` };
-              }
-              return { url };
-            });
-            return { id, body, vote_count, voted, media: optionMedia };
-          },
-        );
-        const groupMedia = group.media.map(({ url }) => {
-          return { url: `${apiUrls.mediaAPI}${url}` };
-        });
-        return { ...group, media: groupMedia, options: newOptions };
-      },
-    );
-    const postMedia = singlePost.media.map(({ url }) => {
-      return { url: `${apiUrls.mediaAPI}${url}` };
-    });
-    return { ...singlePost, media: postMedia, options_groups: { groups } };
-  };
-
-  const updatedVotedPosts = (
-    groupId: string,
-    resData: IVotesApi.IVotesErrorData | IVotesApi.IVotesSuccessData,
-  ): IPostFeed.IPost => {
-    const { votesData } = resData as { votesData: IVotesApi.IVotesData[] };
-    const votes: Record<string, { voteCount: number; voted: boolean }> = {
-      id_41651616515616: { voteCount: 0, voted: false },
-    };
-
-    votesData.map((option: IVotesApi.IVotesData) => {
-      votes[option.optionId] = {
-        voteCount: option.voteCount,
-        voted: option.voted,
-      };
-      return option;
-    });
-
-    const groups = post.options_groups.groups.map((group) => {
-      if (group.id === groupId) {
-        const newVotedGroups = group.options.map((option) => ({
-          ...option,
-          vote_count: votes[option.id].voteCount,
-          voted: votes[option.id].voted,
-        }));
-        return { ...group, options: newVotedGroups };
-      }
-      return group;
-    });
-    return { ...post, options_groups: { groups } };
   };
 
   const addOneVoteHandler = async (
@@ -96,8 +40,9 @@ const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
 
     toast.dismiss(toastId.current);
     if (!resData.error) {
-      const updatedPost = updatedVotedPosts(groupId, resData);
-      setPost(updatedPost);
+      const { votesData } = resData as { votesData: IVotesApi.IVotesData[] };
+      const updatedPost = updateVotedPost([post], votesData, groupId);
+      setPost(updatedPost[0]);
     } else {
       const { errorCode } = resData as { errorCode: number };
       toasterHandler(resData as IVotesApi.IVotesErrorData);
@@ -127,8 +72,9 @@ const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
     }
   };
   useEffect(() => {
-    setPost(transformPostsMedia(postData));
-  }, [postData]);
+    const transformedPost = transformPostsMedia([data]);
+    setPost(transformedPost[0]);
+  }, [data]);
   return (
     <div className="w-39xl">
       <SinglePostView
@@ -141,6 +87,3 @@ const Post: FC<IPost.Props> = ({ postData }): ReactElement => {
 };
 
 export default withErrorHandler(Post);
-// function toasterHandler(arg0: IVotesApi.IVotesErrorData) {
-//   throw new Error('Function not implemented.');
-// }

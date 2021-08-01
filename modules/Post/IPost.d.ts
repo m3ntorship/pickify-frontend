@@ -2,7 +2,7 @@ import type { IPostFeed } from '../shared/types/postFeed/IPostFeed';
 
 declare namespace IPost {
   export interface Props {
-    postData: IPostFeed.IPost;
+    data: IPostFeed.IPost;
   }
   export interface UpdateVotedPost {
     resData: { voteCount: number; voted: boolean; optionId: string }[];

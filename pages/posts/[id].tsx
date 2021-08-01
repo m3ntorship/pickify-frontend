@@ -5,16 +5,10 @@ import type { GetServerSideProps } from 'next';
 import { getSinglePost } from '../../modules/shared/api/getSinglePost';
 import type { ISeparatePost } from '../../modules/shared/types/seperatePost/ISeparatePost';
 
-const SeparatePost: FC<ISeparatePost.IProps> = ({
-  data,
-  error,
-}): ReactElement => {
+const SeparatePost: FC<ISeparatePost.IProps> = ({ data }): ReactElement => {
   return (
     <div className="flex justify-center">
-      {error.length !== 0 && (
-        <div className="bg-primary text-xl text-center">Post not found!</div>
-      )}
-      {error.length === 0 && <Post postData={data} />}
+      <Post data={data} />
     </div>
   );
 };
@@ -32,11 +26,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const { data } = await getSinglePost(id, user);
 
     return {
-      props: { data, error: '' },
+      props: { data },
     };
   } catch (error: unknown) {
-    console.log('the error is ', error);
-
     const { errorCode, message } = error as {
       errorCode: number;
       message: string;
@@ -52,8 +44,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
     return {
       props: {
-        data: {},
-        error: message,
+        data: {
+          error: true,
+          errorCode,
+          message,
+        },
       },
     };
   }
