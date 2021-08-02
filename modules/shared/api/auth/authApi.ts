@@ -1,40 +1,23 @@
-import { firebaseAuth } from '@modules/shared/api/auth';
 import { generateErrMsg } from '@modules/shared/logic/generateErrMsg/generateErrMsg';
-import { setUserUUID } from '@modules/shared/logic/userAuth/userAuth';
 import axios from 'axios';
-import firebase from 'firebase/app';
 import type { IAuth } from './IAuth';
 
-export const logoutUser = async (): Promise<void> => {
-  await firebaseAuth.signOut();
-};
-
-export const loginUser = async (): Promise<string | undefined> => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  const data = await firebaseAuth.signInWithPopup(provider);
-  const token = await data.user?.getIdToken();
-  return token;
-};
-
-export const register = async (
-  token: string | undefined,
-): Promise<IAuth.IAuthResData> => {
+export const register = async (token: string): Promise<IAuth.IAuthResData> => {
   try {
     const { data }: { data: { uuid: string } } = await axios.post(
       'https://pickify-posts-be-dev.m3ntorship.net/api/users/register',
       undefined,
       {
         headers: {
-          Authorization: `Bearer ${token ?? ''}`,
+          Authorization: `Bearer ${token}`,
         },
       },
     );
 
     const { uuid } = data;
-    setUserUUID(uuid);
 
     return {
-      resData: { error: false, message: 'You have logged in successfully!' },
+      resData: { error: false, uuid },
     };
   } catch (error: unknown) {
     const { response } = error as IAuth.IErrorData;

@@ -5,7 +5,7 @@ declare namespace IAuth {
 
   export interface IAuthSuccessData {
     error: boolean;
-    message: string;
+    uuid: string;
   }
   export interface IAuthErrorData {
     message: string;
