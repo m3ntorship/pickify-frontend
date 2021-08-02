@@ -3,6 +3,7 @@ import type { FC, ReactElement, ReactText } from 'react';
 import { FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
+import { signOut, useSession } from 'next-auth/client';
 import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
@@ -15,8 +16,6 @@ import { EPollType } from './types/EPollType';
 import initialState from './postCreationInitialState';
 import { createPollPost } from '../../../api/createPollPost';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
-import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
-import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 
 const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
   if (res.statusCode >= 400 || res.statusCode === 0) {
@@ -34,7 +33,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   creating,
   setCreating,
 }): ReactElement => {
-  const { user } = useAuth();
+  const [session] = useSession();
   const zero = 0;
   // post creation global initial state setup
   const { redirectToLoginPage } = useRedirect();
@@ -156,7 +155,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       toasterHandler(res);
       closeModalHandler();
       if (res.statusCode === EStatusCode.Unauthorized) {
-        await logoutUser();
+        await signOut();
         redirectToLoginPage();
       }
       // reset
@@ -204,7 +203,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
         <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
           <div>
             <CreatePostHeader
-              profilePic={user?.userImg ?? ''}
+              profilePic={session?.user?.image ?? ''}
               checkedValue={postCreationGlobalState.currentSelectedTab}
               tabsData={tabGroupData()}
               onTabChangeHandler={handleChangeTabsValue}

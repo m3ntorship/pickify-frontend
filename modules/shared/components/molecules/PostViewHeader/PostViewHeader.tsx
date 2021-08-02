@@ -1,20 +1,20 @@
 import React from 'react';
 import type { ReactElement, FC } from 'react';
+import { useSession } from 'next-auth/client';
 import Divider from '../../atoms/Divider/Divider';
 import type { IPostViewHeader } from './IPostViewHeader';
 import * as EDivider from '../../atoms/Divider/types/EDivider';
 import UserInfo from '../UserInfo/UserInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
-import { getUserUUID } from '../../../logic/userAuth/userAuth';
 
 const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],
   userId: string,
+  uuid: string,
 ): { id: string; body: string }[] => {
   if (process.browser) {
-    const loggedInUser = getUserUUID();
-    if (userId !== loggedInUser) {
+    if (userId !== uuid) {
       return updatedOptions.filter((option) => option.id !== 'delete');
     }
     return updatedOptions;
@@ -31,6 +31,8 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   postId,
   isHidden,
 }): ReactElement => {
+  const [session] = useSession();
+  const { uuid } = session?.user as { uuid: string };
   const onMenuOptionClickHandler = (id: string): void => {
     switch (id) {
       case 'delete':
@@ -57,7 +59,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         />
         <DropDown
           onOptionMenuClick={onMenuOptionClickHandler}
-          options={getPostMenuOptions(options, userId)}
+          options={getPostMenuOptions(options, userId, uuid)}
           variant="post"
           size="sm"
         />

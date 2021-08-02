@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSession } from 'next-auth/client';
 import PostCreation from '../../../shared/components/organisms/PostCreation/PostCreation';
 import Modal from '../../../shared/components/organisms/Modal/Modal';
 import TextInput from '../../../shared/components/atoms/TextInputs/TextInput';
@@ -9,10 +10,9 @@ import Avatar from '../../../shared/components/atoms/Avatar/Avatar';
 import styles from './NewPost.module.css';
 import initialState from '../../../shared/components/organisms/PostCreation/postCreationInitialState';
 import type { IPostCreation } from '../../../shared/components/organisms/PostCreation/types/IPostCreation';
-import { useAuth } from '../../../../context/AuthUserContext/AuthUserContext';
 
 const NewPost = (): ReactElement => {
-  const { user } = useAuth();
+  const [session] = useSession();
 
   const [creating, setCreating] = useState<boolean>(false);
 
@@ -34,7 +34,7 @@ const NewPost = (): ReactElement => {
     reValidateMode: 'onChange',
   });
 
-  const avatarVariant = user?.userImg ? 'filled' : 'notFilled';
+  const avatarVariant = session?.user?.image ? 'filled' : 'notFilled';
 
   return (
     <>
@@ -44,7 +44,7 @@ const NewPost = (): ReactElement => {
             <Avatar
               size="medium"
               variant={avatarVariant}
-              profilePic={user?.userImg ?? ''}
+              profilePic={session?.user?.image ?? ''}
             />
           </div>
           <div className="relative flex w-full">
