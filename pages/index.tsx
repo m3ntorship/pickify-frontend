@@ -13,8 +13,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const {
     req: { cookies },
   } = context;
-  const { user } = cookies as { user: string };
-
+  const user = cookies?.['next-auth.session-token'] as string;
   if (!user) {
     return {
       redirect: {

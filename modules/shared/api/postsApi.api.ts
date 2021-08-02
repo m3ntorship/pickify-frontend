@@ -2,21 +2,21 @@ import { postClient, mediaClient } from '@m3ntorship/posts-client';
 import type { Configuration } from '@m3ntorship/posts-client/dist/post-client';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import { getUserToken } from '../logic/userAuth/userAuth';
+import { getCsrfToken } from 'next-auth/client';
 import type { IGetPosts } from './IGetPosts';
+
+const getIdtoken = async (): Promise<string | null> => {
+  const csrfToken = await getCsrfToken();
+  return csrfToken;
+};
 
 const postsApiAxiosInstance = axios.create({});
 
-// postsApiAxiosInstance.interceptors.response.use(
-//   ({ data }) => data, // eslint-disable-line @typescript-eslint/no-unsafe-return
-//   async (e) => Promise.reject(e),
-// );
-
 postsApiAxiosInstance.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  async (config: AxiosRequestConfig) => {
     const { headers } = config as IGetPosts.IAxiosConfig;
     if (!headers.Authorization) {
-      const user = getUserToken();
+      const user = await getIdtoken();
       if (user) {
         headers.Authorization = `Bearer ${user}`;
       }
