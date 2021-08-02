@@ -23,6 +23,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params as { id: string };
 
   try {
+    const regexExp =
+      /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+    const isValid = regexExp.test(id);
+    if (!isValid) {
+      throw Object.assign(new Error(), {
+        error: true,
+        message: 'this id is not correct',
+        errorCode: 400,
+      });
+    }
     const { data } = await getSinglePost(id, user);
 
     return {
