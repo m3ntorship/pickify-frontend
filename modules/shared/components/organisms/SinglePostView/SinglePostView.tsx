@@ -6,11 +6,14 @@ import {
 } from '@modules/shared/components/organisms';
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { FC, ReactElement } from 'react';
-import { toast } from 'react-toastify';
 import type { IPost } from './ISinglePostView';
 import styles from './SinglePostView.module.css';
 
-export const sharePostHandler = async (postId: string): Promise<void> => {
+export const sharePostHandler = async (
+  postId: string,
+  setCopied: (copied: boolean) => void,
+  copied: boolean,
+): Promise<void> => {
   if (typeof window !== 'undefined') {
     const baseUrl = window.location.href;
     try {
@@ -19,7 +22,10 @@ export const sharePostHandler = async (postId: string): Promise<void> => {
       } else {
         await navigator.clipboard.writeText(baseUrl);
       }
-      toast('Copied To Clipboard', { autoClose: 1300 });
+      setCopied(!copied);
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
     } catch (err: unknown) {
       console.log('Clipboard access is denied', err);
     }

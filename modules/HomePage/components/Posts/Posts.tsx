@@ -50,6 +50,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       }
     }
   };
+
   const addOneVoteHandler = async (
     optionId: string,
     groupId: string,
