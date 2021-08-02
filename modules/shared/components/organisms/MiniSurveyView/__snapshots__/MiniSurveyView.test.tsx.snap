@@ -112,7 +112,7 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
           tabIndex={0}
         >
           <svg
-            className="menu-icon"
+            className="fill-grey w-6 h-6"
             data-file-name="SvgVerticalThreeDots"
           />
         </div>
