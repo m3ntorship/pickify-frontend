@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import { signOut, useSession } from 'next-auth/client';
 import styles from './Navigation.module.css';
 import HomeIcon from '../../icons/home.svg';
 import FriendsIcon from '../../icons/friends.svg';
@@ -10,19 +11,17 @@ import Avatar from '../../atoms/Avatar/Avatar';
 import Divider from '../../atoms/Divider/Divider';
 import MenuIcon from '../../icons/menu.svg';
 import { DividerType } from '../../atoms/Divider/types/EDivider';
-import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
-import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 
 const Navigation: FC = (): ReactElement => {
-  const { user } = useAuth();
+  const [session] = useSession();
   const { redirectToLoginPage } = useRedirect();
 
   const logout = async (): Promise<void> => {
-    await logoutUser();
+    await signOut();
     redirectToLoginPage();
   };
-  const avatarVariant = user?.userImg ? 'filled' : 'notFilled';
+  const avatarVariant = session?.user?.image ? 'filled' : 'notFilled';
   return (
     <nav className={styles['navigation-wrapper']}>
       <div className={styles.navigation}>
@@ -45,7 +44,7 @@ const Navigation: FC = (): ReactElement => {
                 <Avatar
                   size="extra-small"
                   variant={avatarVariant}
-                  profilePic={user?.userImg ?? ''}
+                  profilePic={session?.user?.image ?? ''}
                   onClick={logout}
                 />
               </li>
@@ -69,7 +68,7 @@ const Navigation: FC = (): ReactElement => {
                 <Avatar
                   size="extra-small"
                   variant={avatarVariant}
-                  profilePic={user?.userImg ?? ''}
+                  profilePic={session?.user?.image ?? ''}
                   onClick={logout}
                 />
               </li>
