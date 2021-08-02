@@ -11,18 +11,27 @@ export const transformPostsMedia = (
         const newOptions = options.map(
           ({ vote_count, voted, id, body, ...option }) => {
             const optionMedia = option.media.map(({ url }) => {
-              return { url: `${apiUrls.mediaAPI}${url}` };
+              if (!url.includes('/')) {
+                return { url: `${apiUrls.mediaAPI}${url}` };
+              }
+              return { url };
             });
             return { id, body, vote_count, voted, media: optionMedia };
           },
         );
         const groupMedia = group.media.map(({ url }) => {
-          return { url: `${apiUrls.mediaAPI}${url}` };
+          if (!url.includes('/')) {
+            return { url: `${apiUrls.mediaAPI}${url}` };
+          }
+          return { url };
         });
         return { ...group, media: groupMedia, options: newOptions };
       });
       const postMedia = post.media.map(({ url }) => {
-        return { url: `${apiUrls.mediaAPI}${url}` };
+        if (!url.includes('/')) {
+          return { url: `${apiUrls.mediaAPI}${url}` };
+        }
+        return { url };
       });
       return { ...post, media: postMedia, options_groups: { groups } };
     },
