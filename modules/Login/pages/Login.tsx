@@ -1,44 +1,25 @@
 import Button from '@modules/shared/components/atoms/Button/Button';
-import type { FC, ReactElement, ReactText } from 'react';
-import { useEffect, useRef } from 'react';
-import { toast } from 'react-toastify';
+import type { FC, ReactElement } from 'react';
+import { useEffect } from 'react';
+import { signIn, useSession } from 'next-auth/client';
 import * as EButton from '../../shared/components/atoms/Button/types/EButton';
-import {
-  loginUser,
-  register,
-} from '../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../shared/hooks/useRedirect/useRedirect';
-import { useAuth } from '../../../context/AuthUserContext/AuthUserContext';
 
 const Login: FC = (): ReactElement => {
-  const { loading, isAuthenticated } = useAuth();
+  const [session, loading] = useSession();
   const { redirectToHomePage } = useRedirect();
-  const toastId = useRef<ReactText>();
 
   useEffect(() => {
-    if (!loading && isAuthenticated) {
+    if (!loading && session) {
+      console.log(session);
       redirectToHomePage();
     }
-  }, [isAuthenticated, loading]);
+  }, [session, loading]);
 
-  const login = async (): Promise<void> => {
-    const token: string | undefined = await loginUser();
-    toastId.current = toast.warning('Please wait while logging', {
-      autoClose: false,
-    });
-    const { resData } = await register(token);
-    toast.dismiss(toastId.current);
-    if (!resData.error) {
-      redirectToHomePage();
-      toast.success(resData.message);
-    } else {
-      toast.error(resData.message);
-    }
-  };
   return (
     <div className="flex justify-center m-3">
       <Button
-        onClick={login}
+        onClick={async (): Promise<void> => signIn()}
         variant={EButton.buttonVariantValues.PRIMARY}
         size={EButton.buttonSizeValues.LARGE}
         buttonText="Login"
