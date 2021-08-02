@@ -32,7 +32,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   isHidden,
 }): ReactElement => {
   const [session] = useSession();
-  const { uuid } = session?.user as { uuid: string };
+
   const onMenuOptionClickHandler = (id: string): void => {
     switch (id) {
       case 'delete':
@@ -59,7 +59,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         />
         <DropDown
           onOptionMenuClick={onMenuOptionClickHandler}
-          options={getPostMenuOptions(options, userId, uuid)}
+          options={getPostMenuOptions(options, userId, session?.uuid as string)}
           variant="post"
           size="sm"
         />
