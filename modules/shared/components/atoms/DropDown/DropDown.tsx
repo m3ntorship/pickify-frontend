@@ -2,7 +2,6 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import type { IDropDown } from './IDropDown';
-import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import styles from './DropDown.module.css';
 import { useDetectClickOut } from '../../../hooks/useDetectClickOut/useDetectClickOut';
 
@@ -11,6 +10,7 @@ const DropDown: FC<IDropDown.IProps> = ({
   onOptionMenuClick,
   variant,
   size,
+  children,
 }): ReactElement => {
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
 
@@ -31,7 +31,7 @@ const DropDown: FC<IDropDown.IProps> = ({
         className={menuIconClasses}
         ref={triggerRef}
       >
-        <VerticalThreeDotsIcon className={styles['menu-icon']} />
+        {children}
       </div>
       {show && (
         <div

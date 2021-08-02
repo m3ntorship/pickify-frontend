@@ -10,6 +10,7 @@ import MessageBox from '../MessageBox/MessageBox';
 import { MessageBoxType } from '../MessageBox/types/EMessageBox';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { creationDropDown } from '../../atoms/DropDown/mockedOptions';
+import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 
 const UploadingImage: FC<IUploadingImage.IProps> = ({
   file,
@@ -75,7 +76,9 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
             options={creationDropDown}
             onOptionMenuClick={onMenuOptionClickHandler}
             size="md"
-          />
+          >
+            <VerticalThreeDotsIcon className="fill-grey w-6 h-6" />
+          </DropDown>
         </div>
       </div>
       {error ? (

@@ -25,6 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
   try {
     const { data } = await getPosts(user);
+
     return {
       props: { data },
     };
