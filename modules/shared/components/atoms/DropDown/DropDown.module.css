@@ -2,10 +2,6 @@
   @apply cursor-pointer bg-white flex justify-center items-center;
 }
 
-.menu-icon {
-  @apply fill-grey w-6 h-6;
-}
-
 .menu {
   @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute top-10 right-0 w-5xl z-20;
 }
