@@ -14,13 +14,11 @@ import {
   transformPostsMedia,
   updateVotedPost,
 } from '@modules/HomePage/components/Posts/PostsHelpers';
-import { useRouter } from 'next/router';
 import type { IPost } from './IPost';
 
 const Post: FC<IPost.Props> = ({ data }): ReactElement => {
   const [post, setPost] = useState<IPostFeed.IPost>(data);
   const { redirectToLoginPage, redirectToHomePage } = useRedirect();
-  const { asPath } = useRouter();
 
   const toastId = useRef<ReactText>();
 
@@ -50,7 +48,6 @@ const Post: FC<IPost.Props> = ({ data }): ReactElement => {
       toasterHandler(resData as IVotesApi.IVotesErrorData);
       if (errorCode === EStatusCode.Unauthorized) {
         await logoutUser();
-        sessionStorage.setItem('lastPage', asPath);
         redirectToLoginPage();
       }
     }
