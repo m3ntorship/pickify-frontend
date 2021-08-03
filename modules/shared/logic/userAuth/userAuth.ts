@@ -1,11 +1,12 @@
 import cookieCutter from 'cookie-cutter';
 
-export const getUserToken = (): string => cookieCutter.get('user');
+export const getUserToken = (): string =>
+  cookieCutter.get('next-auth.session-token');
 export const setUserToken = (token: string): void => {
-  cookieCutter.set('user', token);
+  cookieCutter.set('next-auth.session-token', token);
 };
 export const clearUserToken = (): void => {
-  cookieCutter.set('user', '', { expires: new Date(0) });
+  cookieCutter.set('next-auth.session-token', '', { expires: new Date(0) });
 };
 
 export const getUserUUID = (): string => cookieCutter.get('uuid');
