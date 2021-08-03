@@ -9,5 +9,8 @@ export const useRedirect = (): IUseRedirect.IUseRedirectReturn => {
   const redirectToLoginPage = (): void => {
     router.push('/login') as unknown as Promise<boolean>;
   };
-  return { redirectToHomePage, redirectToLoginPage };
+  const redirectToPostPage = (id: string): void => {
+    router.push(`/posts/${id}`) as unknown as Promise<boolean>;
+  };
+  return { redirectToHomePage, redirectToLoginPage, redirectToPostPage };
 };

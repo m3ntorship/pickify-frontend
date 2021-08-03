@@ -9,10 +9,14 @@ import {
 } from '../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../shared/hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../context/AuthUserContext/AuthUserContext';
+import {
+  getLastPage,
+  clearLastPage,
+} from '../../shared/logic/userAuth/userAuth';
 
 const Login: FC = (): ReactElement => {
   const { loading, isAuthenticated } = useAuth();
-  const { redirectToHomePage } = useRedirect();
+  const { redirectToHomePage, redirectToPostPage } = useRedirect();
   const toastId = useRef<ReactText>();
 
   useEffect(() => {
@@ -29,7 +33,13 @@ const Login: FC = (): ReactElement => {
     const { resData } = await register(token);
     toast.dismiss(toastId.current);
     if (!resData.error) {
-      redirectToHomePage();
+      const lastPageId = getLastPage();
+      if (lastPageId) {
+        redirectToPostPage(lastPageId);
+        clearLastPage();
+      } else {
+        redirectToHomePage();
+      }
       toast.success(resData.message);
     } else {
       toast.error(resData.message);

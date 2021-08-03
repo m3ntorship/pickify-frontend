@@ -16,3 +16,8 @@ export const setUserUUID = (UUID: string): void => {
 export const clearUserUUID = (): void => {
   cookieCutter.set('uuid', '', { expires: new Date(0) });
 };
+
+export const getLastPage = (): string => cookieCutter.get('lastPage');
+export const clearLastPage = (): void => {
+  cookieCutter.set('lastPage', '', { expires: new Date(0) });
+};

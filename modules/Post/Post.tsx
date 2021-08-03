@@ -19,6 +19,7 @@ import type { IPost } from './IPost';
 const Post: FC<IPost.Props> = ({ data }): ReactElement => {
   const [post, setPost] = useState<IPostFeed.IPost>(data);
   const { redirectToLoginPage, redirectToHomePage } = useRedirect();
+
   const toastId = useRef<ReactText>();
 
   const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
@@ -28,7 +29,6 @@ const Post: FC<IPost.Props> = ({ data }): ReactElement => {
     toast.error(resData.message);
     return null;
   };
-
   const addOneVoteHandler = async (
     optionId: string,
     groupId: string,
