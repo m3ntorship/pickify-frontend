@@ -12,14 +12,19 @@ import Divider from '../../atoms/Divider/Divider';
 import MenuIcon from '../../icons/menu.svg';
 import { DividerType } from '../../atoms/Divider/types/EDivider';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
+import DropDown from '../../atoms/DropDown/DropDown';
 
 const Navigation: FC = (): ReactElement => {
   const [session] = useSession();
   const { redirectToLoginPage } = useRedirect();
 
   const logout = async (): Promise<void> => {
-    await signOut();
-    redirectToLoginPage();
+    try {
+      await signOut();
+      redirectToLoginPage();
+    } catch (err: unknown) {
+      console.log('Logo out access is denied', err);
+    }
   };
   const avatarVariant = session?.user?.image ? 'filled' : 'notFilled';
   return (
@@ -41,12 +46,19 @@ const Navigation: FC = (): ReactElement => {
                 <BillIcon />
               </li>
               <li className="md:hidden">
-                <Avatar
-                  size="extra-small"
-                  variant={avatarVariant}
-                  profilePic={session?.user?.image ?? ''}
-                  onClick={logout}
-                />
+                <DropDown
+                  options={[{ id: 'logout', body: 'Log Out' }]}
+                  variant="post"
+                  size="sm"
+                  onOptionMenuClick={logout}
+                >
+                  <Avatar
+                    size="extra-small"
+                    variant={avatarVariant}
+                    profilePic={session?.user?.image ?? ''}
+                    onClick={logout}
+                  />
+                </DropDown>
               </li>
               <li>
                 <MenuIcon className={styles['menu-icon']} />
@@ -65,12 +77,19 @@ const Navigation: FC = (): ReactElement => {
                 <HappyIcon />
               </li>
               <li>
-                <Avatar
-                  size="extra-small"
-                  variant={avatarVariant}
-                  profilePic={session?.user?.image ?? ''}
-                  onClick={logout}
-                />
+                <DropDown
+                  options={[{ id: 'logout', body: 'Log Out' }]}
+                  variant="post"
+                  size="sm"
+                  onOptionMenuClick={logout}
+                >
+                  <Avatar
+                    size="extra-small"
+                    variant={avatarVariant}
+                    profilePic={session?.user?.image ?? ''}
+                    onClick={logout}
+                  />
+                </DropDown>
               </li>
             </ul>
           </div>

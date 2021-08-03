@@ -20,7 +20,6 @@ postsApiAxiosInstance.interceptors.request.use(
   },
   async (e: Error) => Promise.reject(e),
 );
-
 export const postsApi = new postClient.PostsApi(
   {
     basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',

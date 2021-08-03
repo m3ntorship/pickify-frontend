@@ -2,6 +2,7 @@ import React from 'react';
 import type { ReactElement, FC } from 'react';
 import { useSession } from 'next-auth/client';
 import Divider from '../../atoms/Divider/Divider';
+import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import type { IPostViewHeader } from './IPostViewHeader';
 import * as EDivider from '../../atoms/Divider/types/EDivider';
 import UserInfo from '../UserInfo/UserInfo';
@@ -62,7 +63,9 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
           options={getPostMenuOptions(options, userId, session?.uuid as string)}
           variant="post"
           size="sm"
-        />
+        >
+          <VerticalThreeDotsIcon className="fill-grey w-6 h-6" />
+        </DropDown>
       </div>
       <Divider type={EDivider.DividerType.Horizontal} length="100%" />
     </div>
