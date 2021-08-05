@@ -1,4 +1,4 @@
-import PostPage from '@modules/Post/PostPage';
+import PostPage from '@modules/PostPage/PostPage';
 import type { FC, ReactElement } from 'react';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import type { GetServerSideProps } from 'next';
