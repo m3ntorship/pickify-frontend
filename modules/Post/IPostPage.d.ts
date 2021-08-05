@@ -1,6 +1,6 @@
 import type { IPostFeed } from '../shared/types/postFeed/IPostFeed';
 
-declare namespace IPost {
+declare namespace IPostPage {
   export interface Props {
     data: IPostFeed.IPost;
   }
@@ -10,4 +10,4 @@ declare namespace IPost {
   }
 }
 
-export { IPost };
+export { IPostPage };

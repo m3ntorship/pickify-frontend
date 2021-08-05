@@ -1,20 +1,20 @@
-import Post from '@modules/Post/Post';
+import PostPage from '@modules/Post/PostPage';
 import type { FC, ReactElement } from 'react';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import type { GetServerSideProps } from 'next';
 import type { CookieSerializeOptions } from 'cookie';
 import { serialize } from 'cookie';
 import { getSinglePost } from '../../modules/shared/api/getSinglePost';
-import type { ISeparatePost } from '../../modules/shared/types/seperatePost/ISeparatePost';
+import type { IPost } from '../../modules/shared/types/post/IPost';
 
-const SeparatePost: FC<ISeparatePost.IProps> = ({ data }): ReactElement => {
+const Post: FC<IPost.IProps> = ({ data }): ReactElement => {
   return (
     <div className="flex justify-center">
-      <Post data={data} />
+      <PostPage data={data} />
     </div>
   );
 };
-export default SeparatePost;
+export default Post;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const {
