@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import Link from 'next/link';
 import styles from './Navigation.module.css';
 import HomeIcon from '../../icons/home.svg';
 import FriendsIcon from '../../icons/friends.svg';
@@ -39,7 +40,11 @@ const Navigation: FC = (): ReactElement => {
           <div className={styles['home-nav-links']}>
             <ul>
               <li>
-                <HomeIcon />
+                <Link href="/">
+                  <a href="/">
+                    <HomeIcon />
+                  </a>
+                </Link>
               </li>
               <li>
                 <FriendsIcon />

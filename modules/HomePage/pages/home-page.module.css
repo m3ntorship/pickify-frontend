@@ -1,9 +1,9 @@
 .layout-parent {
-  @apply mt-12 px-4 md:px-2 flex justify-center;
+  @apply px-4 md:px-2 flex justify-center;
 }
 
 .posts-feed {
-  @apply w-39xl md:mr-6;
+  @apply mb-3 w-39xl md:mr-6;
 }
 
 .widgets {
