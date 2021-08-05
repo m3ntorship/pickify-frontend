@@ -159,6 +159,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
         await logoutUser();
         redirectToLoginPage();
       }
+      window.location.reload();
       // reset
       useFormConfig.reset();
       setPostCreationGlobalState({
