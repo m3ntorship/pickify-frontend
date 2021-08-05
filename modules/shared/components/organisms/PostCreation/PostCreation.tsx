@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { FC, ReactElement, ReactText } from 'react';
 import { FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { EStatusCode } from '@modules/shared/api/EStatusCode';
+import { EStatusCode } from '../../../api/EStatusCode';
 import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
