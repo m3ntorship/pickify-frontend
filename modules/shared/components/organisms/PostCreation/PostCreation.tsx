@@ -3,6 +3,7 @@ import type { FC, ReactElement, ReactText } from 'react';
 import { FormProvider } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
+import { useRouter } from 'next/router';
 import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
 import { tabGroupData } from '../../molecules/TabGroup/data';
@@ -34,6 +35,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   creating,
   setCreating,
 }): ReactElement => {
+  const router = useRouter();
   const { user } = useAuth();
   const zero = 0;
   // post creation global initial state setup
@@ -159,7 +161,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
         await logoutUser();
         redirectToLoginPage();
       }
-      window.location.reload();
+      router.reload();
       // reset
       useFormConfig.reset();
       setPostCreationGlobalState({
