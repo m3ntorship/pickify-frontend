@@ -1,9 +1,9 @@
 import type { IPostFeed } from '../postFeed/IPostFeed';
 
-declare namespace ISeparatePost {
+declare namespace IPost {
   export interface IProps {
     data: IPostFeed.IPost;
     error: string;
   }
 }
-export { ISeparatePost };
+export { IPost };
