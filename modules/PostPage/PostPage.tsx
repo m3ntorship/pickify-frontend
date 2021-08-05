@@ -14,9 +14,9 @@ import {
   transformPostsMedia,
   updateVotedPost,
 } from '@modules/HomePage/components/Posts/PostsHelpers';
-import type { IPost } from './IPost';
+import type { IPostPage } from './IPostPage';
 
-const Post: FC<IPost.Props> = ({ data }): ReactElement => {
+const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
   const [post, setPost] = useState<IPostFeed.IPost>(data);
   const { redirectToLoginPage, redirectToHomePage } = useRedirect();
 
@@ -86,4 +86,4 @@ const Post: FC<IPost.Props> = ({ data }): ReactElement => {
   );
 };
 
-export default withErrorHandler(Post);
+export default withErrorHandler(PostPage);
