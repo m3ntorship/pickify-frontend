@@ -24,9 +24,15 @@ exports[`Navigation should render Navigation component with notFilled avatar and
       >
         <ul>
           <li>
-            <svg
-              data-file-name="SvgHome"
-            />
+            <a
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              <svg
+                data-file-name="SvgHome"
+              />
+            </a>
           </li>
           <li>
             <svg
