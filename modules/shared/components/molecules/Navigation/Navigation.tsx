@@ -34,7 +34,11 @@ const Navigation: FC = (): ReactElement => {
     <nav className={styles['navigation-wrapper']}>
       <div className={styles.navigation}>
         <div className="brand-name-container">
-          <h1 className={styles['brand-name']}>Pickify</h1>
+          <Link href="/">
+            <a href="/" className={styles['brand-name']}>
+              Pickify
+            </a>
+          </Link>
         </div>
         <div className={styles['nav-links-container']}>
           <div className={styles['home-nav-links']}>
