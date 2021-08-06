@@ -10,11 +10,14 @@ exports[`Navigation should render Navigation component with notFilled avatar and
     <div
       className="brand-name-container"
     >
-      <h1
+      <a
         className="brand-name"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         Pickify
-      </h1>
+      </a>
     </div>
     <div
       className="nav-links-container"
