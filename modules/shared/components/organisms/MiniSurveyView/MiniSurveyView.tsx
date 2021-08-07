@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 import MiniSurveyViewOptions from '../../molecules/MiniSurveyViewOptions/MiniSurveyViewOptions';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
@@ -63,8 +64,10 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
         </>
       )}
       <MiniSurveyViewOptions
+        type={EPostType.MiniSurvey}
         optionsGroups={post.options_groups}
         addOneVote={addOneVote}
+        showExpandButton={showTotalVotes()}
       />
       <PostViewFooter
         numberOfVotes={totalVotes}
