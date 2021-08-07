@@ -46,6 +46,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       await logoutUser();
       toast.error('Please login first to interact with our app');
       redirectToLoginPage();
+      return;
     }
 
     try {
