@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import type { FC, ReactElement } from 'react';
-import { EPostType } from '@modules/shared/types/postFeed/EPostType';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import type { ITextOptionViewUncoverd } from './ITextOptionViewUncoverd';
 import styles from './TextOptionViewUncoverd.module.css';
 import Check from '../../icons/checkMarkDefault.svg';
@@ -51,10 +51,7 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
       </span>
     </button>
   ) : (
-    <>
-      mostVoted &&
-      <p>{optionBody}</p>
-    </>
+    <>{mostVoted && <p>{optionBody}</p>}</>
   );
 };
 export default TextOptionViewUncoverd;

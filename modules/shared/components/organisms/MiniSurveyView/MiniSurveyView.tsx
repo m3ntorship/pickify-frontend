@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import { EPostType } from '@modules/shared/types/postFeed/EPostType';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import type { IPostFeed } from '../../../types/postFeed/IPostFeed';
 import MiniSurveyViewOptions from '../../molecules/MiniSurveyViewOptions/MiniSurveyViewOptions';
 import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
@@ -23,7 +23,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
     return group;
   });
 
-  const showTotalVotes = (): boolean => {
+  const isVoted = (): boolean => {
     const totalVotes = votedOptions.filter(
       (option) => option.vote_count !== undefined,
     );
@@ -67,11 +67,11 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
         type={EPostType.MiniSurvey}
         optionsGroups={post.options_groups}
         addOneVote={addOneVote}
-        showExpandButton={showTotalVotes()}
+        showExpandButton={isVoted()}
       />
       <PostViewFooter
         numberOfVotes={totalVotes}
-        showResult={showTotalVotes()}
+        showResult={isVoted()}
         sharePostHandler={sharePostHandler}
         postId={post.id}
       />

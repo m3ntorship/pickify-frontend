@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
-import * as EButton from '@modules/shared/components/atoms/Button/types/EButton';
+import * as EButton from '../../atoms/Button/types/EButton';
 import type { IMiniSurveyViewOptions } from './IMiniSurveyViewOptions';
 import OptionGroupView from '../OptionGroupView/OptionGroupView';
 import Button from '../../atoms/Button/Button';

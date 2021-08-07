@@ -12,6 +12,8 @@ describe('MiniSurveyViewOptions component', () => {
         <MiniSurveyViewOptions
           optionsGroups={optionsGroups}
           addOneVote={(): boolean => true}
+          showExpandButton={false}
+          type="mini survey"
         />,
       )
       .toJSON();
@@ -25,6 +27,8 @@ describe('MiniSurveyViewOptions component', () => {
       <MiniSurveyViewOptions
         optionsGroups={optionsGroups}
         addOneVote={(): boolean => true}
+        showExpandButton={false}
+        type="mini survey"
       />,
     );
 

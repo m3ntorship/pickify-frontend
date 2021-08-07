@@ -2,7 +2,7 @@
 
 exports[`Snapshot testing for TextOptionViewUncoverd component should have checkmark svg while Testing OptionViewUncoverd with the necessary props with isOptionChecked={true} 1`] = `
 <button
-  className="btnBody leastVoted"
+  className="btnBody mostVoted"
   data-testid="test1"
   disabled={true}
   id="test1"
@@ -23,19 +23,14 @@ exports[`Snapshot testing for TextOptionViewUncoverd component should have check
       option 1
     </p>
     <span />
-    <span
-      className="svg-check"
-    >
-      <svg
-        className="svgDark"
-        data-file-name="SvgCheckMarkDefault"
-      />
-    </span>
   </span>
   <span
     className="percentage"
   >
-    
+    <svg
+      className="goldenStarIcon"
+      data-file-name="SvgGoldenStar"
+    />
     20
     %
   </span>
