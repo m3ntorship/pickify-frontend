@@ -16,7 +16,9 @@ const PostFooter: FC<IPostFooter.IProps> = ({
       {!showResult && <span> Vote to uncover the total number of voters </span>}
       {showResult && <span>{numberOfVotes} votes</span>}
       {copied ? (
-        <p>Copied</p>
+        <div className="h-l">
+          <span>Copied</span>
+        </div>
       ) : (
         <button
           type="button"
