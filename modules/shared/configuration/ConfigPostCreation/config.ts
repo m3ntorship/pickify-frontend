@@ -7,6 +7,7 @@ export enum configPostCreation {
   maxOptionGroup = 4,
   maxOptions = 4,
   minOptions = 2,
+  postsLimit = 20,
 }
 export enum apiUrls {
   mediaAPI = 'https://pickify-media-be-dev.pickify.net/api/media/',

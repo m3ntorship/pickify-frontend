@@ -10,13 +10,22 @@ import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import { logoutUser } from 'context/AuthUserContext/api/authApi';
 import { addOneVote } from '@modules/HomePage/api/votesApi/voteApi';
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { getPosts } from '@modules/shared/api/getPosts.api';
+import { getUserToken } from '@modules/shared/logic/userAuth/userAuth';
 import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
 import styles from '../../pages/home-page.module.css';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
+  const [hasMore, setHasmore] = useState<boolean>(true);
+  const [postsCount, setPostsCount] = useState<number>(data.postsCount);
   const { redirectToLoginPage } = useRedirect();
   const toastId = useRef<ReactText>();
+
+  useEffect(() => {
+    setHasmore(posts.length < postsCount + 100);
+  }, [posts, postsCount]);
 
   useEffect(() => {
     const transformedMedia = transformPostsMedia(posts);
@@ -31,6 +40,35 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     return null;
   };
 
+  const getMorePosts = async (): Promise<void> => {
+    const loggedInUser = getUserToken();
+    if (!loggedInUser) {
+      await logoutUser();
+      toast.error('Please login first to interact with our app');
+      redirectToLoginPage();
+      return;
+    }
+
+    try {
+      const { data: newData } = await getPosts(loggedInUser, posts.length);
+      const { posts: newPosts } = newData as { posts: IPostFeed.IPost[] };
+
+      const transformedMedia = transformPostsMedia(newPosts);
+
+      setPosts([...posts, ...transformedMedia]);
+    } catch (err: unknown) {
+      const { errorCode, message } = err as {
+        errorCode: number;
+        message: string;
+      };
+      toast.error(message);
+      if (errorCode === EStatusCode.Unauthorized) {
+        await logoutUser();
+        redirectToLoginPage();
+      }
+    }
+  };
+
   const deletePostHandler = async (postId: string): Promise<void> => {
     toastId.current = toast.warning('Please wait while deleting your post', {
       autoClose: false,
@@ -40,6 +78,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     if (!res.resData.error) {
       toast.success('Post has been deleted successfully');
       const updatedPosts = posts.filter((postData) => postData.id !== postId);
+      setPostsCount((prevState) => prevState - 1);
       setPosts(updatedPosts);
     } else {
       toast.error(res.resData.message);
@@ -75,16 +114,23 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   };
   return (
     <div className={styles.posts}>
-      {posts.map((post) => {
-        return (
-          <SinglePostView
-            key={post.id}
-            post={post}
-            addOneVoteHandler={addOneVoteHandler}
-            deletePostHandler={deletePostHandler}
-          />
-        );
-      })}
+      <InfiniteScroll
+        dataLength={posts.length}
+        next={getMorePosts}
+        hasMore={hasMore}
+        loader={<h4>Loading...</h4>}
+      >
+        {posts.map((post) => {
+          return (
+            <SinglePostView
+              key={post.id}
+              post={post}
+              addOneVoteHandler={addOneVoteHandler}
+              deletePostHandler={deletePostHandler}
+            />
+          );
+        })}
+      </InfiniteScroll>
     </div>
   );
 };
