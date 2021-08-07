@@ -2,7 +2,7 @@ import type { EPostType } from './EPostType';
 
 declare namespace IPostFeed {
   export interface IPosts {
-    data: { posts: IPost[] };
+    data: { posts: IPost[]; postsCount: number };
   }
 
   export interface IPost {

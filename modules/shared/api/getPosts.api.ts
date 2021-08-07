@@ -1,12 +1,17 @@
 import type { AxiosError } from 'axios';
+import { configPostCreation } from '../configuration/ConfigPostCreation/config';
 // import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { IGetPosts } from './IGetPosts';
 import { postsApi } from './postsApi.api';
 // import { mockedData } from './postsMockedData';
 
-export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
+export const getPosts = async (
+  userId: string,
+  offset: number,
+): Promise<IGetPosts.IData> => {
+  const limit = configPostCreation.postsLimit;
   return postsApi
-    .getPosts(undefined, undefined, {
+    .getPosts(offset, limit, {
       headers: userId && { Authorization: `Bearer ${userId}` },
     })
     .then(({ data }) => {
@@ -21,13 +26,6 @@ export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
         errorCode: response ? response.status : notFound,
         message: error.message,
       });
-      // return {
-      //   data: {
-      //     error: true,
-      //     errorCode: response ? response.status : notFound,
-      //     message: error.message,
-      //   },
-      // };
     });
 };
 
