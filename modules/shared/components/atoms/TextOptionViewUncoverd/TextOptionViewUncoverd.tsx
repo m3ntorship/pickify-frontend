@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import type { FC, ReactElement } from 'react';
+import { EPostType } from '../../../types/postFeed/EPostType';
 import type { ITextOptionViewUncoverd } from './ITextOptionViewUncoverd';
 import styles from './TextOptionViewUncoverd.module.css';
 import Check from '../../icons/checkMarkDefault.svg';
@@ -13,6 +14,8 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
   isOptionChecked,
   mostVoted,
   id,
+  isExpanded,
+  type,
 }): ReactElement => {
   const textPoll = classNames(styles.btnBody, {
     [styles.mostVoted]: mostVoted,
@@ -22,8 +25,7 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
     [styles.svgDark]: !mostVoted,
     [styles.svgWhite]: mostVoted,
   });
-
-  return (
+  return type !== EPostType.MiniSurvey || isExpanded ? (
     <button
       type="button"
       id={id}
@@ -48,6 +50,8 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
         {percentage}%
       </span>
     </button>
+  ) : (
+    <>{mostVoted && <p>{optionBody}</p>}</>
   );
 };
 export default TextOptionViewUncoverd;

@@ -14,6 +14,8 @@ describe('Snapshot testing for TextOptionViewUncoverd component', () => {
           letter="A"
           percentage={twenty}
           mostVoted
+          isExpanded
+          type="mini survey"
         />,
       )
       .toJSON();
@@ -28,7 +30,9 @@ describe('Snapshot testing for TextOptionViewUncoverd component', () => {
           optionBody="option 1"
           letter="A"
           percentage={twenty}
-          isOptionChecked
+          mostVoted
+          isExpanded
+          type="mini survey"
         />,
       )
       .toJSON();
@@ -40,7 +44,15 @@ describe('Behavioural tests for TextOptionViewUncoverd component ', () => {
   const twenty = 20;
   it('should render "option 1 " as option body', () => {
     render(
-      <TextOptionViewUncoverd id="test1" optionBody="option 1" letter="A" />,
+      <TextOptionViewUncoverd
+        id="test1"
+        optionBody="option 1"
+        letter="A"
+        percentage={twenty}
+        mostVoted
+        isExpanded
+        type="mini survey"
+      />,
     );
     const testBtn = screen.getByText('option 1');
     expect(testBtn).toBeInTheDocument();
@@ -51,8 +63,11 @@ describe('Behavioural tests for TextOptionViewUncoverd component ', () => {
       <TextOptionViewUncoverd
         id="test1"
         optionBody="option 1"
-        percentage={twenty}
         letter="A"
+        percentage={twenty}
+        mostVoted
+        isExpanded
+        type="mini survey"
       />,
     );
     const testBtn = screen.getByText('20%');
@@ -61,7 +76,15 @@ describe('Behavioural tests for TextOptionViewUncoverd component ', () => {
 
   it('should be disabled  while its uncovered', () => {
     render(
-      <TextOptionViewUncoverd id="test1" optionBody="option 1" letter="A" />,
+      <TextOptionViewUncoverd
+        id="test1"
+        optionBody="option 1"
+        letter="A"
+        percentage={twenty}
+        mostVoted
+        isExpanded
+        type="mini survey"
+      />,
     );
 
     const testBtn = screen.getByTestId('test1');

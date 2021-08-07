@@ -3,6 +3,8 @@ declare namespace ITextOptionViewUncoverd {
     letter?: string;
     percentage?: number;
     mostVoted?: boolean;
+    isExpanded: boolean;
+    type: string;
   }
   export interface IData {
     id: string;

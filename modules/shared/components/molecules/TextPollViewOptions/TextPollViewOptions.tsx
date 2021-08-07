@@ -4,6 +4,7 @@ import TextOptionViewCovered from '../../atoms/TextOptionViewCovered/TextOptionV
 import TextOptionViewUncoverd from '../../atoms/TextOptionViewUncoverd/TextOptionViewUncoverd';
 import type { ITextPollViewOptions } from './ITextPollViewOptions';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
+import { EPostType } from '../../../types/postFeed/EPostType';
 
 const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
   optionsGroups,
@@ -34,6 +35,8 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
                 letter={letter}
                 mostVoted={option.vote_count === mostAndLeastVoted[firstGroup]}
                 percentage={optionsPercentage[index]}
+                type={EPostType.TextPoll}
+                isExpanded
               />
             ) : (
               <TextOptionViewCovered
