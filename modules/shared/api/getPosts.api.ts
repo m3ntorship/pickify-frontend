@@ -4,9 +4,12 @@ import type { IGetPosts } from './IGetPosts';
 import { postsApi } from './postsApi.api';
 // import { mockedData } from './postsMockedData';
 
-export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
+export const getPosts = async (
+  userId: string,
+  offset: number,
+): Promise<IGetPosts.IData> => {
   return postsApi
-    .getPosts(undefined, undefined, {
+    .getPosts(offset, 10, {
       headers: userId && { Authorization: `Bearer ${userId}` },
     })
     .then(({ data }) => {
@@ -21,13 +24,6 @@ export const getPosts = async (userId: string): Promise<IGetPosts.IData> => {
         errorCode: response ? response.status : notFound,
         message: error.message,
       });
-      // return {
-      //   data: {
-      //     error: true,
-      //     errorCode: response ? response.status : notFound,
-      //     message: error.message,
-      //   },
-      // };
     });
 };
 
