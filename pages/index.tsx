@@ -6,7 +6,6 @@ import { HomePage } from '@modules/HomePage';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 
 const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  console.log(data);
   return <HomePage data={data} />;
 };
 
