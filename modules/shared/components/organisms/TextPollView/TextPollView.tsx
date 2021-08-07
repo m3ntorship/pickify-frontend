@@ -11,6 +11,7 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
   addOneVote,
   deletePostHandler,
   sharePostHandler,
+  reportPostHandler,
 }): ReactElement => {
   const firstGroup = 0;
   const { totalVotes } = getVotesResults(
@@ -29,6 +30,7 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
         profilePic={user ? user.profile_pic : undefined}
         isHidden={post.is_hidden}
         deletePostHandler={deletePostHandler}
+        reportPostHandler={reportPostHandler}
       />
       <div>
         <h3 className="font-normal text-md" dir="auto">

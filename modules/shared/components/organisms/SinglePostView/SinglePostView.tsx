@@ -36,6 +36,7 @@ const SinglePostView: FC<IPost.Props> = ({
   post,
   deletePostHandler,
   addOneVoteHandler,
+  reportPostHandler,
 }): ReactElement => {
   return (
     <div className={styles.posts}>
@@ -46,6 +47,7 @@ const SinglePostView: FC<IPost.Props> = ({
             deletePostHandler={deletePostHandler}
             addOneVote={addOneVoteHandler}
             sharePostHandler={sharePostHandler}
+            reportPostHandler={reportPostHandler}
           />
         </div>
       )}
@@ -56,6 +58,7 @@ const SinglePostView: FC<IPost.Props> = ({
             deletePostHandler={deletePostHandler}
             addOneVote={addOneVoteHandler}
             sharePostHandler={sharePostHandler}
+            reportPostHandler={reportPostHandler}
           />
         </div>
       )}
@@ -66,6 +69,7 @@ const SinglePostView: FC<IPost.Props> = ({
             deletePostHandler={deletePostHandler}
             addOneVote={addOneVoteHandler}
             sharePostHandler={sharePostHandler}
+            reportPostHandler={reportPostHandler}
           />
         </div>
       )}

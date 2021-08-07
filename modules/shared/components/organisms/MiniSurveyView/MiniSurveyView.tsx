@@ -13,6 +13,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
   addOneVote,
   deletePostHandler,
   sharePostHandler,
+  reportPostHandler,
 }): ReactElement => {
   let votedOptions: IPostFeed.IOptions[] = [];
 
@@ -44,6 +45,7 @@ const MiniSurveyView: FC<IMiniSurveyView.IProps> = ({
         profilePic={user ? user.profile_pic : undefined}
         isHidden={post.is_hidden}
         deletePostHandler={deletePostHandler}
+        reportPostHandler={reportPostHandler}
       />
       <div>
         <h3 className="font-normal text-md" dir="auto">

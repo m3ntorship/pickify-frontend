@@ -31,6 +31,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   deletePostHandler,
   postId,
   isHidden,
+  reportPostHandler,
 }): ReactElement => {
   const onMenuOptionClickHandler = (id: string): void => {
     switch (id) {
@@ -38,7 +39,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         deletePostHandler(postId);
         break;
       case 'report':
-        console.log('reported');
+        reportPostHandler(postId);
         break;
       case 'save':
         console.log('saved');

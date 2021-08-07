@@ -10,6 +10,7 @@ import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import { logoutUser } from 'context/AuthUserContext/api/authApi';
 import { addOneVote } from '@modules/HomePage/api/votesApi/voteApi';
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
+import { reportPost } from '@modules/HomePage/api/ReportPostApi/reportPostApi';
 import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
 import styles from '../../pages/home-page.module.css';
 
@@ -30,7 +31,18 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     toast.error(resData.message);
     return null;
   };
-
+  const reportPostHandler = async (postId: string): Promise<void> => {
+    toastId.current = toast.warning('Please wait while reporting your post', {
+      autoClose: false,
+    });
+    const res = await reportPost(postId);
+    toast.dismiss(toastId.current);
+    if (!res.resData.error) {
+      toast.success('Post has been reported successfully');
+    } else {
+      toast.error(res.resData.message);
+    }
+  };
   const deletePostHandler = async (postId: string): Promise<void> => {
     toastId.current = toast.warning('Please wait while deleting your post', {
       autoClose: false,
@@ -82,6 +94,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
             post={post}
             addOneVoteHandler={addOneVoteHandler}
             deletePostHandler={deletePostHandler}
+            reportPostHandler={reportPostHandler}
           />
         );
       })}

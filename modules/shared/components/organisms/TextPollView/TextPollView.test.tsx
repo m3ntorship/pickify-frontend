@@ -61,6 +61,7 @@ describe('ITextPollView', () => {
         addOneVote={(): boolean => true}
         deletePostHandler={handleClick}
         sharePostHandler={(): boolean => true}
+        reportPostHandler={(): boolean => true}
       />,
     );
     expect(tree).toMatchSnapshot();

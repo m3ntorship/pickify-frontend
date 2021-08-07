@@ -11,6 +11,7 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
   deletePostHandler,
   addOneVote,
   sharePostHandler,
+  reportPostHandler,
 }): ReactElement => {
   const { totalVotes } = getVotesResults(post.options_groups.groups[0].options);
   const { user } = post;
@@ -24,6 +25,7 @@ const ImagePollView: FC<IImagePollView.IProps> = ({
         profilePic={user ? user.profile_pic : undefined}
         isHidden={post.is_hidden}
         deletePostHandler={deletePostHandler}
+        reportPostHandler={reportPostHandler}
       />
       <div>
         <h3 className="font-normal text-md" dir="auto">

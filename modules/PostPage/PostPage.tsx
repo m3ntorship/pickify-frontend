@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import { logoutUser } from 'context/AuthUserContext/api/authApi';
 import { deletePost } from '@modules/HomePage/api/DeletePostApi/deletePostsApi';
+import { reportPost } from '@modules/HomePage/api/ReportPostApi/reportPostApi';
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
 import SinglePostView from '@modules/shared/components/organisms/SinglePostView/SinglePostView';
 import {
@@ -29,6 +30,20 @@ const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
     toast.error(resData.message);
     return null;
   };
+
+  const reportPostHandler = async (postId: string): Promise<void> => {
+    toastId.current = toast.warning('Please wait while reporting your post', {
+      autoClose: false,
+    });
+    const res = await reportPost(postId);
+    toast.dismiss(toastId.current);
+    if (!res.resData.error) {
+      toast.success('Post has been reported successfully');
+    } else {
+      toast.error(res.resData.message);
+    }
+  };
+
   const addOneVoteHandler = async (
     optionId: string,
     groupId: string,
@@ -81,6 +96,7 @@ const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
         deletePostHandler={deletePostHandler}
         post={post}
         addOneVoteHandler={addOneVoteHandler}
+        reportPostHandler={reportPostHandler}
       />
     </div>
   );
