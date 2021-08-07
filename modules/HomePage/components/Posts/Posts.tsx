@@ -19,12 +19,13 @@ import styles from '../../pages/home-page.module.css';
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
   const [hasMore, setHasmore] = useState<boolean>(true);
+  const [postsCount, setPostsCount] = useState<number>(data.postsCount);
   const { redirectToLoginPage } = useRedirect();
   const toastId = useRef<ReactText>();
 
   useEffect(() => {
-    setHasmore(posts.length < data.postsCount + 100);
-  }, [posts]);
+    setHasmore(posts.length < postsCount + 100);
+  }, [posts, postsCount]);
 
   useEffect(() => {
     const transformedMedia = transformPostsMedia(posts);
@@ -76,6 +77,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     if (!res.resData.error) {
       toast.success('Post has been deleted successfully');
       const updatedPosts = posts.filter((postData) => postData.id !== postId);
+      setPostsCount((prevState) => prevState - 1);
       setPosts(updatedPosts);
     } else {
       toast.error(res.resData.message);
