@@ -1,4 +1,5 @@
 import type { AxiosError } from 'axios';
+import { configPostCreation } from '../configuration/ConfigPostCreation/config';
 // import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { IGetPosts } from './IGetPosts';
 import { postsApi } from './postsApi.api';
@@ -8,8 +9,9 @@ export const getPosts = async (
   userId: string,
   offset: number,
 ): Promise<IGetPosts.IData> => {
+  const limit = configPostCreation.postsLimit;
   return postsApi
-    .getPosts(offset, 10, {
+    .getPosts(offset, limit, {
       headers: userId && { Authorization: `Bearer ${userId}` },
     })
     .then(({ data }) => {
