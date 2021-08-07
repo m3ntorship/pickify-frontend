@@ -6,6 +6,7 @@ import { HomePage } from '@modules/HomePage';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 
 const Home: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
+  console.log(data);
   return <HomePage data={data} />;
 };
 
@@ -24,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
   try {
-    const { data } = await getPosts(user);
+    const { data } = await getPosts(user, 0);
 
     return {
       props: { data },
