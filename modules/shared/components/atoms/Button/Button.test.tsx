@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
 import Button from './Button';
 import * as EButton from './types/EButton';
+import ArrowDownIcon from '../../icons/arrowDown.svg';
 
 describe('Button component', () => {
   it('should render (large) button when we apply (large)', () => {
@@ -91,6 +92,7 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           rightIcon
+          iconComponent={<ArrowDownIcon />}
         />,
       )
       .toJSON();
@@ -103,6 +105,7 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           leftIcon
+          iconComponent={<ArrowDownIcon />}
         />,
       )
       .toJSON();
@@ -115,6 +118,7 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           onlyIcon
+          iconComponent={<ArrowDownIcon />}
         />,
       )
       .toJSON();
