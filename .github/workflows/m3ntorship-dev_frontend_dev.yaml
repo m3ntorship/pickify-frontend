@@ -112,7 +112,7 @@ jobs:
     steps:
       - id: delete_old_tags
         name: Delete old docker image tags
-        uses: m3ntorship/action-dockerhub-cleanup@1.2
+        uses: m3ntorship/action-dockerhub-cleanup@1.4
         with:
           token: ${{secrets.DOCKER_HUB_M3NTORSHIPCI_TOKEN}}
           keep-last: 5
