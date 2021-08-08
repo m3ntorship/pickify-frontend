@@ -105,18 +105,18 @@ jobs:
       #cleanup temp directories
       - name: clean-temp-files
         run: rm -rf $M3_TEMP_DIR
-  cleanup_docker_tags:
-    needs:
-      - deploy_dev
-    runs-on: ubuntu-latest
-    steps:
-      - id: delete_old_tags
-        name: Delete old docker image tags
-        uses: m3ntorship/action-dockerhub-cleanup@1.4
-        with:
-          username: ${{ secrets.M3NTORSHIPCI_DOCKER_USERNAME }}
-          password: ${{ secrets.M3NTORSHIPCI_DOCKER_PASSWORD }}
-          keep-last: 5
-          user: 'm3ntorshipci'
-          repos: '["pickify-frontend"]'
-          substrings: '["dev-"]'
+  # cleanup_docker_tags:
+  #   needs:
+  #     - deploy_dev
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - id: delete_old_tags
+  #       name: Delete old docker image tags
+  #       uses: m3ntorship/action-dockerhub-cleanup@1.4
+  #       with:
+  #         username: ${{ secrets.M3NTORSHIPCI_DOCKER_USERNAME }}
+  #         password: ${{ secrets.M3NTORSHIPCI_DOCKER_PASSWORD }}
+  #         keep-last: 5
+  #         user: 'm3ntorshipci'
+  #         repos: '["pickify-frontend"]'
+  #         substrings: '["dev-"]'
