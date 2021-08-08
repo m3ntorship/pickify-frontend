@@ -48,8 +48,8 @@ jobs:
       # login to docker
       - uses: azure/docker-login@v1
         with:
-          username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
-          password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.M3NTORSHIPCI_DOCKER_USERNAME }}
+          password: ${{ secrets.M3NTORSHIPCI_DOCKER_PASSWORD }}
 
       # install dependencies
       - name: install app dependencies
@@ -114,8 +114,8 @@ jobs:
         name: Delete old docker image tags
         uses: m3ntorship/action-dockerhub-cleanup@1.4
         with:
-          username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
-          password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.M3NTORSHIPCI_DOCKER_USERNAME }}
+          password: ${{ secrets.M3NTORSHIPCI_DOCKER_PASSWORD }}
           keep-last: 5
           user: 'm3ntorshipci'
           repos: '["pickify-frontend"]'
