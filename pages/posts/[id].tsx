@@ -24,6 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const { id } = context.params as { id: string };
   if (!user) {
+    const { url } = context.req as { url: string };
     const serializeOptions: CookieSerializeOptions = {
       httpOnly: false,
       secure: true,
@@ -32,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
     context.res.setHeader(
       'Set-Cookie',
-      serialize('lastPage', id, serializeOptions),
+      serialize('lastPage', url, serializeOptions),
     );
     return {
       redirect: {
