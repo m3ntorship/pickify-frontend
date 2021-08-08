@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import type { FC, ReactElement } from 'react';
 import type { IButton } from './types/IButton';
 import styles from './Button.module.css';
-import ArrowDownIcon from '../../icons/buttonArowDown.svg';
 // THE normal prop should only be passed with the tertiary variant
 const Button: FC<IButton.IProps> = ({
   buttonText = 'Button',
@@ -13,6 +12,7 @@ const Button: FC<IButton.IProps> = ({
   leftIcon = false,
   rightIcon = false,
   onlyIcon = false,
+  iconComponent,
   buttonType = 'button',
   onClick,
 }): ReactElement => {
@@ -46,24 +46,10 @@ const Button: FC<IButton.IProps> = ({
       className={btnClasses}
       disabled={disabled}
     >
-      {leftIcon && (
-        <span>
-          <ArrowDownIcon />
-        </span>
-      )}
+      {leftIcon && <span>{iconComponent} </span>}
 
-      {onlyIcon ? (
-        <span>
-          <ArrowDownIcon />
-        </span>
-      ) : (
-        buttonText
-      )}
-      {rightIcon && (
-        <span>
-          <ArrowDownIcon />
-        </span>
-      )}
+      {onlyIcon ? <span>{iconComponent} </span> : buttonText}
+      {rightIcon && <span>{iconComponent} </span>}
     </button>
   );
 };

@@ -1,3 +1,4 @@
+import type { ReactChild } from 'react';
 import type * as EButton from './EButton';
 
 declare namespace IButton {
@@ -10,6 +11,7 @@ declare namespace IButton {
     leftIcon?: boolean;
     rightIcon?: boolean;
     onlyIcon?: boolean;
+    iconComponent?: ReactChild;
     buttonType?: 'button' | 'reset' | 'submit';
   }
 

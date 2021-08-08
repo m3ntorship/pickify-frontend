@@ -273,9 +273,7 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
       type="button"
     >
       <span>
-        <svg
-          data-file-name="SvgButtonArowDown"
-        />
+         
       </span>
       Expand all results
     </button>
