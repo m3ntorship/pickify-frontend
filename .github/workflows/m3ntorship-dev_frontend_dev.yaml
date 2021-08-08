@@ -114,7 +114,8 @@ jobs:
         name: Delete old docker image tags
         uses: m3ntorship/action-dockerhub-cleanup@1.4
         with:
-          token: ${{secrets.DOCKER_HUB_M3NTORSHIPCI_TOKEN}}
+          username: ${{ secrets.M3NTORSHIP_DOCKERHUB_USERNAME }}
+          password: ${{ secrets.M3NTORSHIP_DOCKERHUB_PASSWORD }}
           keep-last: 5
           user: 'm3ntorshipci'
           repos: '["pickify-frontend"]'
