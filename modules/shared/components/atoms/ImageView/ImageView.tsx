@@ -21,6 +21,7 @@ const ImageView: FC<IImageView.IProps> = ({
           height={600}
           id={id}
           alt={imgAlt}
+          unoptimized
         />
       </div>
       <Image
@@ -32,6 +33,7 @@ const ImageView: FC<IImageView.IProps> = ({
         height={600}
         id={id}
         alt={imgAlt}
+        unoptimized
       />
     </div>
   );
