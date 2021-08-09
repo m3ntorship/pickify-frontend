@@ -1,7 +1,7 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
-import TrendingQuestions from '@modules/shared/components/organisms/TrendingQuestions/TrendingQuestions';
+import Widgets from '@modules/shared/components/organisms/Widgets/Widgets';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts/Posts';
 import NewPost from '../components/NewPost/NewPost';
@@ -14,9 +14,7 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
           <NewPost />
           <Posts data={data} />
         </div>
-        <div className={styles.widgets}>
-          <TrendingQuestions />
-        </div>
+        <Widgets />
       </section>
     </section>
   );

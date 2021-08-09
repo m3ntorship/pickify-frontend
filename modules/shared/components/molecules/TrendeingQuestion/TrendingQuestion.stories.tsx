@@ -26,3 +26,7 @@ const Template: Story<ITrendingQuestion.IProps> = (args): ReactElement => (
 );
 
 export const Default = Template.bind({});
+Default.args = {
+  text: 'Ay 7aga',
+  type: 'Text Poll',
+};
