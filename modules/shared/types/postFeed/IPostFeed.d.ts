@@ -15,6 +15,7 @@ declare namespace IPostFeed {
     user?: IUser;
     media: { url: string }[];
   }
+
   export interface IGroup {
     id: string;
     options: IOptions[];
