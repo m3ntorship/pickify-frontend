@@ -7,7 +7,6 @@ import '../styles/globals.css';
 import React from 'react';
 import Navigation from '@modules/shared/components/molecules/Navigation/Navigation';
 import { useRouter } from 'next/router';
-import styles from './_app.module.css';
 import { AuthUserProvider } from '../context/AuthUserContext/AuthUserContext';
 
 toast.configure();
@@ -18,9 +17,9 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
 
   return (
     <AuthUserProvider>
-      <div className={styles.navigation}>{showHeader && <Navigation />}</div>
+      <div>{showHeader && <Navigation />}</div>
       <ToastContainer limit={2} />
-      <div className="px-4 md:px-6">
+      <div className="px-4 md:px-6 md:mt-6xl mt-4xvl">
         <Component {...pageProps} />
       </div>
     </AuthUserProvider>
