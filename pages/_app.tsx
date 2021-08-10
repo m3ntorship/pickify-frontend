@@ -18,7 +18,11 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
 
   return (
     <AuthUserProvider>
-      <div className={styles.navigation}>{showHeader && <Navigation />}</div>
+      {showHeader && (
+        <div className={styles.navigation}>
+          <Navigation />
+        </div>
+      )}
       <ToastContainer limit={2} />
       <div className="px-4 md:px-6">
         <Component {...pageProps} />
