@@ -12,9 +12,9 @@ const Button: FC<IButton.IProps> = ({
   leftIcon = false,
   rightIcon = false,
   onlyIcon = false,
-  iconComponent,
   buttonType = 'button',
   onClick,
+  children,
 }): ReactElement => {
   const btnClasses = classnames(
     styles.btn,
@@ -46,10 +46,10 @@ const Button: FC<IButton.IProps> = ({
       className={btnClasses}
       disabled={disabled}
     >
-      {leftIcon && <span>{iconComponent} </span>}
+      {leftIcon && <span>{children}</span>}
 
-      {onlyIcon ? <span>{iconComponent} </span> : buttonText}
-      {rightIcon && <span>{iconComponent} </span>}
+      {onlyIcon ? <span>{children}</span> : buttonText}
+      {rightIcon && <span>{children}</span>}
     </button>
   );
 };
