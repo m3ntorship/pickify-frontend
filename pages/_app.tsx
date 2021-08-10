@@ -22,18 +22,21 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
 
   return (
     <AuthUserProvider>
-      <ScrollToTop
-        smooth
-        component={
-          <div className="transform rotate-180">
-            <Button
-              onlyIcon
-              variant={EButton.buttonVariantValues.PRIMARY}
-              size={EButton.buttonSizeValues.MEDIUM}
-            />
-          </div>
-        }
-      />
+      <div className="bg-none">
+        <ScrollToTop
+          style={{ background: 'none' }}
+          smooth
+          component={
+            <div className="transform rotate-180 bg-transparent">
+              <Button
+                onlyIcon
+                variant={EButton.buttonVariantValues.PRIMARY}
+                size={EButton.buttonSizeValues.MEDIUM}
+              />
+            </div>
+          }
+        />
+      </div>
       <div className={styles.navigation}>{showHeader && <Navigation />}</div>
       <ToastContainer limit={2} />
       <div className="px-4 md:px-6">
