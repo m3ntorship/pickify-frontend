@@ -18,12 +18,12 @@ export const dummyData: ITrendingQuestion[] = [
   {
     id: 2,
     type: 'Text Poll',
-    text: 'What are 2021 best programminay7agaaaaa',
+    text: 'What are 2021 best programming languages?',
   },
   {
     id: 3,
     type: 'Image Poll',
-    text: 'Help me with this income questiay7agaaaaa',
+    text: 'Help me with this income question',
   },
   {
     id: 4,

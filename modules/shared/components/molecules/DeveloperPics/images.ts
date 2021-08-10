@@ -11,4 +11,5 @@ export const images: string[] = [
   '/Shaf3y.jpeg',
   '/Ali.jpeg',
   '/Amr.jpeg',
+  '/Seif.jpeg',
 ];

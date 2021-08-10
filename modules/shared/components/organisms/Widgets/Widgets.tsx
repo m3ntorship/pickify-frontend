@@ -3,17 +3,18 @@ import React from 'react';
 import DeveloperPics from '../../molecules/DeveloperPics/DeveloperPics';
 import FriendSuggestions from '../FriendSuggestions/FriendSuggestions';
 import TrendingQuestions from '../TrendingQuestions/TrendingQuestions';
+import style from './Widgets.module.css';
 
 const Widgets: FC = (): ReactElement => {
   return (
     <div className="w-21xl">
-      <div className="rounded-md p-6 bg-white hidden md:block">
+      <div className={style.widget}>
         <DeveloperPics />
       </div>
-      <div className="mt-6 rounded-md p-6 bg-white hidden md:block">
+      <div className={`${style.widget} mt-6`}>
         <TrendingQuestions />
       </div>
-      <div className="p-6 mt-6 bg-white hidden md:block">
+      <div className={`${style.widget} mt-6`}>
         <FriendSuggestions />
       </div>
     </div>

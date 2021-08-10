@@ -1,7 +1,7 @@
 declare namespace IFriendSuggestion {
   export interface IProps {
     profilePic: string;
-    name: string;
+    username: string;
     mutualFriends: number;
   }
 }

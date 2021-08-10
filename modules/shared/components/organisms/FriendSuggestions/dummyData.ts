@@ -11,7 +11,7 @@ export const dummyData: IFriendSuggestion[] = [
     profilePic:
       'https://s3-alpha-sig.figma.com/img/443e/6ac0/0864920f73a1963a9015537cae3da88e?Expires=1629676800&Signature=bQGAkd8egMt437a3uVrvuWZhbojvQXv1gT356NyqCL8OGFlYDlZp-~UtHMvqUq8thdWR~v5wsIuxy8l8l8OZIrGZ6tC1U~Fo90xUy529JxeFQuHGzR26XK4fK8ut~MLo6oVyUMYh7cQH0eU4el8nTBt4mWPLigGbpIIt95qVD9wnUaIpG7qyNkBKLtaQXDLuI4pGkQ9urDZBaq9tYVt~uD576PPH~R4v4NF~XHXyeBKNo14KC3DO5zATf~AZystGgqxSZ-XZbru8eJgPaOswzaVy8kk-JHlTzpqU4ABd-M8hC1leUK8OahLfFdDqipZzw00faOJ4iof8pIxjD4PoEg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
     name: 'Miles, Esther',
-    mutualFriends: 12,
+    mutualFriends: 1,
   },
   {
     id: 1,
@@ -32,7 +32,7 @@ export const dummyData: IFriendSuggestion[] = [
     profilePic:
       'https://s3-alpha-sig.figma.com/img/2660/b932/2a16d64cb9c9a8da3815a07c5bd4ff56?Expires=1629676800&Signature=S3oSvlmXYKjp4e7VwudP9Rm03d9uoYYkvBBizTF4D~LWDceO4m77dZ7XSfIo13IRfL2ixGH9l9oL7WUynLWmakDVfA96Mcgh17kFsmNicLMzaXyiR0Q~L1KSUDeDHvY~QgCa4-KztcrKa~ZmVhhPyyBBAmvkES3fxvsIDte9d6V2mnJmIGZizMKyMeR077inO~TBq0vAhDLqGhNxiZWsvYJcc0xobARNcMfRtJlY7KXn24ADgT87Ajxe9uc9HmpFSX29H~Tmg546ofm7p7K0-qU~JksM5rSTwZdP7NWWBHRdEPiTInjRSlkuaVPHNRiKBJopwsVASHS9NC~qEXJSaQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
     name: 'Cooper, Kristin',
-    mutualFriends: 12,
+    mutualFriends: 1,
   },
   {
     id: 4,
