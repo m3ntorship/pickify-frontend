@@ -2,11 +2,9 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import Widget from '@modules/shared/components/atoms/Widget/Widget';
-import Button from '@modules/shared/components/atoms/Button/Button';
 import styles from './home-page.module.css';
 import Posts from '../components/Posts/Posts';
 import NewPost from '../components/NewPost/NewPost';
-import * as EButton from '../../shared/components/atoms/Button/types/EButton';
 
 interface WidgetData {
   content: string;
@@ -32,10 +30,6 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     },
   ];
 
-  const handleScrollUp = (): void => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <section className="min-h-screen relative">
       <section className={styles['layout-parent']}>
@@ -49,14 +43,6 @@ const HomePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
               <Widget>{widget.content}</Widget>
             </div>
           ))}
-        </div>
-        <div className="transform rotate-180 fixed bottom-5 right-7">
-          <Button
-            size={EButton.buttonSizeValues.MEDIUM}
-            variant={EButton.buttonVariantValues.PRIMARY}
-            onlyIcon
-            onClick={handleScrollUp}
-          />
         </div>
       </section>
     </section>
