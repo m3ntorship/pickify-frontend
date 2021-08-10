@@ -40,7 +40,6 @@ exports[`Button component should render (lefticon) button when we apply lefticon
     <svg
       data-file-name="SvgArrowDown"
     />
-     
   </span>
   Button
 </button>
@@ -56,7 +55,6 @@ exports[`Button component should render (onlyicon)  button when we apply nothing
     <svg
       data-file-name="SvgArrowDown"
     />
-     
   </span>
 </button>
 `;
@@ -82,7 +80,6 @@ exports[`Button component should render (righticon) button when we apply rightic
     <svg
       data-file-name="SvgArrowDown"
     />
-     
   </span>
 </button>
 `;

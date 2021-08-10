@@ -272,9 +272,7 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
       onClick={[Function]}
       type="button"
     >
-      <span>
-         
-      </span>
+      <span />
       Expand all results
     </button>
   </div>

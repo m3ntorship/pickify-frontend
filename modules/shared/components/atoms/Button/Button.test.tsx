@@ -92,8 +92,9 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           rightIcon
-          iconComponent={<ArrowDownIcon />}
-        />,
+        >
+          <ArrowDownIcon />
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -105,8 +106,9 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           leftIcon
-          iconComponent={<ArrowDownIcon />}
-        />,
+        >
+          <ArrowDownIcon />
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -118,8 +120,9 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           onlyIcon
-          iconComponent={<ArrowDownIcon />}
-        />,
+        >
+          <ArrowDownIcon />
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
