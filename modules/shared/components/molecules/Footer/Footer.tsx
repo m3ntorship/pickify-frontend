@@ -71,24 +71,23 @@ const Footer: FC = (): ReactElement => {
 
   return (
     <footer className={footerClasses} ref={footer}>
-      <div className="mb-4">
-        <ul
-          className="font-light text-xs text-dark-grey flex flex-wrap p-0 m-0"
-          ref={listParent}
-        >
+      <div>
+        <ul className="flex flex-wrap items-start p-0 m-0" ref={listParent}>
           {footerState.map((footerLink, index) => (
             <li
               key={footerLink.name}
-              className={`mr-3 last:mr-0 ${
+              className={`mr-3 last:mr-0 leading-4 ${
                 !footerLink.visible ? 'hidden' : ''
-              }`}
+              } ${isResponsive ? 'mb-2' : 'mb-4'}`}
               ref={(el: HTMLLIElement): HTMLLIElement => {
                 linkItems.current[index] = el;
                 return el;
               }}
             >
               <Link href={footerLink.path}>
-                <a className="hover:underline">{footerLink.content}</a>
+                <a className="hover:underline font-light text-xs text-dark-grey">
+                  {footerLink.content}
+                </a>
               </Link>
             </li>
           ))}
