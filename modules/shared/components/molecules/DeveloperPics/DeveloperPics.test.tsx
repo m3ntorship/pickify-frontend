@@ -4,7 +4,7 @@ import { images } from './images';
 import DeveloperPics from './DeveloperPics';
 
 describe('DeveloperPics Component', () => {
-  it('Should render an avatar component for each question given', () => {
+  it('Should render an avatar component for each image given', () => {
     const expectedLength = images.length;
     const { getAllByTestId } = render(<DeveloperPics />);
     const allDeveloperPics = getAllByTestId('developer-pic');
