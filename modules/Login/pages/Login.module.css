@@ -1,0 +1,40 @@
+.login-body-wrapper {
+  @apply flex justify-center items-center min-h-screen;
+}
+
+.login-body {
+  @apply h-31xl flex flex-col justify-between items-center;
+}
+
+.main-wrapper {
+  @apply flex flex-col items-center justify-between h-19xl max-w-29xl;
+}
+
+.main {
+  @apply flex flex-col items-center text-center bg-white p-xl rounded-md shadow-soft;
+}
+
+.main-h1 {
+  @apply text-lg md:text-xl font-bold text-dark;
+}
+
+.main-paragraph {
+  @apply text-sm text-dark-grey mt-s mb-xl;
+}
+
+.google-logo {
+  @apply w-12 h-full bg-white rounded-xs flex justify-center items-center;
+}
+.sign-in-button {
+  @apply flex w-48 h-11 rounded-xs shadow-soft focus:outline-none hover:shadow-heavy;
+  background-color: #4285f4;
+  border: 1px solid #4285f4;
+}
+
+.sign-in-button:active {
+  background-color: #1669f2;
+}
+
+.sign-in-button-paragraph {
+  @apply self-center text-sm ml-xs font-bold text-white;
+}

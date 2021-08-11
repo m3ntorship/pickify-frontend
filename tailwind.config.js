@@ -159,7 +159,6 @@ module.exports = {
         '19xl': '19rem', // 304px
         '21xl': '21.18rem', // 339px
         '28xl': '28.5rem', // 456px
-        '29xl': '29.5rem', // 472px
         '30xl': '30rem', // 480px
         '32xl': '32.625rem', // 522px
         '33xl': '33.25rem', // 532px
@@ -171,6 +170,7 @@ module.exports = {
       maxWidth: {
         '12xvl': '12rem', // 192px
         '12xl': '12.375rem', // 198px
+        '29xl': '29.5rem', // 472px
       },
       maxHeight: {
         '33xl': '33.5625rem', // 632px
@@ -181,8 +181,10 @@ module.exports = {
       height: {
         '3xl': '4rem', // 58px
         '4xl': '4.5rem', // 72px
+        '19xl': '19.81rem', // 317px
         '21xl': '21.25rem', // 340px
         '22xl': '22.375rem', // 358px
+        '31xl': '30.93rem', // 495px
         '33xl': '33.5625rem', // 632px
         '61xl': '61.0625rem', // 977px
       },

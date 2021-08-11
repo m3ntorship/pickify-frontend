@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page Snapshot testing for the login component 1`] = `
+<div
+  className="login-body-wrapper"
+>
+  <div
+    className="login-body"
+  >
+    <div
+      className="main-wrapper"
+    >
+      <header>
+        <svg
+          data-file-name="SvgLogo"
+        />
+      </header>
+      <main
+        className="main"
+      >
+        <h1
+          className="main-h1"
+        >
+          Welcome to Pickify
+        </h1>
+        <p
+          className="main-paragraph"
+        >
+          Pickigy is an online platform that helps people make better decisions through voting insights
+        </p>
+        <button
+          className="sign-in-button"
+          data-testid="login-test-button"
+          onClick={[Function]}
+          type="button"
+        >
+          <div
+            className="google-logo"
+          >
+            <div>
+              <svg
+                data-file-name="SvgGoogle"
+              />
+            </div>
+          </div>
+          <span
+            className="sign-in-button-paragraph"
+          >
+            Sign in with Google
+          </span>
+        </button>
+      </main>
+    </div>
+    <div>
+      <footer
+        className="footer items-center"
+      >
+        <div>
+          <ul
+            className="list-parent"
+          >
+            <li
+              className="link-item mb-4 "
+            >
+              <a
+                className="link"
+                href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                About
+              </a>
+            </li>
+            <li
+              className="link-item mb-4 "
+            >
+              <a
+                className="link"
+                href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                Blog
+              </a>
+            </li>
+            <li
+              className="link-item mb-4 "
+            >
+              <a
+                className="link"
+                href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                Careers
+              </a>
+            </li>
+            <li
+              className="link-item mb-4 "
+            >
+              <a
+                className="link"
+                href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                Terms & Conditions
+              </a>
+            </li>
+            <li
+              className="link-item mb-4 "
+            >
+              <a
+                className="link"
+                href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                Help
+              </a>
+            </li>
+            <li
+              className="link-item mb-4 "
+            >
+              <a
+                className="link"
+                href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                Contact
+              </a>
+            </li>
+            <button
+              className="show-more-btn"
+              onClick={[Function]}
+              type="button"
+            >
+              More
+            </button>
+          </ul>
+        </div>
+        <div>
+          <h3
+            className="copy-rights"
+          >
+            Pikcify © 2021
+          </h3>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+`;
