@@ -9,11 +9,9 @@ import Navigation from '@modules/shared/components/molecules/Navigation/Navigati
 import { useRouter } from 'next/router';
 import ScrollToTop from 'react-scroll-to-top';
 import Button from '@modules/shared/components/atoms/Button/Button';
-import styles from './_app.module.css';
 import { AuthUserProvider } from '../context/AuthUserContext/AuthUserContext';
 import * as EButton from '../modules/shared/components/atoms/Button/types/EButton';
 
-// import ArrowDown from "../modules/shared/components/icons/arrowDown.svg";
 toast.configure();
 
 const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
@@ -22,6 +20,7 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
 
   return (
     <AuthUserProvider>
+      <div>{showHeader && <Navigation />}</div>
       <ScrollToTop
         smooth
         component={
@@ -34,13 +33,8 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
           </div>
         }
       />
-      {showHeader && (
-        <div className={styles.navigation}>
-          <Navigation />
-        </div>
-      )}
       <ToastContainer limit={2} />
-      <div className="px-4 md:px-6">
+      <div className="px-4 md:px-6 md:mt-6xl mt-4xvl">
         <Component {...pageProps} />
       </div>
     </AuthUserProvider>
