@@ -25,6 +25,11 @@ const Footer: FC = (): ReactElement => {
     'items-start': isResponsive,
   });
 
+  const linksClasses = classNames(styles['link-item'], {
+    'mb-2': isResponsive,
+    'mb-4': !isResponsive,
+  });
+
   useEffect(() => {
     const totalSpacing: number = getTotalSpacing(linkItems.current.length);
 
@@ -72,28 +77,26 @@ const Footer: FC = (): ReactElement => {
   return (
     <footer className={footerClasses} ref={footer}>
       <div>
-        <ul className="flex flex-wrap items-start p-0 m-0" ref={listParent}>
+        <ul className={styles['list-parent']} ref={listParent}>
           {footerState.map((footerLink, index) => (
             <li
               key={footerLink.name}
-              className={`mr-3 last:mr-0 leading-4 ${
+              className={`${linksClasses} ${
                 !footerLink.visible ? 'hidden' : ''
-              } ${isResponsive ? 'mb-2' : 'mb-4'}`}
+              }`}
               ref={(el: HTMLLIElement): HTMLLIElement => {
                 linkItems.current[index] = el;
                 return el;
               }}
             >
               <Link href={footerLink.path}>
-                <a className="hover:underline font-light text-xs text-dark-grey">
-                  {footerLink.content}
-                </a>
+                <a className={styles.link}>{footerLink.content}</a>
               </Link>
             </li>
           ))}
           {showButton && (
             <button
-              className="font-light text-xs text-dark-grey focus:outline-none"
+              className={styles['show-more-btn']}
               type="button"
               onClick={showAllLinks}
               ref={buttonTextMore}
@@ -104,7 +107,7 @@ const Footer: FC = (): ReactElement => {
         </ul>
       </div>
       <div>
-        <h3 className="font-light text-xs text-grey">Pikcify © 2021</h3>
+        <h3 className={styles['copy-rights']}>Pikcify © 2021</h3>
       </div>
     </footer>
   );

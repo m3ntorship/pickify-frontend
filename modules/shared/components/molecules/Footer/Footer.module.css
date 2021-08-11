@@ -1,3 +1,23 @@
 .footer {
   @apply px-3 bg-transparent flex flex-col justify-between;
 }
+
+.list-parent {
+  @apply flex flex-wrap items-start p-0 m-0;
+}
+
+.link-item {
+  @apply mr-3 last:mr-0 leading-4;
+}
+
+.link {
+  @apply hover:underline font-light text-xs text-dark-grey;
+}
+
+.show-more-btn {
+  @apply font-light text-xs text-dark-grey focus:outline-none;
+}
+
+.copy-rights {
+  @apply font-light text-xs text-grey;
+}
