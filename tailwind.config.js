@@ -179,8 +179,10 @@ module.exports = {
       height: {
         '3xl': '4rem', // 58px
         '4xl': '4.5rem', // 72px
+        '19xl': '19.81rem', // 317px
         '21xl': '21.25rem', // 340px
         '22xl': '22.375rem', // 358px
+        '31xl': '30.93rem', // 495px
         '33xl': '33.5625rem', // 632px
         '61xl': '61.0625rem', // 977px
       },
