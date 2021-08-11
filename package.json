@@ -45,6 +45,7 @@
     "react-hook-form": "^7.8.2",
     "react-infinite-scroll-component": "^6.1.0",
     "react-redux": "^7.2.2",
+    "react-scroll-to-top": "^1.0.5",
     "react-test-renderer": "^17.0.2",
     "react-toastify": "^7.0.4",
     "redux": "^4.0.5",
