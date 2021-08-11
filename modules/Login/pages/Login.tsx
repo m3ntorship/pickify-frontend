@@ -33,9 +33,9 @@ const Login: FC = (): ReactElement => {
     const { resData } = await register(token);
     toast.dismiss(toastId.current);
     if (!resData.error) {
-      const lastPageId = getLastPage();
-      if (lastPageId) {
-        redirectToPostPage(lastPageId);
+      const lastPage = getLastPage();
+      if (lastPage) {
+        redirectToPostPage(lastPage);
         clearLastPage();
       } else {
         redirectToHomePage();
