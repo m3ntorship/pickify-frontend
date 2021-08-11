@@ -9,7 +9,7 @@ import {
   getNumberOfVisibleElements,
   getTotalItemsWidth,
   getTotalSpacing,
-} from './FooterLogic';
+} from './footerLogic/footerLogic';
 
 const Footer: FC = (): ReactElement => {
   const [isResponsive, setIsResponsive] = useState<boolean>(false);
