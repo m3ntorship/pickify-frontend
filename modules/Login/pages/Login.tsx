@@ -14,6 +14,7 @@ import {
 import Logo from '../../shared/components/icons/logo.svg';
 import Google from '../../shared/components/icons/google.svg';
 import styles from './Login.module.css';
+import Footer from '../../shared/components/molecules/Footer/Footer';
 
 const Login: FC = (): ReactElement => {
   const { loading, isAuthenticated } = useAuth();
@@ -75,7 +76,9 @@ const Login: FC = (): ReactElement => {
             </button>
           </main>
         </div>
-        <div>FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER</div>
+        <div>
+          <Footer />
+        </div>
       </div>
     </div>
   );
