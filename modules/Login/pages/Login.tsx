@@ -1,8 +1,6 @@
-import Button from '@modules/shared/components/atoms/Button/Button';
 import type { FC, ReactElement, ReactText } from 'react';
 import { useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
-import * as EButton from '../../shared/components/atoms/Button/types/EButton';
 import {
   loginUser,
   register,
@@ -13,6 +11,9 @@ import {
   getLastPage,
   clearLastPage,
 } from '../../shared/logic/userAuth/userAuth';
+import Logo from '../../shared/components/icons/logo.svg';
+import Google from '../../shared/components/icons/google.svg';
+import styles from './Login.module.css';
 
 const Login: FC = (): ReactElement => {
   const { loading, isAuthenticated } = useAuth();
@@ -46,13 +47,36 @@ const Login: FC = (): ReactElement => {
     }
   };
   return (
-    <div className="flex justify-center m-3">
-      <Button
-        onClick={login}
-        variant={EButton.buttonVariantValues.PRIMARY}
-        size={EButton.buttonSizeValues.LARGE}
-        buttonText="Login"
-      />
+    <div className={styles['login-body-wrapper']}>
+      <div className={styles['login-body']}>
+        <div className={styles['main-wrapper']}>
+          <header>
+            <Logo />
+          </header>
+          <main className={styles.main}>
+            <h1 className={styles['main-h1']}>Welcome to Pickify</h1>
+            <p className={styles['main-paragraph']}>
+              Pickigy is an online platform that helps people make better
+              decisions through voting insights
+            </p>
+            <button
+              type="button"
+              onClick={login}
+              className={styles['sign-in-button']}
+            >
+              <div className={styles['google-logo']}>
+                <div>
+                  <Google />
+                </div>
+              </div>
+              <span className={styles['sign-in-button-paragraph']}>
+                Sign in with Google
+              </span>
+            </button>
+          </main>
+        </div>
+        <div>FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER</div>
+      </div>
     </div>
   );
 };
