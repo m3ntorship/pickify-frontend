@@ -17,7 +17,7 @@ const FriendSuggestions: FC = (): ReactElement => {
         >
           <FriendSuggestion
             profilePic={friendSuggestion.profilePic}
-            username={friendSuggestion.name}
+            username={friendSuggestion.username}
             mutualFriends={friendSuggestion.mutualFriends}
           />
         </div>

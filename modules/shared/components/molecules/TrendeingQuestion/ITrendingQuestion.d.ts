@@ -1,7 +1,8 @@
 declare namespace ITrendingQuestion {
   export interface IProps {
-    text: string;
+    postCaption: string;
     type: 'Image Poll' | 'Mini Survey' | 'Text Poll';
+    postId?: string;
   }
 }
 

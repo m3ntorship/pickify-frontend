@@ -138,8 +138,10 @@ module.exports = {
         '3xl': '3rem', // 48px
         '3xxl': '3.6875rem', // 59px
         '4xl': '4rem', // 64px
+        '4xvl': '4.75rem', // 76px
         '4xxl': '4.25rem', // 68px
         '4xvxl': '5.813rem', // 96px
+        '6xl': '6.75rem', // 108px
         '5xl': '8rem', // 128px
       },
       backgroundOpacity: {
@@ -169,6 +171,7 @@ module.exports = {
       maxWidth: {
         '12xvl': '12rem', // 192px
         '12xl': '12.375rem', // 198px
+        '19xl': '19rem', // 304px
       },
       maxHeight: {
         '33xl': '33.5625rem', // 632px

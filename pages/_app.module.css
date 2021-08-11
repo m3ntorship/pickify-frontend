@@ -1,3 +1,11 @@
-.navigation {
-  @apply md:mb-12 mb-4;
+.layout-parent {
+  @apply flex justify-center;
+}
+
+.posts-feed {
+  @apply mb-3 w-39xl md:mr-6;
+}
+
+.widgets {
+  @apply w-19xl hidden md:block;
 }

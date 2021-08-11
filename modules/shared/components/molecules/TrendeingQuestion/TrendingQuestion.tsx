@@ -5,6 +5,7 @@ import ImagePoll from '../../icons/imagePoll.svg';
 import TextPoll from '../../icons/textPoll.svg';
 import MiniSurvey from '../../icons/miniSurvey.svg';
 import type { ITrendingQuestion } from './ITrendingQuestion';
+import styles from './TrendingQuestion.module.css';
 
 export const truncate = (str: string): string => {
   const limit = 30;
@@ -12,28 +13,30 @@ export const truncate = (str: string): string => {
 };
 
 const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
-  text,
+  postCaption,
   type,
 }): ReactElement => {
   return (
-    <div className="flex">
+    <div className="flex overflow-hidden">
       {type === 'Mini Survey' && (
-        <div className="w-10 h-10 bg-grey-shd7 flex justify-center items-center">
+        <div className={styles['trending-question']}>
           <MiniSurvey />
         </div>
       )}
       {type === 'Text Poll' && (
-        <div className="w-10 h-10 bg-grey-shd7 flex justify-center items-center">
+        <div className={styles['trending-question']}>
           <TextPoll />
         </div>
       )}
       {type === 'Image Poll' && (
-        <div className="w-10 h-10 bg-grey-shd7 flex justify-center items-center">
+        <div className={styles['trending-question']}>
           <ImagePoll />
         </div>
       )}
-      <div className="ml-4" title={text}>
-        <Link href="#">{truncate(text)}</Link>
+      <div className="ml-4" title={postCaption}>
+        <Link href="/">
+          <a>{truncate(postCaption)}</a>
+        </Link>
         <p className="text-xs text-dark-grey font-light">{type}</p>
       </div>
     </div>

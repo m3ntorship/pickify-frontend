@@ -5,7 +5,10 @@ import TrendingQuestion, { truncate } from './TrendingQuestion';
 describe('Trending Question Component', () => {
   it('Should render with image poll icon when type is image poll', () => {
     const { getByText } = render(
-      <TrendingQuestion type="Image Poll" text="Which image looks better?" />,
+      <TrendingQuestion
+        type="Image Poll"
+        postCaption="Which image looks better?"
+      />,
     );
     const type = getByText('Image Poll');
     expect(type).toBeInTheDocument();
@@ -13,7 +16,7 @@ describe('Trending Question Component', () => {
 
   it('Should render with text poll icon when type is text poll', () => {
     const { getByText } = render(
-      <TrendingQuestion type="Text Poll" text="Vim or Emacs?" />,
+      <TrendingQuestion type="Text Poll" postCaption="Vim or Emacs?" />,
     );
     const type = getByText('Text Poll');
     expect(type).toBeInTheDocument();
@@ -21,7 +24,10 @@ describe('Trending Question Component', () => {
 
   it('Should render with image poll icon when type is image poll', () => {
     const { getByText } = render(
-      <TrendingQuestion type="Mini Survey" text="Help me with this outfit" />,
+      <TrendingQuestion
+        type="Mini Survey"
+        postCaption="Help me with this outfit"
+      />,
     );
     const type = getByText('Mini Survey');
     expect(type).toBeInTheDocument();
