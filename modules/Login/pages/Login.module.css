@@ -7,7 +7,7 @@
 }
 
 .main-wrapper {
-  @apply flex flex-col items-center justify-between md:w-29xl h-19xl;
+  @apply flex flex-col items-center justify-between h-19xl max-w-29xl;
 }
 
 .main {

@@ -1,5 +1,6 @@
+import React, { useEffect, useRef } from 'react';
 import type { FC, ReactElement, ReactText } from 'react';
-import { useEffect, useRef } from 'react';
+
 import { toast } from 'react-toastify';
 import {
   loginUser,
@@ -62,6 +63,7 @@ const Login: FC = (): ReactElement => {
             </p>
             <button
               type="button"
+              data-testid="login-test-button"
               onClick={login}
               className={styles['sign-in-button']}
             >

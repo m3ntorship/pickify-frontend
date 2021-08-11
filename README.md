@@ -43,39 +43,60 @@ The project is built `next.js` mainly, `Tailwind` for styling and `jest` with `t
 
 The main folder structure of the code is structured like the following:
 
-```js
-.
+```ts
+├── context
+|   ├── AuthUserContext
+|   |   ├── api
+|   |   |   └── authApi.ts
+|   |   |   └── IAuth.d.ts
+|   |   ├── hooks
+|   |   |   └── useFireBaseAuth
+|   |   ├── AuthUserContext.tsx
 ├── modules
-│   ├── example // The module name
+│   ├── HomePage // The module name
 │   │   ├── api
-│   │   │   └── example-one.api.js
+│   │   │   └── DeletePostApi
+│   │   |       ├── deletePostHelper.ts
+│   │   |       └── deletePost.test.ts
+│   │   |       └── deletePostApi.ts
+│   │   |       └── IDeletePostApi.d.ts
 │   │   ├── components
-│   │   │   └── example-one
-│   │   │       ├── index.js
-│   │   │       └── index.stories.js
+│   │   │   └── Posts
+│   │   │       ├── posts.tsx
+│   │   │       └── postsHelper.ts
+|   |   |       └── posts.test.tsx
 │   │   ├── index.js
-│   │   ├── logic
-│   │   │   └── example-one.logic.js
 │   │   ├── pages
-│   │   │   └── example-one.page.js
-│   │   └── tests
-│   │       └── example-one.test.js
+│   │   │   └── home-page.tsx
+│   │   │   └── home-page.module.css
+│   │   |    
 │   └── shared
 │       ├── api
-│       │   └── example1.api.js
+│       │   └── example1.api.ts
 │       ├── components
-│       │   └── example1
-│       │       └── index.shared.js
-│       ├── index.js
+│       │   └── atoms
+│       │   |  └── Button
+|       |   |      ├── Button.ts
+|       |   |      ├── Button.module.ts
+|       |   |      ├── Button.test.tsx
+|       |   |      ├── Button.stories.tsx
+|       |   |      └── types
+|       |   ├── molecules
+|       |   ├── organisms
+|       |   └── icons
 │       ├── logic
-│       │   └── example1.logic.js
-│       └── tests
-│           └── example1.test.js
+│       │   └── generateErrMsg
+|       |       ├── generateErrMsg.ts
+|       |       └── generateErrMsg.test.ts
+│       └── configuration
+│       └── hooks
+│       └── types
 ├── pages
 │   ├── api
-│   │   └── hello.js
+│   ├── posts 
+|   |   └── [id].tsx
 │   ├── _app.js
-│   ├── example.js
+│   ├── _document.js
 │   └── index.js
 ├── public
 │   └── favicon.ico
@@ -83,6 +104,8 @@ The main folder structure of the code is structured like the following:
 ├── setup-tests.js
 ├── styles
 │   └── globals.css
+├── next.config.js
+├── tailwind.config.js
 └── yarn.lock
 ```
 
@@ -129,7 +152,7 @@ The `pages/` folder is the `next.js` generated folder where the routes are setup
 >   Code snippet if possible
 >   Expected behviour
 >   Output and expected output
->   Screenshots if it is a visual issue (before and after if neede)
+>   Screenshots if it is a visual issue (before and after if needed)
 
 > - Assign the project
 
