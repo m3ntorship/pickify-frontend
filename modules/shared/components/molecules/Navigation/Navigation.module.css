@@ -1,5 +1,5 @@
 .navigation-wrapper {
-  @apply p-4 md:px-6 bg-white md:bg-grey-bg2 shadow-navshd flex justify-center fixed z-20 w-full top-0;
+  @apply p-4 md:px-6 bg-white shadow-navshd flex justify-center fixed z-20 w-full top-0;
 }
 
 .navigation {
@@ -11,7 +11,7 @@
 }
 
 .nav-links li {
-  @apply mr-6 last:mr-0;
+  @apply mr-2 md:mr-6 last:mr-0;
 }
 
 .nav-links li.nav-user {
