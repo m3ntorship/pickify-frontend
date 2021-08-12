@@ -121,9 +121,8 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       >
         {posts.map((post) => {
           return (
-            <div className="mb-6">
+            <div className="mb-6" key={post.id}>
               <SinglePostView
-                key={post.id}
                 post={post}
                 addOneVoteHandler={addOneVoteHandler}
                 deletePostHandler={deletePostHandler}
