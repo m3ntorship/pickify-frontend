@@ -12,15 +12,13 @@ const Widgets: FC = (): ReactElement => {
       <div className={style.widget}>
         <DeveloperPics />
       </div>
-      <div className={`${style.widget} mt-6`}>
+      <div className={style.widget}>
         <TrendingQuestions />
       </div>
-      <div className={`${style.widget} mt-6`}>
+      <div className={style.widget}>
         <FriendSuggestions />
       </div>
-      <div className="mt-6 ">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

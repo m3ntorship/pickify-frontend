@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import ScrollToTop from 'react-scroll-to-top';
 import Button from '@modules/shared/components/atoms/Button/Button';
 import Widgets from '@modules/shared/components/organisms/Widgets/Widgets';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import { AuthUserProvider } from '../context/AuthUserContext/AuthUserContext';
 import * as EButton from '../modules/shared/components/atoms/Button/types/EButton';
 import styles from './_app.module.css';
@@ -22,8 +22,11 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
   const { pathname } = router;
   const showHeader = pathname !== '/login';
   const showWidgets = pathname !== '/login' && !pathname.includes('/posts/');
-  const appContentStyles: string = classnames(styles['app-content'], {
+  const appContentStyles: string = classNames(styles['app-content'], {
     'md:mt-6xl mt-4xvl': showHeader,
+  });
+  const pageClasses = classNames(styles.page, {
+    'md:mr-6': showHeader,
   });
   return (
     <AuthUserProvider>
@@ -44,7 +47,7 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
 
       <section className={appContentStyles}>
         <section className={styles['layout-parent']}>
-          <div className={styles.page}>
+          <div className={pageClasses}>
             <Component {...pageProps} />
           </div>
           {showWidgets && (

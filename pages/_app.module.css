@@ -1,5 +1,5 @@
 .app-content {
-  @apply px-4 md:px-6  relative;
+  @apply px-4 md:px-6 relative;
 }
 
 .layout-parent {
@@ -7,7 +7,7 @@
 }
 
 .page {
-  @apply mb-3 md:w-39xl md:mr-6 w-full;
+  @apply w-39xl;
 }
 
 .widgets {
