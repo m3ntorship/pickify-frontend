@@ -1,0 +1,17 @@
+.container {
+  @apply bg-white shadow-soft p-4 rounded-md mb-xs;
+}
+
+.text {
+  @apply text-dark-grey text-sm leading-5 font-normal ;
+}
+
+.emoji {
+  @apply flex flex-row mb-5 mt-3 ;
+
+}
+
+.button {
+  @apply flex justify-center mt-3 ;
+
+}
