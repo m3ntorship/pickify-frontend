@@ -9,7 +9,6 @@ import HomeIcon from '../../icons/home.svg';
 import FriendsIcon from '../../icons/friends.svg';
 import BillIcon from '../../icons/bill.svg';
 import HelpIcon from '../../icons/help.svg';
-import HappyIcon from '../../icons/happy.svg';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Divider from '../../atoms/Divider/Divider';
 import MenuIcon from '../../icons/menu.svg';
@@ -18,38 +17,7 @@ import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 import DropDown from '../../atoms/DropDown/DropDown';
-
-const homeNavLinks = [
-  {
-    name: 'home',
-    path: '/',
-    content: <HomeIcon />,
-    active: true,
-  },
-  {
-    name: 'friends',
-    path: '/',
-    content: <FriendsIcon />,
-  },
-  {
-    name: 'bill',
-    path: '/',
-    content: <BillIcon />,
-  },
-];
-
-const userNavLinks = [
-  {
-    name: 'help',
-    path: '/',
-    content: <HelpIcon />,
-  },
-  {
-    name: 'happy',
-    path: '/',
-    content: <HappyIcon />,
-  },
-];
+import Feedback from '../../organisms/Feedback/Feedback';
 
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
@@ -64,6 +32,44 @@ const Navigation: FC = (): ReactElement => {
     }
   };
   const avatarVariant = user?.userImg ? 'filled' : 'notFilled';
+  // const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
+
+  // const [showFeedback, setShowFeedback] = useState(false);
+
+  // const handleHappyFaceClick = (): void => {
+  //   setShowFeedback(!showFeedback);
+  // };
+  const homeNavLinks = [
+    {
+      name: 'home',
+      path: '/',
+      content: <HomeIcon />,
+      active: true,
+    },
+    {
+      name: 'friends',
+      path: '/',
+      content: <FriendsIcon />,
+    },
+    {
+      name: 'bill',
+      path: '/',
+      content: <BillIcon />,
+    },
+  ];
+
+  const userNavLinks = [
+    {
+      name: 'help',
+      path: '/',
+      content: <HelpIcon />,
+    },
+    {
+      name: 'happy',
+      path: '/',
+      content: <Feedback />,
+    },
+  ];
 
   return (
     <nav className={styles['navigation-wrapper']}>
@@ -93,12 +99,12 @@ const Navigation: FC = (): ReactElement => {
             {userNavLinks.map((userNavItem) => (
               <li
                 key={userNavItem.name}
-                className={`${
+                className={`relative ${
                   userNavItem.path === pathname ? 'active' : ''
                 } hidden md:inline-block`}
               >
                 <Link href={userNavItem.path}>
-                  <a>{userNavItem.content}</a>
+                  <a aria-hidden>{userNavItem.content}</a>
                 </Link>
               </li>
             ))}
