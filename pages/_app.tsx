@@ -23,10 +23,10 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
     <AuthUserProvider>
       <ScrollToTop
-        style={{ background: 'none' }}
+        style={{ background: 'none', borderRadius: '62.438rem' }}
         smooth
         component={
-          <div className="transform rotate-180 bg-transparent">
+          <div className="transform rotate-180 ">
             <Button
               onlyIcon
               variant={EButton.buttonVariantValues.PRIMARY}
