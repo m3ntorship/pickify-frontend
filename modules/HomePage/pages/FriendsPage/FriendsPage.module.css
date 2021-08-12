@@ -1,0 +1,15 @@
+.header {
+  @apply text-md md:text-lg text-dark mb-l;
+}
+
+.loaders-wrapper {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-3 relative;
+}
+
+.loader {
+  @apply bg-grey-bg shadow-soft p-4 rounded-md mb-xs;
+}
+
+.soon-text {
+  @apply text-lg sm:text-2xl md:text-3xl font-bold text-dark-grey whitespace-nowrap z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
