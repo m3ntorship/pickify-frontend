@@ -4,7 +4,13 @@ import ContentLoader from 'react-content-loader';
 
 const FriendLoader: FC = (props): ReactElement => {
   return (
-    <ContentLoader viewBox="0 0 180 145" width={180} height={145} {...props}>
+    <ContentLoader
+      viewBox="0 0 180 145"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
+      uniqueKey="my-random-value"
+      {...props}
+    >
       <circle cx="90" cy="30" r="20" />
       <rect x="30" y="60" rx="3" ry="3" width="119" height="16" />
       <rect x="30" y="90" rx="3" ry="3" width="119" height="8" />
