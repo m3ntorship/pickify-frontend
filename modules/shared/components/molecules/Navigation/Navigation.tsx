@@ -28,7 +28,7 @@ const homeNavLinks = [
   },
   {
     name: 'friends',
-    path: '/',
+    path: '/friends',
     content: <FriendsIcon />,
   },
   {
