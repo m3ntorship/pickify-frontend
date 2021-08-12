@@ -1,9 +1,9 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import ProfilePage from '@modules/ProfilePage/ProfilePage';
+import { ProfilePage } from '@modules/ProfilePage/';
 
-const index: FC = (): ReactElement => {
+const Profile: FC = (): ReactElement => {
   return <ProfilePage />;
 };
 
-export default index;
+export default Profile;

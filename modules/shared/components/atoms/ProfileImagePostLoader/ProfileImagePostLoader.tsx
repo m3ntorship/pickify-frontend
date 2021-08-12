@@ -4,7 +4,12 @@ import ContentLoader from 'react-content-loader';
 
 const ProfileImagePostLoader: FC = (props): ReactElement => {
   return (
-    <ContentLoader viewBox="0 0  " height={230} width={1200} {...props}>
+    <ContentLoader
+      height={230}
+      width={1200}
+      {...props}
+      uniqueKey="profile-image-post-loader"
+    >
       <circle cx="20" cy="20" r="20" />
       <rect x="55" y="13" width="119" height="16" />
       <rect x="0" y="51" width="479" height="19" />
