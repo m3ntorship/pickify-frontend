@@ -26,9 +26,9 @@
   @apply w-12 h-full bg-white rounded-xs flex justify-center items-center;
 }
 .sign-in-button {
-  @apply flex w-48 h-11 rounded-xs shadow-soft focus:outline-none hover:shadow-heavy;
+  @apply flex w-48 h-11 rounded-xs shadow-soft focus:outline-none hover:shadow-heavy border;
   background-color: #4285f4;
-  border: 1px solid #4285f4;
+  border-color: #4285f4;
 }
 
 .sign-in-button:active {
