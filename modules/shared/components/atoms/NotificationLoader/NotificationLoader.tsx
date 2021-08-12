@@ -10,7 +10,7 @@ const NotificationLoader: FC = (props): ReactElement => {
       height={40}
       viewBox="0 0 400 40"
       backgroundColor="#f3f3f3"
-      foregroundColor="#C5DCE3"
+      foregroundColor="#ecebeb"
       {...props}
     >
       <rect x="55" y="13" rx="3" ry="3" width="119" height="16" />

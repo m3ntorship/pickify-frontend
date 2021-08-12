@@ -13,8 +13,8 @@ const NotificationsPage: FC = (): ReactElement => {
       </h1>
       {numberOfNotification.map((n) => {
         return (
-          <div className="bg-white shadow-soft p-4 rounded-md mb-xs ">
-            <NotificationLoader key={n} />
+          <div key={n} className="bg-grey-bg shadow-soft p-4 rounded-md mb-xs">
+            <NotificationLoader />
           </div>
         );
       })}
