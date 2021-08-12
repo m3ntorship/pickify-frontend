@@ -3,7 +3,7 @@
 }
 
 .soon-text {
-  @apply text-3xl font-bold text-dark-grey;
+  @apply text-lg sm:text-2xl md:text-3xl font-bold text-dark-grey;
 }
 
 .loader {

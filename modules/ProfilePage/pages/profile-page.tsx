@@ -10,7 +10,7 @@ const ProfilePage: FC = (): ReactElement => {
   const { user } = useAuth();
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div className={styles['soon-parent']}>
         <h1 className={styles['soon-text']}>Coming soon</h1>
       </div>

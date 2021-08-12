@@ -5,13 +5,17 @@ import ContentLoader from 'react-content-loader';
 const ProfileUserLoader: FC = (props): ReactElement => {
   return (
     <ContentLoader
-      width={180}
-      height={80}
-      {...props}
+      speed={2}
+      width={120}
+      height={68}
+      viewBox="0 0 120 68"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
       uniqueKey="profile-user-post-loader"
+      {...props}
     >
-      <circle cx="90" cy="30" r="20" />
-      <rect x="30" y="60" rx="3" ry="3" width="119" height="16" />
+      <circle cx="60" cy="20" r="20" />
+      <rect x="0" y="52" rx="0" ry="0" width="120" height="16" />
     </ContentLoader>
   );
 };
