@@ -7,7 +7,6 @@ import {
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { FC, ReactElement } from 'react';
 import type { IPost } from './ISinglePostView';
-import styles from './SinglePostView.module.css';
 
 export const sharePostHandler = async (
   postId: string,
@@ -38,9 +37,9 @@ const SinglePostView: FC<IPost.Props> = ({
   addOneVoteHandler,
 }): ReactElement => {
   return (
-    <div className={styles.posts}>
+    <>
       {post.type === EPostType.TextPoll && (
-        <div key={post.id} className={styles.posts}>
+        <div key={post.id}>
           <TextPollView
             post={post}
             deletePostHandler={deletePostHandler}
@@ -50,7 +49,7 @@ const SinglePostView: FC<IPost.Props> = ({
         </div>
       )}
       {post.type === EPostType.MiniSurvey && (
-        <div key={post.id} className={styles.posts}>
+        <div key={post.id}>
           <MiniSurveyView
             post={post}
             deletePostHandler={deletePostHandler}
@@ -60,7 +59,7 @@ const SinglePostView: FC<IPost.Props> = ({
         </div>
       )}
       {post.type === EPostType.ImagePoll && (
-        <div key={post.id} className={styles.posts}>
+        <div key={post.id}>
           <ImagePollView
             post={post}
             deletePostHandler={deletePostHandler}
@@ -69,7 +68,7 @@ const SinglePostView: FC<IPost.Props> = ({
           />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

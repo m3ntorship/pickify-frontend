@@ -1,0 +1,7 @@
+.plus {
+  @apply w-10 h-10 rounded-full focus:outline-none bg-primary hover:bg-primary-hover flex justify-center items-center;
+}
+
+.delete {
+  @apply ml-2 w-10 h-10 rounded-full focus:outline-none border-2 border-grey hover:border-dark-grey flex justify-center items-center;
+}
