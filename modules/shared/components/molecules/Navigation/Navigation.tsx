@@ -33,7 +33,7 @@ const homeNavLinks = [
   },
   {
     name: 'bill',
-    path: '/',
+    path: '/notifications',
     content: <BillIcon />,
   },
 ];
