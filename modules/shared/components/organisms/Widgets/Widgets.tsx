@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import type { FC, ReactElement } from 'react';
 import React from 'react';
 import DeveloperPics from '../../molecules/DeveloperPics/DeveloperPics';
@@ -7,6 +8,8 @@ import TrendingQuestions from '../TrendingQuestions/TrendingQuestions';
 import style from './Widgets.module.css';
 
 const Widgets: FC = (): ReactElement => {
+  const { pathname } = useRouter();
+  const showFriendSuggestions = pathname === '/';
   return (
     <div>
       <div className={style.widget}>
@@ -15,9 +18,11 @@ const Widgets: FC = (): ReactElement => {
       <div className={style.widget}>
         <TrendingQuestions />
       </div>
-      <div className={style.widget}>
-        <FriendSuggestions />
-      </div>
+      {showFriendSuggestions && (
+        <div className={style.widget}>
+          <FriendSuggestions />
+        </div>
+      )}
       <Footer />
     </div>
   );
