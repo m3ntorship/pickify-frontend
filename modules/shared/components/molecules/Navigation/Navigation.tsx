@@ -54,13 +54,22 @@ const userNavLinks = [
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
   const { user } = useAuth();
-  const { redirectToLoginPage } = useRedirect();
-  const logout = async (): Promise<void> => {
-    try {
-      await logoutUser();
-      redirectToLoginPage();
-    } catch (err: unknown) {
-      toast.error('Logo out access is denied');
+  const { redirectToLoginPage, redirectToProfilePage } = useRedirect();
+  const onMenuClick = async (menuId: string): Promise<void> => {
+    switch (menuId) {
+      case 'logout':
+        try {
+          await logoutUser();
+          redirectToLoginPage();
+        } catch (err: unknown) {
+          toast.error('Logo out access is denied');
+        }
+        break;
+      case 'profile':
+        redirectToProfilePage();
+        break;
+      default:
+        toast.error('cant find your option :(');
     }
   };
   const avatarVariant = user?.userImg ? 'filled' : 'notFilled';
@@ -104,10 +113,13 @@ const Navigation: FC = (): ReactElement => {
             ))}
             <li className={styles['nav-user']}>
               <DropDown
-                options={[{ id: 'logout', body: 'Log Out' }]}
+                options={[
+                  { id: 'logout', body: 'Log Out' },
+                  { id: 'profile', body: 'Profile' },
+                ]}
                 variant="post"
                 size="sm"
-                onOptionMenuClick={logout}
+                onOptionMenuClick={onMenuClick}
               >
                 <Avatar
                   size="extra-small"
