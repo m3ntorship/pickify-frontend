@@ -1,16 +1,15 @@
+.app-content {
+  @apply px-4 md:px-6 relative;
+}
+
 .layout-parent {
   @apply flex justify-center;
 }
 
-.posts-feed {
-  @apply mb-3 w-39xl md:mr-6;
+.page {
+  @apply w-39xl;
 }
 
 .widgets {
   @apply w-19xl hidden md:block;
-}
-
-.posts,
-.widget {
-  @apply mb-6;
 }
