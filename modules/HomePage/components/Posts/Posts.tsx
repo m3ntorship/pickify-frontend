@@ -14,7 +14,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { getPosts } from '@modules/shared/api/getPosts.api';
 import { getUserToken } from '@modules/shared/logic/userAuth/userAuth';
 import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
-import styles from '../../pages/home-page.module.css';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
@@ -113,7 +112,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     }
   };
   return (
-    <div className={styles.posts}>
+    <div>
       <InfiniteScroll
         dataLength={posts.length}
         next={getMorePosts}
@@ -122,12 +121,14 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       >
         {posts.map((post) => {
           return (
-            <SinglePostView
-              key={post.id}
-              post={post}
-              addOneVoteHandler={addOneVoteHandler}
-              deletePostHandler={deletePostHandler}
-            />
+            <div className="mb-6">
+              <SinglePostView
+                key={post.id}
+                post={post}
+                addOneVoteHandler={addOneVoteHandler}
+                deletePostHandler={deletePostHandler}
+              />
+            </div>
           );
         })}
       </InfiniteScroll>
