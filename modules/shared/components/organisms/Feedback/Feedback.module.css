@@ -1,0 +1,57 @@
+.container {
+  @apply bg-white shadow-soft p-4 rounded-md mb-xs;
+}
+
+.text {
+  @apply text-dark-grey text-sm leading-5 font-normal;
+}
+
+.emojis {
+  @apply flex flex-row mb-5 mt-3;
+}
+.emoji {
+  @apply mr-4;
+}
+.emoji:hover {
+  filter: grayscale(100%) sepia(100%);
+}
+
+.button {
+  @apply flex justify-center mt-3;
+}
+
+/* HIDE RADIO */
+[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type='radio'] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+/* [type='radio']:checked + img {
+  filter: grayscale(100%) sepia(100%);
+}
+
+/* CHECKED STYLES */
+/* [type='radio']:checked  {
+  filter: grayscale(100%) sepia(100%);
+}  */
+
+input[type='radio']:checked + label > span {
+  filter: grayscale(100%) sepia(100%);
+}
+
+input[type='radio']:hover + label > span {
+  cursor: pointer;
+}
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
