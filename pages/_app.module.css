@@ -1,0 +1,15 @@
+.app-content {
+  @apply px-4 md:px-6  relative;
+}
+
+.layout-parent {
+  @apply flex justify-center;
+}
+
+.page {
+  @apply mb-3 md:w-39xl md:mr-6 w-full;
+}
+
+.widgets {
+  @apply w-19xl hidden md:block;
+}
