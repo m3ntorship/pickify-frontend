@@ -9,49 +9,45 @@
 .emojis {
   @apply flex flex-row mb-5 mt-3;
 }
-.emoji {
-  @apply mr-4;
-}
-.emoji:hover {
-  filter: grayscale(100%) sepia(100%);
-}
+
 
 .button {
   @apply flex justify-center mt-3;
 }
 
-/* HIDE RADIO */
-[type='radio'] {
-  position: absolute;
+.form__answer {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 23%;
+  margin: 20px 1% 20px 0;
+  height: 180px;
+  vertical-align: top;
+  font-size: 22px;
+  text-align: center;
+}
+
+label {
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin-right: 1rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type='radio'] {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* IMAGE STYLES */
-[type='radio'] + img {
-  cursor: pointer;
+input[type='radio']:active ~ label {
+  opacity: 1;
 }
 
-/* CHECKED STYLES */
-/* [type='radio']:checked + img {
+input[type='radio']:checked ~ label {
+  opacity: 1;
   filter: grayscale(100%) sepia(100%);
-}
-
-/* CHECKED STYLES */
-/* [type='radio']:checked  {
-  filter: grayscale(100%) sepia(100%);
-}  */
-
-input[type='radio']:checked + label > span {
-  filter: grayscale(100%) sepia(100%);
-}
-
-input[type='radio']:hover + label > span {
-  cursor: pointer;
-}
-
-.hidden {
-  position: absolute;
-  left: -9999px;
 }

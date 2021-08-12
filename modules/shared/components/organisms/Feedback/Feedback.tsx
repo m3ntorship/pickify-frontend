@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import styles from './Feedback.module.css';
 import Button from '../../atoms/Button/Button';
@@ -39,6 +39,11 @@ const Feedback: FC = (): ReactElement => {
       component: <Amazing />,
     },
   ];
+  const [checkedValue, setCheckedValue] = useState(''); // set default value here to be defaultChecked or put ''
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setCheckedValue(e.target.value);
+    console.log('checkedValue is', checkedValue);
+  };
 
   return (
     <form onSubmit={(): boolean => true} className={styles.container}>
@@ -46,32 +51,24 @@ const Feedback: FC = (): ReactElement => {
       <div className={styles.emojis}>
         {emojis.map((emoji) => {
           return (
-            <div className={styles.emoji}>
-              <input
-                className={styles.hidden}
-                type="radio"
-                name="emoji"
-                value={emoji.name}
-                id={emoji.name}
-              />
-              <label htmlFor={emoji.name}>
-                <span>{emoji.component}</span>
-              </label>
-            </div>
-            // <label className={styles.emoji} htmlFor={emoji.name}>
-            //   <input
-            //     type="radio"
-            //     name="emoji"
-            //     value={emoji.name}
-            //     id={emoji.name}
-            //   />
-            //   <img src={`emoji.component`} ></img>
-            // </label>
+            <>
+              <fieldset className={styles['form-options']}>
+                <p className={styles['form-answer']}>
+                  <input
+                    type="radio"
+                    onChange={handleChange}
+                    name="emoji"
+                    id={emoji.name}
+                    value={emoji.name}
+                  />
+                  <label htmlFor={emoji.name}>{emoji.component}</label>
+                </p>
+              </fieldset>
+            </>
           );
         })}
       </div>
 
-      {/* <h1 className={styles.text}>Do you have any comments?</h1> */}
       <div>
         <TextInput
           label="Do you have any comments?"
