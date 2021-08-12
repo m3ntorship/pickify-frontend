@@ -7,21 +7,23 @@ import Divider from '../../atoms/Divider/Divider';
 const FriendSuggestions: FC = (): ReactElement => {
   return (
     <>
-      <p className="text-dark-grey">Friend Suggestions</p>
+      <p className="text-dark-grey mb-3">Friend Suggestions</p>
       <Divider type="horizontal" length="100%" />
-      {dummyData.map((friendSuggestion) => (
-        <div
-          className="mt-3"
-          data-testid="friend-suggestion"
-          key={friendSuggestion.id}
-        >
-          <FriendSuggestion
-            profilePic={friendSuggestion.profilePic}
-            username={friendSuggestion.username}
-            mutualFriends={friendSuggestion.mutualFriends}
-          />
-        </div>
-      ))}
+      <div className="mt-4">
+        {dummyData.map((friendSuggestion) => (
+          <div
+            className="mt-3"
+            data-testid="friend-suggestion"
+            key={friendSuggestion.id}
+          >
+            <FriendSuggestion
+              profilePic={friendSuggestion.profilePic}
+              username={friendSuggestion.username}
+              mutualFriends={friendSuggestion.mutualFriends}
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 };

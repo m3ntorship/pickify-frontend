@@ -18,7 +18,7 @@ const Widgets: FC = (): ReactElement => {
       <div className={`${style.widget} mt-6`}>
         <FriendSuggestions />
       </div>
-      <div className="mt-6">
+      <div className="mt-6 ">
         <Footer />
       </div>
     </div>

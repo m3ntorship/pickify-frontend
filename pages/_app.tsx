@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import ScrollToTop from 'react-scroll-to-top';
 import Button from '@modules/shared/components/atoms/Button/Button';
 import Widgets from '@modules/shared/components/organisms/Widgets/Widgets';
+import classnames from 'classnames';
 import { AuthUserProvider } from '../context/AuthUserContext/AuthUserContext';
 import * as EButton from '../modules/shared/components/atoms/Button/types/EButton';
 import styles from './_app.module.css';
@@ -21,6 +22,9 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
   const { pathname } = router;
   const showHeader = pathname !== '/login';
   const showWidgets = pathname !== '/login' && !pathname.includes('/posts/');
+  const appContentStyles: string = classnames(styles['app-content'], {
+    'md:mt-6xl mt-4xvl': showHeader,
+  });
   return (
     <AuthUserProvider>
       <div>{showHeader && <Navigation />}</div>
@@ -37,20 +41,19 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
         }
       />
       <ToastContainer limit={2} />
-      <div className={`px-4 md:px-6 ${showHeader ? 'md:mt-6xl mt-4xvl' : ''}`}>
-        <section className="min-h-screen relative">
-          <section className={styles['layout-parent']}>
-            <div className={styles['posts-feed']}>
-              <Component {...pageProps} />
+
+      <section className={appContentStyles}>
+        <section className={styles['layout-parent']}>
+          <div className={styles.page}>
+            <Component {...pageProps} />
+          </div>
+          {showWidgets && (
+            <div className={styles.widgets}>
+              <Widgets />
             </div>
-            {showWidgets && (
-              <div className="w-21xl">
-                <Widgets />
-              </div>
-            )}
-          </section>
+          )}
         </section>
-      </div>
+      </section>
     </AuthUserProvider>
   );
 };

@@ -17,26 +17,18 @@ const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
   type,
 }): ReactElement => {
   return (
-    <div className="flex overflow-hidden">
-      {type === 'Mini Survey' && (
-        <div className={styles['trending-question']}>
-          <MiniSurvey />
+    <div className="flex">
+      <div className={styles['trending-question']}>
+        {type === 'Mini Survey' && <MiniSurvey />}
+        {type === 'Text Poll' && <TextPoll />}
+        {type === 'Image Poll' && <ImagePoll />}
+      </div>
+      <div className="w-60">
+        <div className="flex">
+          <Link href="/">
+            <a>{truncate(postCaption)}</a>
+          </Link>
         </div>
-      )}
-      {type === 'Text Poll' && (
-        <div className={styles['trending-question']}>
-          <TextPoll />
-        </div>
-      )}
-      {type === 'Image Poll' && (
-        <div className={styles['trending-question']}>
-          <ImagePoll />
-        </div>
-      )}
-      <div className="ml-4" title={postCaption}>
-        <Link href="/">
-          <a>{truncate(postCaption)}</a>
-        </Link>
         <p className="text-xs text-dark-grey font-light">{type}</p>
       </div>
     </div>
