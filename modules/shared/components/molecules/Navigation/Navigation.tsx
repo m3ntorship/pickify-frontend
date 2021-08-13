@@ -124,7 +124,7 @@ const Navigation: FC = (): ReactElement => {
                 />
               </DropDown>
             </li>
-            <li className="md:hidden">
+            <li className="hidden">
               <MenuIcon />
             </li>
           </ul>
