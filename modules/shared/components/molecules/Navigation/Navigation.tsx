@@ -18,6 +18,8 @@ import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 import DropDown from '../../atoms/DropDown/DropDown';
+import TextInput from '../../atoms/TextInputs/TextInput';
+import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
 const homeNavLinks = [
   {
@@ -77,12 +79,25 @@ const Navigation: FC = (): ReactElement => {
   return (
     <nav className={styles['navigation-wrapper']}>
       <div className={styles.navigation}>
-        <div>
+        <div className="flex">
           <Link href="/">
             <a>
               <Logo />
             </a>
           </Link>
+          <div className={styles['search-box']}>
+            <TextInput
+              disabled
+              inputType={ETextInput.InputType.Search}
+              variants={ETextInput.Variants.Default}
+              id=""
+              value=""
+              placeholder="Search Pickify"
+              onBlurInputHandler={(): boolean => true}
+              onChangeInputValueHandler={(): boolean => true}
+              onClickDeleteInputValueHandler={(): boolean => true}
+            />
+          </div>
         </div>
         <div className={styles['nav-links']}>
           <ul>

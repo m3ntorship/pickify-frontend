@@ -17,3 +17,7 @@
 .nav-links li.nav-user {
   @apply md:mr-0;
 }
+
+.search-box {
+  @apply hidden md:block ml-l w-19xl bg-grey-bg border border-grey-shd5 rounded-md;
+}
