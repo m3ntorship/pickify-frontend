@@ -5,11 +5,6 @@ import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import styles from './Navigation.module.css';
 import Logo from '../../icons/logo.svg';
-import HomeIcon from '../../icons/home.svg';
-import FriendsIcon from '../../icons/friends.svg';
-import BillIcon from '../../icons/bill.svg';
-import HelpIcon from '../../icons/help.svg';
-import HappyIcon from '../../icons/happy.svg';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Divider from '../../atoms/Divider/Divider';
 import MenuIcon from '../../icons/menu.svg';
@@ -18,47 +13,14 @@ import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 import DropDown from '../../atoms/DropDown/DropDown';
-
-const isActiveIcon = (path: string, currentPath: string): string =>
-  path === currentPath ? 'fill-dark' : 'hover:fill-dark fill-grey';
+import { getHomeNavLinks, getUserNavLinks } from './navLinksData';
 
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
   const { user } = useAuth();
   const { redirectToLoginPage, redirectToProfilePage } = useRedirect();
-
-  const homeNavLinks = [
-    {
-      name: 'home',
-      path: '/',
-      content: <HomeIcon className={isActiveIcon('/', pathname)} />,
-    },
-    {
-      name: 'friends',
-      path: '/friends',
-      content: <FriendsIcon className={isActiveIcon('/friends', pathname)} />,
-    },
-    {
-      name: 'bill',
-      path: '/notifications',
-      content: (
-        <BillIcon className={isActiveIcon('/notifications', pathname)} />
-      ),
-    },
-  ];
-
-  const userNavLinks = [
-    {
-      name: 'help',
-      path: '/',
-      content: <HelpIcon className="fill-grey" />,
-    },
-    {
-      name: 'happy',
-      path: '/',
-      content: <HappyIcon />,
-    },
-  ];
+  const homeNavLinks = getHomeNavLinks(pathname);
+  const userNavLinks = getUserNavLinks();
 
   const onMenuClick = async (menuId: string): Promise<void> => {
     switch (menuId) {
