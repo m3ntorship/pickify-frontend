@@ -20,7 +20,7 @@ import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext'
 import DropDown from '../../atoms/DropDown/DropDown';
 
 const isActiveIcon = (path: string, currentPath: string): string =>
-  path === currentPath ? 'fill-dark' : 'fill-grey';
+  path === currentPath ? 'fill-dark' : 'hover:fill-dark fill-grey';
 
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
@@ -124,7 +124,7 @@ const Navigation: FC = (): ReactElement => {
                 />
               </DropDown>
             </li>
-            <li className="md:hidden">
+            <li className="hidden">
               <MenuIcon />
             </li>
           </ul>
