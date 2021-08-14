@@ -7,7 +7,7 @@ import styles from './Navigation.module.css';
 import Logo from '../../icons/logo.svg';
 import Avatar from '../../atoms/Avatar/Avatar';
 import Divider from '../../atoms/Divider/Divider';
-import MenuIcon from '../../icons/menu.svg';
+// import MenuIcon from '../../icons/menu.svg';
 import { DividerType } from '../../atoms/Divider/types/EDivider';
 import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
@@ -86,9 +86,9 @@ const Navigation: FC = (): ReactElement => {
                 />
               </DropDown>
             </li>
-            <li className="hidden">
+            {/* <li className="hidden">
               <MenuIcon />
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
