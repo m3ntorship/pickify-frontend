@@ -3,6 +3,9 @@ export enum buttonVariantValues {
   SECONDARY = 'secondary',
   QUATERNARY = 'quaternary',
   TEXT = 'text',
+  LIKE = 'like',
+  DISLIKE = 'dislike',
+  DELETE = 'delete',
 }
 export enum buttonSizeValues {
   XLARGE = 'xlarge',

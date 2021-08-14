@@ -1,6 +1,6 @@
 /* ///////////////////////////////// */
 .btn {
-  @apply capitalize flex items-center justify-center  box-border m-0 focus:outline-none;
+  @apply capitalize flex items-center justify-center  box-border m-0 focus:outline-none transition-all;
 }
 /* // the varient types of buttons   border-2 */
 .btn-primary {
@@ -10,12 +10,24 @@
 .btn-secondary {
   @apply rounded-full bg-white border border-primary text-primary hover:bg-grey-bg focus:ring-2 focus:ring-primary-dark  m-0;
 }
-.btn-quaternary {
+.btn-tertiary {
   @apply rounded-full bg-white text-error m-0;
 }
 
 .btn-text {
   @apply bg-transparent text-accent hover:text-accent-hover border-0 focus:underline p-0;
+}
+
+.btn-like {
+  @apply bg-primary rounded-full hover:ring-4 transition-all ring-primary ring-opacity-25 transform hover:scale-145;
+}
+
+.btn-dislike {
+  @apply bg-error rounded-full hover:ring-4 transition-all ring-error ring-opacity-25 transform hover:scale-145;
+}
+
+.btn-delete {
+  @apply rounded-full border border-grey hover:border-dark-grey;
 }
 
 /* // the size of the buttons  */
@@ -42,19 +54,20 @@
 /* //////////// condition css //////////// */
 
 /* the only of it is kind  -the responsive cancel button-  */
-.btn-normal.btn-quaternary {
+.btn-normal.btn-tertiary {
   @apply px-xll py-1.5;
 }
 
 .btn-xlarge.btn-primary,
 .btn-xlarge.btn-secondary,
-.btn-xlarge.btn-quaternary {
+.btn-xlarge.btn-tertiary {
   @apply px-4xvxl py-1.5;
 }
 
 .btn-large.btn-primary,
 .btn-large.btn-secondary,
-.btn-large.btn-tertiary {
+.btn-large.btn-tertiary,
+.btn-large.btn-delete {
   @apply px-xl py-sx;
 }
 .btn-large.btn-primary.right-icon,
@@ -106,7 +119,6 @@
 }
 
 /* ////////////////////the proprties of the span holding the icon  */
-
 .btn span,
 .btn-rounded.btn-large span,
 .btn-rounded.btn-medium span,
@@ -114,7 +126,7 @@
   @apply flex items-center justify-center w-auto h-auto;
 }
 
-/* /////////////the arrow icon and it's marging */
+/* /////////////the arrow icon and its margins */
 .right-icon.btn-large span {
   @apply ml-sx;
 }

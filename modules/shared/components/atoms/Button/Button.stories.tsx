@@ -18,7 +18,15 @@ export default {
     variant: {
       control: {
         type: 'inline-radio',
-        options: ['primary', 'secondary', 'tertiary', 'text'],
+        options: [
+          'primary',
+          'secondary',
+          'tertiary',
+          'text',
+          'like',
+          'dislike',
+          'delete',
+        ],
       },
     },
   },

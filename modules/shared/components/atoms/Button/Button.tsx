@@ -13,16 +13,22 @@ const Button: FC<IButton.IProps> = ({
   rightIcon = false,
   onlyIcon = false,
   buttonType = 'button',
+  width,
+  height,
   onClick,
   children,
+  id,
 }): ReactElement => {
   const btnClasses = classnames(
     styles.btn,
     {
       [styles['btn-primary']]: variant === 'primary',
       [styles['btn-secondary']]: variant === 'secondary',
-      [styles['btn-quaternary']]: variant === 'quaternary',
+      [styles['btn-tertiary']]: variant === 'tertiary',
       [styles['btn-text']]: variant === 'text',
+      [styles['btn-dislike']]: variant === 'dislike',
+      [styles['btn-delete']]: variant === 'delete',
+      [styles['btn-like']]: variant === 'like',
     },
     {
       [styles['btn-xlarge']]: size === 'xlarge',
@@ -45,6 +51,11 @@ const Button: FC<IButton.IProps> = ({
       onClick={onClick}
       className={btnClasses}
       disabled={disabled}
+      style={{
+        width: `${width ? `${width}px` : 'auto'}`,
+        height: `${height ? `${height}px` : 'auto'}`,
+      }}
+      id={id}
     >
       {leftIcon && <span>{children}</span>}
 

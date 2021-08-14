@@ -1,3 +1,15 @@
-.navigation {
-  @apply md:mb-12 mb-4;
+.app-content {
+  @apply px-4 md:px-6 relative;
+}
+
+.layout-parent {
+  @apply flex justify-center;
+}
+
+.page {
+  @apply w-39xl;
+}
+
+.widgets {
+  @apply w-19xl hidden md:block;
 }

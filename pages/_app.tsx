@@ -7,22 +7,57 @@ import '../styles/globals.css';
 import React from 'react';
 import Navigation from '@modules/shared/components/molecules/Navigation/Navigation';
 import { useRouter } from 'next/router';
-import styles from './_app.module.css';
+import ScrollToTop from 'react-scroll-to-top';
+import Button from '@modules/shared/components/atoms/Button/Button';
+import Widgets from '@modules/shared/components/organisms/Widgets/Widgets';
+import classNames from 'classnames';
 import { AuthUserProvider } from '../context/AuthUserContext/AuthUserContext';
+import * as EButton from '../modules/shared/components/atoms/Button/types/EButton';
+import styles from './_app.module.css';
 
 toast.configure();
 
 const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
   const router = useRouter();
-  const showHeader = router.pathname !== '/login';
-
+  const { pathname } = router;
+  const showHeader = pathname !== '/login';
+  const showWidgets = pathname !== '/login' && !pathname.includes('/posts/');
+  const appContentStyles: string = classNames(styles['app-content'], {
+    'md:mt-6xl mt-4xvl': showHeader,
+  });
+  const pageClasses = classNames(styles.page, {
+    'md:mr-6': showHeader,
+  });
   return (
     <AuthUserProvider>
-      <div className={styles.navigation}>{showHeader && <Navigation />}</div>
+      <div>{showHeader && <Navigation />}</div>
+      <ScrollToTop
+        style={{ background: 'none', borderRadius: '62.438rem' }}
+        smooth
+        component={
+          <div className="transform rotate-180 ">
+            <Button
+              onlyIcon
+              variant={EButton.buttonVariantValues.PRIMARY}
+              size={EButton.buttonSizeValues.MEDIUM}
+            />
+          </div>
+        }
+      />
       <ToastContainer limit={2} />
-      <div className="px-4 md:px-6">
-        <Component {...pageProps} />
-      </div>
+
+      <section className={appContentStyles}>
+        <section className={styles['layout-parent']}>
+          <div className={pageClasses}>
+            <Component {...pageProps} />
+          </div>
+          {showWidgets && (
+            <div className={styles.widgets}>
+              <Widgets />
+            </div>
+          )}
+        </section>
+      </section>
     </AuthUserProvider>
   );
 };
