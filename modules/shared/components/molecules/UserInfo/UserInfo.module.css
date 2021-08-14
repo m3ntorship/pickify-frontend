@@ -6,10 +6,10 @@
   @apply flex-col ml-4 whitespace-nowrap;
 }
 
-.name {
+.title {
   @apply font-sans text-sm font-medium block;
 }
 
-.date {
+.subTitle {
   @apply font-sans text-sm font-light	text-dark-grey block;
 }
