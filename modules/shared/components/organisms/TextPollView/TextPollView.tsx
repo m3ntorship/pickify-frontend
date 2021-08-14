@@ -24,7 +24,7 @@ const PostViewWrapper: FC<ITextPollView.IProps> = ({
       <PostViewHeader
         postId={post.id}
         userId={user ? user.id : ''}
-        date={new Date(post.created_at)}
+        date={post.created_at}
         name={user ? user.name : undefined}
         profilePic={user ? user.profile_pic : undefined}
         isHidden={post.is_hidden}

@@ -87,13 +87,13 @@ exports[`ITextPollView should render ITextPollView Compnent with the mocked data
           className="user-wrapper"
         >
           <span
-            className="name"
-            data-testid="name"
+            className="title"
+            data-testid="title"
           >
             Ahmed Ayoub
           </span>
           <span
-            className="date"
+            className="subTitle"
             title="31/12/2020 00:00:00"
           >
             a day ago
