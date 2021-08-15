@@ -7,19 +7,14 @@ import Divider from '../Divider/Divider';
 import * as EDivider from '../Divider/types/EDivider';
 
 const Box = ({
-  classes,
   isGreyColor,
   isWhiteColor,
   children,
 }: IBox.IProps): ReactElement => {
-  const boxClasses = classNames(
-    styles.box,
-    {
-      'bg-grey-bg': isGreyColor,
-      'bg-white': isWhiteColor,
-    },
-    classes,
-  );
+  const boxClasses = classNames(styles.box, {
+    'bg-grey-bg': isGreyColor,
+    'bg-white': isWhiteColor,
+  });
   return <div className={boxClasses}>{children}</div>;
 };
 
@@ -27,12 +22,8 @@ const BoxDevider = (): ReactElement => {
   return <Divider type={EDivider.DividerType.Horizontal} length="100%" />;
 };
 
-const Header = ({
-  classes,
-  children,
-  withDevider,
-}: IBox.IProps): ReactElement => {
-  const headerClasses = classNames(styles['header-wrapper'], classes);
+const Header = ({ children, withDevider }: IBox.IProps): ReactElement => {
+  const headerClasses = classNames(styles['header-wrapper']);
   return (
     <div className={headerClasses}>
       <div className={styles.header}>{children}</div>
@@ -45,17 +36,12 @@ const Header = ({
   );
 };
 
-const Body = ({ classes, children }: IBox.IProps): ReactElement => {
-  const bodyClasses = classNames(classes);
-  return <div className={bodyClasses}>{children}</div>;
+const Body = ({ children }: IBox.IProps): ReactElement => {
+  return <div>{children}</div>;
 };
 
-const Footer = ({
-  classes,
-  children,
-  withDevider,
-}: IBox.IProps): ReactElement => {
-  const footerClasses = classNames(styles['footer-wrapper'], classes);
+const Footer = ({ children, withDevider }: IBox.IProps): ReactElement => {
+  const footerClasses = classNames(styles['footer-wrapper']);
   return (
     <div className={footerClasses}>
       {withDevider && (
