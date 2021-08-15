@@ -11,16 +11,21 @@ const UserInfo: FC<IUserInfo.IProps> = ({
   title = '',
   subTitle,
   description,
+  variant,
+  children,
 }): ReactElement => {
   const username = title.length !== 0 ? title : 'Anonymous';
 
   return (
     <div className={styles['outer-wrapper']}>
-      <Avatar
-        size="medium"
-        variant={handleUserInfoVariant(isHidden, profilePic)}
-        profilePic={profilePic}
-      />
+      {variant === 'avatar' && (
+        <Avatar
+          size="medium"
+          variant={handleUserInfoVariant(isHidden, profilePic)}
+          profilePic={profilePic}
+        />
+      )}
+      {variant === 'icon' && children}
       <div className={styles['user-wrapper']}>
         <span className={styles.title} data-testid="title">
           {username}

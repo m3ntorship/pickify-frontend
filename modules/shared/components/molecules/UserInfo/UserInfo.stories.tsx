@@ -34,4 +34,5 @@ UserInfoStory.args = {
   title: 'Ahmed Ayoub',
   subTitle: '3 months ago',
   description: '13/08/2021 06:09:11',
+  variant: 'avatar',
 };

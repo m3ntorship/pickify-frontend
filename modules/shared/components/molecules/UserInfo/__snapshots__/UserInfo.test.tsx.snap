@@ -1,5 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`UserInfo snapshots should render Icon without avatar when passing variant={icon} 1`] = `
+<div
+  className="outer-wrapper"
+>
+  <svg
+    data-file-name="SvgTextPoll"
+  />
+  <div
+    className="user-wrapper"
+  >
+    <span
+      className="title"
+      data-testid="title"
+    >
+      Ahmed Ayoub
+    </span>
+    <span
+      className="subTitle"
+    >
+      3 months ago
+    </span>
+  </div>
+</div>
+`;
+
 exports[`UserInfo snapshots should render avatar with anonymous variant if isHidden={true} with no image 1`] = `
 <div
   className="outer-wrapper"

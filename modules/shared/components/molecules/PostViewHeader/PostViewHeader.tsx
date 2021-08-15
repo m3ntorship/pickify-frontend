@@ -57,9 +57,10 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         <UserInfo
           isHidden={isHidden}
           profilePic={profilePic}
-          title={name}
+          title={name ?? ''}
           subTitle={humanReadableDate(date)}
           description={exactDate(date)}
+          variant="avatar"
         />
         <DropDown
           onOptionMenuClick={onMenuOptionClickHandler}
