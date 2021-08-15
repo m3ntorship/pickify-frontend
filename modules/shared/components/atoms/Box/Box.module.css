@@ -1,0 +1,17 @@
+.box {
+  @apply rounded-md shadow-soft p-4;
+}
+
+.box > div {
+  @apply mb-4 last:mb-0;
+}
+
+.header-wrapper,
+.footer-wrapper {
+  @apply flex flex-col;
+}
+
+.header,
+.footer {
+  @apply flex justify-between;
+}

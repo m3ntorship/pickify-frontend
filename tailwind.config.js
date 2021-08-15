@@ -198,6 +198,7 @@ module.exports = {
       },
       scale: {
         145: '1.4',
+        80: '0.8',
       },
     },
     fill: (theme) => ({
