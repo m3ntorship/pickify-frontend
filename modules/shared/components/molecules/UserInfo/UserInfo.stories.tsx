@@ -12,12 +12,12 @@ export default {
         type: 'text',
       },
     },
-    name: {
+    title: {
       control: {
         type: 'text',
       },
     },
-    date: {
+    subTitle: {
       control: {
         type: 'text',
       },
@@ -31,6 +31,8 @@ const Template: Story<IUserInfo.IProps> = (args): ReactElement => (
 export const UserInfoStory = Template.bind({});
 UserInfoStory.args = {
   isHidden: true,
-  name: 'Ahmed Ayoub',
-  date: new Date('2021-05-24T23:10:24.114Z'),
+  title: 'Ahmed Ayoub',
+  subTitle: '3 months ago',
+  description: '13/08/2021 06:09:11',
+  variant: 'avatar',
 };

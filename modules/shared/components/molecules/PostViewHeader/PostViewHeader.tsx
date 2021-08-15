@@ -8,6 +8,10 @@ import UserInfo from '../UserInfo/UserInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
 import { getUserUUID } from '../../../logic/userAuth/userAuth';
+import {
+  humanReadableDate,
+  exactDate,
+} from '../../../logic/formatDate/FormatDate';
 
 const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],
@@ -53,8 +57,10 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         <UserInfo
           isHidden={isHidden}
           profilePic={profilePic}
-          name={name}
-          date={date}
+          title={name ?? ''}
+          subTitle={humanReadableDate(date)}
+          description={exactDate(date)}
+          variant="avatar"
         />
         <DropDown
           onOptionMenuClick={onMenuOptionClickHandler}

@@ -34,7 +34,7 @@ const Avatar: FC<IAvatar.IProps> = ({
           onClick={onClick}
         />
       )}
-      {(variant === 'anonymous' || profilePic === undefined) && (
+      {variant === 'anonymous' && (
         <AnonymousIcon
           className="absolute w-full h-full"
           width={avatarSize}
