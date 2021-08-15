@@ -94,13 +94,6 @@ exports[`Avatar renders with large size and not filled variant 1`] = `
 >
   <svg
     className="absolute w-full h-full"
-    data-file-name="SvgAnonymous"
-    height={56}
-    onClick={[Function]}
-    width={56}
-  />
-  <svg
-    className="absolute w-full h-full"
     data-file-name="SvgNotFilled"
     height={56}
     onClick={[Function]}
@@ -203,13 +196,6 @@ exports[`Avatar renders with medium size and not filled variant 1`] = `
 >
   <svg
     className="absolute w-full h-full"
-    data-file-name="SvgAnonymous"
-    height={40}
-    onClick={[Function]}
-    width={40}
-  />
-  <svg
-    className="absolute w-full h-full"
     data-file-name="SvgNotFilled"
     height={40}
     onClick={[Function]}
@@ -310,13 +296,6 @@ exports[`Avatar renders with small size and not filled variant 1`] = `
 <div
   className="wrapper small"
 >
-  <svg
-    className="absolute w-full h-full"
-    data-file-name="SvgAnonymous"
-    height={32}
-    onClick={[Function]}
-    width={32}
-  />
   <svg
     className="absolute w-full h-full"
     data-file-name="SvgNotFilled"

@@ -1,12 +1,17 @@
-export const handleAvatarVariant = (
+export const handleUserInfoVariant = (
   isHidden: boolean,
-  profilePic: string | undefined,
+  profilePic?: string,
 ): 'anonymous' | 'filled' | 'notFilled' => {
   const anonymous = 'anonymous';
   const filled = 'filled';
   const notFilled = 'notFilled';
   if (isHidden) {
+    if (profilePic !== undefined) return filled;
+
     return anonymous;
   }
-  return profilePic ? filled : notFilled;
+
+  if (profilePic !== undefined) return filled;
+
+  return notFilled;
 };

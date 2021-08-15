@@ -227,13 +227,6 @@ exports[`CreatePostHeader should render three tabs with notFilled avatar 1`] = `
     >
       <svg
         className="absolute w-full h-full"
-        data-file-name="SvgAnonymous"
-        height={40}
-        onClick={[Function]}
-        width={40}
-      />
-      <svg
-        className="absolute w-full h-full"
         data-file-name="SvgNotFilled"
         height={40}
         onClick={[Function]}

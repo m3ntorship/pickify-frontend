@@ -3,13 +3,13 @@
 }
 
 .user-wrapper {
-  @apply flex-col ml-4 whitespace-nowrap;
+  @apply w-52 flex flex-col justify-between ml-4 whitespace-nowrap;
 }
 
-.name {
-  @apply font-sans text-sm font-medium block;
+.title {
+  @apply text-sm font-normal block whitespace-nowrap overflow-hidden overflow-ellipsis;
 }
 
-.date {
-  @apply font-sans text-sm font-light	text-dark-grey block;
+.subTitle {
+  @apply text-xs font-light	text-dark-grey block;
 }
