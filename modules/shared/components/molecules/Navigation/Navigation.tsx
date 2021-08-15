@@ -49,7 +49,7 @@ const Navigation: FC = (): ReactElement => {
       <div className={styles.navigation}>
         <div className="flex">
           <Link href="/">
-            <a>
+            <a className="self-center">
               <Logo className="transform scale-80 -ml-sx" />
             </a>
           </Link>

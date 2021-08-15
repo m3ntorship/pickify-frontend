@@ -1,5 +1,5 @@
 .navigation-wrapper {
-  @apply p-4 md:px-6 bg-white shadow-navshd flex justify-center fixed z-20 w-full top-0;
+  @apply p-2 md:px-6 bg-white shadow-navshd flex justify-center fixed z-20 w-full top-0;
 }
 
 .navigation {
