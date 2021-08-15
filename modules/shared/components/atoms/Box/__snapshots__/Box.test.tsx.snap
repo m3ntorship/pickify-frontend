@@ -4,9 +4,7 @@ exports[`Friend Suggestion Component Should render Body 1`] = `
 <div
   className="box bg-white"
 >
-  <div
-    className=""
-  >
+  <div>
     <p>
       Dummy Body
     </p>
@@ -66,9 +64,7 @@ exports[`Friend Suggestion Component Should render Header, Body and Footer 1`] =
         </p>
       </div>
     </div>
-    <div
-      className=""
-    >
+    <div>
       <p>
         Dummy Body
       </p>
@@ -116,9 +112,7 @@ exports[`Friend Suggestion Component Should render Header, Body and Footer with 
         />
       </div>
     </div>
-    <div
-      className=""
-    >
+    <div>
       <p>
         Dummy Body
       </p>
@@ -178,9 +172,7 @@ exports[`Friend Suggestion Component Should render Header, Body and Footer with 
         />
       </div>
     </div>
-    <div
-      className=""
-    >
+    <div>
       <p>
         Dummy Body
       </p>

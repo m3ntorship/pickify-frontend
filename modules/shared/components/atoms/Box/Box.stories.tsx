@@ -83,5 +83,4 @@ export const Default = Template.bind({});
 Default.args = {
   isGreyColor: true,
   isWhiteColor: false,
-  classes: '',
 };
