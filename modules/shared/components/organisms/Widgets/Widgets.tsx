@@ -5,21 +5,20 @@ import DeveloperPics from '../../molecules/DeveloperPics/DeveloperPics';
 import Footer from '../../molecules/Footer/Footer';
 import FriendSuggestions from '../FriendSuggestions/FriendSuggestions';
 import TrendingQuestions from '../TrendingQuestions/TrendingQuestions';
-import style from './Widgets.module.css';
 
 const Widgets: FC = (): ReactElement => {
   const { pathname } = useRouter();
   const showFriendSuggestions = pathname === '/';
   return (
     <div>
-      <div className={style.widget}>
+      <div className="mb-6">
         <DeveloperPics />
       </div>
-      <div className={style.widget}>
+      <div className="mb-6">
         <TrendingQuestions />
       </div>
       {showFriendSuggestions && (
-        <div className={style.widget}>
+        <div className="mb-6">
           <FriendSuggestions />
         </div>
       )}
