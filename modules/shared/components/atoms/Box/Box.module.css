@@ -1,8 +1,8 @@
-.layer {
+.box {
   @apply rounded-md shadow-soft p-4;
 }
 
-.layer > div {
+.box > div {
   @apply mb-4 last:mb-0;
 }
 

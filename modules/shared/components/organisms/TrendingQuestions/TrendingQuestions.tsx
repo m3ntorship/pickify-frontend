@@ -1,19 +1,19 @@
 import type { ReactElement } from 'react';
 import React from 'react';
-import Layer from '../../atoms/Layer/Layer';
+import Box from '../../atoms/Box/Box';
 import TrendingQuestion from '../../molecules/TrendeingQuestion/TrendingQuestion';
 import { dummyData } from './dummyData';
 
 const TrendingQuestions = (): ReactElement => {
   return (
-    <Layer isWhiteColor>
+    <Box isWhiteColor>
       <>
-        <Layer.Header withDevider>
+        <Box.Header withDevider>
           <p className="text-dark-grey text-sm font-normal">
             Trending Questions
           </p>
-        </Layer.Header>
-        <Layer.Body>
+        </Box.Header>
+        <Box.Body>
           <div>
             {dummyData.map((question) => (
               <div
@@ -28,9 +28,9 @@ const TrendingQuestions = (): ReactElement => {
               </div>
             ))}
           </div>
-        </Layer.Body>
+        </Box.Body>
       </>
-    </Layer>
+    </Box>
   );
 };
 

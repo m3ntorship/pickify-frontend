@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Friend Suggestion Component Should render Body 1`] = `
+<div
+  className="box bg-white"
+>
+  <div
+    className=""
+  >
+    <p>
+      Dummy Body
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Friend Suggestion Component Should render Footer 1`] = `
+<div
+  className="box bg-white"
+>
+  <div
+    className="footer-wrapper"
+  >
+    <div
+      className="footer"
+    >
+      <p>
+        Dummy Footer
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Friend Suggestion Component Should render Header 1`] = `
+<div
+  className="box bg-white"
+>
+  <div
+    className="header-wrapper"
+  >
+    <div
+      className="header"
+    >
+      <p>
+        Dummy Header
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Friend Suggestion Component Should render Header, Body and Footer 1`] = `
+<div
+  className="box bg-white"
+>
+  <div>
+    <div
+      className="header-wrapper"
+    >
+      <div
+        className="header"
+      >
+        <p>
+          Dummy Header
+        </p>
+      </div>
+    </div>
+    <div
+      className=""
+    >
+      <p>
+        Dummy Body
+      </p>
+    </div>
+    <div
+      className="footer-wrapper"
+    >
+      <div
+        className="footer"
+      >
+        <p>
+          Dummy Footer
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Friend Suggestion Component Should render Header, Body and Footer with Divider grey background 1`] = `
+<div
+  className="box bg-grey-bg"
+>
+  <div>
+    <div
+      className="header-wrapper"
+    >
+      <div
+        className="header"
+      >
+        <p>
+          Dummy Header
+        </p>
+      </div>
+      <div
+        className="mt-3"
+      >
+        <div
+          className="bg-grey-shd6 h-px"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className=""
+    >
+      <p>
+        Dummy Body
+      </p>
+    </div>
+    <div
+      className="footer-wrapper"
+    >
+      <div
+        className="mb-4"
+      >
+        <div
+          className="bg-grey-shd6 h-px"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+        />
+      </div>
+      <div
+        className="footer"
+      >
+        <p>
+          Dummy Footer
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Friend Suggestion Component Should render Header, Body and Footer with Divider white background 1`] = `
+<div
+  className="box bg-white"
+>
+  <div>
+    <div
+      className="header-wrapper"
+    >
+      <div
+        className="header"
+      >
+        <p>
+          Dummy Header
+        </p>
+      </div>
+      <div
+        className="mt-3"
+      >
+        <div
+          className="bg-grey-shd6 h-px"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className=""
+    >
+      <p>
+        Dummy Body
+      </p>
+    </div>
+    <div
+      className="footer-wrapper"
+    >
+      <div
+        className="mb-4"
+      >
+        <div
+          className="bg-grey-shd6 h-px"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+        />
+      </div>
+      <div
+        className="footer"
+      >
+        <p>
+          Dummy Footer
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

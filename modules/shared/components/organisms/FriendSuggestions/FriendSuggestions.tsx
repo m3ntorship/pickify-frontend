@@ -2,18 +2,18 @@ import React from 'react';
 import type { FC, ReactElement } from 'react';
 import FriendSuggestion from '../../molecules/FriendSuggestion/FriendSuggestion';
 import { dummyData } from './dummyData';
-import Layer from '../../atoms/Layer/Layer';
+import Box from '../../atoms/Box/Box';
 
 const FriendSuggestions: FC = (): ReactElement => {
   return (
-    <Layer isWhiteColor>
+    <Box isWhiteColor>
       <>
-        <Layer.Header withDevider>
+        <Box.Header withDevider>
           <p className="text-dark-grey text-sm font-normal">
             Friend Suggestions
           </p>
-        </Layer.Header>
-        <Layer.Body>
+        </Box.Header>
+        <Box.Body>
           <div>
             {dummyData.map((friendSuggestion) => (
               <div
@@ -29,9 +29,9 @@ const FriendSuggestions: FC = (): ReactElement => {
               </div>
             ))}
           </div>
-        </Layer.Body>
+        </Box.Body>
       </>
-    </Layer>
+    </Box>
   );
 };
 

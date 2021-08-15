@@ -1,86 +1,86 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import Layer from './Layer';
-import type { ILayer } from './ILayer';
+import Box from './Box';
+import type { IBox } from './IBox';
 
 export default {
-  title: 'Atoms/Layer',
-  component: Layer,
+  title: 'Atoms/Box',
+  component: Box,
 } as Meta;
 
-const Template: Story<ILayer.IProps> = (args) => (
+const Template: Story<IBox.IProps> = (args) => (
   <div>
     <div className="mb-12">
       <h1>With Header</h1>
-      <Layer {...args}>
+      <Box {...args}>
         <>
-          <Layer.Header withDevider>
+          <Box.Header withDevider>
             <>
               <div>left</div>
               <div>right</div>
             </>
-          </Layer.Header>
-          <Layer.Body>
+          </Box.Header>
+          <Box.Body>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s,
             </p>
-          </Layer.Body>
+          </Box.Body>
         </>
-      </Layer>
+      </Box>
     </div>
     <div className="mb-12">
       <h1>With Footer</h1>
-      <Layer {...args}>
+      <Box {...args}>
         <>
-          <Layer.Body>
+          <Box.Body>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s,
             </p>
-          </Layer.Body>
-          <Layer.Footer withDevider>
+          </Box.Body>
+          <Box.Footer withDevider>
             <>
               <div>left</div>
               <div>right</div>
             </>
-          </Layer.Footer>
+          </Box.Footer>
         </>
-      </Layer>
+      </Box>
     </div>
     <div className="mb-12">
       <h1>With Header & Footer</h1>
-      <Layer {...args}>
+      <Box {...args}>
         <>
-          <Layer.Header withDevider>
+          <Box.Header withDevider>
             <>
               <div>left</div>
               <div>right</div>
             </>
-          </Layer.Header>
-          <Layer.Body>
+          </Box.Header>
+          <Box.Body>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s,
             </p>
-          </Layer.Body>
-          <Layer.Footer withDevider>
+          </Box.Body>
+          <Box.Footer withDevider>
             <>
               <div>left</div>
               <div>right</div>
             </>
-          </Layer.Footer>
+          </Box.Footer>
         </>
-      </Layer>
+      </Box>
     </div>
   </div>
 );
 
-export const layer = Template.bind({});
-layer.args = {
+export const Default = Template.bind({});
+Default.args = {
   isGreyColor: true,
   isWhiteColor: false,
   classes: '',

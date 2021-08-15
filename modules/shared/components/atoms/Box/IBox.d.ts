@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-declare namespace ILayer {
+declare namespace IBox {
   export interface IProps {
     classes?: string;
     isGreyColor?: boolean;
@@ -10,4 +10,4 @@ declare namespace ILayer {
   }
 }
 
-export { ILayer };
+export { IBox };

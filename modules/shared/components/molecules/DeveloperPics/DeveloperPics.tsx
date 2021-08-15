@@ -2,16 +2,16 @@ import React from 'react';
 import type { ReactElement } from 'react';
 import Avatar from '../../atoms/Avatar/Avatar';
 import { images } from './images';
-import Layer from '../../atoms/Layer/Layer';
+import Box from '../../atoms/Box/Box';
 
 const DeveloperPics = (): ReactElement => {
   return (
-    <Layer isWhiteColor>
+    <Box isWhiteColor>
       <>
-        <Layer.Header withDevider>
+        <Box.Header withDevider>
           <p className="text-dark-grey text-sm font-normal">Made by: </p>
-        </Layer.Header>
-        <Layer.Body>
+        </Box.Header>
+        <Box.Body>
           <div className="flex flex-wrap space-y-1">
             {images.map((image) => (
               <div className="mr-2" key={image} data-testid="developer-pic">
@@ -19,9 +19,9 @@ const DeveloperPics = (): ReactElement => {
               </div>
             ))}
           </div>
-        </Layer.Body>
+        </Box.Body>
       </>
-    </Layer>
+    </Box>
   );
 };
 
