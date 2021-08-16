@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInfo snapshots should render Icon without avatar when passing variant={icon} 1`] = `
+<div
+  className="outer-wrapper"
+>
+  <svg
+    data-file-name="SvgTextPoll"
+  />
+  <div
+    className="user-wrapper"
+  >
+    <span
+      className="title"
+      data-testid="title"
+    >
+      Ahmed Ayoub
+    </span>
+    <span
+      className="subTitle"
+    >
+      3 months ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`UserInfo snapshots should render avatar with anonymous variant if isHidden={true} with no image 1`] = `
+<div
+  className="outer-wrapper"
+>
+  <div
+    className="wrapper medium"
+  >
+    <svg
+      className="absolute w-full h-full"
+      data-file-name="SvgAnonymous"
+      height={40}
+      onClick={[Function]}
+      width={40}
+    />
+  </div>
+  <div
+    className="user-wrapper"
+  >
+    <span
+      className="title"
+      data-testid="title"
+    >
+      Ahmed Ayoub
+      <span
+        className="ml-2 text-grey text-xs"
+      >
+        (anonymous)
+      </span>
+    </span>
+    <span
+      className="subTitle"
+    >
+      3 months ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`UserInfo snapshots should render avatar with filled variant event if isHidden={true} but there is an image 1`] = `
+<div
+  className="outer-wrapper"
+>
+  <div
+    className="wrapper medium"
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "inline-block",
+          "margin": 0,
+          "maxWidth": "100%",
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "maxWidth": "100%",
+          }
+        }
+      >
+        <img
+          alt=""
+          aria-hidden={true}
+          role="presentation"
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+          style={
+            Object {
+              "border": "none",
+              "display": "block",
+              "margin": 0,
+              "maxWidth": "100%",
+              "padding": 0,
+            }
+          }
+        />
+      </div>
+      <img
+        className="absolute w-full h-full"
+        decoding="async"
+        onClick={[Function]}
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="user-wrapper"
+  >
+    <span
+      className="title"
+      data-testid="title"
+    >
+      Ahmed Ayoub
+      <span
+        className="ml-2 text-grey text-xs"
+      >
+        (anonymous)
+      </span>
+    </span>
+    <span
+      className="subTitle"
+    >
+      3 months ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`UserInfo snapshots should render avatar with filled variant if there is an image and isHidden={false} 1`] = `
+<div
+  className="outer-wrapper"
+>
+  <div
+    className="wrapper medium"
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "inline-block",
+          "margin": 0,
+          "maxWidth": "100%",
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "maxWidth": "100%",
+          }
+        }
+      >
+        <img
+          alt=""
+          aria-hidden={true}
+          role="presentation"
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+          style={
+            Object {
+              "border": "none",
+              "display": "block",
+              "margin": 0,
+              "maxWidth": "100%",
+              "padding": 0,
+            }
+          }
+        />
+      </div>
+      <img
+        className="absolute w-full h-full"
+        decoding="async"
+        onClick={[Function]}
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="user-wrapper"
+  >
+    <span
+      className="title"
+      data-testid="title"
+    >
+      Ahmed Ayoub
+    </span>
+    <span
+      className="subTitle"
+    >
+      3 months ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`UserInfo snapshots should render avatar with notFilled variant if isHidden={false} with no image 1`] = `
+<div
+  className="outer-wrapper"
+>
+  <div
+    className="wrapper medium"
+  >
+    <svg
+      className="absolute w-full h-full"
+      data-file-name="SvgNotFilled"
+      height={40}
+      onClick={[Function]}
+      width={40}
+    />
+  </div>
+  <div
+    className="user-wrapper"
+  >
+    <span
+      className="title"
+      data-testid="title"
+    >
+      Ahmed Ayoub
+    </span>
+    <span
+      className="subTitle"
+    >
+      3 months ago
+    </span>
+  </div>
+</div>
+`;

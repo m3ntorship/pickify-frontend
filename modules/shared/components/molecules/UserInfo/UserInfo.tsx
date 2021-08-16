@@ -3,37 +3,38 @@ import type { ReactElement, FC } from 'react';
 import type { IUserInfo } from './IUserInfo';
 import Avatar from '../../atoms/Avatar/Avatar';
 import styles from './UserInfo.module.css';
-import {
-  humanReadableDate,
-  exactDate,
-} from '../../../logic/formatDate/FormatDate';
-
-import { handleAvatarVariant } from '../../../logic/userInfoVariant/userInfoVariant';
+import { handleUserInfoVariant } from '../../../logic/userInfoVariant/userInfoVariant';
 
 const UserInfo: FC<IUserInfo.IProps> = ({
   isHidden,
   profilePic,
-  name,
-  date,
+  title = '',
+  subTitle,
+  description,
+  variant,
+  children,
 }): ReactElement => {
-  const username = name ?? (isHidden ? 'Anonymous' : 'hidden user');
-  const userImage = profilePic ? false : isHidden;
+  const username = title.length !== 0 ? title : 'Anonymous';
+
   return (
     <div className={styles['outer-wrapper']}>
-      <Avatar
-        size="medium"
-        variant={handleAvatarVariant(userImage, profilePic)}
-        profilePic={profilePic}
-      />
+      {variant === 'avatar' && (
+        <Avatar
+          size="medium"
+          variant={handleUserInfoVariant(isHidden, profilePic)}
+          profilePic={profilePic}
+        />
+      )}
+      {variant === 'icon' && children}
       <div className={styles['user-wrapper']}>
-        <span className={styles.name} data-testid="name">
+        <span className={styles.title} data-testid="title">
           {username}
-          {isHidden && name && (
+          {isHidden && title && (
             <span className="ml-2 text-grey text-xs">(anonymous)</span>
           )}
         </span>
-        <span title={exactDate(date)} className={styles.date}>
-          {humanReadableDate(date)}
+        <span title={description} className={styles.subTitle}>
+          {subTitle}
         </span>
       </div>
     </div>

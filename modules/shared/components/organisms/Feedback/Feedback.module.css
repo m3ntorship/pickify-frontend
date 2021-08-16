@@ -1,5 +1,5 @@
 .container {
-  @apply bg-white shadow-soft p-4 rounded-md mb-xs absolute top-12 right-0;
+  @apply bg-white shadow-soft p-4 rounded-md mb-xs ;
 }
 
 .text {
@@ -18,49 +18,33 @@
 .button {
   @apply flex justify-center mt-3;
 }
+
 .submitted-container {
   @apply flex flex-col justify-center items-center h-15xl w-20xl;
 }
 
 .form__answer {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 23%;
-  margin: 20px 1% 20px 0;
-  /* height: 180px; */
-  vertical-align: top;
-  font-size: 22px;
-  text-align: center;
+  @apply inline-block;
 }
 
 .emoji {
-  box-sizing: border-box;
-  display: block;
-  /* height: 100%; */
-  width: 100%;
-  margin-right: 1rem;
-  cursor: pointer;
-  opacity: 0.5;
-  filter: grayscale(var(--value, 100%));
-  transition: all 0.2s ease-in-out;
+  @apply opacity-50 w-full block box-border mr-4 cursor-pointer 
+  transition delay-75 duration-300 ease-in-out
+  filter grayscale;
 }
 
 .form-options .form-answer input[type='radio'] {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  @apply w-0 h-0 opacity-0;
 }
 
 .form-options .form-answer input[type='radio']:active ~ label {
-  opacity: 1;
+  @apply opacity-0;
 }
 
 .form-options .form-answer input[type='radio']:checked ~ label {
-  opacity: 1;
-  filter: none;
+  @apply filter-none opacity-100;
 }
 
 .form-options .form-answer input[type='radio']:hover ~ label {
-  opacity: 1;
-  filter: none;
+  @apply filter-none opacity-100;
 }

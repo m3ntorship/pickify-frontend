@@ -19,7 +19,7 @@ export default {
         options: ['filled', 'notFilled', 'anonymous'],
       },
     },
-    imgSrc: {
+    profilePic: {
       control: {
         type: 'text',
       },
@@ -34,4 +34,5 @@ export const AvatarStory = Template.bind({});
 AvatarStory.args = {
   size: 'large',
   variant: 'filled',
+  profilePic: 'https://placeimg.com/640/480/any',
 };

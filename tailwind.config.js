@@ -171,6 +171,7 @@ module.exports = {
       maxWidth: {
         '12xvl': '12rem', // 192px
         '12xl': '12.375rem', // 198px
+        '19xl': '19rem', // 304px
         '29xl': '29.5rem', // 472px
       },
       maxHeight: {
@@ -199,6 +200,7 @@ module.exports = {
       },
       scale: {
         145: '1.4',
+        80: '0.8',
       },
     },
     fill: (theme) => ({
