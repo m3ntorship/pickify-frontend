@@ -4,6 +4,7 @@ import ProfileUserLoader from '@modules/shared/components/atoms/ProfileUserLoade
 import ProfileTextPostLoader from '@modules/shared/components/atoms/ProfileTextPostLoader/ProfileTextPostLoader';
 import ProfileImagePostLoader from '@modules/shared/components/atoms/ProfileImagePostLoader/ProfileImagePostLoader';
 import { useAuth } from 'context/AuthUserContext/AuthUserContext';
+import { capitalizeFirstLetterOfEveryWord } from '@modules/shared/logic/capitalizeFirstLetterOfEveryWord/capitalizeFirstLetterOfEveryWord';
 import styles from './ProfilePage.module.css';
 import Box from '../../shared/components/atoms/Box/Box';
 import PageHeader from '../../shared/components/atoms/PageHeader/PageHeader';
@@ -11,12 +12,14 @@ import LoaderMessage from '../../shared/components/atoms/LoaderMessage/LoaderMes
 
 const ProfilePage: FC = (): ReactElement => {
   const { user } = useAuth();
+  const userName =
+    user?.username && capitalizeFirstLetterOfEveryWord(user.username);
 
   return (
     <Box>
       <>
         <Box.Header>
-          <PageHeader>{user?.username}</PageHeader>
+          <PageHeader>{userName}</PageHeader>
         </Box.Header>
         <Box.Body>
           <div className="relative">
