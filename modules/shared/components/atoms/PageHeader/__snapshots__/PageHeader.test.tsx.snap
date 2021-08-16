@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader Expect the page header to match Snapshot 1`] = `
+<h1
+  className="text-md md:text-lg text-dark mb-l"
+>
+  Friends
+</h1>
+`;
+
+exports[`PageHeader Expect the page header to toMatchSnapshot 1`] = `
+<h1
+  className="text-md md:text-lg text-dark mb-l"
+>
+  Coming Soon
+</h1>
+`;
