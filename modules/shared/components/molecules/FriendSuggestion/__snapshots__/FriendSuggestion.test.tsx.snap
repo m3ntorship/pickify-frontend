@@ -5,7 +5,7 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
   className="flex justify-between"
 >
   <div
-    className="flex"
+    className="outer-wrapper"
   >
     <div
       className="wrapper medium"
@@ -79,16 +79,19 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
       </div>
     </div>
     <div
-      className="ml-4"
+      className="user-wrapper"
     >
-      <p>
+      <span
+        className="title"
+        data-testid="title"
+      >
         Ahmed Adel
-      </p>
-      <p
-        className="text-xs font-light text-dark-grey"
+      </span>
+      <span
+        className="subTitle"
       >
         5 Mutual Friends
-      </p>
+      </span>
     </div>
   </div>
   <div
