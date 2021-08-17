@@ -157,6 +157,7 @@ module.exports = {
         '8xl': '8.8125rem', // 141px
         '18xl': '18.5rem', // 296px
         '19xl': '19rem', // 304px
+        '20xl': '20.75rem', // 332px
         '21xl': '21.18rem', // 339px
         '28xl': '28.5rem', // 456px
         '30xl': '30rem', // 480px
@@ -183,6 +184,7 @@ module.exports = {
         '2xl': '1.8125rem', // 29 px
         '3xl': '4rem', // 58px
         '4xl': '4.5rem', // 72px
+        '15xl': '15.5rem', // 248px
         '19xl': '19.81rem', // 317px
         '21xl': '21.25rem', // 340px
         '22xl': '22.375rem', // 358px
