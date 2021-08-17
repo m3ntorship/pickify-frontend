@@ -9,5 +9,5 @@
 }
 
 .responsive-button {
-  @apply md:hidden flex justify-between;
+  @apply md:hidden flex justify-end;
 }
