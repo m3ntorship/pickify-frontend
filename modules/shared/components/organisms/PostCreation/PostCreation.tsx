@@ -17,6 +17,7 @@ import { createPollPost } from '../../../api/createPollPost';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
+import Box from '../../atoms/Box/Box';
 
 const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
   if (res.statusCode >= 400 || res.statusCode === 0) {
@@ -201,56 +202,118 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   return (
     <FormProvider {...useFormConfig}>
       <form onSubmit={useFormConfig.handleSubmit(onSubmit, onError)}>
-        <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
+        <Box
+          isWhiteColor
+          classes="flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl   "
+        >
           <div>
-            <CreatePostHeader
-              profilePic={user?.userImg ?? ''}
-              checkedValue={postCreationGlobalState.currentSelectedTab}
-              tabsData={tabGroupData()}
-              onTabChangeHandler={handleChangeTabsValue}
-            />
-          </div>
-          <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT -mx-4 px-4">
-            {postCreationGlobalState.currentSelectedTab ===
-              EPollType.TextPoll && (
-              <TextPollCreation
-                post={postCreationGlobalState.textPoll}
-                postCreationGlobalState={postCreationGlobalState}
-                setPostCreationGlobalState={setPostCreationGlobalState}
+            <Box.Header>
+              <div>
+                <CreatePostHeader
+                  profilePic={user?.userImg ?? ''}
+                  checkedValue={postCreationGlobalState.currentSelectedTab}
+                  tabsData={tabGroupData()}
+                  onTabChangeHandler={handleChangeTabsValue}
+                />
+              </div>
+            </Box.Header>
+            <Box.Body classes="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT -mx-4 px-4">
+              <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT -mx-4 px-4  ">
+                {postCreationGlobalState.currentSelectedTab ===
+                  EPollType.TextPoll && (
+                  <TextPollCreation
+                    post={postCreationGlobalState.textPoll}
+                    postCreationGlobalState={postCreationGlobalState}
+                    setPostCreationGlobalState={setPostCreationGlobalState}
+                  />
+                )}
+                {postCreationGlobalState.currentSelectedTab ===
+                  EPollType.ImagePoll && (
+                  <ImagePollCreation
+                    post={postCreationGlobalState.imagePoll}
+                    postCreationGlobalState={postCreationGlobalState}
+                    setPostCreationGlobalState={setPostCreationGlobalState}
+                  />
+                )}
+                {postCreationGlobalState.currentSelectedTab ===
+                  EPollType.MiniSurvey && (
+                  <MiniSurveyPollCreation
+                    post={postCreationGlobalState.miniSurvey}
+                    postCreationGlobalState={postCreationGlobalState}
+                    setPostCreationGlobalState={setPostCreationGlobalState}
+                  />
+                )}
+              </div>
+            </Box.Body>
+            <Box.Footer withDevider>
+              <PostFooterCreation
+                postButtonIsDisabled={
+                  !useFormConfig.formState.isDirty || creating
+                }
+                handleSubmitButtonClick={(): boolean => true}
+                handleCancelButtonClick={closeModalHandler}
+                handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
+                handlePrivacySelectChange={handlePrivacySelectChange}
+                togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
               />
-            )}
-            {postCreationGlobalState.currentSelectedTab ===
-              EPollType.ImagePoll && (
-              <ImagePollCreation
-                post={postCreationGlobalState.imagePoll}
-                postCreationGlobalState={postCreationGlobalState}
-                setPostCreationGlobalState={setPostCreationGlobalState}
-              />
-            )}
-            {postCreationGlobalState.currentSelectedTab ===
-              EPollType.MiniSurvey && (
-              <MiniSurveyPollCreation
-                post={postCreationGlobalState.miniSurvey}
-                postCreationGlobalState={postCreationGlobalState}
-                setPostCreationGlobalState={setPostCreationGlobalState}
-              />
-            )}
+            </Box.Footer>
           </div>
-          <div>
-            <PostFooterCreation
-              postButtonIsDisabled={
-                !useFormConfig.formState.isDirty || creating
-              }
-              handleSubmitButtonClick={(): boolean => true}
-              handleCancelButtonClick={closeModalHandler}
-              handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
-              handlePrivacySelectChange={handlePrivacySelectChange}
-              togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
-            />
-          </div>
-        </div>
+        </Box>
       </form>
     </FormProvider>
+
+    // <FormProvider {...useFormConfig}>
+    //   <form onSubmit={useFormConfig.handleSubmit(onSubmit, onError)}>
+    //     <div className="bg-white flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-m rounded-md">
+    //       <div>
+    //         <CreatePostHeader
+    //           profilePic={user?.userImg ?? ''}
+    //           checkedValue={postCreationGlobalState.currentSelectedTab}
+    //           tabsData={tabGroupData()}
+    //           onTabChangeHandler={handleChangeTabsValue}
+    //         />
+    //       </div>
+    //       <div className="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT -mx-4 px-4">
+    //         {postCreationGlobalState.currentSelectedTab ===
+    //           EPollType.TextPoll && (
+    //           <TextPollCreation
+    //             post={postCreationGlobalState.textPoll}
+    //             postCreationGlobalState={postCreationGlobalState}
+    //             setPostCreationGlobalState={setPostCreationGlobalState}
+    //           />
+    //         )}
+    //         {postCreationGlobalState.currentSelectedTab ===
+    //           EPollType.ImagePoll && (
+    //           <ImagePollCreation
+    //             post={postCreationGlobalState.imagePoll}
+    //             postCreationGlobalState={postCreationGlobalState}
+    //             setPostCreationGlobalState={setPostCreationGlobalState}
+    //           />
+    //         )}
+    //         {postCreationGlobalState.currentSelectedTab ===
+    //           EPollType.MiniSurvey && (
+    //           <MiniSurveyPollCreation
+    //             post={postCreationGlobalState.miniSurvey}
+    //             postCreationGlobalState={postCreationGlobalState}
+    //             setPostCreationGlobalState={setPostCreationGlobalState}
+    //           />
+    //         )}
+    //       </div>
+    //       <div>
+    //         <PostFooterCreation
+    //           postButtonIsDisabled={
+    //             !useFormConfig.formState.isDirty || creating
+    //           }
+    //           handleSubmitButtonClick={(): boolean => true}
+    //           handleCancelButtonClick={closeModalHandler}
+    //           handleTheRadioButtonOnChange={handleTheRadioButtonOnChange}
+    //           handlePrivacySelectChange={handlePrivacySelectChange}
+    //           togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
+    //         />
+    //       </div>
+    //     </div>
+    //   </form>
+    // </FormProvider>
   );
 };
 export default PostCreation;

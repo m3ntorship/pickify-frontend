@@ -24,9 +24,6 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
 }): ReactElement => {
   return (
     <>
-      <div className="mb-4">
-        <Divider type="horizontal" length="auto" />
-      </div>
       <div className={styles.container}>
         <Privacy
           privacyOptions={['friends', 'family']}
