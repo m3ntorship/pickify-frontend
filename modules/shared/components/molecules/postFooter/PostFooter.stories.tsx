@@ -9,7 +9,11 @@ export default {
   argTypes: {},
 } as Meta;
 
-const Template: Story<IPostFooter.IProps> = (args) => <PostFooter {...args} />;
+const Template: Story<IPostFooter.IProps> = (args) => (
+  <div className="flex justify-between">
+    <PostFooter {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {};

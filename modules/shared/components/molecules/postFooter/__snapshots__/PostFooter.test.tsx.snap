@@ -1,41 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
-<div
-  className="container"
->
-  <span>
-    120
-     votes
-  </span>
-  <button
-    data-testid="share-button-icon"
-    onClick={[Function]}
-    type="button"
+Array [
+  <div
+    className="container"
   >
-    <svg
-      data-file-name="SvgShare"
-    />
-  </button>
-</div>
+    <span>
+      120
+       votes
+    </span>
+  </div>,
+  <div
+    className="container"
+  >
+    <button
+      data-testid="share-button-icon"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        data-file-name="SvgShare"
+      />
+    </button>
+  </div>,
+]
 `;
 
 exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
-<div
-  className="container"
->
-  <span>
-    120
-     votes
-  </span>
-  <button
-    data-testid="share-button-icon"
-    onClick={[Function]}
-    type="button"
+Array [
+  <div
+    className="container"
   >
-    <svg
-      data-file-name="SvgShare"
-    />
-  </button>
-</div>
+    <span>
+      120
+       votes
+    </span>
+  </div>,
+  <div
+    className="container"
+  >
+    <button
+      data-testid="share-button-icon"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        data-file-name="SvgShare"
+      />
+    </button>
+  </div>,
+]
 `;
