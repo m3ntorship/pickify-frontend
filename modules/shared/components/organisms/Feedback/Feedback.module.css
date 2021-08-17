@@ -1,18 +1,13 @@
-.container {
-  @apply bg-white shadow-soft p-4 rounded-md mb-xs ;
-}
-
 .text {
   @apply text-dark-grey text-sm leading-5 font-normal;
 }
 
 .sub-text {
-  @apply text-dark-grey text-xs leading-4 font-light
-  mt-1;
+  @apply text-dark-grey text-xs leading-4 font-light;
 }
 
 .emojis {
-  @apply flex flex-row mb-5 mt-3;
+  @apply flex flex-row mb-5;
 }
 
 .button {
@@ -20,7 +15,11 @@
 }
 
 .submitted-container {
-  @apply flex flex-col justify-center items-center h-15xl w-20xl;
+  @apply flex flex-col justify-center items-center;
+}
+
+.form-options {
+  @apply mt-2;
 }
 
 .form__answer {
@@ -34,7 +33,7 @@
 }
 
 .form-options .form-answer input[type='radio'] {
-  @apply w-0 h-0 opacity-0;
+  @apply w-0 h-0 opacity-0 hidden;
 }
 
 .form-options .form-answer input[type='radio']:active ~ label {
