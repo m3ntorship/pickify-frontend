@@ -15,7 +15,7 @@
 }
 
 .submitted-container {
-  @apply flex flex-col justify-center items-center;
+  @apply flex flex-col justify-center items-center whitespace-nowrap px-4xxl py-4xl;
 }
 
 .form-options {

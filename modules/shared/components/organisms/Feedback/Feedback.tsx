@@ -67,8 +67,9 @@ const Feedback: FC = (): ReactElement => {
     setDisabled(false);
   };
 
-  const handleSubmit = (): void => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     setIsSubmitted(true);
+    e.preventDefault();
   };
   return (
     <Box isWhiteColor>
@@ -83,29 +84,27 @@ const Feedback: FC = (): ReactElement => {
                 <div className={styles.emojis}>
                   {emojis.map((emoji) => {
                     return (
-                      <>
-                        <fieldset
-                          className={styles['form-options']}
-                          key={emoji.name}
-                        >
-                          <p className={styles['form-answer']}>
-                            <input
-                              type="radio"
-                              onChange={handleChange}
-                              name="emoji"
-                              id={emoji.name}
-                              value={emoji.name}
-                            />
-                            <label
-                              className={styles.emoji}
-                              htmlFor={emoji.name}
-                              data-testid={emoji.name}
-                            >
-                              {emoji.component}
-                            </label>
-                          </p>
-                        </fieldset>
-                      </>
+                      <fieldset
+                        className={styles['form-options']}
+                        key={emoji.name}
+                      >
+                        <p className={styles['form-answer']}>
+                          <input
+                            type="radio"
+                            onChange={handleChange}
+                            name="emoji"
+                            id={emoji.name}
+                            value={emoji.name}
+                          />
+                          <label
+                            className={styles.emoji}
+                            htmlFor={emoji.name}
+                            data-testid={emoji.name}
+                          >
+                            {emoji.component}
+                          </label>
+                        </p>
+                      </fieldset>
                     );
                   })}
                 </div>
