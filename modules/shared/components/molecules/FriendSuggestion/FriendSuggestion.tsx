@@ -3,7 +3,7 @@ import type { FC, ReactElement } from 'react';
 import {
   buttonSizeValues,
   buttonVariantValues,
-} from '@modules/shared/components/atoms/Button/types/EButton';
+} from '../../atoms/Button/types/EButton';
 import type { IFriendSuggestion } from './IFriendSuggestion';
 import PlusIcon from '../../icons/addFriend.svg';
 import DeleteIcon from '../../icons/deleteFriend.svg';
