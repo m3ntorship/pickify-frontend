@@ -58,7 +58,7 @@ const Login: FC = (): ReactElement => {
           <main className={styles.main}>
             <h1 className={styles['main-h1']}>Welcome to Pickify</h1>
             <p className={styles['main-paragraph']}>
-              Pickigy is an online platform that helps people make better
+              Pickify is an online platform that helps people make better
               decisions through voting insights
             </p>
             <button

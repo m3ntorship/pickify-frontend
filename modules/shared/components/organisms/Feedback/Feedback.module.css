@@ -1,0 +1,50 @@
+.container {
+  @apply bg-white shadow-soft p-4 rounded-md mb-xs ;
+}
+
+.text {
+  @apply text-dark-grey text-sm leading-5 font-normal;
+}
+
+.sub-text {
+  @apply text-dark-grey text-xs leading-4 font-light
+  mt-1;
+}
+
+.emojis {
+  @apply flex flex-row mb-5 mt-3;
+}
+
+.button {
+  @apply flex justify-center mt-3;
+}
+
+.submitted-container {
+  @apply flex flex-col justify-center items-center h-15xl w-20xl;
+}
+
+.form__answer {
+  @apply inline-block;
+}
+
+.emoji {
+  @apply opacity-50 w-full block box-border mr-4 cursor-pointer 
+  transition delay-75 duration-300 ease-in-out
+  filter grayscale;
+}
+
+.form-options .form-answer input[type='radio'] {
+  @apply w-0 h-0 opacity-0;
+}
+
+.form-options .form-answer input[type='radio']:active ~ label {
+  @apply opacity-0;
+}
+
+.form-options .form-answer input[type='radio']:checked ~ label {
+  @apply filter-none opacity-100;
+}
+
+.form-options .form-answer input[type='radio']:hover ~ label {
+  @apply filter-none opacity-100;
+}
