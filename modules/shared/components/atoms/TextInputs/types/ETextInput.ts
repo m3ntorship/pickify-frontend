@@ -10,4 +10,5 @@ export enum InputType {
   PrefixDropdown = 'prefix-dropdown',
   Prefix = 'prefix',
   RightIcon = 'right-icon',
+  Search = 'search',
 }

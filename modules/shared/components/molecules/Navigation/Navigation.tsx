@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -13,7 +13,11 @@ import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 import DropDown from '../../atoms/DropDown/DropDown';
+import TextInput from '../../atoms/TextInputs/TextInput';
+import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
+
 import { getHomeNavLinks, getUserNavLinks } from './navLinksData';
+import Feedback from '../../organisms/Feedback/Feedback';
 
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
@@ -21,7 +25,11 @@ const Navigation: FC = (): ReactElement => {
   const { redirectToLoginPage, redirectToProfilePage } = useRedirect();
   const homeNavLinks = getHomeNavLinks(pathname);
   const userNavLinks = getUserNavLinks();
+  const [showFeedback, setShowFeedback] = useState(false);
 
+  const handleHappyIconClick = (): void => {
+    setShowFeedback(!showFeedback);
+  };
   const onMenuClick = async (menuId: string): Promise<void> => {
     switch (menuId) {
       case 'logout':
@@ -44,12 +52,26 @@ const Navigation: FC = (): ReactElement => {
   return (
     <nav className={styles['navigation-wrapper']}>
       <div className={styles.navigation}>
-        <Link href="/">
-          <a>
-            <Logo className="transform scale-80 -ml-sx" />
-          </a>
-        </Link>
-
+        <div className="flex">
+          <Link href="/">
+            <a className="self-center">
+              <Logo className="transform scale-80 -ml-sx" />
+            </a>
+          </Link>
+          <div className={styles['search-box']}>
+            <TextInput
+              disabled
+              inputType={ETextInput.InputType.Search}
+              variants={ETextInput.Variants.Default}
+              id=""
+              value=""
+              placeholder="Search Pickify"
+              onBlurInputHandler={(): boolean => true}
+              onChangeInputValueHandler={(): boolean => true}
+              onClickDeleteInputValueHandler={(): boolean => true}
+            />
+          </div>
+        </div>
         <div className={styles['nav-links']}>
           <ul>
             {homeNavLinks.map((homeNavItem) => (
@@ -63,10 +85,28 @@ const Navigation: FC = (): ReactElement => {
               <Divider length="16px" type={DividerType.Vertical} />
             </li>
             {userNavLinks.map((userNavItem) => (
-              <li key={userNavItem.name} className="hidden md:inline-block">
+              <li
+                key={userNavItem.name}
+                className="hidden md:inline-block relative"
+              >
                 <Link href={userNavItem.path}>
-                  <a>{userNavItem.content}</a>
+                  <a
+                    role="button"
+                    aria-hidden="true"
+                    onClick={
+                      userNavItem.name === 'happy'
+                        ? handleHappyIconClick
+                        : (): boolean => true
+                    }
+                  >
+                    {userNavItem.content}
+                  </a>
                 </Link>
+                {userNavItem.name === 'happy' && showFeedback && (
+                  <div className="absolute top-12 right-0">
+                    <Feedback />
+                  </div>
+                )}
               </li>
             ))}
             <li className={styles['nav-user']}>

@@ -26,7 +26,7 @@ exports[`Login page Snapshot testing for the login component 1`] = `
         <p
           className="main-paragraph"
         >
-          Pickigy is an online platform that helps people make better decisions through voting insights
+          Pickify is an online platform that helps people make better decisions through voting insights
         </p>
         <button
           className="sign-in-button"
