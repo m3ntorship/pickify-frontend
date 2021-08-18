@@ -10,25 +10,24 @@ const FriendsPage: FC = (): ReactElement => {
   const numberofLoaders = Array.from(Array(12).keys());
   return (
     <>
-      <Box.Header>
-        <PageHeader>Friends</PageHeader>
-      </Box.Header>
+      <PageHeader>Friends</PageHeader>
       <div className={styles['loaders-wrapper']}>
         {numberofLoaders.map((n, index) => {
           if (index >= 6) {
             return (
-              <Box.Body
-                key={n}
-                classes={`${styles.loader} hidden md:inline-block`}
-              >
-                <FriendLoader />
-              </Box.Body>
+              <Box key={n} classes="mb-xs hidden md:inline-block" isGreyColor>
+                <Box.Body>
+                  <FriendLoader />
+                </Box.Body>
+              </Box>
             );
           }
           return (
-            <Box.Body key={n} classes={styles.loader}>
-              <FriendLoader />
-            </Box.Body>
+            <Box key={n} classes="mb-xs" isGreyColor>
+              <Box.Body>
+                <FriendLoader />
+              </Box.Body>
+            </Box>
           );
         })}
         <LoaderMessage>Coming Soon</LoaderMessage>

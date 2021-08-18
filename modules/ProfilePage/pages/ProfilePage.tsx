@@ -17,21 +17,25 @@ const ProfilePage: FC = (): ReactElement => {
 
   return (
     <>
-      <Box.Header>
-        <PageHeader>{userName}</PageHeader>
-      </Box.Header>
+      <PageHeader>{userName}</PageHeader>
       <div className="relative">
-        <Box.Body classes={styles.loader}>
-          <div className={styles['profile-user']}>
-            <ProfileUserLoader />
-          </div>
-        </Box.Body>
-        <Box.Body classes={styles.loader}>
-          <ProfileTextPostLoader />
-        </Box.Body>
-        <Box.Body classes={styles.loader}>
-          <ProfileImagePostLoader />
-        </Box.Body>
+        <Box classes="mb-6" isGreyColor>
+          <Box.Body>
+            <div className={styles['profile-user']}>
+              <ProfileUserLoader />
+            </div>
+          </Box.Body>
+        </Box>
+        <Box classes="mb-6" isGreyColor>
+          <Box.Body>
+            <ProfileTextPostLoader />
+          </Box.Body>
+        </Box>
+        <Box isGreyColor>
+          <Box.Body>
+            <ProfileImagePostLoader />
+          </Box.Body>
+        </Box>
         <LoaderMessage>Coming soon</LoaderMessage>
       </div>
     </>
