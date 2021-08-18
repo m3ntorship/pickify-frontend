@@ -16,6 +16,7 @@ import Logo from '../../shared/components/icons/logo.svg';
 import Google from '../../shared/components/icons/google.svg';
 import styles from './Login.module.css';
 import Footer from '../../shared/components/molecules/Footer/Footer';
+import Box from '../../shared/components/atoms/Box/Box';
 
 const Login: FC = (): ReactElement => {
   const { loading, isAuthenticated } = useAuth();
@@ -55,28 +56,32 @@ const Login: FC = (): ReactElement => {
           <header>
             <Logo />
           </header>
-          <main className={styles.main}>
-            <h1 className={styles['main-h1']}>Welcome to Pickify</h1>
-            <p className={styles['main-paragraph']}>
-              Pickify is an online platform that helps people make better
-              decisions through voting insights
-            </p>
-            <button
-              type="button"
-              data-testid="login-test-button"
-              onClick={login}
-              className={styles['sign-in-button']}
-            >
-              <div className={styles['google-logo']}>
-                <div>
-                  <Google />
-                </div>
-              </div>
-              <span className={styles['sign-in-button-paragraph']}>
-                Sign in with Google
-              </span>
-            </button>
-          </main>
+          <Box isWhiteColor>
+            <Box.Body classes={styles.main}>
+              <>
+                <h1 className={styles['main-h1']}>Welcome to Pickify</h1>
+                <p className={styles['main-paragraph']}>
+                  Pickify is an online platform that helps people make better
+                  decisions through voting insights
+                </p>
+                <button
+                  type="button"
+                  data-testid="login-test-button"
+                  onClick={login}
+                  className={styles['sign-in-button']}
+                >
+                  <div className={styles['google-logo']}>
+                    <div>
+                      <Google />
+                    </div>
+                  </div>
+                  <span className={styles['sign-in-button-paragraph']}>
+                    Sign in with Google
+                  </span>
+                </button>
+              </>
+            </Box.Body>
+          </Box>
         </div>
         <div>
           <Footer />
