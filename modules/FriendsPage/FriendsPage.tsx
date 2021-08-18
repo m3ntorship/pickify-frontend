@@ -9,35 +9,31 @@ import LoaderMessage from '../shared/components/atoms/LoaderMessage/LoaderMessag
 const FriendsPage: FC = (): ReactElement => {
   const numberofLoaders = Array.from(Array(12).keys());
   return (
-    <Box>
-      <>
-        <Box.Header>
-          <PageHeader>Friends</PageHeader>
-        </Box.Header>
-        <Box.Body>
-          <div className={styles['loaders-wrapper']}>
-            {numberofLoaders.map((n, index) => {
-              if (index >= 6) {
-                return (
-                  <div
-                    key={n}
-                    className={`${styles.loader} hidden md:inline-block`}
-                  >
-                    <FriendLoader />
-                  </div>
-                );
-              }
-              return (
-                <div key={n} className={styles.loader}>
-                  <FriendLoader />
-                </div>
-              );
-            })}
-            <LoaderMessage>Coming Soon</LoaderMessage>
-          </div>
-        </Box.Body>
-      </>
-    </Box>
+    <>
+      <Box.Header>
+        <PageHeader>Friends</PageHeader>
+      </Box.Header>
+      <div className={styles['loaders-wrapper']}>
+        {numberofLoaders.map((n, index) => {
+          if (index >= 6) {
+            return (
+              <Box.Body
+                key={n}
+                classes={`${styles.loader} hidden md:inline-block`}
+              >
+                <FriendLoader />
+              </Box.Body>
+            );
+          }
+          return (
+            <Box.Body key={n} classes={styles.loader}>
+              <FriendLoader />
+            </Box.Body>
+          );
+        })}
+        <LoaderMessage>Coming Soon</LoaderMessage>
+      </div>
+    </>
   );
 };
 

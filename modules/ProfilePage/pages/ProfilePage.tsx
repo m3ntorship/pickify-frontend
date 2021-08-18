@@ -16,29 +16,25 @@ const ProfilePage: FC = (): ReactElement => {
     user?.username && capitalizeFirstLetterOfEveryWord(user.username);
 
   return (
-    <Box>
-      <>
-        <Box.Header>
-          <PageHeader>{userName}</PageHeader>
-        </Box.Header>
-        <Box.Body>
-          <div className="relative">
-            <div className={styles.loader}>
-              <div className={styles['profile-user']}>
-                <ProfileUserLoader />
-              </div>
-            </div>
-            <div className={styles.loader}>
-              <ProfileTextPostLoader />
-            </div>
-            <div className={styles.loader}>
-              <ProfileImagePostLoader />
-            </div>
-            <LoaderMessage>Coming soon</LoaderMessage>
+    <>
+      <Box.Header>
+        <PageHeader>{userName}</PageHeader>
+      </Box.Header>
+      <div className="relative">
+        <Box.Body classes={styles.loader}>
+          <div className={styles['profile-user']}>
+            <ProfileUserLoader />
           </div>
         </Box.Body>
-      </>
-    </Box>
+        <Box.Body classes={styles.loader}>
+          <ProfileTextPostLoader />
+        </Box.Body>
+        <Box.Body classes={styles.loader}>
+          <ProfileImagePostLoader />
+        </Box.Body>
+        <LoaderMessage>Coming soon</LoaderMessage>
+      </div>
+    </>
   );
 };
 export default ProfilePage;
