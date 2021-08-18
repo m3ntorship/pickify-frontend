@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
+import Box from '../../../shared/components/atoms/Box/Box';
 import PostCreation from '../../../shared/components/organisms/PostCreation/PostCreation';
 import Modal from '../../../shared/components/organisms/Modal/Modal';
 import TextInput from '../../../shared/components/atoms/TextInputs/TextInput';
@@ -38,36 +39,38 @@ const NewPost = (): ReactElement => {
 
   return (
     <>
-      <div className={styles['input-creation']}>
-        <div className="flex">
-          <div className="mr-4">
-            <Avatar
-              size="medium"
-              variant={avatarVariant}
-              profilePic={user?.userImg ?? ''}
-            />
+      <Box isWhiteColor classes="mb-6">
+        <Box.Body>
+          <div className="flex">
+            <div className="mr-4">
+              <Avatar
+                size="medium"
+                variant={avatarVariant}
+                profilePic={user?.userImg ?? ''}
+              />
+            </div>
+            <div className="relative flex w-full">
+              <div
+                className={styles['input-placeholder']}
+                onClick={showModalHandler}
+                data-testid="post-creation-input"
+                role="button"
+                aria-hidden
+              />
+              <TextInput
+                variants={ETextInput.Variants.Default}
+                inputType={ETextInput.InputType.Default}
+                id="id_1"
+                value=""
+                placeholder="What do you want to ask about?"
+                onBlurInputHandler={(): boolean => true}
+                onChangeInputValueHandler={(): boolean => true}
+                onClickDeleteInputValueHandler={(): boolean => true}
+              />
+            </div>
           </div>
-          <div className="relative flex w-full">
-            <div
-              className={styles['input-placeholder']}
-              onClick={showModalHandler}
-              data-testid="post-creation-input"
-              role="button"
-              aria-hidden
-            />
-            <TextInput
-              variants={ETextInput.Variants.Default}
-              inputType={ETextInput.InputType.Default}
-              id="id_1"
-              value=""
-              placeholder="What do you want to ask about?"
-              onBlurInputHandler={(): boolean => true}
-              onChangeInputValueHandler={(): boolean => true}
-              onClickDeleteInputValueHandler={(): boolean => true}
-            />
-          </div>
-        </div>
-      </div>
+        </Box.Body>
+      </Box>
       {showModal && (
         <Modal closeModalHandler={closeModalHandler}>
           <PostCreation
