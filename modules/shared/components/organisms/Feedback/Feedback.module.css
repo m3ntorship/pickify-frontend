@@ -1,5 +1,5 @@
 .container {
-  @apply bg-white shadow-soft p-4 rounded-md mb-xs ;
+  @apply bg-white shadow-soft p-4 rounded-md mb-xs;
 }
 
 .text {

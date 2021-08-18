@@ -52,7 +52,7 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
   };
 
   const imgPollClasses = classNames(
-    'grid gap-x-2 gap-y-4 rounded-md relative mb-m',
+    'grid gap-x-2 gap-y-4 rounded-md relative',
     {
       'grid-cols-1':
         postCreationGlobalState.imagePoll.groups[zero].options.length ===
@@ -194,32 +194,31 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
     }),
   };
   return (
-    <>
-      <div className="mb-4">
-        <TextInput
-          id={post.postCaption.id}
-          inputType={ETextInput.InputType.Default}
-          value={post.postCaption.body}
-          placeholder="What do you want to ask about?"
-          variants={
-            isSubmitted
-              ? inputVariantsHandler(post.postCaption.id)
-              : ETextInput.Variants.Default
-          }
-          onChangeInputValueHandler={(inputId, e): void => {
-            imagePollCaptionRegister.onChange(e) as Promise<boolean>;
-            onChangePostCaptionInputValueHandler(e);
-          }}
-          onClickDeleteInputValueHandler={(): void => {
-            setValue(`imagePoll.postCaption.${post.postCaption.id}`, '');
-            onClickDeletePostCaptionInputValueHandler();
-          }}
-          onBlurInputHandler={(inputId, e): void => {
-            imagePollCaptionRegister.onBlur(e) as Promise<boolean>;
-          }}
-          {...imagePollCaptionRegister}
-        />
-      </div>
+    <div className="space-y-4">
+      <TextInput
+        id={post.postCaption.id}
+        inputType={ETextInput.InputType.Default}
+        value={post.postCaption.body}
+        placeholder="What do you want to ask about?"
+        variants={
+          isSubmitted
+            ? inputVariantsHandler(post.postCaption.id)
+            : ETextInput.Variants.Default
+        }
+        onChangeInputValueHandler={(inputId, e): void => {
+          imagePollCaptionRegister.onChange(e) as Promise<boolean>;
+          onChangePostCaptionInputValueHandler(e);
+        }}
+        onClickDeleteInputValueHandler={(): void => {
+          setValue(`imagePoll.postCaption.${post.postCaption.id}`, '');
+          onClickDeletePostCaptionInputValueHandler();
+        }}
+        onBlurInputHandler={(inputId, e): void => {
+          imagePollCaptionRegister.onBlur(e) as Promise<boolean>;
+        }}
+        {...imagePollCaptionRegister}
+      />
+
       {postCreationGlobalState.imagePoll.groups[zero].options.length ? (
         <div className={imgPollClasses}>
           {postCreationGlobalState.imagePoll.groups[zero].media[zero]
@@ -319,19 +318,17 @@ const ImagePollCreation: FC<IImagePollCreation.IProps> = ({
       )}
       {postCreationGlobalState.imagePoll.groups[zero].options.length <=
         three && (
-        <div className="mb-4">
-          <FileUploader
-            onFileSuccess={onUploadValidImages}
-            maxFiles={configPostCreation.maxUploadedFiles}
-            entityType="option"
-            lastFilesLength={
-              postCreationGlobalState.imagePoll.groups[zero].options.length
-            }
-            required
-          />
-        </div>
+        <FileUploader
+          onFileSuccess={onUploadValidImages}
+          maxFiles={configPostCreation.maxUploadedFiles}
+          entityType="option"
+          lastFilesLength={
+            postCreationGlobalState.imagePoll.groups[zero].options.length
+          }
+          required
+        />
       )}
-    </>
+    </div>
   );
 };
 
