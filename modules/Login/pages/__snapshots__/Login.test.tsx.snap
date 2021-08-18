@@ -15,41 +15,45 @@ exports[`Login page Snapshot testing for the login component 1`] = `
           data-file-name="SvgLogo"
         />
       </header>
-      <main
-        className="main"
+      <div
+        className="box bg-white"
       >
-        <h1
-          className="main-h1"
+        <div
+          className="main"
         >
-          Welcome to Pickify
-        </h1>
-        <p
-          className="main-paragraph"
-        >
-          Pickify is an online platform that helps people make better decisions through voting insights
-        </p>
-        <button
-          className="sign-in-button"
-          data-testid="login-test-button"
-          onClick={[Function]}
-          type="button"
-        >
-          <div
-            className="google-logo"
+          <h1
+            className="main-h1"
           >
-            <div>
-              <svg
-                data-file-name="SvgGoogle"
-              />
+            Welcome to Pickify
+          </h1>
+          <p
+            className="main-paragraph"
+          >
+            Pickify is an online platform that helps people make better decisions through voting insights
+          </p>
+          <button
+            className="sign-in-button"
+            data-testid="login-test-button"
+            onClick={[Function]}
+            type="button"
+          >
+            <div
+              className="google-logo"
+            >
+              <div>
+                <svg
+                  data-file-name="SvgGoogle"
+                />
+              </div>
             </div>
-          </div>
-          <span
-            className="sign-in-button-paragraph"
-          >
-            Sign in with Google
-          </span>
-        </button>
-      </main>
+            <span
+              className="sign-in-button-paragraph"
+            >
+              Sign in with Google
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
     <div>
       <footer
