@@ -7,7 +7,7 @@
 }
 
 .emojis {
-  @apply flex flex-row mb-5;
+  @apply flex flex-row mb-4;
 }
 
 .button {
