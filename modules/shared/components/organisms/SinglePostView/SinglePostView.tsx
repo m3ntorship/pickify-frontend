@@ -1,11 +1,15 @@
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
-import {
-  TextPollView,
-  MiniSurveyView,
-  ImagePollView,
-} from '@modules/shared/components/organisms';
+import { getVotesResults } from '@modules/shared/logic/votesLogic/votesLogic';
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
+import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
+import ImageView from '../../atoms/ImageView/ImageView';
+import Box from '../../atoms/Box/Box';
+import ImagePollGroup from '../../molecules/ImagePollGroup/ImagePollGroup';
+import MiniSurveyViewOptions from '../../molecules/MiniSurveyViewOptions/MiniSurveyViewOptions';
+import PostViewFooter from '../../molecules/postFooter/PostFooter';
+import PostViewHeader from '../../molecules/PostViewHeader/PostViewHeader';
+import TextPollViewOptions from '../../molecules/TextPollViewOptions/TextPollViewOptions';
 import type { IPost } from './ISinglePostView';
 
 export const sharePostHandler = async (
@@ -36,39 +40,94 @@ const SinglePostView: FC<IPost.Props> = ({
   deletePostHandler,
   addOneVoteHandler,
 }): ReactElement => {
+  let votedOptions: IPostFeed.IOptions[] = [];
+
+  post.options_groups.groups.map((group) => {
+    const votes = group.options.map((option) => option);
+    votedOptions = [...votedOptions, ...votes];
+    return group;
+  });
+
+  const isVoted = (): boolean => {
+    const totalVotes = votedOptions.filter(
+      (option) => option.vote_count !== undefined,
+    );
+    if (totalVotes.length > 0) {
+      return true;
+    }
+    return false;
+  };
+
+  const { totalVotes } = getVotesResults(votedOptions);
+  const { user } = post;
+
   return (
-    <>
-      {post.type === EPostType.TextPoll && (
-        <div key={post.id}>
-          <TextPollView
-            post={post}
+    <Box isWhiteColor>
+      <>
+        <Box.Header withDevider>
+          <PostViewHeader
+            postId={post.id}
+            userId={user ? user.id : ''}
+            date={post.created_at}
+            name={user ? user.name : undefined}
+            profilePic={user ? user.profile_pic : undefined}
+            isHidden={post.is_hidden}
             deletePostHandler={deletePostHandler}
-            addOneVote={addOneVoteHandler}
-            sharePostHandler={sharePostHandler}
           />
-        </div>
-      )}
-      {post.type === EPostType.MiniSurvey && (
-        <div key={post.id}>
-          <MiniSurveyView
-            post={post}
-            deletePostHandler={deletePostHandler}
-            addOneVote={addOneVoteHandler}
+        </Box.Header>
+        <Box.Body>
+          <>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-normal text-md" dir="auto">
+                  {post.caption}
+                </h3>
+              </div>
+              {post.media.length !== 0 && (
+                <>
+                  {post.media.map((image) => (
+                    <ImageView
+                      key={image.url}
+                      imgSrc={image.url}
+                      id={image.url}
+                      imgAlt="post"
+                    />
+                  ))}
+                </>
+              )}
+              {post.type === EPostType.TextPoll && (
+                <TextPollViewOptions
+                  optionsGroups={post.options_groups}
+                  addOneVote={addOneVoteHandler}
+                />
+              )}
+              {post.type === EPostType.MiniSurvey && (
+                <MiniSurveyViewOptions
+                  type={EPostType.MiniSurvey}
+                  optionsGroups={post.options_groups}
+                  addOneVote={addOneVoteHandler}
+                  showExpandButton={isVoted()}
+                />
+              )}
+              {post.type === EPostType.ImagePoll && (
+                <ImagePollGroup
+                  group={post.options_groups.groups[0]}
+                  addOneVote={addOneVoteHandler}
+                />
+              )}
+            </div>
+          </>
+        </Box.Body>
+        <Box.Footer>
+          <PostViewFooter
+            numberOfVotes={totalVotes}
+            showResult={isVoted()}
             sharePostHandler={sharePostHandler}
+            postId={post.id}
           />
-        </div>
-      )}
-      {post.type === EPostType.ImagePoll && (
-        <div key={post.id}>
-          <ImagePollView
-            post={post}
-            deletePostHandler={deletePostHandler}
-            addOneVote={addOneVoteHandler}
-            sharePostHandler={sharePostHandler}
-          />
-        </div>
-      )}
-    </>
+        </Box.Footer>
+      </>
+    </Box>
   );
 };
 

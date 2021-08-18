@@ -1,7 +1,3 @@
-.input-creation {
-  @apply shadow-soft p-4 bg-white rounded-md mb-6;
-}
-
 .input-placeholder {
   @apply absolute h-full w-full z-10 cursor-pointer;
 }

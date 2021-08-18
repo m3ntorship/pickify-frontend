@@ -13,6 +13,9 @@ import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 import DropDown from '../../atoms/DropDown/DropDown';
+import TextInput from '../../atoms/TextInputs/TextInput';
+import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
+
 import { getHomeNavLinks, getUserNavLinks } from './navLinksData';
 import Feedback from '../../organisms/Feedback/Feedback';
 
@@ -49,12 +52,26 @@ const Navigation: FC = (): ReactElement => {
   return (
     <nav className={styles['navigation-wrapper']}>
       <div className={styles.navigation}>
-        <Link href="/">
-          <a>
-            <Logo className="transform scale-80 -ml-sx" />
-          </a>
-        </Link>
-
+        <div className="flex">
+          <Link href="/">
+            <a className="self-center">
+              <Logo className="transform scale-80 -ml-sx" />
+            </a>
+          </Link>
+          <div className={styles['search-box']}>
+            <TextInput
+              disabled
+              inputType={ETextInput.InputType.Search}
+              variants={ETextInput.Variants.Default}
+              id=""
+              value=""
+              placeholder="Search Pickify"
+              onBlurInputHandler={(): boolean => true}
+              onChangeInputValueHandler={(): boolean => true}
+              onClickDeleteInputValueHandler={(): boolean => true}
+            />
+          </div>
+        </div>
         <div className={styles['nav-links']}>
           <ul>
             {homeNavLinks.map((homeNavItem) => (

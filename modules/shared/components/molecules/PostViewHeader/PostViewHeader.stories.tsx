@@ -9,7 +9,9 @@ export default {
 };
 
 const Template: Story<IPostViewHeader.IProps> = (args): ReactElement => (
-  <PostViewHeader {...args} />
+  <div className="flex justify-between">
+    <PostViewHeader {...args} />
+  </div>
 );
 export const postViewHeader = Template.bind({});
 postViewHeader.args = {
