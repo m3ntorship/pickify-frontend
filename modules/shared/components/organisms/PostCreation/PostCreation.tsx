@@ -202,17 +202,18 @@ const PostCreation: FC<IPostCreation.IProps> = ({
   return (
     <FormProvider {...useFormConfig}>
       <form onSubmit={useFormConfig.handleSubmit(onSubmit, onError)}>
-        <Box isWhiteColor>
-          <div className=" flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl shadow-soft p-2 rounded-md">
+        <Box
+          isWhiteColor
+          classes="flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl"
+        >
+          <>
             <Box.Header>
-              <div>
-                <CreatePostHeader
-                  profilePic={user?.userImg ?? ''}
-                  checkedValue={postCreationGlobalState.currentSelectedTab}
-                  tabsData={tabGroupData()}
-                  onTabChangeHandler={handleChangeTabsValue}
-                />
-              </div>
+              <CreatePostHeader
+                profilePic={user?.userImg ?? ''}
+                checkedValue={postCreationGlobalState.currentSelectedTab}
+                tabsData={tabGroupData()}
+                onTabChangeHandler={handleChangeTabsValue}
+              />
             </Box.Header>
             <Box.Body classes="overflow-y-scroll flex-grow scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT -mx-4 px-4">
               <>
@@ -254,7 +255,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
                 togglerIsChecked={postCreationGlobalState.isHiddenIdentity}
               />
             </Box.Footer>
-          </div>
+          </>
         </Box>
       </form>
     </FormProvider>
