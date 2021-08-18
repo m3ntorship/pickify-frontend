@@ -1,11 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import type { FC, ReactElement, ReactText } from 'react';
+import React, { useEffect } from 'react';
+import type { FC, ReactElement } from 'react';
 
-import { toast } from 'react-toastify';
-import {
-  loginUser,
-  register,
-} from '../../../context/AuthUserContext/api/authApi';
+import { loginUser } from '../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../shared/hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../context/AuthUserContext/AuthUserContext';
 import {
@@ -21,22 +17,9 @@ import Box from '../../shared/components/atoms/Box/Box';
 const Login: FC = (): ReactElement => {
   const { loading, isAuthenticated } = useAuth();
   const { redirectToHomePage, redirectToPostPage } = useRedirect();
-  const toastId = useRef<ReactText>();
 
   useEffect(() => {
     if (!loading && isAuthenticated) {
-      redirectToHomePage();
-    }
-  }, [isAuthenticated, loading]);
-
-  const login = async (): Promise<void> => {
-    const token: string | undefined = await loginUser();
-    toastId.current = toast.warning('Please wait while logging', {
-      autoClose: false,
-    });
-    const { resData } = await register(token);
-    toast.dismiss(toastId.current);
-    if (!resData.error) {
       const lastPage = getLastPage();
       if (lastPage) {
         redirectToPostPage(lastPage);
@@ -44,10 +27,11 @@ const Login: FC = (): ReactElement => {
       } else {
         redirectToHomePage();
       }
-      toast.success(resData.message);
-    } else {
-      toast.error(resData.message);
     }
+  }, [isAuthenticated, loading]);
+
+  const login = async (): Promise<void> => {
+    await loginUser();
   };
   return (
     <div className={styles['login-body-wrapper']}>

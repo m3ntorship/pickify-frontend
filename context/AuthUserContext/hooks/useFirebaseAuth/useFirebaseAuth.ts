@@ -8,6 +8,7 @@ import {
 } from '../../../../modules/shared/logic/userAuth/userAuth';
 import { firebaseAuth } from '../../../../modules/shared/api/auth';
 import type { IUseFirebaseAuth } from './IUseFirebaseAuth';
+import { register } from 'context/AuthUserContext/api/authApi';
 
 const setUserData = (
   user: firebase.User | null,
@@ -40,7 +41,9 @@ export const useFirebaseAuth = (): IUseFirebaseAuth.IProps => {
     setLoading(true);
     try {
       const token: string = await userState.getIdToken();
+      console.log('token');
       const formattedUser = setUserData(userState);
+      await register(token);
       setUser(formattedUser);
       setLoading(false);
       setIsAuthenticated(true);

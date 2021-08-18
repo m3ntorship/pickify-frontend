@@ -47,6 +47,11 @@ export const register = async (
     const { message, status_code } = data;
 
     const generatedMessage = generateErrMsg({}, status_code, message);
+    throw Object.assign(new Error(), {
+      error: true,
+      message: generatedMessage,
+      errorCode: status_code,
+    });
     return {
       resData: {
         error: true,
