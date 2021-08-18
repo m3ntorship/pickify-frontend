@@ -6,6 +6,7 @@ import ErrorIcon from '../../icons/inputError.svg';
 import SuccessIcon from '../../icons/inputSuccess.svg';
 import ArrowDownIcon from '../../icons/inputArrowDown.svg';
 import HomeIcon from '../../icons/inputHome.svg';
+import Search from '../../icons/search.svg';
 import styles from './TextInput.module.css';
 import type { ITextInputs } from './types/ITextInputs';
 import * as ETextInput from './types/ETextInput';
@@ -40,7 +41,8 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
       },
       {
         [styles['input-with-right-icon']]:
-          inputType === ETextInput.InputType.RightIcon,
+          inputType === ETextInput.InputType.RightIcon ||
+          inputType === ETextInput.InputType.Search,
         [styles['input-with-left-icon']]:
           inputType === ETextInput.InputType.LeftIcon,
         [styles['input-with-prefix']]:
@@ -96,6 +98,7 @@ const TextInput: FC<ITextInputs.IProps> = React.forwardRef<
           </span>
           <span className={styles['control-icon']}>
             {inputType === ETextInput.InputType.RightIcon && <ArrowDownIcon />}
+            {inputType === ETextInput.InputType.Search && <Search />}
             {inputType === ETextInput.InputType.LeftIcon && <HomeIcon />}
             {inputType === ETextInput.InputType.Prefix && '+20'}
             {inputType === ETextInput.InputType.PrefixDropdown && (

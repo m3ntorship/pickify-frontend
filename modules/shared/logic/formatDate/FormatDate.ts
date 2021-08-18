@@ -4,10 +4,10 @@ import { getNow } from './getNow';
 
 dayjs.extend(relativeTime);
 
-export const humanReadableDate = (date: Date): string => {
+export const humanReadableDate = (date: string): string => {
   return dayjs(date).from(getNow());
 };
 
-export const exactDate = (date: Date): string => {
+export const exactDate = (date: string): string => {
   return dayjs(date).format('DD/MM/YYYY HH:mm:ss');
 };
