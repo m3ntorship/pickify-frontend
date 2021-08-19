@@ -23,7 +23,7 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
   const router = useRouter();
   const { pathname } = router;
   const showHeader = pathname !== '/login';
-  const showWidgets = pathname !== '/login' && !pathname.includes('/posts/');
+  const showWidgets = pathname !== '/login';
   const appContentStyles: string = classNames(styles['app-content'], {
     'md:mt-6xl mt-4xvl': showHeader,
   });

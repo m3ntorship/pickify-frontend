@@ -7,6 +7,7 @@ declare namespace IImagePollUncovered {
     id: string;
     verticalMeterHeight?: number;
     optionBody?: string;
+    isOptionChecked?: boolean;
   }
 }
 

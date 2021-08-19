@@ -36,6 +36,7 @@ const SingleImagePollOption: FC<ISingleImagePollOption.IProps> = ({
                     percentage={optionsPercentage[index]}
                     optionBody={option.body}
                     type="circular"
+                    isOptionChecked={option.voted}
                   />
                 ) : (
                   <ImagePollCovered
