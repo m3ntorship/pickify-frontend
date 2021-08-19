@@ -127,17 +127,24 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
         <div
           className="flex"
         >
-          <button
-            className="like group"
-            id="option_1"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="group"
           >
-            <svg
-              className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
-              data-file-name="SvgFilledLike"
-            />
-          </button>
+            <button
+              className="btn btn-like btn-large btn-rounded"
+              disabled={false}
+              id="option_1"
+              onClick={[Function]}
+              type="button"
+            >
+              <span>
+                <svg
+                  className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white"
+                  data-file-name="SvgFilledLike"
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -150,17 +157,24 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
         <div
           className="flex"
         >
-          <button
-            className="dislike group"
-            id="option_2"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="group mr-4"
           >
-            <svg
-              className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
-              data-file-name="SvgFilledDislike"
-            />
-          </button>
+            <button
+              className="btn btn-like btn-large btn-rounded"
+              disabled={false}
+              id="option_2"
+              onClick={[Function]}
+              type="button"
+            >
+              <span>
+                <svg
+                  className="fill-error stroke-current stroke-1 text-white group-hover:fill-white"
+                  data-file-name="SvgFilledDislike"
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

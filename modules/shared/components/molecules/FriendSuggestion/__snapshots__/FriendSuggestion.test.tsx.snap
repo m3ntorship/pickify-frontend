@@ -2,7 +2,7 @@
 
 exports[`Friend Suggestion Component Should render correctly 1`] = `
 <div
-  className="flex justify-between"
+  className="flex justify-between items-center"
 >
   <div
     className="flex"
@@ -94,21 +94,31 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
   <div
     className="flex"
   >
+    <div
+      className="mr-2"
+    >
+      <button
+        className="btn btn-primary btn-small btn-rounded"
+        disabled={false}
+        type="button"
+      >
+        <span>
+          <svg
+            data-file-name="SvgAddFriend"
+          />
+        </span>
+      </button>
+    </div>
     <button
-      className="plus"
+      className="btn btn-delete btn-small btn-rounded"
+      disabled={false}
       type="button"
     >
-      <svg
-        data-file-name="SvgAddFriend"
-      />
-    </button>
-    <button
-      className="delete"
-      type="button"
-    >
-      <svg
-        data-file-name="SvgDeleteFriend"
-      />
+      <span>
+        <svg
+          data-file-name="SvgDeleteFriend"
+        />
+      </span>
     </button>
   </div>
 </div>

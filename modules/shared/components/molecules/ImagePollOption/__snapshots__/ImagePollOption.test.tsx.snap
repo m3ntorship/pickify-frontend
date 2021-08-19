@@ -121,17 +121,24 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
     <div
       className="flex justify-end"
     >
-      <button
-        className="love group"
-        id="option_1"
-        onClick={[Function]}
-        type="button"
+      <div
+        className="group"
       >
-        <svg
-          className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
-          data-file-name="SvgFilledHeart"
-        />
-      </button>
+        <button
+          className="btn btn-like btn-large btn-rounded"
+          disabled={false}
+          id="option_1"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            <svg
+              className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+              data-file-name="SvgFilledHeart"
+            />
+          </span>
+        </button>
+      </div>
     </div>
   </div>
   <div
