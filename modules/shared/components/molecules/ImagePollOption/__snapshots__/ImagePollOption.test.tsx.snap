@@ -125,7 +125,7 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
         className="group"
       >
         <button
-          className="btn btn-like btn-large btn-rounded"
+          className="btn btn-like btn-medium btn-rounded"
           disabled={false}
           id="option_1"
           onClick={[Function]}

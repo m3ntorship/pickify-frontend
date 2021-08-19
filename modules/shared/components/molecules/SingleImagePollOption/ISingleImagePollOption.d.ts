@@ -1,6 +1,6 @@
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 
-declare namespace ISignleImagePollOption {
+declare namespace ISingleImagePollOption {
   export interface IProps {
     groupName: string;
     media: { url: string }[];
@@ -8,4 +8,4 @@ declare namespace ISignleImagePollOption {
     onOptionClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   }
 }
-export { ISignleImagePollOption };
+export { ISingleImagePollOption };

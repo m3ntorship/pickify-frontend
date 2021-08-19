@@ -1,13 +1,13 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
-import type { ISignleImagePollOption } from './ISignleImagePollOption';
+import type { ISingleImagePollOption } from './ISingleImagePollOption';
 import ImagePollCovered from '../../atoms/ImagePollCovered/ImagePollCovered';
 import ImageCaption from '../ImageCaption/ImageCaption';
 import ImagePollUncovered from '../ImagePollUncovered/ImagePollUncovered';
 import ImageView from '../../atoms/ImageView/ImageView';
 
-const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
+const SingleImagePollOption: FC<ISingleImagePollOption.IProps> = ({
   groupName,
   media,
   options,
@@ -64,4 +64,4 @@ const SignleImagePollOption: FC<ISignleImagePollOption.IProps> = ({
   );
 };
 
-export default SignleImagePollOption;
+export default SingleImagePollOption;

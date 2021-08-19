@@ -19,11 +19,9 @@ const ImagePollCovered: FC<IImagePollCovered.IProps> = ({
       {!isOneImageVote && (
         <div className="group">
           <Button
-            size={buttonSizeValues.LARGE}
+            size={buttonSizeValues.MEDIUM}
             variant={buttonVariantValues.LIKE}
             onlyIcon
-            width={40}
-            height={40}
             onClick={onOptionClick}
             id={id}
           >
@@ -36,11 +34,9 @@ const ImagePollCovered: FC<IImagePollCovered.IProps> = ({
           {dislike && (
             <div className="group mr-4">
               <Button
-                size={buttonSizeValues.LARGE}
-                variant={buttonVariantValues.LIKE}
+                size={buttonSizeValues.MEDIUM}
+                variant={buttonVariantValues.DISLIKE}
                 onlyIcon
-                width={40}
-                height={40}
                 onClick={onOptionClick}
                 id={id}
               >
@@ -51,11 +47,9 @@ const ImagePollCovered: FC<IImagePollCovered.IProps> = ({
           {like && (
             <div className="group">
               <Button
-                size={buttonSizeValues.LARGE}
+                size={buttonSizeValues.MEDIUM}
                 variant={buttonVariantValues.LIKE}
                 onlyIcon
-                width={40}
-                height={40}
                 onClick={onOptionClick}
                 id={id}
               >
