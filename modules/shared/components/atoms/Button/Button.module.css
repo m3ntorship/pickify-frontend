@@ -127,23 +127,21 @@
 }
 
 /* /////////////the arrow icon and its margins */
-.right-icon.btn-large span {
-  @apply ml-sx;
-}
+
+.right-icon.btn-large span,
 .right-icon.btn-medium span {
-  @apply ml-s;
-}
-.right-icon.btn-small span {
   @apply ml-xs;
 }
-.left-icon.btn-large span {
-  @apply mr-sx;
+.right-icon.btn-small span {
+  @apply ml-xxs;
 }
+
+.left-icon.btn-large span,
 .left-icon.btn-medium span {
-  @apply mr-s;
+  @apply mr-xs;
 }
 .left-icon.btn-small span {
-  @apply mr-xs;
+  @apply mr-xxs;
 }
 /* //////////////////////overwrite padding when we have an icon  */
 
@@ -172,4 +170,8 @@
 
 .btn-small span svg {
   @apply w-4 h-4;
+}
+
+.btn span svg {
+  @apply fill-current;
 }
