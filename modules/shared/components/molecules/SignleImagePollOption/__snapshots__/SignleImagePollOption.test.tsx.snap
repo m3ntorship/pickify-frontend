@@ -135,12 +135,6 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
               disabled={false}
               id="option_1"
               onClick={[Function]}
-              style={
-                Object {
-                  "height": "40px",
-                  "width": "40px",
-                }
-              }
               type="button"
             >
               <span>
@@ -171,12 +165,6 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
               disabled={false}
               id="option_2"
               onClick={[Function]}
-              style={
-                Object {
-                  "height": "40px",
-                  "width": "40px",
-                }
-              }
               type="button"
             >
               <span>

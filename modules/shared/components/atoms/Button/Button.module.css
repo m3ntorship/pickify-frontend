@@ -159,3 +159,17 @@
 .btn-secondary[disabled] {
   @apply hover:bg-white;
 }
+
+/* Icons */
+
+.btn-large span svg {
+  @apply w-8 h-8;
+}
+
+.btn-medium span svg {
+  @apply w-6 h-6;
+}
+
+.btn-small span svg {
+  @apply w-4 h-4;
+}

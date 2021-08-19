@@ -16,7 +16,7 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   mutualFriends,
 }): ReactElement => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between items-center">
       <div className="flex">
         <Avatar variant="filled" profilePic={profilePic} size="medium" />
         <div className="ml-4">
@@ -32,10 +32,8 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
         <div className="mr-2">
           <Button
             onlyIcon
-            size={buttonSizeValues.LARGE}
+            size={buttonSizeValues.SMALL}
             variant={buttonVariantValues.PRIMARY}
-            width={32}
-            height={32}
           >
             <PlusIcon />
           </Button>
@@ -43,10 +41,8 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
 
         <Button
           onlyIcon
-          size={buttonSizeValues.LARGE}
+          size={buttonSizeValues.SMALL}
           variant={buttonVariantValues.DELETE}
-          width={32}
-          height={32}
         >
           <DeleteIcon />
         </Button>

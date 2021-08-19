@@ -129,12 +129,6 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
           disabled={false}
           id="option_1"
           onClick={[Function]}
-          style={
-            Object {
-              "height": "40px",
-              "width": "40px",
-            }
-          }
           type="button"
         >
           <span>

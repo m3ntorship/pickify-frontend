@@ -82,12 +82,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
     <button
       className="btn btn-primary btn-small"
       disabled={true}
-      style={
-        Object {
-          "height": "auto",
-          "width": "auto",
-        }
-      }
       type="submit"
     >
       post
@@ -111,12 +105,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
     <button
       className="btn btn-normal"
       disabled={false}
-      style={
-        Object {
-          "height": "auto",
-          "width": "auto",
-        }
-      }
       type="button"
     >
       cancel
@@ -124,12 +112,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
     <button
       className="btn btn-primary btn-xlarge"
       disabled={true}
-      style={
-        Object {
-          "height": "auto",
-          "width": "auto",
-        }
-      }
       type="submit"
     >
       post
@@ -220,12 +202,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
     <button
       className="btn btn-primary btn-small"
       disabled={false}
-      style={
-        Object {
-          "height": "auto",
-          "width": "auto",
-        }
-      }
       type="submit"
     >
       post
@@ -249,12 +225,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
     <button
       className="btn btn-normal"
       disabled={false}
-      style={
-        Object {
-          "height": "auto",
-          "width": "auto",
-        }
-      }
       type="button"
     >
       cancel
@@ -262,12 +232,6 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
     <button
       className="btn btn-primary btn-xlarge"
       disabled={false}
-      style={
-        Object {
-          "height": "auto",
-          "width": "auto",
-        }
-      }
       type="submit"
     >
       post

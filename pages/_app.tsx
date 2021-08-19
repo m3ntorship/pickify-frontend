@@ -14,6 +14,7 @@ import classNames from 'classnames';
 import { AuthUserProvider } from '../context/AuthUserContext/AuthUserContext';
 import * as EButton from '../modules/shared/components/atoms/Button/types/EButton';
 import styles from './_app.module.css';
+import ArrowDownIcon from '../modules/shared/components/icons/buttonArowDown.svg';
 
 toast.configure();
 
@@ -40,7 +41,9 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
               onlyIcon
               variant={EButton.buttonVariantValues.PRIMARY}
               size={EButton.buttonSizeValues.MEDIUM}
-            />
+            >
+              <ArrowDownIcon fill="white" />
+            </Button>
           </div>
         }
       />

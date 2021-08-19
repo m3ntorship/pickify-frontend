@@ -15,12 +15,6 @@ exports[`ImagePollCovered should render dislike button when passing isOneImageVo
         disabled={false}
         id="option_1"
         onClick={[Function]}
-        style={
-          Object {
-            "height": "40px",
-            "width": "40px",
-          }
-        }
         type="button"
       >
         <span>
@@ -47,12 +41,6 @@ exports[`ImagePollCovered should render heart button when passing isOneImageVote
       disabled={false}
       id="option_1"
       onClick={[Function]}
-      style={
-        Object {
-          "height": "40px",
-          "width": "40px",
-        }
-      }
       type="button"
     >
       <span>
@@ -81,12 +69,6 @@ exports[`ImagePollCovered should render like button when passing isOneImageVote=
         disabled={false}
         id="option_1"
         onClick={[Function]}
-        style={
-          Object {
-            "height": "40px",
-            "width": "40px",
-          }
-        }
         type="button"
       >
         <span>

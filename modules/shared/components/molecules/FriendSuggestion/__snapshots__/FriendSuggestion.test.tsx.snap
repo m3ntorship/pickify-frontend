@@ -2,7 +2,7 @@
 
 exports[`Friend Suggestion Component Should render correctly 1`] = `
 <div
-  className="flex justify-between"
+  className="flex justify-between items-center"
 >
   <div
     className="flex"
@@ -98,14 +98,8 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
       className="mr-2"
     >
       <button
-        className="btn btn-primary btn-large btn-rounded"
+        className="btn btn-primary btn-small btn-rounded"
         disabled={false}
-        style={
-          Object {
-            "height": "32px",
-            "width": "32px",
-          }
-        }
         type="button"
       >
         <span>
@@ -116,14 +110,8 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
       </button>
     </div>
     <button
-      className="btn btn-delete btn-large btn-rounded"
+      className="btn btn-delete btn-small btn-rounded"
       disabled={false}
-      style={
-        Object {
-          "height": "32px",
-          "width": "32px",
-        }
-      }
       type="button"
     >
       <span>

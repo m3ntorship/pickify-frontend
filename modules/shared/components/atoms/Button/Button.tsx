@@ -13,8 +13,6 @@ const Button: FC<IButton.IProps> = ({
   rightIcon = false,
   onlyIcon = false,
   buttonType = 'button',
-  width,
-  height,
   onClick,
   children,
   id,
@@ -51,10 +49,6 @@ const Button: FC<IButton.IProps> = ({
       onClick={onClick}
       className={btnClasses}
       disabled={disabled}
-      style={{
-        width: `${width ? `${width}px` : 'auto'}`,
-        height: `${height ? `${height}px` : 'auto'}`,
-      }}
       id={id}
     >
       {leftIcon && <span>{children}</span>}
