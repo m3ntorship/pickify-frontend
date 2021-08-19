@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignleImagePollOption should render covored like and dislike icons when passing covored options 1`] = `
+exports[`SingleImagePollOption should render covored like and dislike icons when passing covored options 1`] = `
 <div
   className="relative w-auto"
   data-testid="image-poll-option"
@@ -131,7 +131,7 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
             className="group"
           >
             <button
-              className="btn btn-like btn-large btn-rounded"
+              className="btn btn-like btn-medium btn-rounded"
               disabled={false}
               id="option_1"
               onClick={[Function]}
@@ -161,7 +161,7 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
             className="group mr-4"
           >
             <button
-              className="btn btn-like btn-large btn-rounded"
+              className="btn btn-dislike btn-medium btn-rounded"
               disabled={false}
               id="option_2"
               onClick={[Function]}
@@ -203,7 +203,7 @@ exports[`SignleImagePollOption should render covored like and dislike icons when
 </div>
 `;
 
-exports[`SignleImagePollOption should render uncovored like and dislike icons when passing uncovored options 1`] = `
+exports[`SingleImagePollOption should render uncovored like and dislike icons when passing uncovored options 1`] = `
 <div
   className="relative w-auto"
   data-testid="image-poll-option"

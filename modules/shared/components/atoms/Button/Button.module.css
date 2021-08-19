@@ -172,6 +172,6 @@
   @apply w-4 h-4;
 }
 
-.btn span svg {
+/* .btn span svg {
   @apply fill-current;
-}
+} */
