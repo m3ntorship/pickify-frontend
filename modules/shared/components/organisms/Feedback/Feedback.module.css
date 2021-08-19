@@ -7,7 +7,7 @@
 }
 
 .emojis {
-  @apply flex flex-row mb-4;
+  @apply flex flex-row mb-4 mt-2;
 }
 
 .button {
@@ -18,32 +18,20 @@
   @apply flex flex-col justify-center items-center whitespace-nowrap px-4xxl py-4xl;
 }
 
-.form-options {
-  @apply mt-2;
-}
-
 .form__answer {
   @apply inline-block;
 }
 
 .emoji {
-  @apply opacity-50 w-full block box-border mr-4 cursor-pointer 
-  transition delay-75 duration-300 ease-in-out
+  @apply opacity-80 w-full block box-border mr-4 cursor-pointer
   filter grayscale;
 }
 
-.form-options .form-answer input[type='radio'] {
+.form-answer input[type='radio'] {
   @apply w-0 h-0 opacity-0 hidden;
 }
 
-.form-options .form-answer input[type='radio']:active ~ label {
-  @apply opacity-0;
-}
-
-.form-options .form-answer input[type='radio']:checked ~ label {
-  @apply filter-none opacity-100;
-}
-
-.form-options .form-answer input[type='radio']:hover ~ label {
+.form-answer input[type='radio']:checked ~ label,
+.form-answer input[type='radio']:hover ~ label {
   @apply filter-none opacity-100;
 }
