@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import FriendLoader from '@modules/shared/components/atoms/FriendLoader/FriendLoader';
+import Head from 'next/head';
 import styles from './FriendsPage.module.css';
 import Box from '../shared/components/atoms/Box/Box';
 import PageHeader from '../shared/components/atoms/PageHeader/PageHeader';
@@ -10,6 +11,9 @@ const FriendsPage: FC = (): ReactElement => {
   const numberofLoaders = Array.from(Array(12).keys());
   return (
     <>
+      <Head>
+        <title>Friends | Pickify</title>
+      </Head>
       <PageHeader>Friends</PageHeader>
       <div className={styles['loaders-wrapper']}>
         {numberofLoaders.map((n, index) => {
