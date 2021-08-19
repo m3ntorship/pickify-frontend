@@ -5,7 +5,7 @@ export const images: string[] = [
   '/Twfiek.jpeg',
   '/Omar.jpg',
   '/Sayad.jpg',
-  '/Essam.jpeg',
+  '/Essam.jpg',
   '/Sahl.jpeg',
   '/Samy.jpeg',
   '/Shaf3y.jpeg',
