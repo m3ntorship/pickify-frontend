@@ -76,13 +76,11 @@ const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
     setPost(transformedPost[0]);
   }, [data]);
   return (
-    <div className="w-39xl">
-      <SinglePostView
-        deletePostHandler={deletePostHandler}
-        post={post}
-        addOneVoteHandler={addOneVoteHandler}
-      />
-    </div>
+    <SinglePostView
+      deletePostHandler={deletePostHandler}
+      post={post}
+      addOneVoteHandler={addOneVoteHandler}
+    />
   );
 };
 

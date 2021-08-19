@@ -89,19 +89,17 @@ const Navigation: FC = (): ReactElement => {
                 key={userNavItem.name}
                 className="hidden md:inline-block relative"
               >
-                <Link href={userNavItem.path}>
-                  <a
-                    role="button"
-                    aria-hidden="true"
-                    onClick={
-                      userNavItem.name === 'happy'
-                        ? handleHappyIconClick
-                        : (): boolean => true
-                    }
-                  >
-                    {userNavItem.content}
-                  </a>
-                </Link>
+                <a
+                  role="button"
+                  aria-hidden="true"
+                  onClick={
+                    userNavItem.name === 'happy'
+                      ? handleHappyIconClick
+                      : (): boolean => true
+                  }
+                >
+                  {userNavItem.content}
+                </a>
                 {userNavItem.name === 'happy' && showFeedback && (
                   <div className="absolute top-12 right-0">
                     <Feedback />
