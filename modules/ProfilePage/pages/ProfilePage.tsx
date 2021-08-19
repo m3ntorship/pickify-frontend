@@ -5,6 +5,7 @@ import ProfileTextPostLoader from '@modules/shared/components/atoms/ProfileTextP
 import ProfileImagePostLoader from '@modules/shared/components/atoms/ProfileImagePostLoader/ProfileImagePostLoader';
 import { useAuth } from 'context/AuthUserContext/AuthUserContext';
 import { capitalizeFirstLetterOfEveryWord } from '@modules/shared/logic/capitalizeFirstLetterOfEveryWord/capitalizeFirstLetterOfEveryWord';
+import Head from 'next/head';
 import styles from './ProfilePage.module.css';
 import Box from '../../shared/components/atoms/Box/Box';
 import PageHeader from '../../shared/components/atoms/PageHeader/PageHeader';
@@ -17,6 +18,9 @@ const ProfilePage: FC = (): ReactElement => {
 
   return (
     <>
+      <Head>
+        <title>{userName} | Pickify</title>
+      </Head>
       <PageHeader>{userName}</PageHeader>
       <div className="relative">
         <Box classes="mb-6" isGreyColor>
