@@ -17,13 +17,13 @@ import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
-  const [hasMore, setHasmore] = useState<boolean>(true);
+  const [hasMorePosts, setHasMorePosts] = useState<boolean>(true);
   const [postsCount, setPostsCount] = useState<number>(data.postsCount);
   const { redirectToLoginPage } = useRedirect();
   const toastId = useRef<ReactText>();
 
   useEffect(() => {
-    setHasmore(posts.length < postsCount + 100);
+    setHasMorePosts(postsCount !== 0);
   }, [posts, postsCount]);
 
   useEffect(() => {
@@ -50,11 +50,14 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
 
     try {
       const { data: newData } = await getPosts(loggedInUser, posts.length);
-      const { posts: newPosts } = newData as { posts: IPostFeed.IPost[] };
-
+      const { posts: newPosts, postsCount: newPostsCount } = newData as {
+        posts: IPostFeed.IPost[];
+        postsCount: number;
+      };
       const transformedMedia = transformPostsMedia(newPosts);
 
       setPosts([...posts, ...transformedMedia]);
+      setPostsCount(newPostsCount);
     } catch (err: unknown) {
       const { errorCode, message } = err as {
         errorCode: number;
@@ -77,7 +80,6 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     if (!res.resData.error) {
       toast.success('Post has been deleted successfully');
       const updatedPosts = posts.filter((postData) => postData.id !== postId);
-      setPostsCount((prevState) => prevState - 1);
       setPosts(updatedPosts);
     } else {
       toast.error(res.resData.message);
@@ -116,7 +118,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       <InfiniteScroll
         dataLength={posts.length}
         next={getMorePosts}
-        hasMore={hasMore}
+        hasMore={hasMorePosts}
         loader={<h4>Loading...</h4>}
       >
         {posts.map((post) => {
