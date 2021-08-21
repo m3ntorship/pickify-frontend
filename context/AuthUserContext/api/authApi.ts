@@ -47,12 +47,10 @@ export const register = async (
     const { message, status_code } = data;
 
     const generatedMessage = generateErrMsg({}, status_code, message);
-    return {
-      resData: {
-        error: true,
-        message: generatedMessage,
-        errorCode: status_code,
-      },
-    };
+    throw Object.assign(new Error(), {
+      error: true,
+      message: generatedMessage,
+      errorCode: status_code,
+    });
   }
 };
