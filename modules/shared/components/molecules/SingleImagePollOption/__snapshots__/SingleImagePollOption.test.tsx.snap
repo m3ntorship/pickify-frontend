@@ -116,7 +116,7 @@ exports[`SingleImagePollOption should render covored like and dislike icons when
     </div>
   </div>
   <div
-    className="absolute flex bottom-4 right-4"
+    className="absolute flex flex-row-reverse bottom-4 right-4"
   >
     <div
       className="mr-4 last:mr-0"
@@ -319,7 +319,7 @@ exports[`SingleImagePollOption should render uncovored like and dislike icons wh
     </div>
   </div>
   <div
-    className="absolute flex bottom-4 right-4"
+    className="absolute flex flex-row-reverse bottom-4 right-4"
   >
     <div
       className="mr-4 last:mr-0"
