@@ -50,7 +50,7 @@ const Feedback: FC = (): ReactElement => {
   const [disabled, setDisabled] = useState(true);
   const [inputValue, setInputValue] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { nodeRef, triggerRef, show } = useDetectClickOut(false);
+  const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
 
   const onChangeInputValueHandler = (
     id: string,
@@ -75,11 +75,14 @@ const Feedback: FC = (): ReactElement => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    setIsSubmitted(true);
     e.preventDefault();
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setShow(false);
+    }, 2000);
   };
   return (
-    <div className="relative">
+    <div className="md:relative">
       <div
         className="cursor-pointer"
         ref={triggerRef}
@@ -146,7 +149,7 @@ const Feedback: FC = (): ReactElement => {
 
                       <div className={styles.button}>
                         <Button
-                          size={EButton.buttonSizeValues.XLARGE}
+                          size={EButton.buttonSizeValues.FULLWIDTH}
                           variant={EButton.buttonVariantValues.PRIMARY}
                           disabled={disabled}
                           buttonText="Submit"
