@@ -23,7 +23,8 @@ import Feedback from '../../organisms/Feedback/Feedback';
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
   const { user } = useAuth();
-  const { redirectToLoginPage, redirectToProfilePage } = useRedirect();
+  const { redirectToLoginPage, redirectToProfilePage, redirectToFriendsPage } =
+    useRedirect();
   const homeNavLinks = getHomeNavLinks(pathname);
 
   const onMenuClick = async (menuId: string): Promise<void> => {
@@ -33,11 +34,14 @@ const Navigation: FC = (): ReactElement => {
           await logoutUser();
           redirectToLoginPage();
         } catch (err: unknown) {
-          toast.error('Logo out access is denied');
+          toast.error('Logging out access is denied');
         }
         break;
       case 'profile':
         redirectToProfilePage();
+        break;
+      case 'friends':
+        redirectToFriendsPage();
         break;
       default:
         toast.error('cant find your option :(');
@@ -70,13 +74,24 @@ const Navigation: FC = (): ReactElement => {
         </div>
         <div className={styles['nav-links']}>
           <ul>
-            {homeNavLinks.map((homeNavItem) => (
-              <li key={homeNavItem.name}>
-                <Link href={homeNavItem.path}>
-                  <a>{homeNavItem.content}</a>
-                </Link>
-              </li>
-            ))}
+            {homeNavLinks.map((homeNavItem) => {
+              if (homeNavItem.name === 'friends') {
+                return (
+                  <li key={homeNavItem.name} className="hidden sm:inline-block">
+                    <Link href={homeNavItem.path}>
+                      <a>{homeNavItem.content}</a>
+                    </Link>
+                  </li>
+                );
+              }
+              return (
+                <li key={homeNavItem.name}>
+                  <Link href={homeNavItem.path}>
+                    <a>{homeNavItem.content}</a>
+                  </Link>
+                </li>
+              );
+            })}
             <li className="hidden md:inline-block">
               <Divider length="16px" type={DividerType.Vertical} />
             </li>
@@ -85,13 +100,14 @@ const Navigation: FC = (): ReactElement => {
                 <HelpIcon className="fill-grey" />
               </a>
             </li>
-            <li className="hidden md:inline-block">
+            <li className="">
               <Feedback />
             </li>
             <li className={styles['nav-user']}>
               <DropDown
                 options={[
                   { id: 'profile', body: 'Profile' },
+                  { id: 'friends', body: 'Friends' },
                   { id: 'logout', body: 'Log Out' },
                 ]}
                 variant="post"

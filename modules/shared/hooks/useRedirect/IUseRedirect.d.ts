@@ -4,6 +4,7 @@ declare namespace IUseRedirect {
     redirectToLoginPage: () => void;
     redirectToProfilePage: () => void;
     redirectToPostPage: (url: string) => void;
+    redirectToFriendsPage: () => void;
   }
 }
 
