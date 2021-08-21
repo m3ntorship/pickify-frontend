@@ -8,6 +8,7 @@ export enum buttonVariantValues {
   DELETE = 'delete',
 }
 export enum buttonSizeValues {
+  FULLWIDTH = 'fullWidth',
   XLARGE = 'xlarge',
   LARGE = 'large',
   MEDIUM = 'medium',
