@@ -3,6 +3,7 @@ import type { Story } from '@storybook/react';
 import Button from './Button';
 import type { IButton } from './types/IButton';
 import * as EButton from './types/EButton';
+import ArrowDownIcon from '../../icons/arrowDown.svg';
 
 export default {
   component: Button,
@@ -17,13 +18,23 @@ export default {
     variant: {
       control: {
         type: 'inline-radio',
-        options: ['primary', 'secondary', 'tertiary', 'text'],
+        options: [
+          'primary',
+          'secondary',
+          'tertiary',
+          'text',
+          'like',
+          'dislike',
+          'delete',
+        ],
       },
     },
   },
 };
 const Template: Story<IButton.IProps> = (args): ReactElement => (
-  <Button {...args} />
+  <Button {...args}>
+    <ArrowDownIcon />
+  </Button>
 );
 
 export const Default = Template.bind({});

@@ -1,11 +1,13 @@
 .container {
-  @apply md:flex md:justify-between;
+  @apply md:flex md:justify-between w-full;
 }
+
 .primary-button {
   @apply hidden md:flex;
 }
+
 .divider {
-  @apply md:hidden mt-mx mb-4;
+  @apply md:hidden my-4;
 }
 
 .responsive-button {

@@ -3,8 +3,12 @@ export enum buttonVariantValues {
   SECONDARY = 'secondary',
   QUATERNARY = 'quaternary',
   TEXT = 'text',
+  LIKE = 'like',
+  DISLIKE = 'dislike',
+  DELETE = 'delete',
 }
 export enum buttonSizeValues {
+  FULLWIDTH = 'fullWidth',
   XLARGE = 'xlarge',
   LARGE = 'large',
   MEDIUM = 'medium',

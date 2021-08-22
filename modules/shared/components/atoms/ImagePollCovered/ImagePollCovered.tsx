@@ -4,7 +4,8 @@ import type { IImagePollCovered } from './IImagePollCovered';
 import FilledHeartIcon from '../../icons/filledHeart.svg';
 import FilledDislikeIcon from '../../icons/filledDislike.svg';
 import FilledLikeIcon from '../../icons/filledLike.svg';
-import styles from './ImagePollCovered.module.css';
+import Button from '../Button/Button';
+import { buttonSizeValues, buttonVariantValues } from '../Button/types/EButton';
 
 const ImagePollCovered: FC<IImagePollCovered.IProps> = ({
   isOneImageVote,
@@ -16,36 +17,45 @@ const ImagePollCovered: FC<IImagePollCovered.IProps> = ({
   return (
     <div className="flex justify-end">
       {!isOneImageVote && (
-        <button
-          type="button"
-          className={`${styles.love} group`}
-          onClick={onOptionClick}
-          id={id}
-        >
-          <FilledHeartIcon className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white" />
-        </button>
+        <div className="group">
+          <Button
+            size={buttonSizeValues.MEDIUM}
+            variant={buttonVariantValues.LIKE}
+            onlyIcon
+            onClick={onOptionClick}
+            id={id}
+          >
+            <FilledHeartIcon className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white" />
+          </Button>
+        </div>
       )}
       {isOneImageVote && (
         <div className="flex">
           {dislike && (
-            <button
-              type="button"
-              className={`${styles.dislike} group`}
-              onClick={onOptionClick}
-              id={id}
-            >
-              <FilledDislikeIcon className="fill-error stroke-current stroke-1 text-white group-hover:fill-white" />
-            </button>
+            <div className="group mr-4">
+              <Button
+                size={buttonSizeValues.MEDIUM}
+                variant={buttonVariantValues.DISLIKE}
+                onlyIcon
+                onClick={onOptionClick}
+                id={id}
+              >
+                <FilledDislikeIcon className="fill-error stroke-current stroke-1 text-white group-hover:fill-white" />
+              </Button>
+            </div>
           )}
           {like && (
-            <button
-              type="button"
-              className={`${styles.like} group`}
-              onClick={onOptionClick}
-              id={id}
-            >
-              <FilledLikeIcon className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white" />
-            </button>
+            <div className="group">
+              <Button
+                size={buttonSizeValues.MEDIUM}
+                variant={buttonVariantValues.LIKE}
+                onlyIcon
+                onClick={onOptionClick}
+                id={id}
+              >
+                <FilledLikeIcon className="fill-primary stroke-current stroke-1 text-white group-hover:fill-white" />
+              </Button>
+            </div>
           )}
         </div>
       )}

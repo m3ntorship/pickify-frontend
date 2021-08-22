@@ -1,6 +1,7 @@
 import type firebase from 'firebase';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { register } from '../../api/authApi';
 import {
   clearUserToken,
   clearUserUUID,
@@ -41,6 +42,7 @@ export const useFirebaseAuth = (): IUseFirebaseAuth.IProps => {
     try {
       const token: string = await userState.getIdToken();
       const formattedUser = setUserData(userState);
+      await register(token);
       setUser(formattedUser);
       setLoading(false);
       setIsAuthenticated(true);

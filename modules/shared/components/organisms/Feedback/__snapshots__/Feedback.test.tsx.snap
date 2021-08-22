@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feedback renders The Feedback initial state 1`] = `
+<div
+  className="md:relative"
+>
+  <div
+    className="cursor-pointer"
+    data-testid="open-feedback"
+  >
+    <svg
+      data-file-name="SvgHappy"
+    />
+  </div>
+</div>
+`;

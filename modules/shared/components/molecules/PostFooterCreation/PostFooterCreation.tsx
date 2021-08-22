@@ -23,50 +23,46 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
   handleCancelButtonClick,
 }): ReactElement => {
   return (
-    <>
-      <div className="mb-4">
+    <div className={styles.container}>
+      <Privacy
+        privacyOptions={['friends', 'family']}
+        withDivider
+        togglerIsChecked={togglerIsChecked}
+        handleTogglerChange={handleTheRadioButtonOnChange}
+        handleSelectChange={handlePrivacySelectChange}
+      />
+      <div className={styles['primary-button']}>
+        <Button
+          size={EButton.buttonSizeValues.SMALL}
+          variant={EButton.buttonVariantValues.PRIMARY}
+          disabled={postButtonIsDisabled}
+          buttonType="submit"
+          onClick={handleSubmitButtonClick}
+          buttonText="post"
+        />
+      </div>
+
+      <div className={styles.divider}>
         <Divider type="horizontal" length="auto" />
       </div>
-      <div className={styles.container}>
-        <Privacy
-          privacyOptions={['friends', 'family']}
-          withDivider
-          togglerIsChecked={togglerIsChecked}
-          handleTogglerChange={handleTheRadioButtonOnChange}
-          handleSelectChange={handlePrivacySelectChange}
-        />
-        <div className={styles['primary-button']}>
-          <Button
-            size={EButton.buttonSizeValues.SMALL}
-            variant={EButton.buttonVariantValues.PRIMARY}
-            disabled={postButtonIsDisabled}
-            buttonType="submit"
-            onClick={handleSubmitButtonClick}
-            buttonText="post"
-          />
-        </div>
-        <div className={styles.divider}>
-          <Divider type="horizontal" length="auto" />
-        </div>
 
-        <div className={styles['responsive-button']}>
-          <Button
-            size={EButton.buttonSizeValues.NORMAL}
-            variant={EButton.buttonVariantValues.QUATERNARY}
-            onClick={handleCancelButtonClick}
-            buttonText="cancel"
-          />
-          <Button
-            size={EButton.buttonSizeValues.XLARGE}
-            variant={EButton.buttonVariantValues.PRIMARY}
-            disabled={postButtonIsDisabled}
-            buttonType="submit"
-            onClick={handleSubmitButtonClick}
-            buttonText="post"
-          />
-        </div>
+      <div className={styles['responsive-button']}>
+        <Button
+          size={EButton.buttonSizeValues.NORMAL}
+          variant={EButton.buttonVariantValues.QUATERNARY}
+          onClick={handleCancelButtonClick}
+          buttonText="cancel"
+        />
+        <Button
+          size={EButton.buttonSizeValues.XLARGE}
+          variant={EButton.buttonVariantValues.PRIMARY}
+          disabled={postButtonIsDisabled}
+          buttonType="submit"
+          onClick={handleSubmitButtonClick}
+          buttonText="post"
+        />
       </div>
-    </>
+    </div>
   );
 };
 

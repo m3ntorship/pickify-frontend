@@ -1,10 +1,14 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import {
+  buttonSizeValues,
+  buttonVariantValues,
+} from '../../atoms/Button/types/EButton';
 import type { IFriendSuggestion } from './IFriendSuggestion';
 import PlusIcon from '../../icons/addFriend.svg';
 import DeleteIcon from '../../icons/deleteFriend.svg';
-import styles from './FriendSuggestion.module.css';
 import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
+import Button from '../../atoms/Button/Button';
 
 const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   profilePic,
@@ -25,12 +29,23 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
         subTitle={subTitle}
       />
       <div className="flex">
-        <button className={styles.plus} type="button">
-          <PlusIcon />
-        </button>
-        <button className={styles.delete} type="button">
+        <div className="mr-2">
+          <Button
+            onlyIcon
+            size={buttonSizeValues.SMALL}
+            variant={buttonVariantValues.PRIMARY}
+          >
+            <PlusIcon />
+          </Button>
+        </div>
+
+        <Button
+          onlyIcon
+          size={buttonSizeValues.SMALL}
+          variant={buttonVariantValues.DELETE}
+        >
           <DeleteIcon />
-        </button>
+        </Button>
       </div>
     </div>
   );

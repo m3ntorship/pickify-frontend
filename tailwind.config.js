@@ -215,6 +215,7 @@ module.exports = {
       grey: theme('colors.grey.DEFAULT'),
       'grey-shd4': theme('colors.grey.shd4'),
       error: theme('colors.error'),
+      current: 'currentColor',
     }),
     screens: {
       sm: '375px',

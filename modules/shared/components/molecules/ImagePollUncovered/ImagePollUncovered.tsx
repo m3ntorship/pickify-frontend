@@ -3,6 +3,7 @@ import type { FC, ReactElement } from 'react';
 import styles from './ImagePollUncovered.module.css';
 import Slider from '../../atoms/Slider/Slider';
 import type { IImagePollUncovered } from './types/IImagePollUncovered';
+import CheckMarkDefault from '../../icons/checkMarkDefault.svg';
 
 const ImagePollUncovered: FC<IImagePollUncovered.IProps> = ({
   type,
@@ -12,6 +13,7 @@ const ImagePollUncovered: FC<IImagePollUncovered.IProps> = ({
   optionBody,
   verticalMeterHeight,
   id,
+  isOptionChecked,
 }): ReactElement => {
   let verticalMeterColor: 'error' | 'primary-shd5' | 'primary' | undefined =
     'primary-shd5';
@@ -26,12 +28,15 @@ const ImagePollUncovered: FC<IImagePollUncovered.IProps> = ({
   const verticalContent = mostVoted && `🌟`;
   const circularContent = optionBody === 'yes' ? `👍` : `👎`;
   const circularMeterColor = optionBody === 'yes' ? 'primary' : 'error';
+  const chosenOption =
+    isOptionChecked === true ? <CheckMarkDefault className="fill-dark" /> : '';
 
   if (type === 'circular') {
     return (
       <div className={styles['circular-vote-meter-wrapper']} id={id}>
         <div className={styles['circular-content']}>
           <p className="mb-1">{circularContent}</p>
+          {isOptionChecked && <span>{chosenOption} </span>}
           <p>{percentage}%</p>
         </div>
         <div className="absolute ">
@@ -49,7 +54,12 @@ const ImagePollUncovered: FC<IImagePollUncovered.IProps> = ({
     <div className={styles['vertical-vote-meter-wrapper']} id={id}>
       <div className={styles['percentage-wrapper']}>
         <p className={styles.percentage}>
-          {verticalContent} <span>{percentage}%</span>
+          {isOptionChecked && (
+            <span className="inline-flex">{chosenOption}</span>
+          )}
+          {verticalContent}
+
+          <span>{percentage}%</span>
         </p>
       </div>
       <Slider

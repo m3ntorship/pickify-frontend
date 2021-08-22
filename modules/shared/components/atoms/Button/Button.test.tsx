@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 import * as renderer from 'react-test-renderer';
 import Button from './Button';
 import * as EButton from './types/EButton';
+import ArrowDownIcon from '../../icons/arrowDown.svg';
 
 describe('Button component', () => {
   it('should render (large) button when we apply (large)', () => {
@@ -91,7 +92,9 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           rightIcon
-        />,
+        >
+          <ArrowDownIcon />
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -103,7 +106,9 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           leftIcon
-        />,
+        >
+          <ArrowDownIcon />
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -115,7 +120,9 @@ describe('Button component', () => {
           variant={EButton.buttonVariantValues.PRIMARY}
           size={EButton.buttonSizeValues.MEDIUM}
           onlyIcon
-        />,
+        >
+          <ArrowDownIcon />
+        </Button>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

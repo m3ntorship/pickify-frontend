@@ -1,15 +1,15 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import SignleImagePollOption from './SignleImagePollOption';
-import type { ISignleImagePollOption } from './ISignleImagePollOption';
+import SingleImagePollOption from './SingleImagePollOption';
+import type { ISingleImagePollOption } from './ISingleImagePollOption';
 
 export default {
-  component: SignleImagePollOption,
-  title: 'Molecules/SignleImagePollOption',
+  component: SingleImagePollOption,
+  title: 'Molecules/SingleImagePollOption',
 };
-const Template: Story<ISignleImagePollOption.IProps> = (args): ReactElement => (
+const Template: Story<ISingleImagePollOption.IProps> = (args): ReactElement => (
   <div className="flex">
-    <SignleImagePollOption {...args} />
+    <SingleImagePollOption {...args} />
   </div>
 );
 export const Default = Template.bind({});

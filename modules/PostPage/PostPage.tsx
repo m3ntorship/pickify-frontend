@@ -76,7 +76,7 @@ const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
     setPost(transformedPost[0]);
   }, [data]);
   return (
-    <div className="w-39xl">
+    <div className="w-full mb-2">
       <SinglePostView
         deletePostHandler={deletePostHandler}
         post={post}

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { IImagePollGroup } from './IImagePollGroup';
 import ImagePollOption from '../ImagePollOption/ImagePollOption';
 import styles from './ImagePollGroup.module.css';
-import SignleImagePollOption from '../SignleImagePollOption/SignleImagePollOption';
+import SingleImagePollOption from '../SingleImagePollOption/SingleImagePollOption';
 import { getVotesResults } from '../../../logic/votesLogic/votesLogic';
 
 const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
@@ -30,7 +30,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
   return (
     <div className={optionClasses}>
       {group.media.length !== firstIndex ? (
-        <SignleImagePollOption
+        <SingleImagePollOption
           groupName={group.name}
           media={group.media}
           options={group.options}
@@ -51,6 +51,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
               percentage={optionsPercentage[index]}
               isVoted={option.vote_count !== undefined}
               onOptionClick={onOptionClick}
+              isOptionChecked={option.voted}
             />
           );
         })

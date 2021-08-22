@@ -11,7 +11,7 @@
 }
 
 .main {
-  @apply flex flex-col items-center text-center bg-white p-xl rounded-md shadow-soft;
+  @apply flex flex-col items-center text-center p-4;
 }
 
 .main-h1 {

@@ -4,6 +4,7 @@ import * as EButton from '../../atoms/Button/types/EButton';
 import type { IMiniSurveyViewOptions } from './IMiniSurveyViewOptions';
 import OptionGroupView from '../OptionGroupView/OptionGroupView';
 import Button from '../../atoms/Button/Button';
+import ArrowDownIcon from '../../icons/buttonArowDown.svg';
 
 const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
   optionsGroups,
@@ -35,9 +36,11 @@ const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
           }
           variant={EButton.buttonVariantValues.TEXT}
           leftIcon
-          size={EButton.buttonSizeValues.MEDIUM}
+          size={EButton.buttonSizeValues.SMALL}
           onClick={toggleIsExpanded}
-        />
+        >
+          <ArrowDownIcon />
+        </Button>
       ) : (
         ''
       )}
