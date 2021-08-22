@@ -29,6 +29,7 @@ const Button: FC<IButton.IProps> = ({
       [styles['btn-like']]: variant === 'like',
     },
     {
+      [styles['btn-full-width']]: size === 'fullWidth',
       [styles['btn-xlarge']]: size === 'xlarge',
       [styles['btn-large']]: size === 'large',
       [styles['btn-medium']]: size === 'medium',

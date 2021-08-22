@@ -31,6 +31,10 @@
 }
 
 /* // the size of the buttons  */
+.btn-full-width {
+  @apply text-sm font-medium w-full;
+}
+
 .btn-xlarge {
   @apply text-sm font-medium;
 }
@@ -56,6 +60,12 @@
 /* the only of it is kind  -the responsive cancel button-  */
 .btn-normal.btn-tertiary {
   @apply px-xll py-1.5;
+}
+
+.btn-full-width.btn-primary,
+.btn-full-width.btn-secondary,
+.btn-full-width.btn-tertiary {
+  @apply px-m py-1.5;
 }
 
 .btn-xlarge.btn-primary,

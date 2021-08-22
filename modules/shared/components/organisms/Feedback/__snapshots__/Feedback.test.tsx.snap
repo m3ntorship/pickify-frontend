@@ -2,7 +2,7 @@
 
 exports[`Feedback renders The Feedback initial state 1`] = `
 <div
-  className="relative"
+  className="md:relative"
 >
   <div
     className="cursor-pointer"

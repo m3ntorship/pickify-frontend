@@ -27,7 +27,7 @@ const SingleImagePollOption: FC<ISingleImagePollOption.IProps> = ({
               imgAlt="group"
             />
           ))}
-          <div className="absolute flex bottom-4 right-4">
+          <div className="absolute flex flex-row-reverse bottom-4 right-4">
             {options.map((option, index) => (
               <div className="mr-4 last:mr-0" key={option.id}>
                 {option.vote_count !== undefined ? (
@@ -36,6 +36,7 @@ const SingleImagePollOption: FC<ISingleImagePollOption.IProps> = ({
                     percentage={optionsPercentage[index]}
                     optionBody={option.body}
                     type="circular"
+                    isOptionChecked={option.voted}
                   />
                 ) : (
                   <ImagePollCovered

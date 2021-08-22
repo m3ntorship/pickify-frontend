@@ -15,10 +15,14 @@ export const useRedirect = (): IUseRedirect.IUseRedirectReturn => {
   const redirectToPage = (url: string): void => {
     router.push(url) as unknown as Promise<boolean>;
   };
+  const redirectToFriendsPage = (): void => {
+    router.push('/friends') as unknown as Promise<boolean>;
+  };
   return {
     redirectToHomePage,
     redirectToLoginPage,
     redirectToPage,
     redirectToProfilePage,
+    redirectToFriendsPage,
   };
 };
