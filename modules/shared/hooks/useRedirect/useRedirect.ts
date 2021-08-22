@@ -12,7 +12,7 @@ export const useRedirect = (): IUseRedirect.IUseRedirectReturn => {
   const redirectToProfilePage = (): void => {
     router.push('/profile') as unknown as Promise<boolean>;
   };
-  const redirectToPostPage = (url: string): void => {
+  const redirectToPage = (url: string): void => {
     router.push(url) as unknown as Promise<boolean>;
   };
   const redirectToFriendsPage = (): void => {
@@ -21,7 +21,7 @@ export const useRedirect = (): IUseRedirect.IUseRedirectReturn => {
   return {
     redirectToHomePage,
     redirectToLoginPage,
-    redirectToPostPage,
+    redirectToPage,
     redirectToProfilePage,
     redirectToFriendsPage,
   };

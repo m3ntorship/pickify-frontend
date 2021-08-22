@@ -3,7 +3,7 @@ declare namespace IUseRedirect {
     redirectToHomePage: () => void;
     redirectToLoginPage: () => void;
     redirectToProfilePage: () => void;
-    redirectToPostPage: (url: string) => void;
+    redirectToPage: (url: string) => void;
     redirectToFriendsPage: () => void;
   }
 }
