@@ -51,6 +51,7 @@ const ImagePollGroup: FC<IImagePollGroup.IProps> = ({
               percentage={optionsPercentage[index]}
               isVoted={option.vote_count !== undefined}
               onOptionClick={onOptionClick}
+              isOptionChecked={option.voted}
             />
           );
         })
