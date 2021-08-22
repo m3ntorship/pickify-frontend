@@ -1,3 +1,4 @@
+import Resizer from 'react-image-file-resizer';
 import type { IUploadedFiles } from './IUploadedFiles';
 
 export const validateUploadedImages = (
@@ -16,3 +17,21 @@ export const validateUploadedImages = (
   );
   return uploadedFiles as IUploadedFiles.IImagesData[];
 };
+
+export const resizeImage = async (
+  file: Blob,
+): Promise<Blob | File | ProgressEvent<FileReader> | string> =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      300,
+      300,
+      'JPEG',
+      100,
+      0,
+      (uri) => {
+        resolve(uri);
+      },
+      'base64',
+    );
+  });

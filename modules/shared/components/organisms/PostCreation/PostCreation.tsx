@@ -122,6 +122,20 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       errors: [],
       statusCode: 0,
     };
+
+    // (async function ():Promise<void> {
+    //     try {
+    //       postCreationInitialState.imagePoll.groups.map(async (group)=>{
+    //         group.options.map((option) => {
+    //           const image = option
+    //         })
+    //          const newImage = await resizeImage(image)
+    //       })
+    //     } catch (err){
+    //       console.log(err);
+    //     }
+    // })();
+
     (async function (): Promise<void> {
       setCreating(true);
       toastId.current = toast.warning('Please wait while creating the poll', {
@@ -168,6 +182,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       });
     })() as unknown as Promise<void>;
   };
+
   const onError = (): void => {
     toast.error('Please, check the errors, and try again.');
   };
