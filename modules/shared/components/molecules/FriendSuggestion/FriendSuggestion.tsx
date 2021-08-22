@@ -4,7 +4,7 @@ import type { IFriendSuggestion } from './IFriendSuggestion';
 import PlusIcon from '../../icons/addFriend.svg';
 import DeleteIcon from '../../icons/deleteFriend.svg';
 import styles from './FriendSuggestion.module.css';
-import UserInfo from '../UserInfo/UserInfo';
+import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 
 const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   profilePic,
@@ -17,7 +17,7 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
 
   return (
     <div className="flex justify-between">
-      <UserInfo
+      <ImgWithInfo
         isHidden={false}
         variant="avatar"
         title={username}

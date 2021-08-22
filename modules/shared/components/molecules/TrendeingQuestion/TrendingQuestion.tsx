@@ -5,14 +5,14 @@ import TextPoll from '../../icons/textPoll.svg';
 import MiniSurvey from '../../icons/miniSurvey.svg';
 import type { ITrendingQuestion } from './ITrendingQuestion';
 import styles from './TrendingQuestion.module.css';
-import UserInfo from '../UserInfo/UserInfo';
+import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 
 const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
   postCaption,
   type,
 }): ReactElement => {
   return (
-    <UserInfo
+    <ImgWithInfo
       isHidden={false}
       variant="icon"
       title={postCaption}
@@ -23,7 +23,7 @@ const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
         {type === 'Text Poll' && <TextPoll />}
         {type === 'Image Poll' && <ImagePoll />}
       </div>
-    </UserInfo>
+    </ImgWithInfo>
   );
 };
 
