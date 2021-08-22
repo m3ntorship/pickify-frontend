@@ -32,10 +32,8 @@ const UploadingImage: FC<IUploadingImage.IProps> = ({
         handleVerticalThreeDotsClick(id);
         break;
       case 'order':
-        console.log('order');
         break;
       default:
-        console.log('default');
     }
   };
   return (

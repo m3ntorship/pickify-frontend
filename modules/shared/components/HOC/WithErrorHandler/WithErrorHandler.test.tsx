@@ -8,11 +8,12 @@ describe('WithErrorHandler', () => {
     const successData = {
       postTitle: 'a7la mesa 3lek!',
     };
-    const mockComponent = jest.fn(function <
-      T extends IDataTests.IDataSucccess,
-    >({ data }: T) {
-      return <div>{data.postTitle}</div>;
-    });
+    // const mockTest =()=>
+    const mockComponent = jest.fn(
+      <T extends IDataTests.IDataSucccess>({ data }: T) => {
+        return <div>{data.postTitle}</div>;
+      },
+    );
     const Component = WithErrorHandler(mockComponent);
     render(<Component data={successData} />);
     expect(mockComponent).toBeCalled();
@@ -25,11 +26,11 @@ describe('WithErrorHandler', () => {
       errorCode: 404,
       message: 'not Found',
     };
-    const mockComponent = jest.fn(function <T extends IDataTests.IDataError>({
-      data,
-    }: T) {
-      return <div>{data.errorCode}</div>;
-    });
+    const mockComponent = jest.fn(
+      <T extends IDataTests.IDataError>({ data }: T) => {
+        return <div>{data.errorCode}</div>;
+      },
+    );
     const Component = WithErrorHandler(mockComponent);
     render(<Component data={errorData} />);
     const errorMessage = screen.getByText(errorData.message);
@@ -46,11 +47,11 @@ describe('WithErrorHandler', () => {
       postTitle: 'a7la mesa 3lek!',
     };
 
-    const mockComponent = jest.fn(function <
-      T extends IDataTests.IDataSucccess,
-    >({ data }: T) {
-      return <div>{data.postTitle}</div>;
-    });
+    const mockComponent = jest.fn(
+      <T extends IDataTests.IDataSucccess>({ data }: T) => {
+        return <div>{data.postTitle}</div>;
+      },
+    );
 
     const Component = WithErrorHandler(mockComponent);
 

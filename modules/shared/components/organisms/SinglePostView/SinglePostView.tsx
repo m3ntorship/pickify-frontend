@@ -3,6 +3,7 @@ import { getVotesResults } from '@modules/shared/logic/votesLogic/votesLogic';
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import type { FC, ReactElement } from 'react';
+import { toast } from 'react-toastify';
 import ImageView from '../../atoms/ImageView/ImageView';
 import Box from '../../atoms/Box/Box';
 import ImagePollGroup from '../../molecules/ImagePollGroup/ImagePollGroup';
@@ -30,7 +31,8 @@ export const sharePostHandler = async (
         setCopied(false);
       }, 2000);
     } catch (err: unknown) {
-      console.log('Clipboard access is denied', err);
+      const { message } = err as { message: string };
+      toast.error(message);
     }
   }
 };
