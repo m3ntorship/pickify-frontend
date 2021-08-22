@@ -8,6 +8,7 @@ declare namespace IImagePollOption {
     mostVoted: boolean;
     percentage: number;
     isVoted: boolean;
+    isOptionChecked: boolean;
     onOptionClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   }
 }

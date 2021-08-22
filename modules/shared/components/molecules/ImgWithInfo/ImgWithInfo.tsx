@@ -1,11 +1,11 @@
 import React from 'react';
 import type { ReactElement, FC } from 'react';
-import type { IUserInfo } from './IUserInfo';
+import type { IImgWithInfo } from './IImgWithInfo';
 import Avatar from '../../atoms/Avatar/Avatar';
-import styles from './UserInfo.module.css';
-import { handleUserInfoVariant } from '../../../logic/userInfoVariant/userInfoVariant';
+import styles from './ImgWithInfo.module.css';
+import { handleImgWithInfoVariant } from '../../../logic/imgWithInfoVariant/imgWithInfoVariant';
 
-const UserInfo: FC<IUserInfo.IProps> = ({
+const ImgWithInfo: FC<IImgWithInfo.IProps> = ({
   isHidden,
   profilePic,
   title = '',
@@ -21,7 +21,7 @@ const UserInfo: FC<IUserInfo.IProps> = ({
       {variant === 'avatar' && (
         <Avatar
           size="medium"
-          variant={handleUserInfoVariant(isHidden, profilePic)}
+          variant={handleImgWithInfoVariant(isHidden, profilePic)}
           profilePic={profilePic}
         />
       )}
@@ -41,4 +41,4 @@ const UserInfo: FC<IUserInfo.IProps> = ({
   );
 };
 
-export default UserInfo;
+export default ImgWithInfo;

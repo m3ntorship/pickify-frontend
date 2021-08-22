@@ -296,7 +296,6 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
           className="percentage"
         >
           🌟
-           
           <span>
             80
             %
@@ -475,7 +474,6 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
         <p
           className="percentage"
         >
-           
           <span>
             20
             %

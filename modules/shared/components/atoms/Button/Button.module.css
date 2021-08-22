@@ -63,7 +63,6 @@
 }
 
 .btn-full-width.btn-primary,
-.btn-full-width.btn-primary,
 .btn-full-width.btn-secondary,
 .btn-full-width.btn-tertiary {
   @apply px-m py-1.5;

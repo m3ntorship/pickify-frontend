@@ -16,6 +16,7 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
   percentage,
   isVoted,
   onOptionClick,
+  isOptionChecked,
 }): ReactElement => {
   return (
     <div className="relative w-auto" data-testid="image-poll-option">
@@ -38,6 +39,7 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
                 mostVoted={mostVoted}
                 percentage={percentage}
                 verticalMeterHeight={150}
+                isOptionChecked={isOptionChecked}
               />
             ) : (
               <ImagePollCovered

@@ -1,4 +1,4 @@
-export const handleUserInfoVariant = (
+export const handleImgWithInfoVariant = (
   isHidden: boolean,
   profilePic?: string,
 ): 'anonymous' | 'filled' | 'notFilled' => {
