@@ -2,7 +2,7 @@
 
 exports[`Friend Suggestion Component Should render correctly 1`] = `
 <div
-  className="flex justify-between"
+  className="flex justify-between items-center"
 >
   <div
     className="outer-wrapper"
