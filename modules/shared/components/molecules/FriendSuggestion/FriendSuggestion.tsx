@@ -20,7 +20,7 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   }`;
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between items-center">
       <ImgWithInfo
         isHidden={false}
         variant="avatar"
