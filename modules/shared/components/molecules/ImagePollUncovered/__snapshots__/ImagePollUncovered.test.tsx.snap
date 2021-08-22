@@ -100,7 +100,6 @@ exports[`ImagePollUncovered should render vertical Progress with primary meterCo
       className="percentage"
     >
       🌟
-       
       <span>
         50
         %
@@ -137,7 +136,6 @@ exports[`ImagePollUncovered should render vertical Progress with primary-shd05 m
     <p
       className="percentage"
     >
-       
       <span>
         50
         %
@@ -174,7 +172,6 @@ exports[`ImagePollUncovered should render vertical Progress with red meterColor 
     <p
       className="percentage"
     >
-       
       <span>
         50
         %
