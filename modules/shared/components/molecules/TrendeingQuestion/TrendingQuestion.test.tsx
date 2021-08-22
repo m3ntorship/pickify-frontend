@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
-import TrendingQuestion, { truncate } from './TrendingQuestion';
+import TrendingQuestion from './TrendingQuestion';
 
 describe('Trending Question Component', () => {
   it('Should render with image poll icon when type is image poll', () => {
@@ -31,13 +31,5 @@ describe('Trending Question Component', () => {
     );
     const type = getByText('Mini Survey');
     expect(type).toBeInTheDocument();
-  });
-});
-
-describe('truncate function works correctly', () => {
-  it('Truncates text correctly when the length is bigger than 29', () => {
-    const string = truncate('What are 2021 best programmin 7agaaaaaaaaa');
-    const expectedResult = 'What are 2021 best programmin...';
-    expect(string).toEqual(expectedResult);
   });
 });

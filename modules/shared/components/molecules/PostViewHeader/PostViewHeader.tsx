@@ -2,7 +2,7 @@ import React from 'react';
 import type { ReactElement, FC } from 'react';
 import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import type { IPostViewHeader } from './IPostViewHeader';
-import UserInfo from '../UserInfo/UserInfo';
+import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
 import { getUserUUID } from '../../../logic/userAuth/userAuth';
@@ -51,7 +51,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   };
   return (
     <>
-      <UserInfo
+      <ImgWithInfo
         isHidden={isHidden}
         profilePic={profilePic}
         title={name ?? ''}

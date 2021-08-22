@@ -7,7 +7,7 @@ import {
 import type { IFriendSuggestion } from './IFriendSuggestion';
 import PlusIcon from '../../icons/addFriend.svg';
 import DeleteIcon from '../../icons/deleteFriend.svg';
-import Avatar from '../../atoms/Avatar/Avatar';
+import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 import Button from '../../atoms/Button/Button';
 
 const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
@@ -15,19 +15,19 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   username,
   mutualFriends,
 }): ReactElement => {
+  const subTitle = `${mutualFriends} ${
+    mutualFriends > 1 ? 'Mutual Friends' : 'Mutual Friend'
+  }`;
+
   return (
-    <div className="flex justify-between items-center">
-      <div className="flex">
-        <Avatar variant="filled" profilePic={profilePic} size="medium" />
-        <div className="ml-4">
-          <p>{username}</p>
-          <p className="text-xs font-light text-dark-grey">
-            {mutualFriends > 1
-              ? `${mutualFriends} Mutual Friends`
-              : `${mutualFriends} Mutual Friend`}
-          </p>
-        </div>
-      </div>
+    <div className="flex justify-between">
+      <ImgWithInfo
+        isHidden={false}
+        variant="avatar"
+        title={username}
+        profilePic={profilePic}
+        subTitle={subTitle}
+      />
       <div className="flex">
         <div className="mr-2">
           <Button

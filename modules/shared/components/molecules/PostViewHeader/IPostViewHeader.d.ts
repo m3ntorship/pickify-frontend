@@ -8,7 +8,7 @@ declare namespace IPostViewHeader {
     name?: string;
     date: string;
   }
-  // The IData equals to IUserInfo.IData
+  // The IData equals to IImgWithInfo.IData
 }
 
 export { IPostViewHeader };

@@ -1,4 +1,4 @@
-declare namespace IUserInfo {
+declare namespace IImgWithInfo {
   export interface IProps {
     profilePic?: string;
     isHidden: boolean;
@@ -9,4 +9,4 @@ declare namespace IUserInfo {
   }
 }
 
-export { IUserInfo };
+export { IImgWithInfo };
