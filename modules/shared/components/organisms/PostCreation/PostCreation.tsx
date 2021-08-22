@@ -67,10 +67,13 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       miniSurvey: getMediaCount(postCreationGlobalState.miniSurvey),
     });
   }, [
+    postCreationGlobalState.imagePoll,
     postCreationGlobalState.imagePoll.media,
     postCreationGlobalState.imagePoll.groups,
+    postCreationGlobalState.textPoll,
     postCreationGlobalState.textPoll.media,
     postCreationGlobalState.textPoll.groups,
+    postCreationGlobalState.miniSurvey,
     postCreationGlobalState.miniSurvey.media,
     postCreationGlobalState.miniSurvey.groups,
   ]);

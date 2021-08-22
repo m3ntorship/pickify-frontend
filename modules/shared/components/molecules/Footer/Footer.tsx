@@ -67,7 +67,7 @@ const Footer: FC = (): ReactElement => {
     } else {
       setShowButton(!showButton);
     }
-  }, []);
+  }, [footerState, isResponsive, showButton]);
 
   const showAllLinks = (): void => {
     setFooterState(footerState.map((item) => ({ ...item, visible: true })));

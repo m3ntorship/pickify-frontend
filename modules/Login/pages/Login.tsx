@@ -28,7 +28,7 @@ const Login: FC = (): ReactElement => {
         redirectToHomePage();
       }
     }
-  }, [isAuthenticated, loading]);
+  }, [isAuthenticated, loading, redirectToHomePage, redirectToPostPage]);
 
   const login = async (): Promise<void> => {
     await loginUser();
