@@ -109,7 +109,7 @@ const FileUploader: FC<IFileUploader.IProps> = ({
       <input
         type="file"
         id="image"
-        accept="images/*"
+        accept="image/*"
         multiple
         className={styles['inputfile-for-type-image']}
         {...ImageUploaderRegister}
