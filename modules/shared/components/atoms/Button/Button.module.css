@@ -59,7 +59,7 @@
 
 /* the only of it is kind  -the responsive cancel button-  */
 .btn-normal.btn-tertiary {
-  @apply px-xll py-1.5;
+  @apply px-mx sm:px-xll py-1.5;
 }
 
 .btn-full-width.btn-primary,
