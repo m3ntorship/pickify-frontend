@@ -1,7 +1,7 @@
 export enum buttonVariantValues {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  QUATERNARY = 'quaternary',
+  Tertiary = 'tertiary',
   TEXT = 'text',
   LIKE = 'like',
   DISLIKE = 'dislike',

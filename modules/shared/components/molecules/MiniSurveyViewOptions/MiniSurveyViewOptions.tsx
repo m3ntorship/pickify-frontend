@@ -32,7 +32,7 @@ const MiniSurveyViewOptions: FC<IMiniSurveyViewOptions.IProps> = ({
       {showExpandButton ? (
         <Button
           buttonText={
-            isExpanded ? 'Collapse all results' : 'Expand all results'
+            isExpanded ? 'Switch to summary view' : 'Switch to votes view'
           }
           variant={EButton.buttonVariantValues.TEXT}
           leftIcon

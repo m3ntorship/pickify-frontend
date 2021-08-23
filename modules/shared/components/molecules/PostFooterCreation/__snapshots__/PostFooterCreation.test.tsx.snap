@@ -103,7 +103,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
     className="responsive-button"
   >
     <button
-      className="btn btn-normal"
+      className="btn btn-tertiary btn-normal"
       disabled={false}
       type="button"
     >
@@ -223,7 +223,7 @@ exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
     className="responsive-button"
   >
     <button
-      className="btn btn-normal"
+      className="btn btn-tertiary btn-normal"
       disabled={false}
       type="button"
     >
