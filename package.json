@@ -27,6 +27,7 @@
     "@types/react": "^17.0.5",
     "@types/react-test-renderer": "^17.0.1",
     "autoprefixer": "^9.0.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "classnames": "^2.3.1",
     "cookie": "^0.4.1",
     "cookie-cutter": "^0.2.0",
