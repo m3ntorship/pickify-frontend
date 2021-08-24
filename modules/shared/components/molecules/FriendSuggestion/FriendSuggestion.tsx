@@ -1,12 +1,12 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
+import DeleteIcon from '@modules/shared/components/icons/deleteFriend.svg';
 import {
   buttonSizeValues,
   buttonVariantValues,
 } from '../../atoms/Button/types/EButton';
 import type { IFriendSuggestion } from './IFriendSuggestion';
 import PlusIcon from '../../icons/addFriend.svg';
-import DeleteIcon from '../../icons/deleteFriend.svg';
 import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 import Button from '../../atoms/Button/Button';
 
