@@ -12,6 +12,11 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
       data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
       disabled={true}
       id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
+      style={
+        Object {
+          "width": "22%",
+        }
+      }
       type="button"
     >
       <span
@@ -47,6 +52,11 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
       data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
       disabled={true}
       id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
+      style={
+        Object {
+          "width": "33%",
+        }
+      }
       type="button"
     >
       <span
@@ -82,6 +92,11 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
       data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
       disabled={true}
       id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
+      style={
+        Object {
+          "width": "44%",
+        }
+      }
       type="button"
     >
       <span
