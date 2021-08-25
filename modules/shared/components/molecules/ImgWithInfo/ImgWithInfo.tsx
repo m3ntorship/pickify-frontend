@@ -30,7 +30,7 @@ const ImgWithInfo: FC<IImgWithInfo.IProps> = ({
         <span className={styles.title} data-testid="title">
           {username}
           {isHidden && title && (
-            <span className="ml-2 text-grey text-xs">(anonymous)</span>
+            <span className="ml-2 text-grey text-xs">(posted anonymously)</span>
           )}
         </span>
         <span title={description} className={styles.subTitle}>

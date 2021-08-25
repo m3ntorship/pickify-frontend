@@ -51,7 +51,7 @@ exports[`ImgWithInfo snapshots should render avatar with anonymous variant if is
       <span
         className="ml-2 text-grey text-xs"
       >
-        (anonymous)
+        (posted anonymously)
       </span>
     </span>
     <span
@@ -149,7 +149,7 @@ exports[`ImgWithInfo snapshots should render avatar with filled variant event if
       <span
         className="ml-2 text-grey text-xs"
       >
-        (anonymous)
+        (posted anonymously)
       </span>
     </span>
     <span
