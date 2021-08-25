@@ -7,14 +7,6 @@ import styles from './TextOptionViewUncoverd.module.css';
 import Check from '../../icons/checkMarkDefault.svg';
 import GoldenStarIcon from '../../icons/goldenStar.svg';
 
-const determineOptionWidth = (percentage: number): number => {
-  if (percentage < 10) {
-    return 10;
-  }
-
-  return percentage;
-};
-
 const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
   letter,
   optionBody,
@@ -38,7 +30,7 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
       className={textPollClasses}
       disabled
       style={{
-        width: `${determineOptionWidth(percentage ?? 0)}%`,
+        width: `${percentage ?? 0}%`,
       }}
     >
       <span className={styles['flex-container']}>
