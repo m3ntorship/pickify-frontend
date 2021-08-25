@@ -4,12 +4,10 @@ import type { FC, ReactElement } from 'react';
 import type { ISlider } from './ISlider';
 import styles from './Slider.module.css';
 
-const imageHeight = 100;
-
 const Slider: FC<ISlider.IProps> = ({
   progress,
   type = 'horizontal',
-  verticalMeterHeight = imageHeight,
+  verticalMeterHeight = 100,
   meterColor = 'primary',
   radius,
 }): ReactElement => {
