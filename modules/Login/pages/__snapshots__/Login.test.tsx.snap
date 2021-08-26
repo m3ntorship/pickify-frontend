@@ -57,100 +57,94 @@ exports[`Login page Snapshot testing for the login component 1`] = `
     </div>
     <div>
       <footer
-        className="footer items-center"
+        className="footer"
       >
-        <div>
-          <ul
-            className="list-parent"
+        <ul
+          className="list-parent"
+        >
+          <li
+            className="link-item"
           >
-            <li
-              className="link-item mb-4 "
-            >
-              <a
-                className="link"
-                href="/"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-              >
-                About
-              </a>
-            </li>
-            <li
-              className="link-item mb-4 "
-            >
-              <a
-                className="link"
-                href="/"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-              >
-                Blog
-              </a>
-            </li>
-            <li
-              className="link-item mb-4 "
-            >
-              <a
-                className="link"
-                href="/"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-              >
-                Careers
-              </a>
-            </li>
-            <li
-              className="link-item mb-4 "
-            >
-              <a
-                className="link"
-                href="/"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-              >
-                Terms & Conditions
-              </a>
-            </li>
-            <li
-              className="link-item mb-4 "
-            >
-              <a
-                className="link"
-                href="/"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-              >
-                Help
-              </a>
-            </li>
-            <li
-              className="link-item mb-4 "
-            >
-              <a
-                className="link"
-                href="/"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-              >
-                Contact
-              </a>
-            </li>
-            <button
-              className="show-more-btn"
+            <a
+              className="link"
+              href="/"
               onClick={[Function]}
-              type="button"
+              onMouseEnter={[Function]}
             >
-              More
-            </button>
-          </ul>
-        </div>
-        <div>
+              About
+            </a>
+          </li>
+          <li
+            className="link-item"
+          >
+            <a
+              className="link"
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              Blog
+            </a>
+          </li>
+          <li
+            className="link-item"
+          >
+            <a
+              className="link"
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              Careers
+            </a>
+          </li>
+          <li
+            className="link-item"
+          >
+            <a
+              className="link"
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              Terms & Conditions
+            </a>
+          </li>
+          <li
+            className="link-item"
+          >
+            <a
+              className="link"
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              Help
+            </a>
+          </li>
+          <li
+            className="link-item"
+          >
+            <a
+              className="link"
+              href="/"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+        <div
+          className="mt-2"
+        >
           <h3
             className="copy-rights"
           >
             Pikcify © 2021
           </h3>
         </div>
+        <div />
       </footer>
     </div>
   </div>
