@@ -135,16 +135,17 @@ exports[`Login page Snapshot testing for the login component 1`] = `
             </a>
           </li>
         </ul>
-        <div
-          className="mt-2"
-        >
-          <h3
-            className="copy-rights"
+        <div>
+          <div
+            className="text-center mt-4"
           >
-            Pikcify © 2021
-          </h3>
+            <h3
+              className="copy-rights"
+            >
+              Pikcify © 2021
+            </h3>
+          </div>
         </div>
-        <div />
       </footer>
     </div>
   </div>

@@ -1,15 +1,11 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { footerData } from './footerData';
 import styles from './Footer.module.css';
+import type { IFooter } from './IFooter';
 
-const Footer: FC = (): ReactElement => {
-  const router = useRouter();
-  const { pathname } = router;
-  const showCenteredLogo = pathname === '/login';
-
+const Footer: FC<IFooter.IProps> = ({ showCenteredLogo }): ReactElement => {
   return (
     <footer className={styles.footer}>
       <ul className={styles['list-parent']}>
