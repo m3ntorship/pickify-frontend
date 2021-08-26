@@ -11,7 +11,8 @@
 }
 
 .link {
-  @apply hover:underline font-light text-xs text-dark-grey;
+  @apply hover:underline font-light text-xs text-dark-grey
+  whitespace-nowrap;
 }
 
 .show-more-btn {
