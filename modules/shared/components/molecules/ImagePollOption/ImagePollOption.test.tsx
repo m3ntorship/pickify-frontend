@@ -16,6 +16,7 @@ describe('ImagePollOption', () => {
           percentage={0}
           isVoted={false}
           onOptionClick={(): boolean => true}
+          isOptionChecked={false}
         />,
       )
       .toJSON();
@@ -35,6 +36,7 @@ describe('ImagePollOption', () => {
           percentage={80}
           isVoted
           onOptionClick={(): boolean => true}
+          isOptionChecked={false}
         />,
       )
       .toJSON();
@@ -54,6 +56,7 @@ describe('ImagePollOption', () => {
           percentage={20}
           isVoted
           onOptionClick={(): boolean => true}
+          isOptionChecked={false}
         />,
       )
       .toJSON();

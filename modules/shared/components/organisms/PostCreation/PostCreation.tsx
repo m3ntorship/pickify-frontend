@@ -207,7 +207,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       <form onSubmit={useFormConfig.handleSubmit(onSubmit, onError)}>
         <Box
           isWhiteColor
-          classes="flex flex-col justify-between w-screen h-screen sm:w-auto sm:h-auto sm:max-h-33xl"
+          classes="flex flex-col justify-between w-screen h-screen md:w-auto md:h-auto md:max-h-33xl"
         >
           <>
             <Box.Header>

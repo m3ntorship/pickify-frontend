@@ -32,6 +32,6 @@ module.exports = {
       },
     ],
     'block-no-empty': null,
-    'unit-allowed-list': ['em', 'rem', 's', 'fr'],
+    'unit-allowed-list': ['em', 'rem', 's', 'fr', '%'],
   },
 };

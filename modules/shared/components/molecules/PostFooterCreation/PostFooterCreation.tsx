@@ -49,7 +49,7 @@ const PostFooterCreation: FC<IPostFooterCreation.IProps> = ({
       <div className={styles['responsive-button']}>
         <Button
           size={EButton.buttonSizeValues.NORMAL}
-          variant={EButton.buttonVariantValues.QUATERNARY}
+          variant={EButton.buttonVariantValues.Tertiary}
           onClick={handleCancelButtonClick}
           buttonText="cancel"
         />

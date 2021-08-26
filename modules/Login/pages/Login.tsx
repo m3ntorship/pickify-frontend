@@ -16,13 +16,13 @@ import Box from '../../shared/components/atoms/Box/Box';
 
 const Login: FC = (): ReactElement => {
   const { loading, isAuthenticated } = useAuth();
-  const { redirectToHomePage, redirectToPostPage } = useRedirect();
+  const { redirectToHomePage, redirectToPage } = useRedirect();
 
   useEffect(() => {
     if (!loading && isAuthenticated) {
       const lastPage = getLastPage();
       if (lastPage) {
-        redirectToPostPage(lastPage);
+        redirectToPage(lastPage);
         clearLastPage();
       } else {
         redirectToHomePage();

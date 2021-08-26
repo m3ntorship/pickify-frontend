@@ -13,7 +13,8 @@
 
 .form-input {
   @apply box-border border border-grey-shd5 rounded-md pl-m pr-xxl py-xsvv w-full text-dark-grey hover:border-grey-shd2 focus:border-dark focus:text-dark
-  focus:outline-none text-sm;
+  focus:outline-none text-sm shadow-none;
+  -webkit-appearance: none;
 }
 
 .form-input::placeholder {

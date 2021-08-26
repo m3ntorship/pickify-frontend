@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserInfo snapshots should render Icon without avatar when passing variant={icon} 1`] = `
+exports[`ImgWithInfo snapshots should render Icon without avatar when passing variant={icon} 1`] = `
 <div
   className="outer-wrapper"
 >
@@ -25,7 +25,7 @@ exports[`UserInfo snapshots should render Icon without avatar when passing varia
 </div>
 `;
 
-exports[`UserInfo snapshots should render avatar with anonymous variant if isHidden={true} with no image 1`] = `
+exports[`ImgWithInfo snapshots should render avatar with anonymous variant if isHidden={true} with no image 1`] = `
 <div
   className="outer-wrapper"
 >
@@ -63,7 +63,7 @@ exports[`UserInfo snapshots should render avatar with anonymous variant if isHid
 </div>
 `;
 
-exports[`UserInfo snapshots should render avatar with filled variant event if isHidden={true} but there is an image 1`] = `
+exports[`ImgWithInfo snapshots should render avatar with filled variant event if isHidden={true} but there is an image 1`] = `
 <div
   className="outer-wrapper"
 >
@@ -161,7 +161,7 @@ exports[`UserInfo snapshots should render avatar with filled variant event if is
 </div>
 `;
 
-exports[`UserInfo snapshots should render avatar with filled variant if there is an image and isHidden={false} 1`] = `
+exports[`ImgWithInfo snapshots should render avatar with filled variant if there is an image and isHidden={false} 1`] = `
 <div
   className="outer-wrapper"
 >
@@ -254,7 +254,7 @@ exports[`UserInfo snapshots should render avatar with filled variant if there is
 </div>
 `;
 
-exports[`UserInfo snapshots should render avatar with notFilled variant if isHidden={false} with no image 1`] = `
+exports[`ImgWithInfo snapshots should render avatar with notFilled variant if isHidden={false} with no image 1`] = `
 <div
   className="outer-wrapper"
 >

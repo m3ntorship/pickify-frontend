@@ -1,11 +1,11 @@
 import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
-import UserInfo from './UserInfo';
-import type { IUserInfo } from './IUserInfo';
+import ImgWithInfo from './ImgWithInfo';
+import type { IImgWithInfo } from './IImgWithInfo';
 
 export default {
-  title: 'molecules/UserInfo',
-  component: UserInfo,
+  title: 'molecules/ImgWithInfo',
+  component: ImgWithInfo,
   argTypes: {
     profilePic: {
       control: {
@@ -25,11 +25,11 @@ export default {
   },
 };
 
-const Template: Story<IUserInfo.IProps> = (args): ReactElement => (
-  <UserInfo {...args} />
+const Template: Story<IImgWithInfo.IProps> = (args): ReactElement => (
+  <ImgWithInfo {...args} />
 );
-export const UserInfoStory = Template.bind({});
-UserInfoStory.args = {
+export const ImgWithInfoStory = Template.bind({});
+ImgWithInfoStory.args = {
   isHidden: true,
   title: 'Ahmed Ayoub',
   subTitle: '3 months ago',
