@@ -17,21 +17,21 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
   isExpanded,
   type,
 }): ReactElement => {
-  const textPoll = classNames(styles.btnBody, {
+  const textPollClasses = classNames(styles.btnBody, {
     [styles.mostVoted]: mostVoted,
     [styles.leastVoted]: !mostVoted,
   });
-  const svgClasses = classNames({
-    [styles.svgDark]: !mostVoted,
-    [styles.svgWhite]: mostVoted,
-  });
+
   return type !== EPostType.MiniSurvey || isExpanded ? (
     <button
       type="button"
       id={id}
       data-testid={id}
-      className={textPoll}
+      className={textPollClasses}
       disabled
+      style={{
+        width: `${percentage ?? 0}%`,
+      }}
     >
       <span className={styles['flex-container']}>
         {letter && <span className={styles.letter}>{letter}</span>}
@@ -39,11 +39,7 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
           {optionBody}
         </p>
         <span />
-        {isOptionChecked && (
-          <span className={styles['svg-check']}>
-            <Check className={svgClasses} />
-          </span>
-        )}
+        {isOptionChecked && <Check className="fill-dark ml-2" />}
       </span>
       <span className={styles.percentage}>
         {mostVoted ? <GoldenStarIcon className={styles.goldenStarIcon} /> : ''}

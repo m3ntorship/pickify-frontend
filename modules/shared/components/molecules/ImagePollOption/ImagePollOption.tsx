@@ -38,7 +38,7 @@ const ImagePollOption: FC<IImagePollOption.IProps> = ({
                 leastVoted={leastVoted}
                 mostVoted={mostVoted}
                 percentage={percentage}
-                verticalMeterHeight={150}
+                verticalMeterHeight={268}
                 isOptionChecked={isOptionChecked}
               />
             ) : (
