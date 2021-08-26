@@ -18,6 +18,7 @@ import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../../../context/AuthUserContext/AuthUserContext';
 import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import Box from '../../atoms/Box/Box';
+import styles from './PostCreation.module.css';
 
 const toasterHandler = (res: IpostCreationAPI.ICreatePollReturnedRes): void => {
   if (res.statusCode >= 400 || res.statusCode === 0) {
@@ -201,10 +202,13 @@ const PostCreation: FC<IPostCreation.IProps> = ({
 
   return (
     <FormProvider {...useFormConfig}>
-      <form onSubmit={useFormConfig.handleSubmit(onSubmit, onError)}>
+      <form
+        onSubmit={useFormConfig.handleSubmit(onSubmit, onError)}
+        className={styles.postForm}
+      >
         <Box
           isWhiteColor
-          classes="flex flex-col justify-between w-screen h-screen md:w-auto md:h-auto md:max-h-33xl"
+          classes="flex flex-col justify-between h-full w-full md:w-auto md:h-auto md:max-h-33xl"
         >
           <>
             <Box.Header>
