@@ -15,7 +15,7 @@
 }
 
 .submitted-container {
-  @apply flex flex-col justify-center items-center whitespace-nowrap px-4xxl py-4xl;
+  @apply flex flex-col justify-center items-center whitespace-nowrap px-xvxl py-3xxl;
 }
 
 .form-answer {
@@ -41,6 +41,5 @@
    placeholder-grey-shd1
    pt-xsvv pl-4 mt-2
    focus:outline-none  focus:border-grey-shd5
-   resize-none	
-   ;
+   resize-none;
 }

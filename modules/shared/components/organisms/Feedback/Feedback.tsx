@@ -62,11 +62,6 @@ const Feedback: FC = (): ReactElement => {
     }
     return 'positiveFeedback';
   };
-
-  setInterval(() => {
-    console.log(checkedRate);
-  }, 2000);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setCheckedRate(e.target.value);
     setDisabled(false);
@@ -104,7 +99,7 @@ const Feedback: FC = (): ReactElement => {
                         How would you rate your experience?
                       </h1>
                       <div className={styles.emojis}>
-                        <fieldset>
+                        <fieldset className="flex flex-row">
                           {emojis.map((emoji) => {
                             return (
                               <p
@@ -158,7 +153,7 @@ const Feedback: FC = (): ReactElement => {
                             id="Feedback"
                             name="Feedback"
                             rows={4}
-                            cols={35}
+                            cols={30}
                             placeholder="Enter your feedback"
                           />
                         </div>
