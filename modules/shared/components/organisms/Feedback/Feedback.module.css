@@ -18,7 +18,7 @@
   @apply flex flex-col justify-center items-center whitespace-nowrap px-4xxl py-4xl;
 }
 
-.form__answer {
+.form-answer {
   @apply inline-block;
 }
 
@@ -34,4 +34,12 @@
 .form-answer input[type='radio']:checked ~ label,
 .form-answer input[type='radio']:hover ~ label {
   @apply filter-none opacity-100;
+}
+
+.text-area {
+  @apply border border-solid border-grey-shd5 rounded-md
+   placeholder-grey-shd1
+   pt-xsvv pl-4 mt-2
+   focus:outline-none  focus:border-grey-shd5
+   ;
 }
