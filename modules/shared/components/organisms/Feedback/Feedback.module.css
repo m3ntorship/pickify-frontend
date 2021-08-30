@@ -41,5 +41,6 @@
    placeholder-grey-shd1
    pt-xsvv pl-4 mt-2
    focus:outline-none  focus:border-grey-shd5
+   resize-none	
    ;
 }

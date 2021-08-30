@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import styles from './Feedback.module.css';
 import Button from '../../atoms/Button/Button';
@@ -12,6 +12,8 @@ import Box from '../../atoms/Box/Box';
 import HappyIcon from '../../icons/happy.svg';
 import FeedbackCheckMark from '../../icons/feedbackCheckMark.svg';
 import { useDetectClickOut } from '../../../hooks/useDetectClickOut/useDetectClickOut';
+import TextInput from '../../atoms/TextInputs/TextInput';
+import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 
 const Feedback: FC = (): ReactElement => {
   const emojis: {
@@ -50,12 +52,20 @@ const Feedback: FC = (): ReactElement => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
 
+  useEffect(() => {
+    setCheckedRate('');
+  }, [show]);
+
   const positiveOrNegativeFeedback = (): string => {
     if (Number(checkedRate) <= 3) {
       return 'negativeFeedback';
     }
     return 'positiveFeedback';
   };
+
+  setInterval(() => {
+    console.log(checkedRate);
+  }, 2000);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setCheckedRate(e.target.value);
@@ -120,21 +130,39 @@ const Feedback: FC = (): ReactElement => {
                           })}
                         </fieldset>
                       </div>
+                      {!checkedRate && (
+                        <div>
+                          <TextInput
+                            label="Do you have any comments?"
+                            id="my label"
+                            inputType={ETextInput.InputType.Default}
+                            variants={ETextInput.Variants.Default}
+                            disabled={false}
+                            value=""
+                            placeholder="Enter your feedback"
+                            onChangeInputValueHandler={(): boolean => true}
+                            onClickDeleteInputValueHandler={(): boolean => true}
+                            onBlurInputHandler={(): boolean => true}
+                          />
+                        </div>
+                      )}
 
-                      <div className="flex flex-col">
-                        <label className={styles.text} htmlFor="Feedback">
-                          Do you have any comments?
-                        </label>
+                      {checkedRate && (
+                        <div className="flex flex-col">
+                          <label className={styles.text} htmlFor="Feedback">
+                            Do you have any comments?
+                          </label>
 
-                        <textarea
-                          className={styles['text-area']}
-                          id="Feedback"
-                          name="Feedback"
-                          rows={4}
-                          cols={35}
-                          placeholder="Enter your feedback"
-                        />
-                      </div>
+                          <textarea
+                            className={styles['text-area']}
+                            id="Feedback"
+                            name="Feedback"
+                            rows={4}
+                            cols={35}
+                            placeholder="Enter your feedback"
+                          />
+                        </div>
+                      )}
 
                       <div className={styles.button}>
                         <Button
