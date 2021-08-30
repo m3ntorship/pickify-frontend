@@ -35,3 +35,11 @@
 .form-answer input[type='radio']:hover ~ label {
   @apply filter-none opacity-100;
 }
+
+.text-area {
+  @apply border border-solid border-grey-shd5 rounded-md
+   placeholder-grey-shd1
+   pt-xsvv pl-4 mt-2
+   focus:outline-none  focus:border-grey-shd5
+   ;
+}

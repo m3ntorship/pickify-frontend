@@ -8,10 +8,9 @@ import Good from '../../icons/good.svg';
 import Bad from '../../icons/bad.svg';
 import Neutral from '../../icons/neutral.svg';
 import Amazing from '../../icons/amazing.svg';
-import TextInput from '../../atoms/TextInputs/TextInput';
-import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
 import Box from '../../atoms/Box/Box';
 import HappyIcon from '../../icons/happy.svg';
+import FeedbackCheckMark from '../../icons/feedbackCheckMark.svg';
 import { useDetectClickOut } from '../../../hooks/useDetectClickOut/useDetectClickOut';
 
 const Feedback: FC = (): ReactElement => {
@@ -48,19 +47,8 @@ const Feedback: FC = (): ReactElement => {
   ];
   const [checkedRate, setCheckedRate] = useState('');
   const [disabled, setDisabled] = useState(true);
-  const [inputValue, setInputValue] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
-
-  const onChangeInputValueHandler = (
-    id: string,
-    e: React.ChangeEvent<HTMLInputElement>,
-  ): void => {
-    setInputValue(e.target.value);
-  };
-  const onClickDeleteInputValueHandler = (): void => {
-    setInputValue('');
-  };
 
   const positiveOrNegativeFeedback = (): string => {
     if (Number(checkedRate) <= 3) {
@@ -77,9 +65,9 @@ const Feedback: FC = (): ReactElement => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setIsSubmitted(true);
-    setTimeout(() => {
-      setShow(false);
-    }, 2000);
+  };
+  const handleCancelButtonClick = (): void => {
+    setShow(false);
   };
   return (
     <div className="md:relative">
@@ -130,20 +118,18 @@ const Feedback: FC = (): ReactElement => {
                         })}
                       </div>
 
-                      <div>
-                        <TextInput
-                          label="Do you have any comments?"
-                          id="my label"
-                          inputType={ETextInput.InputType.Default}
-                          variants={ETextInput.Variants.Default}
-                          disabled={false}
-                          value={inputValue}
+                      <div className="flex flex-col">
+                        <label className={styles.text} htmlFor="Feedback">
+                          Do you have any comments?
+                        </label>
+
+                        <textarea
+                          className={styles['text-area']}
+                          id="Feedback"
+                          name="Feedback"
+                          rows={4}
+                          cols={35}
                           placeholder="Enter your feedback"
-                          onChangeInputValueHandler={onChangeInputValueHandler}
-                          onClickDeleteInputValueHandler={
-                            onClickDeleteInputValueHandler
-                          }
-                          onBlurInputHandler={(): boolean => true}
                         />
                       </div>
 
@@ -158,34 +144,43 @@ const Feedback: FC = (): ReactElement => {
                       </div>
                     </form>
                   )}
-
-                  {isSubmitted &&
-                    positiveOrNegativeFeedback() === 'negativeFeedback' && (
-                      <div
-                        className={styles['submitted-container']}
-                        data-testid="negativeFeedback"
-                      >
-                        <Bad className="mb-6" />
-                        <h1 className={styles.text}>
-                          Sorry to hear about your experience!
-                        </h1>
-                        <h4 className={styles['sub-text']}>
-                          We will do our best to improve it
-                        </h4>
+                  {isSubmitted && (
+                    <>
+                      <div className={styles['submitted-container']}>
+                        <span className="mb-6 fill-success">
+                          <FeedbackCheckMark />
+                        </span>
+                        {positiveOrNegativeFeedback() ===
+                          'negativeFeedback' && (
+                          <div data-testid="negativeFeedback">
+                            <h1 className={styles.text}>
+                              Sorry to hear about your experience!
+                            </h1>
+                            <h4 className={styles['sub-text']}>
+                              We will do our best to improve it
+                            </h4>
+                          </div>
+                        )}
+                        {positiveOrNegativeFeedback() ===
+                          'positiveFeedback' && (
+                          <div data-testid="positiveFeedback">
+                            <h1 className={styles.text}>
+                              Thanks for your feedback!
+                            </h1>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  {isSubmitted &&
-                    positiveOrNegativeFeedback() === 'positiveFeedback' && (
-                      <div
-                        className={styles['submitted-container']}
-                        data-testid="positiveFeedback"
-                      >
-                        <Amazing className="mb-6" />
-                        <h1 className={styles.text}>
-                          Thanks for your feedback!
-                        </h1>
+                      <div className={styles.button}>
+                        <Button
+                          size={EButton.buttonSizeValues.FULLWIDTH}
+                          variant={EButton.buttonVariantValues.PRIMARY}
+                          disabled={disabled}
+                          buttonText="Cancel"
+                          onClick={handleCancelButtonClick}
+                        />
                       </div>
-                    )}
+                    </>
+                  )}
                 </>
               </Box.Body>
             </>
