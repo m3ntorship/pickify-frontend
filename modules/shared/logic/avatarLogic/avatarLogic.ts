@@ -9,6 +9,8 @@ export const determineAvatarSize = (componentSize: string): number => {
   const smallSize = 32;
   const mediumSize = 40;
   const largeSize = 56;
+  const extraLargeSize = 64;
+  const superLargeSize = 88;
   if (componentSize === 'extra-small') {
     return extraSmallSize;
   }
@@ -17,6 +19,12 @@ export const determineAvatarSize = (componentSize: string): number => {
   }
   if (componentSize === 'medium') {
     return mediumSize;
+  }
+  if (componentSize === 'extra-large') {
+    return extraLargeSize;
+  }
+  if (componentSize === 'super-large') {
+    return superLargeSize;
   }
   return largeSize;
 };

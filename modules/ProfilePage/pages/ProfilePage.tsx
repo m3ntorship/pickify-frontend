@@ -1,46 +1,80 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import ProfileUserLoader from '@modules/shared/components/atoms/ProfileUserLoader/ProfileUserLoader';
-import ProfileTextPostLoader from '@modules/shared/components/atoms/ProfileTextPostLoader/ProfileTextPostLoader';
-import ProfileImagePostLoader from '@modules/shared/components/atoms/ProfileImagePostLoader/ProfileImagePostLoader';
 import { useAuth } from 'context/AuthUserContext/AuthUserContext';
 import { capitalizeFirstLetterOfEveryWord } from '@modules/shared/logic/capitalizeFirstLetterOfEveryWord/capitalizeFirstLetterOfEveryWord';
 import Head from 'next/head';
-import styles from './ProfilePage.module.css';
+import ImgWithInfo from '@modules/shared/components/molecules/ImgWithInfo/ImgWithInfo';
+import Tab from '@modules/shared/components/atoms/Tab/Tab';
+import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
+import Posts from '@modules/HomePage/components/Posts/Posts';
+import { tabGroupData } from '../../shared/components/molecules/TabGroup/data';
+import Edit from '../../shared/components/icons/edit.svg';
 import Box from '../../shared/components/atoms/Box/Box';
-import PageHeader from '../../shared/components/atoms/PageHeader/PageHeader';
-import LoaderMessage from '../../shared/components/atoms/LoaderMessage/LoaderMessage';
+// import TabGroup from '@modules/shared/components/molecules/TabGroup/TabGroup';
+// import styles from './ProfilePage.module.css';
 
-const ProfilePage: FC = (): ReactElement => {
+const ProfilePage: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const { user } = useAuth();
   const userName =
     user?.username && capitalizeFirstLetterOfEveryWord(user.username);
+  const tabsData = tabGroupData();
 
   return (
     <>
       <Head>
         <title>{userName} | Pickify</title>
       </Head>
-      <PageHeader>{userName}</PageHeader>
       <div className="relative">
         <Box classes="mb-6" isGreyColor>
           <Box.Body>
-            <div className={styles['profile-user']}>
-              <ProfileUserLoader />
+            <>
+              <div className="">
+                <ImgWithInfo
+                  isHidden={false}
+                  subTitle="Member since 2021"
+                  title="Ahmed Ayoub"
+                  profilePic={user?.userImg}
+                  variant="avatar"
+                  avatarSize="super-large"
+                />
+              </div>
+              <div>
+                <h6 className="absolute top-14 left-28 font-light text-sm ">
+                  posts:123 followers:456 following:789
+                </h6>
+              </div>
+              <div className="absolute top-6 right-6 cursor-pointer">
+                <Edit />
+              </div>
+            </>
+          </Box.Body>
+        </Box>
+
+        <div className="flex items-center">
+          {tabsData.map((tab) => (
+            <div
+              className="mr-xs last:mr-0 border border-grey rounded-full"
+              key={tab.id}
+            >
+              <Tab
+                id={tab.id}
+                svg={tab.svg}
+                value={tab.postType}
+                changeValHandler={(): boolean => true}
+                checkedValue="just me now"
+                onlyLabel
+              />
             </div>
-          </Box.Body>
-        </Box>
-        <Box classes="mb-6" isGreyColor>
-          <Box.Body>
-            <ProfileTextPostLoader />
-          </Box.Body>
-        </Box>
-        <Box isGreyColor>
-          <Box.Body>
-            <ProfileImagePostLoader />
-          </Box.Body>
-        </Box>
-        <LoaderMessage>Coming soon</LoaderMessage>
+          ))}
+        </div>
+
+        <div>
+          <Box classes="p-0">
+            <Box.Body classes="p-0">
+              <Posts data={data} />
+            </Box.Body>
+          </Box>
+        </div>
       </div>
     </>
   );

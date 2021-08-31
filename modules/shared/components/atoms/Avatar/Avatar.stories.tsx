@@ -10,7 +10,14 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['large', 'medium', 'small'],
+        options: [
+          'extra-small',
+          'small',
+          'medium',
+          'large',
+          'extra-large',
+          'super-large',
+        ],
       },
     },
     variant: {

@@ -1,3 +1,5 @@
+// import type { IAvatar } from '../../atoms/Avatar/IAvatar';
+
 declare namespace IImgWithInfo {
   export interface IProps {
     profilePic?: string;
@@ -6,6 +8,14 @@ declare namespace IImgWithInfo {
     subTitle: string;
     description?: string;
     variant: 'avatar' | 'icon';
+    avatarSize?:
+      | 'extra-large'
+      | 'extra-small'
+      | 'large'
+      | 'medium'
+      | 'small'
+      | 'super-large';
+    // avatarSize?: IAvatar.IProps.size
   }
 }
 

@@ -3,7 +3,7 @@
 }
 
 .user-wrapper {
-  @apply max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap;
+  @apply max-w-13xl flex flex-col  ml-4 whitespace-nowrap;
 }
 
 .title {

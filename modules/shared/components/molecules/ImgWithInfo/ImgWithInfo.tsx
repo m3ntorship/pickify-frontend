@@ -13,17 +13,20 @@ const ImgWithInfo: FC<IImgWithInfo.IProps> = ({
   description,
   variant,
   children,
+  avatarSize = 'medium',
 }): ReactElement => {
   const username = title.length !== 0 ? title : 'Anonymous';
 
   return (
     <div className={styles['outer-wrapper']}>
       {variant === 'avatar' && (
-        <Avatar
-          size="medium"
-          variant={handleImgWithInfoVariant(isHidden, profilePic)}
-          profilePic={profilePic}
-        />
+        <div className="w-full h-full">
+          <Avatar
+            size={avatarSize}
+            variant={handleImgWithInfoVariant(isHidden, profilePic)}
+            profilePic={profilePic}
+          />
+        </div>
       )}
       {variant === 'icon' && children}
       <div className={styles['user-wrapper']}>
