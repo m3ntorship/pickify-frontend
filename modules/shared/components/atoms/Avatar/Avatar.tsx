@@ -21,6 +21,8 @@ const Avatar: FC<IAvatar.IProps> = ({
     [styles.small]: size === 'small',
     [styles.medium]: size === 'medium',
     [styles.large]: size === 'large',
+    [styles['extra-large']]: size === 'extra-large',
+    [styles['super-large']]: size === 'super-large',
   });
   const avatarSize = determineAvatarSize(size);
   return (
