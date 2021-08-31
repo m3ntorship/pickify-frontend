@@ -54,6 +54,7 @@ const Feedback: FC = (): ReactElement => {
 
   useEffect(() => {
     setCheckedRate('');
+    setDisabled(true);
   }, [show]);
 
   const positiveOrNegativeFeedback = (): string => {
@@ -74,6 +75,7 @@ const Feedback: FC = (): ReactElement => {
   const handleCancelButtonClick = (): void => {
     setShow(false);
   };
+
   return (
     <div className="md:relative">
       <div
@@ -91,7 +93,7 @@ const Feedback: FC = (): ReactElement => {
         >
           <Box isWhiteColor>
             <>
-              <Box.Body>
+              <Box.Body classes="w-20xl">
                 <>
                   {!isSubmitted && (
                     <form onSubmit={handleSubmit}>
@@ -127,8 +129,10 @@ const Feedback: FC = (): ReactElement => {
                       </div>
                       {!checkedRate && (
                         <div>
+                          <p className={styles.text}>
+                            Do you have any comments?
+                          </p>
                           <TextInput
-                            label="Do you have any comments?"
                             id="my label"
                             inputType={ETextInput.InputType.Default}
                             variants={ETextInput.Variants.Default}
