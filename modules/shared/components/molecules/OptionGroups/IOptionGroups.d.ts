@@ -8,7 +8,11 @@ declare namespace IOptionGroups {
         body: string;
       }[];
     }[];
-    updateOptionsGroupNameHandler: (groupId: string, groupName: string) => void;
+    onChangeOptionsGroupNameValue: (
+      groupId: string,
+      e: React.ChangeEvent<HTMLInputElement>,
+    ) => void;
+    onClickDeleteOptionsGroupNameValueHandler: (groupId: string) => void;
     addOptionsGroupHandler: () => void;
     deleteOptionsGroupHandler: (groupId: string) => void;
     onChangeOptionValueHandler: (
