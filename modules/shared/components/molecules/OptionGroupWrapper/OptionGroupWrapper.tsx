@@ -7,8 +7,9 @@ const OptionGroupWrapper: FC<IOptionGroupWrapper.IProps> = ({
   id,
   index,
   optionsGroupName,
-  updateOptionsGroupNameHandler,
+  onChangeOptionsGroupNameValue,
   deleteOptionsGroupHandler,
+  onClickDeleteOptionsGroupNameValueHandler,
   children,
 }): ReactElement => {
   return (
@@ -17,13 +18,16 @@ const OptionGroupWrapper: FC<IOptionGroupWrapper.IProps> = ({
         className="mb-2 bg-grey-bg p-4 rounded-md"
         data-testid="optionGroup-wrapper"
       >
-        <div className="flex justify-between pb-2">
+        <div className="flex justify-between mb-2">
           <OptionGroupsHeader
             id={id}
             index={index}
             optionGroupName={optionsGroupName}
-            updateOptionsGroupNameHandler={updateOptionsGroupNameHandler}
+            onChangeOptionsGroupNameValue={onChangeOptionsGroupNameValue}
             deleteOptionsGroupHandler={deleteOptionsGroupHandler}
+            onClickDeleteOptionsGroupNameValueHandler={
+              onClickDeleteOptionsGroupNameValueHandler
+            }
           />
         </div>
         {children}

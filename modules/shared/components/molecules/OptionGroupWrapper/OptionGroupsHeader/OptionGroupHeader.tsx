@@ -1,81 +1,96 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { FC, ReactElement } from 'react';
-import ThreeDotsIcon from '../../../icons/verticalThreeDots.svg';
-import XIcon from '../../../icons/xicon.svg';
-import CheckSmall from '../../../icons/checkMarkSmall.svg';
+import TextInput from '@modules/shared/components/atoms/TextInputs/TextInput';
+import {
+  InputType,
+  Variants,
+} from '@modules/shared/components/atoms/TextInputs/types/ETextInput';
+import { useFormContext } from 'react-hook-form';
+import type { IPostCreationValidationFields } from '@modules/shared/types/IPostCreationValidationFields';
+import DropDown from '@modules/shared/components/atoms/DropDown/DropDown';
 import type { IOptionGroupHeader } from './IOptionGroupHeader';
+import ThreeDotsIcon from '../../../icons/verticalThreeDots.svg';
+
+import { postCreationMiniSurveyGroupDropDown } from '../../../atoms/DropDown/mockedOptions';
 
 const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
   id,
-  index,
   optionGroupName,
-  updateOptionsGroupNameHandler,
+  onChangeOptionsGroupNameValue,
+  onClickDeleteOptionsGroupNameValueHandler,
   deleteOptionsGroupHandler,
 }): ReactElement => {
-  const [groupName, setGroupName] = useState<string>(
-    optionGroupName || `Group ${index}`,
-  );
-  const [isGroupNameAdded, setIsGroupNameAdded] = useState<boolean>(false);
-  const optionsGroupNameEditedHandler = (): void => {
-    setIsGroupNameAdded(true);
-    updateOptionsGroupNameHandler(id, groupName);
+  const {
+    register,
+    setValue,
+    getValues,
+    formState: { errors, dirtyFields, isSubmitted },
+  } = useFormContext<IPostCreationValidationFields.IFields>();
+
+  const inputVariantsHandler = (optionId: string): Variants => {
+    if (errors.miniSurvey) {
+      if (errors.miniSurvey.groupsNames)
+        if (errors.miniSurvey.groupsNames[optionId]) return Variants.Error;
+    }
+    if (
+      dirtyFields.miniSurvey &&
+      getValues(`miniSurvey.groupsNames.${optionId}`)
+    ) {
+      if (dirtyFields.miniSurvey.groupsNames)
+        if (dirtyFields.miniSurvey.groupsNames[optionId])
+          return Variants.Success;
+    }
+
+    return Variants.Default;
   };
-  useEffect(() => {
-    optionsGroupNameEditedHandler();
-  }, []);
+
+  const miniSurveyGroupNameRegister = {
+    ...register(`miniSurvey.groupsNames.${id}`, {
+      required: true,
+      shouldUnregister: true,
+    }),
+  };
+
+  const onMenuOptionClickHandler = (optionId: string): void => {
+    switch (optionId) {
+      case 'delete':
+        deleteOptionsGroupHandler(id);
+        break;
+      default:
+        console.log('default');
+    }
+  };
   return (
     <>
-      {!isGroupNameAdded ? (
-        <>
-          <input
-            type="text"
-            placeholder="Group name"
-            className="focus:outline-none pr-1 bg-accent-shd7 text-sm text-dark max-w-12xl w-full"
-            value={groupName}
-            onChange={(e): void => {
-              setGroupName(e.target.value);
-            }}
-          />
-          <div className="flex">
-            {index > 1 && (
-              <button
-                data-testid="removeGroupButton"
-                type="button"
-                className="h-4 w-4 bg-error-shd7 rounded-full flex justify-center items-center mr-xs"
-                onClick={(): void => {
-                  deleteOptionsGroupHandler(id);
-                }}
-              >
-                <XIcon className="fill-error" />
-              </button>
-            )}
-            <button
-              data-testid="checkEditGroupButton"
-              type="button"
-              className="h-4 w-4 bg-success-shd7 rounded-full flex justify-center items-center"
-              onClick={optionsGroupNameEditedHandler}
-            >
-              <CheckSmall className="fill-success" />
-            </button>
-          </div>
-        </>
-      ) : (
-        <>
-          <span className="text-dark-grey font-normal text-sm">
-            {groupName}
-          </span>
-          <button
-            data-testid="editGroupButton"
-            type="button"
-            onClick={(): void => {
-              setIsGroupNameAdded(false);
-            }}
-            className="cursor-pointer"
-          >
-            <ThreeDotsIcon className="cursor-pointer fill-grey w-4 h-4" />
-          </button>
-        </>
-      )}
+      <div className="mr-4 w-full">
+        <TextInput
+          placeholder="Enter your group’s question"
+          id={id}
+          inputType={InputType.Default}
+          onChangeInputValueHandler={(inputId, e): void => {
+            miniSurveyGroupNameRegister.onChange(e) as Promise<boolean>;
+            onChangeOptionsGroupNameValue(inputId, e);
+          }}
+          value={optionGroupName}
+          onBlurInputHandler={(_, e): void => {
+            miniSurveyGroupNameRegister.onBlur(e) as Promise<boolean>;
+          }}
+          onClickDeleteInputValueHandler={(): void => {
+            setValue(`miniSurvey.groupsNames.${id}`, '');
+            onClickDeleteOptionsGroupNameValueHandler(id);
+          }}
+          variants={isSubmitted ? inputVariantsHandler(id) : Variants.Default}
+          {...miniSurveyGroupNameRegister}
+        />
+      </div>
+      <DropDown
+        variant="post"
+        options={postCreationMiniSurveyGroupDropDown}
+        onOptionMenuClick={onMenuOptionClickHandler}
+        size="md"
+      >
+        <ThreeDotsIcon className="cursor-pointer fill-grey w-4 h-4" />
+      </DropDown>
     </>
   );
 };
