@@ -8,10 +8,10 @@
   @apply text-sm capitalize whitespace-nowrap;
 }
 .percentage {
-  @apply font-normal text-sm flex items-center;
+  @apply font-normal text-sm flex items-center z-10;
 }
 .flex-container {
-  @apply flex items-center mr-4;
+  @apply flex items-center mr-4 z-10;
 }
 .mostVoted {
   @apply bg-primary-shd3;
