@@ -1,5 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Avatar renders with extra-large size and anonymous variant 1`] = `
+<div
+  className="wrapper extra-large"
+>
+  <svg
+    className="absolute w-full h-full"
+    data-file-name="SvgAnonymous"
+    height={64}
+    onClick={[Function]}
+    width={64}
+  />
+</div>
+`;
+
+exports[`Avatar renders with extra-large size and filled variant 1`] = `
+<div
+  className="wrapper extra-large"
+>
+  <div
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "display": "inline-block",
+        "margin": 0,
+        "maxWidth": "100%",
+        "overflow": "hidden",
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <img
+        alt=""
+        aria-hidden={true}
+        role="presentation"
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+        style={
+          Object {
+            "border": "none",
+            "display": "block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "padding": 0,
+          }
+        }
+      />
+    </div>
+    <img
+      className="absolute w-full h-full"
+      decoding="async"
+      onClick={[Function]}
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": undefined,
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders with extra-large size and not filled variant 1`] = `
+<div
+  className="wrapper extra-large"
+>
+  <svg
+    className="absolute w-full h-full"
+    data-file-name="SvgNotFilled"
+    height={64}
+    onClick={[Function]}
+    width={64}
+  />
+</div>
+`;
+
 exports[`Avatar renders with large size and anonymous variant 1`] = `
 <div
   className="wrapper large"
@@ -302,6 +404,108 @@ exports[`Avatar renders with small size and not filled variant 1`] = `
     height={32}
     onClick={[Function]}
     width={32}
+  />
+</div>
+`;
+
+exports[`Avatar renders with super-large size and anonymous variant 1`] = `
+<div
+  className="wrapper super-large"
+>
+  <svg
+    className="absolute w-full h-full"
+    data-file-name="SvgAnonymous"
+    height={88}
+    onClick={[Function]}
+    width={88}
+  />
+</div>
+`;
+
+exports[`Avatar renders with super-large size and filled variant 1`] = `
+<div
+  className="wrapper super-large"
+>
+  <div
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "display": "inline-block",
+        "margin": 0,
+        "maxWidth": "100%",
+        "overflow": "hidden",
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <img
+        alt=""
+        aria-hidden={true}
+        role="presentation"
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+        style={
+          Object {
+            "border": "none",
+            "display": "block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "padding": 0,
+          }
+        }
+      />
+    </div>
+    <img
+      className="absolute w-full h-full"
+      decoding="async"
+      onClick={[Function]}
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      style={
+        Object {
+          "border": "none",
+          "bottom": 0,
+          "boxSizing": "border-box",
+          "display": "block",
+          "height": 0,
+          "left": 0,
+          "margin": "auto",
+          "maxHeight": "100%",
+          "maxWidth": "100%",
+          "minHeight": "100%",
+          "minWidth": "100%",
+          "objectFit": undefined,
+          "objectPosition": undefined,
+          "padding": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "visibility": "hidden",
+          "width": 0,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders with super-large size and not filled variant 1`] = `
+<div
+  className="wrapper super-large"
+>
+  <svg
+    className="absolute w-full h-full"
+    data-file-name="SvgNotFilled"
+    height={88}
+    onClick={[Function]}
+    width={88}
   />
 </div>
 `;

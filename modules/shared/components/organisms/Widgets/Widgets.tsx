@@ -22,7 +22,7 @@ const Widgets: FC = (): ReactElement => {
           <FriendSuggestions />
         </div>
       )}
-      <Footer />
+      <Footer showCenteredLogo={false} />
     </div>
   );
 };

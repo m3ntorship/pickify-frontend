@@ -11,10 +11,10 @@ const Template: Story = (args) => {
   return (
     <>
       <div className="mb-8">
-        <Footer {...args} />
+        <Footer showCenteredLogo {...args} />
       </div>
       <div className="w-19xl m-auto">
-        <Footer {...args} />
+        <Footer showCenteredLogo={false} {...args} />
       </div>
     </>
   );

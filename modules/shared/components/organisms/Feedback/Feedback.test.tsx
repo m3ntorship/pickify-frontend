@@ -1,10 +1,6 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Feedback from './Feedback';
 
@@ -111,22 +107,5 @@ describe('Feedback', () => {
     const negativeFeedback = screen.getByTestId('negativeFeedback');
 
     expect(negativeFeedback).toBeInTheDocument();
-  });
-
-  beforeEach(() => jest.useFakeTimers());
-  afterEach(() => jest.useRealTimers());
-  it('wait for 2 sec after submission and then close the popup', async () => {
-    render(<Feedback />);
-    const openFeedback = screen.getByTestId('open-feedback');
-    userEvent.click(openFeedback);
-    const verySadEmoji = screen.getByTestId('1');
-    const submitButton = screen.getByRole('button');
-    userEvent.click(verySadEmoji);
-    userEvent.click(submitButton);
-
-    expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 2000);
-    const feedBackPopup = screen.queryByTestId('feedback-popup');
-    await waitForElementToBeRemoved(feedBackPopup);
   });
 });

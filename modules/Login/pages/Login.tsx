@@ -68,7 +68,7 @@ const Login: FC = (): ReactElement => {
           </Box>
         </div>
         <div>
-          <Footer />
+          <Footer showCenteredLogo />
         </div>
       </div>
     </div>
