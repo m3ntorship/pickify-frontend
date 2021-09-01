@@ -1,13 +1,13 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
-import TextInput from '@modules/shared/components/atoms/TextInputs/TextInput';
+import { useFormContext } from 'react-hook-form';
+import TextInput from '../../../atoms/TextInputs/TextInput';
 import {
   InputType,
   Variants,
-} from '@modules/shared/components/atoms/TextInputs/types/ETextInput';
-import { useFormContext } from 'react-hook-form';
-import type { IPostCreationValidationFields } from '@modules/shared/types/IPostCreationValidationFields';
-import DropDown from '@modules/shared/components/atoms/DropDown/DropDown';
+} from '../../../atoms/TextInputs/types/ETextInput';
+import type { IPostCreationValidationFields } from '../../../../types/IPostCreationValidationFields';
+import DropDown from '../../../atoms/DropDown/DropDown';
 import type { IOptionGroupHeader } from './IOptionGroupHeader';
 import ThreeDotsIcon from '../../../icons/verticalThreeDots.svg';
 
