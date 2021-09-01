@@ -2,7 +2,6 @@ import React from 'react';
 import type { ReactElement, FC } from 'react';
 import VerticalThreeDotsIcon from '../../icons/verticalThreeDots.svg';
 import type { IPostViewHeader } from './IPostViewHeader';
-import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 import DropDown from '../../atoms/DropDown/DropDown';
 import { options } from '../../atoms/DropDown/mockedOptions';
 import { getUserUUID } from '../../../logic/userAuth/userAuth';
@@ -10,6 +9,7 @@ import {
   humanReadableDate,
   exactDate,
 } from '../../../logic/formatDate/FormatDate';
+import ImgWithInfoDemo from '../ImgWithInfo copy/ImgWithInfo';
 
 const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],
@@ -49,16 +49,43 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         console.log('default');
     }
   };
+  // const userName = name?.length !== 0 ? name : 'Anonymous';
+
   return (
     <>
-      <ImgWithInfo
+      {/* <ImgWithInfo
         isHidden={isHidden}
         profilePic={profilePic}
         title={name ?? ''}
         subTitle={humanReadableDate(date)}
         description={exactDate(date)}
         variant="avatar"
-      />
+      /> */}
+      <ImgWithInfoDemo>
+        <div className="flex w-min">
+          <ImgWithInfoDemo.Image
+            avatarSize="medium"
+            variant="filled"
+            isHidden={isHidden}
+            ImageVariant="avatar"
+            profilePic={profilePic}
+          />
+          <ImgWithInfoDemo.Info classes="text-xs font-light	text-dark-grey block max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap">
+            <div className="flex flex-row">
+              <h1 className="text-sm font-normal text-dark">
+                {name ?? 'Anonymous'}
+              </h1>
+              {isHidden && name && (
+                <span className="ml-2 text-grey text-xs truncate">
+                  (anonymous)
+                </span>
+              )}
+            </div>
+            <span title={`${exactDate(date)}`}>{humanReadableDate(date)}</span>
+          </ImgWithInfoDemo.Info>
+        </div>
+      </ImgWithInfoDemo>
+
       <DropDown
         onOptionMenuClick={onMenuOptionClickHandler}
         options={getPostMenuOptions(options, userId)}

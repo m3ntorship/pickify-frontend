@@ -7,8 +7,8 @@ import {
 } from '../../atoms/Button/types/EButton';
 import type { IFriendSuggestion } from './IFriendSuggestion';
 import PlusIcon from '../../icons/addFriend.svg';
-import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 import Button from '../../atoms/Button/Button';
+import ImgWithInfoDemo from '../ImgWithInfo copy/ImgWithInfo';
 
 const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   profilePic,
@@ -21,13 +21,21 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
 
   return (
     <div className="flex justify-between items-center">
-      <ImgWithInfo
-        isHidden={false}
-        variant="avatar"
-        title={username}
-        profilePic={profilePic}
-        subTitle={subTitle}
-      />
+      <ImgWithInfoDemo>
+        <div className="flex w-min">
+          <ImgWithInfoDemo.Image
+            avatarSize="medium"
+            variant="filled"
+            isHidden={false}
+            ImageVariant="avatar"
+            profilePic={profilePic}
+          />
+          <ImgWithInfoDemo.Info classes="max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap">
+            <h1 className="text-sm font-normal text-dark">{username}</h1>
+            <p className="text-dark-grey text-xs font-light">{subTitle}</p>
+          </ImgWithInfoDemo.Info>
+        </div>
+      </ImgWithInfoDemo>
       <div className="flex">
         <div className="mr-2">
           <Button

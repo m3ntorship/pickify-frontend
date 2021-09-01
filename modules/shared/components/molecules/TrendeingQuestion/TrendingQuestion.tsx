@@ -5,25 +5,35 @@ import TextPoll from '../../icons/textPoll.svg';
 import MiniSurvey from '../../icons/miniSurvey.svg';
 import type { ITrendingQuestion } from './ITrendingQuestion';
 import styles from './TrendingQuestion.module.css';
-import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
+import ImgWithInfoDemo from '../ImgWithInfo copy/ImgWithInfo';
 
 const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
   postCaption,
   type,
 }): ReactElement => {
   return (
-    <ImgWithInfo
-      isHidden={false}
-      variant="icon"
-      title={postCaption}
-      subTitle={type}
-    >
-      <div className={styles['trending-question']}>
-        {type === 'Mini Survey' && <MiniSurvey />}
-        {type === 'Text Poll' && <TextPoll />}
-        {type === 'Image Poll' && <ImagePoll />}
+    <ImgWithInfoDemo>
+      <div className="flex w-min">
+        <ImgWithInfoDemo.Image
+          avatarSize="medium"
+          variant="filled"
+          isHidden={false}
+          ImageVariant="icon"
+        >
+          <div className={styles['trending-question']}>
+            {type === 'Mini Survey' && <MiniSurvey />}
+            {type === 'Text Poll' && <TextPoll />}
+            {type === 'Image Poll' && <ImagePoll />}
+          </div>
+        </ImgWithInfoDemo.Image>
+        <ImgWithInfoDemo.Info classes="max-w-13xl flex flex-col justify-between ml-4 truncate	">
+          <h1 className="text-sm font-normal text-dark truncate">
+            {postCaption}
+          </h1>
+          <p className="text-dark-grey text-xs font-light truncate">{type}</p>
+        </ImgWithInfoDemo.Info>
       </div>
-    </ImgWithInfo>
+    </ImgWithInfoDemo>
   );
 };
 
