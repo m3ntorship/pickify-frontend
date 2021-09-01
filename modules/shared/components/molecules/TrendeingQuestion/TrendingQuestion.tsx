@@ -5,7 +5,7 @@ import TextPoll from '../../icons/textPoll.svg';
 import MiniSurvey from '../../icons/miniSurvey.svg';
 import type { ITrendingQuestion } from './ITrendingQuestion';
 import styles from './TrendingQuestion.module.css';
-import ImgWithInfoDemo from '../ImgWithInfo copy/ImgWithInfo';
+import ImgWithInfoDemo from '../ImgWithInfo/ImgWithInfo';
 
 const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
   postCaption,

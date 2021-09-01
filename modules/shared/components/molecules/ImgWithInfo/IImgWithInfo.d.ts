@@ -1,11 +1,19 @@
 declare namespace IImgWithInfo {
-  export interface IProps {
+  export interface IProps extends IImage {
+    classes?: string;
+    children?: ReactElement;
+    avatarSize?:
+      | 'extra-large'
+      | 'extra-small'
+      | 'large'
+      | 'medium'
+      | 'small'
+      | 'super-large';
+    variant?: 'anonymous' | 'filled' | 'notFilled';
     profilePic?: string;
-    isHidden: boolean;
-    title: string;
-    subTitle: string;
-    description?: string;
-    variant: 'avatar' | 'icon';
+    onAvatarClickHandler?: () => void;
+    ImageVariant?: 'avatar' | 'icon';
+    isHidden?: boolean;
   }
 }
 

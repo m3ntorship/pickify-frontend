@@ -9,7 +9,7 @@ import {
   humanReadableDate,
   exactDate,
 } from '../../../logic/formatDate/FormatDate';
-import ImgWithInfoDemo from '../ImgWithInfo copy/ImgWithInfo';
+import ImgWithInfoDemo from '../ImgWithInfo/ImgWithInfo';
 
 const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],

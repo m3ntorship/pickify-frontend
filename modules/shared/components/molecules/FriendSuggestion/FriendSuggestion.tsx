@@ -8,7 +8,7 @@ import {
 import type { IFriendSuggestion } from './IFriendSuggestion';
 import PlusIcon from '../../icons/addFriend.svg';
 import Button from '../../atoms/Button/Button';
-import ImgWithInfoDemo from '../ImgWithInfo copy/ImgWithInfo';
+import ImgWithInfoDemo from '../ImgWithInfo/ImgWithInfo';
 
 const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   profilePic,
