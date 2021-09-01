@@ -39,7 +39,8 @@ describe('optionGroups molecule', () => {
         onBlurOptionHandler={(): boolean => true}
         onChangeOptionValueHandler={(): boolean => true}
         onClickDeleteOptionValueHandler={(): boolean => true}
-        updateOptionsGroupNameHandler={(): boolean => true}
+        onChangeOptionsGroupNameValue={(): boolean => true}
+        onClickDeleteOptionsGroupNameValueHandler={(): boolean => true}
       />,
     );
     expect(screen.queryAllByTestId('optionGroup-wrapper')).toHaveLength(2);
@@ -65,7 +66,8 @@ describe('optionGroups molecule', () => {
         onBlurOptionHandler={(): boolean => true}
         onChangeOptionValueHandler={(): boolean => true}
         onClickDeleteOptionValueHandler={(): boolean => true}
-        updateOptionsGroupNameHandler={(): boolean => true}
+        onChangeOptionsGroupNameValue={(): boolean => true}
+        onClickDeleteOptionsGroupNameValueHandler={(): boolean => true}
       />,
     );
     const addOptionGroup = screen.getByTestId('addOptionGroupBtn');
@@ -94,7 +96,8 @@ describe('optionGroups molecule', () => {
         onBlurOptionHandler={(): boolean => true}
         onChangeOptionValueHandler={(): boolean => true}
         onClickDeleteOptionValueHandler={(): boolean => true}
-        updateOptionsGroupNameHandler={(): boolean => true}
+        onChangeOptionsGroupNameValue={(): boolean => true}
+        onClickDeleteOptionsGroupNameValueHandler={(): boolean => true}
       />,
     );
     expect(screen.queryByText('Add Option Group')).toBeNull();
