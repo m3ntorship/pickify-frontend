@@ -7,7 +7,7 @@ import { configPostCreation } from '../../configuration/ConfigPostCreation/confi
 export const useUploadedFiles = (
   uploadedFile: File,
 ): IUseUploadedFiles.IUploadedFiles => {
-  const [response, setResopnse] = useState<File | null>(null);
+  const [response, setResponse] = useState<File | null>(null);
   const [error, setError] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
   const isMounted: MutableRefObject<boolean> = useIsMounted();
@@ -30,7 +30,7 @@ export const useUploadedFiles = (
     promise
       .then((data) => {
         if (isMounted.current) {
-          setResopnse(data);
+          setResponse(data);
           setError(false);
         }
       })
@@ -40,7 +40,7 @@ export const useUploadedFiles = (
           setMessage(err.message);
         }
       });
-  }, []);
+  }, [isMounted, uploadedFile]);
 
   return { response, error, message };
 };

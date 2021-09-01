@@ -40,13 +40,10 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         deletePostHandler(postId);
         break;
       case 'report':
-        console.log('reported');
         break;
       case 'save':
-        console.log('saved');
         break;
       default:
-        console.log('default');
     }
   };
   return (

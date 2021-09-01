@@ -24,10 +24,10 @@ const OptionGroup: FC<ITextPollViewOptions.IProps> = ({
     <div className="grid-rows-1 space-y-2">
       {optionsGroups.groups[firstGroup].options.map((option, index) => {
         const letter = alphabet[index];
-        const { vote_count } = option;
+        const { vote_count: voteCount } = option;
         return (
           <div key={option.id} data-testid="option">
-            {vote_count !== undefined ? (
+            {voteCount !== undefined ? (
               <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}
