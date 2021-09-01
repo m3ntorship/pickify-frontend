@@ -3,9 +3,9 @@
 }
 
 .menu {
-  @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute top-10 right-0 w-5xl z-20;
+  @apply bg-white shadow-soft rounded-md p-2 flex flex-col absolute top-10 right-0 z-20;
 }
 
 .menu-item {
-  @apply bg-white hover:bg-grey-bg py-1 px-2 rounded-sm cursor-pointer hover:text-dark text-dark-grey text-sm;
+  @apply bg-white whitespace-nowrap hover:bg-grey-bg py-1 px-2 rounded-sm cursor-pointer hover:text-dark text-dark-grey text-sm;
 }

@@ -7,15 +7,12 @@
 }
 
 .link-item {
-  @apply mr-3 last:mr-0 leading-4;
+  @apply mr-3 mt-1 last:mr-0 leading-4;
 }
 
 .link {
-  @apply hover:underline font-light text-xs text-dark-grey;
-}
-
-.show-more-btn {
-  @apply font-light text-xs text-dark-grey focus:outline-none;
+  @apply hover:underline font-light text-xs text-dark-grey
+  whitespace-nowrap;
 }
 
 .copy-rights {

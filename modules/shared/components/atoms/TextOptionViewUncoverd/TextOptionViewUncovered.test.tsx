@@ -73,21 +73,4 @@ describe('Behavioural tests for TextOptionViewUncoverd component ', () => {
     const testBtn = screen.getByText('20%');
     expect(testBtn).toBeInTheDocument();
   });
-
-  it('should be disabled  while its uncovered', () => {
-    render(
-      <TextOptionViewUncoverd
-        id="test1"
-        optionBody="option 1"
-        letter="A"
-        percentage={twenty}
-        mostVoted
-        isExpanded
-        type="mini survey"
-      />,
-    );
-
-    const testBtn = screen.getByTestId('test1');
-    expect(testBtn).toBeDisabled();
-  });
 });
