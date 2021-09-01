@@ -3,6 +3,7 @@ import type { FC, ReactElement } from 'react';
 import Link from 'next/link';
 import { footerData } from './footerData';
 import styles from './Footer.module.css';
+import type { IFooter } from './IFooter';
 
 const Footer: FC<IFooter.IProps> = ({ showCenteredLogo }): ReactElement => {
   return (
