@@ -15,6 +15,7 @@ import { postCreationMiniSurveyGroupDropDown } from '../../../atoms/DropDown/moc
 
 const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
   id,
+  index,
   optionGroupName,
   onChangeOptionsGroupNameValue,
   onClickDeleteOptionsGroupNameValueHandler,
@@ -60,9 +61,10 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
         console.log('default');
     }
   };
+  const marginAllExceptFirstGroup = index > 1 ? 'mr-4' : '';
   return (
     <>
-      <div className="mr-4 w-full">
+      <div className={`w-full ${marginAllExceptFirstGroup}`}>
         <TextInput
           placeholder="Enter your group’s question"
           id={id}
@@ -83,14 +85,16 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
           {...miniSurveyGroupNameRegister}
         />
       </div>
-      <DropDown
-        variant="post"
-        options={postCreationMiniSurveyGroupDropDown}
-        onOptionMenuClick={onMenuOptionClickHandler}
-        size="md"
-      >
-        <ThreeDotsIcon className="cursor-pointer fill-grey w-4 h-4" />
-      </DropDown>
+      {index > 1 && (
+        <DropDown
+          variant="post"
+          options={postCreationMiniSurveyGroupDropDown}
+          onOptionMenuClick={onMenuOptionClickHandler}
+          size="md"
+        >
+          <ThreeDotsIcon className="cursor-pointer fill-grey w-4 h-4" />
+        </DropDown>
+      )}
     </>
   );
 };
