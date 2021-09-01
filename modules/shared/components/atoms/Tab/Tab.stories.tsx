@@ -11,7 +11,9 @@ export default {
   component: Tab,
 };
 
-const Template: Story<ITab.IProps> = (args): ReactElement => <Tab {...args} />;
+const Template: Story<ITab.IProps> = (args): ReactElement => (
+  <Tab {...args}>Image Poll</Tab>
+);
 export const tab = Template.bind({});
 tab.args = {
   value: EPostType.ImagePoll,

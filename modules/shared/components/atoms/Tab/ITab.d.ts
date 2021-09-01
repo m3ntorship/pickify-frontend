@@ -1,4 +1,3 @@
-import type { EPostType } from '@modules/shared/types/postFeed/EPostType';
 import type { IRadio } from '../Radio/IRadio';
 
 declare namespace ITab {
@@ -8,9 +7,9 @@ declare namespace ITab {
   }
 
   export interface IData extends IRadio.IData {
-    value: EPostType;
+    value: string;
     checkedValue: string;
-    svg: JSX.Element;
+    svg?: JSX.Element;
   }
 
   export interface IHandlers {
