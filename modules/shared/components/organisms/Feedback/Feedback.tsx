@@ -93,7 +93,7 @@ const Feedback: FC = (): ReactElement => {
         >
           <Box isWhiteColor>
             <>
-              <Box.Body classes="w-20xl">
+              <Box.Body classes="md:w-20xl w-18xl ">
                 <>
                   {!isSubmitted && (
                     <form onSubmit={handleSubmit}>
@@ -207,7 +207,6 @@ const Feedback: FC = (): ReactElement => {
                         <Button
                           size={EButton.buttonSizeValues.FULLWIDTH}
                           variant={EButton.buttonVariantValues.PRIMARY}
-                          disabled={disabled}
                           buttonText="Cancel"
                           onClick={handleCancelButtonClick}
                         />

@@ -13,9 +13,8 @@
 .button {
   @apply flex justify-center mt-3;
 }
-
 .submitted-container {
-  @apply flex flex-col justify-center items-center whitespace-nowrap px-xvxl py-3xxl;
+  @apply flex flex-col justify-center items-center whitespace-nowrap px-xvxl py-3xxl ;
 }
 
 .form-answer {
