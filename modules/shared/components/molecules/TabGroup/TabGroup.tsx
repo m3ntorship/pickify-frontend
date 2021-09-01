@@ -25,9 +25,8 @@ const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
             changeValHandler={changeValHandler}
             checkedValue={checkedValue}
             onlyLabel={onlyLabel}
-          >
-            {tab.value}
-          </Tab>
+            content={tab.value}
+          />
         </div>
       ))}
     </div>

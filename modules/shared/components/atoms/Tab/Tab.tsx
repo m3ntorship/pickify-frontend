@@ -14,7 +14,7 @@ const Tab: FC<ITab.IProps> = (props): ReactElement => {
     changeValHandler,
     disabled,
     onlyLabel,
-    children,
+    content,
   } = props;
 
   const tabClasses: string = classNames(styles['tab-default'], {
@@ -42,7 +42,7 @@ const Tab: FC<ITab.IProps> = (props): ReactElement => {
           onlyLabel={onlyLabel}
         />
         {!onlyLabel && svg}
-        <span className={styles['tab-type']}>{children}</span>
+        <span className={styles['tab-type']}>{content}</span>
       </label>
     </div>
   );

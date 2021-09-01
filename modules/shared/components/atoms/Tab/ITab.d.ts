@@ -8,6 +8,7 @@ declare namespace ITab {
 
   export interface IData extends IRadio.IData {
     value: string;
+    content: string;
     checkedValue: string;
     svg?: JSX.Element;
   }
