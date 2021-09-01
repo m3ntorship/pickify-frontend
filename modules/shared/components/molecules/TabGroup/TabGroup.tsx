@@ -12,7 +12,7 @@ import type { ITabGroup } from './ITabGroup';
  * */
 
 const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
-  const { tabsData, checkedValue, changeValHandler } = props;
+  const { tabsData, checkedValue, changeValHandler, onlyLabel } = props;
 
   return (
     <div className="flex items-center">
@@ -24,6 +24,7 @@ const TabGroup: FC<ITabGroup.IProps> = (props): ReactElement => {
             value={tab.postType}
             changeValHandler={changeValHandler}
             checkedValue={checkedValue}
+            onlyLabel={onlyLabel}
           >
             {tab.value}
           </Tab>
