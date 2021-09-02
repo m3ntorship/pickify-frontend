@@ -69,7 +69,7 @@ exports[`Tab should render tab with checked status 1`] = `
       data-file-name="SvgImagePoll"
     />
     <span
-      className="tab-type"
+      className="tab-type hidden md:inline-block"
     >
       Image Poll
     </span>
@@ -109,7 +109,7 @@ exports[`Tab should render tab with default status 1`] = `
       data-file-name="SvgImagePoll"
     />
     <span
-      className="tab-type"
+      className="tab-type hidden md:inline-block"
     >
       Mini survey
     </span>
@@ -149,7 +149,7 @@ exports[`Tab should render tab with disabled status 1`] = `
       data-file-name="SvgImagePoll"
     />
     <span
-      className="tab-type"
+      className="tab-type hidden md:inline-block"
     >
       Mini survey
     </span>

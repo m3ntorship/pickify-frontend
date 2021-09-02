@@ -1,3 +1,27 @@
-.profile-user {
-  @apply w-full flex items-center justify-center;
+.user-name {
+  @apply md:text-lg text-md font-normal text-dark mb-1;
 }
+
+.title {
+  @apply text-dark-grey text-xs font-light ;
+}
+
+.sub-title {
+  @apply font-normal text-sm text-dark-grey;
+}
+.sub-title + .sub-title {
+  @apply ml-2
+}
+
+.edit-icon {
+  @apply absolute top-5 right-3 cursor-pointer;
+}
+
+.img-with-info {
+  @apply flex justify-center sm:justify-start flex-col sm:flex-row items-center;
+}
+
+.img-with-info-info {
+  @apply flex flex-col justify-center items-center sm:items-start sm:ml-4 ;
+}
+

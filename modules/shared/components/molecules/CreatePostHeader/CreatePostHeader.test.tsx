@@ -2,7 +2,7 @@ import React from 'react';
 import * as renderer from 'react-test-renderer';
 import { EPostType } from '../../../types/postFeed/EPostType';
 import CreatePostHeader from './CreatePostHeader';
-import { tabGroupData } from '../TabGroup/data';
+import { postCreationTabGroupData } from '../TabGroup/data';
 
 describe('CreatePostHeader', () => {
   it('should render three tabs with filled avatar', () => {
@@ -11,7 +11,7 @@ describe('CreatePostHeader', () => {
     const tree = renderer
       .create(
         <CreatePostHeader
-          tabsData={tabGroupData()}
+          tabsData={postCreationTabGroupData()}
           checkedValue={EPostType.ImagePoll}
           onTabChangeHandler={onTabChangeHandler}
           profilePic="https://images.unsplash.com/photo-1620577610365-86c411bad78d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
@@ -28,7 +28,7 @@ describe('CreatePostHeader', () => {
     const tree = renderer
       .create(
         <CreatePostHeader
-          tabsData={tabGroupData()}
+          tabsData={postCreationTabGroupData()}
           checkedValue={EPostType.ImagePoll}
           onTabChangeHandler={onTabChangeHandler}
         />,

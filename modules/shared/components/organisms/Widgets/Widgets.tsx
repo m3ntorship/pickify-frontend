@@ -9,11 +9,14 @@ import TrendingQuestions from '../TrendingQuestions/TrendingQuestions';
 const Widgets: FC = (): ReactElement => {
   const { pathname } = useRouter();
   const showFriendSuggestions = pathname === '/';
+  const showDeveloperPicsAndFooter = !pathname.includes('profile');
   return (
     <div>
-      <div className="mb-6">
-        <DeveloperPics />
-      </div>
+      {showDeveloperPicsAndFooter && (
+        <div className="mb-6">
+          <DeveloperPics />
+        </div>
+      )}
       <div className="mb-6">
         <TrendingQuestions />
       </div>
@@ -22,7 +25,8 @@ const Widgets: FC = (): ReactElement => {
           <FriendSuggestions />
         </div>
       )}
-      <Footer showCenteredLogo={false} />
+
+      {showDeveloperPicsAndFooter && <Footer showCenteredLogo={false} />}
     </div>
   );
 };
