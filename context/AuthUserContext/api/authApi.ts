@@ -44,13 +44,13 @@ export const register = async (
 
     const { data } = response;
 
-    const { message, status_code } = data;
+    const { message, status_code: statusCode } = data;
 
-    const generatedMessage = generateErrMsg({}, status_code, message);
+    const generatedMessage = generateErrMsg({}, statusCode, message);
     throw Object.assign(new Error(), {
       error: true,
       message: generatedMessage,
-      errorCode: status_code,
+      errorCode: statusCode,
     });
   }
 };

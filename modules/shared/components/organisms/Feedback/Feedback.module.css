@@ -1,5 +1,5 @@
 .text {
-  @apply text-dark-grey text-sm leading-5 font-normal;
+  @apply text-dark-grey text-sm leading-5 font-normal mb-2;
 }
 
 .sub-text {
@@ -7,18 +7,17 @@
 }
 
 .emojis {
-  @apply flex flex-row mb-4 mt-2;
+  @apply flex flex-row mb-4;
 }
 
 .button {
   @apply flex justify-center mt-3;
 }
-
 .submitted-container {
-  @apply flex flex-col justify-center items-center whitespace-nowrap px-4xxl py-4xl;
+  @apply flex flex-col justify-center items-center whitespace-nowrap px-xvxl py-3xxl ;
 }
 
-.form__answer {
+.form-answer {
   @apply inline-block;
 }
 
@@ -34,4 +33,12 @@
 .form-answer input[type='radio']:checked ~ label,
 .form-answer input[type='radio']:hover ~ label {
   @apply filter-none opacity-100;
+}
+
+.text-area {
+  @apply border border-solid border-grey-shd5 rounded-md
+   placeholder-grey-shd1
+   pt-xsvv pl-4
+   focus:outline-none  focus:border-grey-shd5
+   resize-none;
 }

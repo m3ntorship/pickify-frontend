@@ -20,15 +20,15 @@ export const deletePost = async (
 
     const { data } = response;
 
-    const { message, status_code } = data;
+    const { message, status_code: statusCode } = data;
 
-    const generatedMessage = generateErrMsg(errorMessage, status_code, message);
+    const generatedMessage = generateErrMsg(errorMessage, statusCode, message);
 
     return {
       resData: {
         error: true,
         message: generatedMessage,
-        errorCode: status_code,
+        errorCode: statusCode,
       },
     };
   }

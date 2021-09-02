@@ -4,6 +4,7 @@ import type { ITab } from '../../atoms/Tab/ITab';
 declare namespace ITabGroup {
   export interface IProps extends IData, ITab.IHandlers {
     checkedValue: string;
+    onlyLabel?: boolean;
   }
 
   export interface IData {

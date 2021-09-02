@@ -2,9 +2,9 @@ import type { IpostCreationAPI } from '../types/postCreation/IPostCreationAPI';
 import { postsApi, mediaApi } from './postsApi.api';
 import type { IPostCreation } from '../components/organisms/PostCreation/types/IPostCreation';
 
-async function initPost(
+const initPost = async (
   post: IPostCreation.IPostRestData & IPostCreation.IPostStructure,
-): Promise<IpostCreationAPI.IInitPostReturnedRes> {
+): Promise<IpostCreationAPI.IInitPostReturnedRes> => {
   try {
     const { data, status } = await postsApi.createPost({
       type: post.postType,
@@ -43,12 +43,12 @@ async function initPost(
     }
     throw Object.assign(new Error(), { data: null, errors, statusCode });
   }
-}
+};
 
-async function createGroups(
+const createGroups = async (
   createdPostId: string,
   post: IPostCreation.IPostRestData & IPostCreation.IPostStructure,
-): Promise<IpostCreationAPI.ICreateGroupsReturnedRes> {
+): Promise<IpostCreationAPI.ICreateGroupsReturnedRes> => {
   try {
     const { data, status } = await postsApi.createOptionsGroup(createdPostId, {
       groups: post.groups,
@@ -84,13 +84,13 @@ async function createGroups(
     }
     throw Object.assign(new Error(), { data: null, errors, statusCode });
   }
-}
+};
 
-async function createMediaFile(file: {
+const createMediaFile = async (file: {
   file: File;
   entityType: string;
   entityId: string;
-}): Promise<IpostCreationAPI.ICreateMediaFileReturnedRes> {
+}): Promise<IpostCreationAPI.ICreateMediaFileReturnedRes> => {
   try {
     const { data, status } = await mediaApi.uploadFile(
       file.file,
@@ -128,13 +128,13 @@ async function createMediaFile(file: {
     }
     throw Object.assign(new Error(), { data: null, errors, statusCode });
   }
-}
+};
 
-async function uploadMedia(
+const uploadMedia = async (
   post: IPostCreation.IPostRestData & IPostCreation.IPostStructure,
   postId: string,
   createdOptionsGroup: { id: string; options: { id: string }[] }[],
-): Promise<IpostCreationAPI.ICreateMediaFileReturnedRes[]> {
+): Promise<IpostCreationAPI.ICreateMediaFileReturnedRes[]> => {
   const files: { file: File; entityType: string; entityId: string }[] = [];
   const getEntityId = (
     groupIndex: number,
@@ -187,11 +187,11 @@ async function uploadMedia(
         createMediaFile(file),
     ),
   );
-}
+};
 
-async function raisePostCreationFinishFlag(
+const raisePostCreationFinishFlag = async (
   postId: string,
-): Promise<IpostCreationAPI.IRaisePostCreationFinishFlagReturnedRes> {
+): Promise<IpostCreationAPI.IRaisePostCreationFinishFlagReturnedRes> => {
   try {
     const { data, status } = (await postsApi.flagPostAsFinished(postId, {
       finished: true,
@@ -227,7 +227,7 @@ async function raisePostCreationFinishFlag(
     }
     throw Object.assign(new Error(), { data: null, errors, statusCode });
   }
-}
+};
 
 export const createPollPost = async (
   post: IPostCreation.IPostRestData & IPostCreation.IPostStructure,
