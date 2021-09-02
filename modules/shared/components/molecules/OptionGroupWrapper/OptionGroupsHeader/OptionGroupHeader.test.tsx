@@ -1,7 +1,21 @@
+import type { ReactElement } from 'react';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { FormProvider, useForm } from 'react-hook-form';
 import OptionGroupsHeader from './OptionGroupHeader';
+
+const customRender = (ui: ReactElement): unknown => {
+  const Wrapper: React.FC = ({ children }) => {
+    const methods = useForm({
+      mode: 'onSubmit',
+      reValidateMode: 'onChange',
+    });
+    return <FormProvider {...methods}>{children}</FormProvider>;
+  };
+
+  return render(<Wrapper>{ui}</Wrapper>);
+};
 
 const zero = 0;
 describe('OptionGroupHeader', () => {
@@ -23,71 +37,36 @@ describe('OptionGroupHeader', () => {
     image: '',
   };
 
-  it('should render default group header with the name "Group 0" and three dots icon used to edit that name or remove the group', () => {
-    render(
+  it("should render default group header with the group's question", () => {
+    customRender(
       <OptionGroupsHeader
         id={miniSurveyState.groups[zero].id}
         index={zero}
         optionGroupName={miniSurveyState.groups[zero].name}
         deleteOptionsGroupHandler={(): boolean => true}
-        updateOptionsGroupNameHandler={(): boolean => true}
+        onChangeOptionsGroupNameValue={(): boolean => true}
+        onClickDeleteOptionsGroupNameValueHandler={(): boolean => true}
       />,
     );
-    expect(screen.getByText('Group 0')).toBeInTheDocument();
-    expect(screen.getByTestId('editGroupButton')).toBeInTheDocument();
+    expect(
+      screen.getAllByPlaceholderText('Enter your group’s question'),
+    ).toHaveLength(1);
   });
 
-  it('input name value being set correctly', () => {
-    render(
+  it("should call the function that updates the value of the group's question ", () => {
+    const updateInputValue = jest.fn();
+    customRender(
       <OptionGroupsHeader
         id={miniSurveyState.groups[zero].id}
         index={zero}
         optionGroupName={miniSurveyState.groups[zero].name}
         deleteOptionsGroupHandler={(): boolean => true}
-        updateOptionsGroupNameHandler={(): boolean => true}
+        onChangeOptionsGroupNameValue={updateInputValue}
+        onClickDeleteOptionsGroupNameValueHandler={(): boolean => true}
       />,
     );
-    const editGroupBtn = screen.getByTestId('editGroupButton');
-    userEvent.click(editGroupBtn);
-    const input = screen.getByPlaceholderText('Group name');
-    userEvent.clear(input);
-    userEvent.type(input, 'React');
-    expect(input).toHaveValue('React');
-  });
-
-  it('clicking on addName Button causing the button itself being removed, name being set and three dot icon displays', () => {
-    render(
-      <OptionGroupsHeader
-        id={miniSurveyState.groups[zero].id}
-        index={zero}
-        optionGroupName={miniSurveyState.groups[zero].name}
-        deleteOptionsGroupHandler={(): boolean => true}
-        updateOptionsGroupNameHandler={(): boolean => true}
-      />,
-    );
-
-    const editGroupBtn = screen.getByTestId('editGroupButton');
-    userEvent.click(editGroupBtn);
-    const checkEditGroupBtn = screen.getByTestId('checkEditGroupButton');
-    userEvent.click(checkEditGroupBtn);
-  });
-
-  it('should call remove group function once', () => {
-    const deleteGroupMockedFunction = jest.fn();
-    const once = 1;
-    render(
-      <OptionGroupsHeader
-        id={miniSurveyState.groups[zero].id}
-        index={2}
-        optionGroupName={miniSurveyState.groups[zero].name}
-        deleteOptionsGroupHandler={deleteGroupMockedFunction}
-        updateOptionsGroupNameHandler={(): boolean => true}
-      />,
-    );
-    const editGroupBtn = screen.getByTestId('editGroupButton');
-    userEvent.click(editGroupBtn);
-    const removeGroupBtn = screen.getByTestId('removeGroupButton');
-    userEvent.click(removeGroupBtn);
-    expect(deleteGroupMockedFunction).toBeCalledTimes(once);
+    const input = screen.getByPlaceholderText('Enter your group’s question');
+    userEvent.type(input, 'Test');
+    expect(updateInputValue).toBeCalledTimes(4);
   });
 });

@@ -10,7 +10,8 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
   groups,
   addOptionsGroupHandler,
   deleteOptionsGroupHandler,
-  updateOptionsGroupNameHandler,
+  onChangeOptionsGroupNameValue,
+  onClickDeleteOptionsGroupNameValueHandler,
   onChangeOptionValueHandler,
   onClickDeleteOptionValueHandler,
   onBlurOptionHandler,
@@ -27,8 +28,11 @@ const OptionGroups: FC<IOptionGroups.IProps> = ({
             id={optionGroup.id}
             index={index + 1}
             optionsGroupName={optionGroup.name}
-            updateOptionsGroupNameHandler={updateOptionsGroupNameHandler}
+            onChangeOptionsGroupNameValue={onChangeOptionsGroupNameValue}
             deleteOptionsGroupHandler={deleteOptionsGroupHandler}
+            onClickDeleteOptionsGroupNameValueHandler={
+              onClickDeleteOptionsGroupNameValueHandler
+            }
           >
             <OptionGroup
               id={optionGroup.id}

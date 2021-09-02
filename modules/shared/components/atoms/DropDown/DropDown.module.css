@@ -1,5 +1,5 @@
 .menu-icon-container {
-  @apply cursor-pointer bg-white flex justify-center items-center;
+  @apply cursor-pointer flex justify-center items-center;
 }
 
 .menu {

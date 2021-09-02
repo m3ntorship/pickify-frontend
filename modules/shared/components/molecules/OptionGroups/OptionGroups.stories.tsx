@@ -49,5 +49,6 @@ Default.args = {
   onBlurOptionHandler: (): void => undefined,
   onChangeOptionValueHandler: (): void => undefined,
   onClickDeleteOptionValueHandler: (): void => undefined,
-  updateOptionsGroupNameHandler: (): void => undefined,
+  onChangeOptionsGroupNameValue: (): void => undefined,
+  onClickDeleteOptionsGroupNameValueHandler: (): void => undefined,
 };
