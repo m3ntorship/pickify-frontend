@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC, ReactElement } from 'react';
 import { useFormContext } from 'react-hook-form';
+import classNames from 'classnames';
 import TextInput from '../../../atoms/TextInputs/TextInput';
 import {
   InputType,
@@ -61,10 +62,10 @@ const OptionGroupsHeader: FC<IOptionGroupHeader.IProps> = ({
         console.log('default');
     }
   };
-  const marginAllExceptFirstGroup = index > 1 ? 'mr-4' : '';
+  const questionInputClasses = classNames('w-full', { 'mr-4': index > 1 });
   return (
     <>
-      <div className={`w-full ${marginAllExceptFirstGroup}`}>
+      <div className={questionInputClasses}>
         <TextInput
           placeholder="Enter your group’s question"
           id={id}
