@@ -12,16 +12,26 @@ const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
   type,
 }): ReactElement => {
   return (
-    <ImgWithInfo
-      isHidden={false}
-      variant="icon"
-      title={postCaption}
-      subTitle={type}
-    >
-      <div className={styles['trending-question']}>
-        {type === 'Mini Survey' && <MiniSurvey />}
-        {type === 'Text Poll' && <TextPoll />}
-        {type === 'Image Poll' && <ImagePoll />}
+    <ImgWithInfo>
+      <div className="flex w-min">
+        <ImgWithInfo.Image
+          avatarSize="medium"
+          variant="filled"
+          isHidden={false}
+          ImageVariant="icon"
+        >
+          <div className={styles['trending-question']}>
+            {type === 'Mini Survey' && <MiniSurvey />}
+            {type === 'Text Poll' && <TextPoll />}
+            {type === 'Image Poll' && <ImagePoll />}
+          </div>
+        </ImgWithInfo.Image>
+        <ImgWithInfo.Info classes="max-w-13xl flex flex-col justify-between ml-4 truncate	">
+          <h1 className="text-sm font-normal text-dark truncate">
+            {postCaption}
+          </h1>
+          <p className="text-dark-grey text-xs font-light truncate">{type}</p>
+        </ImgWithInfo.Info>
       </div>
     </ImgWithInfo>
   );

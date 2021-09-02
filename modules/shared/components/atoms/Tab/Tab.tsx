@@ -14,6 +14,7 @@ const Tab: FC<ITab.IProps> = (props): ReactElement => {
     changeValHandler,
     disabled,
     onlyLabel,
+    content,
   } = props;
 
   const tabClasses: string = classNames(styles['tab-default'], {
@@ -21,16 +22,6 @@ const Tab: FC<ITab.IProps> = (props): ReactElement => {
     [styles['tab-unchecked']]: value !== checkedValue,
     [styles['tab-disabled']]: disabled,
   });
-
-  let content = 'Image Poll';
-
-  if (value === 'image poll') {
-    content = 'Image Poll';
-  } else if (value === 'text poll') {
-    content = 'Text Poll';
-  } else {
-    content = 'Mini survey';
-  }
 
   return (
     <div className="flex">

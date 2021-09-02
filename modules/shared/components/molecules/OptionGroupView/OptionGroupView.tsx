@@ -26,10 +26,10 @@ const OptionGroup: FC<IOptionGroupView.IProps> = ({
       <div className="text-dark-grey text-sm">{group.name}</div>
       {group.options.map((option, index): ReactElement => {
         const letter = alphabet[index];
-        const { vote_count } = option;
+        const { vote_count: voteCount } = option;
         return (
           <div key={option.id} data-testid="option">
-            {vote_count !== undefined ? (
+            {voteCount !== undefined ? (
               <TextOptionViewUncoverd
                 id={option.id}
                 optionBody={option.body}

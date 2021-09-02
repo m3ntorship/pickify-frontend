@@ -20,6 +20,9 @@ export const determineAvatarSize = (componentSize: string): number => {
   if (componentSize === 'medium') {
     return mediumSize;
   }
+  if (componentSize === 'large') {
+    return largeSize;
+  }
   if (componentSize === 'extra-large') {
     return extraLargeSize;
   }

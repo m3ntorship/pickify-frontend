@@ -31,30 +31,29 @@ export const useFirebaseAuth = (): IUseFirebaseAuth.IProps => {
     setIsAuthenticated(false);
   };
 
-  const authStateChanged = async (
-    userState: firebase.User | null,
-  ): Promise<void> => {
-    if (!userState) {
-      clearUserState();
-      return;
-    }
-    setLoading(true);
-    try {
-      const token: string = await userState.getIdToken();
-      const formattedUser = setUserData(userState);
-      await register(token);
-      setUser(formattedUser);
-      setLoading(false);
-      setIsAuthenticated(true);
-      setUserToken(token);
-    } catch (error: unknown) {
-      const { message } = error as { message: string };
-      toast.error(message);
-      clearUserState();
-    }
-  };
-
   useEffect(() => {
+    const authStateChanged = async (
+      userState: firebase.User | null,
+    ): Promise<void> => {
+      if (!userState) {
+        clearUserState();
+        return;
+      }
+      setLoading(true);
+      try {
+        const token: string = await userState.getIdToken();
+        const formattedUser = setUserData(userState);
+        await register(token);
+        setUser(formattedUser);
+        setLoading(false);
+        setIsAuthenticated(true);
+        setUserToken(token);
+      } catch (error: unknown) {
+        const { message } = error as { message: string };
+        toast.error(message);
+        clearUserState();
+      }
+    };
     const unsubscribe = firebaseAuth.onAuthStateChanged(authStateChanged);
     return (): void => {
       unsubscribe();

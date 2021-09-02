@@ -10,11 +10,11 @@ const Divider: FC<IDivider.IProps> = ({ type, length }): ReactElement => {
     'w-px': type === EDivider.DividerType.Vertical,
   });
 
-  function getDividerLength(): CSSProperties {
+  const getDividerLength = (): CSSProperties => {
     return type === EDivider.DividerType.Horizontal
       ? { width: length }
       : { height: length };
-  }
+  };
   return (
     <>
       <div className={dividerType} style={getDividerLength()} />

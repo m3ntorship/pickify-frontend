@@ -184,7 +184,7 @@ module.exports = {
       },
       height: {
         '2xl': '1.8125rem', // 29 px
-        '3xl': '4rem', // 58px
+        '3xl': '4rem', // 64px
         '4xl': '4.5rem', // 72px
         '5xl': '5.5rem', // 88px
         '15xl': '15.5rem', // 248px

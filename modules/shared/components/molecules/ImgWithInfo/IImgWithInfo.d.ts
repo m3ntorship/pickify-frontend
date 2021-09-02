@@ -1,13 +1,9 @@
 // import type { IAvatar } from '../../atoms/Avatar/IAvatar';
 
 declare namespace IImgWithInfo {
-  export interface IProps {
-    profilePic?: string;
-    isHidden: boolean;
-    title: string;
-    subTitle: string;
-    description?: string;
-    variant: 'avatar' | 'icon';
+  export interface IProps extends IImage {
+    classes?: string;
+    children?: ReactElement;
     avatarSize?:
       | 'extra-large'
       | 'extra-small'
@@ -15,7 +11,11 @@ declare namespace IImgWithInfo {
       | 'medium'
       | 'small'
       | 'super-large';
-    // avatarSize?: IAvatar.IProps.size
+    variant?: 'anonymous' | 'filled' | 'notFilled';
+    profilePic?: string;
+    onAvatarClickHandler?: () => void;
+    ImageVariant?: 'avatar' | 'icon';
+    isHidden?: boolean;
   }
 }
 

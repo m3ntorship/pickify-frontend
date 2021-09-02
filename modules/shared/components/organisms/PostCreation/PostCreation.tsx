@@ -46,7 +46,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
     miniSurvey: number;
   }>({ imagePoll: 0, textPoll: 0, miniSurvey: 0 });
 
-  function getMediaCount(post: IPostCreation.IPostStructure): number {
+  const getMediaCount = (post: IPostCreation.IPostStructure): number => {
     return (
       post.media.length +
       post.groups
@@ -60,7 +60,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
         )
         .reduce((prev, current) => prev + current, zero)
     );
-  }
+  };
   useEffect(() => {
     setMediaCount({
       textPoll: getMediaCount(postCreationGlobalState.textPoll),
@@ -68,10 +68,13 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       miniSurvey: getMediaCount(postCreationGlobalState.miniSurvey),
     });
   }, [
+    postCreationGlobalState.imagePoll,
     postCreationGlobalState.imagePoll.media,
     postCreationGlobalState.imagePoll.groups,
+    postCreationGlobalState.textPoll,
     postCreationGlobalState.textPoll.media,
     postCreationGlobalState.textPoll.groups,
+    postCreationGlobalState.miniSurvey,
     postCreationGlobalState.miniSurvey.media,
     postCreationGlobalState.miniSurvey.groups,
   ]);
@@ -123,7 +126,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
       errors: [],
       statusCode: 0,
     };
-    (async function (): Promise<void> {
+    (async (): Promise<void> => {
       setCreating(true);
       toastId.current = toast.warning('Please wait while creating the poll', {
         autoClose: false,

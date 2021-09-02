@@ -15,6 +15,7 @@ describe('Tab', () => {
           value="Mini survey"
           id="anyid"
           svg={<ImagePoll />}
+          content="Mini survey"
         />,
       )
       .toJSON();
@@ -32,8 +33,8 @@ describe('Tab', () => {
           changeValHandler={changeValHandler}
           value="Mini survey"
           id="anyid"
-          svg={<ImagePoll />}
           onlyLabel
+          content="Mini survey"
         />,
       )
       .toJSON();
@@ -53,6 +54,7 @@ describe('Tab', () => {
           id="anyid"
           svg={<ImagePoll />}
           disabled
+          content="Mini survey"
         />,
       )
       .toJSON();
@@ -71,6 +73,7 @@ describe('Tab', () => {
           value="Image Poll"
           id="anyid"
           svg={<ImagePoll />}
+          content="Image Poll"
         />,
       )
       .toJSON();
