@@ -9,7 +9,7 @@ import {
   humanReadableDate,
   exactDate,
 } from '../../../logic/formatDate/FormatDate';
-import ImgWithInfoDemo from '../ImgWithInfo/ImgWithInfo';
+import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 
 const getPostMenuOptions = (
   updatedOptions: { id: string; body: string }[],
@@ -61,16 +61,16 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         description={exactDate(date)}
         variant="avatar"
       /> */}
-      <ImgWithInfoDemo>
+      <ImgWithInfo>
         <div className="flex w-min">
-          <ImgWithInfoDemo.Image
+          <ImgWithInfo.Image
             avatarSize="medium"
             variant="filled"
             isHidden={isHidden}
             ImageVariant="avatar"
             profilePic={profilePic}
           />
-          <ImgWithInfoDemo.Info classes="text-xs font-light	text-dark-grey block max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap">
+          <ImgWithInfo.Info classes="text-xs font-light	text-dark-grey block max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap">
             <div className="flex flex-row">
               <h1 className="text-sm font-normal text-dark">
                 {name ?? 'Anonymous'}
@@ -82,9 +82,9 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
               )}
             </div>
             <span title={`${exactDate(date)}`}>{humanReadableDate(date)}</span>
-          </ImgWithInfoDemo.Info>
+          </ImgWithInfo.Info>
         </div>
-      </ImgWithInfoDemo>
+      </ImgWithInfo>
 
       <DropDown
         onOptionMenuClick={onMenuOptionClickHandler}

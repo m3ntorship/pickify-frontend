@@ -5,16 +5,16 @@ import TextPoll from '../../icons/textPoll.svg';
 import MiniSurvey from '../../icons/miniSurvey.svg';
 import type { ITrendingQuestion } from './ITrendingQuestion';
 import styles from './TrendingQuestion.module.css';
-import ImgWithInfoDemo from '../ImgWithInfo/ImgWithInfo';
+import ImgWithInfo from '../ImgWithInfo/ImgWithInfo';
 
 const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
   postCaption,
   type,
 }): ReactElement => {
   return (
-    <ImgWithInfoDemo>
+    <ImgWithInfo>
       <div className="flex w-min">
-        <ImgWithInfoDemo.Image
+        <ImgWithInfo.Image
           avatarSize="medium"
           variant="filled"
           isHidden={false}
@@ -25,15 +25,15 @@ const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
             {type === 'Text Poll' && <TextPoll />}
             {type === 'Image Poll' && <ImagePoll />}
           </div>
-        </ImgWithInfoDemo.Image>
-        <ImgWithInfoDemo.Info classes="max-w-13xl flex flex-col justify-between ml-4 truncate	">
+        </ImgWithInfo.Image>
+        <ImgWithInfo.Info classes="max-w-13xl flex flex-col justify-between ml-4 truncate	">
           <h1 className="text-sm font-normal text-dark truncate">
             {postCaption}
           </h1>
           <p className="text-dark-grey text-xs font-light truncate">{type}</p>
-        </ImgWithInfoDemo.Info>
+        </ImgWithInfo.Info>
       </div>
-    </ImgWithInfoDemo>
+    </ImgWithInfo>
   );
 };
 

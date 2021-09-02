@@ -4,8 +4,6 @@ import classNames from 'classnames';
 import styles from './ImgWithInfo.module.css';
 import type { IImgWithInfo } from './IImgWithInfo';
 import Avatar from '../../atoms/Avatar/Avatar';
-// this line case an error when we ran the test, the error : cannot find module or it is corresponding type
-// import { handleImgWithInfoVariant } from '@modules/shared/logic/imgWithInfoVariant/imgWithInfoVariant';
 import { handleImgWithInfoVariant } from '../../../logic/imgWithInfoVariant/imgWithInfoVariant';
 
 const ImgWithInfo = ({
