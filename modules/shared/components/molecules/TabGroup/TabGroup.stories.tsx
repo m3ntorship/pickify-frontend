@@ -21,4 +21,5 @@ const Template: Story<ITabGroup.IProps> = (args): ReactElement => (
 export const tabGroup = Template.bind({});
 tabGroup.args = {
   tabsData: tabGroupData(),
+  onlyLabel: false,
 };
