@@ -34,6 +34,7 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
         <img
           alt="option"
           className="bg-image"
+          data-nimg="responsive"
           decoding="async"
           id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -56,11 +57,43 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
               "position": "absolute",
               "right": 0,
               "top": 0,
-              "visibility": "hidden",
               "width": 0,
             }
           }
         />
+        <noscript>
+          <img
+            alt="option"
+            className="bg-image"
+            data-nimg="responsive"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            loading="lazy"
+            src="https://placeimg.com/640/480/any"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </noscript>
       </div>
     </div>
     <div
@@ -86,6 +119,7 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
       <img
         alt="option"
         className="image"
+        data-nimg="responsive"
         decoding="async"
         id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -108,11 +142,43 @@ exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1
             "position": "absolute",
             "right": 0,
             "top": 0,
-            "visibility": "hidden",
             "width": 0,
           }
         }
       />
+      <noscript>
+        <img
+          alt="option"
+          className="image"
+          data-nimg="responsive"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          loading="lazy"
+          src="https://placeimg.com/640/480/any"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        />
+      </noscript>
     </div>
   </div>
   <div
@@ -201,6 +267,7 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
         <img
           alt="option"
           className="bg-image"
+          data-nimg="responsive"
           decoding="async"
           id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -223,11 +290,43 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
               "position": "absolute",
               "right": 0,
               "top": 0,
-              "visibility": "hidden",
               "width": 0,
             }
           }
         />
+        <noscript>
+          <img
+            alt="option"
+            className="bg-image"
+            data-nimg="responsive"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            loading="lazy"
+            src="https://placeimg.com/640/480/any"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </noscript>
       </div>
     </div>
     <div
@@ -253,6 +352,7 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
       <img
         alt="option"
         className="image"
+        data-nimg="responsive"
         decoding="async"
         id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -275,11 +375,43 @@ exports[`ImagePollOption should render primary progress bar when passing isVoted
             "position": "absolute",
             "right": 0,
             "top": 0,
-            "visibility": "hidden",
             "width": 0,
           }
         }
       />
+      <noscript>
+        <img
+          alt="option"
+          className="image"
+          data-nimg="responsive"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          loading="lazy"
+          src="https://placeimg.com/640/480/any"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        />
+      </noscript>
     </div>
   </div>
   <div
@@ -380,6 +512,7 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
         <img
           alt="option"
           className="bg-image"
+          data-nimg="responsive"
           decoding="async"
           id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -402,11 +535,43 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
               "position": "absolute",
               "right": 0,
               "top": 0,
-              "visibility": "hidden",
               "width": 0,
             }
           }
         />
+        <noscript>
+          <img
+            alt="option"
+            className="bg-image"
+            data-nimg="responsive"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            loading="lazy"
+            src="https://placeimg.com/640/480/any"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </noscript>
       </div>
     </div>
     <div
@@ -432,6 +597,7 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
       <img
         alt="option"
         className="image"
+        data-nimg="responsive"
         decoding="async"
         id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -454,11 +620,43 @@ exports[`ImagePollOption should render red progress bar when passing isVoted=[tr
             "position": "absolute",
             "right": 0,
             "top": 0,
-            "visibility": "hidden",
             "width": 0,
           }
         }
       />
+      <noscript>
+        <img
+          alt="option"
+          className="image"
+          data-nimg="responsive"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          loading="lazy"
+          src="https://placeimg.com/640/480/any"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        />
+      </noscript>
     </div>
   </div>
   <div

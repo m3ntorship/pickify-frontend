@@ -43,7 +43,6 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
                 <img
                   alt=""
                   aria-hidden={true}
-                  role="presentation"
                   src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
                   style={
                     Object {
@@ -58,6 +57,7 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
               </div>
               <img
                 className="absolute w-full h-full"
+                data-nimg="intrinsic"
                 decoding="async"
                 onClick={[Function]}
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -80,11 +80,43 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
                     "position": "absolute",
                     "right": 0,
                     "top": 0,
-                    "visibility": "hidden",
                     "width": 0,
                   }
                 }
               />
+              <noscript>
+                <img
+                  className="absolute w-full h-full"
+                  data-nimg="intrinsic"
+                  decoding="async"
+                  loading="lazy"
+                  onClick={[Function]}
+                  src="/_next/image?url=https%3A%2F%2Fs3-alpha-sig.figma.com%2Fimg%2F443e%2F6ac0%2F0864920f73a1963a9015537cae3da88e%3FExpires%3D1629676800%26Signature%3DbQGAkd8egMt437a3uVrvuWZhbojvQXv1gT356NyqCL8OGFlYDlZp-~UtHMvqUq8thdWR~v5wsIuxy8l8l8OZIrGZ6tC1U~Fo90xUy529JxeFQuHGzR26XK4fK8ut~MLo6oVyUMYh7cQH0eU4el8nTBt4mWPLigGbpIIt95qVD9wnUaIpG7qyNkBKLtaQXDLuI4pGkQ9urDZBaq9tYVt~uD576PPH~R4v4NF~XHXyeBKNo14KC3DO5zATf~AZystGgqxSZ-XZbru8eJgPaOswzaVy8kk-JHlTzpqU4ABd-M8hC1leUK8OahLfFdDqipZzw00faOJ4iof8pIxjD4PoEg__%26Key-Pair-Id%3DAPKAINTVSUGEWH5XD5UA&w=96&q=75"
+                  srcSet="/_next/image?url=https%3A%2F%2Fs3-alpha-sig.figma.com%2Fimg%2F443e%2F6ac0%2F0864920f73a1963a9015537cae3da88e%3FExpires%3D1629676800%26Signature%3DbQGAkd8egMt437a3uVrvuWZhbojvQXv1gT356NyqCL8OGFlYDlZp-~UtHMvqUq8thdWR~v5wsIuxy8l8l8OZIrGZ6tC1U~Fo90xUy529JxeFQuHGzR26XK4fK8ut~MLo6oVyUMYh7cQH0eU4el8nTBt4mWPLigGbpIIt95qVD9wnUaIpG7qyNkBKLtaQXDLuI4pGkQ9urDZBaq9tYVt~uD576PPH~R4v4NF~XHXyeBKNo14KC3DO5zATf~AZystGgqxSZ-XZbru8eJgPaOswzaVy8kk-JHlTzpqU4ABd-M8hC1leUK8OahLfFdDqipZzw00faOJ4iof8pIxjD4PoEg__%26Key-Pair-Id%3DAPKAINTVSUGEWH5XD5UA&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fs3-alpha-sig.figma.com%2Fimg%2F443e%2F6ac0%2F0864920f73a1963a9015537cae3da88e%3FExpires%3D1629676800%26Signature%3DbQGAkd8egMt437a3uVrvuWZhbojvQXv1gT356NyqCL8OGFlYDlZp-~UtHMvqUq8thdWR~v5wsIuxy8l8l8OZIrGZ6tC1U~Fo90xUy529JxeFQuHGzR26XK4fK8ut~MLo6oVyUMYh7cQH0eU4el8nTBt4mWPLigGbpIIt95qVD9wnUaIpG7qyNkBKLtaQXDLuI4pGkQ9urDZBaq9tYVt~uD576PPH~R4v4NF~XHXyeBKNo14KC3DO5zATf~AZystGgqxSZ-XZbru8eJgPaOswzaVy8kk-JHlTzpqU4ABd-M8hC1leUK8OahLfFdDqipZzw00faOJ4iof8pIxjD4PoEg__%26Key-Pair-Id%3DAPKAINTVSUGEWH5XD5UA&w=96&q=75 2x"
+                  style={
+                    Object {
+                      "border": "none",
+                      "bottom": 0,
+                      "boxSizing": "border-box",
+                      "display": "block",
+                      "height": 0,
+                      "left": 0,
+                      "margin": "auto",
+                      "maxHeight": "100%",
+                      "maxWidth": "100%",
+                      "minHeight": "100%",
+                      "minWidth": "100%",
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": 0,
+                    }
+                  }
+                />
+              </noscript>
             </div>
           </div>
         </div>
