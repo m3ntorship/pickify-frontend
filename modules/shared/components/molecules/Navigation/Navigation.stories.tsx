@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import Navigation from './Navigation';
 
 export default {
