@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 
 import * as nextImage from 'next/image';
-import { RouterContext } from 'next/dist/next-server/lib/router-context'; // next < 11.2
+import { RouterContext } from 'next/dist/shared/lib/router-context'; // next < 11.2
 
 Object.defineProperty(nextImage, 'default', {
   configurable: true,
