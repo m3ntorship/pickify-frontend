@@ -34,6 +34,7 @@ exports[`SingleImagePollOption should render covored like and dislike icons when
         <img
           alt="group"
           className="bg-image"
+          data-nimg="responsive"
           decoding="async"
           id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -56,11 +57,43 @@ exports[`SingleImagePollOption should render covored like and dislike icons when
               "position": "absolute",
               "right": 0,
               "top": 0,
-              "visibility": "hidden",
               "width": 0,
             }
           }
         />
+        <noscript>
+          <img
+            alt="group"
+            className="bg-image"
+            data-nimg="responsive"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            loading="lazy"
+            src="https://placeimg.com/640/480/any"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </noscript>
       </div>
     </div>
     <div
@@ -86,6 +119,7 @@ exports[`SingleImagePollOption should render covored like and dislike icons when
       <img
         alt="group"
         className="image"
+        data-nimg="responsive"
         decoding="async"
         id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -108,11 +142,43 @@ exports[`SingleImagePollOption should render covored like and dislike icons when
             "position": "absolute",
             "right": 0,
             "top": 0,
-            "visibility": "hidden",
             "width": 0,
           }
         }
       />
+      <noscript>
+        <img
+          alt="group"
+          className="image"
+          data-nimg="responsive"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          loading="lazy"
+          src="https://placeimg.com/640/480/any"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        />
+      </noscript>
     </div>
   </div>
   <div
@@ -237,6 +303,7 @@ exports[`SingleImagePollOption should render uncovored like and dislike icons wh
         <img
           alt="group"
           className="bg-image"
+          data-nimg="responsive"
           decoding="async"
           id="https://placeimg.com/640/480/any"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -259,11 +326,43 @@ exports[`SingleImagePollOption should render uncovored like and dislike icons wh
               "position": "absolute",
               "right": 0,
               "top": 0,
-              "visibility": "hidden",
               "width": 0,
             }
           }
         />
+        <noscript>
+          <img
+            alt="group"
+            className="bg-image"
+            data-nimg="responsive"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            loading="lazy"
+            src="https://placeimg.com/640/480/any"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </noscript>
       </div>
     </div>
     <div
@@ -289,6 +388,7 @@ exports[`SingleImagePollOption should render uncovored like and dislike icons wh
       <img
         alt="group"
         className="image"
+        data-nimg="responsive"
         decoding="async"
         id="https://placeimg.com/640/480/any"
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -311,11 +411,43 @@ exports[`SingleImagePollOption should render uncovored like and dislike icons wh
             "position": "absolute",
             "right": 0,
             "top": 0,
-            "visibility": "hidden",
             "width": 0,
           }
         }
       />
+      <noscript>
+        <img
+          alt="group"
+          className="image"
+          data-nimg="responsive"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          loading="lazy"
+          src="https://placeimg.com/640/480/any"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        />
+      </noscript>
     </div>
   </div>
   <div
