@@ -22,19 +22,23 @@ const FriendSuggestion: FC<IFriendSuggestion.IProps> = ({
   return (
     <div className="flex justify-between items-center">
       <ImgWithInfo>
-        <div className="flex w-min">
+        <>
           <ImgWithInfo.Image
-            avatarSize="medium"
-            variant="filled"
-            isHidden={false}
+            ImageSize="medium"
             ImageVariant="avatar"
             profilePic={profilePic}
           />
-          <ImgWithInfo.Info classes="max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap">
-            <h1 className="text-sm font-normal text-dark">{username}</h1>
-            <p className="text-dark-grey text-xs font-light">{subTitle}</p>
+          <ImgWithInfo.Info>
+            <>
+              <ImgWithInfo.Info.Title titleSize="small">
+                {username}
+              </ImgWithInfo.Info.Title>
+              <ImgWithInfo.Info.SubTitle subTitleSize="small">
+                {subTitle}
+              </ImgWithInfo.Info.SubTitle>
+            </>
           </ImgWithInfo.Info>
-        </div>
+        </>
       </ImgWithInfo>
       <div className="flex">
         <div className="mr-2">
