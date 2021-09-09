@@ -1,15 +1,27 @@
-.outer-wrapper {
-  @apply flex w-min;
+.info-box {
+  @apply flex;
 }
 
-.user-wrapper {
-  @apply max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap;
+.responsive-info-box {
+  @apply flex-col md:flex-row items-center md:items-start;
+}
+
+.responsive-image {
+  @apply mr-0 md:mr-4 mb-2 md:mb-0;
+}
+
+.info-wrapper {
+  @apply flex flex-col justify-around;
+}
+
+.responsive-info-wrapper {
+  @apply items-center sm:items-start;
 }
 
 .title {
-  @apply text-sm font-normal block whitespace-nowrap overflow-hidden overflow-ellipsis;
+  @apply max-w-13xl font-normal truncate;
 }
 
 .subTitle {
-  @apply text-xs font-light	text-dark-grey block;
+  @apply font-light	text-dark-grey max-w-13xl truncate;
 }
