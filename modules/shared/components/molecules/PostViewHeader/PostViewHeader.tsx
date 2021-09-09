@@ -46,41 +46,35 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
       default:
     }
   };
-  // const userName = name?.length !== 0 ? name : 'Anonymous';
 
   return (
     <>
-      {/* <ImgWithInfo
-        isHidden={isHidden}
-        profilePic={profilePic}
-        title={name ?? ''}
-        subTitle={humanReadableDate(date)}
-        description={exactDate(date)}
-        variant="avatar"
-      /> */}
       <ImgWithInfo>
-        <div className="flex w-min">
+        <>
           <ImgWithInfo.Image
-            avatarSize="medium"
-            variant="filled"
+            ImageSize="medium"
             isHidden={isHidden}
             ImageVariant="avatar"
             profilePic={profilePic}
           />
-          <ImgWithInfo.Info classes="text-xs font-light	text-dark-grey block max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap">
-            <div className="flex flex-row">
-              <h1 className="text-sm font-normal text-dark">
-                {name ?? 'Anonymous'}
-              </h1>
+          <ImgWithInfo.Info>
+            <>
+              <ImgWithInfo.Info.Title titleSize="small">
+                {name}
+              </ImgWithInfo.Info.Title>
               {isHidden && name && (
                 <span className="ml-2 text-grey text-xs truncate">
                   (anonymous)
                 </span>
               )}
-            </div>
-            <span title={`${exactDate(date)}`}>{humanReadableDate(date)}</span>
+              <ImgWithInfo.Info.SubTitle subTitleSize="small">
+                <span title={`${exactDate(date)}`}>
+                  {humanReadableDate(date)}
+                </span>
+              </ImgWithInfo.Info.SubTitle>
+            </>
           </ImgWithInfo.Info>
-        </div>
+        </>
       </ImgWithInfo>
 
       <DropDown
