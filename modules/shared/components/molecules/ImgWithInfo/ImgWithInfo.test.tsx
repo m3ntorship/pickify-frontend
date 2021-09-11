@@ -260,18 +260,6 @@ describe('Title component', () => {
 
     expect(tree).toMatchSnapshot();
   });
-
-  it('should render ImgWithInfo with Title component Anonymous text', () => {
-    const tree = renderer
-      .create(
-        <ImgWithInfo>
-          <ImgWithInfo.Info.Title titleSize="small" />
-        </ImgWithInfo>,
-      )
-      .toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
 });
 
 describe('SubTitle component', () => {

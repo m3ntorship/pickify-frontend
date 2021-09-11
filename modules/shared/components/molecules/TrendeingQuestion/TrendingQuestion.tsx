@@ -23,7 +23,10 @@ const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
         </ImgWithInfo.Image>
         <ImgWithInfo.Info>
           <>
-            <ImgWithInfo.Info.Title titleSize="small">
+            <ImgWithInfo.Info.Title
+              titleSize="small"
+              classes="truncate max-w-13xl"
+            >
               {postCaption}
             </ImgWithInfo.Info.Title>
             <ImgWithInfo.Info.SubTitle subTitleSize="small">

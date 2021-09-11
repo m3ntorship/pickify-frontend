@@ -75,11 +75,9 @@ const Info = ({
 
 const Title = ({
   classes,
-  children = '',
+  children,
   titleSize,
 }: IImgWithInfo.ITitle): ReactElement => {
-  const text = children.length !== 0 ? children : 'Anonymous';
-
   const titleClasses = classNames(
     styles.title,
     {
@@ -89,7 +87,7 @@ const Title = ({
     },
     classes,
   );
-  return <h3 className={titleClasses}>{text}</h3>;
+  return <h3 className={titleClasses}>{children}</h3>;
 };
 
 const SubTitle = ({

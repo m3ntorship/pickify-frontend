@@ -790,18 +790,6 @@ exports[`SubTitle component should render ImgWithInfo with SubTitle component wi
 </div>
 `;
 
-exports[`Title component should render ImgWithInfo with Title component Anonymous text 1`] = `
-<div
-  className="info-box"
->
-  <h3
-    className="title text-sm"
-  >
-    Anonymous
-  </h3>
-</div>
-`;
-
 exports[`Title component should render ImgWithInfo with Title component with large text 1`] = `
 <div
   className="info-box"

@@ -58,27 +58,6 @@ const Template: Story<IImgWithInfo.IProps> = () => (
     </div>
 
     <div>
-      <h2 className="mb-6">small image with info with Anonymous title</h2>
-      <ImgWithInfo>
-        <>
-          <ImgWithInfo.Image
-            ImageVariant="avatar"
-            ImageSize="medium"
-            profilePic="https://placeimg.com/640/480/any"
-          />
-          <ImgWithInfo.Info>
-            <>
-              <ImgWithInfo.Info.Title titleSize="small" />
-              <ImgWithInfo.Info.SubTitle subTitleSize="small">
-                Member since 2021
-              </ImgWithInfo.Info.SubTitle>
-            </>
-          </ImgWithInfo.Info>
-        </>
-      </ImgWithInfo>
-    </div>
-
-    <div>
       <h2 className="mb-6">
         medium image with info with title and sub title and more info
       </h2>

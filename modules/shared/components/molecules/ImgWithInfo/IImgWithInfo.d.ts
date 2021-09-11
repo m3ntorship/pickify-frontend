@@ -27,7 +27,7 @@ declare namespace IImgWithInfo {
 
   export interface ITitle extends IProps {
     classes?: string;
-    children?: string;
+    children?: ReactElement | string;
     titleSize: 'large' | 'medium' | 'small';
   }
 

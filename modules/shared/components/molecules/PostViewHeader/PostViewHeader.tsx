@@ -47,6 +47,8 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
     }
   };
 
+  const username = name === undefined ? 'Anonymous' : name;
+
   return (
     <>
       <ImgWithInfo>
@@ -60,13 +62,15 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
           <ImgWithInfo.Info>
             <>
               <ImgWithInfo.Info.Title titleSize="small">
-                {name}
+                <>
+                  {username}
+                  {isHidden && name && (
+                    <span className="ml-2 text-grey text-xs">
+                      (Posted Anonymously)
+                    </span>
+                  )}
+                </>
               </ImgWithInfo.Info.Title>
-              {isHidden && name && (
-                <span className="ml-2 text-grey text-xs truncate">
-                  (anonymous)
-                </span>
-              )}
               <ImgWithInfo.Info.SubTitle subTitleSize="small">
                 <span title={`${exactDate(date)}`}>
                   {humanReadableDate(date)}

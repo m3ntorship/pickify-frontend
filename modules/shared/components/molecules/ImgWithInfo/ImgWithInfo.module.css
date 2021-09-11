@@ -19,9 +19,9 @@
 }
 
 .title {
-  @apply max-w-13xl font-normal truncate;
+  @apply font-normal;
 }
 
 .subTitle {
-  @apply font-light	text-dark-grey max-w-13xl truncate;
+  @apply font-light	text-dark-grey;
 }
