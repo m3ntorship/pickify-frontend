@@ -1,0 +1,815 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image component should render Image with Avatar component with extra large profile picture 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="mr-4"
+  >
+    <div
+      className="wrapper extra-large"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with Avatar component with extra small profile picture 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="mr-4"
+  >
+    <div
+      className="wrapper extra-small"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with Avatar component with large profile picture 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="mr-4"
+  >
+    <div
+      className="wrapper large"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with Avatar component with medium profile picture 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="w-10 h-10 mr-4"
+  >
+    <div
+      className="wrapper medium"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with Avatar component with small profile picture 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="mr-4"
+  >
+    <div
+      className="wrapper small"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with Avatar component with super large profile picture 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="w-5xl h-5xl mr-4"
+  >
+    <div
+      className="wrapper super-large"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with Icon component with medium size 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="w-10 h-10 mr-4"
+  >
+    <svg
+      data-file-name="SvgTextPoll"
+    />
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with anonymous avatar component when we pass isHidden={true} 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="w-10 h-10 mr-4"
+  >
+    <div
+      className="wrapper medium"
+    >
+      <svg
+        className="absolute w-full h-full"
+        data-file-name="SvgAnonymous"
+        height={40}
+        onClick={[Function]}
+        width={40}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with filled avatar component when we pass profile picture even if when we pass isHidden={true} 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="w-10 h-10 mr-4"
+  >
+    <div
+      className="wrapper medium"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render Image with not filled avatar component when we do not pass profile picture 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="w-10 h-10 mr-4"
+  >
+    <div
+      className="wrapper medium"
+    >
+      <svg
+        className="absolute w-full h-full"
+        data-file-name="SvgNotFilled"
+        height={40}
+        onClick={[Function]}
+        width={40}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Image component should render responsive Image component when we pass isResponsive={true} 1`] = `
+<div
+  className="info-box responsive-info-box"
+>
+  <div
+    className="w-10 h-10 responsive-image"
+  >
+    <div
+      className="wrapper medium"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "inline-block",
+            "margin": 0,
+            "maxWidth": "100%",
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "maxWidth": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden={true}
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+            style={
+              Object {
+                "border": "none",
+                "display": "block",
+                "margin": 0,
+                "maxWidth": "100%",
+                "padding": 0,
+              }
+            }
+          />
+        </div>
+        <img
+          className="absolute w-full h-full"
+          decoding="async"
+          onClick={[Function]}
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": undefined,
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ImgWithInfo component should render ImgWithInfo parent component with text Hello 1`] = `
+<div
+  className="info-box"
+>
+  Hello
+</div>
+`;
+
+exports[`ImgWithInfo component should render responsive ImgWithInfo parent component with text Hello when we pass isResponsive={true} 1`] = `
+<div
+  className="info-box responsive-info-box"
+>
+  Hello
+</div>
+`;
+
+exports[`Info component should render ImgWithInfo parent with Info component contains text Hello 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="info-wrapper"
+  >
+    Hello
+  </div>
+</div>
+`;
+
+exports[`Info component should render ImgWithInfo parent with responsive Info component when we pass isResponsive={true} 1`] = `
+<div
+  className="info-box responsive-info-box"
+>
+  <div
+    className="info-wrapper responsive-info-wrapper"
+  >
+    Hello
+  </div>
+</div>
+`;
+
+exports[`MoreInfo component should render ImgWithInfo with MoreInfo component with Hello text 1`] = `
+<div
+  className="info-box"
+>
+  <div
+    className="mt-2"
+  >
+    Hello
+  </div>
+</div>
+`;
+
+exports[`SubTitle component should render ImgWithInfo with SubTitle component with medium text 1`] = `
+<div
+  className="info-box"
+>
+  <h5
+    className="subTitle text-sm"
+  >
+    Hello
+  </h5>
+</div>
+`;
+
+exports[`SubTitle component should render ImgWithInfo with SubTitle component with small text 1`] = `
+<div
+  className="info-box"
+>
+  <h5
+    className="subTitle text-xs"
+  >
+    Hello
+  </h5>
+</div>
+`;
+
+exports[`Title component should render ImgWithInfo with Title component with large text 1`] = `
+<div
+  className="info-box"
+>
+  <h3
+    className="title text-lg"
+  >
+    Hello
+  </h3>
+</div>
+`;
+
+exports[`Title component should render ImgWithInfo with Title component with small text 1`] = `
+<div
+  className="info-box"
+>
+  <h3
+    className="title text-sm"
+  >
+    Hello
+  </h3>
+</div>
+`;
