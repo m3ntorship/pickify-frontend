@@ -21,12 +21,13 @@ const Pickly = ({ Component, pageProps }: AppProps): ReactElement => {
   const router = useRouter();
   const { pathname } = router;
   const showHeader = pathname !== '/login';
-  const showWidgets = pathname !== '/login';
+  const showWidgets = pathname !== '/login' && pathname !== '/credits';
   const appContentStyles: string = classNames(styles['app-content'], {
     'md:mt-6xl mt-4xvl': showHeader,
   });
-  const pageClasses = classNames(styles.page, {
+  const pageClasses = classNames({
     'md:mr-6': showHeader,
+    'w-39xl': pathname !== '/credits',
   });
   return (
     <>
