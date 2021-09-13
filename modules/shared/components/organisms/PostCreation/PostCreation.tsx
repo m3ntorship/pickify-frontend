@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { EStatusCode } from '../../../api/EStatusCode';
 import type { IpostCreationAPI } from '../../../types/postCreation/IPostCreationAPI';
 import CreatePostHeader from '../../molecules/CreatePostHeader/CreatePostHeader';
-import { tabGroupData } from '../../molecules/TabGroup/data';
+import { postCreationTabGroupData } from '../../molecules/TabGroup/data';
 import TextPollCreation from '../TextPollCreation/TextPollCreation';
 import ImagePollCreation from '../ImagePollCreation/ImagePollCreation';
 import MiniSurveyPollCreation from '../MiniSurveyPollCreation/MiniSurveyPollCreation';
@@ -218,7 +218,7 @@ const PostCreation: FC<IPostCreation.IProps> = ({
               <CreatePostHeader
                 profilePic={user?.userImg ?? ''}
                 checkedValue={postCreationGlobalState.currentSelectedTab}
-                tabsData={tabGroupData()}
+                tabsData={postCreationTabGroupData()}
                 onTabChangeHandler={handleChangeTabsValue}
               />
             </Box.Header>

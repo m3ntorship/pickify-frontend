@@ -15,7 +15,7 @@
 }
 
 .extra-large {
-  @apply w-3xl h-3xl;
+  @apply w-4xl h-4xl;
 }
 
 .super-large {

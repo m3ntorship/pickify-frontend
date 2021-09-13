@@ -4,6 +4,7 @@ export const footerData = [
     path: '/',
     content: 'About',
   },
+  { name: 'team', path: '/credits', content: 'Team' },
   { name: 'blog', path: '/', content: 'Blog' },
   { name: 'careers', path: '/', content: 'Careers' },
   {

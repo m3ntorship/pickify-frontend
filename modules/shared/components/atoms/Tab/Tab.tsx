@@ -23,6 +23,10 @@ const Tab: FC<ITab.IProps> = (props): ReactElement => {
     [styles['tab-disabled']]: disabled,
   });
 
+  const contentClasses: string = classNames(styles['tab-type'], {
+    'hidden md:inline-block': !onlyLabel,
+  });
+
   return (
     <div className="flex">
       <label
@@ -42,7 +46,7 @@ const Tab: FC<ITab.IProps> = (props): ReactElement => {
           onlyLabel={onlyLabel}
         />
         {!onlyLabel && svg}
-        <span className={styles['tab-type']}>{content}</span>
+        <span className={contentClasses}>{content}</span>
       </label>
     </div>
   );
