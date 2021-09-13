@@ -4,6 +4,7 @@ export const footerData = [
     path: '/',
     content: 'About',
   },
+  { name: 'pickify-team', path: '/credits', content: 'Pickify Team' },
   { name: 'blog', path: '/', content: 'Blog' },
   { name: 'careers', path: '/', content: 'Careers' },
   {

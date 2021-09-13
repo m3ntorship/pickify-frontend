@@ -79,6 +79,18 @@ exports[`Login page Snapshot testing for the login component 1`] = `
           >
             <a
               className="link"
+              href="/credits"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              Pickify Team
+            </a>
+          </li>
+          <li
+            className="link-item"
+          >
+            <a
+              className="link"
               href="/"
               onClick={[Function]}
               onMouseEnter={[Function]}
