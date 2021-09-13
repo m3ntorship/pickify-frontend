@@ -20,8 +20,6 @@ const CreditsPage: FC = (): ReactElement => {
     currentTeam: frontEndData,
   });
 
-  console.log('rerender.....');
-
   const changeCurrentSelectedTab = (
     e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
