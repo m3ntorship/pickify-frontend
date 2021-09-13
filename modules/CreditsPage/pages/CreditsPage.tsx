@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { FC, ReactElement } from 'react';
+import Head from 'next/head';
 import TabGroup from '@modules/shared/components/molecules/TabGroup/TabGroup';
 import { CreditsTabGroupData } from '@modules/shared/components/molecules/TabGroup/data';
 import Credits from '../components/Credits/Credits';
@@ -45,22 +46,27 @@ const CreditsPage: FC = (): ReactElement => {
   };
 
   return (
-    <section className="flex items-center flex-col">
-      <h2 className="text-base md:text-lg font-normal text-dark text-center mb-6">
-        Shoutout to the following persons who helped create this platform
-      </h2>
-      <div className="flex justify-center mb-8">
-        <TabGroup
-          onlyLabel
-          checkedValue={currentTeamState.currentSelectedTab}
-          changeValHandler={changeCurrentSelectedTab}
-          tabsData={CreditsTabGroupData()}
-        />
-      </div>
-      <div className="mb-8">
-        <Credits creditsData={currentTeamState.currentTeam} />
-      </div>
-    </section>
+    <>
+      <Head>
+        <title>Credits | Pickify</title>
+      </Head>
+      <section className="flex items-center flex-col">
+        <h2 className="text-base md:text-lg font-normal text-dark text-center mb-6">
+          Shoutout to the following persons who helped create this platform
+        </h2>
+        <div className="flex justify-center mb-8">
+          <TabGroup
+            onlyLabel
+            checkedValue={currentTeamState.currentSelectedTab}
+            changeValHandler={changeCurrentSelectedTab}
+            tabsData={CreditsTabGroupData()}
+          />
+        </div>
+        <div className="mb-8">
+          <Credits creditsData={currentTeamState.currentTeam} />
+        </div>
+      </section>
+    </>
   );
 };
 
