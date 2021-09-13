@@ -22,7 +22,7 @@ const Credit: FC<{ creditData: ICredit.ICreditData }> = ({
                 ImageVariant="avatar"
                 profilePic={creditData.developerImage}
               />
-              <ImgWithInfo.Info classes="h-full">
+              <ImgWithInfo.Info classes="">
                 <>
                   <ImgWithInfo.Info.Title titleSize="medium">
                     {creditData.developerName}
@@ -35,7 +35,7 @@ const Credit: FC<{ creditData: ICredit.ICreditData }> = ({
                       {creditData.githubAccount && (
                         <li className="mr-1">
                           <Link href={creditData.githubAccount}>
-                            <a>
+                            <a target="_blank">
                               <GithubIcon />
                             </a>
                           </Link>
@@ -43,7 +43,7 @@ const Credit: FC<{ creditData: ICredit.ICreditData }> = ({
                       )}
                       <li>
                         <Link href={creditData.linkedinAccount}>
-                          <a>
+                          <a target="_blank">
                             <LinkedinIcon />
                           </a>
                         </Link>
@@ -63,7 +63,7 @@ const Credit: FC<{ creditData: ICredit.ICreditData }> = ({
         </>
       </Box.Header>
       <Box.Footer withDevider>
-        <div className="bg-grey-bg p-3">
+        <div className="bg-grey-bg rounded-md p-3">
           <p className="text-sm font-normal text-dark-grey">
             {creditData.feedback}
           </p>

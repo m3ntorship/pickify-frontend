@@ -5,7 +5,7 @@ export const frontEndData = [
     developerImage: '/Essam.jpeg',
     developerTitle: 'Front-end Developer',
     developerRank: 'Dedicated',
-    githubAccount: 'https://github.com/orgs/m3ntorship/people/ahmedkhitaby',
+    githubAccount: 'https://github.com/ahmedkhitaby',
     linkedinAccount: 'https://www.linkedin.com/in/ahmedkhitaby/',
     feedback:
       'Whenever I need [add description] I make sure to reach out to her, as she is the best at it. She has been collaborating with my team for a couple of years, and on top of being a great [role], she is also an easy-going person. I definitely recommend [name] to any job',
@@ -16,7 +16,7 @@ export const frontEndData = [
     developerImage: '/Adel.jpg',
     developerTitle: 'Front-end Developer',
     developerRank: 'Dedicated',
-    githubAccount: 'https://github.com/orgs/m3ntorship/people/AhmedAdel999',
+    githubAccount: 'https://github.com/AhmedAdel999',
     linkedinAccount: 'https://www.linkedin.com/in/ahmed-adel-a58260205/',
     feedback:
       'Whenever I need [add description] I make sure to reach out to her, as she is the best at it. She has been collaborating with my team for a couple of years, and on top of being a great [role], she is also an easy-going person. I definitely recommend [name] to any job',
@@ -27,7 +27,7 @@ export const frontEndData = [
     developerImage: '/Twfiek.jpeg',
     developerTitle: 'Front-end Developer',
     developerRank: 'Dedicated',
-    githubAccount: 'https://github.com/orgs/m3ntorship/people/atwfk',
+    githubAccount: 'https://github.com/atwfk',
     linkedinAccount: 'https://www.linkedin.com/in/atwfk/',
     feedback:
       'Whenever I need [add description] I make sure to reach out to her, as she is the best at it. She has been collaborating with my team for a couple of years, and on top of being a great [role], she is also an easy-going person. I definitely recommend [name] to any job',
@@ -38,7 +38,7 @@ export const frontEndData = [
     developerImage: '/Omar.jpg',
     developerTitle: 'Front-end Developer',
     developerRank: 'Dedicated',
-    githubAccount: 'https://github.com/orgs/m3ntorship/people/omarawad0',
+    githubAccount: 'https://github.com/omarawad0',
     linkedinAccount: 'https://www.linkedin.com/in/omar-ga-awad-0/',
     feedback:
       'Whenever I need [add description] I make sure to reach out to her, as she is the best at it. She has been collaborating with my team for a couple of years, and on top of being a great [role], she is also an easy-going person. I definitely recommend [name] to any job',
@@ -49,7 +49,7 @@ export const frontEndData = [
     developerImage: '/Sayad.jpg',
     developerTitle: 'Front-end Developer',
     developerRank: 'Dedicated',
-    githubAccount: 'https://github.com/orgs/m3ntorship/people/ahmedelsayad11',
+    githubAccount: 'https://github.com/ahmedelsayad11',
     linkedinAccount: 'https://www.linkedin.com/in/ahmed-elsayad-593537185/',
     feedback:
       'Whenever I need [add description] I make sure to reach out to her, as she is the best at it. She has been collaborating with my team for a couple of years, and on top of being a great [role], she is also an easy-going person. I definitely recommend [name] to any job',

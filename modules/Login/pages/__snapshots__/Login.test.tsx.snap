@@ -83,7 +83,7 @@ exports[`Login page Snapshot testing for the login component 1`] = `
               onClick={[Function]}
               onMouseEnter={[Function]}
             >
-              Pickify Team
+              Team
             </a>
           </li>
           <li
