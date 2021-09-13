@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import type { Story } from '@storybook/react';
 import TabGroup from './TabGroup';
 import type { ITabGroup } from './ITabGroup';
-import { tabGroupData } from './data';
+import { postCreationTabGroupData } from './data';
 
 export default {
   title: 'Molecules/TabGroup',
@@ -20,6 +20,6 @@ const Template: Story<ITabGroup.IProps> = (args): ReactElement => (
 );
 export const tabGroup = Template.bind({});
 tabGroup.args = {
-  tabsData: tabGroupData(),
+  tabsData: postCreationTabGroupData(),
   onlyLabel: false,
 };

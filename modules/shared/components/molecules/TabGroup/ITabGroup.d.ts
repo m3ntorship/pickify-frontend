@@ -13,9 +13,9 @@ declare namespace ITabGroup {
 
   export interface ITabGroupData {
     id: string;
-    svg: JSX.Element;
-    value: 'Image Poll' | 'Mini Survey' | 'Text Poll';
-    postType: EPostType;
+    svg?: JSX.Element;
+    value: string;
+    postType?: EPostType;
   }
 }
 export { ITabGroup };

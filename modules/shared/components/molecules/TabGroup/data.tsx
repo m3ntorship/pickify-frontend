@@ -6,7 +6,7 @@ import MiniSurvey from '../../icons/miniSurvey.svg';
 import styles from '../../atoms/Tab/Tab.module.css';
 import type { ITabGroup } from './ITabGroup';
 
-export const tabGroupData = (): ITabGroup.ITabGroupData[] => {
+export const postCreationTabGroupData = (): ITabGroup.ITabGroupData[] => {
   return [
     {
       id: '1',
@@ -25,6 +25,23 @@ export const tabGroupData = (): ITabGroup.ITabGroupData[] => {
       svg: <MiniSurvey className={styles.icon} />,
       value: 'Mini Survey',
       postType: EPostType.MiniSurvey,
+    },
+  ];
+};
+
+export const CreditsTabGroupData = (): ITabGroup.ITabGroupData[] => {
+  return [
+    {
+      id: '1',
+      value: 'Front-end',
+    },
+    {
+      id: '2',
+      value: 'Back-end',
+    },
+    {
+      id: '3',
+      value: 'Mentors',
     },
   ];
 };
