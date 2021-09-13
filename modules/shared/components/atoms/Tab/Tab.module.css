@@ -9,7 +9,7 @@
 }
 
 .tab-type {
-  @apply text-sm hidden md:inline-block font-medium text-dark-grey;
+  @apply text-sm font-medium text-dark-grey;
 }
 
 .tab-disabled {

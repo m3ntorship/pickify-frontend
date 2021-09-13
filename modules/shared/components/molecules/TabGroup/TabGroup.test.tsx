@@ -2,9 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { TargetElement } from '@testing-library/user-event';
-import { EPostType } from '../../../types/postFeed/EPostType';
 import TabGroup from './TabGroup';
-import { tabGroupData } from './data';
+import { postCreationTabGroupData } from './data';
 
 describe('TabGroup', () => {
   it('should render three tabs', () => {
@@ -14,8 +13,8 @@ describe('TabGroup', () => {
 
     render(
       <TabGroup
-        tabsData={tabGroupData()}
-        checkedValue={EPostType.TextPoll}
+        tabsData={postCreationTabGroupData()}
+        checkedValue="Text Poll"
         changeValHandler={changeValHandler}
       />,
     );
@@ -36,8 +35,8 @@ describe('TabGroup', () => {
 
     render(
       <TabGroup
-        tabsData={tabGroupData()}
-        checkedValue={EPostType.TextPoll}
+        tabsData={postCreationTabGroupData()}
+        checkedValue="Text Poll"
         changeValHandler={changeValHandler}
       />,
     );
@@ -59,8 +58,8 @@ describe('TabGroup', () => {
 
     render(
       <TabGroup
-        tabsData={tabGroupData()}
-        checkedValue={EPostType.TextPoll}
+        tabsData={postCreationTabGroupData()}
+        checkedValue="Text Poll"
         changeValHandler={changeValHandler}
       />,
     );
