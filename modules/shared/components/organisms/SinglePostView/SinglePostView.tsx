@@ -42,6 +42,7 @@ const SinglePostView: FC<IPost.Props> = ({
   deletePostHandler,
   addOneVoteHandler,
 }): ReactElement => {
+  const postType = post.type.toLowerCase();
   let votedOptions: IPostFeed.IOptions[] = [];
 
   post.options_groups.groups.map((group) => {
@@ -97,13 +98,13 @@ const SinglePostView: FC<IPost.Props> = ({
                   ))}
                 </>
               )}
-              {post.type === EPostType.TextPoll && (
+              {postType === EPostType.TextPoll && (
                 <TextPollViewOptions
                   optionsGroups={post.options_groups}
                   addOneVote={addOneVoteHandler}
                 />
               )}
-              {post.type === EPostType.MiniSurvey && (
+              {postType === EPostType.MiniSurvey && (
                 <MiniSurveyViewOptions
                   type={EPostType.MiniSurvey}
                   optionsGroups={post.options_groups}
@@ -111,7 +112,7 @@ const SinglePostView: FC<IPost.Props> = ({
                   showExpandButton={isVoted()}
                 />
               )}
-              {post.type === EPostType.ImagePoll && (
+              {postType === EPostType.ImagePoll && (
                 <ImagePollGroup
                   group={post.options_groups.groups[0]}
                   addOneVote={addOneVoteHandler}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import type { FC, ReactElement } from 'react';
 import Head from 'next/head';
 import TabGroup from '@modules/shared/components/molecules/TabGroup/TabGroup';
@@ -20,29 +20,34 @@ const CreditsPage: FC = (): ReactElement => {
     currentTeam: frontEndData,
   });
 
-  useEffect(() => {
-    switch (currentTeamState.currentSelectedTab) {
-      case 'Front-end':
-        setCurrentTeamState({ ...currentTeamState, currentTeam: frontEndData });
-        break;
-      case 'Back-end':
-        setCurrentTeamState({ ...currentTeamState, currentTeam: backEndData });
-        break;
-      case 'Mentors':
-        setCurrentTeamState({ ...currentTeamState, currentTeam: mentorsData });
-        break;
-      default:
-        setCurrentTeamState({ ...currentTeamState, currentTeam: [] });
-    }
-  }, [currentTeamState.currentSelectedTab]);
-
   const changeCurrentSelectedTab = (
     e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
-    setCurrentTeamState({
-      ...currentTeamState,
-      currentSelectedTab: e.currentTarget.value,
-    });
+    switch (e.currentTarget.value) {
+      case 'Front-end':
+        setCurrentTeamState({
+          currentSelectedTab: e.currentTarget.value,
+          currentTeam: frontEndData,
+        });
+        break;
+      case 'Back-end':
+        setCurrentTeamState({
+          currentSelectedTab: e.currentTarget.value,
+          currentTeam: backEndData,
+        });
+        break;
+      case 'Mentors':
+        setCurrentTeamState({
+          currentSelectedTab: e.currentTarget.value,
+          currentTeam: mentorsData,
+        });
+        break;
+      default:
+        setCurrentTeamState({
+          currentSelectedTab: e.currentTarget.value,
+          currentTeam: [],
+        });
+    }
   };
 
   return (
