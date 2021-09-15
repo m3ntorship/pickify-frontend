@@ -5,11 +5,14 @@ import type { CookieSerializeOptions } from 'cookie';
 import { serialize } from 'cookie';
 import { register } from 'context/AuthUserContext/api/authApi';
 import type { GetServerSideProps } from 'next';
-import { getPosts } from '@modules/shared/api/getPosts.api';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
+import { getUserData } from '@modules/ProfilePage/api/getUserData';
+import type { IGetUserData } from '@modules/ProfilePage/api/IGetUserData';
 
-const Profile: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
+const User: FC<{
+  data: { posts: IPostFeed.IPost[]; postsCount: number; user: IPostFeed.IUser };
+}> = ({ data }): ReactElement => {
   return <ProfilePage data={data} />;
 };
 
@@ -19,23 +22,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   } = context;
   const { user } = cookies as { user: string };
 
-  if (!user) {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      },
-    };
-  }
   try {
     await register(user);
-    const { data } = await getPosts(user, 0);
+    const { userData } = await getUserData('0', user);
     return {
-      props: { data },
+      props: { data: userData },
     };
   } catch (error: unknown) {
     const { url } = context.req as { url: string };
-    const { errorCode } = error as { errorCode: number };
+    const { userData } = error as { userData: IGetUserData.IUserErrorData };
 
     const serializeOptions: CookieSerializeOptions = {
       httpOnly: false,
@@ -48,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       serialize('lastPage', url, serializeOptions),
     );
 
-    if (errorCode === EStatusCode.Unauthorized) {
+    if (userData.errorCode === EStatusCode.Unauthorized) {
       return {
         redirect: {
           destination: '/login',
@@ -56,14 +51,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         },
       };
     }
+
     return {
-      props: { data: error },
-      redirect: {
-        destination: '/login',
-        permanent: false,
+      props: {
+        data: userData,
       },
     };
   }
 };
 
-export default Profile;
+export default User;
