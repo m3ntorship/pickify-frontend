@@ -8,3 +8,7 @@ export const creationDropDown = [
   { id: 'delete', body: 'Delete Image' },
   { id: 'order', body: 'Change Order' },
 ];
+
+export const postCreationMiniSurveyGroupDropDown = [
+  { id: 'delete', body: 'Delete Group' },
+];

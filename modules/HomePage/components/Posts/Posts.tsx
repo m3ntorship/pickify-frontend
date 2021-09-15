@@ -29,7 +29,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   useEffect(() => {
     const transformedMedia = transformPostsMedia(posts);
     setPosts(transformedMedia);
-  }, [data, posts]);
+  }, [data]);
 
   const toasterHandler = (resData: IVotesApi.IVotesErrorData): null => {
     if (!resData.error) {

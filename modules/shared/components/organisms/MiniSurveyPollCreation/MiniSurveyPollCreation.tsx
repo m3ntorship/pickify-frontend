@@ -199,9 +199,9 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
     });
   };
 
-  const updateOptionsGroupNameHandler = (
+  const onChangeOptionsGroupNameValueHandler = (
     groupId: string,
-    groupName: string,
+    e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
     setPostCreationGlobalState({
       ...postCreationGlobalState,
@@ -209,7 +209,22 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
         ...post,
         groups: post.groups.map((group) => {
           if (group.id === groupId) {
-            return { ...group, name: groupName };
+            return { ...group, name: e.target.value };
+          }
+          return group;
+        }),
+      },
+    });
+  };
+
+  const onClickDeleteOptionsGroupNameValueHandler = (groupId: string): void => {
+    setPostCreationGlobalState({
+      ...postCreationGlobalState,
+      miniSurvey: {
+        ...post,
+        groups: post.groups.map((group) => {
+          if (group.id === groupId) {
+            return { ...group, name: '' };
           }
           return group;
         }),
@@ -314,8 +329,11 @@ const MiniSurveyPollCreation: FC<IMiniSurveyPollCreation.IPorps> = ({
           onClickDeleteOptionValueHandler={(optionId, groupId): void => {
             onClickDeleteOptionValueHandler(optionId, groupId);
           }}
-          updateOptionsGroupNameHandler={(groupId, groupName): void => {
-            updateOptionsGroupNameHandler(groupId, groupName);
+          onChangeOptionsGroupNameValue={(groupId, e): void => {
+            onChangeOptionsGroupNameValueHandler(groupId, e);
+          }}
+          onClickDeleteOptionsGroupNameValueHandler={(groupId): void => {
+            onClickDeleteOptionsGroupNameValueHandler(groupId);
           }}
         />
       </div>

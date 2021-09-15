@@ -31,7 +31,6 @@ const CustomMiniSurvey = (): ReactElement => {
   );
 };
 
-const one = 1;
 const two = 2;
 describe('MiniSurveyPollCreation', () => {
   it('should be able to write post Caption', () => {
@@ -58,15 +57,5 @@ describe('MiniSurveyPollCreation', () => {
     const addOptionGroupBtn = screen.getByTestId('addOptionGroupBtn');
     userEvent.click(addOptionGroupBtn);
     expect(screen.getAllByTestId('optionsWrapper').length).toBe(two);
-  });
-  it('should delete last group clicking delete group button', () => {
-    customRender(<CustomMiniSurvey />);
-    const addOptionGroupBtn = screen.getByTestId('addOptionGroupBtn');
-    userEvent.click(addOptionGroupBtn);
-    const editGroupBtn = screen.getAllByTestId('editGroupButton');
-    userEvent.click(editGroupBtn[one]);
-    const detetGroupBtn = screen.getByTestId('removeGroupButton');
-    userEvent.click(detetGroupBtn);
-    expect(screen.getAllByTestId('optionsWrapper').length).toBe(one);
   });
 });

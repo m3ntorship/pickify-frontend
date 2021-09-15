@@ -5,104 +5,96 @@ exports[`Friend Suggestion Component Should render correctly 1`] = `
   className="flex justify-between items-center"
 >
   <div
-    className="box"
+    className="info-box"
   >
     <div
-      className="flex w-min"
+      className="w-10 h-10 mr-4"
     >
       <div
-        className="header-wrapper"
+        className="wrapper medium"
       >
         <div
-          className="header"
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "inline-block",
+              "margin": 0,
+              "maxWidth": "100%",
+              "overflow": "hidden",
+              "position": "relative",
+            }
+          }
         >
           <div
-            className="wrapper medium"
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "display": "block",
+                "maxWidth": "100%",
+              }
+            }
           >
-            <div
+            <img
+              alt=""
+              aria-hidden={true}
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
               style={
                 Object {
-                  "boxSizing": "border-box",
-                  "display": "inline-block",
+                  "border": "none",
+                  "display": "block",
                   "margin": 0,
                   "maxWidth": "100%",
-                  "overflow": "hidden",
-                  "position": "relative",
+                  "padding": 0,
                 }
               }
-            >
-              <div
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "block",
-                    "maxWidth": "100%",
-                  }
-                }
-              >
-                <img
-                  alt=""
-                  aria-hidden={true}
-                  role="presentation"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-                  style={
-                    Object {
-                      "border": "none",
-                      "display": "block",
-                      "margin": 0,
-                      "maxWidth": "100%",
-                      "padding": 0,
-                    }
-                  }
-                />
-              </div>
-              <img
-                className="absolute w-full h-full"
-                decoding="async"
-                onClick={[Function]}
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                style={
-                  Object {
-                    "border": "none",
-                    "bottom": 0,
-                    "boxSizing": "border-box",
-                    "display": "block",
-                    "height": 0,
-                    "left": 0,
-                    "margin": "auto",
-                    "maxHeight": "100%",
-                    "maxWidth": "100%",
-                    "minHeight": "100%",
-                    "minWidth": "100%",
-                    "objectFit": undefined,
-                    "objectPosition": undefined,
-                    "padding": 0,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                    "visibility": "hidden",
-                    "width": 0,
-                  }
-                }
-              />
-            </div>
+            />
           </div>
+          <img
+            className="absolute w-full h-full"
+            decoding="async"
+            onClick={[Function]}
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": undefined,
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "visibility": "hidden",
+                "width": 0,
+              }
+            }
+          />
         </div>
       </div>
-      <div
-        className="max-w-13xl flex flex-col justify-between ml-4 whitespace-nowrap"
+    </div>
+    <div
+      className="info-wrapper"
+    >
+      <h3
+        className="title text-sm"
       >
-        <h1
-          className="text-sm font-normal text-dark"
-        >
-          Ahmed Adel
-        </h1>
-        <p
-          className="text-dark-grey text-xs font-light"
-        >
-          5 Mutual Friends
-        </p>
-      </div>
+        Ahmed Adel
+      </h3>
+      <h5
+        className="subTitle text-xs"
+      >
+        5 Mutual Friends
+      </h5>
     </div>
   </div>
   <div

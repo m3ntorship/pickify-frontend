@@ -1,5 +1,5 @@
 export enum EPollType {
-  TextPoll = 'Text Poll',
   ImagePoll = 'Image Poll',
+  TextPoll = 'Text Poll',
   MiniSurvey = 'Mini Survey',
 }

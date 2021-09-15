@@ -13,26 +13,30 @@ const TrendingQuestion: FC<ITrendingQuestion.IProps> = ({
 }): ReactElement => {
   return (
     <ImgWithInfo>
-      <div className="flex w-min">
-        <ImgWithInfo.Image
-          avatarSize="medium"
-          variant="filled"
-          isHidden={false}
-          ImageVariant="icon"
-        >
+      <>
+        <ImgWithInfo.Image ImageSize="medium" ImageVariant="icon">
           <div className={styles['trending-question']}>
             {type === 'Mini Survey' && <MiniSurvey />}
             {type === 'Text Poll' && <TextPoll />}
             {type === 'Image Poll' && <ImagePoll />}
           </div>
         </ImgWithInfo.Image>
-        <ImgWithInfo.Info classes="max-w-13xl flex flex-col justify-between ml-4 truncate	">
-          <h1 className="text-sm font-normal text-dark truncate">
-            {postCaption}
-          </h1>
-          <p className="text-dark-grey text-xs font-light truncate">{type}</p>
+        <ImgWithInfo.Info>
+          <>
+            <ImgWithInfo.Info.Title
+              titleSize="small"
+              classes="truncate max-w-13xl"
+            >
+              <>
+                <span title={postCaption}>{postCaption}</span>
+              </>
+            </ImgWithInfo.Info.Title>
+            <ImgWithInfo.Info.SubTitle subTitleSize="small">
+              {type}
+            </ImgWithInfo.Info.SubTitle>
+          </>
         </ImgWithInfo.Info>
-      </div>
+      </>
     </ImgWithInfo>
   );
 };

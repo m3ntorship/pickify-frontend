@@ -7,7 +7,7 @@ exports[`DropDown should render the only menu icon with variant=[image] 1`] = `
   <div
     aria-hidden={true}
     aria-pressed={false}
-    className="menu-icon-container rounded-full w-l h-l"
+    className="menu-icon-container rounded-full bg-white w-l h-l"
     data-testid="menu-icon"
     role="button"
     tabIndex={0}

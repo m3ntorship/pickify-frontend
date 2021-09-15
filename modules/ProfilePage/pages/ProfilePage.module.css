@@ -3,14 +3,14 @@
 }
 
 .title {
-  @apply text-dark-grey text-xs font-light ;
+  @apply text-dark-grey text-xs font-light;
 }
 
 .sub-title {
   @apply font-normal text-sm text-dark-grey;
 }
 .sub-title + .sub-title {
-  @apply ml-2
+  @apply ml-2;
 }
 
 .edit-icon {
@@ -22,6 +22,5 @@
 }
 
 .img-with-info-info {
-  @apply flex flex-col justify-center items-center sm:items-start sm:ml-4 ;
+  @apply flex flex-col justify-center items-center sm:items-start sm:ml-4;
 }
-

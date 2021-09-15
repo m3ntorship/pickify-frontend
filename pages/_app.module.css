@@ -6,10 +6,6 @@
   @apply flex justify-center;
 }
 
-.page {
-  @apply w-39xl;
-}
-
 .widgets {
   @apply w-19xl hidden md:block;
 }

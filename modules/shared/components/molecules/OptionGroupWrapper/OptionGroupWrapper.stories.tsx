@@ -27,6 +27,7 @@ Default.args = {
   id: 'G1',
   index: 1,
   optionsGroupName: 'Group 1',
-  updateOptionsGroupNameHandler: (): void => undefined,
+  onChangeOptionsGroupNameValue: (): void => undefined,
+  onClickDeleteOptionsGroupNameValueHandler: (): void => undefined,
   deleteOptionsGroupHandler: (): void => undefined,
 };

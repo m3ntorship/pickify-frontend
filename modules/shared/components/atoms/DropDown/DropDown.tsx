@@ -15,7 +15,7 @@ const DropDown: FC<IDropDown.IProps> = ({
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
 
   const menuIconClasses = classNames(styles['menu-icon-container'], {
-    'rounded-full': variant === 'image',
+    'rounded-full bg-white': variant === 'image',
     'w-l h-l': size === 'sm',
     'w-xl h-xl': size === 'md',
   });

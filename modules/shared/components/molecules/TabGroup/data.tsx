@@ -41,3 +41,19 @@ export const profileTabGroupData = (): ITabGroup.ITabGroupData[] => {
     },
   ];
 };
+export const CreditsTabGroupData = (): ITabGroup.ITabGroupData[] => {
+  return [
+    {
+      id: '1',
+      value: 'Front-end',
+    },
+    {
+      id: '2',
+      value: 'Back-end',
+    },
+    {
+      id: '3',
+      value: 'Mentors',
+    },
+  ];
+};
