@@ -14,11 +14,6 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
         className="btnBody"
         data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
         id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
-        style={
-          Object {
-            "width": "22%",
-          }
-        }
       >
         <span
           className="flex-container"
@@ -62,11 +57,6 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
         className="btnBody"
         data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
         id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
-        style={
-          Object {
-            "width": "33%",
-          }
-        }
       >
         <span
           className="flex-container"
@@ -110,11 +100,6 @@ exports[`TextPollViewOptions component should render () OptionGroup when we appl
         className="btnBody"
         data-testid="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
         id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
-        style={
-          Object {
-            "width": "44%",
-          }
-        }
       >
         <span
           className="flex-container"
