@@ -2,10 +2,10 @@
   @apply flex justify-between items-center rounded-md p-xs pr-xsvv text-dark;
 }
 .letter {
-  @apply bg-white text-dark-grey font-normal capitalize rounded-sm mr-3 w-l h-l flex justify-center items-center;
+  @apply bg-white text-dark-grey font-normal capitalize rounded-sm mr-3 min-w-l min-h-l flex justify-center items-center;
 }
 .option {
-  @apply text-sm capitalize whitespace-nowrap;
+  @apply text-sm capitalize;
 }
 .percentage {
   @apply font-normal text-sm flex items-center z-10;

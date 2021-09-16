@@ -177,11 +177,15 @@ module.exports = {
         '19xl': '19rem', // 304px
         '29xl': '29.5rem', // 472px
       },
+      minWidth: {
+        l: '1.5rem', // 24px
+      },
       maxHeight: {
         '33xl': '33.5625rem', // 632px
       },
       minHeight: {
         '2xl': '2.5rem', // 30px
+        l: '1.5rem', // 24px
       },
       height: {
         '2xl': '1.8125rem', // 29 px
