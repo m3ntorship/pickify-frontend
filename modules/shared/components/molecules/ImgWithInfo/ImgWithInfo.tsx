@@ -1,5 +1,6 @@
 import React from 'react';
 import type { ReactElement } from 'react';
+import Link from 'next/link';
 import classNames from 'classnames';
 import styles from './ImgWithInfo.module.css';
 import type { IImgWithInfo } from './IImgWithInfo';
@@ -30,6 +31,7 @@ const Image = ({
   isHidden = false,
   children,
   isResponsive,
+  imagePath = '',
 }: IImgWithInfo.IImage): ReactElement => {
   const ImageClasses = classNames(
     {
@@ -43,7 +45,7 @@ const Image = ({
     classes,
   );
 
-  return (
+  const imageComp = (
     <div className={ImageClasses}>
       {ImageVariant === 'avatar' && (
         <Avatar
@@ -55,6 +57,18 @@ const Image = ({
       )}
       {ImageVariant === 'icon' && children}
     </div>
+  );
+
+  return (
+    <>
+      {imagePath.length === 0 ? (
+        <>{imageComp}</>
+      ) : (
+        <Link href={imagePath}>
+          <a>{imageComp}</a>
+        </Link>
+      )}
+    </>
   );
 };
 
@@ -77,6 +91,7 @@ const Title = ({
   classes,
   children,
   titleSize,
+  titlePath = '',
 }: IImgWithInfo.ITitle): ReactElement => {
   const titleClasses = classNames(
     styles.title,
@@ -87,13 +102,26 @@ const Title = ({
     },
     classes,
   );
-  return <h3 className={titleClasses}>{children}</h3>;
+  return (
+    <>
+      {titlePath.length === 0 ? (
+        <h3 className={titleClasses}>{children}</h3>
+      ) : (
+        <Link href={titlePath}>
+          <a>
+            <h3 className={titleClasses}>{children}</h3>
+          </a>
+        </Link>
+      )}
+    </>
+  );
 };
 
 const SubTitle = ({
   classes,
   children,
   subTitleSize,
+  subTitlePath = '',
 }: IImgWithInfo.ISubTitle): ReactElement => {
   const subTitleClasses = classNames(
     styles.subTitle,
@@ -103,7 +131,19 @@ const SubTitle = ({
     },
     classes,
   );
-  return <h5 className={subTitleClasses}>{children}</h5>;
+  return (
+    <>
+      {subTitlePath.length === 0 ? (
+        <h5 className={subTitleClasses}>{children}</h5>
+      ) : (
+        <Link href={subTitlePath}>
+          <a>
+            <h5 className={subTitleClasses}>{children}</h5>
+          </a>
+        </Link>
+      )}
+    </>
+  );
 };
 
 const MoreInfo = ({ classes, children }: IImgWithInfo.IProps): ReactElement => {

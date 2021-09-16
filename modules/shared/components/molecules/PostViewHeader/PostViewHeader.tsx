@@ -58,10 +58,14 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
             isHidden={isHidden}
             ImageVariant="avatar"
             profilePic={profilePic}
+            imagePath={userId && `/profile/${userId}`}
           />
           <ImgWithInfo.Info>
             <>
-              <ImgWithInfo.Info.Title titleSize="small">
+              <ImgWithInfo.Info.Title
+                titleSize="small"
+                titlePath={userId && `/profile/${userId}`}
+              >
                 <>
                   {username}
                   {isHidden && name && (
@@ -71,7 +75,10 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
                   )}
                 </>
               </ImgWithInfo.Info.Title>
-              <ImgWithInfo.Info.SubTitle subTitleSize="small">
+              <ImgWithInfo.Info.SubTitle
+                subTitleSize="small"
+                subTitlePath={`/posts/${postId}`}
+              >
                 <span title={`${exactDate(date)}`}>
                   {humanReadableDate(date)}
                 </span>
