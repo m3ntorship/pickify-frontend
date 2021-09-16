@@ -24,12 +24,7 @@ const TextOptionViewUncoverd: FC<ITextOptionViewUncoverd.IProps> = ({
 
   return type !== EPostType.MiniSurvey || isExpanded ? (
     <div className="relative">
-      <div
-        id={id}
-        data-testid={id}
-        className={styles.btnBody}
-        style={{ width: `${percentage ?? 0}%` }}
-      >
+      <div id={id} data-testid={id} className={styles.btnBody}>
         <span className={styles['flex-container']}>
           {letter && <span className={styles.letter}>{letter}</span>}
           <p className={styles.option} dir="auto">

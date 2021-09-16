@@ -8,11 +8,6 @@ exports[`Snapshot testing for TextOptionViewUncoverd component should have check
     className="btnBody"
     data-testid="test1"
     id="test1"
-    style={
-      Object {
-        "width": "20%",
-      }
-    }
   >
     <span
       className="flex-container"
@@ -59,11 +54,6 @@ exports[`Snapshot testing for TextOptionViewUncoverd component should have class
     className="btnBody"
     data-testid="test1"
     id="test1"
-    style={
-      Object {
-        "width": "20%",
-      }
-    }
   >
     <span
       className="flex-container"
