@@ -24,7 +24,6 @@ import Feedback from '../../organisms/Feedback/Feedback';
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
   const { user } = useAuth();
-  const userId = getUserUUID();
   const { redirectToLoginPage, redirectToProfilePage, redirectToFriendsPage } =
     useRedirect();
   const homeNavLinks = getHomeNavLinks(pathname);
@@ -40,7 +39,10 @@ const Navigation: FC = (): ReactElement => {
         }
         break;
       case 'profile':
-        redirectToProfilePage(userId);
+        if (process.browser) {
+          const userId = getUserUUID();
+          redirectToProfilePage(userId);
+        }
         break;
       case 'friends':
         redirectToFriendsPage();
