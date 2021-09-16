@@ -13,6 +13,10 @@ import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { getPosts } from '@modules/shared/api/getPosts.api';
 import { getUserToken } from '@modules/shared/logic/userAuth/userAuth';
+import { useRouter } from 'next/router';
+import { getUserData } from '@modules/ProfilePage/api/getUserData';
+import type { IGetUserData } from '@modules/ProfilePage/api/IGetUserData';
+import type { IGetPosts } from '@modules/shared/api/IGetPosts';
 import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
@@ -21,6 +25,8 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   const [postsCount, setPostsCount] = useState<number>(data.postsCount);
   const { redirectToLoginPage } = useRedirect();
   const toastId = useRef<ReactText>();
+  const { pathname, query } = useRouter();
+  const { userid } = query as { userid: string };
 
   useEffect(() => {
     setHasMorePosts(postsCount !== 0);
@@ -49,7 +55,15 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
     }
 
     try {
-      const { data: newData } = await getPosts(loggedInUser, posts.length);
+      let postsData: IGetPosts.IData | IGetUserData.IGetUserRes = {
+        data: { posts: [], postsCount: 0 },
+      };
+      if (pathname.includes('/profile')) {
+        postsData = await getUserData(loggedInUser, userid);
+      } else {
+        postsData = await getPosts(loggedInUser, posts.length);
+      }
+      const { data: newData } = postsData;
       const { posts: newPosts, postsCount: newPostsCount } = newData as {
         posts: IPostFeed.IPost[];
         postsCount: number;

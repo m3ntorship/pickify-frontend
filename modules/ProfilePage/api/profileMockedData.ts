@@ -2,50 +2,47 @@ import faker from 'faker';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import { EPostType } from '@modules/shared/types/postFeed/EPostType';
 
-const getRandomBetween = (max: number): number => {
-  return faker.datatype.number({ min: 1, max });
+const getRandomBetween = (min: number, max: number): number => {
+  return faker.datatype.number({ min, max });
 };
 
 const createPostOption = (max: number): IPostFeed.IOptions[] => {
-  const magicOne = 1;
   const optionBodyWordsNumber = 4;
-  const numberOfOptions = getRandomBetween(max);
+  const numberOfOptions = getRandomBetween(2, max);
   return Array(numberOfOptions)
-    .fill(magicOne)
+    .fill(1)
     .map(() => ({
       id: faker.datatype.uuid(),
       body: faker.lorem.words(optionBodyWordsNumber),
       media: [{ url: faker.image.imageUrl() }],
-      vote_count: getRandomBetween(100),
+      vote_count: getRandomBetween(0, 100),
       voted: false,
     }));
 };
 
 const createPostOptionsGroups = (max: number): IPostFeed.IGroup[] => {
-  const numberOfOptions = getRandomBetween(max);
-  const maxOptionCount = getRandomBetween(4);
-  const magicOne = 1;
-  return Array(numberOfOptions)
-    .fill(magicOne)
+  const numberOfGroups = getRandomBetween(1, max);
+  const maxOptionCount = getRandomBetween(2, 4);
+  return Array(numberOfGroups)
+    .fill(1)
     .map(() => ({
       id: faker.datatype.uuid(),
       options: createPostOption(maxOptionCount),
       name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-      media: [{ url: faker.image.image() }],
+      media: [],
     }));
 };
 
 const createMockedPosts = (): IPostFeed.IPost[] => {
   const maxNumberOfPosts = 20;
-  const numberOfPosts = getRandomBetween(maxNumberOfPosts);
-  const magicOne = 1;
+  const numberOfPosts = getRandomBetween(1, maxNumberOfPosts);
   const postCaptionWordsCount = 7;
-  const postPostOptionsGroupsCount = getRandomBetween(4);
+  const postOptionsGroupsCount = getRandomBetween(1, 4);
   return Array(numberOfPosts)
-    .fill(magicOne)
+    .fill(1)
     .map(() => {
       return {
-        created_at: faker.date.past(magicOne).toISOString(),
+        created_at: faker.date.past(1).toISOString(),
         is_hidden: faker.datatype.boolean(),
         id: faker.datatype.uuid(),
         type: faker.random.arrayElement([
@@ -54,7 +51,7 @@ const createMockedPosts = (): IPostFeed.IPost[] => {
           EPostType.TextPoll,
         ]),
         options_groups: {
-          groups: createPostOptionsGroups(postPostOptionsGroupsCount),
+          groups: createPostOptionsGroups(postOptionsGroupsCount),
         },
         media: [{ url: faker.image.image() }],
         user: {

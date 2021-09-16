@@ -2,7 +2,7 @@ import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 
 declare namespace IGetUserData {
   export interface IGetUserRes {
-    userData: IUserErrorData | IUserSuccessData;
+    data: IUserErrorData | IUserSuccessData;
   }
 
   export interface IUserSuccessData {

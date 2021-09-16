@@ -41,7 +41,7 @@ export const getUserData = async (
     const { data } = await postsApi.getUserPosts(userId, token);
 
     return {
-      userData: data,
+      data,
     };
   } catch (error: unknown) {
     const { response } = error as IGetUserData.IErrorData;
@@ -49,7 +49,7 @@ export const getUserData = async (
 
     if (!response) {
       throw Object.assign(new Error(), {
-        userData: { error: true, message: errMessage },
+        data: { error: true, message: errMessage },
       });
     }
 
@@ -60,7 +60,7 @@ export const getUserData = async (
     const generatedMessage = generateErrMsg({}, statusCode, message);
 
     throw Object.assign(new Error(), {
-      userData: {
+      data: {
         error: true,
         message: generatedMessage,
         errorCode: statusCode,

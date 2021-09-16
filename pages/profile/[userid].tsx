@@ -24,13 +24,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     await register(user);
-    const { userData } = await getUserData('0', user);
+    const { data } = await getUserData('0', user);
     return {
-      props: { data: userData },
+      props: { data },
     };
   } catch (error: unknown) {
     const { url } = context.req as { url: string };
-    const { userData } = error as { userData: IGetUserData.IUserErrorData };
+    const { data } = error as { data: IGetUserData.IUserErrorData };
 
     const serializeOptions: CookieSerializeOptions = {
       httpOnly: false,
@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       serialize('lastPage', url, serializeOptions),
     );
 
-    if (userData.errorCode === EStatusCode.Unauthorized) {
+    if (data.errorCode === EStatusCode.Unauthorized) {
       return {
         redirect: {
           destination: '/login',
@@ -54,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
       props: {
-        data: userData,
+        data,
       },
     };
   }
