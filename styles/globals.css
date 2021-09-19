@@ -3,3 +3,11 @@
 @import './typography.css';
 @import './toastify-custom-styles.css';
 @tailwind utilities;
+
+body {
+  @apply font-sans overflow-y-scroll scrollbar scrollbar-thumb-primary-shd3 scrollbar-track-white-DEFAULT scrollbar-width-2 bg-grey-bg2;
+}
+
+body.lock-scrollbar {
+  @apply fixed inset-0;
+}
