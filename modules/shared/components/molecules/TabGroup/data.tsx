@@ -29,6 +29,18 @@ export const postCreationTabGroupData = (): ITabGroup.ITabGroupData[] => {
   ];
 };
 
+export const profileTabGroupData = (): ITabGroup.ITabGroupData[] => {
+  return [
+    {
+      id: '1',
+      value: 'posts',
+    },
+    {
+      id: '2',
+      value: 'votes',
+    },
+  ];
+};
 export const CreditsTabGroupData = (): ITabGroup.ITabGroupData[] => {
   return [
     {

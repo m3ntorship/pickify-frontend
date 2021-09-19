@@ -16,11 +16,14 @@ const Widgets: FC = (): ReactElement => {
 
   const { pathname } = useRouter();
   const showFriendSuggestions = pathname === '/';
+  const showDeveloperPics = !pathname.includes('profile');
   return (
     <div className={styles['fixed-widgets']} ref={widgets}>
-      <div className="mb-6">
-        <DeveloperPics />
-      </div>
+      {showDeveloperPics && (
+        <div className="mb-6">
+          <DeveloperPics />
+        </div>
+      )}
       <div className="mb-6">
         <TrendingQuestions />
       </div>

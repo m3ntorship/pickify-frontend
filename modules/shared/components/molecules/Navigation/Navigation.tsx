@@ -3,6 +3,7 @@ import type { FC, ReactElement } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
+import { getUserUUID } from '@modules/shared/logic/userAuth/userAuth';
 import styles from './Navigation.module.css';
 import Logo from '../../icons/logo.svg';
 import Avatar from '../../atoms/Avatar/Avatar';
@@ -38,7 +39,10 @@ const Navigation: FC = (): ReactElement => {
         }
         break;
       case 'profile':
-        redirectToProfilePage();
+        if (process.browser) {
+          const userId = getUserUUID();
+          redirectToProfilePage(userId);
+        }
         break;
       case 'friends':
         redirectToFriendsPage();
