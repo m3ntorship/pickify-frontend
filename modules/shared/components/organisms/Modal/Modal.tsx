@@ -8,9 +8,9 @@ const Modal: FC<IModal.IProps> = ({
   closeModalHandler,
 }): ReactElement => {
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('lock-scrollbar');
     return (): void => {
-      document.body.style.overflow = 'auto';
+      document.body.classList.remove('lock-scrollbar');
     };
   }, []);
 
