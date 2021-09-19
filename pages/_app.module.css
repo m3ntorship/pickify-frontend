@@ -7,5 +7,5 @@
 }
 
 .widgets {
-  @apply w-19xl hidden md:block;
+  @apply hidden md:block;
 }
