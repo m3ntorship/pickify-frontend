@@ -14,7 +14,6 @@ import Box from '../../shared/components/atoms/Box/Box';
 const ProfilePage: FC<{
   data: { posts: IPostFeed.IPost[]; postsCount: number; user: IPostFeed.IUser };
 }> = ({ data }): ReactElement => {
-  console.log(data.user);
   const [checkedValue, setCheckedValue] = useState('posts');
 
   const onTabGroupChangeValueHandler = (

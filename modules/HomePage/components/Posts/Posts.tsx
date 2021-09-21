@@ -59,7 +59,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
         data: { posts: [], postsCount: 0 },
       };
       if (pathname.includes('/profile')) {
-        postsData = await getUserData(loggedInUser, userid);
+        postsData = await getUserData(userid, loggedInUser, posts.length);
       } else {
         postsData = await getPosts(loggedInUser, posts.length);
       }
