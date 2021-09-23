@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { FC, ReactElement, ReactText } from 'react';
 import { toast } from 'react-toastify';
-import { getUserToken } from '@modules/shared/logic/userAuth/userAuth';
-import { EStatusCode } from '@modules/shared/api/EStatusCode';
-import { logoutUser } from 'context/AuthUserContext/api/authApi';
+import { getUserToken } from '../../../logic/userAuth/userAuth';
+import { EStatusCode } from '../../../api/EStatusCode';
+import { logoutUser } from '../../../../../context/AuthUserContext/api/authApi';
 import styles from './Feedback.module.css';
 import Button from '../../atoms/Button/Button';
 import * as EButton from '../../atoms/Button/types/EButton';
@@ -62,7 +62,6 @@ const Feedback: FC = (): ReactElement => {
   const { redirectToLoginPage } = useRedirect();
 
   useEffect(() => {
-    setCheckedRate('');
     setDisabled(true);
   }, [show]);
 
