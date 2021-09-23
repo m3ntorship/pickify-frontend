@@ -36,7 +36,6 @@ export const getUserData = async (
     const { message, status_code: statusCode } = data;
 
     const generatedMessage = generateErrMsg(errorMessage, statusCode, message);
-    console.log(statusCode);
     throw Object.assign(new Error(), {
       data: {
         error: true,
