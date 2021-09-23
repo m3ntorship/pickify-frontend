@@ -9,6 +9,7 @@ import { deletePost } from '@modules/HomePage/api/DeletePostApi/deletePostsApi';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import { logoutUser } from 'context/AuthUserContext/api/authApi';
 import { addOneVote } from '@modules/HomePage/api/votesApi/voteApi';
+import { reportPost } from '@modules/shared/api/reportPost/reportPostApi';
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { getPosts } from '@modules/shared/api/getPosts.api';
@@ -17,6 +18,7 @@ import { useRouter } from 'next/router';
 import { getUserData } from '@modules/ProfilePage/api/getUserData';
 import type { IGetUserData } from '@modules/ProfilePage/api/IGetUserData';
 import type { IGetPosts } from '@modules/shared/api/IGetPosts';
+import type { IReportPostApi } from '@modules/shared/api/reportPost/IReportPostApi';
 import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
@@ -127,6 +129,29 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
       }
     }
   };
+
+  const reportPostHandler = async (postId: string): Promise<void> => {
+    const loggedInUser = getUserToken();
+    toastId.current = toast.warning('Please wait while reporting your post', {
+      autoClose: false,
+    });
+    try {
+      const { resData } = await reportPost(postId, loggedInUser);
+      toast.dismiss(toastId.current);
+      toast.success(resData.message);
+    } catch (error: unknown) {
+      const { resData } = error as {
+        resData: IReportPostApi.IReportPostErrorData;
+      };
+      toast.dismiss(toastId.current);
+      toast.error(resData.message);
+      const { errorCode } = resData as { errorCode: number };
+      if (errorCode === EStatusCode.Unauthorized) {
+        await logoutUser();
+        redirectToLoginPage();
+      }
+    }
+  };
   return (
     <div>
       <InfiniteScroll
@@ -142,6 +167,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
                 post={post}
                 addOneVoteHandler={addOneVoteHandler}
                 deletePostHandler={deletePostHandler}
+                reportPostHandler={reportPostHandler}
               />
             </div>
           );

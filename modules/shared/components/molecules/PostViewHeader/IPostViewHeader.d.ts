@@ -1,6 +1,7 @@
 declare namespace IPostViewHeader {
   export interface IProps {
     deletePostHandler: (postId: string) => void;
+    reportPostHandler: (postId: string) => void;
     userId: string;
     postId: string;
     profilePic?: string;

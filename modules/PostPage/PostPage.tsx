@@ -14,6 +14,9 @@ import {
   transformPostsMedia,
   updateVotedPost,
 } from '@modules/HomePage/components/Posts/PostsHelpers';
+import { getUserToken } from '@modules/shared/logic/userAuth/userAuth';
+import type { IReportPostApi } from '@modules/shared/api/reportPost/IReportPostApi';
+import { reportPost } from '@modules/shared/api/reportPost/reportPostApi';
 import type { IPostPage } from './IPostPage';
 
 const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
@@ -71,6 +74,30 @@ const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
       }
     }
   };
+
+  const reportPostHandler = async (postId: string): Promise<void> => {
+    const loggedInUser = getUserToken();
+    toastId.current = toast.warning('Please wait while reporting your post', {
+      autoClose: false,
+    });
+    try {
+      const { resData } = await reportPost(postId, loggedInUser);
+      toast.dismiss(toastId.current);
+      toast.success(resData.message);
+    } catch (error: unknown) {
+      const { resData } = error as {
+        resData: IReportPostApi.IReportPostErrorData;
+      };
+      toast.dismiss(toastId.current);
+      toast.error(resData.message);
+      const { errorCode } = resData as { errorCode: number };
+      if (errorCode === EStatusCode.Unauthorized) {
+        await logoutUser();
+        redirectToLoginPage();
+      }
+    }
+  };
+
   useEffect(() => {
     const transformedPost = transformPostsMedia([data]);
     setPost(transformedPost[0]);
@@ -78,9 +105,10 @@ const PostPage: FC<IPostPage.Props> = ({ data }): ReactElement => {
   return (
     <div className="w-full mb-2">
       <SinglePostView
-        deletePostHandler={deletePostHandler}
         post={post}
         addOneVoteHandler={addOneVoteHandler}
+        deletePostHandler={deletePostHandler}
+        reportPostHandler={reportPostHandler}
       />
     </div>
   );

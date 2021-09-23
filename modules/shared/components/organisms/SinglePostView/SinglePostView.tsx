@@ -41,6 +41,7 @@ const SinglePostView: FC<IPost.Props> = ({
   post,
   deletePostHandler,
   addOneVoteHandler,
+  reportPostHandler,
 }): ReactElement => {
   const postType = post.type.toLowerCase();
   let votedOptions: IPostFeed.IOptions[] = [];
@@ -76,6 +77,7 @@ const SinglePostView: FC<IPost.Props> = ({
             profilePic={user ? user.profile_pic : undefined}
             isHidden={post.is_hidden}
             deletePostHandler={deletePostHandler}
+            reportPostHandler={reportPostHandler}
           />
         </Box.Header>
         <Box.Body>
