@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import type { FC, ReactElement } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import type { FC, ReactElement, ReactText } from 'react';
+import { toast } from 'react-toastify';
+import { getUserToken } from '@modules/shared/logic/userAuth/userAuth';
+import { EStatusCode } from '@modules/shared/api/EStatusCode';
+import { logoutUser } from 'context/AuthUserContext/api/authApi';
 import styles from './Feedback.module.css';
 import Button from '../../atoms/Button/Button';
 import * as EButton from '../../atoms/Button/types/EButton';
@@ -14,6 +18,8 @@ import FeedbackCheckMark from '../../icons/feedbackCheckMark.svg';
 import { useDetectClickOut } from '../../../hooks/useDetectClickOut/useDetectClickOut';
 import TextInput from '../../atoms/TextInputs/TextInput';
 import * as ETextInput from '../../atoms/TextInputs/types/ETextInput';
+import { submitFeedback } from './api/feedbackApi';
+import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 
 const Feedback: FC = (): ReactElement => {
   const emojis: {
@@ -47,10 +53,13 @@ const Feedback: FC = (): ReactElement => {
       component: <Amazing />,
     },
   ];
+  const [feedbackBody, setFeedbackBody] = useState('');
   const [checkedRate, setCheckedRate] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
+  const toastId = useRef<ReactText>();
+  const { redirectToLoginPage } = useRedirect();
 
   useEffect(() => {
     setCheckedRate('');
@@ -68,12 +77,46 @@ const Feedback: FC = (): ReactElement => {
     setDisabled(false);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
+    const loggedInUser = getUserToken();
     e.preventDefault();
-    setIsSubmitted(true);
+    toastId.current = toast.warning(
+      'Please wait while submitting your feedback.',
+      {
+        autoClose: false,
+      },
+    );
+    try {
+      await submitFeedback(feedbackBody, Number(checkedRate), loggedInUser);
+      toast.dismiss(toastId.current);
+      setIsSubmitted(true);
+    } catch (error: unknown) {
+      const { data } = error as {
+        data: {
+          message: string;
+          errorCode: number;
+        };
+      };
+      toast.dismiss(toastId.current);
+      const { message, errorCode } = data;
+      toast.error(message);
+      if (errorCode === EStatusCode.Unauthorized) {
+        console.log('YAY');
+        await logoutUser();
+        redirectToLoginPage();
+      }
+    }
   };
   const handleCancelButtonClick = (): void => {
     setShow(false);
+  };
+
+  const handleTextAreaChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+  ): void => {
+    setFeedbackBody(e.target.value);
   };
 
   return (
@@ -159,6 +202,8 @@ const Feedback: FC = (): ReactElement => {
                             rows={4}
                             cols={30}
                             placeholder="Enter your feedback"
+                            onChange={handleTextAreaChange}
+                            value={feedbackBody}
                           />
                         </div>
                       )}
