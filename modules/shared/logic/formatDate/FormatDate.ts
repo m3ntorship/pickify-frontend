@@ -11,3 +11,7 @@ export const humanReadableDate = (date: string): string => {
 export const exactDate = (date: string): string => {
   return dayjs(date).format('DD/MM/YYYY HH:mm:ss');
 };
+
+export const getYear = (date: string): number => {
+  return dayjs(date).year();
+};

@@ -33,6 +33,7 @@ declare namespace IPostFeed {
     profile_pic: string;
     name: string;
     id: string;
+    created_at: string;
   }
   export interface IUseless {
     posts: EPostType;

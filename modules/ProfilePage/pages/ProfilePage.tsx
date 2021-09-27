@@ -6,21 +6,21 @@ import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
 import Posts from '@modules/HomePage/components/Posts/Posts';
 import TabGroup from '@modules/shared/components/molecules/TabGroup/TabGroup';
 import withErrorHandler from '@modules/shared/components/HOC/WithErrorHandler/WithErrorHandler';
+import { getYear } from '@modules/shared/logic/formatDate/FormatDate';
 import { profileTabGroupData } from '../../shared/components/molecules/TabGroup/data';
 import Edit from '../../shared/components/icons/edit.svg';
 import Box from '../../shared/components/atoms/Box/Box';
-// import styles from './ProfilePage.module.css';
 
 const ProfilePage: FC<{
   data: { posts: IPostFeed.IPost[]; postsCount: number; user: IPostFeed.IUser };
 }> = ({ data }): ReactElement => {
   const [checkedValue, setCheckedValue] = useState('posts');
-
   const onTabGroupChangeValueHandler = (
     e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
     setCheckedValue(e.target.value);
   };
+
   return (
     <>
       <Head>
@@ -43,20 +43,12 @@ const ProfilePage: FC<{
                         {data.user.name}
                       </ImgWithInfo.Info.Title>
                       <ImgWithInfo.Info.SubTitle subTitleSize="medium">
-                        Member since 2021
+                        {`Member since ${getYear(data.user.created_at)} `}
                       </ImgWithInfo.Info.SubTitle>
                       <ImgWithInfo.Info.MoreInfo classes="mt-2">
-                        <ul className="flex list-none">
-                          <li className="font-normal text-sm text-dark-grey mr-4">
-                            posts: 123
-                          </li>
-                          <li className="font-normal text-sm text-dark-grey mr-4">
-                            followers: 456
-                          </li>
-                          <li className="font-normal text-sm text-dark-grey">
-                            following: 789
-                          </li>
-                        </ul>
+                        <p className="font-normal text-sm text-dark-grey mr-4">
+                          Posts: {data.postsCount}
+                        </p>
                       </ImgWithInfo.Info.MoreInfo>
                     </>
                   </ImgWithInfo.Info>
