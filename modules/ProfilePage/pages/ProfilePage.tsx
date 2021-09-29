@@ -43,7 +43,7 @@ const ProfilePage: FC<{
                         {data.user.name}
                       </ImgWithInfo.Info.Title>
                       <ImgWithInfo.Info.SubTitle subTitleSize="medium">
-                        {`Member since ${getYear(data.user.created_at)} `}
+                        {`Member since ${getYear(data.user.created_at ?? '')}`}
                       </ImgWithInfo.Info.SubTitle>
                       <ImgWithInfo.Info.MoreInfo classes="mt-2">
                         <p className="font-normal text-sm text-dark-grey mr-4">
