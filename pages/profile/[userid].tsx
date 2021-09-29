@@ -3,7 +3,6 @@ import type { FC, ReactElement } from 'react';
 import { ProfilePage } from '@modules/ProfilePage/';
 import type { CookieSerializeOptions } from 'cookie';
 import { serialize } from 'cookie';
-import { register } from 'context/AuthUserContext/api/authApi';
 import type { GetServerSideProps } from 'next';
 import { EStatusCode } from '@modules/shared/api/EStatusCode';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
@@ -19,12 +18,12 @@ const User: FC<{
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const {
     req: { cookies },
+    query: { userid },
   } = context;
   const { user } = cookies as { user: string };
 
   try {
-    await register(user);
-    const { data } = await getUserData('0', user);
+    const { data } = await getUserData(userid as string, user, 0);
     return {
       props: { data },
     };

@@ -20,7 +20,7 @@ import type { IGetPosts } from '@modules/shared/api/IGetPosts';
 import { transformPostsMedia, updateVotedPost } from './PostsHelpers';
 
 const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
-  const [posts, setPosts] = useState<IPostFeed.IPost[]>(data.posts);
+  const [posts, setPosts] = useState<IPostFeed.IPost[]>([]);
   const [hasMorePosts, setHasMorePosts] = useState<boolean>(true);
   const [postsCount, setPostsCount] = useState<number>(data.postsCount);
   const { redirectToLoginPage } = useRedirect();
@@ -33,7 +33,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
   }, [posts, postsCount]);
 
   useEffect(() => {
-    const transformedMedia = transformPostsMedia(posts);
+    const transformedMedia = transformPostsMedia(data.posts);
     setPosts(transformedMedia);
   }, [data]);
 
@@ -59,7 +59,7 @@ const Posts: FC<IPostFeed.IPosts> = ({ data }): ReactElement => {
         data: { posts: [], postsCount: 0 },
       };
       if (pathname.includes('/profile')) {
-        postsData = await getUserData(loggedInUser, userid);
+        postsData = await getUserData(userid, loggedInUser, posts.length);
       } else {
         postsData = await getPosts(loggedInUser, posts.length);
       }

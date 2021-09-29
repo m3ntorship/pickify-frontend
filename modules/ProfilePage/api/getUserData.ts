@@ -1,45 +1,24 @@
-import { mockedData } from '@modules/ProfilePage/api/profileMockedData';
-import { generateErrMsg } from '@modules/shared/logic/generateErrMsg/generateErrMsg';
-import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
+import axios from 'axios';
+import { generateErrMsg } from '../../shared/logic/generateErrMsg/generateErrMsg';
 import type { IGetUserData } from './IGetUserData';
-
-const postsApi = {
-  getUserPosts: async (
-    userId: string,
-    token: string,
-  ): Promise<{
-    data: {
-      posts: IPostFeed.IPost[];
-      postsCount: number;
-      user: IPostFeed.IUser;
-    };
-  }> => {
-    return new Promise((resolve, reject) => {
-      if (token && userId) {
-        resolve(mockedData);
-      } else {
-        reject(
-          Object.assign(new Error(), {
-            response: {
-              data: {
-                message: 'Unauthorized',
-                status_code: 409,
-              },
-            },
-          }),
-        );
-      }
-    });
-  },
-};
+import { configPostCreation } from '../../shared/configuration/ConfigPostCreation/config';
+import { errorMessage } from './getUserHelpers';
 
 export const getUserData = async (
   userId: string,
   token: string,
+  offset: number,
 ): Promise<IGetUserData.IGetUserRes> => {
   try {
-    const { data } = await postsApi.getUserPosts(userId, token);
-
+    const limit = configPostCreation.postsLimit;
+    const { data }: IGetUserData.IGetUserRes = await axios.get(
+      `https://pickify-posts-be-dev.m3ntorship.net/api/users/${userId}/posts?limit=${limit}&offset=${offset}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
     return {
       data,
     };
@@ -54,11 +33,9 @@ export const getUserData = async (
     }
 
     const { data } = response;
-
     const { message, status_code: statusCode } = data;
 
-    const generatedMessage = generateErrMsg({}, statusCode, message);
-
+    const generatedMessage = generateErrMsg(errorMessage, statusCode, message);
     throw Object.assign(new Error(), {
       data: {
         error: true,
