@@ -4,6 +4,7 @@ declare namespace IPost {
   export interface Props {
     post: IPostFeed.IPost;
     deletePostHandler: (postId: string) => void;
+    reportPostHandler: (postId: string) => void;
     addOneVoteHandler: (optionId: string, grouId: string) => void;
   }
 }

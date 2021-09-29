@@ -31,6 +31,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
   userId,
   date,
   deletePostHandler,
+  reportPostHandler,
   postId,
   isHidden,
 }): ReactElement => {
@@ -40,6 +41,7 @@ const PostViewHeader: FC<IPostViewHeader.IProps> = ({
         deletePostHandler(postId);
         break;
       case 'report':
+        reportPostHandler(postId);
         break;
       case 'save':
         break;
