@@ -32,7 +32,7 @@ const ImagePollCovered: FC<IImagePollCovered.IProps> = ({
       {isOneImageVote && (
         <div className="flex">
           {dislike && (
-            <div className="group mr-4">
+            <div className="group">
               <Button
                 size={buttonSizeValues.MEDIUM}
                 variant={buttonVariantValues.DISLIKE}

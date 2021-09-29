@@ -47,7 +47,7 @@ const SinglePostView: FC<IPost.Props> = ({
   let votedOptions: IPostFeed.IOptions[] = [];
 
   post.options_groups.groups.map((group) => {
-    const votes = group.options.map((option) => option);
+    const votes = group.options;
     votedOptions = [...votedOptions, ...votes];
     return group;
   });

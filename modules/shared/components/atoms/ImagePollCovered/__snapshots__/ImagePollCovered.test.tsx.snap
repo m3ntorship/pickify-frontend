@@ -8,7 +8,7 @@ exports[`ImagePollCovered should render dislike button when passing isOneImageVo
     className="flex"
   >
     <div
-      className="group mr-4"
+      className="group"
     >
       <button
         className="btn btn-dislike btn-medium btn-rounded"
