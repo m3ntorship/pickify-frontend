@@ -12,7 +12,12 @@ import Edit from '../../shared/components/icons/edit.svg';
 import Box from '../../shared/components/atoms/Box/Box';
 
 const ProfilePage: FC<{
-  data: { posts: IPostFeed.IPost[]; postsCount: number; user: IPostFeed.IUser };
+  data: {
+    posts: IPostFeed.IPost[];
+    postsCount: number;
+    totalPostsCount: number;
+    user: IPostFeed.IUser;
+  };
 }> = ({ data }): ReactElement => {
   const [checkedValue, setCheckedValue] = useState('posts');
   const onTabGroupChangeValueHandler = (
@@ -47,7 +52,7 @@ const ProfilePage: FC<{
                       </ImgWithInfo.Info.SubTitle>
                       <ImgWithInfo.Info.MoreInfo classes="mt-2">
                         <p className="font-normal text-sm text-dark-grey mr-4">
-                          Posts: {data.postsCount}
+                          Posts: {data.totalPostsCount}
                         </p>
                       </ImgWithInfo.Info.MoreInfo>
                     </>
