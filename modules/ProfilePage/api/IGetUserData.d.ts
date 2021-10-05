@@ -8,6 +8,7 @@ declare namespace IGetUserData {
   export interface IUserSuccessData {
     posts: IPostFeed.IPost[];
     postsCount: number;
+    totalPostsCount: number;
     user: IPostFeed.IUser;
   }
 

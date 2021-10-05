@@ -10,7 +10,12 @@ import { getUserData } from '@modules/ProfilePage/api/getUserData';
 import type { IGetUserData } from '@modules/ProfilePage/api/IGetUserData';
 
 const User: FC<{
-  data: { posts: IPostFeed.IPost[]; postsCount: number; user: IPostFeed.IUser };
+  data: {
+    posts: IPostFeed.IPost[];
+    postsCount: number;
+    totalPostsCount: number;
+    user: IPostFeed.IUser;
+  };
 }> = ({ data }): ReactElement => {
   return <ProfilePage data={data} />;
 };
