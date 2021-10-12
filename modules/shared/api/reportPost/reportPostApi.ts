@@ -2,6 +2,7 @@ import axios from 'axios';
 import type { IReportPostApi } from './IReportPostApi';
 import { errorMessage } from './reportPostHelpers';
 import { generateErrMsg } from '../../logic/generateErrMsg/generateErrMsg';
+import { POSTS_API } from '../postsApi.api';
 
 export const reportPost = async (
   postId: string,
@@ -9,7 +10,7 @@ export const reportPost = async (
 ): Promise<IReportPostApi.IReportPostRes> => {
   try {
     await axios.post(
-      `https://pickify-posts-be-dev.m3ntorship.net/api/reports`,
+      `${POSTS_API}/reports`,
       { report_type: 'post', post_id: postId },
       { headers: { Authorization: `Bearer ${token}` } },
     );

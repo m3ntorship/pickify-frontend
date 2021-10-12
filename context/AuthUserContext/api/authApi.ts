@@ -4,6 +4,7 @@ import { generateErrMsg } from '../../../modules/shared/logic/generateErrMsg/gen
 import { setUserUUID } from '../../../modules/shared/logic/userAuth/userAuth';
 import { firebaseAuth } from '../../../modules/shared/api/auth';
 import type { IAuth } from './IAuth';
+import { POSTS_API } from '../../../modules/shared/api/postsApi.api';
 
 export const logoutUser = async (): Promise<void> => {
   await firebaseAuth.signOut();
@@ -21,7 +22,7 @@ export const register = async (
 ): Promise<IAuth.IAuthResData> => {
   try {
     const { data }: { data: { uuid: string } } = await axios.post(
-      'https://pickify-posts-be-dev.m3ntorship.net/api/users/register',
+      `${POSTS_API}/users/register`,
       undefined,
       {
         headers: {

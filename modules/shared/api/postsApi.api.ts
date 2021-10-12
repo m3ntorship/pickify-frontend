@@ -11,6 +11,20 @@ const postsApiAxiosInstance = axios.create({});
 //   ({ data }) => data, // eslint-disable-line @typescript-eslint/no-unsafe-return
 //   async (e) => Promise.reject(e),
 // );
+interface Configigurations {
+  apis: {
+    posts: string;
+    votes: string;
+    media: string;
+  };
+}
+// prettier-ignore
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const configurations = process.env.config as unknown as Configigurations;
+
+export const POSTS_API = `${configurations.apis.posts}/api`;
+export const VOTES_API = `${configurations.apis.votes}/api`;
+export const MEDIA_API = `${configurations.apis.media}/api`;
 
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
@@ -27,7 +41,7 @@ postsApiAxiosInstance.interceptors.request.use(
 );
 export const postsApi = new postClient.PostsApi(
   {
-    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
+    basePath: POSTS_API,
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
@@ -35,12 +49,12 @@ export const postsApi = new postClient.PostsApi(
 
 export const votesApi = new postClient.VotesApi(
   {
-    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
+    basePath: VOTES_API,
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
 );
 
 export const mediaApi = new mediaClient.MediaApi({
-  basePath: 'https://pickify-media-be-dev.pickify.net/api',
+  basePath: MEDIA_API,
 } as Configuration);

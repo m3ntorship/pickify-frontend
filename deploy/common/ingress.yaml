@@ -17,7 +17,7 @@ metadata:
     nginx.ingress.kubernetes.io/limit-rps: '150'
 spec:
   rules:
-    - host: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}.m3ntorship.net'
+    - host: '{{{M3_HOST}}}'
       http:
         paths:
           - path: /

@@ -3,6 +3,7 @@ import { generateErrMsg } from '../../shared/logic/generateErrMsg/generateErrMsg
 import type { IGetUserData } from './IGetUserData';
 import { configPostCreation } from '../../shared/configuration/ConfigPostCreation/config';
 import { errorMessage } from './getUserHelpers';
+import { POSTS_API } from '../../shared/api/postsApi.api';
 
 export const getUserData = async (
   userId: string,
@@ -12,7 +13,7 @@ export const getUserData = async (
   try {
     const limit = configPostCreation.postsLimit;
     const { data }: IGetUserData.IGetUserRes = await axios.get(
-      `https://pickify-posts-be-dev.m3ntorship.net/api/users/${userId}/posts?limit=${limit}&offset=${offset}`,
+      `${POSTS_API}/users/${userId}/posts?limit=${limit}&offset=${offset}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
