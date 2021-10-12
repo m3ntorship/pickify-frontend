@@ -1,16 +1,12 @@
 import { postClient, mediaClient } from '@m3ntorship/posts-client';
-import type { Configuration } from '@m3ntorship/posts-client/dist/post-client';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
+import type { Configuration } from '@m3ntorship/posts-client/dist/post-client';
 import { getUserToken } from '../logic/userAuth/userAuth';
 import type { IGetPosts } from './IGetPosts';
+import { MEDIA_API, POSTS_API, VOTES_API } from './apiConfigs';
 
 const postsApiAxiosInstance = axios.create({});
-
-// postsApiAxiosInstance.interceptors.response.use(
-//   ({ data }) => data, // eslint-disable-line @typescript-eslint/no-unsafe-return
-//   async (e) => Promise.reject(e),
-// );
 
 postsApiAxiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
@@ -27,7 +23,7 @@ postsApiAxiosInstance.interceptors.request.use(
 );
 export const postsApi = new postClient.PostsApi(
   {
-    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
+    basePath: POSTS_API,
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
@@ -35,12 +31,12 @@ export const postsApi = new postClient.PostsApi(
 
 export const votesApi = new postClient.VotesApi(
   {
-    basePath: 'https://pickify-posts-be-dev.m3ntorship.net/api',
+    basePath: VOTES_API,
   } as Configuration,
   undefined,
   postsApiAxiosInstance,
 );
 
 export const mediaApi = new mediaClient.MediaApi({
-  basePath: 'https://pickify-media-be-dev.pickify.net/api',
+  basePath: MEDIA_API,
 } as Configuration);

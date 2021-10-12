@@ -2,6 +2,7 @@ import axios from 'axios';
 import { generateErrMsg } from '../../../../logic/generateErrMsg/generateErrMsg';
 import { errorMessage } from './feedbackHelpers';
 import type { IFeedback } from './IFeedbackApi';
+import { POSTS_API } from '../../../../api/apiConfigs';
 
 export const submitFeedback = async (
   feedbackBody: string,
@@ -10,7 +11,7 @@ export const submitFeedback = async (
 ): Promise<void> => {
   try {
     await axios.post(
-      'https://pickify-posts-be-dev.m3ntorship.net/api/feedbacks',
+      `${POSTS_API}/feedbacks`,
       {
         feedback_body: feedbackBody,
         feedback_rating: feedbackRating,

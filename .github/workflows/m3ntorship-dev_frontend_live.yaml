@@ -1,10 +1,10 @@
-name: deploy pickify-frontend dev to m3ntorship-dev cluster
+name: deploy pickify-frontend live to m3ntorship-dev cluster
 
 # trigger
 on:
   push:
     branches:
-      - develop
+      - master
 env:
   M3_IMAGE: m3ntorshipci/pickify-frontend
   M3_DOCKER_FILE: Dockerfile
@@ -12,10 +12,10 @@ env:
   M3_REPOSITORY: ${{github.event.repository.name}}
   M3_PROJECT: pickify
   M3_COMPONENET: frontend
-  M3_ENVIRONMENT: dev
-  M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
-  M3_DEPLOYMENT_PATH: deploy/dev/frontend
-  M3_HOST: pickify-frontend-dev.m3ntorship.net
+  M3_ENVIRONMENT: live
+  M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-live'
+  M3_DEPLOYMENT_PATH: deploy/live/frontend
+  M3_HOST: pickify.live
   M3_TEMP_DIR: temp
   M3_REPLICAS: '1'
   M3_PORT: '3000'
@@ -67,13 +67,13 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          build-args: appenv=development
+          build-args: appenv=live
           tags: ${{env.M3_IMAGE}}:${{env.M3_VERSION}}
           file: ${{env.M3_DOCKER_FILE}}
           context: .
           push: true
 
-  deploy_dev:
+  deploy_live:
     needs:
       - build_service
       - prepare

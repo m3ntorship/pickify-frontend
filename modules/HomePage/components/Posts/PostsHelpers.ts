@@ -1,6 +1,8 @@
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
-import { apiUrls } from '@modules/shared/configuration/ConfigPostCreation/config';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
+import { MEDIA_API } from '../../../shared/api/apiConfigs';
+
+const mediaBaseUrl = `${MEDIA_API}/media/`;
 
 export const transformPostsMedia = (
   posts: IPostFeed.IPost[],
@@ -12,7 +14,7 @@ export const transformPostsMedia = (
           ({ vote_count, voted, id, body, ...option }) => {
             const optionMedia = option.media.map(({ url }) => {
               if (!url.includes('/')) {
-                return { url: `${apiUrls.mediaAPI}${url}` };
+                return { url: `${mediaBaseUrl}${url}` };
               }
               return { url };
             });
@@ -21,7 +23,7 @@ export const transformPostsMedia = (
         );
         const groupMedia = group.media.map(({ url }) => {
           if (!url.includes('/')) {
-            return { url: `${apiUrls.mediaAPI}${url}` };
+            return { url: `${mediaBaseUrl}${url}` };
           }
           return { url };
         });
@@ -29,7 +31,7 @@ export const transformPostsMedia = (
       });
       const postMedia = post.media.map(({ url }) => {
         if (!url.includes('/')) {
-          return { url: `${apiUrls.mediaAPI}${url}` };
+          return { url: `${mediaBaseUrl}${url}` };
         }
         return { url };
       });
