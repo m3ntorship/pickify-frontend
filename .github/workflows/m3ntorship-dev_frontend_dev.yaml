@@ -4,7 +4,6 @@ name: deploy pickify-frontend dev to m3ntorship-dev cluster
 on:
   push:
     branches:
-      - deployment
       - develop
 env:
   M3_IMAGE: m3ntorshipci/pickify-frontend
@@ -16,6 +15,7 @@ env:
   M3_ENVIRONMENT: dev
   M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
   M3_DEPLOYMENT_PATH: deploy/dev/frontend
+  M3_HOST: pickify-frontend-dev.m3ntorship.net
   M3_TEMP_DIR: temp
   M3_REPLICAS: '1'
   M3_PORT: '3000'
@@ -33,7 +33,7 @@ jobs:
       - name: set templating envs
         id: version
         run: |
-          echo ::set-output name=version::dev-$(git rev-parse --short=4 ${{ github.sha }})
+          echo "::set-output name=version::${GITHUB_REF##*/}-$(git rev-parse --short=4 HEAD)"
   build_service:
     needs: prepare
     runs-on: ubuntu-latest
@@ -62,11 +62,17 @@ jobs:
           yarn test
 
       # build and push docker image
-      - name: build and push docker image
-        run: |
-          echo $M3_VERSION
-          docker build -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
-          docker push $M3_IMAGE:$M3_VERSION
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          build-args: appenv=development
+          tags: ${{env.M3_IMAGE}}:${{env.M3_VERSION}}
+          file: ${{env.M3_DOCKER_FILE}}
+          context: .
+          push: true
+
   deploy_dev:
     needs:
       - build_service
