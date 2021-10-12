@@ -1,0 +1,27 @@
+.info-box {
+  @apply flex;
+}
+
+.responsive-info-box {
+  @apply flex-col md:flex-row items-center md:items-start;
+}
+
+.responsive-image {
+  @apply mr-0 md:mr-4 mb-2 md:mb-0;
+}
+
+.info-wrapper {
+  @apply flex flex-col justify-around;
+}
+
+.responsive-info-wrapper {
+  @apply items-center md:items-start;
+}
+
+.title {
+  @apply font-normal;
+}
+
+.subTitle {
+  @apply font-light	text-dark-grey;
+}

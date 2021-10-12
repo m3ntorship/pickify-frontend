@@ -1,0 +1,23 @@
+.navigation-wrapper {
+  @apply p-2 md:px-6 bg-white shadow-navshd flex justify-center fixed z-20 w-full top-0;
+}
+
+.navigation {
+  @apply w-39xl md:w-60xl flex justify-between items-center;
+}
+
+.nav-links ul {
+  @apply flex items-center;
+}
+
+.nav-links ul li {
+  @apply mr-4 md:mr-6 last:mr-0;
+}
+
+.nav-links li.nav-user {
+  @apply md:mr-0;
+}
+
+.search-box {
+  @apply hidden md:block ml-l w-19xl bg-grey-bg border border-grey-shd5 rounded-md;
+}

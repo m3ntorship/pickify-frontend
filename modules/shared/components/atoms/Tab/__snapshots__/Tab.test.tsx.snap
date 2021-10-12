@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab should render tab wit only label status 1`] = `
+<div
+  className="flex"
+>
+  <label
+    className="tab-default tab-unchecked"
+    data-testid="tab"
+    data-value="Mini survey"
+    htmlFor="anyid"
+  >
+    <div
+      className="radio_container"
+    >
+      <input
+        className="radio_input size_small"
+        data-testid="Radio"
+        defaultChecked={false}
+        disabled={false}
+        id="anyid"
+        name="tab groub"
+        onChange={[MockFunction]}
+        type="radio"
+        value="Mini survey"
+      />
+      <div
+        className="radio_background unchecked size_small checkmark_small only_label"
+      />
+    </div>
+    <span
+      className="tab-type"
+    >
+      Mini survey
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Tab should render tab with checked status 1`] = `
+<div
+  className="flex"
+>
+  <label
+    className="tab-default tab-checked"
+    data-testid="tab"
+    data-value="Image Poll"
+    htmlFor="anyid"
+  >
+    <div
+      className="radio_container"
+    >
+      <input
+        className="radio_input size_small"
+        data-testid="Radio"
+        defaultChecked={true}
+        disabled={false}
+        id="anyid"
+        name="tab groub"
+        onChange={[MockFunction]}
+        type="radio"
+        value="Image Poll"
+      />
+      <div
+        className="radio_background unchecked size_small checkmark_small"
+      />
+    </div>
+    <svg
+      data-file-name="SvgImagePoll"
+    />
+    <span
+      className="tab-type hidden md:inline-block"
+    >
+      Image Poll
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Tab should render tab with default status 1`] = `
+<div
+  className="flex"
+>
+  <label
+    className="tab-default tab-unchecked"
+    data-testid="tab"
+    data-value="Mini survey"
+    htmlFor="anyid"
+  >
+    <div
+      className="radio_container"
+    >
+      <input
+        className="radio_input size_small"
+        data-testid="Radio"
+        defaultChecked={false}
+        disabled={false}
+        id="anyid"
+        name="tab groub"
+        onChange={[MockFunction]}
+        type="radio"
+        value="Mini survey"
+      />
+      <div
+        className="radio_background unchecked size_small checkmark_small"
+      />
+    </div>
+    <svg
+      data-file-name="SvgImagePoll"
+    />
+    <span
+      className="tab-type hidden md:inline-block"
+    >
+      Mini survey
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Tab should render tab with disabled status 1`] = `
+<div
+  className="flex"
+>
+  <label
+    className="tab-default tab-unchecked tab-disabled"
+    data-testid="tab"
+    data-value="Mini survey"
+    htmlFor="anyid"
+  >
+    <div
+      className="radio_container"
+    >
+      <input
+        className="radio_input size_small"
+        data-testid="Radio"
+        defaultChecked={false}
+        disabled={true}
+        id="anyid"
+        name="tab groub"
+        onChange={[MockFunction]}
+        type="radio"
+        value="Mini survey"
+      />
+      <div
+        className="radio_background unchecked size_small checkmark_small unchecked_disabled"
+      />
+    </div>
+    <svg
+      data-file-name="SvgImagePoll"
+    />
+    <span
+      className="tab-type hidden md:inline-block"
+    >
+      Mini survey
+    </span>
+  </label>
+</div>
+`;

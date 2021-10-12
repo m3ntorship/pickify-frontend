@@ -1,0 +1,347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput should render TextInput with input type [choices] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input input-with-choices"
+      data-input-type="choices"
+      data-testid="text-input"
+      data-variant="default"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      
+    </span>
+    <span
+      className="control-icon"
+    >
+      <span
+        className="letter"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TextInput should render TextInput with input type [left-icon] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input input-with-left-icon"
+      data-input-type="left-icon"
+      data-testid="text-input"
+      data-variant="default"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      
+    </span>
+    <span
+      className="control-icon"
+    >
+      <svg
+        data-file-name="SvgInputHome"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TextInput should render TextInput with input type [prefix] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input input-with-prefix"
+      data-input-type="prefix"
+      data-testid="text-input"
+      data-variant="default"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      
+    </span>
+    <span
+      className="control-icon"
+    >
+      +20
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TextInput should render TextInput with input type [prefix-dropdown] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input input-with-dropdown-prefix"
+      data-input-type="prefix-dropdown"
+      data-testid="text-input"
+      data-variant="default"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      
+    </span>
+    <span
+      className="control-icon"
+    >
+      <select
+        className="prefixes"
+        disabled={false}
+      >
+        <option
+          value="+20"
+        >
+          +20
+        </option>
+        <option
+          value="+50"
+        >
+          +50
+        </option>
+      </select>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TextInput should render TextInput with input type [right-icon] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input input-with-right-icon"
+      data-input-type="right-icon"
+      data-testid="text-input"
+      data-variant="default"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      
+    </span>
+    <span
+      className="control-icon"
+    >
+      <svg
+        data-file-name="SvgInputArrowDown"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TextInput should render TextInput with variant [error] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input error"
+      data-input-type="default"
+      data-testid="text-input"
+      data-variant="error"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      <svg
+        data-file-name="SvgInputError"
+      />
+    </span>
+    <span
+      className="control-icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should render TextInput with variant [success] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input success"
+      data-input-type="default"
+      data-testid="text-input"
+      data-variant="success"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      <svg
+        data-file-name="SvgInputSuccess"
+      />
+    </span>
+    <span
+      className="control-icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput should render TextInput with variant and input type [default] 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="form-label"
+    htmlFor="my label"
+  >
+    label
+  </label>
+  <div
+    className="form-control"
+  >
+    <input
+      className="form-input"
+      data-input-type="default"
+      data-testid="text-input"
+      data-variant="default"
+      dir="auto"
+      disabled={false}
+      id="my label"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Type something..."
+      type="text"
+      value=""
+    />
+    <span
+      className="status-icon"
+    >
+      
+    </span>
+    <span
+      className="control-icon"
+    />
+  </div>
+</div>
+`;

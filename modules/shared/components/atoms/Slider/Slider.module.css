@@ -1,0 +1,47 @@
+.wrapper {
+  @apply p-1 bg-white;
+}
+
+.outer-horizontal {
+  @apply w-full rounded-xs;
+}
+
+.outer-vertical {
+  @apply rounded-md transition-all duration-700 rounded-tl-none min-h-2xl;
+}
+
+.inner-vertical {
+  @apply w-2 rounded-full h-full;
+}
+
+.inner-horizontal {
+  @apply h-1 rounded-sm transition-all;
+}
+
+.success {
+  @apply bg-success;
+}
+
+.primary {
+  @apply bg-primary;
+}
+
+.primary-shd5 {
+  @apply bg-primary-shd5;
+}
+
+.error {
+  @apply bg-error;
+}
+
+.circular {
+  @apply transform rotate-90 origin-center stroke-current transition-all duration-700;
+}
+
+.primary-text {
+  @apply text-primary;
+}
+
+.error-text {
+  @apply text-error;
+}

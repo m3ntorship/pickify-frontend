@@ -1,0 +1,525 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImagePollOption should render heart icon when passing isVoted=[false] 1`] = `
+<div
+  className="relative w-auto"
+  data-testid="image-poll-option"
+>
+  <div
+    className="image-view-wrapper"
+  >
+    <div
+      className="bg-image-box"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          alt="option"
+          className="bg-image"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "cover",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
+        }
+      />
+      <img
+        alt="option"
+        className="image"
+        decoding="async"
+        id="https://placeimg.com/640/480/any"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
+    <div
+      className="flex justify-end"
+    >
+      <div
+        className="group"
+      >
+        <button
+          className="btn btn-like btn-medium btn-rounded"
+          disabled={false}
+          id="option_1"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            <svg
+              className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+              data-file-name="SvgFilledHeart"
+            />
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className=""
+      >
+        A
+      </span>
+      <div
+        className="captionDivider "
+      />
+      <span
+        className="image-caption"
+        dir="auto"
+        title="caption"
+      >
+        caption
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ImagePollOption should render primary progress bar when passing isVoted=[true] and mostVoted=[true] 1`] = `
+<div
+  className="relative w-auto"
+  data-testid="image-poll-option"
+>
+  <div
+    className="image-view-wrapper"
+  >
+    <div
+      className="bg-image-box"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          alt="option"
+          className="bg-image"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "cover",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
+        }
+      />
+      <img
+        alt="option"
+        className="image"
+        decoding="async"
+        id="https://placeimg.com/640/480/any"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
+    <div
+      className="vertical-vote-meter-wrapper"
+      id="option_1"
+    >
+      <div
+        className="percentage-wrapper"
+      >
+        <p
+          className="percentage"
+        >
+          🌟
+          <span>
+            80
+            %
+          </span>
+        </p>
+      </div>
+      <div
+        className="flex h-full"
+      >
+        <div
+          className="outer-vertical wrapper"
+          style={
+            Object {
+              "height": "214.4px",
+            }
+          }
+        >
+          <div
+            className="inner-vertical primary"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className=""
+      >
+        A
+      </span>
+      <div
+        className="captionDivider "
+      />
+      <span
+        className="image-caption"
+        dir="auto"
+        title="caption"
+      >
+        caption
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ImagePollOption should render red progress bar when passing isVoted=[true] and leastVoted=[true] 1`] = `
+<div
+  className="relative w-auto"
+  data-testid="image-poll-option"
+>
+  <div
+    className="image-view-wrapper"
+  >
+    <div
+      className="bg-image-box"
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          alt="option"
+          className="bg-image"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "cover",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "boxSizing": "border-box",
+          "display": "block",
+          "margin": 0,
+          "overflow": "hidden",
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "paddingTop": "100%",
+          }
+        }
+      />
+      <img
+        alt="option"
+        className="image"
+        decoding="async"
+        id="https://placeimg.com/640/480/any"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        style={
+          Object {
+            "border": "none",
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "display": "block",
+            "height": 0,
+            "left": 0,
+            "margin": "auto",
+            "maxHeight": "100%",
+            "maxWidth": "100%",
+            "minHeight": "100%",
+            "minWidth": "100%",
+            "objectFit": "contain",
+            "objectPosition": undefined,
+            "padding": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "visibility": "hidden",
+            "width": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 right-4"
+  >
+    <div
+      className="vertical-vote-meter-wrapper"
+      id="option_1"
+    >
+      <div
+        className="percentage-wrapper"
+      >
+        <p
+          className="percentage"
+        >
+          <span>
+            20
+            %
+          </span>
+        </p>
+      </div>
+      <div
+        className="flex h-full"
+      >
+        <div
+          className="outer-vertical wrapper"
+          style={
+            Object {
+              "height": "53.6px",
+            }
+          }
+        >
+          <div
+            className="inner-vertical error"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute bottom-4 left-4"
+  >
+    <div
+      className="captionContent"
+    >
+      <span
+        className=""
+      >
+        A
+      </span>
+      <div
+        className="captionDivider "
+      />
+      <span
+        className="image-caption"
+        dir="auto"
+        title="caption"
+      >
+        caption
+      </span>
+    </div>
+  </div>
+</div>
+`;

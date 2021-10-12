@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDown should render the only menu icon with variant=[image] 1`] = `
+<div
+  className="flex items-start relative"
+>
+  <div
+    aria-hidden={true}
+    aria-pressed={false}
+    className="menu-icon-container rounded-full bg-white w-l h-l"
+    data-testid="menu-icon"
+    role="button"
+    tabIndex={0}
+  />
+</div>
+`;
+
+exports[`DropDown should render the only menu icon with variant=[post] 1`] = `
+<div
+  className="flex items-start relative"
+>
+  <div
+    aria-hidden={true}
+    aria-pressed={false}
+    className="menu-icon-container w-l h-l"
+    data-testid="menu-icon"
+    role="button"
+    tabIndex={0}
+  />
+</div>
+`;

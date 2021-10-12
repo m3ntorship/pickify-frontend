@@ -1,0 +1,27 @@
+.extra-small {
+  @apply w-6 h-6;
+}
+
+.small {
+  @apply w-8 h-8;
+}
+
+.medium {
+  @apply w-10 h-10;
+}
+
+.large {
+  @apply w-14 h-14;
+}
+
+.extra-large {
+  @apply w-4xl h-4xl;
+}
+
+.super-large {
+  @apply w-5xl h-5xl;
+}
+
+.wrapper {
+  @apply relative rounded-full overflow-hidden cursor-pointer;
+}

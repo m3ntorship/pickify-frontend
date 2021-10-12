@@ -1,0 +1,187 @@
+/* ///////////////////////////////// */
+.btn {
+  @apply capitalize flex items-center justify-center  box-border m-0 focus:outline-none transition-all;
+}
+/* // the varient types of buttons   border-2 */
+.btn-primary {
+  @apply bg-primary rounded-full text-white hover:bg-primary-hover focus:ring-2 focus:ring-primary-dark m-0;
+}
+
+.btn-secondary {
+  @apply rounded-full bg-white border border-primary text-primary hover:bg-grey-bg focus:ring-2 focus:ring-primary-dark  m-0;
+}
+.btn-tertiary {
+  @apply rounded-full bg-white text-error m-0;
+}
+
+.btn-text {
+  @apply bg-transparent text-accent hover:text-accent-hover border-0 focus:underline p-0;
+}
+
+.btn-like {
+  @apply bg-primary rounded-full hover:ring-4 transition-all ring-primary ring-opacity-25 transform hover:scale-145;
+}
+
+.btn-dislike {
+  @apply bg-error rounded-full hover:ring-4 transition-all ring-error ring-opacity-25 transform hover:scale-145;
+}
+
+.btn-delete {
+  @apply rounded-full border border-grey hover:border-dark-grey;
+}
+
+/* // the size of the buttons  */
+.btn-full-width {
+  @apply text-sm font-medium w-full;
+}
+
+.btn-xlarge {
+  @apply text-sm font-medium;
+}
+
+.btn-large {
+  @apply text-md font-bold;
+}
+
+.btn-medium {
+  @apply text-base font-medium;
+}
+
+.btn-normal {
+  @apply text-sm font-medium;
+}
+
+.btn-small {
+  @apply text-sm font-medium;
+}
+
+/* //////////// condition css //////////// */
+
+/* the only of it is kind  -the responsive cancel button-  */
+.btn-normal.btn-tertiary {
+  @apply px-mx sm:px-xll py-1.5;
+}
+
+.btn-full-width.btn-primary,
+.btn-full-width.btn-secondary,
+.btn-full-width.btn-tertiary {
+  @apply px-m py-1.5;
+}
+
+.btn-xlarge.btn-primary,
+.btn-xlarge.btn-secondary,
+.btn-xlarge.btn-tertiary {
+  @apply px-4xvxl py-1.5;
+}
+
+.btn-large.btn-primary,
+.btn-large.btn-secondary,
+.btn-large.btn-tertiary,
+.btn-large.btn-delete {
+  @apply px-xl py-sx;
+}
+.btn-large.btn-primary.right-icon,
+.btn-large.btn-secondary.right-icon {
+  @apply pl-xl pr-lx  py-sx;
+}
+.btn-large.btn-primary.left-icon,
+.btn-large.btn-secondary.left-icon {
+  @apply pr-xl pl-l py-sx;
+}
+
+.btn-medium.btn-primary,
+.btn-medium.btn-secondary,
+.btn-medium.btn-tertiary {
+  @apply px-l py-xsv text-base;
+}
+.btn-medium.btn-primary.right-icon,
+.btn-medium.btn-secondary.right-icon {
+  @apply pl-l pr-mx  py-xsv;
+}
+.btn-medium.btn-primary.left-icon,
+.btn-medium.btn-secondary.left-icon {
+  @apply pr-l pl-mx  py-xsv;
+}
+
+.btn-small.btn-primary,
+.btn-small.btn-secondary {
+  @apply px-m py-xxsv text-sm;
+}
+.btn-small.btn-primary.right-icon,
+.btn-small.btn-secondary.right-icon {
+  @apply pl-m pr-xsvv py-xxsv;
+}
+.btn-small.btn-primary.left-icon,
+.btn-small.btn-secondary.left-icon,
+.btn-small.btn-tertiary {
+  @apply pr-m pl-xsvv py-xxsv;
+}
+
+/* ///////////////////only icon and it's padding  */
+
+.btn-rounded.btn-large {
+  @apply p-s;
+}
+
+.btn-rounded.btn-medium,
+.btn-rounded.btn-small {
+  @apply p-xs;
+}
+
+/* ////////////////////the proprties of the span holding the icon  */
+.btn span,
+.btn-rounded.btn-large span,
+.btn-rounded.btn-medium span,
+.btn-rounded.btn-small span {
+  @apply flex items-center justify-center w-auto h-auto;
+}
+
+/* /////////////the arrow icon and its margins */
+
+.right-icon.btn-large span,
+.right-icon.btn-medium span {
+  @apply ml-xs;
+}
+.right-icon.btn-small span {
+  @apply ml-xxs;
+}
+
+.left-icon.btn-large span,
+.left-icon.btn-medium span {
+  @apply mr-xs;
+}
+.left-icon.btn-small span {
+  @apply mr-xxs;
+}
+/* //////////////////////overwrite padding when we have an icon  */
+
+/* ////////////////////the disabled buttons //////////// */
+.btn[disabled] {
+  @apply disabled:opacity-25 cursor-not-allowed;
+}
+
+.btn-primary[disabled] {
+  @apply hover:bg-primary;
+}
+
+.btn-secondary[disabled] {
+  @apply hover:bg-white;
+}
+
+/* Icons */
+
+.btn-large span svg {
+  @apply w-8 h-8;
+}
+
+.btn-medium span svg {
+  @apply w-6 h-6;
+}
+
+.btn-small span svg {
+  @apply w-4 h-4;
+}
+
+/* .btn span svg {
+  @apply fill-current;
+} */

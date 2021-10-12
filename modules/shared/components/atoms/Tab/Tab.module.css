@@ -1,0 +1,21 @@
+.tab-default {
+  @apply cursor-pointer hover:bg-grey-shd6 flex items-center py-1.5 pr-3.5 pl-3 rounded-full;
+}
+.tab-checked {
+  @apply bg-transparent border border-grey;
+}
+.tab-unchecked {
+  @apply bg-grey-bg;
+}
+
+.tab-type {
+  @apply text-sm font-medium text-dark-grey;
+}
+
+.tab-disabled {
+  @apply bg-grey-shd6 opacity-40 cursor-not-allowed border-0;
+}
+
+.icon {
+  @apply md:mr-xs ml-xs;
+}

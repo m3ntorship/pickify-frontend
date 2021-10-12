@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot testing for TextOptionViewUncoverd component should have checkmark svg while Testing OptionViewUncoverd with the necessary props with isOptionChecked={true} 1`] = `
+<div
+  className="relative"
+>
+  <div
+    className="btnBody"
+    data-testid="test1"
+    id="test1"
+  >
+    <span
+      className="flex-container"
+    >
+      <span
+        className="letter"
+      >
+        A
+      </span>
+      <p
+        className="option"
+        dir="auto"
+      >
+        option 1
+      </p>
+    </span>
+    <span
+      className="percentage"
+    >
+      <svg
+        className="goldenStarIcon"
+        data-file-name="SvgGoldenStar"
+      />
+      20
+      %
+    </span>
+  </div>
+  <div
+    className="absolute inset-0 rounded-md mostVoted"
+    style={
+      Object {
+        "width": "20%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Snapshot testing for TextOptionViewUncoverd component should have class of bg-primary-shd1 while Testing OptionViewUncoverd with mostVoted to true 1`] = `
+<div
+  className="relative"
+>
+  <div
+    className="btnBody"
+    data-testid="test1"
+    id="test1"
+  >
+    <span
+      className="flex-container"
+    >
+      <span
+        className="letter"
+      >
+        A
+      </span>
+      <p
+        className="option"
+        dir="auto"
+      >
+        option 1
+      </p>
+    </span>
+    <span
+      className="percentage"
+    >
+      <svg
+        className="goldenStarIcon"
+        data-file-name="SvgGoldenStar"
+      />
+      20
+      %
+    </span>
+  </div>
+  <div
+    className="absolute inset-0 rounded-md mostVoted"
+    style={
+      Object {
+        "width": "20%",
+      }
+    }
+  />
+</div>
+`;

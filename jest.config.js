@@ -2,9 +2,17 @@ module.exports = {
   roots: ['./pages', './modules'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.svg$': 'jest-svg-transformer',
   },
-  testMatch: ['**/?(*.)+(test).+(ts|js)'],
-  setupFiles: ['./setup-tests.js'],
+  globals: {
+    'ts-jest': {
+      babelConfig: true,
+      tsconfig: 'jest.tsconfig.json',
+    },
+  },
+  testMatch: ['**/?(*.)+(test).+(ts|js|tsx)'],
+  globalSetup: './setupEnv.ts',
+  setupFilesAfterEnv: ['./setup-tests.ts'],
   testPathIgnorePatterns: ['./.next/', './node_modules/'],
   coverageThreshold: {
     global: {
@@ -15,4 +23,9 @@ module.exports = {
     },
   },
   collectCoverage: true,
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/mocks.js',
+    '\\.(css|less)$': 'identity-obj-proxy',
+  },
 };

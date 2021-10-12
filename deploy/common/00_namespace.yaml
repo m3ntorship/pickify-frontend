@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: '{{{M3_NAMESPACE}}}'
+  labels:
+    organization: '{{{M3_ORGANIZATION}}}'
+    repository: '{{{M3_REPOSITORY}}}'
+    project: '{{{M3_PROJECT}}}'
+    environment: '{{{M3_ENVIRONMENT}}}'
+    componenet: '{{{M3_COMPONENET}}}'
+    application: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
+    version: '{{{M3_VERSION}}}'

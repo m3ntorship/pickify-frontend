@@ -1,0 +1,11 @@
+.app-content {
+  @apply px-4 md:px-6 relative;
+}
+
+.layout-parent {
+  @apply flex justify-center;
+}
+
+.widgets {
+  @apply hidden md:block;
+}

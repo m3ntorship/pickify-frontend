@@ -1,0 +1,44 @@
+.text {
+  @apply text-dark-grey text-sm leading-5 font-normal mb-2;
+}
+
+.sub-text {
+  @apply text-dark-grey text-xs leading-4 font-light;
+}
+
+.emojis {
+  @apply flex flex-row mb-4;
+}
+
+.button {
+  @apply flex justify-center mt-3;
+}
+.submitted-container {
+  @apply flex flex-col justify-center items-center whitespace-nowrap px-xvxl py-3xxl;
+}
+
+.form-answer {
+  @apply inline-block;
+}
+
+.emoji {
+  @apply opacity-80 w-full block box-border mr-4 cursor-pointer
+  filter grayscale;
+}
+
+.form-answer input[type='radio'] {
+  @apply w-0 h-0 opacity-0 hidden;
+}
+
+.form-answer input[type='radio']:checked ~ label,
+.form-answer input[type='radio']:hover ~ label {
+  @apply filter-none opacity-100;
+}
+
+.text-area {
+  @apply border border-solid border-grey-shd5 rounded-md
+   placeholder-grey-shd1
+   pt-xsvv pl-4
+   focus:outline-none  focus:border-grey-shd5
+   resize-none;
+}

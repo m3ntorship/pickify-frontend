@@ -1,0 +1,6 @@
+.postForm {
+  @apply w-full h-full;
+}
+.postForm > div {
+  @apply rounded-none md:rounded-md;
+}

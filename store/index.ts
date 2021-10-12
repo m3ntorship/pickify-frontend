@@ -1,16 +1,18 @@
-import { createStore, AnyAction } from 'redux';
-import { MakeStore, createWrapper, HYDRATE } from 'next-redux-wrapper';
+import { createStore } from 'redux';
+import { createWrapper, HYDRATE } from 'next-redux-wrapper';
+import type { AnyAction } from 'redux';
+import type { MakeStore } from 'next-redux-wrapper';
 
 export interface State {
   tick: string;
 }
 
-const reducer = (state: State = { tick: 'init' }, action: AnyAction) => {
+const reducer = (state: State = { tick: 'init' }, action: AnyAction): State => {
   switch (action.type) {
     case HYDRATE:
-      return { ...state, ...action.payload };
+      return { ...state, ...action.payload } as State;
     case 'TICK':
-      return { ...state, tick: action.payload };
+      return { ...state, tick: action.payload as string } as State;
     default:
       return state;
   }

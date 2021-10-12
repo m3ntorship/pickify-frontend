@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and (opacity-25) when passing disabled={true} and size=sm  1`] = `
+<label
+  className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesSmallUnchecked toggleBodyClassesUncheckedAndDisabled"
+  htmlFor="test"
+>
+  <input
+    className="opacity-0 absolute checkBoxInputDisabled"
+    data-testid="test"
+    defaultChecked={false}
+    disabled={true}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="circleClasses circleClassesUnChecked circleClassesSmall"
+  />
+</label>
+`;
+
+exports[`Toggler Component with snapshot should render classnames include (w-7 h-4) and do NOT include (opacity-25) when passing disabled={false} and size=sm  1`] = `
+<label
+  className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesUncheckedAndEnabled toggleBodyClassesSmallUnchecked"
+  htmlFor="test"
+>
+  <input
+    className="opacity-0 absolute checkBoxInputEnabled"
+    data-testid="test"
+    defaultChecked={false}
+    disabled={false}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="circleClasses circleClassesUnChecked circleClassesSmall"
+  />
+</label>
+`;
+
+exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames do NOT include (opacity-25) when passing disabled={false} and size=default  1`] = `
+<label
+  className="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesUncheckedAndEnabled toggleBodyClassesDefaultUnchecked"
+  htmlFor="test"
+>
+  <input
+    className="opacity-0 absolute checkBoxInputEnabled"
+    data-testid="test"
+    defaultChecked={false}
+    disabled={false}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="circleClasses circleClassesUnChecked circleClassesDefault"
+  />
+</label>
+`;
+
+exports[`Toggler Component with snapshot should render include (w-sm h-6) and classnames include (opacity-25) when passing disabled={true} and size=default  1`] = `
+<label
+  className="toggleBodyClasses toggleBodyClassesDefault toggleBodyClassesDefaultUnchecked toggleBodyClassesUncheckedAndDisabled"
+  htmlFor="test"
+>
+  <input
+    className="opacity-0 absolute checkBoxInputDisabled"
+    data-testid="test"
+    defaultChecked={false}
+    disabled={true}
+    id="test"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="circleClasses circleClassesUnChecked circleClassesDefault"
+  />
+</label>
+`;

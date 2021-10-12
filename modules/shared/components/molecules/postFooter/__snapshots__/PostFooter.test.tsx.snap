@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
+Array [
+  <div
+    className="container"
+  >
+    <span>
+      120
+       votes
+    </span>
+  </div>,
+  <div
+    className="container"
+  >
+    <button
+      data-testid="share-button-icon"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        data-file-name="SvgShare"
+      />
+    </button>
+  </div>,
+]
+`;
+
+exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
+Array [
+  <div
+    className="container"
+  >
+    <span>
+      120
+       votes
+    </span>
+  </div>,
+  <div
+    className="container"
+  >
+    <button
+      data-testid="share-button-icon"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        data-file-name="SvgShare"
+      />
+    </button>
+  </div>,
+]
+`;

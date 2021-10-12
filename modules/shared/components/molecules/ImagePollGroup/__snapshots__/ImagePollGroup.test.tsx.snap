@@ -1,0 +1,500 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionGroup component should render () OptionGroup when we apply () 1`] = `
+<div
+  className="image-poll-view md:grid-cols-2 grid-cols-1"
+>
+  <div
+    className="relative w-auto"
+    data-testid="image-poll-option"
+  >
+    <div
+      className="image-view-wrapper"
+    >
+      <div
+        className="bg-image-box"
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "margin": 0,
+              "overflow": "hidden",
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "display": "block",
+                "paddingTop": "100%",
+              }
+            }
+          />
+          <img
+            alt="option"
+            className="bg-image"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "visibility": "hidden",
+                "width": 0,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          alt="option"
+          className="image"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 right-4"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <div
+          className="group"
+        >
+          <button
+            className="btn btn-like btn-medium btn-rounded"
+            disabled={false}
+            id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53d"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <svg
+                className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+                data-file-name="SvgFilledHeart"
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 left-4"
+    >
+      <div
+        className="captionContent"
+      >
+        <span
+          className=""
+        >
+          a
+        </span>
+        <div
+          className="captionDivider "
+        />
+        <span
+          className="image-caption"
+          dir="auto"
+          title="ali tramsy"
+        >
+          ali tramsy
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="relative w-auto"
+    data-testid="image-poll-option"
+  >
+    <div
+      className="image-view-wrapper"
+    >
+      <div
+        className="bg-image-box"
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "margin": 0,
+              "overflow": "hidden",
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "display": "block",
+                "paddingTop": "100%",
+              }
+            }
+          />
+          <img
+            alt="option"
+            className="bg-image"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "visibility": "hidden",
+                "width": 0,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          alt="option"
+          className="image"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 right-4"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <div
+          className="group"
+        >
+          <button
+            className="btn btn-like btn-medium btn-rounded"
+            disabled={false}
+            id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b5aa"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <svg
+                className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+                data-file-name="SvgFilledHeart"
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 left-4"
+    >
+      <div
+        className="captionContent"
+      >
+        <span
+          className=""
+        >
+          b
+        </span>
+        <div
+          className="captionDivider "
+        />
+        <span
+          className="image-caption"
+          dir="auto"
+          title=" ahmed essam"
+        >
+           ahmed essam
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="relative w-auto"
+    data-testid="image-poll-option"
+  >
+    <div
+      className="image-view-wrapper"
+    >
+      <div
+        className="bg-image-box"
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "margin": 0,
+              "overflow": "hidden",
+              "position": "relative",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "boxSizing": "border-box",
+                "display": "block",
+                "paddingTop": "100%",
+              }
+            }
+          />
+          <img
+            alt="option"
+            className="bg-image"
+            decoding="async"
+            id="https://placeimg.com/640/480/any"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style={
+              Object {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": "cover",
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "visibility": "hidden",
+                "width": 0,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        style={
+          Object {
+            "boxSizing": "border-box",
+            "display": "block",
+            "margin": 0,
+            "overflow": "hidden",
+            "position": "relative",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "display": "block",
+              "paddingTop": "100%",
+            }
+          }
+        />
+        <img
+          alt="option"
+          className="image"
+          decoding="async"
+          id="https://placeimg.com/640/480/any"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style={
+            Object {
+              "border": "none",
+              "bottom": 0,
+              "boxSizing": "border-box",
+              "display": "block",
+              "height": 0,
+              "left": 0,
+              "margin": "auto",
+              "maxHeight": "100%",
+              "maxWidth": "100%",
+              "minHeight": "100%",
+              "minWidth": "100%",
+              "objectFit": "contain",
+              "objectPosition": undefined,
+              "padding": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "visibility": "hidden",
+              "width": 0,
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 right-4"
+    >
+      <div
+        className="flex justify-end"
+      >
+        <div
+          className="group"
+        >
+          <button
+            className="btn btn-like btn-medium btn-rounded"
+            disabled={false}
+            id="eeb0a32a-1a3c-4c7f-9e50-dd3d3f70b53c"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <svg
+                className="fill-primary stroke-current stroke-2 text-white group-hover:fill-white"
+                data-file-name="SvgFilledHeart"
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="absolute bottom-4 left-4"
+    >
+      <div
+        className="captionContent"
+      >
+        <span
+          className=""
+        >
+          c
+        </span>
+        <div
+          className="captionDivider "
+        />
+        <span
+          className="image-caption"
+          dir="auto"
+          title=" omar gamal"
+        >
+           omar gamal
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

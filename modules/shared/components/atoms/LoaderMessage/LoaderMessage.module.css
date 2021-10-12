@@ -1,0 +1,3 @@
+.message {
+  @apply text-lg sm:text-2xl md:text-3xl font-bold text-dark-grey whitespace-nowrap z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`imageCaption snapshots should render caption with text (Black T-shirt) and letter (A) when given this as property 1`] = `
+<div
+  className="captionContent"
+>
+  <span
+    className=""
+  >
+    A
+  </span>
+  <div
+    className="captionDivider "
+  />
+  <span
+    className="image-caption"
+    dir="auto"
+    title="Black T-shirt"
+  >
+    Black T-shirt
+  </span>
+</div>
+`;
+
+exports[`imageCaption snapshots should render caption without letter and divider when not given this as a property 1`] = `
+<div
+  className="captionContent"
+>
+  <span
+    className="hidden"
+  />
+  <div
+    className="captionDivider hidden"
+  />
+  <span
+    className="image-caption"
+    dir="auto"
+    title="Black T-shirt"
+  >
+    Black T-shirt
+  </span>
+</div>
+`;

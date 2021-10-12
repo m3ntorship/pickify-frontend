@@ -1,0 +1,27 @@
+.privacyContainer {
+  @apply flex items-center md:justify-start justify-between;
+}
+.hideMyIdentityContainer {
+  @apply flex items-center;
+}
+.hideMyIdentityText {
+  @apply pl-xs text-xs text-dark-grey;
+}
+.divider {
+  @apply mx-4;
+}
+.privacySelectorContainer {
+  @apply flex items-center;
+}
+.privacySelectorContainerWithoutDivider {
+  @apply md:pl-5;
+}
+.privacySelectorText {
+  @apply pr-xs text-xs text-dark-grey;
+}
+.privacySelector {
+  @apply text-sm capitalize font-medium bg-transparent text-dark-grey cursor-pointer;
+}
+.privacySelectorOptions {
+  @apply font-medium capitalize;
+}

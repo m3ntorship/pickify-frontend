@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Footer with snapshot Testing Footer with required props 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="privacyContainer"
+  >
+    <div
+      className="hideMyIdentityContainer"
+    >
+      <label
+        className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesCheckedAndEnabled toggleBodyClassesSmallChecked"
+        htmlFor="hideMyIdentityToggler"
+      >
+        <input
+          className="opacity-0 absolute checkBoxInputEnabled"
+          data-testid="hideMyIdentityToggler"
+          defaultChecked={true}
+          disabled={false}
+          id="hideMyIdentityToggler"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <div
+          className="circleClasses circleClassesChecked circleClassesCheckedSmall circleClassesSmall"
+        />
+      </label>
+      <span
+        className="hideMyIdentityText"
+      >
+        Hide my identity
+      </span>
+    </div>
+    <div
+      className="divider"
+      data-testid="dividerTestId"
+    >
+      <div
+        className="bg-grey-shd6 w-px"
+        style={
+          Object {
+            "height": "16px",
+          }
+        }
+      />
+    </div>
+    <div
+      className="privacySelectorContainer"
+    >
+      <span
+        className="privacySelectorText"
+      >
+        Privacy:
+      </span>
+      <select
+        className="privacySelector"
+        data-testid="selectTestId"
+        onChange={[Function]}
+      >
+        <option
+          className="privacySelectorOptions"
+          data-testid="friends"
+          value="friends"
+        >
+          friends
+        </option>
+        <option
+          className="privacySelectorOptions"
+          data-testid="family"
+          value="family"
+        >
+          family
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="primary-button"
+  >
+    <button
+      className="btn btn-primary btn-small"
+      disabled={true}
+      type="submit"
+    >
+      post
+    </button>
+  </div>
+  <div
+    className="divider"
+  >
+    <div
+      className="bg-grey-shd6 h-px"
+      style={
+        Object {
+          "width": "auto",
+        }
+      }
+    />
+  </div>
+  <div
+    className="responsive-button"
+  >
+    <button
+      className="btn btn-tertiary btn-normal"
+      disabled={false}
+      type="button"
+    >
+      cancel
+    </button>
+    <button
+      className="btn btn-primary btn-xlarge"
+      disabled={true}
+      type="submit"
+    >
+      post
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Testing Footer with snapshot Testing Footer with required props 2`] = `
+<div
+  className="container"
+>
+  <div
+    className="privacyContainer"
+  >
+    <div
+      className="hideMyIdentityContainer"
+    >
+      <label
+        className="toggleBodyClasses toggleBodyClassesSmall toggleBodyClassesCheckedAndEnabled toggleBodyClassesSmallChecked"
+        htmlFor="hideMyIdentityToggler"
+      >
+        <input
+          className="opacity-0 absolute checkBoxInputEnabled"
+          data-testid="hideMyIdentityToggler"
+          defaultChecked={true}
+          disabled={false}
+          id="hideMyIdentityToggler"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <div
+          className="circleClasses circleClassesChecked circleClassesCheckedSmall circleClassesSmall"
+        />
+      </label>
+      <span
+        className="hideMyIdentityText"
+      >
+        Hide my identity
+      </span>
+    </div>
+    <div
+      className="divider"
+      data-testid="dividerTestId"
+    >
+      <div
+        className="bg-grey-shd6 w-px"
+        style={
+          Object {
+            "height": "16px",
+          }
+        }
+      />
+    </div>
+    <div
+      className="privacySelectorContainer"
+    >
+      <span
+        className="privacySelectorText"
+      >
+        Privacy:
+      </span>
+      <select
+        className="privacySelector"
+        data-testid="selectTestId"
+        onChange={[Function]}
+      >
+        <option
+          className="privacySelectorOptions"
+          data-testid="friends"
+          value="friends"
+        >
+          friends
+        </option>
+        <option
+          className="privacySelectorOptions"
+          data-testid="family"
+          value="family"
+        >
+          family
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="primary-button"
+  >
+    <button
+      className="btn btn-primary btn-small"
+      disabled={false}
+      type="submit"
+    >
+      post
+    </button>
+  </div>
+  <div
+    className="divider"
+  >
+    <div
+      className="bg-grey-shd6 h-px"
+      style={
+        Object {
+          "width": "auto",
+        }
+      }
+    />
+  </div>
+  <div
+    className="responsive-button"
+  >
+    <button
+      className="btn btn-tertiary btn-normal"
+      disabled={false}
+      type="button"
+    >
+      cancel
+    </button>
+    <button
+      className="btn btn-primary btn-xlarge"
+      disabled={false}
+      type="submit"
+    >
+      post
+    </button>
+  </div>
+</div>
+`;

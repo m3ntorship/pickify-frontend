@@ -1,0 +1,24 @@
+.btnBody {
+  @apply flex justify-between items-center rounded-md p-xs pr-xsvv text-dark;
+}
+.letter {
+  @apply bg-white text-dark-grey font-normal capitalize rounded-sm mr-3 min-w-l min-h-l flex justify-center items-center;
+}
+.option {
+  @apply text-sm capitalize;
+}
+.percentage {
+  @apply font-normal text-sm flex items-center z-10;
+}
+.flex-container {
+  @apply flex items-center mr-4 z-10;
+}
+.mostVoted {
+  @apply bg-primary-shd3;
+}
+.leastVoted {
+  @apply bg-primary-shd7;
+}
+.goldenStarIcon {
+  @apply w-4 h-5 mr-1;
+}

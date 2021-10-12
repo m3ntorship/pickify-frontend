@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing should render circular when given circular property 1`] = `
+<svg
+  height={100}
+  width={100}
+>
+  <circle
+    className="circular primary-text"
+    cx={50}
+    cy={50}
+    fill="transparent"
+    r={36}
+    strokeDasharray="226.1946710584651 226.1946710584651"
+    strokeWidth={7}
+    style={
+      Object {
+        "strokeDashoffset": "113.09733552923255",
+      }
+    }
+  />
+</svg>
+`;
+
+exports[`snapshot testing should render horizontally when given horizontal property 1`] = `
+<div
+  className="outer-horizontal wrapper"
+>
+  <div
+    className="inner-horizontal primary"
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`snapshot testing should render vertically when given vertical property 1`] = `
+<div
+  className="flex h-full"
+>
+  <div
+    className="outer-vertical wrapper"
+    style={
+      Object {
+        "height": "150px",
+      }
+    }
+  >
+    <div
+      className="inner-vertical primary"
+    />
+  </div>
+</div>
+`;

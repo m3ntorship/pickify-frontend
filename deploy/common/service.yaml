@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
+  namespace: '{{{M3_NAMESPACE}}}'
+  labels:
+    organization: '{{{M3_ORGANIZATION}}}'
+    repository: '{{{M3_REPOSITORY}}}'
+    project: '{{{M3_PROJECT}}}'
+    environment: '{{{M3_ENVIRONMENT}}}'
+    componenet: '{{{M3_COMPONENET}}}'
+    application: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
+    version: '{{{M3_VERSION}}}'
+spec:
+  selector:
+    application: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
+  ports:
+    - name: web
+      protocol: TCP
+      port: 80
+      targetPort: {{{M3_PORT}}}

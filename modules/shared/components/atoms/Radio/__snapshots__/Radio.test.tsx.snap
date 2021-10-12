@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Radio with snapshot Testing Radio with required and optional props 1`] = `
+<div
+  className="radio_container"
+>
+  <input
+    className="radio_input size_small"
+    data-testid="Radio"
+    defaultChecked={false}
+    disabled={true}
+    id="dell"
+    name="laptops"
+    onChange={[Function]}
+    type="radio"
+    value="dell"
+  />
+  <div
+    className="radio_background unchecked size_small checkmark_small unchecked_disabled"
+  />
+</div>
+`;
+
+exports[`Testing Radio with snapshot Testing Radio with required props 1`] = `
+<div
+  className="radio_container"
+>
+  <input
+    className="radio_input size_default"
+    data-testid="Radio"
+    defaultChecked={false}
+    disabled={false}
+    id="dell"
+    name="laptops"
+    onChange={[Function]}
+    type="radio"
+    value="dell"
+  />
+  <div
+    className="radio_background unchecked size_default checkmark_default"
+  />
+</div>
+`;
