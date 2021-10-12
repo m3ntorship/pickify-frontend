@@ -3,7 +3,7 @@ import { generateErrMsg } from '../../shared/logic/generateErrMsg/generateErrMsg
 import type { IGetUserData } from './IGetUserData';
 import { configPostCreation } from '../../shared/configuration/ConfigPostCreation/config';
 import { errorMessage } from './getUserHelpers';
-import { POSTS_API } from '../../shared/api/postsApi.api';
+import { POSTS_API } from '../../shared/api/apiConfigs';
 
 export const getUserData = async (
   userId: string,

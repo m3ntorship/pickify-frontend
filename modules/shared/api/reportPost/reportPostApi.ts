@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { IReportPostApi } from './IReportPostApi';
 import { errorMessage } from './reportPostHelpers';
 import { generateErrMsg } from '../../logic/generateErrMsg/generateErrMsg';
-import { POSTS_API } from '../postsApi.api';
+import { POSTS_API } from '../apiConfigs';
 
 export const reportPost = async (
   postId: string,

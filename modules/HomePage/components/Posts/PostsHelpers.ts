@@ -1,6 +1,6 @@
 import type { IVotesApi } from '@modules/HomePage/api/votesApi/IvotesApi';
 import type { IPostFeed } from '@modules/shared/types/postFeed/IPostFeed';
-import { MEDIA_API } from '../../../shared/api/postsApi.api';
+import { MEDIA_API } from '../../../shared/api/apiConfigs';
 
 const mediaBaseUrl = `${MEDIA_API}/media/`;
 

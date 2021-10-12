@@ -6,9 +6,12 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
+
+
 # Rebuild the source code only when needed
 FROM node:15-alpine AS builder
-ENV APP_ENV live
+ARG appenv=development
+ENV APP_ENV=$appenv
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules

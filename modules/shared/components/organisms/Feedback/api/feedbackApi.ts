@@ -2,7 +2,7 @@ import axios from 'axios';
 import { generateErrMsg } from '../../../../logic/generateErrMsg/generateErrMsg';
 import { errorMessage } from './feedbackHelpers';
 import type { IFeedback } from './IFeedbackApi';
-import { POSTS_API } from '../../../../api/postsApi.api';
+import { POSTS_API } from '../../../../api/apiConfigs';
 
 export const submitFeedback = async (
   feedbackBody: string,
