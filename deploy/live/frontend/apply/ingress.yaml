@@ -27,7 +27,7 @@ spec:
                 name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
                 port:
                   number: 80
-    - host: 'www.{{{M3_HOST}}}''
+    - host: 'www.{{{M3_HOST}}}'
       http:
         paths:
           - path: /
