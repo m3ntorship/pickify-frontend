@@ -7,7 +7,7 @@ on:
       - develop
 env:
   M3_IMAGE: m3ntorshipci/pickify-frontend
-  M3_DOCKER_FILE: DockerfileDevelopment
+  M3_DOCKER_FILE: Dockerfile
   M3_ORGANIZATION: ${{github.event.organization.login}}
   M3_REPOSITORY: ${{github.event.repository.name}}
   M3_PROJECT: pickify
@@ -67,6 +67,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          build-args: appenv=development
           tags: ${{env.M3_IMAGE}}:${{env.M3_VERSION}}
           file: ${{env.M3_DOCKER_FILE}}
           context: .
