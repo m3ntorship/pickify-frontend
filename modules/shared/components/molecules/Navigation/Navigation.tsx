@@ -23,7 +23,7 @@ import Feedback from '../../organisms/Feedback/Feedback';
 
 const Navigation: FC = (): ReactElement => {
   const { pathname } = useRouter();
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const { redirectToLoginPage, redirectToProfilePage, redirectToFriendsPage } =
     useRedirect();
   const homeNavLinks = getHomeNavLinks(pathname);
@@ -117,6 +117,7 @@ const Navigation: FC = (): ReactElement => {
                 variant="post"
                 size="sm"
                 onOptionMenuClick={onMenuClick}
+                isAuthenticated={isAuthenticated}
               >
                 <Avatar
                   size="extra-small"
