@@ -3,6 +3,7 @@ declare namespace IDropDown {
     options: IOptions[];
     variant: 'image' | 'post';
     size: 'md' | 'sm';
+    isAuthenticated?: boolean;
   }
 
   export interface IOptions {

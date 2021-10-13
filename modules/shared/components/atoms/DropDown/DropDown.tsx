@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import type { IDropDown } from './IDropDown';
 import styles from './DropDown.module.css';
 import { useDetectClickOut } from '../../../hooks/useDetectClickOut/useDetectClickOut';
+import { useRedirect } from '../../../hooks/useRedirect/useRedirect';
 
 const DropDown: FC<IDropDown.IProps> = ({
   options,
@@ -11,8 +12,16 @@ const DropDown: FC<IDropDown.IProps> = ({
   variant,
   size,
   children,
+  isAuthenticated = true,
 }): ReactElement => {
   const { nodeRef, triggerRef, setShow, show } = useDetectClickOut(false);
+  const { redirectToLoginPage } = useRedirect();
+
+  useEffect(() => {
+    if (!isAuthenticated && show) {
+      redirectToLoginPage();
+    }
+  }, [show]);
 
   const menuIconClasses = classNames(styles['menu-icon-container'], {
     'rounded-full bg-white': variant === 'image',
