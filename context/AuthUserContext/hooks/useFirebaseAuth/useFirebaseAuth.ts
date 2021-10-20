@@ -1,4 +1,4 @@
-import type firebase from 'firebase';
+import firebase from 'firebase/app';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { register } from '../../api/authApi';
@@ -37,13 +37,16 @@ export const useFirebaseAuth = (): IUseFirebaseAuth.IProps => {
     ): Promise<void> => {
       if (!userState) {
         clearUserState();
+
         return;
       }
       setLoading(true);
       try {
         const token: string = await userState.getIdToken();
-        const formattedUser = setUserData(userState);
         await register(token);
+
+        const formattedUser = setUserData(userState);
+
         setUser(formattedUser);
         setLoading(false);
         setIsAuthenticated(true);
@@ -54,9 +57,24 @@ export const useFirebaseAuth = (): IUseFirebaseAuth.IProps => {
         clearUserState();
       }
     };
-    const unsubscribe = firebaseAuth.onAuthStateChanged(authStateChanged);
+    const unsubscribe = firebaseAuth.onIdTokenChanged(authStateChanged);
     return (): void => {
       unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    const everyTenMinutes = 10 * 60 * 1000;
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    const handle = setInterval(async (): Promise<void> => {
+      const { currentUser } = firebase.auth();
+
+      if (currentUser) await currentUser.getIdToken(true);
+    }, everyTenMinutes);
+
+    // clean up setInterval
+    return (): void => {
+      clearInterval(handle);
     };
   }, []);
 
