@@ -10,11 +10,9 @@ export const logoutUser = async (): Promise<void> => {
   await firebaseAuth.signOut();
 };
 
-export const loginUser = async (): Promise<string | undefined> => {
+export const loginUser = async (): Promise<void> => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  const data = await firebaseAuth.signInWithPopup(provider);
-  const token = await data.user?.getIdToken();
-  return token;
+  await firebaseAuth.signInWithPopup(provider);
 };
 
 export const register = async (

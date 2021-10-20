@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import type { FC, ReactElement } from 'react';
-
-import { loginUser } from '../../../context/AuthUserContext/api/authApi';
+import {
+  loginUser,
+  logoutUser,
+} from '../../../context/AuthUserContext/api/authApi';
 import { useRedirect } from '../../shared/hooks/useRedirect/useRedirect';
 import { useAuth } from '../../../context/AuthUserContext/AuthUserContext';
 import {
@@ -28,7 +30,16 @@ const Login: FC = (): ReactElement => {
         redirectToHomePage();
       }
     }
-  }, [isAuthenticated, loading, redirectToHomePage, redirectToPage]);
+  }, [isAuthenticated]);
+
+  useLayoutEffect(() => {
+    if (isAuthenticated) {
+      const logOut = async (): Promise<void> => {
+        await logoutUser();
+      };
+      logOut() as unknown;
+    }
+  }, []);
 
   const login = async (): Promise<void> => {
     await loginUser();
