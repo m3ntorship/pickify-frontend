@@ -179,9 +179,14 @@ const Feedback: FC = (): ReactElement => {
                             inputType={ETextInput.InputType.Default}
                             variants={ETextInput.Variants.Default}
                             disabled={false}
-                            value=""
+                            value={feedbackBody}
                             placeholder="Enter your feedback"
-                            onChangeInputValueHandler={(): boolean => true}
+                            onChangeInputValueHandler={(
+                              inputId,
+                              e: React.ChangeEvent<HTMLInputElement>,
+                            ): void => {
+                              setFeedbackBody(e.target.value);
+                            }}
                             onClickDeleteInputValueHandler={(): boolean => true}
                             onBlurInputHandler={(): boolean => true}
                           />
